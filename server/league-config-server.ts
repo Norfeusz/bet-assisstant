@@ -14,7 +14,7 @@ import importJobsRouter from './routes/import-jobs'
 dotenv.config()
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 
@@ -223,6 +223,16 @@ app.get('/api/rate-limit', (req, res) => {
 		})
 	} catch (error: any) {
 		res.status(500).json({ error: error.message })
+	}
+})
+
+// Admin: reset rate limit counters (useful to recover quickly from exhausted counters)
+app.post('/api/admin/reset-rate-limit', (req, res) => {
+	try {
+		client.resetRateLimit()
+		res.json({ success: true, message: 'Rate limit counters reset' })
+	} catch (error: any) {
+		res.status(500).json({ success: false, error: error.message })
 	}
 })
 
@@ -716,6 +726,12 @@ app.use(express.static('public'))
 // Start server
 app.listen(PORT, () => {
 	console.log(`\n🌐 League Configuration Web Interface`)
-	console.log(`\n   Open in browser: http://localhost:${PORT}`)
+	console.log(`\n   Server running on port: ${PORT}`)
+	console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`)
+	if (process.env.RAILWAY_ENVIRONMENT) {
+		console.log(`   Railway Environment: ${process.env.RAILWAY_ENVIRONMENT}`)
+	} else {
+		console.log(`\n   Open in browser: http://localhost:${PORT}`)
+	}
 	console.log(`\n   Press Ctrl+C to stop\n`)
 })
