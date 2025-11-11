@@ -177,6 +177,10 @@ class BackgroundImportWorker {
 				)
 			}
 
+			// Track cumulative stats
+			let cumulativeImported = job.imported_matches || 0
+			let cumulativeFailed = job.failed_matches || 0
+
 			for (const league of remainingLeagues) {
 				this.log(job.id, `Processing league: ${league.name} (${league.country})`)
 
@@ -252,19 +256,16 @@ class BackgroundImportWorker {
 
 					// Log failed matches if any
 					if (progress.failedMatches > 0) {
-						this.log(job.id, `⚠️  Total failures so far: ${(job.failed_matches || 0) + progress.failedMatches}`)
+						this.log(job.id, `⚠️  Total failures so far: ${cumulativeFailed + progress.failedMatches}`)
 					}
 
-					await this.updateJobStatus(job.id, 'running', {
-						...job,
-						rate_limit_remaining: rateLimitInfo.remaining,
-						imported_matches: (job.imported_matches || 0) + progress.importedMatches,
-						failed_matches: (job.failed_matches || 0) + progress.failedMatches,
-					} as any)
+					// Update cumulative stats
+					cumulativeImported += progress.importedMatches
+					cumulativeFailed += progress.failedMatches
 
 					this.log(
 						job.id,
-						`📊 Progress: ${(job.imported_matches || 0) + progress.importedMatches} total imported, ${
+						`📊 Progress: ${cumulativeImported} total imported, ${
 							rateLimitInfo.remaining
 						} API requests remaining`
 					)
@@ -272,11 +273,11 @@ class BackgroundImportWorker {
 					// Mark league as completed BEFORE checking rate limit
 					completedLeagues.push(league.id)
 
-					// Update job with league completion
+					// Update job with league completion and cumulative stats
 					await this.updateJobStatus(job.id, 'running', {
 						...job,
-						imported_matches: (job.imported_matches || 0) + progress.importedMatches,
-						failed_matches: (job.failed_matches || 0) + progress.failedMatches,
+						imported_matches: cumulativeImported,
+						failed_matches: cumulativeFailed,
 						rate_limit_remaining: rateLimitInfo.remaining,
 						progress: {
 							...job.progress,
@@ -293,6 +294,8 @@ class BackgroundImportWorker {
 						this.log(job.id, '⏸️  Rate limit reached, pausing job for 15 minutes')
 						await this.updateJobStatus(job.id, 'rate_limited', {
 							...job,
+							imported_matches: cumulativeImported,
+							failed_matches: cumulativeFailed,
 							rate_limit_reset_at: new Date(Date.now() + 15 * 60 * 1000), // 15 minutes
 							progress: {
 								...job.progress,
@@ -322,7 +325,10 @@ class BackgroundImportWorker {
 			}
 
 			// Job completed
-			await this.updateJobStatus(job.id, 'completed', {} as any)
+			await this.updateJobStatus(job.id, 'completed', {
+				imported_matches: cumulativeImported,
+				failed_matches: cumulativeFailed,
+			} as any)
 
 			this.log(job.id, `✅ Job completed successfully`)
 
@@ -331,8 +337,8 @@ class BackgroundImportWorker {
 				'Import Job Completed',
 				`Job #${job.id} has completed successfully.\n\n` +
 					`Leagues processed: ${selectedLeagues.map(l => l.name).join(', ')}\n` +
-					`Imported: ${job.imported_matches || 0} matches\n` +
-					`Failed: ${job.failed_matches || 0} matches\n` +
+					`Imported: ${cumulativeImported} matches\n` +
+					`Failed: ${cumulativeFailed} matches\n` +
 					`Date range: ${job.date_from.toISOString().split('T')[0]} to ${job.date_to.toISOString().split('T')[0]}`
 			)
 		} catch (error: any) {
