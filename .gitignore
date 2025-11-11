@@ -24,3 +24,11 @@ data/*.json
 # Logs
 *.log
 npm-debug.log*
+logs/
+
+# Temporary SQL files
+fix-stats-with-possession.sql
+*temp*.sql
+*backup*.json
+*temp*.json
+
