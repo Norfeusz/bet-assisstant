@@ -621,7 +621,7 @@ export class DataImporter {
 			return
 		}
 
-		// CASE 4: Match doesn't exist → INSERT NEW
+		// CASE 4: Match doesn't exist → INSERT NEW (or update if exists)
 		await prisma.$executeRawUnsafe(
 			`
 			INSERT INTO matches (
@@ -667,6 +667,37 @@ export class DataImporter {
 				$21, $22, $23, $24, $25, $26, $27, $28, $29, $30,
 				$31, $32, $33, $34, $35, $36
 			)
+			ON CONFLICT (fixture_id) DO UPDATE SET
+				home_odds = EXCLUDED.home_odds,
+				draw_odds = EXCLUDED.draw_odds,
+				away_odds = EXCLUDED.away_odds,
+				result = EXCLUDED.result,
+				home_goals = EXCLUDED.home_goals,
+				away_goals = EXCLUDED.away_goals,
+				home_goals_ht = EXCLUDED.home_goals_ht,
+				away_goals_ht = EXCLUDED.away_goals_ht,
+				result_ht = EXCLUDED.result_ht,
+				home_xg = EXCLUDED.home_xg,
+				away_xg = EXCLUDED.away_xg,
+				home_shots = EXCLUDED.home_shots,
+				home_shots_on_target = EXCLUDED.home_shots_on_target,
+				away_shots = EXCLUDED.away_shots,
+				away_shots_on_target = EXCLUDED.away_shots_on_target,
+				home_corners = EXCLUDED.home_corners,
+				away_corners = EXCLUDED.away_corners,
+				home_offsides = EXCLUDED.home_offsides,
+				away_offsides = EXCLUDED.away_offsides,
+				home_y_cards = EXCLUDED.home_y_cards,
+				away_y_cards = EXCLUDED.away_y_cards,
+				home_r_cards = EXCLUDED.home_r_cards,
+				away_r_cards = EXCLUDED.away_r_cards,
+				home_possession = EXCLUDED.home_possession,
+				away_possession = EXCLUDED.away_possession,
+				home_fouls = EXCLUDED.home_fouls,
+				away_fouls = EXCLUDED.away_fouls,
+				standing_home = EXCLUDED.standing_home,
+				standing_away = EXCLUDED.standing_away,
+				is_finished = EXCLUDED.is_finished
 		`,
 			fixtureId,
 			matchDate,
