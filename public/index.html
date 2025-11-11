@@ -1,0 +1,3157 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Configuration - Bet Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .summary {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-item .number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .summary-item .label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .actions {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #38a169;
+        }
+
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #e53e3e;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+        }
+
+        .countries-panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-height: 700px;
+            overflow-y: auto;
+        }
+
+        .countries-panel h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .country-item {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .country-item:hover {
+            background: #f7fafc;
+        }
+
+        .country-item.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .country-name {
+            font-weight: 500;
+        }
+
+        .country-badge {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .leagues-panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-height: 700px;
+            overflow-y: auto;
+        }
+
+        .leagues-panel h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .league-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .league-item:hover {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+
+        .league-item.selected {
+            background: #ebf4ff;
+            border-color: #667eea;
+        }
+
+        .league-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .league-logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            object-fit: contain;
+        }
+
+        .league-info {
+            flex: 1;
+        }
+
+        .league-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .league-type {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 15px;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            display: flex;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast.success {
+            border-left: 4px solid #48bb78;
+        }
+
+        .toast.error {
+            border-left: 4px solid #f56565;
+        }
+
+        /* Tabs */
+        .tabs {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 30px;
+            background: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab-button:hover {
+            background: #f9fafb;
+            color: #667eea;
+        }
+
+        .tab-button.active {
+            color: #667eea;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Database Filters */
+        .database-filters {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-select:hover {
+            border-color: #667eea;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .filter-select option {
+            padding: 10px;
+        }
+
+        /* Limit buttons */
+        .limit-buttons-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .limit-buttons-container label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-right: 5px;
+        }
+
+        .limit-btn {
+            padding: 8px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            background: white;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 50px;
+        }
+
+        .limit-btn:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .limit-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        /* Team Statistics Panel */
+        .team-stats-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .team-stats-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .team-stats-header h3 {
+            margin: 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .team-stats-league-select {
+            padding: 8px 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #333;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .team-stats-league-select:hover {
+            border-color: #667eea;
+        }
+
+        .team-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card.highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+
+        .stat-card-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card.highlight .stat-card-label {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .stat-card-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .stat-card.highlight .stat-card-value {
+            color: white;
+        }
+
+        .stat-card-subtitle {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .stat-card.highlight .stat-card-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Matches Table Styles */
+        .matches-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .matches-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .matches-table th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .matches-table td {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        .matches-table tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .matches-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .match-date {
+            color: #666;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .match-teams {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .team-name {
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .team-name.win {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .team-name.loss {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .team-name.draw {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .match-score {
+            font-weight: 700;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        .score-main {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .score-main.win {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .score-main.loss {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .score-main.draw {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .score-ht {
+            font-size: 12px;
+            color: #666;
+            margin-left: 4px;
+        }
+
+        .match-league {
+            color: #667eea;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .match-status {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .expand-icon {
+            cursor: pointer;
+            font-size: 18px;
+            text-align: center;
+            transition: transform 0.3s;
+            user-select: none;
+        }
+
+        .expand-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+
+        .results-count {
+            color: #666;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Background Jobs Styles */
+        .job-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+
+        .job-card:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-weight: 600;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .job-status-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .job-status-pending {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .job-status-running {
+            background: #c8e6c9;
+            color: #388e3c;
+        }
+
+        .job-status-paused {
+            background: #fff9c4;
+            color: #f57f17;
+        }
+
+        .job-status-completed {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .job-status-failed {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .job-status-rate_limited {
+            background: #ffe0b2;
+            color: #e65100;
+        }
+
+        .job-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 10px 0;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .job-progress {
+            margin: 10px 0;
+        }
+
+        .job-progress-bar-container {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .job-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #66bb6a);
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .job-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .job-action-btn {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .job-action-btn:hover {
+            background: #f5f5f5;
+            border-color: #999;
+        }
+
+        .job-action-btn.danger {
+            color: #d32f2f;
+            border-color: #ffcdd2;
+        }
+
+        .job-action-btn.danger:hover {
+            background: #ffebee;
+            border-color: #d32f2f;
+        }
+
+        #background-import-modal .modal-body {
+            max-height: 500px;
+        }
+
+        .date-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>⚽ Bet Assistant</h1>
+            <p>System zarządzania danymi meczów piłkarskich</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tabs-header">
+                <button class="tab-button active" onclick="switchTab('import')">
+                    📥 Import
+                </button>
+                <button class="tab-button" onclick="switchTab('database')">
+                    🗄️ Baza Danych
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab Content: Import -->
+        <div class="tab-content active" id="tab-import">
+            <!-- Summary -->
+            <div class="summary" id="summary">
+                <div class="summary-item">
+                    <div class="number" id="total-leagues">0</div>
+                    <div class="label">Wszystkie Ligi</div>
+                </div>
+                <div class="summary-item">
+                    <div class="number" id="enabled-leagues">0</div>
+                    <div class="label">Wybrane</div>
+                </div>
+                <div class="summary-item">
+                    <div class="number" id="disabled-leagues">0</div>
+                    <div class="label">Niewybrane</div>
+                </div>
+            </div>
+
+            <!-- API Rate Limit Info -->
+            <div class="summary" id="rate-limit-info" style="display: none;"
+                title="Statystyki użycia API - odświeżane co 30 sekund">
+                <div class="summary-item" style="color: white;">
+                    <div class="number" id="daily-remaining" style="color: white;">-</div>
+                    <div class="label" style="color: rgba(255,255,255,0.9);">Pozostało Tokenów Dziennie</div>
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 3px;">
+                        <span id="daily-used">-</span> / <span id="daily-limit">-</span> użyte
+                    </div>
+                </div>
+                <div class="summary-item" style="color: white;">
+                    <div class="number" id="hourly-remaining" style="color: white;">-</div>
+                    <div class="label" style="color: rgba(255,255,255,0.9);">Pozostało Tokenów na Godzinę</div>
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 3px;">
+                        <span id="hourly-used">-</span> / <span id="hourly-limit">-</span> użyte
+                    </div>
+                </div>
+                <div class="summary-item" style="color: white;">
+                    <div class="number" id="next-reset" style="color: white; font-size: 24px;">-</div>
+                    <div class="label" style="color: rgba(255,255,255,0.9);">Reset Godzinowy Za</div>
+                    <div style="font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 3px;">
+                        Reset dzienny o północy
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background Jobs Section -->
+            <div
+                style="background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <h2 style="margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
+                    🤖 Zadania w Tle
+                    <button class="btn" style="background: #10b981; color: white; margin-left: auto; padding: 8px 16px;"
+                        onclick="showBackgroundImportDialog()">
+                        ➕ Nowe Zadanie
+                    </button>
+                    <button class="btn" id="toggle-hidden-btn"
+                        style="background: #6b7280; color: white; padding: 8px 16px;" onclick="toggleHiddenJobs()">
+                        👁️ Pokaż Ukryte
+                    </button>
+                    <button class="btn" style="background: #3b82f6; color: white; padding: 8px 16px;"
+                        onclick="refreshBackgroundJobs()">
+                        🔄 Odśwież
+                    </button>
+                </h2>
+                <div id="background-jobs-list">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Ładowanie zadań...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions">
+                <button class="btn btn-primary" onclick="autoSelect()">
+                    🤖 Auto-wybór Rekomendowanych
+                </button>
+                <button class="btn" style="background: #10b981; color: white;" onclick="showSavePresetDialog()">
+                    💾 Zapisz Wybór
+                </button>
+                <button class="btn" style="background: #3b82f6; color: white;" onclick="showLoadPresetDialog()">
+                    📂 Wczytaj Wybór
+                </button>
+                <button class="btn btn-success" onclick="showImportDialog()">
+                    📥 Importuj Mecze
+                </button>
+                <button class="btn" id="resume-btn" style="background: #f59e0b; color: white; display: none;"
+                    onclick="resumeImport()">
+                    🔄 Wznów Import
+                </button>
+                <button class="btn btn-danger" onclick="clearAll()">
+                    🗑️ Wyczyść Wszystkie
+                </button>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Countries -->
+                <div class="countries-panel">
+                    <h2>🌍 Kraje</h2>
+                    <div id="countries-list">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            Ładowanie krajów...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leagues -->
+                <div class="leagues-panel">
+                    <h2>🏆 Ligi</h2>
+                    <div id="leagues-list">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">👈</div>
+                            <p>Wybierz kraj aby zobaczyć dostępne ligi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Tab Content: Import -->
+
+        <!-- Tab Content: Database -->
+        <div class="tab-content" id="tab-database">
+            <!-- Database Filters -->
+            <div class="database-filters">
+                <h2 style="margin-bottom: 20px; color: #333;">🔍 Filtruj Mecze</h2>
+
+                <div class="filter-row">
+                    <div class="filter-group">
+                        <label for="filter-country">🌍 Kraj</label>
+                        <select id="filter-country" class="filter-select" onchange="onCountryFilterChange()">
+                            <option value="">Wszystkie Kraje</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filter-league">🏆 Liga</label>
+                        <select id="filter-league" class="filter-select" onchange="onLeagueFilterChange()">
+                            <option value="">Wszystkie Ligi</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filter-team">⚽ Drużyna</label>
+                        <select id="filter-team" class="filter-select" onchange="onTeamFilterChange()">
+                            <option value="">Wszystkie Drużyny</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <button class="btn btn-primary" onclick="applyFilters()">
+                        � Szukaj
+                    </button>
+                    <button class="btn" style="background: #6b7280; color: white;" onclick="resetFilters()">
+                        🔄 Resetuj Filtry
+                    </button>
+                </div>
+            </div>
+
+            <!-- Database Results -->
+            <div class="database-filters" style="min-height: 300px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin: 0; color: #333;">📊 Wyniki</h2>
+                    <div class="limit-buttons-container" style="margin: 0;">
+                        <button class="limit-btn" onclick="setLimitAndFilter(5)">5</button>
+                        <button class="limit-btn" onclick="setLimitAndFilter(10)">10</button>
+                        <button class="limit-btn" onclick="setLimitAndFilter(15)">15</button>
+                        <button class="limit-btn" onclick="setLimitAndFilter(20)">20</button>
+                        <button class="limit-btn" onclick="setLimitAndFilter(25)">25</button>
+                        <button class="limit-btn" onclick="setLimitAndFilter(30)">30</button>
+                        <button class="limit-btn" onclick="setLimitAndFilter(40)">40</button>
+                        <button class="limit-btn" onclick="setLimitAndFilter(50)">50</button>
+                        <button class="limit-btn" onclick="setLimitAndFilter(100)">100</button>
+                        <span style="color: #999; margin: 0 5px;">•••</span>
+                        <button class="limit-btn active" onclick="setLimitAndFilter(null)">00</button>
+                    </div>
+                </div>
+
+                <!-- Team Statistics Panel (hidden by default) -->
+                <div id="team-stats-container" style="display: none;"></div>
+
+                <div id="database-results">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <p>Wybierz filtry i kliknij Szukaj aby zobaczyć mecze</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Tab Content: Database -->
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span id="toast-message"></span>
+    </div>
+
+    <!-- Import Dialog -->
+    <div class="modal" id="import-modal">
+        <div class="modal-content">
+            <h2>📥 Importuj Mecze</h2>
+            <p style="color: #666; margin-bottom: 20px;">Wybierz zakres dat aby zaimportować dane meczowe</p>
+
+            <div class="quick-dates">
+                <button class="quick-date-btn" onclick="setQuickDate('week')">Ostatnie 7 dni</button>
+                <button class="quick-date-btn" onclick="setQuickDate('2weeks')">Ostatnie 2 tygodnie</button>
+                <button class="quick-date-btn" onclick="setQuickDate('month')">Ostatni miesiąc</button>
+                <button class="quick-date-btn" onclick="setQuickDate('3months')">Ostatnie 3 miesiące</button>
+            </div>
+
+            <div class="date-inputs">
+                <div class="date-input-group">
+                    <label for="start-date">Data Początkowa:</label>
+                    <input type="date" id="start-date" class="date-input">
+                </div>
+                <div class="date-input-group">
+                    <label for="end-date">Data Końcowa:</label>
+                    <input type="date" id="end-date" class="date-input">
+                </div>
+            </div>
+
+            <div class="import-info">
+                <p>📊 <strong id="league-count">0</strong> wybranych lig</p>
+                <p>🔄 <strong>Auto-ponowienie:</strong> Automatycznie poczeka 1 godzinę po osiągnięciu limitu</p>
+                <p>⚠️ Import może zająć kilka godzin w zależności od zakresu dat</p>
+                <p>� You can close this window - import will continue in background</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-success" onclick="startImport()">
+                    ✅ Rozpocznij Import
+                </button>
+                <button class="btn" style="background: #718096; color: white;" onclick="closeImportDialog()">
+                    ❌ Anuluj
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Progress Dialog -->
+    <div class="modal" id="progress-modal">
+        <div class="modal-content">
+            <h2>📥 Importowanie Meczów...</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p id="progress-text" style="text-align: center; margin-top: 15px; color: #666;">Rozpoczynam import...</p>
+            <p style="text-align: center; margin-top: 10px; font-size: 12px; color: #999;">
+                Import działa w tle z automatycznym ponowieniem. Możesz zamknąć to okno.
+            </p>
+            <div style="text-align: center; margin-top: 15px; display: flex; gap: 10px; justify-content: center;">
+                <button class="btn" style="background: #f56565; color: white;" onclick="stopImport()">
+                    ⏸️ Zatrzymaj import
+                </button>
+                <button class="btn" style="background: #e53e3e; color: white;" onclick="cancelImport()">
+                    ❌ Zakończ import
+                </button>
+                <button class="btn" style="background: #718096; color: white;" onclick="closeProgressDialog()">
+                    ✅ Zamknij okno
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Preset Dialog -->
+    <div class="modal" id="save-preset-modal">
+        <div class="modal-content">
+            <h2>💾 Zapisz Wybór Lig</h2>
+            <p style="color: #666; margin-bottom: 20px;">Zapisz bieżący wybór jako szablon dla szybkiego dostępu</p>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Nazwa Szablonu *</label>
+                <input type="text" id="preset-name" placeholder="np. Top 5 Lig"
+                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Opis (opcjonalnie)</label>
+                <input type="text" id="preset-description" placeholder="np. Premier League, La Liga, Bundesliga..."
+                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;">
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn" style="background: #10b981; color: white;" onclick="savePreset()">
+                    ✅ Zapisz
+                </button>
+                <button class="btn" style="background: #718096; color: white;" onclick="closeSavePresetDialog()">
+                    Anuluj
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Preset Dialog -->
+    <div class="modal" id="load-preset-modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <h2>📂 Wczytaj Wybór Lig</h2>
+            <p style="color: #666; margin-bottom: 20px;">Wybierz zapisany szablon do zastosowania</p>
+
+            <div id="presets-list" style="max-height: 400px; overflow-y: auto;">
+                <!-- Presets will be loaded here -->
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                <button class="btn" style="background: #718096; color: white;" onclick="closeLoadPresetDialog()">
+                    Zamknij
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Import Dialog -->
+    <div class="modal" id="background-import-modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <h2>🤖 Nowe Zadanie Importu w Tle</h2>
+            <p style="color: #666; margin-bottom: 20px;">Skonfiguruj automatyczny import danych</p>
+
+            <div class="modal-body">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 10px;">
+                        Wybierz Ligi:
+                    </label>
+                    <div
+                        style="background: #f5f5f5; border: 1px solid #ddd; border-radius: 4px; padding: 10px; max-height: 200px; overflow-y: auto;">
+                        <div id="background-leagues-list">
+                            <!-- Leagues will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="date-inputs">
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px;">
+                            Data od:
+                        </label>
+                        <input type="date" id="background-date-from" class="btn" style="width: 100%;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 8px;">
+                            Data do:
+                        </label>
+                        <input type="date" id="background-date-to" class="btn" style="width: 100%;">
+                    </div>
+                </div>
+
+                <div
+                    style="background: #e3f2fd; border-left: 4px solid #1976d2; padding: 12px; border-radius: 4px; margin-top: 15px;">
+                    <p style="margin: 0; font-size: 13px; color: #1565c0;">
+                        ℹ️ <strong>Informacja:</strong> Zadanie będzie wykonywane w tle. Po zakończeniu otrzymasz
+                        powiadomienie email na adres <strong>norf.cobain@gmail.com</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+                <button class="btn" style="background: #10b981; color: white;" onclick="createBackgroundJob()">
+                    ▶️ Uruchom Import
+                </button>
+                <button class="btn" style="background: #718096; color: white;" onclick="closeBackgroundImportDialog()">
+                    Anuluj
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 15px;">
+        <button class="btn" style="background: #718096; color: white;" onclick="closeLoadPresetDialog()">
+            Zamknij
+        </button>
+    </div>
+    </div>
+    </div>
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .quick-dates {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .quick-date-btn {
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .quick-date-btn:hover {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+
+        .date-inputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .date-input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .date-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .import-info {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .import-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        let selectedCountry = null;
+        let configuredLeagues = new Set();
+        let leagues = []; // Global leagues array for presets
+
+        // Load initial data
+        async function init() {
+            await loadCountries();
+            await loadConfiguredLeagues();
+            await updateSummary();
+            await updateRateLimit();
+            await checkIncompleteImport();
+
+            // Update rate limit every 30 seconds
+            setInterval(updateRateLimit, 30000);
+        }
+
+        // Update rate limit display
+        async function updateRateLimit() {
+            try {
+                const response = await fetch('/api/rate-limit');
+                const data = await response.json();
+
+                // Update main numbers
+                document.getElementById('daily-remaining').textContent = data.dailyRemaining;
+                document.getElementById('hourly-remaining').textContent = data.hourlyRemaining;
+
+                // Update usage details
+                document.getElementById('daily-used').textContent = data.dailyRequests;
+                document.getElementById('daily-limit').textContent = data.dailyLimit;
+                document.getElementById('hourly-used').textContent = data.hourlyRequests;
+                document.getElementById('hourly-limit').textContent = data.hourlyLimit;
+
+                // Update reset timer
+                const minutes = data.nextHourlyReset.minutes;
+                document.getElementById('next-reset').textContent = `${minutes}m`;
+
+                // Change colors based on remaining tokens
+                const dailyElem = document.getElementById('daily-remaining');
+                const hourlyElem = document.getElementById('hourly-remaining');
+
+                // Reset to white first
+                dailyElem.style.color = 'white';
+                hourlyElem.style.color = 'white';
+
+                // Daily warnings
+                if (data.dailyRemaining < 100) {
+                    dailyElem.style.color = '#fbbf24'; // Yellow warning
+                }
+                if (data.dailyRemaining < 50) {
+                    dailyElem.style.color = '#ef4444'; // Red alert
+                }
+
+                // Hourly warnings
+                if (data.hourlyRemaining < 10) {
+                    hourlyElem.style.color = '#fbbf24'; // Yellow warning
+                }
+                if (data.hourlyRemaining === 0) {
+                    hourlyElem.style.color = '#ef4444'; // Red alert
+                }
+            } catch (error) {
+                console.error('Error updating rate limit:', error);
+            }
+        }
+
+        // Check for incomplete import
+        async function checkIncompleteImport() {
+            try {
+                const response = await fetch('/api/import/status');
+                const data = await response.json();
+
+                if (data.hasIncomplete) {
+                    const resumeBtn = document.getElementById('resume-btn');
+                    resumeBtn.style.display = 'block';
+
+                    showToast(`Znaleziono wstrzymany import (${data.progress}% ukończone). Kliknij "Wznów Import" aby kontynuować.`, 'success');
+                }
+            } catch (error) {
+                console.error('Error checking import status:', error);
+            }
+        }
+
+        // Load countries
+        async function loadCountries() {
+            try {
+                const response = await fetch('/api/countries');
+                const countries = await response.json();
+
+                const html = countries.map(country => `
+          <div class="country-item" onclick="selectCountry('${country.name}')">
+            <span class="country-name">${country.flag} ${country.name}</span>
+            <span class="country-badge" id="badge-${country.name}">0</span>
+          </div>
+        `).join('');
+
+                document.getElementById('countries-list').innerHTML = html;
+            } catch (error) {
+                showToast('Błąd podczas ładowania krajów', 'error');
+            }
+        }
+
+        // Select country
+        async function selectCountry(country) {
+            selectedCountry = country;
+
+            // Update UI
+            document.querySelectorAll('.country-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.country-item').classList.add('active');
+
+            // Load leagues
+            await loadLeagues(country);
+        }
+
+        // Load leagues for country
+        async function loadLeagues(country) {
+            const container = document.getElementById('leagues-list');
+            container.innerHTML = '<div class="loading"><div class="spinner"></div>Loading leagues...</div>';
+
+            try {
+                const response = await fetch(`/api/countries/${encodeURIComponent(country)}/leagues`);
+                leagues = await response.json(); // Update global leagues array
+
+                // Add enabled property based on configuredLeagues
+                leagues.forEach(league => {
+                    league.enabled = configuredLeagues.has(league.id);
+                });
+
+                if (leagues.length === 0) {
+                    container.innerHTML = `
+            <div class="empty-state">
+              <div class="empty-state-icon">😕</div>
+              <p>No leagues found for ${country}</p>
+            </div>
+          `;
+                    return;
+                }
+
+                const html = leagues.map(league => `
+          <div class="league-item ${configuredLeagues.has(league.id) ? 'selected' : ''}" id="league-${league.id}">
+            <input 
+              type="checkbox" 
+              class="league-checkbox" 
+              ${configuredLeagues.has(league.id) ? 'checked' : ''}
+              onchange="toggleLeague(${league.id}, '${league.name}', '${country}', '${league.type}', this.checked)"
+            >
+            <img src="${league.logo}" alt="${league.name}" class="league-logo" onerror="this.style.display='none'">
+            <div class="league-info">
+              <div class="league-name">${league.name}</div>
+              <div class="league-type">${league.type}</div>
+            </div>
+          </div>
+        `).join('');
+
+                container.innerHTML = html;
+            } catch (error) {
+                container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">❌</div>
+            <p>Error loading leagues</p>
+          </div>
+        `;
+            }
+        }
+
+        // Toggle league
+        async function toggleLeague(id, name, country, type, enabled) {
+            try {
+                if (enabled) {
+                    // Add league
+                    await fetch('/api/leagues', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            id,
+                            name,
+                            country,
+                            type,
+                            priority: 3,
+                            enabled: true
+                        })
+                    });
+                    configuredLeagues.add(id);
+
+                    // Update global leagues array
+                    const league = leagues.find(l => l.id === id);
+                    if (league) {
+                        league.enabled = true;
+                    }
+
+                    document.getElementById(`league-${id}`).classList.add('selected');
+                    showToast(`Dodano: ${name}`, 'success');
+                } else {
+                    // Remove league
+                    await fetch(`/api/leagues/${id}`, { method: 'DELETE' });
+                    configuredLeagues.delete(id);
+
+                    // Update global leagues array
+                    const league = leagues.find(l => l.id === id);
+                    if (league) {
+                        league.enabled = false;
+                    }
+
+                    document.getElementById(`league-${id}`).classList.remove('selected');
+                    showToast(`Usunięto: ${name}`, 'success');
+                }
+
+                await updateSummary();
+                await updateCountryBadges();
+            } catch (error) {
+                showToast('Błąd podczas aktualizacji ligi', 'error');
+            }
+        }
+
+        // Load configured leagues
+        async function loadConfiguredLeagues() {
+            try {
+                const response = await fetch('/api/leagues/configured');
+                const leagues = await response.json();
+                configuredLeagues = new Set(leagues.map(l => l.id));
+            } catch (error) {
+                showToast('Błąd podczas ładowania skonfigurowanych lig', 'error');
+            }
+        }
+
+        // Update summary
+        async function updateSummary() {
+            try {
+                const response = await fetch('/api/leagues/summary');
+                const summary = await response.json();
+
+                document.getElementById('total-leagues').textContent = summary.total;
+                document.getElementById('enabled-leagues').textContent = summary.enabled;
+                document.getElementById('disabled-leagues').textContent = summary.disabled;
+            } catch (error) {
+                console.error('Error updating summary', error);
+            }
+        }
+
+        // Update country badges
+        async function updateCountryBadges() {
+            try {
+                const response = await fetch('/api/leagues/configured');
+                const leagues = await response.json();
+
+                const counts = leagues.reduce((acc, league) => {
+                    acc[league.country] = (acc[league.country] || 0) + 1;
+                    return acc;
+                }, {});
+
+                Object.keys(counts).forEach(country => {
+                    const badge = document.getElementById(`badge-${country}`);
+                    if (badge) {
+                        badge.textContent = counts[country];
+                    }
+                });
+            } catch (error) {
+                console.error('Error updating badges', error);
+            }
+        }
+
+        // Auto-select recommended leagues
+        async function autoSelect() {
+            if (!confirm('Auto-wybór rekomendowanych lig? Użyje to zapytań API.')) {
+                return;
+            }
+
+            try {
+                showToast('Auto-wybieranie lig...', 'success');
+                const response = await fetch('/api/leagues/auto-select', { method: 'POST' });
+                const data = await response.json();
+
+                await loadConfiguredLeagues();
+                await updateSummary();
+                await updateCountryBadges();
+
+                if (selectedCountry) {
+                    await loadLeagues(selectedCountry);
+                }
+
+                showToast(`Auto-wybrano ${data.leagues.length} lig`, 'success');
+            } catch (error) {
+                showToast('Błąd podczas auto-wybierania lig', 'error');
+            }
+        }
+
+        // Clear all
+        async function clearAll() {
+            if (!confirm('Usunąć wszystkie skonfigurowane ligi?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/leagues/configured');
+                const leagues = await response.json();
+
+                for (const league of leagues) {
+                    await fetch(`/api/leagues/${league.id}`, { method: 'DELETE' });
+                }
+
+                configuredLeagues.clear();
+                await updateSummary();
+                await updateCountryBadges();
+
+                if (selectedCountry) {
+                    await loadLeagues(selectedCountry);
+                }
+
+                showToast('Wszystkie ligi wyczyszczone', 'success');
+            } catch (error) {
+                showToast('Błąd podczas czyszczenia lig', 'error');
+            }
+        }
+
+        // Save and close
+        function saveAndClose() {
+            showToast('Konfiguracja zapisana!', 'success');
+            setTimeout(() => {
+                alert('Konfiguracja zapisana! Możesz zamknąć to okno i uruchomić: npm run import');
+            }, 1000);
+        }
+
+        // Show import dialog
+        async function showImportDialog() {
+            const enabled = await fetch('/api/leagues/summary').then(r => r.json());
+
+            if (enabled.enabled === 0) {
+                showToast('Proszę najpierw wybrać przynajmniej jedną ligę', 'error');
+                return;
+            }
+
+            document.getElementById('league-count').textContent = enabled.enabled;
+
+            // Set default dates (last 2 weeks)
+            const endDate = new Date();
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - 14);
+
+            document.getElementById('end-date').value = endDate.toISOString().split('T')[0];
+            document.getElementById('start-date').value = startDate.toISOString().split('T')[0];
+
+            document.getElementById('import-modal').classList.add('show');
+        }
+
+        // Close import dialog
+        function closeImportDialog() {
+            document.getElementById('import-modal').classList.remove('show');
+        }
+
+        // Set quick date ranges
+        function setQuickDate(range) {
+            const endDate = new Date();
+            const startDate = new Date();
+
+            switch (range) {
+                case 'week':
+                    startDate.setDate(startDate.getDate() - 7);
+                    break;
+                case '2weeks':
+                    startDate.setDate(startDate.getDate() - 14);
+                    break;
+                case 'month':
+                    startDate.setDate(startDate.getDate() - 30);
+                    break;
+                case '3months':
+                    startDate.setMonth(startDate.getMonth() - 3);
+                    break;
+            }
+
+            document.getElementById('end-date').value = endDate.toISOString().split('T')[0];
+            document.getElementById('start-date').value = startDate.toISOString().split('T')[0];
+        }
+
+        // Start import
+        async function startImport() {
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+
+            if (!startDate || !endDate) {
+                showToast('Proszę wybrać datę początkową i końcową', 'error');
+                return;
+            }
+
+            if (new Date(startDate) > new Date(endDate)) {
+                showToast('Data początkowa musi być przed datą końcową', 'error');
+                return;
+            }
+
+            await executeImport({ startDate, endDate, resume: false });
+        }
+
+        // Resume import
+        async function resumeImport() {
+            if (!confirm('Wznowić wstrzymany import?')) {
+                return;
+            }
+
+            await executeImport({ resume: true });
+        }
+
+        // Execute import (common function)
+        async function executeImport(params) {
+            // Close import dialog if open, show progress
+            closeImportDialog();
+            document.getElementById('progress-modal').classList.add('show');
+            document.getElementById('progress-text').textContent = params.resume ? 'Wznawianie importu...' : 'Rozpoczynam import z automatycznym ponowieniem...';
+            document.getElementById('progress-fill').style.width = '10%';
+
+            try {
+                // Add autoRetry flag
+                params.autoRetry = true;
+
+                // Start/resume import
+                const response = await fetch('/api/import', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(params)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    document.getElementById('progress-fill').style.width = '30%';
+                    document.getElementById('progress-text').textContent = 'Import w toku z automatycznym ponowieniem...';
+
+                    showToast('Import rozpoczęty! Będzie kontynuowany w tle z automatycznym ponowieniem.', 'success');
+
+                    // Poll for completion
+                    let checkCount = 0;
+                    const checkInterval = setInterval(async () => {
+                        checkCount++;
+
+                        try {
+                            const statusResp = await fetch('/api/import/status');
+                            const status = await statusResp.json();
+
+                            if (!status.hasIncomplete || checkCount > 1000) { // Check for long time
+                                clearInterval(checkInterval);
+
+                                if (!status.hasIncomplete) {
+                                    document.getElementById('progress-fill').style.width = '100%';
+                                    document.getElementById('progress-text').textContent = 'Import zakończony pomyślnie!';
+
+                                    setTimeout(() => {
+                                        document.getElementById('progress-modal').classList.remove('show');
+                                        document.getElementById('resume-btn').style.display = 'none';
+                                        showToast('Wszystkie mecze zaimportowane pomyślnie!', 'success');
+                                    }, 2000);
+                                }
+                            } else {
+                                // Update progress
+                                const progress = status.progress || 30;
+                                document.getElementById('progress-fill').style.width = `${progress}%`;
+
+                                let statusText = `Importing... ${progress}% (${status.state.matchesImported} matches)`;
+                                if (status.state.error?.includes('waiting')) {
+                                    statusText = `⏰ Waiting for rate limit... (${status.state.matchesImported} matches imported)`;
+                                }
+
+                                document.getElementById('progress-text').textContent = statusText;
+                            }
+                        } catch (error) {
+                            // Continue checking even if there's an error
+                        }
+                    }, 10000); // Check every 10 seconds
+                } else {
+                    throw new Error('Import failed');
+                }
+            } catch (error) {
+                document.getElementById('progress-modal').classList.remove('show');
+                showToast('Błąd importu. Sprawdź konsolę serwera aby zobaczyć szczegóły.', 'error');
+                await checkIncompleteImport();
+            }
+        }
+
+        // Close progress dialog
+        function closeProgressDialog() {
+            document.getElementById('progress-modal').classList.remove('show');
+            showToast('Import kontynuowany w tle z automatycznym ponowieniem', 'success');
+        }
+
+        // Stop import (pause)
+        async function stopImport() {
+            if (!confirm('Zatrzymać import? Możesz go wznowić później.')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/import/stop', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast('Import zostanie zatrzymany po aktualnej lidze', 'info');
+                    document.getElementById('progress-modal').classList.remove('show');
+                }
+            } catch (error) {
+                showToast('Błąd podczas zatrzymywania importu', 'error');
+            }
+        }
+
+        // Cancel import (clear state)
+        async function cancelImport() {
+            if (!confirm('Zakończyć import i wyczyścić stan? Nie będzie można wznowić.')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/import/cancel', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast('Import został zakończony', 'success');
+                    document.getElementById('progress-modal').classList.remove('show');
+                    await checkIncompleteImport();
+                }
+            } catch (error) {
+                showToast('Błąd podczas kończenia importu', 'error');
+            }
+        }
+
+        // ===== PRESETS =====
+
+        // Show save preset dialog
+        function showSavePresetDialog() {
+            const enabled = leagues.filter(l => l.enabled);
+            if (enabled.length === 0) {
+                showToast('Proszę najpierw wybrać przynajmniej jedną ligę', 'error');
+                return;
+            }
+            document.getElementById('save-preset-modal').classList.add('show');
+            document.getElementById('preset-name').value = '';
+            document.getElementById('preset-description').value = '';
+        }
+
+        // Close save preset dialog
+        function closeSavePresetDialog() {
+            document.getElementById('save-preset-modal').classList.remove('show');
+        }
+
+        // Save preset
+        async function savePreset() {
+            const name = document.getElementById('preset-name').value.trim();
+            const description = document.getElementById('preset-description').value.trim();
+
+            if (!name) {
+                showToast('Proszę podać nazwę szablonu', 'error');
+                return;
+            }
+
+            const enabled = leagues.filter(l => l.enabled);
+            const leagueIds = enabled.map(l => l.id);
+
+            try {
+                const response = await fetch('/api/presets', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, description, leagueIds })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast(`Szablon "${name}" zapisany pomyślnie!`, 'success');
+                    closeSavePresetDialog();
+                } else {
+                    showToast('Nie udało się zapisać szablonu', 'error');
+                }
+            } catch (error) {
+                showToast('Błąd podczas zapisywania szablonu', 'error');
+            }
+        }
+
+        // Show load preset dialog
+        async function showLoadPresetDialog() {
+            try {
+                const response = await fetch('/api/presets');
+                const presets = await response.json();
+
+                const list = document.getElementById('presets-list');
+
+                if (presets.length === 0) {
+                    list.innerHTML = '<p style="text-align: center; color: #999; padding: 40px;">No saved presets. Create one first!</p>';
+                } else {
+                    list.innerHTML = presets.map(preset => `
+                        <div style="background: #f7fafc; border-radius: 8px; padding: 15px; margin-bottom: 10px; border: 1px solid #e2e8f0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="flex: 1;">
+                                    <h3 style="margin: 0 0 5px 0; font-size: 16px; color: #2d3748;">${preset.name}</h3>
+                                    <p style="margin: 0 0 5px 0; color: #718096; font-size: 13px;">${preset.description || 'No description'}</p>
+                                    <p style="margin: 0; color: #a0aec0; font-size: 12px;">${preset.leagueIds.length} leagues • ${new Date(preset.createdAt).toLocaleDateString()}</p>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn load-preset-btn" data-preset-name="${preset.name}" style="background: #3b82f6; color: white; padding: 8px 16px; font-size: 13px;">
+                                        📂 Load
+                                    </button>
+                                    <button class="btn delete-preset-btn" data-preset-name="${preset.name}" style="background: #ef4444; color: white; padding: 8px 16px; font-size: 13px;">
+                                        🗑️
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    // Add event listeners after HTML is set
+                    setTimeout(() => {
+                        document.querySelectorAll('.load-preset-btn').forEach(btn => {
+                            btn.addEventListener('click', function () {
+                                const name = this.getAttribute('data-preset-name');
+                                loadPreset(name);
+                            });
+                        });
+
+                        document.querySelectorAll('.delete-preset-btn').forEach(btn => {
+                            btn.addEventListener('click', function () {
+                                const name = this.getAttribute('data-preset-name');
+                                deletePreset(name);
+                            });
+                        });
+                    }, 0);
+                }
+
+                document.getElementById('load-preset-modal').classList.add('show');
+            } catch (error) {
+                showToast('Błąd podczas ładowania szablonów', 'error');
+            }
+        }
+
+        // Close load preset dialog
+        function closeLoadPresetDialog() {
+            document.getElementById('load-preset-modal').classList.remove('show');
+        }
+
+        // Load a preset
+        async function loadPreset(name) {
+            console.log('🔄 Loading preset:', name);
+
+            try {
+                const response = await fetch(`/api/presets/${encodeURIComponent(name)}/load`, {
+                    method: 'POST'
+                });
+
+                console.log('📥 Response status:', response.status);
+
+                const data = await response.json();
+
+                console.log('📦 Response data:', data);
+
+                if (data.success) {
+                    showToast(`Szablon "${name}" wczytany! (${data.stats.enabled} włączonych, ${data.stats.added} dodanych)`, 'success');
+                    closeLoadPresetDialog();
+
+                    // Reload configured leagues and update UI
+                    await loadConfiguredLeagues();
+                    await updateSummary();
+                    await updateCountryBadges();
+
+                    // If a country is selected, reload its leagues
+                    if (selectedCountry) {
+                        await loadLeagues(selectedCountry);
+                    }
+                } else {
+                    showToast('Nie udało się wczytać szablonu', 'error');
+                }
+            } catch (error) {
+                console.error('❌ Error loading preset:', error);
+                showToast('Błąd podczas ładowania szablonu', 'error');
+            }
+        }
+
+        // Delete a preset
+        async function deletePreset(name) {
+            if (!confirm(`Usunąć szablon "${name}"?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/presets/${encodeURIComponent(name)}`, {
+                    method: 'DELETE'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast(`Szablon "${name}" usunięty`, 'success');
+                    showLoadPresetDialog(); // Refresh list
+                } else {
+                    showToast('Nie udało się usunąć szablonu', 'error');
+                }
+            } catch (error) {
+                showToast('Błąd podczas usuwania szablonu', 'error');
+            }
+        }
+
+        // Show toast
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const messageEl = document.getElementById('toast-message');
+
+            messageEl.textContent = message;
+            toast.className = `toast ${type} show`;
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // =====================================
+        // TAB SWITCHING
+        // =====================================
+
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Deactivate all tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+
+            // Activate selected button
+            event.target.classList.add('active');
+
+            // Load data if database tab
+            if (tabName === 'database') {
+                loadDatabaseFilters();
+            }
+        }
+
+        // =====================================
+        // DATABASE FILTERS
+        // =====================================
+
+        let databaseCountries = [];
+        let databaseLeagues = [];
+        let databaseTeams = [];
+        let selectedLimit = null; // null = all, number = limit
+        let lastFetchedMatches = []; // Store all fetched matches
+        let selectedTeamForColoring = null; // Store selected team for coloring
+
+        function setLimit(limit) {
+            selectedLimit = limit;
+
+            // Update active button
+            document.querySelectorAll('.limit-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function setLimitAndFilter(limit) {
+            selectedLimit = limit;
+
+            // Update active button
+            document.querySelectorAll('.limit-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // If we have matches, re-filter them with new limit
+            if (lastFetchedMatches.length > 0) {
+                applyLimitToResults();
+            }
+        }
+
+        function applyLimitToResults() {
+            let matches = [...lastFetchedMatches];
+
+            // Apply limit if specified
+            if (selectedLimit) {
+                // Sort by date descending (most recent first) and take limit
+                matches = matches
+                    .sort((a, b) => new Date(b.match_date) - new Date(a.match_date))
+                    .slice(0, selectedLimit);
+            }
+
+            // Recalculate team statistics for filtered matches if team is selected
+            if (selectedTeamForColoring) {
+                const availableLeagues = [...new Set(matches.map(m => m.league))];
+                const currentLeagueFilter = document.getElementById('stats-league-filter')?.value || 'all';
+                const stats = calculateTeamStatistics(selectedTeamForColoring, matches, currentLeagueFilter);
+                displayTeamStatistics(stats, availableLeagues);
+                // Restore league filter selection
+                if (document.getElementById('stats-league-filter')) {
+                    document.getElementById('stats-league-filter').value = currentLeagueFilter;
+                }
+            }
+
+            // Display results
+            displayDatabaseResults(matches, selectedTeamForColoring);
+
+            const limitText = selectedLimit ? ` (limit: ${selectedLimit})` : '';
+            showToast(`Wyświetlono ${matches.length} meczów${limitText}`, 'success');
+        }
+
+        async function loadDatabaseFilters() {
+            try {
+                // Load all countries
+                const countriesResponse = await fetch('/api/database/countries');
+                if (!countriesResponse.ok) throw new Error('Failed to load countries');
+                databaseCountries = await countriesResponse.json();
+
+                // Load all leagues
+                const leaguesResponse = await fetch('/api/database/leagues');
+                if (!leaguesResponse.ok) throw new Error('Failed to load leagues');
+                databaseLeagues = await leaguesResponse.json();
+
+                // Load all teams
+                const teamsResponse = await fetch('/api/database/teams');
+                if (!teamsResponse.ok) throw new Error('Failed to load teams');
+                databaseTeams = await teamsResponse.json();
+
+                // Populate country dropdown
+                const countrySelect = document.getElementById('filter-country');
+                countrySelect.innerHTML = '<option value="">Wszystkie Kraje</option>';
+                databaseCountries.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country;
+                    option.textContent = country;
+                    countrySelect.appendChild(option);
+                });
+
+                // Populate league dropdown
+                const leagueSelect = document.getElementById('filter-league');
+                leagueSelect.innerHTML = '<option value="">Wszystkie Ligi</option>';
+                databaseLeagues.forEach(league => {
+                    const option = document.createElement('option');
+                    option.value = league;
+                    option.textContent = league;
+                    leagueSelect.appendChild(option);
+                });
+
+                // Populate team dropdown
+                const teamSelect = document.getElementById('filter-team');
+                teamSelect.innerHTML = '<option value="">Wszystkie Drużyny</option>';
+                databaseTeams.forEach(team => {
+                    const option = document.createElement('option');
+                    option.value = team;
+                    option.textContent = team;
+                    teamSelect.appendChild(option);
+                });
+
+                console.log('✅ Loaded filters:', databaseCountries.length, 'countries,', databaseLeagues.length, 'leagues,', databaseTeams.length, 'teams');
+            } catch (error) {
+                console.error('Error loading database filters:', error);
+                showToast('Nie udało się załadować filtrów: ' + error.message, 'error');
+            }
+        }
+
+        async function onCountryFilterChange() {
+            const country = document.getElementById('filter-country').value;
+
+            // Reset league and team when country changes
+            document.getElementById('filter-league').value = '';
+            document.getElementById('filter-team').value = '';
+
+            if (!country) {
+                // Restore all leagues and teams
+                await loadDatabaseFilters();
+                return;
+            }
+
+            try {
+                // Load leagues for selected country
+                const leaguesResponse = await fetch(`/api/database/leagues?country=${encodeURIComponent(country)}`);
+                if (!leaguesResponse.ok) throw new Error('Failed to load leagues');
+                const leagues = await leaguesResponse.json();
+
+                // Populate league dropdown
+                const leagueSelect = document.getElementById('filter-league');
+                leagueSelect.innerHTML = '<option value="">Wszystkie Ligi</option>';
+                leagues.forEach(league => {
+                    const option = document.createElement('option');
+                    option.value = league;
+                    option.textContent = league;
+                    leagueSelect.appendChild(option);
+                });
+
+                // Load teams for selected country
+                const teamsResponse = await fetch(`/api/database/teams?country=${encodeURIComponent(country)}`);
+                if (!teamsResponse.ok) throw new Error('Failed to load teams');
+                const teams = await teamsResponse.json();
+
+                // Populate team dropdown
+                const teamSelect = document.getElementById('filter-team');
+                teamSelect.innerHTML = '<option value="">Wszystkie Drużyny</option>';
+                teams.forEach(team => {
+                    const option = document.createElement('option');
+                    option.value = team;
+                    option.textContent = team;
+                    teamSelect.appendChild(option);
+                });
+
+                console.log('✅ Loaded', leagues.length, 'leagues and', teams.length, 'teams for', country);
+            } catch (error) {
+                console.error('Error loading leagues/teams:', error);
+                showToast('Nie udało się załadować lig/drużyn: ' + error.message, 'error');
+            }
+        }
+
+        async function onLeagueFilterChange() {
+            const country = document.getElementById('filter-country').value;
+            const league = document.getElementById('filter-league').value;
+
+            // Reset team when league changes
+            document.getElementById('filter-team').value = '';
+
+            if (!league) {
+                // If no league selected, reload teams based on country only
+                if (country) {
+                    await onCountryFilterChange();
+                } else {
+                    await loadDatabaseFilters();
+                }
+                return;
+            }
+
+            try {
+                // Load teams for selected league (and optionally country)
+                const params = new URLSearchParams();
+                if (country) params.append('country', country);
+                if (league) params.append('league', league);
+
+                const response = await fetch(`/api/database/teams?${params}`);
+                if (!response.ok) throw new Error('Failed to load teams');
+
+                const teams = await response.json();
+
+                // Populate team dropdown
+                const teamSelect = document.getElementById('filter-team');
+                teamSelect.innerHTML = '<option value="">Wszystkie Drużyny</option>';
+                teams.forEach(team => {
+                    const option = document.createElement('option');
+                    option.value = team;
+                    option.textContent = team;
+                    teamSelect.appendChild(option);
+                });
+
+                console.log('✅ Loaded', teams.length, 'teams for', league);
+            } catch (error) {
+                console.error('Error loading teams:', error);
+                showToast('Nie udało się załadować drużyn: ' + error.message, 'error');
+            }
+        }
+
+        function onTeamFilterChange() {
+            // Team selected - ready to search
+            console.log('Team filter changed:', document.getElementById('filter-team').value);
+        }
+
+        function calculateTeamStatistics(teamName, matches, leagueFilter = null) {
+            // Filter only finished matches
+            let teamMatches = matches.filter(m => m.is_finished === 'yes');
+
+            // Apply league filter if specified
+            if (leagueFilter && leagueFilter !== 'all') {
+                teamMatches = teamMatches.filter(m => m.league === leagueFilter);
+            }
+
+            const totalMatches = teamMatches.length;
+            if (totalMatches === 0) {
+                return null;
+            }
+
+            let points = 0, homePoints = 0, awayPoints = 0;
+            let homeMatches = 0, awayMatches = 0;
+            let wins = 0, draws = 0, losses = 0;
+            let goalsScored = 0, goalsConceded = 0;
+            let firstHalfWins = 0, secondHalfWins = 0, bothHalvesWins = 0;
+            let comebackWins = 0, comebackLosses = 0;
+
+            teamMatches.forEach(match => {
+                const isHome = match.home_team === teamName;
+                const homeGoals = match.home_goals || 0;
+                const awayGoals = match.away_goals || 0;
+                const homeGoalsHT = match.home_goals_ht || 0;
+                const awayGoalsHT = match.away_goals_ht || 0;
+
+                // Match result
+                const matchPoints = isHome
+                    ? (homeGoals > awayGoals ? 3 : homeGoals === awayGoals ? 1 : 0)
+                    : (awayGoals > homeGoals ? 3 : homeGoals === awayGoals ? 1 : 0);
+
+                points += matchPoints;
+
+                if (isHome) {
+                    homeMatches++;
+                    homePoints += matchPoints;
+                    goalsScored += homeGoals;
+                    goalsConceded += awayGoals;
+                } else {
+                    awayMatches++;
+                    awayPoints += matchPoints;
+                    goalsScored += awayGoals;
+                    goalsConceded += homeGoals;
+                }
+
+                // Win/Draw/Loss
+                if (matchPoints === 3) wins++;
+                else if (matchPoints === 1) draws++;
+                else losses++;
+
+                // Half-time analysis
+                const teamGoalsHT = isHome ? homeGoalsHT : awayGoalsHT;
+                const oppGoalsHT = isHome ? awayGoalsHT : homeGoalsHT;
+                const teamGoalsFT = isHome ? homeGoals : awayGoals;
+                const oppGoalsFT = isHome ? awayGoals : homeGoals;
+
+                // First half win
+                if (teamGoalsHT > oppGoalsHT) firstHalfWins++;
+
+                // Second half win (goals scored in 2nd half)
+                const teamGoals2H = teamGoalsFT - teamGoalsHT;
+                const oppGoals2H = oppGoalsFT - oppGoalsHT;
+                if (teamGoals2H > oppGoals2H) secondHalfWins++;
+
+                // Both halves wins
+                if (teamGoalsHT > oppGoalsHT && teamGoals2H > oppGoals2H) bothHalvesWins++;
+
+                // Comebacks
+                if (teamGoalsHT < oppGoalsHT && teamGoalsFT > oppGoalsFT) comebackWins++;
+                if (teamGoalsHT > oppGoalsHT && teamGoalsFT < oppGoalsFT) comebackLosses++;
+            });
+
+            return {
+                teamName,
+                totalMatches,
+                avgPoints: (points / totalMatches).toFixed(2),
+                avgPointsHome: homeMatches > 0 ? (homePoints / homeMatches).toFixed(2) : '0.00',
+                avgPointsAway: awayMatches > 0 ? (awayPoints / awayMatches).toFixed(2) : '0.00',
+                winPercentage: ((wins / totalMatches) * 100).toFixed(1),
+                lossPercentage: ((losses / totalMatches) * 100).toFixed(1),
+                drawPercentage: ((draws / totalMatches) * 100).toFixed(1),
+                avgGoalsScored: (goalsScored / totalMatches).toFixed(2),
+                avgGoalsConceded: (goalsConceded / totalMatches).toFixed(2),
+                firstHalfWinPercentage: ((firstHalfWins / totalMatches) * 100).toFixed(1),
+                secondHalfWinPercentage: ((secondHalfWins / totalMatches) * 100).toFixed(1),
+                bothHalvesWinPercentage: ((bothHalvesWins / totalMatches) * 100).toFixed(1),
+                comebackWinPercentage: ((comebackWins / totalMatches) * 100).toFixed(1),
+                comebackLossPercentage: ((comebackLosses / totalMatches) * 100).toFixed(1)
+            };
+        }
+
+        function displayTeamStatistics(stats, availableLeagues) {
+            if (!stats) {
+                document.getElementById('team-stats-container').style.display = 'none';
+                return;
+            }
+
+            const container = document.getElementById('team-stats-container');
+            container.style.display = 'block';
+
+            let leagueOptions = '<option value="all">Wszystkie rozgrywki</option>';
+            availableLeagues.forEach(league => {
+                leagueOptions += `<option value="${league}">${league}</option>`;
+            });
+
+            container.innerHTML = `
+                <div class="team-stats-panel">
+                    <div class="team-stats-header">
+                        <h3>⚽ Statystyki: ${stats.teamName}</h3>
+                        <select class="team-stats-league-select" id="stats-league-filter" onchange="onStatsLeagueChange()">
+                            ${leagueOptions}
+                        </select>
+                    </div>
+                    <div class="team-stats-grid">
+                        <div class="stat-card highlight">
+                            <div class="stat-card-label">Mecze</div>
+                            <div class="stat-card-value">${stats.totalMatches}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Śr. punktów</div>
+                            <div class="stat-card-value">${stats.avgPoints}</div>
+                            <div class="stat-card-subtitle">ogólnie</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Śr. punktów</div>
+                            <div class="stat-card-value">${stats.avgPointsHome}</div>
+                            <div class="stat-card-subtitle">u siebie</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Śr. punktów</div>
+                            <div class="stat-card-value">${stats.avgPointsAway}</div>
+                            <div class="stat-card-subtitle">na wyjeździe</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">% Wygranych</div>
+                            <div class="stat-card-value">${stats.winPercentage}%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">% Remisów</div>
+                            <div class="stat-card-value">${stats.drawPercentage}%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">% Porażek</div>
+                            <div class="stat-card-value">${stats.lossPercentage}%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Śr. goli</div>
+                            <div class="stat-card-value">${stats.avgGoalsScored}</div>
+                            <div class="stat-card-subtitle">strzelonych</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Śr. goli</div>
+                            <div class="stat-card-value">${stats.avgGoalsConceded}</div>
+                            <div class="stat-card-subtitle">straconych</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">% Wygr. 1 poł.</div>
+                            <div class="stat-card-value">${stats.firstHalfWinPercentage}%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">% Wygr. 2 poł.</div>
+                            <div class="stat-card-value">${stats.secondHalfWinPercentage}%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">% Wygr. obu poł.</div>
+                            <div class="stat-card-value">${stats.bothHalvesWinPercentage}%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">% Przełamań +</div>
+                            <div class="stat-card-value">${stats.comebackWinPercentage}%</div>
+                            <div class="stat-card-subtitle">przegr.→wygr.</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">% Przełamań -</div>
+                            <div class="stat-card-value">${stats.comebackLossPercentage}%</div>
+                            <div class="stat-card-subtitle">wygr.→przegr.</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function onStatsLeagueChange() {
+            const leagueFilter = document.getElementById('stats-league-filter').value;
+            if (selectedTeamForColoring && lastFetchedMatches.length > 0) {
+                // Get currently displayed matches (with limit applied)
+                let matches = [...lastFetchedMatches];
+                if (selectedLimit) {
+                    matches = matches
+                        .sort((a, b) => new Date(b.match_date) - new Date(a.match_date))
+                        .slice(0, selectedLimit);
+                }
+
+                const stats = calculateTeamStatistics(selectedTeamForColoring, matches, leagueFilter);
+                const availableLeagues = [...new Set(matches.map(m => m.league))];
+                displayTeamStatistics(stats, availableLeagues);
+                // Preserve selected league
+                document.getElementById('stats-league-filter').value = leagueFilter;
+            }
+        }
+
+        async function applyFilters() {
+            const country = document.getElementById('filter-country').value;
+            const league = document.getElementById('filter-league').value;
+            const team = document.getElementById('filter-team').value;
+
+            console.log('Applying filters:', { country, league, team, limit: selectedLimit });
+
+            try {
+                // Build query parameters
+                const params = new URLSearchParams();
+                if (country) params.append('country', country);
+                if (league) params.append('league', league);
+                if (team) params.append('team', team);
+
+                // Fetch matches
+                const response = await fetch(`/api/database/matches?${params}`);
+                if (!response.ok) throw new Error('Failed to load matches');
+
+                const allMatches = await response.json();
+
+                // Store fetched matches and selected team for later filtering
+                lastFetchedMatches = allMatches;
+                selectedTeamForColoring = team;
+
+                // Display team statistics if a specific team is selected
+                if (team) {
+                    const availableLeagues = [...new Set(allMatches.map(m => m.league))];
+                    const stats = calculateTeamStatistics(team, allMatches, 'all');
+                    displayTeamStatistics(stats, availableLeagues);
+                } else {
+                    document.getElementById('team-stats-container').style.display = 'none';
+                }
+
+                // Apply limit
+                applyLimitToResults();
+
+                showToast(`Znaleziono ${allMatches.length} meczów`, 'success');
+            } catch (error) {
+                console.error('Error applying filters:', error);
+                showToast('Nie udało się załadować meczów: ' + error.message, 'error');
+            }
+        }
+
+        function resetFilters() {
+            document.getElementById('filter-country').value = '';
+            document.getElementById('filter-league').value = '';
+            document.getElementById('filter-team').value = '';
+
+            // Reset limit to "00" (all)
+            selectedLimit = null;
+            lastFetchedMatches = [];
+            selectedTeamForColoring = null;
+
+            // Hide team statistics
+            document.getElementById('team-stats-container').style.display = 'none';
+
+            document.querySelectorAll('.limit-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Set "00" button as active
+            document.querySelector('.limit-btn[onclick="setLimitAndFilter(null)"]').classList.add('active');
+
+            // Reload all filters to restore full lists
+            loadDatabaseFilters();
+
+            // Clear results
+            document.getElementById('database-results').innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-state-icon">🔍</div>
+                    <p>Wybierz filtry i kliknij Szukaj aby zobaczyć mecze</p>
+                </div>
+            `;
+
+            showToast('Filtry zresetowane', 'success');
+        }
+
+        function displayDatabaseResults(matches, selectedTeam = null) {
+            const resultsDiv = document.getElementById('database-results');
+
+            if (matches.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">❌</div>
+                        <p>Nie znaleziono meczów dla wybranych filtrów</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Build table HTML
+            let tableHTML = `
+                <div class="results-header">
+                    <div class="results-count">📊 Wyświetlam ${matches.length} meczów</div>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="matches-table">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Mecz</th>
+                                <th>Wynik</th>
+                                <th>Liga</th>
+                                <th style="text-align: center;">Status</th>
+                                <th style="text-align: center;">Szczegóły</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            matches.forEach(match => {
+                const date = new Date(match.match_date).toLocaleDateString('pl-PL', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                });
+
+                const result = match.result || 'draw';
+                const isFinished = match.is_finished;
+
+                // Determine team colors based on context
+                let homeClass = '';
+                let awayClass = '';
+
+                if (selectedTeam) {
+                    // Coloring for specific team view - only color the selected team
+                    if (match.home_team === selectedTeam) {
+                        // Selected team is home
+                        if (result === 'home_win' || result === 'h-win') {
+                            homeClass = 'win';
+                        } else if (result === 'away_win' || result === 'a-win') {
+                            homeClass = 'loss';
+                        } else {
+                            homeClass = 'draw';
+                        }
+                        awayClass = ''; // Opponent not colored
+                    } else if (match.away_team === selectedTeam) {
+                        // Selected team is away
+                        if (result === 'away_win' || result === 'a-win') {
+                            awayClass = 'win';
+                        } else if (result === 'home_win' || result === 'h-win') {
+                            awayClass = 'loss';
+                        } else {
+                            awayClass = 'draw';
+                        }
+                        homeClass = ''; // Opponent not colored
+                    }
+                } else {
+                    // Coloring for league/country view - color both teams
+                    if (result === 'home_win' || result === 'h-win') {
+                        homeClass = 'win';
+                        awayClass = 'loss';
+                    } else if (result === 'away_win' || result === 'a-win') {
+                        homeClass = 'loss';
+                        awayClass = 'win';
+                    } else if (result === 'draw') {
+                        homeClass = 'draw';
+                        awayClass = 'draw';
+                    }
+                }
+
+                // Build score display
+                const homeGoals = match.home_goals !== null && match.home_goals !== undefined ? match.home_goals : '-';
+                const awayGoals = match.away_goals !== null && match.away_goals !== undefined ? match.away_goals : '-';
+
+                const homeGoalsHT = match.home_goals_ht;
+                const awayGoalsHT = match.away_goals_ht;
+
+                // Show HT score only if both values exist and are not null
+                const htScoreDisplay = (homeGoalsHT !== null && homeGoalsHT !== undefined && awayGoalsHT !== null && awayGoalsHT !== undefined)
+                    ? `(${homeGoalsHT}:${awayGoalsHT})`
+                    : '';
+
+                const statusIcon = isFinished ? '✅' : '❓';
+
+                tableHTML += `
+                    <tr>
+                        <td class="match-date">${date}</td>
+                        <td>
+                            <div class="match-teams">
+                                <span class="team-name ${homeClass}">${match.home_team}</span>
+                                <span>-</span>
+                                <span class="team-name ${awayClass}">${match.away_team}</span>
+                            </div>
+                        </td>
+                        <td class="match-score">
+                            <span class="score-main ${homeClass}">${homeGoals}</span>
+                            <span>:</span>
+                            <span class="score-main ${awayClass}">${awayGoals}</span>
+                            ${htScoreDisplay ? `<span class="score-ht">${htScoreDisplay}</span>` : ''}
+                        </td>
+                        <td class="match-league">${match.league}</td>
+                        <td class="match-status">${statusIcon}</td>
+                        <td class="expand-icon" onclick="alert('Szczegóły meczu - wkrótce!')">📊</td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+
+            resultsDiv.innerHTML = tableHTML;
+        }
+
+        // Initialize
+        init();
+
+        // ===== BACKGROUND IMPORT FUNCTIONS =====
+        let backgroundJobsInterval = null;
+        let showHiddenJobs = false;
+
+        function toggleHiddenJobs() {
+            showHiddenJobs = !showHiddenJobs;
+            const btn = document.getElementById('toggle-hidden-btn');
+
+            if (showHiddenJobs) {
+                btn.innerHTML = '👁️ Pokaż Aktywne';
+                btn.style.background = '#f59e0b';
+            } else {
+                btn.innerHTML = '👁️ Pokaż Ukryte';
+                btn.style.background = '#6b7280';
+            }
+
+            refreshBackgroundJobs();
+        }
+
+        async function showBackgroundImportDialog() {
+            const modal = document.getElementById('background-import-modal');
+            const leaguesList = document.getElementById('background-leagues-list');
+
+            // Load leagues
+            try {
+                const response = await fetch('/api/config');
+                const data = await response.json();
+
+                let html = '';
+                data.leagues.forEach(league => {
+                    html += `
+                        <label style="display: block; padding: 8px; cursor: pointer; border-radius: 4px; margin-bottom: 4px; transition: background 0.2s;"
+                               onmouseover="this.style.background='#e0e0e0'" 
+                               onmouseout="this.style.background='transparent'">
+                            <input type="checkbox" value="${league.id}" class="background-league-checkbox" style="margin-right: 8px;">
+                            <span style="font-weight: 600;">${league.name}</span>
+                            <span style="color: #666; font-size: 12px;"> (${league.country})</span>
+                        </label>
+                    `;
+                });
+
+                leaguesList.innerHTML = html;
+
+                // Set default dates (last 7 days)
+                const today = new Date();
+                const weekAgo = new Date(today);
+                weekAgo.setDate(weekAgo.getDate() - 7);
+
+                document.getElementById('background-date-from').value = weekAgo.toISOString().split('T')[0];
+                document.getElementById('background-date-to').value = today.toISOString().split('T')[0];
+
+                modal.style.display = 'flex';
+            } catch (error) {
+                console.error('Error loading leagues:', error);
+                alert('Błąd podczas ładowania lig: ' + error.message);
+            }
+        }
+
+        function closeBackgroundImportDialog() {
+            document.getElementById('background-import-modal').style.display = 'none';
+        }
+
+        async function createBackgroundJob() {
+            const checkboxes = document.querySelectorAll('.background-league-checkbox:checked');
+            const leagueIds = Array.from(checkboxes).map(cb => parseInt(cb.value));
+            const dateFrom = document.getElementById('background-date-from').value;
+            const dateTo = document.getElementById('background-date-to').value;
+
+            if (leagueIds.length === 0) {
+                alert('Wybierz przynajmniej jedną ligę');
+                return;
+            }
+
+            if (!dateFrom || !dateTo) {
+                alert('Wybierz zakres dat');
+                return;
+            }
+
+            if (new Date(dateFrom) > new Date(dateTo)) {
+                alert('Data początkowa nie może być późniejsza niż końcowa');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/import-jobs', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ leagueIds, dateFrom, dateTo })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Błąd tworzenia zadania');
+                }
+
+                const result = await response.json();
+
+                closeBackgroundImportDialog();
+                alert(`✅ Zadanie utworzone! ID: ${result.jobId}\n\nImport rozpocznie się automatycznie w ciągu 60 sekund.`);
+
+                // Refresh jobs list
+                await refreshBackgroundJobs();
+
+                // Start auto-refresh if not already running
+                if (!backgroundJobsInterval) {
+                    backgroundJobsInterval = setInterval(refreshBackgroundJobs, 5000);
+                }
+            } catch (error) {
+                console.error('Error creating job:', error);
+                alert('Błąd podczas tworzenia zadania: ' + error.message);
+            }
+        }
+
+        async function refreshBackgroundJobs() {
+            const container = document.getElementById('background-jobs-list');
+
+            try {
+                const url = showHiddenJobs ? '/api/import-jobs?showHidden=true' : '/api/import-jobs';
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Błąd pobierania zadań');
+                }
+
+                const jobs = await response.json();
+
+                if (jobs.length === 0) {
+                    const message = showHiddenJobs
+                        ? 'Brak ukrytych zadań.'
+                        : 'Brak zadań. Kliknij "Nowe Zadanie" aby utworzyć pierwsze.';
+                    container.innerHTML = `<p style="color: #666; text-align: center; padding: 20px;">${message}</p>`;
+
+                    // Stop auto-refresh if no jobs
+                    if (backgroundJobsInterval) {
+                        clearInterval(backgroundJobsInterval);
+                        backgroundJobsInterval = null;
+                    }
+                    return;
+                }
+
+                let html = '';
+                let hasActiveJobs = false;
+
+                jobs.forEach(job => {
+                    const createdAt = new Date(job.created_at).toLocaleString('pl-PL');
+                    const dateFrom = new Date(job.date_from).toLocaleDateString('pl-PL');
+                    const dateTo = new Date(job.date_to).toLocaleDateString('pl-PL');
+                    const leagues = typeof job.leagues === 'string' ? JSON.parse(job.leagues) : job.leagues;
+                    const progress = job.progress ? (typeof job.progress === 'string' ? JSON.parse(job.progress) : job.progress) : {};
+
+                    const completedLeagues = progress.completed_leagues || [];
+                    const totalLeagues = leagues.length;
+                    const progressPercent = totalLeagues > 0 ? Math.round((completedLeagues.length / totalLeagues) * 100) : 0;
+
+                    const statusClass = `job-status-${job.status}`;
+                    const statusText = {
+                        'pending': 'Oczekuje',
+                        'running': 'W trakcie',
+                        'paused': 'Wstrzymane',
+                        'completed': 'Zakończone',
+                        'failed': 'Błąd',
+                        'rate_limited': 'Limit API'
+                    }[job.status] || job.status;
+
+                    if (job.status === 'running' || job.status === 'rate_limited') {
+                        hasActiveJobs = true;
+                    }
+
+                    html += `
+                        <div class="job-card">
+                            <div class="job-header">
+                                <div class="job-title">Zadanie #${job.id}</div>
+                                <span class="job-status-badge ${statusClass}">${statusText}</span>
+                            </div>
+                            
+                            <div class="job-info">
+                                <div>📅 Utworzone: ${createdAt}</div>
+                                <div>🗓️ Zakres: ${dateFrom} → ${dateTo}</div>
+                                <div>🏆 Ligi: ${totalLeagues}</div>
+                                <div>✅ Ukończone ligi: ${completedLeagues.length}/${totalLeagues}</div>
+                            </div>
+                            
+                            ${job.status === 'running' || job.status === 'paused' || job.status === 'rate_limited' ? `
+                                <div class="job-progress">
+                                    <div>Postęp: ${progressPercent}%</div>
+                                    <div class="job-progress-bar-container">
+                                        <div class="job-progress-bar" style="width: ${progressPercent}%">
+                                            ${progressPercent}%
+                                        </div>
+                                    </div>
+                                </div>
+                            ` : ''}
+                            
+                            ${job.error_message ? `
+                                <div style="background: #ffebee; border-left: 4px solid #d32f2f; padding: 10px; margin-top: 10px; border-radius: 4px;">
+                                    <strong>Błąd:</strong> ${job.error_message}
+                                </div>
+                            ` : ''}
+                            
+                            ${job.status === 'rate_limited' && job.rate_limit_reset_at ? `
+                                <div style="background: #fff3e0; border-left: 4px solid #f57c00; padding: 10px; margin-top: 10px; border-radius: 4px;">
+                                    ⏱️ Wznowienie po: ${new Date(job.rate_limit_reset_at).toLocaleString('pl-PL')}
+                                </div>
+                            ` : ''}
+                            
+                            <div class="job-actions">
+                                ${job.status === 'running' || job.status === 'pending' ? `
+                                    <button class="job-action-btn" onclick="pauseJob(${job.id})">⏸️ Wstrzymaj</button>
+                                ` : ''}
+                                ${job.status === 'rate_limited' ? `
+                                    <button class="job-action-btn" style="background: #f57c00; color: white;" onclick="retryJob(${job.id})" title="Wymuś próbę importu - sprawdzi limit API i spróbuje wznowić">🔄 Retry Now</button>
+                                    <button class="job-action-btn" onclick="pauseJob(${job.id})">⏸️ Wstrzymaj</button>
+                                ` : ''}
+                                ${job.status === 'paused' ? `
+                                    <button class="job-action-btn" onclick="resumeJob(${job.id})">▶️ Wznów</button>
+                                ` : ''}
+                                <button class="job-action-btn" onclick="viewJobLogs(${job.id})">📄 Logi</button>
+                                ${showHiddenJobs ? `
+                                    <button class="job-action-btn" onclick="unhideJob(${job.id})" title="Przywróć zadanie na listę">↩️ Przywróć</button>
+                                ` : `
+                                    <button class="job-action-btn" onclick="hideJob(${job.id})" title="Ukryj zadanie z listy">👁️ Ukryj</button>
+                                `}
+                                ${job.status !== 'running' && job.status !== 'pending' ? `
+                                    <button class="job-action-btn danger" onclick="deleteJob(${job.id})" title="Usuń zadanie (nieodwracalne)">🗑️ Usuń</button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+
+                // Manage auto-refresh
+                if (hasActiveJobs && !backgroundJobsInterval) {
+                    backgroundJobsInterval = setInterval(refreshBackgroundJobs, 5000);
+                } else if (!hasActiveJobs && backgroundJobsInterval) {
+                    clearInterval(backgroundJobsInterval);
+                    backgroundJobsInterval = null;
+                }
+
+            } catch (error) {
+                console.error('Error refreshing jobs:', error);
+                container.innerHTML = '<p style="color: #d32f2f; text-align: center; padding: 20px;">❌ Błąd podczas ładowania zadań</p>';
+            }
+        }
+
+        async function pauseJob(jobId) {
+            if (!confirm('Czy na pewno wstrzymać to zadanie?')) return;
+
+            try {
+                const response = await fetch(`/api/import-jobs/${jobId}/pause`, {
+                    method: 'POST'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Błąd wstrzymywania zadania');
+                }
+
+                await refreshBackgroundJobs();
+            } catch (error) {
+                console.error('Error pausing job:', error);
+                alert('Błąd podczas wstrzymywania zadania: ' + error.message);
+            }
+        }
+
+        async function resumeJob(jobId) {
+            try {
+                const response = await fetch(`/api/import-jobs/${jobId}/resume`, {
+                    method: 'POST'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Błąd wznawiania zadania');
+                }
+
+                await refreshBackgroundJobs();
+
+                // Start auto-refresh
+                if (!backgroundJobsInterval) {
+                    backgroundJobsInterval = setInterval(refreshBackgroundJobs, 5000);
+                }
+            } catch (error) {
+                console.error('Error resuming job:', error);
+                alert('Błąd podczas wznawiania zadania: ' + error.message);
+            }
+        }
+
+        async function retryJob(jobId) {
+            try {
+                const response = await fetch(`/api/import-jobs/${jobId}/retry`, {
+                    method: 'POST'
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                    throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                alert(data.message || 'Próba importu zainicjowana. Worker sprawdzi limity API i spróbuje wznowić zadanie.');
+
+                await refreshBackgroundJobs();
+
+                // Start auto-refresh
+                if (!backgroundJobsInterval) {
+                    backgroundJobsInterval = setInterval(refreshBackgroundJobs, 5000);
+                }
+            } catch (error) {
+                console.error('Error retrying job:', error);
+                alert('Błąd podczas próby ponownego importu: ' + error.message);
+            }
+        }
+
+        async function viewJobLogs(jobId) {
+            try {
+                const response = await fetch(`/api/import-jobs/${jobId}/logs`);
+                if (!response.ok) {
+                    throw new Error('Błąd pobierania logów');
+                }
+
+                const data = await response.json();
+
+                if (data.logs.length === 0) {
+                    alert('Brak logów dla tego zadania');
+                    return;
+                }
+
+                // Create modal to display logs
+                const modal = document.createElement('div');
+                modal.className = 'modal';
+                modal.style.display = 'flex';
+                modal.innerHTML = `
+                    <div class="modal-content" style="max-width: 900px; max-height: 80vh;">
+                        <h2>📄 Logi zadania #${jobId}</h2>
+                        <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 4px; overflow-y: auto; max-height: 500px; font-family: 'Courier New', monospace; font-size: 12px; margin: 20px 0;">
+                            ${data.logs.map(line => `<div style="margin-bottom: 4px;">${line}</div>`).join('')}
+                        </div>
+                        <div style="text-align: center;">
+                            <button class="btn" style="background: #718096; color: white;" onclick="this.closest('.modal').remove()">
+                                Zamknij
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+
+                // Close on background click
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) modal.remove();
+                });
+
+            } catch (error) {
+                console.error('Error viewing logs:', error);
+                alert('Błąd podczas pobierania logów: ' + error.message);
+            }
+        }
+
+        async function hideJob(jobId) {
+            if (!confirm('Czy na pewno ukryć to zadanie? Będzie nadal dostępne w widoku ukrytych zadań.')) return;
+
+            try {
+                const response = await fetch(`/api/import-jobs/${jobId}/hide`, {
+                    method: 'POST'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Błąd ukrywania zadania');
+                }
+
+                await refreshBackgroundJobs();
+                alert('✅ Zadanie ukryte');
+            } catch (error) {
+                console.error('Error hiding job:', error);
+                alert('Błąd podczas ukrywania zadania: ' + error.message);
+            }
+        }
+
+        async function unhideJob(jobId) {
+            try {
+                const response = await fetch(`/api/import-jobs/${jobId}/unhide`, {
+                    method: 'POST'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Błąd przywracania zadania');
+                }
+
+                await refreshBackgroundJobs();
+                alert('✅ Zadanie przywrócone');
+            } catch (error) {
+                console.error('Error unhiding job:', error);
+                alert('Błąd podczas przywracania zadania: ' + error.message);
+            }
+        }
+
+        async function deleteJob(jobId) {
+            if (!confirm('⚠️ Czy na pewno USUNĄĆ to zadanie?\n\nTa operacja jest NIEODWRACALNA!\nWszystkie dane zadania, w tym logi, zostaną utracone.')) return;
+
+            try {
+                const response = await fetch(`/api/import-jobs/${jobId}`, {
+                    method: 'DELETE'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Błąd usuwania zadania');
+                }
+
+                await refreshBackgroundJobs();
+                alert('✅ Zadanie usunięte');
+            } catch (error) {
+                console.error('Error deleting job:', error);
+                alert('Błąd podczas usuwania zadania: ' + error.message);
+            }
+        }
+
+        // Load jobs on page load
+        if (document.getElementById('background-jobs-list')) {
+            refreshBackgroundJobs();
+        }
+    </script>
+</body>
+
+</html>

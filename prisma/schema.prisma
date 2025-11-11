@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model matches {
+  id                   Int                @id @default(autoincrement())
+  fixture_id           Int?               @unique
+  match_date           DateTime           @db.Date
+  country              String             @db.VarChar(100)
+  league               String             @db.VarChar(150)
+  home_team            String             @db.VarChar(100)
+  away_team            String             @db.VarChar(100)
+  result               match_result_enum?
+  home_goals           Int?               @default(0)
+  away_goals           Int?               @default(0)
+  home_shots           Int?               @default(0)
+  home_shots_on_target Int?               @default(0)
+  away_shots           Int?               @default(0)
+  away_shots_on_target Int?               @default(0)
+  home_corners         Int?               @default(0)
+  away_corners         Int?               @default(0)
+  home_offsides        Int?               @default(0)
+  away_offsides        Int?               @default(0)
+  home_y_cards         Int?               @default(0)
+  away_y_cards         Int?               @default(0)
+  home_r_cards         Int?               @default(0)
+  away_r_cards         Int?               @default(0)
+  home_possession      Decimal?           @default(0.00) @db.Decimal(5, 2)
+  away_possession      Decimal?           @default(0.00) @db.Decimal(5, 2)
+  home_fouls           Int?               @default(0)
+  away_fouls           Int?               @default(0)
+  home_odds            Decimal?           @db.Decimal(6, 2)
+  draw_odds            Decimal?           @db.Decimal(6, 2)
+  away_odds            Decimal?           @db.Decimal(6, 2)
+  standing_home        Int?               // Pozycja gospodarzy w tabeli
+  standing_away        Int?               // Pozycja gości w tabeli
+  created_at           DateTime?          @default(now()) @db.Timestamp(6)
+  home_xg              Decimal?           @db.Decimal(5, 2)
+  away_xg              Decimal?           @db.Decimal(5, 2)
+  home_goals_ht        Int?               @default(0)
+  away_goals_ht        Int?               @default(0)
+  result_ht            String?            @db.VarChar(10)
+  is_finished          String?            @default("yes") @db.VarChar(3)
+
+  @@index([country, league], map: "idx_matches_country_league")
+  @@index([created_at], map: "idx_matches_created_at")
+  @@index([match_date], map: "idx_matches_date")
+  @@index([home_team, away_team], map: "idx_matches_teams")
+  @@index([fixture_id], map: "idx_matches_fixture_id")
+}
+
+enum match_result_enum {
+  h_win @map("h-win")
+  draw
+  a_win @map("a-win")
+}
+
+enum job_status_enum {
+  pending
+  running
+  paused
+  completed
+  failed
+  rate_limited
+}
+
+model import_jobs {
+  id                    Int              @id @default(autoincrement())
+  leagues               Json             // Array of league IDs
+  date_from             DateTime         @db.Date
+  date_to               DateTime         @db.Date
+  status                job_status_enum  @default(pending)
+  progress              Json?            @default("{}")
+  total_matches         Int?             @default(0)
+  imported_matches      Int?             @default(0)
+  failed_matches        Int?             @default(0)
+  rate_limit_remaining  Int?             @default(7500)
+  rate_limit_reset_at   DateTime?        @db.Timestamp(6)
+  error_message         String?
+  started_at            DateTime?        @db.Timestamp(6)
+  completed_at          DateTime?        @db.Timestamp(6)
+  created_at            DateTime         @default(now()) @db.Timestamp(6)
+  updated_at            DateTime         @default(now()) @db.Timestamp(6)
+
+  @@index([status])
+  @@index([created_at(sort: Desc)])
+}
