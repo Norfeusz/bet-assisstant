@@ -81,13 +81,15 @@ model import_jobs {
   imported_matches      Int?             @default(0)
   failed_matches        Int?             @default(0)
   rate_limit_remaining  Int?             @default(7500)
-  rate_limit_reset_at   DateTime?        @db.Timestamp(6)
+  rate_limit_reset_at   DateTime?        @db.Timestamptz(6)
   error_message         String?
-  started_at            DateTime?        @db.Timestamp(6)
-  completed_at          DateTime?        @db.Timestamp(6)
-  created_at            DateTime         @default(now()) @db.Timestamp(6)
-  updated_at            DateTime         @default(now()) @db.Timestamp(6)
+  started_at            DateTime?        @db.Timestamptz(6)
+  completed_at          DateTime?        @db.Timestamptz(6)
+  created_at            DateTime         @default(now()) @db.Timestamptz(6)
+  updated_at            DateTime         @default(now()) @db.Timestamptz(6)
+  hidden                Boolean?         @default(false)
 
   @@index([status])
   @@index([created_at(sort: Desc)])
+  @@index([hidden])
 }
