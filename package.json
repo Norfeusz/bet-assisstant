@@ -18,6 +18,8 @@
 		"import:auto": "ts-node scripts/import-auto.ts",
 		"import:resume": "ts-node scripts/resume-import.ts",
 		"import:worker": "ts-node server/background-import-worker.ts",
+		"railway:server": "prisma generate && prisma migrate deploy && ts-node server/league-config-server.ts",
+		"railway:worker": "prisma generate && ts-node server/background-import-worker.ts",
 		"db:pull": "prisma db pull",
 		"db:generate": "prisma generate",
 		"db:studio": "prisma studio"
