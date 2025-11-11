@@ -394,6 +394,30 @@
             margin-bottom: 8px;
         }
 
+        .filter-search-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #333;
+            background: #f9fafb;
+            margin-bottom: 8px;
+            transition: all 0.3s;
+        }
+
+        .filter-search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+        }
+
+        .filter-search-input::placeholder {
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
         .filter-select {
             width: 100%;
             padding: 10px 15px;
@@ -525,6 +549,63 @@
             border-color: #667eea;
         }
 
+        /* Group backgrounds */
+        .stat-card.group-points {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.08);
+        }
+
+        .stat-card.group-halves {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%);
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.08);
+        }
+
+        .stat-card.group-goals {
+            background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 50%, #fdba74 100%);
+            box-shadow: 0 4px 6px rgba(249, 115, 22, 0.08);
+        }
+
+        .stat-card.group-corners {
+            background: linear-gradient(135deg, #faf5ff 0%, #e9d5ff 50%, #d8b4fe 100%);
+            box-shadow: 0 4px 6px rgba(168, 85, 247, 0.08);
+        }
+
+        .stat-card.group-shots {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 50%, #e5e7eb 100%);
+            box-shadow: 0 4px 6px rgba(107, 114, 128, 0.08);
+        }
+
+        .stat-card.group-other {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fde68a 100%);
+            box-shadow: 0 4px 6px rgba(245, 158, 11, 0.08);
+        }
+
+        /* Colored borders */
+        .stat-card.border-green {
+            border: 2px solid #10b981;
+        }
+
+        .stat-card.border-red {
+            border: 2px solid #ef4444;
+        }
+
+        .stat-card.border-yellow {
+            border: 2px solid #f59e0b;
+        }
+
+        /* Dynamic text colors */
+        .stat-card-value.text-green {
+            color: #10b981 !important;
+        }
+
+        .stat-card-value.text-yellow {
+            color: #f59e0b !important;
+        }
+
+        .stat-card-value.text-red {
+            color: #ef4444 !important;
+        }
+
         .stat-card-label {
             font-size: 12px;
             color: #666;
@@ -556,6 +637,173 @@
 
         .stat-card.highlight .stat-card-subtitle {
             color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Stat cards clickable */
+        .stat-card {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .stat-card:active {
+            transform: translateY(0);
+        }
+
+        /* Modal Styles */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9998;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease-out;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            padding: 20px 25px;
+            border-bottom: 2px solid #e5e7eb;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .modal-body {
+            padding: 20px 25px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal-match-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-match-item:last-child {
+            border-bottom: none;
+        }
+
+        .modal-match-date {
+            font-size: 13px;
+            color: #6b7280;
+            min-width: 90px;
+        }
+
+        .modal-match-opponent {
+            flex: 1;
+            margin: 0 15px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .modal-match-result {
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        .modal-match-result.win {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .modal-match-result.draw {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .modal-match-result.loss {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .modal-match-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .modal-match-value.highlight {
+            color: #667eea;
+            font-weight: 800;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Matches Table Styles */
@@ -991,6 +1239,9 @@
                 <div class="filter-row">
                     <div class="filter-group">
                         <label for="filter-country">🌍 Kraj</label>
+                        <input type="text" id="filter-country-search" class="filter-search-input"
+                            placeholder="🔍 Wyszukaj kraj..."
+                            oninput="filterSelectOptions('filter-country', 'filter-country-search')" />
                         <select id="filter-country" class="filter-select" onchange="onCountryFilterChange()">
                             <option value="">Wszystkie Kraje</option>
                         </select>
@@ -998,6 +1249,9 @@
 
                     <div class="filter-group">
                         <label for="filter-league">🏆 Liga</label>
+                        <input type="text" id="filter-league-search" class="filter-search-input"
+                            placeholder="🔍 Wyszukaj ligę..."
+                            oninput="filterSelectOptions('filter-league', 'filter-league-search')" />
                         <select id="filter-league" class="filter-select" onchange="onLeagueFilterChange()">
                             <option value="">Wszystkie Ligi</option>
                         </select>
@@ -1005,6 +1259,9 @@
 
                     <div class="filter-group">
                         <label for="filter-team">⚽ Drużyna</label>
+                        <input type="text" id="filter-team-search" class="filter-search-input"
+                            placeholder="🔍 Wyszukaj drużynę..."
+                            oninput="filterSelectOptions('filter-team', 'filter-team-search')" />
                         <select id="filter-team" class="filter-select" onchange="onTeamFilterChange()">
                             <option value="">Wszystkie Drużyny</option>
                         </select>
@@ -2111,6 +2368,7 @@
         let selectedLimit = null; // null = all, number = limit
         let lastFetchedMatches = []; // Store all fetched matches
         let selectedTeamForColoring = null; // Store selected team for coloring
+        let homeAwayFilter = 'all'; // 'all', 'home', 'away'
 
         function setLimit(limit) {
             selectedLimit = limit;
@@ -2137,8 +2395,29 @@
             }
         }
 
+        function setHomeAwayFilter(filter) {
+            homeAwayFilter = filter;
+
+            // Re-apply filters with new home/away setting
+            if (lastFetchedMatches.length > 0) {
+                applyLimitToResults();
+            }
+        }
+
         function applyLimitToResults() {
             let matches = [...lastFetchedMatches];
+
+            // Apply home/away filter if team is selected
+            if (selectedTeamForColoring && homeAwayFilter !== 'all') {
+                matches = matches.filter(match => {
+                    if (homeAwayFilter === 'home') {
+                        return match.home_team === selectedTeamForColoring;
+                    } else if (homeAwayFilter === 'away') {
+                        return match.away_team === selectedTeamForColoring;
+                    }
+                    return true;
+                });
+            }
 
             // Apply limit if specified
             if (selectedLimit) {
@@ -2164,7 +2443,43 @@
             displayDatabaseResults(matches, selectedTeamForColoring);
 
             const limitText = selectedLimit ? ` (limit: ${selectedLimit})` : '';
-            showToast(`Wyświetlono ${matches.length} meczów${limitText}`, 'success');
+            const homeAwayText = homeAwayFilter === 'home' ? ' (domowe)' : homeAwayFilter === 'away' ? ' (wyjazdowe)' : '';
+            showToast(`Wyświetlono ${matches.length} meczów${limitText}${homeAwayText}`, 'success');
+        }
+
+        // Debounce timers for search inputs
+        let searchDebounceTimers = {};
+
+        function filterSelectOptions(selectId, searchInputId) {
+            // Clear existing timer for this search input
+            if (searchDebounceTimers[searchInputId]) {
+                clearTimeout(searchDebounceTimers[searchInputId]);
+            }
+
+            // Set new timer - execute after 500ms of no typing
+            searchDebounceTimers[searchInputId] = setTimeout(() => {
+                const searchInput = document.getElementById(searchInputId);
+                const select = document.getElementById(selectId);
+                const searchTerm = searchInput.value.toLowerCase();
+
+                // Get all options except the first one (default "Wszystkie...")
+                const options = Array.from(select.options);
+
+                options.forEach((option, index) => {
+                    if (index === 0) {
+                        // Always show the default option
+                        option.style.display = '';
+                        return;
+                    }
+
+                    const text = option.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        option.style.display = '';
+                    } else {
+                        option.style.display = 'none';
+                    }
+                });
+            }, 500); // 500ms = 0.5 seconds
         }
 
         async function loadDatabaseFilters() {
@@ -2322,6 +2637,25 @@
             console.log('Team filter changed:', document.getElementById('filter-team').value);
         }
 
+        // Helper function to find mode (most frequent value) in array
+        function findMode(arr) {
+            if (arr.length === 0) return { value: 'N/A', count: 0 };
+
+            const frequency = {};
+            let maxFreq = 0;
+            let mode = arr[0];
+
+            arr.forEach(val => {
+                frequency[val] = (frequency[val] || 0) + 1;
+                if (frequency[val] > maxFreq) {
+                    maxFreq = frequency[val];
+                    mode = val;
+                }
+            });
+
+            return { value: mode, count: maxFreq };
+        }
+
         function calculateTeamStatistics(teamName, matches, leagueFilter = null) {
             // Filter only finished matches
             let teamMatches = matches.filter(m => m.is_finished === 'yes');
@@ -2340,8 +2674,25 @@
             let homeMatches = 0, awayMatches = 0;
             let wins = 0, draws = 0, losses = 0;
             let goalsScored = 0, goalsConceded = 0;
+            let goalsScored1H = 0, goalsScored2H = 0;
+            let goalsConceded1H = 0, goalsConceded2H = 0;
             let firstHalfWins = 0, secondHalfWins = 0, bothHalvesWins = 0;
             let comebackWins = 0, comebackLosses = 0;
+
+            // Advanced stats with availability tracking
+            let cornersFor = 0, cornersAgainst = 0, cornersCount = 0;
+            let offsidesFor = 0, offsidesAgainst = 0, offsidesCount = 0;
+            let shotsFor = 0, shotsAgainst = 0, shotsCount = 0;
+            let shotsOnTargetFor = 0, shotsOnTargetAgainst = 0, shotsOnTargetCount = 0;
+            let xgFor = 0, xgAgainst = 0, xgCount = 0;
+            let possessionSum = 0, possessionCount = 0;
+
+            // Arrays for mode (most frequent) calculations
+            let cornersForArray = [];
+            let cornersAgainstArray = [];
+
+            // Detailed match data for modal
+            let matchDetails = [];
 
             teamMatches.forEach(match => {
                 const isHome = match.home_team === teamName;
@@ -2362,11 +2713,85 @@
                     homePoints += matchPoints;
                     goalsScored += homeGoals;
                     goalsConceded += awayGoals;
+                    goalsScored1H += homeGoalsHT;
+                    goalsConceded1H += awayGoalsHT;
+                    goalsScored2H += (homeGoals - homeGoalsHT);
+                    goalsConceded2H += (awayGoals - awayGoalsHT);
+
+                    // Advanced stats - home
+                    if (match.home_corners != null && match.away_corners != null) {
+                        cornersFor += match.home_corners;
+                        cornersAgainst += match.away_corners;
+                        cornersForArray.push(match.home_corners);
+                        cornersAgainstArray.push(match.away_corners);
+                        cornersCount++;
+                    }
+                    if (match.home_possession != null) {
+                        possessionSum += match.home_possession;
+                        possessionCount++;
+                    }
+                    if (match.home_offsides != null && match.away_offsides != null) {
+                        offsidesFor += match.home_offsides;
+                        offsidesAgainst += match.away_offsides;
+                        offsidesCount++;
+                    }
+                    if (match.home_shots != null && match.away_shots != null) {
+                        shotsFor += match.home_shots;
+                        shotsAgainst += match.away_shots;
+                        shotsCount++;
+                    }
+                    if (match.home_shots_on_target != null && match.away_shots_on_target != null) {
+                        shotsOnTargetFor += match.home_shots_on_target;
+                        shotsOnTargetAgainst += match.away_shots_on_target;
+                        shotsOnTargetCount++;
+                    }
+                    if (match.home_xg != null && match.away_xg != null) {
+                        xgFor += parseFloat(match.home_xg);
+                        xgAgainst += parseFloat(match.away_xg);
+                        xgCount++;
+                    }
                 } else {
                     awayMatches++;
                     awayPoints += matchPoints;
                     goalsScored += awayGoals;
                     goalsConceded += homeGoals;
+                    goalsScored1H += awayGoalsHT;
+                    goalsConceded1H += homeGoalsHT;
+                    goalsScored2H += (awayGoals - awayGoalsHT);
+                    goalsConceded2H += (homeGoals - homeGoalsHT);
+
+                    // Advanced stats - away
+                    if (match.home_corners != null && match.away_corners != null) {
+                        cornersFor += match.away_corners;
+                        cornersAgainst += match.home_corners;
+                        cornersForArray.push(match.away_corners);
+                        cornersAgainstArray.push(match.home_corners);
+                        cornersCount++;
+                    }
+                    if (match.away_possession != null) {
+                        possessionSum += match.away_possession;
+                        possessionCount++;
+                    }
+                    if (match.home_offsides != null && match.away_offsides != null) {
+                        offsidesFor += match.away_offsides;
+                        offsidesAgainst += match.home_offsides;
+                        offsidesCount++;
+                    }
+                    if (match.home_shots != null && match.away_shots != null) {
+                        shotsFor += match.away_shots;
+                        shotsAgainst += match.home_shots;
+                        shotsCount++;
+                    }
+                    if (match.home_shots_on_target != null && match.away_shots_on_target != null) {
+                        shotsOnTargetFor += match.away_shots_on_target;
+                        shotsOnTargetAgainst += match.home_shots_on_target;
+                        shotsOnTargetCount++;
+                    }
+                    if (match.home_xg != null && match.away_xg != null) {
+                        xgFor += parseFloat(match.away_xg);
+                        xgAgainst += parseFloat(match.home_xg);
+                        xgCount++;
+                    }
                 }
 
                 // Win/Draw/Loss
@@ -2394,7 +2819,65 @@
                 // Comebacks
                 if (teamGoalsHT < oppGoalsHT && teamGoalsFT > oppGoalsFT) comebackWins++;
                 if (teamGoalsHT > oppGoalsHT && teamGoalsFT < oppGoalsFT) comebackLosses++;
+
+                // Store detailed match data for modal
+                const matchDate = new Date(match.match_date);
+                const formattedDate = `${matchDate.getDate().toString().padStart(2, '0')}.${(matchDate.getMonth() + 1).toString().padStart(2, '0')}.${matchDate.getFullYear()}`;
+                const opponent = isHome ? match.away_team : match.home_team;
+                const homeAway = isHome ? 'D' : 'W';
+                const result = matchPoints === 3 ? 'W' : matchPoints === 1 ? 'R' : 'P';
+                const resultClass = matchPoints === 3 ? 'win' : matchPoints === 1 ? 'draw' : 'loss';
+
+                matchDetails.push({
+                    date: formattedDate,
+                    opponent: opponent,
+                    homeAway: homeAway,
+                    result: result,
+                    resultClass: resultClass,
+                    isHome: isHome,
+                    // Goals
+                    goalsScored: isHome ? homeGoals : awayGoals,
+                    goalsConceded: isHome ? awayGoals : homeGoals,
+                    goalsTotal: homeGoals + awayGoals,
+                    goalsScored1H: isHome ? homeGoalsHT : awayGoalsHT,
+                    goalsScored2H: teamGoals2H,
+                    goalsTotal1H: homeGoalsHT + awayGoalsHT,
+                    goalsTotal2H: teamGoals2H + oppGoals2H,
+                    // Advanced stats
+                    cornersFor: isHome ? match.home_corners : match.away_corners,
+                    cornersAgainst: isHome ? match.away_corners : match.home_corners,
+                    offsidesFor: isHome ? match.home_offsides : match.away_offsides,
+                    offsidesAgainst: isHome ? match.away_offsides : match.home_offsides,
+                    shotsFor: isHome ? match.home_shots : match.away_shots,
+                    shotsAgainst: isHome ? match.away_shots : match.home_shots,
+                    shotsOnTargetFor: isHome ? match.home_shots_on_target : match.away_shots_on_target,
+                    shotsOnTargetAgainst: isHome ? match.away_shots_on_target : match.home_shots_on_target,
+                    xgFor: isHome ? match.home_xg : match.away_xg,
+                    xgAgainst: isHome ? match.away_xg : match.home_xg,
+                    possession: isHome ? match.home_possession : match.away_possession,
+                    // Half-time results
+                    firstHalfWin: teamGoalsHT > oppGoalsHT ? 1 : 0,
+                    secondHalfWin: teamGoals2H > oppGoals2H ? 1 : 0,
+                    bothHalvesWin: (teamGoalsHT > oppGoalsHT && teamGoals2H > oppGoals2H) ? 1 : 0
+                });
             });
+
+            // Sort matchDetails by date descending (newest first)
+            matchDetails.sort((a, b) => {
+                const dateA = a.date.split('.').reverse().join('');
+                const dateB = b.date.split('.').reverse().join('');
+                return dateB.localeCompare(dateA);
+            });
+
+            // Calculate mode (most frequent) for corners
+            const cornersForMode = findMode(cornersForArray);
+            const cornersAgainstMode = findMode(cornersAgainstArray);
+
+            // Calculate percentage of matches above mode for corners+
+            const matchesAboveCornersForMode = cornersForArray.filter(c => c > cornersForMode.value).length;
+            const percentAboveCornersForMode = cornersForArray.length > 0
+                ? ((matchesAboveCornersForMode / cornersForArray.length) * 100).toFixed(1)
+                : 'N/A';
 
             return {
                 teamName,
@@ -2407,12 +2890,173 @@
                 drawPercentage: ((draws / totalMatches) * 100).toFixed(1),
                 avgGoalsScored: (goalsScored / totalMatches).toFixed(2),
                 avgGoalsConceded: (goalsConceded / totalMatches).toFixed(2),
+                avgGoalsTotal: ((goalsScored + goalsConceded) / totalMatches).toFixed(2),
+                avgGoalsScored1H: (goalsScored1H / totalMatches).toFixed(2),
+                avgGoalsScored2H: (goalsScored2H / totalMatches).toFixed(2),
+                avgGoalsTotal1H: ((goalsScored1H + goalsConceded1H) / totalMatches).toFixed(2),
+                avgGoalsTotal2H: ((goalsScored2H + goalsConceded2H) / totalMatches).toFixed(2),
                 firstHalfWinPercentage: ((firstHalfWins / totalMatches) * 100).toFixed(1),
                 secondHalfWinPercentage: ((secondHalfWins / totalMatches) * 100).toFixed(1),
                 bothHalvesWinPercentage: ((bothHalvesWins / totalMatches) * 100).toFixed(1),
                 comebackWinPercentage: ((comebackWins / totalMatches) * 100).toFixed(1),
-                comebackLossPercentage: ((comebackLosses / totalMatches) * 100).toFixed(1)
+                comebackLossPercentage: ((comebackLosses / totalMatches) * 100).toFixed(1),
+                // Advanced stats
+                avgCornersFor: cornersCount > 0 ? (cornersFor / cornersCount).toFixed(2) : 'N/A',
+                avgCornersAgainst: cornersCount > 0 ? (cornersAgainst / cornersCount).toFixed(2) : 'N/A',
+                cornersAvailable: `${cornersCount}/${totalMatches}`,
+                avgOffsidesFor: offsidesCount > 0 ? (offsidesFor / offsidesCount).toFixed(2) : 'N/A',
+                avgOffsidesAgainst: offsidesCount > 0 ? (offsidesAgainst / offsidesCount).toFixed(2) : 'N/A',
+                offsidesAvailable: `${offsidesCount}/${totalMatches}`,
+                avgShotsFor: shotsCount > 0 ? (shotsFor / shotsCount).toFixed(2) : 'N/A',
+                avgShotsAgainst: shotsCount > 0 ? (shotsAgainst / shotsCount).toFixed(2) : 'N/A',
+                shotsAvailable: `${shotsCount}/${totalMatches}`,
+                avgShotsOnTargetFor: shotsOnTargetCount > 0 ? (shotsOnTargetFor / shotsOnTargetCount).toFixed(2) : 'N/A',
+                avgShotsOnTargetAgainst: shotsOnTargetCount > 0 ? (shotsOnTargetAgainst / shotsOnTargetCount).toFixed(2) : 'N/A',
+                shotsOnTargetAvailable: `${shotsOnTargetCount}/${totalMatches}`,
+                avgXgFor: xgCount > 0 ? (xgFor / xgCount).toFixed(2) : 'N/A',
+                avgXgAgainst: xgCount > 0 ? (xgAgainst / xgCount).toFixed(2) : 'N/A',
+                xgAvailable: `${xgCount}/${totalMatches}`,
+                // Possession
+                avgPossession: possessionCount > 0 ? (possessionSum / possessionCount).toFixed(2) : 'N/A',
+                possessionAvailable: `${possessionCount}/${totalMatches}`,
+                // Corners mode (most frequent)
+                mostFrequentCornersFor: cornersForMode.value !== 'N/A' ? `${cornersForMode.value} (${cornersForMode.count}x)` : 'N/A',
+                mostFrequentCornersAgainst: cornersAgainstMode.value !== 'N/A' ? `${cornersAgainstMode.value} (${cornersAgainstMode.count}x)` : 'N/A',
+                percentAboveCornersForMode: percentAboveCornersForMode,
+                // Detailed match data for modal
+                matchDetails: matchDetails,
+                cornersForMode: cornersForMode,
+                cornersAgainstMode: cornersAgainstMode
             };
+        }
+
+        // Prepare modal data for specific stat type
+        function prepareModalData(stats, statType) {
+            if (!stats || !stats.matchDetails) return [];
+
+            return stats.matchDetails.map(match => {
+                let value, displayValue;
+
+                switch (statType) {
+                    case 'goalsScored':
+                        value = match.goalsScored;
+                        displayValue = value.toString();
+                        break;
+                    case 'goalsConceded':
+                        value = match.goalsConceded;
+                        displayValue = value.toString();
+                        break;
+                    case 'goalsTotal':
+                        value = match.goalsTotal;
+                        displayValue = value.toString();
+                        break;
+                    case 'goalsScored1H':
+                        value = match.goalsScored1H;
+                        displayValue = value.toString();
+                        break;
+                    case 'goalsScored2H':
+                        value = match.goalsScored2H;
+                        displayValue = value.toString();
+                        break;
+                    case 'goalsTotal1H':
+                        value = match.goalsTotal1H;
+                        displayValue = value.toString();
+                        break;
+                    case 'goalsTotal2H':
+                        value = match.goalsTotal2H;
+                        displayValue = value.toString();
+                        break;
+                    case 'cornersFor':
+                        value = match.cornersFor;
+                        displayValue = value != null ? value.toString() : 'N/A';
+                        break;
+                    case 'cornersAgainst':
+                        value = match.cornersAgainst;
+                        displayValue = value != null ? value.toString() : 'N/A';
+                        break;
+                    case 'offsidesFor':
+                        value = match.offsidesFor;
+                        displayValue = value != null ? value.toString() : 'N/A';
+                        break;
+                    case 'offsidesAgainst':
+                        value = match.offsidesAgainst;
+                        displayValue = value != null ? value.toString() : 'N/A';
+                        break;
+                    case 'shotsFor':
+                        value = match.shotsFor;
+                        displayValue = value != null ? value.toString() : 'N/A';
+                        break;
+                    case 'shotsAgainst':
+                        value = match.shotsAgainst;
+                        displayValue = value != null ? value.toString() : 'N/A';
+                        break;
+                    case 'shotsOnTargetFor':
+                        value = match.shotsOnTargetFor;
+                        displayValue = value != null ? value.toString() : 'N/A';
+                        break;
+                    case 'shotsOnTargetAgainst':
+                        value = match.shotsOnTargetAgainst;
+                        displayValue = value != null ? value.toString() : 'N/A';
+                        break;
+                    case 'xgFor':
+                        value = match.xgFor;
+                        displayValue = value != null ? parseFloat(value).toFixed(2) : 'N/A';
+                        break;
+                    case 'xgAgainst':
+                        value = match.xgAgainst;
+                        displayValue = value != null ? parseFloat(value).toFixed(2) : 'N/A';
+                        break;
+                    case 'possession':
+                        value = match.possession;
+                        displayValue = value != null ? value + '%' : 'N/A';
+                        break;
+                    default:
+                        value = 0;
+                        displayValue = 'N/A';
+                }
+
+                return {
+                    date: match.date,
+                    opponent: match.opponent,
+                    homeAway: match.homeAway,
+                    result: match.result,
+                    resultClass: match.resultClass,
+                    value: value,
+                    displayValue: displayValue
+                };
+            }).filter(m => m.displayValue !== 'N/A');
+        }
+
+        // Prepare modal data for percentage stats (show only matching results)
+        function preparePercentageModalData(stats, statType) {
+            if (!stats || !stats.matchDetails) return [];
+
+            return stats.matchDetails.filter(match => {
+                switch (statType) {
+                    case 'wins':
+                        return match.result === 'W';
+                    case 'draws':
+                        return match.result === 'R';
+                    case 'losses':
+                        return match.result === 'P';
+                    case 'firstHalfWin':
+                        return match.firstHalfWin === 1;
+                    case 'secondHalfWin':
+                        return match.secondHalfWin === 1;
+                    case 'bothHalvesWin':
+                        return match.bothHalvesWin === 1;
+                    default:
+                        return false;
+                }
+            }).map(match => ({
+                date: match.date,
+                opponent: match.opponent,
+                homeAway: match.homeAway,
+                result: match.result,
+                resultClass: match.resultClass,
+                value: `${match.goalsScored}-${match.goalsConceded}`,
+                displayValue: `${match.goalsScored}-${match.goalsConceded}`
+            }));
         }
 
         function displayTeamStatistics(stats, availableLeagues) {
@@ -2420,6 +3064,17 @@
                 document.getElementById('team-stats-container').style.display = 'none';
                 return;
             }
+
+            // Store stats globally for modal access
+            window.currentTeamStats = stats;
+
+            // Helper function to get color class based on percentage
+            const getPercentageColorClass = (percentage) => {
+                const value = parseFloat(percentage);
+                if (value >= 67) return 'text-green';
+                if (value >= 34) return 'text-yellow';
+                return 'text-red';
+            };
 
             const container = document.getElementById('team-stats-container');
             container.style.display = 'block';
@@ -2438,72 +3093,275 @@
                         </select>
                     </div>
                     <div class="team-stats-grid">
+                        <!-- Mecze - highlight -->
                         <div class="stat-card highlight">
                             <div class="stat-card-label">Mecze</div>
                             <div class="stat-card-value">${stats.totalMatches}</div>
                         </div>
-                        <div class="stat-card">
+
+                        <!-- GRUPA 1: PUNKTY (niebieskie tło) -->
+                        <div class="stat-card group-points">
                             <div class="stat-card-label">Śr. punktów</div>
                             <div class="stat-card-value">${stats.avgPoints}</div>
                             <div class="stat-card-subtitle">ogólnie</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-points">
                             <div class="stat-card-label">Śr. punktów</div>
                             <div class="stat-card-value">${stats.avgPointsHome}</div>
                             <div class="stat-card-subtitle">u siebie</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-points">
                             <div class="stat-card-label">Śr. punktów</div>
                             <div class="stat-card-value">${stats.avgPointsAway}</div>
                             <div class="stat-card-subtitle">na wyjeździe</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-points border-green">
                             <div class="stat-card-label">% Wygranych</div>
                             <div class="stat-card-value">${stats.winPercentage}%</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-points border-yellow">
                             <div class="stat-card-label">% Remisów</div>
                             <div class="stat-card-value">${stats.drawPercentage}%</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-points border-red">
                             <div class="stat-card-label">% Porażek</div>
                             <div class="stat-card-value">${stats.lossPercentage}%</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="stat-card-label">Śr. goli</div>
-                            <div class="stat-card-value">${stats.avgGoalsScored}</div>
-                            <div class="stat-card-subtitle">strzelonych</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-card-label">Śr. goli</div>
-                            <div class="stat-card-value">${stats.avgGoalsConceded}</div>
-                            <div class="stat-card-subtitle">straconych</div>
-                        </div>
-                        <div class="stat-card">
+
+                        <!-- GRUPA 2: POŁOWY (zielone tło) -->
+                        <div class="stat-card group-halves">
                             <div class="stat-card-label">% Wygr. 1 poł.</div>
-                            <div class="stat-card-value">${stats.firstHalfWinPercentage}%</div>
+                            <div class="stat-card-value ${getPercentageColorClass(stats.firstHalfWinPercentage)}">${stats.firstHalfWinPercentage}%</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-halves">
                             <div class="stat-card-label">% Wygr. 2 poł.</div>
-                            <div class="stat-card-value">${stats.secondHalfWinPercentage}%</div>
+                            <div class="stat-card-value ${getPercentageColorClass(stats.secondHalfWinPercentage)}">${stats.secondHalfWinPercentage}%</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-halves">
                             <div class="stat-card-label">% Wygr. obu poł.</div>
-                            <div class="stat-card-value">${stats.bothHalvesWinPercentage}%</div>
+                            <div class="stat-card-value ${getPercentageColorClass(stats.bothHalvesWinPercentage)}">${stats.bothHalvesWinPercentage}%</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-halves border-green">
                             <div class="stat-card-label">% Przełamań +</div>
                             <div class="stat-card-value">${stats.comebackWinPercentage}%</div>
                             <div class="stat-card-subtitle">przegr.→wygr.</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card group-halves border-red">
                             <div class="stat-card-label">% Przełamań -</div>
                             <div class="stat-card-value">${stats.comebackLossPercentage}%</div>
                             <div class="stat-card-subtitle">wygr.→przegr.</div>
                         </div>
+
+                        <!-- GRUPA 3: GOLE (pomarańczowe tło) -->
+                        <div class="stat-card group-goals border-green">
+                            <div class="stat-card-label">Śr. goli</div>
+                            <div class="stat-card-value">${stats.avgGoalsScored}</div>
+                            <div class="stat-card-subtitle">strzelonych</div>
+                        </div>
+                        <div class="stat-card group-goals border-red">
+                            <div class="stat-card-label">Śr. goli</div>
+                            <div class="stat-card-value">${stats.avgGoalsConceded}</div>
+                            <div class="stat-card-subtitle">straconych</div>
+                        </div>
+                        <div class="stat-card group-goals">
+                            <div class="stat-card-label">Śr. goli</div>
+                            <div class="stat-card-value">${stats.avgGoalsTotal}</div>
+                            <div class="stat-card-subtitle">w sumie</div>
+                        </div>
+                        <div class="stat-card group-goals border-green">
+                            <div class="stat-card-label">Śr. goli 1H</div>
+                            <div class="stat-card-value">${stats.avgGoalsScored1H}</div>
+                            <div class="stat-card-subtitle">strzelonych</div>
+                        </div>
+                        <div class="stat-card group-goals border-green">
+                            <div class="stat-card-label">Śr. goli 2H</div>
+                            <div class="stat-card-value">${stats.avgGoalsScored2H}</div>
+                            <div class="stat-card-subtitle">strzelonych</div>
+                        </div>
+                        <div class="stat-card group-goals">
+                            <div class="stat-card-label">Śr. goli 1H</div>
+                            <div class="stat-card-value">${stats.avgGoalsTotal1H}</div>
+                            <div class="stat-card-subtitle">w sumie</div>
+                        </div>
+                        <div class="stat-card group-goals">
+                            <div class="stat-card-label">Śr. goli 2H</div>
+                            <div class="stat-card-value">${stats.avgGoalsTotal2H}</div>
+                            <div class="stat-card-subtitle">w sumie</div>
+                        </div>
+                        <div class="stat-card group-goals border-green">
+                            <div class="stat-card-label">Śr. xG +</div>
+                            <div class="stat-card-value">${stats.avgXgFor}</div>
+                            <div class="stat-card-subtitle">(${stats.xgAvailable})</div>
+                        </div>
+                        <div class="stat-card group-goals border-red">
+                            <div class="stat-card-label">Śr. xG -</div>
+                            <div class="stat-card-value">${stats.avgXgAgainst}</div>
+                            <div class="stat-card-subtitle">(${stats.xgAvailable})</div>
+                        </div>
+
+                        <!-- GRUPA 4: ROŻNE (fioletowe tło) -->
+                        <div class="stat-card group-corners border-green">
+                            <div class="stat-card-label">Śr. rożnych +</div>
+                            <div class="stat-card-value">${stats.avgCornersFor}</div>
+                            <div class="stat-card-subtitle">(${stats.cornersAvailable})</div>
+                        </div>
+                        <div class="stat-card group-corners border-red">
+                            <div class="stat-card-label">Śr. rożnych -</div>
+                            <div class="stat-card-value">${stats.avgCornersAgainst}</div>
+                            <div class="stat-card-subtitle">(${stats.cornersAvailable})</div>
+                        </div>
+                        <div class="stat-card group-corners border-green">
+                            <div class="stat-card-label">Najczęściej rożnych +</div>
+                            <div class="stat-card-value">${stats.mostFrequentCornersFor}</div>
+                        </div>
+                        <div class="stat-card group-corners border-red">
+                            <div class="stat-card-label">Najczęściej rożnych -</div>
+                            <div class="stat-card-value">${stats.mostFrequentCornersAgainst}</div>
+                        </div>
+                        <div class="stat-card group-corners">
+                            <div class="stat-card-label">% meczów powyżej rożnych +</div>
+                            <div class="stat-card-value">${stats.percentAboveCornersForMode}%</div>
+                            <div class="stat-card-subtitle">powyżej najczęstszej</div>
+                        </div>
+
+                        <!-- GRUPA 5: STRZAŁY (szare tło) -->
+                        <div class="stat-card group-shots border-green">
+                            <div class="stat-card-label">Śr. strzałów +</div>
+                            <div class="stat-card-value">${stats.avgShotsFor}</div>
+                            <div class="stat-card-subtitle">(${stats.shotsAvailable})</div>
+                        </div>
+                        <div class="stat-card group-shots border-red">
+                            <div class="stat-card-label">Śr. strzałów -</div>
+                            <div class="stat-card-value">${stats.avgShotsAgainst}</div>
+                            <div class="stat-card-subtitle">(${stats.shotsAvailable})</div>
+                        </div>
+                        <div class="stat-card group-shots border-green">
+                            <div class="stat-card-label">Śr. strzałów celnych +</div>
+                            <div class="stat-card-value">${stats.avgShotsOnTargetFor}</div>
+                            <div class="stat-card-subtitle">(${stats.shotsOnTargetAvailable})</div>
+                        </div>
+                        <div class="stat-card group-shots border-red">
+                            <div class="stat-card-label">Śr. strzałów celnych -</div>
+                            <div class="stat-card-value">${stats.avgShotsOnTargetAgainst}</div>
+                            <div class="stat-card-subtitle">(${stats.shotsOnTargetAvailable})</div>
+                        </div>
+
+                        <!-- GRUPA 6: SPALENI I POSIADANIE (brązowe tło) -->
+                        <div class="stat-card group-other">
+                            <div class="stat-card-label">Śr. spalonych +</div>
+                            <div class="stat-card-value">${stats.avgOffsidesFor}</div>
+                            <div class="stat-card-subtitle">(${stats.offsidesAvailable})</div>
+                        </div>
+                        <div class="stat-card group-other">
+                            <div class="stat-card-label">Śr. spalonych -</div>
+                            <div class="stat-card-value">${stats.avgOffsidesAgainst}</div>
+                            <div class="stat-card-subtitle">(${stats.offsidesAvailable})</div>
+                        </div>
+                        <div class="stat-card group-other">
+                            <div class="stat-card-label">Śr. posiadanie piłki</div>
+                            <div class="stat-card-value">${stats.avgPossession}%</div>
+                            <div class="stat-card-subtitle">(${stats.possessionAvailable})</div>
+                        </div>
                     </div>
                 </div>
             `;
+
+            // Add click handlers to all stat cards
+            setTimeout(() => {
+                const statCards = container.querySelectorAll('.stat-card:not(.highlight)');
+                statCards.forEach((card, index) => {
+                    const label = card.querySelector('.stat-card-label')?.textContent;
+                    const subtitle = card.querySelector('.stat-card-subtitle')?.textContent;
+                    const fullLabel = subtitle ? `${label} - ${subtitle}` : label;
+
+                    card.style.cursor = 'pointer';
+                    card.onclick = () => {
+                        let modalData = [];
+                        let highlightValue = null;
+
+                        // Determine which stat type based on label
+                        if (label.includes('Śr. punktów')) {
+                            // Show all matches with result
+                            modalData = stats.matchDetails.map(m => ({
+                                ...m,
+                                value: m.result === 'W' ? 3 : m.result === 'R' ? 1 : 0,
+                                displayValue: `${m.goalsScored}-${m.goalsConceded} (${m.result === 'W' ? '3 pkt' : m.result === 'R' ? '1 pkt' : '0 pkt'})`
+                            }));
+                        } else if (label.includes('% Wygranych')) {
+                            modalData = preparePercentageModalData(stats, 'wins');
+                        } else if (label.includes('% Remisów')) {
+                            modalData = preparePercentageModalData(stats, 'draws');
+                        } else if (label.includes('% Porażek')) {
+                            modalData = preparePercentageModalData(stats, 'losses');
+                        } else if (label.includes('% Wygr. 1 poł.')) {
+                            modalData = preparePercentageModalData(stats, 'firstHalfWin');
+                        } else if (label.includes('% Wygr. 2 poł.')) {
+                            modalData = preparePercentageModalData(stats, 'secondHalfWin');
+                        } else if (label.includes('% Wygr. obu poł.')) {
+                            modalData = preparePercentageModalData(stats, 'bothHalvesWin');
+                        } else if (label.includes('% Przełamań')) {
+                            // Show matches with comebacks
+                            modalData = stats.matchDetails.map(m => ({
+                                ...m,
+                                displayValue: `${m.goalsScored}-${m.goalsConceded}`
+                            }));
+                        } else if (label.includes('Śr. goli') && subtitle?.includes('strzelonych')) {
+                            if (subtitle.includes('1H')) {
+                                modalData = prepareModalData(stats, 'goalsScored1H');
+                            } else if (subtitle.includes('2H')) {
+                                modalData = prepareModalData(stats, 'goalsScored2H');
+                            } else {
+                                modalData = prepareModalData(stats, 'goalsScored');
+                            }
+                        } else if (label.includes('Śr. goli') && subtitle?.includes('straconych')) {
+                            modalData = prepareModalData(stats, 'goalsConceded');
+                        } else if (label.includes('Śr. goli') && subtitle?.includes('w sumie')) {
+                            if (subtitle.includes('1H')) {
+                                modalData = prepareModalData(stats, 'goalsTotal1H');
+                            } else if (subtitle.includes('2H')) {
+                                modalData = prepareModalData(stats, 'goalsTotal2H');
+                            } else {
+                                modalData = prepareModalData(stats, 'goalsTotal');
+                            }
+                        } else if (label.includes('Śr. xG +')) {
+                            modalData = prepareModalData(stats, 'xgFor');
+                        } else if (label.includes('Śr. xG -')) {
+                            modalData = prepareModalData(stats, 'xgAgainst');
+                        } else if (label.includes('Śr. rożnych +')) {
+                            modalData = prepareModalData(stats, 'cornersFor');
+                        } else if (label.includes('Śr. rożnych -')) {
+                            modalData = prepareModalData(stats, 'cornersAgainst');
+                        } else if (label.includes('Najczęściej rożnych +')) {
+                            modalData = prepareModalData(stats, 'cornersFor');
+                            highlightValue = stats.cornersForMode.value;
+                        } else if (label.includes('Najczęściej rożnych -')) {
+                            modalData = prepareModalData(stats, 'cornersAgainst');
+                            highlightValue = stats.cornersAgainstMode.value;
+                        } else if (label.includes('% meczów powyżej')) {
+                            modalData = prepareModalData(stats, 'cornersFor');
+                            highlightValue = stats.cornersForMode.value;
+                        } else if (label.includes('Śr. strzałów celnych +')) {
+                            modalData = prepareModalData(stats, 'shotsOnTargetFor');
+                        } else if (label.includes('Śr. strzałów celnych -')) {
+                            modalData = prepareModalData(stats, 'shotsOnTargetAgainst');
+                        } else if (label.includes('Śr. strzałów +')) {
+                            modalData = prepareModalData(stats, 'shotsFor');
+                        } else if (label.includes('Śr. strzałów -')) {
+                            modalData = prepareModalData(stats, 'shotsAgainst');
+                        } else if (label.includes('Śr. spalonych +')) {
+                            modalData = prepareModalData(stats, 'offsidesFor');
+                        } else if (label.includes('Śr. spalonych -')) {
+                            modalData = prepareModalData(stats, 'offsidesAgainst');
+                        } else if (label.includes('Śr. posiadanie')) {
+                            modalData = prepareModalData(stats, 'possession');
+                        }
+
+                        if (modalData.length > 0) {
+                            showStatModal(fullLabel, modalData, highlightValue);
+                        }
+                    };
+                });
+            }, 100);
         }
 
         function onStatsLeagueChange() {
@@ -2548,6 +3406,7 @@
                 // Store fetched matches and selected team for later filtering
                 lastFetchedMatches = allMatches;
                 selectedTeamForColoring = team;
+                homeAwayFilter = 'all'; // Reset home/away filter when changing team
 
                 // Display team statistics if a specific team is selected
                 if (team) {
@@ -2573,10 +3432,21 @@
             document.getElementById('filter-league').value = '';
             document.getElementById('filter-team').value = '';
 
+            // Clear search inputs
+            document.getElementById('filter-country-search').value = '';
+            document.getElementById('filter-league-search').value = '';
+            document.getElementById('filter-team-search').value = '';
+
+            // Reset all select options visibility
+            filterSelectOptions('filter-country', 'filter-country-search');
+            filterSelectOptions('filter-league', 'filter-league-search');
+            filterSelectOptions('filter-team', 'filter-team-search');
+
             // Reset limit to "00" (all)
             selectedLimit = null;
             lastFetchedMatches = [];
             selectedTeamForColoring = null;
+            homeAwayFilter = 'all'; // Reset home/away filter
 
             // Hide team statistics
             document.getElementById('team-stats-container').style.display = 'none';
@@ -2618,6 +3488,25 @@
             let tableHTML = `
                 <div class="results-header">
                     <div class="results-count">📊 Wyświetlam ${matches.length} meczów</div>
+                    ${selectedTeam ? `
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button class="limit-btn ${homeAwayFilter === 'all' ? 'active' : ''}" 
+                                    onclick="setHomeAwayFilter('all')" 
+                                    style="flex: 1;">
+                                Wszystkie
+                            </button>
+                            <button class="limit-btn ${homeAwayFilter === 'home' ? 'active' : ''}" 
+                                    onclick="setHomeAwayFilter('home')" 
+                                    style="flex: 1;">
+                                🏠 Mecze domowe
+                            </button>
+                            <button class="limit-btn ${homeAwayFilter === 'away' ? 'active' : ''}" 
+                                    onclick="setHomeAwayFilter('away')" 
+                                    style="flex: 1;">
+                                ✈️ Mecze wyjazdowe
+                            </button>
+                        </div>
+                    ` : ''}
                 </div>
                 <div style="overflow-x: auto;">
                     <table class="matches-table">
@@ -3151,6 +4040,90 @@
         if (document.getElementById('background-jobs-list')) {
             refreshBackgroundJobs();
         }
+    </script>
+
+    <!-- Stat Details Modal -->
+    <div id="statModal" class="modal-backdrop" onclick="closeStatModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <button class="modal-close" onclick="closeStatModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Match details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function showStatModal(statLabel, matchesData, highlightValue = null) {
+            const modal = document.getElementById('statModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+
+            modalTitle.textContent = statLabel;
+
+            // Clear previous content
+            modalBody.innerHTML = '';
+
+            if (!matchesData || matchesData.length === 0) {
+                modalBody.innerHTML = '<p style="text-align: center; color: #999;">Brak danych do wyświetlenia</p>';
+            } else {
+                matchesData.forEach(match => {
+                    const matchItem = document.createElement('div');
+                    matchItem.className = 'modal-match-item';
+
+                    // Date
+                    const dateEl = document.createElement('div');
+                    dateEl.className = 'modal-match-date';
+                    dateEl.textContent = match.date;
+
+                    // Opponent with home/away indicator
+                    const opponentEl = document.createElement('div');
+                    opponentEl.className = 'modal-match-opponent';
+                    opponentEl.textContent = `${match.opponent} (${match.homeAway})`;
+
+                    // Result badge (W/D/L)
+                    const resultEl = document.createElement('div');
+                    resultEl.className = `modal-match-result ${match.resultClass}`;
+                    resultEl.textContent = match.result;
+
+                    // Value
+                    const valueEl = document.createElement('div');
+                    valueEl.className = 'modal-match-value';
+                    if (highlightValue !== null && match.value === highlightValue) {
+                        valueEl.classList.add('highlight');
+                    }
+                    valueEl.textContent = match.displayValue;
+
+                    matchItem.appendChild(dateEl);
+                    matchItem.appendChild(opponentEl);
+                    matchItem.appendChild(resultEl);
+                    matchItem.appendChild(valueEl);
+
+                    modalBody.appendChild(matchItem);
+                });
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeStatModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+
+            const modal = document.getElementById('statModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeStatModal();
+            }
+        });
     </script>
 </body>
 

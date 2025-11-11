@@ -13,12 +13,12 @@ CREATE TABLE import_jobs (
     imported_matches INTEGER DEFAULT 0,
     failed_matches INTEGER DEFAULT 0,
     rate_limit_remaining INTEGER DEFAULT 7500,
-    rate_limit_reset_at TIMESTAMP,
+    rate_limit_reset_at TIMESTAMPTZ,           -- TIMESTAMPTZ for proper timezone handling
     error_message TEXT,
-    started_at TIMESTAMP,
-    completed_at TIMESTAMP,
-    created_at TIMESTAMP DEFAULT NOW(),
-    updated_at TIMESTAMP DEFAULT NOW()
+    started_at TIMESTAMPTZ,
+    completed_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 -- Index for querying active jobs

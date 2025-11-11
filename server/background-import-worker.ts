@@ -163,6 +163,20 @@ class BackgroundImportWorker {
 			const completedLeagues = job.progress?.completed_leagues || []
 			const remainingLeagues = selectedLeagues.filter(l => !completedLeagues.includes(l.id))
 
+			this.log(
+				job.id,
+				`Total leagues: ${selectedLeagues.length}, Completed: ${completedLeagues.length}, Remaining: ${remainingLeagues.length}`
+			)
+
+			if (completedLeagues.length > 0) {
+				this.log(
+					job.id,
+					`📝 Resuming from league ${remainingLeagues[0]?.name || 'none'} (skipped ${
+						completedLeagues.length
+					} completed leagues)`
+				)
+			}
+
 			for (const league of remainingLeagues) {
 				this.log(job.id, `Processing league: ${league.name} (${league.country})`)
 
@@ -255,6 +269,24 @@ class BackgroundImportWorker {
 						} API requests remaining`
 					)
 
+					// Mark league as completed BEFORE checking rate limit
+					completedLeagues.push(league.id)
+
+					// Update job with league completion
+					await this.updateJobStatus(job.id, 'running', {
+						...job,
+						imported_matches: (job.imported_matches || 0) + progress.importedMatches,
+						failed_matches: (job.failed_matches || 0) + progress.failedMatches,
+						rate_limit_remaining: rateLimitInfo.remaining,
+						progress: {
+							...job.progress,
+							completed_leagues: completedLeagues,
+							current_league: undefined,
+						},
+					} as any)
+
+					this.log(job.id, `✅ Completed league: ${league.name} (${completedLeagues.length}/${selectedLeagues.length})`)
+
 					// If rate limited, pause job
 					if (rateLimitInfo.remaining <= 10) {
 						// Keep small buffer
@@ -265,20 +297,11 @@ class BackgroundImportWorker {
 							progress: {
 								...job.progress,
 								completed_leagues: completedLeagues,
+								current_league: undefined,
 							},
 						} as any)
 						return // Exit and let scheduler resume later
-					} // Mark league as completed
-					completedLeagues.push(league.id)
-					await this.updateJobStatus(job.id, 'running', {
-						...job,
-						progress: {
-							...job.progress,
-							completed_leagues: completedLeagues,
-						},
-					} as any)
-
-					this.log(job.id, `✅ Completed league: ${league.name}`)
+					}
 				} catch (error: any) {
 					this.log(job.id, `❌ Error processing league ${league.name}: ${error.message}`)
 
@@ -366,7 +389,24 @@ class BackgroundImportWorker {
 
 			if (jobs.length > 0) {
 				const job = jobs[0]
+
+				// Parse progress if it's a string
+				if (typeof job.progress === 'string') {
+					job.progress = JSON.parse(job.progress)
+				}
+
 				console.log(`✅ Found job #${job.id} to process`)
+
+				// If resuming from rate_limited, reset status to running
+				if (job.status === 'rate_limited') {
+					const completedCount = job.progress?.completed_leagues?.length || 0
+					console.log(`🔄 Resuming rate-limited job #${job.id} (${completedCount} leagues already completed)`)
+					await this.updateJobStatus(job.id, 'running', {
+						...job,
+						rate_limit_reset_at: null,
+					} as any)
+				}
+
 				await this.processJob(job)
 			} else {
 				console.log('💤 No jobs to process')

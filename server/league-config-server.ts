@@ -627,7 +627,13 @@ app.get('/api/database/matches', async (req, res) => {
 				home_team, away_team,
 				home_goals, away_goals,
 				home_goals_ht, away_goals_ht,
-				result, is_finished
+				result, is_finished,
+				home_corners, away_corners,
+				home_offsides, away_offsides,
+				home_shots, away_shots,
+				home_shots_on_target, away_shots_on_target,
+				home_xg, away_xg,
+				home_possession, away_possession
 			FROM matches
 			${whereClause}
 			ORDER BY match_date DESC
@@ -646,6 +652,18 @@ app.get('/api/database/matches', async (req, res) => {
 			away_goals: match.away_goals !== null ? Number(match.away_goals) : null,
 			home_goals_ht: match.home_goals_ht !== null ? Number(match.home_goals_ht) : null,
 			away_goals_ht: match.away_goals_ht !== null ? Number(match.away_goals_ht) : null,
+			home_corners: match.home_corners !== null ? Number(match.home_corners) : null,
+			away_corners: match.away_corners !== null ? Number(match.away_corners) : null,
+			home_offsides: match.home_offsides !== null ? Number(match.home_offsides) : null,
+			away_offsides: match.away_offsides !== null ? Number(match.away_offsides) : null,
+			home_shots: match.home_shots !== null ? Number(match.home_shots) : null,
+			away_shots: match.away_shots !== null ? Number(match.away_shots) : null,
+			home_shots_on_target: match.home_shots_on_target !== null ? Number(match.home_shots_on_target) : null,
+			away_shots_on_target: match.away_shots_on_target !== null ? Number(match.away_shots_on_target) : null,
+			home_xg: match.home_xg !== null ? parseFloat(match.home_xg) : null,
+			away_xg: match.away_xg !== null ? parseFloat(match.away_xg) : null,
+			home_possession: match.home_possession !== null ? Number(match.home_possession) : null,
+			away_possession: match.away_possession !== null ? Number(match.away_possession) : null,
 		}))
 
 		console.log('📊 Found', serializedMatches.length, 'matches with filters:', { country, league, team })
