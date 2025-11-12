@@ -612,6 +612,17 @@ app.get('/api/database/matches', async (req, res) => {
 		const sort = req.query.sort as string
 		const limit = req.query.limit ? parseInt(req.query.limit as string) : 100
 
+		console.log('🔍 API /api/database/matches called with params:', {
+			country,
+			league,
+			team,
+			dateFrom,
+			dateTo,
+			isFinished,
+			sort,
+			limit,
+		})
+
 		const { PrismaClient } = await import('@prisma/client')
 		const prisma = new PrismaClient()
 
@@ -643,9 +654,13 @@ app.get('/api/database/matches', async (req, res) => {
 			const finished = isFinished === 'yes' || isFinished === 'true'
 			conditions.push(`is_finished = $${params.length + 1}`)
 			params.push(finished)
+			console.log(`   ✓ is_finished filter: "${isFinished}" → ${finished}`)
 		}
 
 		const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : ''
+
+		console.log('   SQL WHERE clause:', whereClause)
+		console.log('   SQL params:', params)
 
 		// Determine sort order
 		let orderBy = 'ORDER BY match_date DESC'
@@ -702,7 +717,16 @@ app.get('/api/database/matches', async (req, res) => {
 			away_possession: match.away_possession !== null ? Number(match.away_possession) : null,
 		}))
 
-		console.log('📊 Found', serializedMatches.length, 'matches with filters:', { country, league, team, dateFrom, dateTo, isFinished, sort, limit })
+		console.log('📊 Found', serializedMatches.length, 'matches with filters:', {
+			country,
+			league,
+			team,
+			dateFrom,
+			dateTo,
+			isFinished,
+			sort,
+			limit,
+		})
 		if (serializedMatches.length > 0) {
 			console.log('📊 Sample match (serialized):', serializedMatches[0])
 		}

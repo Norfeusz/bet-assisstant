@@ -4157,7 +4157,22 @@
             try {
                 // Fetch upcoming matches
                 const upcomingResponse = await fetch(`/api/database/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no`);
+                
+                if (!upcomingResponse.ok) {
+                    const errorData = await upcomingResponse.json();
+                    console.error('API Error:', errorData);
+                    showToast(`Błąd serwera: ${errorData.error || 'Nieznany błąd'}`, 'error');
+                    return;
+                }
+                
                 const upcomingMatches = await upcomingResponse.json();
+
+                // Check if response is an array
+                if (!Array.isArray(upcomingMatches)) {
+                    console.error('Invalid response format:', upcomingMatches);
+                    showToast('Błąd: Nieprawidłowy format odpowiedzi z serwera', 'error');
+                    return;
+                }
 
                 if (upcomingMatches.length === 0) {
                     showToast('Nie znaleziono nadchodzących meczów w wybranym zakresie', 'warning');
