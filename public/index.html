@@ -863,9 +863,6 @@
         }
 
         .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
             background: rgba(255, 255, 255, 0.2);
             border: none;
             color: white;
@@ -883,6 +880,112 @@
         .modal-close:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: rotate(90deg);
+        }
+
+        .modal-minimize {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+
+        .modal-minimize:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Minimized Modal Card */
+        .minimized-card {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(245, 87, 108, 0.4);
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            animation: slideInUp 0.3s ease-out;
+        }
+
+        .minimized-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(245, 87, 108, 0.5);
+        }
+
+        .minimized-card-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .minimized-card-icon {
+            font-size: 24px;
+        }
+
+        .minimized-card-text {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .minimized-card-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .minimized-card-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Team Link Styles */
+        .team-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .team-link:hover {
+            color: #667eea;
+            border-bottom-color: #667eea;
         }
 
         /* Bet Finder Modal Styles */
@@ -1498,7 +1601,7 @@
         <div class="tab-content" id="tab-bet-finder">
             <div class="container">
                 <h2 style="margin-bottom: 20px;">🔍 Wyszukiwarka Typów</h2>
-                
+
                 <!-- Match Count Selection -->
                 <div class="section">
                     <h3>Liczba meczów do analizy</h3>
@@ -4027,7 +4130,7 @@
 
             // Add event listeners for match count buttons
             document.querySelectorAll('.match-count-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     document.querySelectorAll('.match-count-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     selectedMatchCount = this.dataset.count === 'all' ? null : parseInt(this.dataset.count);
@@ -4142,18 +4245,27 @@
             };
         }
 
+        // Store modal data globally
+        let currentModalResults = null;
+
         function showMostGoalsModal(results) {
             if (results.length === 0) {
                 showToast('Brak wyników do wyświetlenia', 'warning');
                 return;
             }
 
+            // Store results for minimize/restore
+            currentModalResults = results;
+
             let modalHTML = `
                 <div class="modal-backdrop" onclick="closeModal()"></div>
                 <div class="modal-dialog" style="max-width: 1200px;">
                     <div class="modal-header">
                         <h2>⚽ TOP 10 - Najwięcej bramek</h2>
-                        <button class="modal-close" onclick="closeModal()">×</button>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="modal-minimize" onclick="minimizeModal()" title="Minimalizuj">−</button>
+                            <button class="modal-close" onclick="closeModal()">×</button>
+                        </div>
                     </div>
                     <div class="modal-body">
                         <table class="results-table">
@@ -4181,9 +4293,17 @@
                         <td style="font-weight: 700; color: #667eea;">${index + 1}</td>
                         <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
                         <td style="font-size: 12px; color: #666;">${result.league}</td>
-                        <td style="font-weight: 600;">${result.homeTeam}</td>
+                        <td style="font-weight: 600;">
+                            <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
+                                ${result.homeTeam}
+                            </a>
+                        </td>
                         <td>${homeStatsText}</td>
-                        <td style="font-weight: 600;">${result.awayTeam}</td>
+                        <td style="font-weight: 600;">
+                            <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
+                                ${result.awayTeam}
+                            </a>
+                        </td>
                         <td>${awayStatsText}</td>
                         <td style="font-weight: 700; font-size: 18px; color: #f5576c;">${result.averageGoals}</td>
                     </tr>
@@ -4204,11 +4324,80 @@
             document.body.appendChild(modalContainer);
         }
 
+        function minimizeModal() {
+            const modal = document.getElementById('bet-finder-modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+
+            // Show minimized card
+            let miniCard = document.getElementById('minimized-modal-card');
+            if (!miniCard) {
+                miniCard = document.createElement('div');
+                miniCard.id = 'minimized-modal-card';
+                miniCard.className = 'minimized-card';
+                miniCard.innerHTML = `
+                    <div class="minimized-card-content" onclick="restoreModal()">
+                        <span class="minimized-card-icon">⚽</span>
+                        <span class="minimized-card-text">TOP 10 - Najwięcej bramek</span>
+                    </div>
+                    <button class="minimized-card-close" onclick="closeModalCompletely(event)">×</button>
+                `;
+                document.body.appendChild(miniCard);
+            } else {
+                miniCard.style.display = 'flex';
+            }
+        }
+
+        function restoreModal() {
+            const miniCard = document.getElementById('minimized-modal-card');
+            if (miniCard) {
+                miniCard.style.display = 'none';
+            }
+
+            const modal = document.getElementById('bet-finder-modal');
+            if (modal) {
+                modal.style.display = 'flex';
+            } else if (currentModalResults) {
+                // Recreate modal if it was removed
+                showMostGoalsModal(currentModalResults);
+            }
+        }
+
         function closeModal() {
             const modal = document.getElementById('bet-finder-modal');
             if (modal) {
                 modal.remove();
             }
+            const miniCard = document.getElementById('minimized-modal-card');
+            if (miniCard) {
+                miniCard.remove();
+            }
+            currentModalResults = null;
+        }
+
+        function closeModalCompletely(event) {
+            event.stopPropagation();
+            closeModal();
+        }
+
+        function openTeamStats(teamName) {
+            // Close/minimize current modal
+            minimizeModal();
+
+            // Switch to database tab
+            switchTab('database');
+
+            // Wait for tab to load, then set team filter
+            setTimeout(() => {
+                const teamInput = document.getElementById('filter-team');
+                if (teamInput) {
+                    teamInput.value = teamName;
+                    
+                    // Trigger search
+                    searchDatabase();
+                }
+            }, 100);
         }
 
         // ===== BACKGROUND IMPORT FUNCTIONS =====
