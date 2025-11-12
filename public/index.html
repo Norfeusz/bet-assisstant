@@ -484,6 +484,102 @@
             border-color: #667eea;
         }
 
+        /* Bet Finder Styles */
+        .match-count-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .match-count-btn {
+            padding: 10px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 60px;
+        }
+
+        .match-count-btn:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+            transform: translateY(-2px);
+        }
+
+        .match-count-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .date-range-selector {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .date-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .date-input-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .date-input {
+            padding: 10px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .bet-finder-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .bet-finder-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+
+        .bet-finder-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.5);
+        }
+
+        .bet-finder-btn:active {
+            transform: translateY(-1px);
+        }
+
         /* Team Statistics Panel */
         .team-stats-panel {
             background: white;
@@ -787,6 +883,86 @@
         .modal-close:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: rotate(90deg);
+        }
+
+        /* Bet Finder Modal Styles */
+        #bet-finder-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #bet-finder-modal .modal-backdrop {
+            display: block;
+        }
+
+        #bet-finder-modal .modal-dialog {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            max-width: 1200px;
+            width: 95%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 10001;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        #bet-finder-modal .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 16px 16px 0 0;
+        }
+
+        #bet-finder-modal .modal-header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        #bet-finder-modal .modal-body {
+            padding: 25px 30px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        #bet-finder-modal .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        #bet-finder-modal .results-table th {
+            background: #f9fafb;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 700;
+            color: #374151;
+            border-bottom: 2px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        #bet-finder-modal .results-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        #bet-finder-modal .results-table tr:hover {
+            background: #fef3f4;
         }
 
         @keyframes fadeIn {
@@ -1112,6 +1288,9 @@
                 <button class="tab-button" onclick="switchTab('database')">
                     🗄️ Baza Danych
                 </button>
+                <button class="tab-button" onclick="switchTab('bet-finder')">
+                    🔍 Wyszukiwarka Typów
+                </button>
             </div>
         </div>
 
@@ -1314,6 +1493,55 @@
             </div>
         </div>
         <!-- End Tab Content: Database -->
+
+        <!-- Tab Content: Bet Finder -->
+        <div class="tab-content" id="tab-bet-finder">
+            <div class="container">
+                <h2 style="margin-bottom: 20px;">🔍 Wyszukiwarka Typów</h2>
+                
+                <!-- Match Count Selection -->
+                <div class="section">
+                    <h3>Liczba meczów do analizy</h3>
+                    <div class="match-count-selector">
+                        <button class="match-count-btn" data-count="5">5</button>
+                        <button class="match-count-btn active" data-count="10">10</button>
+                        <button class="match-count-btn" data-count="15">15</button>
+                        <button class="match-count-btn" data-count="20">20</button>
+                        <button class="match-count-btn" data-count="30">30</button>
+                        <button class="match-count-btn" data-count="50">50</button>
+                        <button class="match-count-btn" data-count="all">Wszystkie</button>
+                    </div>
+                </div>
+
+                <!-- Date Range Selection -->
+                <div class="section">
+                    <h3>Zakres dat nadchodzących meczów</h3>
+                    <div class="date-range-selector">
+                        <div class="date-input-group">
+                            <label for="bet-finder-date-from">Od:</label>
+                            <input type="date" id="bet-finder-date-from" class="date-input">
+                        </div>
+                        <div class="date-input-group">
+                            <label for="bet-finder-date-to">Do:</label>
+                            <input type="date" id="bet-finder-date-to" class="date-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Buttons -->
+                <div class="section">
+                    <h3>Wyszukaj typy</h3>
+                    <div class="bet-finder-buttons">
+                        <button class="bet-finder-btn" onclick="findMostGoals()">
+                            ⚽ Najwięcej bramek
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results will be shown in modal -->
+            </div>
+        </div>
+        <!-- End Tab Content: Bet Finder -->
 
     </div>
 
@@ -2361,6 +2589,11 @@
             if (tabName === 'database') {
                 loadDatabaseFilters();
             }
+
+            // Initialize bet finder tab
+            if (tabName === 'bet-finder') {
+                initBetFinder();
+            }
         }
 
         // =====================================
@@ -2684,7 +2917,7 @@
             let firstHalfWins = 0, secondHalfWins = 0, bothHalvesWins = 0;
             let comebackWins = 0, comebackLosses = 0;
             let firstHalfAndFullWins = 0; // Wygrana 1H i cały mecz
-            
+
             // Over/Under stats
             let bothTeamsScored = 0; // BTS - obie drużyny strzeliły
             let noGoalsScored = 0; // 0 goli strzelonych
@@ -2843,15 +3076,15 @@
                 // Over/Under stats
                 const teamGoalsScored = isHome ? homeGoals : awayGoals;
                 const oppGoalsScored = isHome ? awayGoals : homeGoals;
-                
+
                 // BTS - Both Teams to Score
                 if (homeGoals > 0 && awayGoals > 0) bothTeamsScored++;
-                
+
                 // Goals scored
                 if (teamGoalsScored === 0) noGoalsScored++;
                 if (teamGoalsScored >= 1) atLeast1GoalScored++;
                 if (teamGoalsScored >= 2) atLeast2GoalsScored++;
-                
+
                 // Goals conceded
                 if (oppGoalsScored === 0) cleanSheet++;
                 if (oppGoalsScored >= 1) atLeast1GoalConceded++;
@@ -3777,6 +4010,206 @@
 
         // Initialize
         init();
+
+        // =====================================
+        // BET FINDER
+        // =====================================
+        let selectedMatchCount = 10;
+
+        function initBetFinder() {
+            // Set default dates (today + 7 days)
+            const today = new Date();
+            const nextWeek = new Date();
+            nextWeek.setDate(today.getDate() + 7);
+
+            document.getElementById('bet-finder-date-from').valueAsDate = today;
+            document.getElementById('bet-finder-date-to').valueAsDate = nextWeek;
+
+            // Add event listeners for match count buttons
+            document.querySelectorAll('.match-count-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.match-count-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedMatchCount = this.dataset.count === 'all' ? null : parseInt(this.dataset.count);
+                });
+            });
+        }
+
+        async function findMostGoals() {
+            const dateFrom = document.getElementById('bet-finder-date-from').value;
+            const dateTo = document.getElementById('bet-finder-date-to').value;
+
+            if (!dateFrom || !dateTo) {
+                showToast('Wybierz zakres dat', 'error');
+                return;
+            }
+
+            if (new Date(dateFrom) > new Date(dateTo)) {
+                showToast('Data "od" nie może być późniejsza niż "do"', 'error');
+                return;
+            }
+
+            showToast('Wyszukuję mecze...', 'info');
+
+            try {
+                // Fetch upcoming matches
+                const upcomingResponse = await fetch(`/api/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no`);
+                const upcomingMatches = await upcomingResponse.json();
+
+                if (upcomingMatches.length === 0) {
+                    showToast('Nie znaleziono nadchodzących meczów w wybranym zakresie', 'warning');
+                    return;
+                }
+
+                showToast(`Znaleziono ${upcomingMatches.length} nadchodzących meczów. Analizuję...`, 'info');
+
+                // Calculate goal statistics for each match
+                const matchStats = [];
+
+                for (const match of upcomingMatches) {
+                    const homeTeam = match.home_team;
+                    const awayTeam = match.away_team;
+                    const league = match.league;
+
+                    // Fetch historical matches for both teams from the same league
+                    const homeHistoryResponse = await fetch(
+                        `/api/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
+                    );
+                    const homeHistory = await homeHistoryResponse.json();
+
+                    const awayHistoryResponse = await fetch(
+                        `/api/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
+                    );
+                    const awayHistory = await awayHistoryResponse.json();
+
+                    // Calculate goal statistics
+                    const homeStats = calculateGoalStats(homeHistory, homeTeam);
+                    const awayStats = calculateGoalStats(awayHistory, awayTeam);
+
+                    const totalGoals = homeStats.totalGoals + awayStats.totalGoals;
+                    const totalMatches = homeStats.matchCount + awayStats.matchCount;
+                    const averageGoals = totalMatches > 0 ? (totalGoals / totalMatches).toFixed(2) : 0;
+
+                    matchStats.push({
+                        date: match.date,
+                        league: match.league,
+                        homeTeam: match.home_team,
+                        awayTeam: match.away_team,
+                        homeStats,
+                        awayStats,
+                        totalGoals,
+                        averageGoals: parseFloat(averageGoals)
+                    });
+                }
+
+                // Sort by average goals (descending) and take top 10
+                matchStats.sort((a, b) => b.averageGoals - a.averageGoals);
+                const top10 = matchStats.slice(0, 10);
+
+                // Show results in modal
+                showMostGoalsModal(top10);
+
+            } catch (error) {
+                console.error('Error finding most goals:', error);
+                showToast('Błąd podczas wyszukiwania', 'error');
+            }
+        }
+
+        function calculateGoalStats(matches, teamName) {
+            let totalGoalsScored = 0;
+            let totalGoalsConceded = 0;
+            let matchCount = 0;
+
+            matches.forEach(match => {
+                const isHome = match.home_team === teamName;
+                const goalsScored = isHome ? match.home_goals : match.away_goals;
+                const goalsConceded = isHome ? match.away_goals : match.home_goals;
+
+                totalGoalsScored += goalsScored || 0;
+                totalGoalsConceded += goalsConceded || 0;
+                matchCount++;
+            });
+
+            const totalGoals = totalGoalsScored + totalGoalsConceded;
+            const avgGoals = matchCount > 0 ? (totalGoals / matchCount).toFixed(2) : 0;
+
+            return {
+                totalGoalsScored,
+                totalGoalsConceded,
+                totalGoals,
+                matchCount,
+                avgGoals: parseFloat(avgGoals)
+            };
+        }
+
+        function showMostGoalsModal(results) {
+            if (results.length === 0) {
+                showToast('Brak wyników do wyświetlenia', 'warning');
+                return;
+            }
+
+            let modalHTML = `
+                <div class="modal-backdrop" onclick="closeModal()"></div>
+                <div class="modal-dialog" style="max-width: 1200px;">
+                    <div class="modal-header">
+                        <h2>⚽ TOP 10 - Najwięcej bramek</h2>
+                        <button class="modal-close" onclick="closeModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Data</th>
+                                    <th>Liga</th>
+                                    <th>Gospodarze</th>
+                                    <th>Statystyki gospodarzy</th>
+                                    <th>Goście</th>
+                                    <th>Statystyki gości</th>
+                                    <th>Łączna średnia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            `;
+
+            results.forEach((result, index) => {
+                const homeStatsText = `${result.homeStats.totalGoalsScored}:${result.homeStats.totalGoalsConceded} (śr. ${result.homeStats.avgGoals})`;
+                const awayStatsText = `${result.awayStats.totalGoalsScored}:${result.awayStats.totalGoalsConceded} (śr. ${result.awayStats.avgGoals})`;
+
+                modalHTML += `
+                    <tr>
+                        <td style="font-weight: 700; color: #667eea;">${index + 1}</td>
+                        <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                        <td style="font-size: 12px; color: #666;">${result.league}</td>
+                        <td style="font-weight: 600;">${result.homeTeam}</td>
+                        <td>${homeStatsText}</td>
+                        <td style="font-weight: 600;">${result.awayTeam}</td>
+                        <td>${awayStatsText}</td>
+                        <td style="font-weight: 700; font-size: 18px; color: #f5576c;">${result.averageGoals}</td>
+                    </tr>
+                `;
+            });
+
+            modalHTML += `
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            // Create and show modal
+            const modalContainer = document.createElement('div');
+            modalContainer.id = 'bet-finder-modal';
+            modalContainer.innerHTML = modalHTML;
+            document.body.appendChild(modalContainer);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('bet-finder-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
 
         // ===== BACKGROUND IMPORT FUNCTIONS =====
         let backgroundJobsInterval = null;
