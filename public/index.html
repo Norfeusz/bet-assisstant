@@ -2817,8 +2817,10 @@
                 if (teamGoalsHT > oppGoalsHT && teamGoals2H > oppGoals2H) bothHalvesWins++;
 
                 // Comebacks
-                if (teamGoalsHT < oppGoalsHT && teamGoalsFT > oppGoalsFT) comebackWins++;
-                if (teamGoalsHT > oppGoalsHT && teamGoalsFT < oppGoalsFT) comebackLosses++;
+                const isComebackWin = teamGoalsHT < oppGoalsHT && teamGoalsFT > oppGoalsFT;
+                const isComebackLoss = teamGoalsHT > oppGoalsHT && teamGoalsFT < oppGoalsFT;
+                if (isComebackWin) comebackWins++;
+                if (isComebackLoss) comebackLosses++;
 
                 // Store detailed match data for modal
                 const matchDate = new Date(match.match_date);
@@ -2843,6 +2845,9 @@
                     goalsScored2H: teamGoals2H,
                     goalsTotal1H: homeGoalsHT + awayGoalsHT,
                     goalsTotal2H: teamGoals2H + oppGoals2H,
+                    // Comeback flags
+                    isComebackWin: isComebackWin,
+                    isComebackLoss: isComebackLoss,
                     // Advanced stats
                     cornersFor: isHome ? match.home_corners : match.away_corners,
                     cornersAgainst: isHome ? match.away_corners : match.home_corners,
@@ -3299,9 +3304,29 @@
                             modalData = preparePercentageModalData(stats, 'secondHalfWin');
                         } else if (label.includes('% Wygr. obu poł.')) {
                             modalData = preparePercentageModalData(stats, 'bothHalvesWin');
+                        } else if (label.includes('% Przełamań +')) {
+                            // Show only matches with comeback wins (przegr.→wygr.)
+                            modalData = stats.matchDetails
+                                .filter(m => m.isComebackWin)
+                                .map(m => ({
+                                    ...m,
+                                    displayValue: `${m.goalsScored}-${m.goalsConceded}`,
+                                    highlight: true
+                                }));
+                        } else if (label.includes('% Przełamań -')) {
+                            // Show only matches with comeback losses (wygr.→przegr.)
+                            modalData = stats.matchDetails
+                                .filter(m => m.isComebackLoss)
+                                .map(m => ({
+                                    ...m,
+                                    displayValue: `${m.goalsScored}-${m.goalsConceded}`,
+                                    highlight: true
+                                }));
                         } else if (label.includes('% Przełamań')) {
-                            // Show matches with comebacks
-                            modalData = stats.matchDetails.map(m => ({
+                            // Fallback for general "% Przełamań" (should not happen with + or -)
+                            modalData = stats.matchDetails
+                                .filter(m => m.isComebackWin || m.isComebackLoss)
+                                .map(m => ({
                                 ...m,
                                 displayValue: `${m.goalsScored}-${m.goalsConceded}`
                             }));
