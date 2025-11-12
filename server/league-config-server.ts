@@ -606,6 +606,11 @@ app.get('/api/database/matches', async (req, res) => {
 		const country = req.query.country as string
 		const league = req.query.league as string
 		const team = req.query.team as string
+		const dateFrom = req.query.date_from as string
+		const dateTo = req.query.date_to as string
+		const isFinished = req.query.is_finished as string
+		const sort = req.query.sort as string
+		const limit = req.query.limit ? parseInt(req.query.limit as string) : 100
 
 		const { PrismaClient } = await import('@prisma/client')
 		const prisma = new PrismaClient()
@@ -626,8 +631,29 @@ app.get('/api/database/matches', async (req, res) => {
 			conditions.push(`(home_team = $${params.length + 1} OR away_team = $${params.length + 1})`)
 			params.push(team)
 		}
+		if (dateFrom) {
+			conditions.push(`match_date >= $${params.length + 1}`)
+			params.push(dateFrom)
+		}
+		if (dateTo) {
+			conditions.push(`match_date <= $${params.length + 1}`)
+			params.push(dateTo)
+		}
+		if (isFinished !== undefined) {
+			const finished = isFinished === 'yes' || isFinished === 'true'
+			conditions.push(`is_finished = $${params.length + 1}`)
+			params.push(finished)
+		}
 
 		const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : ''
+
+		// Determine sort order
+		let orderBy = 'ORDER BY match_date DESC'
+		if (sort === 'date_asc') {
+			orderBy = 'ORDER BY match_date ASC'
+		} else if (sort === 'date_desc') {
+			orderBy = 'ORDER BY match_date DESC'
+		}
 
 		// Query matches
 		const matches = await prisma.$queryRawUnsafe(
@@ -646,8 +672,8 @@ app.get('/api/database/matches', async (req, res) => {
 				home_possession, away_possession
 			FROM matches
 			${whereClause}
-			ORDER BY match_date DESC
-			LIMIT 100
+			${orderBy}
+			LIMIT ${limit}
 		`,
 			...params
 		)
@@ -676,7 +702,7 @@ app.get('/api/database/matches', async (req, res) => {
 			away_possession: match.away_possession !== null ? Number(match.away_possession) : null,
 		}))
 
-		console.log('📊 Found', serializedMatches.length, 'matches with filters:', { country, league, team })
+		console.log('📊 Found', serializedMatches.length, 'matches with filters:', { country, league, team, dateFrom, dateTo, isFinished, sort, limit })
 		if (serializedMatches.length > 0) {
 			console.log('📊 Sample match (serialized):', serializedMatches[0])
 		}

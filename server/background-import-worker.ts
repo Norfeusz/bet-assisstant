@@ -265,9 +265,7 @@ class BackgroundImportWorker {
 
 					this.log(
 						job.id,
-						`📊 Progress: ${cumulativeImported} total imported, ${
-							rateLimitInfo.remaining
-						} API requests remaining`
+						`📊 Progress: ${cumulativeImported} total imported, ${rateLimitInfo.remaining} API requests remaining`
 					)
 
 					// Mark league as completed BEFORE checking rate limit

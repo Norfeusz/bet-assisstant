@@ -4053,7 +4053,7 @@
 
             try {
                 // Fetch upcoming matches
-                const upcomingResponse = await fetch(`/api/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no`);
+                const upcomingResponse = await fetch(`/api/database/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no`);
                 const upcomingMatches = await upcomingResponse.json();
 
                 if (upcomingMatches.length === 0) {
@@ -4073,12 +4073,12 @@
 
                     // Fetch historical matches for both teams from the same league
                     const homeHistoryResponse = await fetch(
-                        `/api/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
+                        `/api/database/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
                     );
                     const homeHistory = await homeHistoryResponse.json();
 
                     const awayHistoryResponse = await fetch(
-                        `/api/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
+                        `/api/database/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
                     );
                     const awayHistory = await awayHistoryResponse.json();
 
@@ -4091,7 +4091,7 @@
                     const averageGoals = totalMatches > 0 ? (totalGoals / totalMatches).toFixed(2) : 0;
 
                     matchStats.push({
-                        date: match.date,
+                        date: match.match_date,
                         league: match.league,
                         homeTeam: match.home_team,
                         awayTeam: match.away_team,

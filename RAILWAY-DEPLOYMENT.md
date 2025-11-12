@@ -3,6 +3,7 @@
 Kompletny przewodnik wdrożenia aplikacji Bet Assistant na platformie Railway.
 
 ## 📋 Spis treści
+
 1. [Wymagania wstępne](#wymagania-wstępne)
 2. [Przygotowanie projektu](#przygotowanie-projektu)
 3. [Konfiguracja Railway](#konfiguracja-railway)
@@ -15,15 +16,18 @@ Kompletny przewodnik wdrożenia aplikacji Bet Assistant na platformie Railway.
 ## 🎯 Wymagania wstępne
 
 ### 1. Konto GitHub
+
 - Projekt musi być w repozytorium GitHub
 - Railway będzie automatycznie deployować z GitHub przy każdym push
 
 ### 2. Konto Railway
+
 - Zarejestruj się na: https://railway.app
 - Połącz z kontem GitHub
 - **Darmowy tier: $5 miesięcznie w kredytach** (wystarczy dla tego projektu!)
 
 ### 3. API Football Key
+
 - Zarejestruj się na: https://dashboard.api-football.com/register
 - Pobierz swój API key (plan FREE: 100 requests/day)
 - Zapisz klucz - będzie potrzebny w konfiguracji
@@ -115,16 +119,20 @@ TZ=Europe/Warsaw
 Railway automatycznie wykryje `Procfile` z dwoma procesami:
 
 **Proces 1: Web (Server)**
+
 ```
 web: npm run railway:server
 ```
+
 - Port: Railway automatycznie ustawi `PORT` (zazwyczaj 443/80)
 - URL: Railway wygeneruje publiczny URL (np. `bet-assistant.up.railway.app`)
 
 **Proces 2: Worker (Background Import)**
+
 ```
 worker: npm run railway:worker
 ```
+
 - Działa w tle bez portu
 - Automatycznie importuje mecze co 15 minut
 
@@ -140,6 +148,7 @@ Railway domyślnie uruchamia tylko proces `web`. Aby dodać `worker`:
    - **Variables**: Skopiuj wszystkie zmienne ze serwisu Web (lub użyj shared variables)
 
 **Alternatywa: Użyj tej samej zmiennej DATABASE_URL**
+
 - W Worker → Variables → **"+ Reference Variable"**
 - Wybierz `DATABASE_URL` z serwisu PostgreSQL
 - Dodaj pozostałe zmienne (API_FOOTBALL_KEY itp.)
@@ -147,6 +156,7 @@ Railway domyślnie uruchamia tylko proces `web`. Aby dodać `worker`:
 ### Krok 3: Deployment automatyczny
 
 Railway automatycznie:
+
 1. ✅ Klonuje repozytorium
 2. ✅ Instaluje zależności (`npm install`)
 3. ✅ Generuje Prisma Client (`prisma generate`)
@@ -163,6 +173,7 @@ Railway automatycznie:
 ### 1. Sprawdź statusy serwisów
 
 Po deployment:
+
 - **Web**: Status powinien być **"Active"** z zielonym wskaźnikiem
 - **Worker**: Status powinien być **"Active"** (bez publicznego URL)
 - **PostgreSQL**: Status powinien być **"Active"**
@@ -170,11 +181,13 @@ Po deployment:
 ### 2. Sprawdź logi
 
 #### Logi Web (Server):
+
 ```
 Kliknij na serwis Web → Zakładka "Deployments" → Najnowszy deployment
 ```
 
 Oczekiwane logi:
+
 ```
 ✅ Database connected successfully
 ✅ Prisma Client generated
@@ -183,11 +196,13 @@ Oczekiwane logi:
 ```
 
 #### Logi Worker:
+
 ```
 Kliknij na serwis Worker → Zakładka "Deployments" → Najnowszy deployment
 ```
 
 Oczekiwane logi:
+
 ```
 ✅ Database connected successfully
 🔄 Background import worker started
@@ -197,30 +212,34 @@ Oczekiwane logi:
 ### 3. Testuj aplikację
 
 #### 3.1. Otwórz aplikację
+
 ```
 Kliknij na serwis Web → "View Deployment" lub skopiuj URL
 ```
 
 Powinieneś zobaczyć:
+
 - ✅ Interfejs główny aplikacji
 - ✅ Sekcję konfiguracji lig
 - ✅ Statystyki drużyn
 
 #### 3.2. Sprawdź API
+
 ```
 https://TWÓJ-URL.up.railway.app/api/rate-limit
 ```
 
 Oczekiwana odpowiedź JSON:
+
 ```json
 {
-  "date": "2025-11-11",
-  "dailyRequests": 0,
-  "dailyLimit": 100,
-  "dailyRemaining": 100,
-  "hourlyRequests": 0,
-  "hourlyLimit": 10,
-  "hourlyRemaining": 10
+	"date": "2025-11-11",
+	"dailyRequests": 0,
+	"dailyLimit": 100,
+	"dailyRemaining": 100,
+	"hourlyRequests": 0,
+	"hourlyLimit": 10,
+	"hourlyRemaining": 10
 }
 ```
 
@@ -239,6 +258,7 @@ Worker automatycznie rozpocznie import w tle!
 Railway Dashboard → Projekt → Zakładka **"Metrics"**
 
 Sprawdź:
+
 - **Memory**: Powinno być ~100-200MB dla każdego serwisu
 - **CPU**: Powinno być <5% w spoczynku, ~20-40% podczas importu
 - **Network**: Zależne od liczby importowanych meczów
@@ -248,6 +268,7 @@ Sprawdź:
 Railway Dashboard → Projekt → Zakładka **"Usage"**
 
 Oczekiwane zużycie miesięczne:
+
 ```
 Web:      ~$1.50 (shared-cpu-1x, ~150MB RAM, 24/7)
 Worker:   ~$1.50 (shared-cpu-1x, ~150MB RAM, 24/7)
@@ -266,6 +287,7 @@ RAZEM:    ~$4.00/miesiąc
 ### Problem 1: Błąd "DATABASE_URL is not set"
 
 **Rozwiązanie:**
+
 1. Sprawdź czy PostgreSQL jest dodany do projektu
 2. W serwisie Web/Worker → Variables → Zweryfikuj `DATABASE_URL`
 3. Jeśli brak, dodaj Reference Variable do PostgreSQL
@@ -273,6 +295,7 @@ RAZEM:    ~$4.00/miesiąc
 ### Problem 2: Błąd "API_FOOTBALL_KEY is not set"
 
 **Rozwiązanie:**
+
 1. Przejdź do Variables w serwisie Web i Worker
 2. Dodaj zmienną:
    ```
@@ -283,6 +306,7 @@ RAZEM:    ~$4.00/miesiąc
 ### Problem 3: Worker się nie uruchamia
 
 **Rozwiązanie:**
+
 1. Sprawdź logi Worker:
    ```
    Worker → Deployments → Najnowszy deployment → View Logs
@@ -300,6 +324,7 @@ Lokalny licznik `data/rate-limit.json` nie jest przenoszony do Railway.
 Railway rozpoczyna z czystym licznikiem (0/100).
 
 Jeśli problem występuje:
+
 1. Sprawdź logi - błąd może pochodzić z API Football (zewnętrzne limity)
 2. Zweryfikuj swój plan na API Football Dashboard
 3. Dostosuj zmienne:
@@ -311,6 +336,7 @@ Jeśli problem występuje:
 ### Problem 5: Migracje nie działają
 
 **Rozwiązanie:**
+
 1. Sprawdź czy `prisma/migrations/` są w repozytorium Git
 2. Upewnij się że `railway:server` zawiera:
    ```json
@@ -324,10 +350,12 @@ Jeśli problem występuje:
 ### Problem 6: Out of Memory (OOM)
 
 **Objawy:**
+
 - Serwis restartuje się losowo
 - Logi: "Process exited with code 137"
 
 **Rozwiązanie:**
+
 1. W Railway → Serwis → Settings → **Increase Memory Limit**
 2. Zmień z 512MB na 1GB (nadal w free tier!)
 3. Zoptymalizuj kod (mniej równoczesnych requestów do API)
@@ -335,6 +363,7 @@ Jeśli problem występuje:
 ### Problem 7: Deployment failed - "Could not find dependency"
 
 **Rozwiązanie:**
+
 1. Upewnij się, że `package.json` zawiera wszystkie dependencies
 2. Zacommituj i push:
    ```powershell

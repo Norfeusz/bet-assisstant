@@ -1,6 +1,7 @@
 # 🗄️ Jak zastosować migracje Prisma w Railway
 
 ## 📋 Problem
+
 Railway utworzył pustą bazę PostgreSQL. Musisz zaaplikować migracje Prisma aby utworzyć tabele.
 
 ---
@@ -14,9 +15,11 @@ Railway **automatycznie** uruchomi migracje przy pierwszym deployment, ponieważ
 ```
 
 ### Kroki:
+
 1. ✅ **Push kod do GitHub** (już zrobione)
 2. ✅ **Railway automatycznie wykryje zmiany**
 3. ✅ **Railway uruchomi:**
+
    - `npm install`
    - `prisma generate` (wygeneruje Prisma Client)
    - `prisma migrate deploy` ← **To zastosuje migracje!**
@@ -65,6 +68,7 @@ npx prisma db pull
 ```
 
 **Oczekiwany output:**
+
 ```
 Applying migration `20251111000000_initial_schema`
 The following migration(s) have been applied:
@@ -121,11 +125,13 @@ railway run npx prisma migrate deploy
 ## 🔍 Weryfikacja po zastosowaniu migracji
 
 ### Sprawdź logi Web Service:
+
 ```
 Railway → Web Service → Deployments → View Logs
 ```
 
 Szukaj:
+
 ```
 ✅ Applying migration `20251111000000_initial_schema`
 ✅ Database schema updated!
@@ -143,19 +149,24 @@ Szukaj:
 ### Sprawdź bazę danych bezpośrednio:
 
 **Opcja A: Railway Dashboard**
+
 ```
 Railway → PostgreSQL → Database → Data
 ```
+
 Powinieneś zobaczyć:
+
 - `matches` (0 rows)
 - `import_jobs` (0 rows)
 - `_prisma_migrations` (1 row)
 
 **Opcja B: Prisma Studio (lokalnie)**
+
 ```powershell
 $env:DATABASE_URL="postgresql://postgres:PASSWORD@HOST:PORT/railway"
 npm run db:studio
 ```
+
 Otwiera GUI w przeglądarce na `http://localhost:5555`
 
 ---
@@ -163,25 +174,32 @@ Otwiera GUI w przeglądarce na `http://localhost:5555`
 ## 🐛 Troubleshooting
 
 ### Problem: "No pending migrations to apply"
+
 **Przyczyna:** Migracje już zostały zastosowane  
 **Rozwiązanie:** Sprawdź czy tabele istnieją w bazie (Railway → PostgreSQL → Data)
 
 ### Problem: "Can't reach database server"
+
 **Przyczyna:** Błędny DATABASE_URL  
 **Rozwiązanie:**
+
 1. Zweryfikuj DATABASE_URL w Railway Variables
 2. Upewnij się że PostgreSQL Service jest uruchomiony (🟢 Active)
 3. Sprawdź firewall/VPN
 
 ### Problem: "Environment variable not found: DATABASE_URL"
+
 **Przyczyna:** Zmienna nie jest ustawiona  
 **Rozwiązanie:**
+
 - Railway: Sprawdź Variables w PostgreSQL Service
 - Lokalnie: Ustaw `$env:DATABASE_URL="..."`
 
 ### Problem: "P3009: migrate found failed migration"
+
 **Przyczyna:** Poprzednia migracja się nie powiodła  
 **Rozwiązanie:**
+
 ```powershell
 # Oznacz migrację jako wykonaną (jeśli tabele już istnieją)
 npx prisma migrate resolve --applied 20251111000000_initial_schema
@@ -191,8 +209,10 @@ npx prisma migrate reset
 ```
 
 ### Problem: Tabele istnieją ale mają inną strukturę
+
 **Przyczyna:** Ręcznie utworzone tabele nie pasują do schema  
 **Rozwiązanie:**
+
 ```powershell
 # Opcja 1: Aktualizuj schema.prisma na podstawie istniejącej bazy
 npx prisma db pull
@@ -256,6 +276,7 @@ import_jobs:
 Railway **automatycznie zastosuje migracje** przy pierwszym deployment dzięki skryptowi `railway:server`.
 
 **Sprawdź logi Railway:**
+
 ```
 Web Service → Deployments → View Logs → Szukaj "Applying migration"
 ```

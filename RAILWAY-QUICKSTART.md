@@ -8,6 +8,7 @@ git push origin main
 ```
 
 Potrzebujesz:
+
 - ✅ Konto GitHub z projektem
 - ✅ Klucz API Football: https://dashboard.api-football.com/register
 
@@ -74,17 +75,20 @@ Twoja aplikacja działa na Railway!
 ### Sprawdź:
 
 **Web URL:**
+
 ```
 https://bet-assistant-production.up.railway.app
 (Railway wygeneruje unikalny URL)
 ```
 
 **Statusy serwisów:**
+
 - 🟢 Web: Active
-- 🟢 Worker: Active  
+- 🟢 Worker: Active
 - 🟢 PostgreSQL: Active
 
 **Logi:**
+
 ```
 Web → Deployments → View Logs
 Worker → Deployments → View Logs
@@ -112,6 +116,7 @@ RAZEM:    ~$4.00/miesiąc
 Szczegółowy przewodnik: **[RAILWAY-DEPLOYMENT.md](./RAILWAY-DEPLOYMENT.md)**
 
 Zawiera:
+
 - ✅ Troubleshooting
 - ✅ Monitoring
 - ✅ Rozwiązywanie problemów
