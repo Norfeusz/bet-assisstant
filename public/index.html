@@ -4474,363 +4474,58 @@
             });
         }
 
-        async function findMostGoals() {
+        // ===== SHARED UTILITY FUNCTIONS =====
+        
+        /**
+         * Validates date range from bet finder form
+         * @returns {Object|null} { dateFrom, dateTo } or null if invalid
+         */
+        function validateDateRange() {
             const dateFrom = document.getElementById('bet-finder-date-from').value;
             const dateTo = document.getElementById('bet-finder-date-to').value;
 
             if (!dateFrom || !dateTo) {
                 showToast('Wybierz zakres dat', 'error');
-                return;
+                return null;
             }
 
             if (new Date(dateFrom) > new Date(dateTo)) {
                 showToast('Data "od" nie może być późniejsza niż "do"', 'error');
-                return;
+                return null;
             }
 
-            showToast('Wyszukuję mecze...', 'info');
-
-            try {
-                // Fetch upcoming matches (use high limit to get all matches)
-                const upcomingResponse = await fetch(`/api/database/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no&limit=10000`);
-
-                if (!upcomingResponse.ok) {
-                    const errorData = await upcomingResponse.json();
-                    console.error('API Error:', errorData);
-                    showToast(`Błąd serwera: ${errorData.error || 'Nieznany błąd'}`, 'error');
-                    return;
-                }
-
-                const upcomingMatches = await upcomingResponse.json();
-
-                // Check if response is an array
-                if (!Array.isArray(upcomingMatches)) {
-                    console.error('Invalid response format:', upcomingMatches);
-                    showToast('Błąd: Nieprawidłowy format odpowiedzi z serwera', 'error');
-                    return;
-                }
-
-                if (upcomingMatches.length === 0) {
-                    showToast('Nie znaleziono nadchodzących meczów w wybranym zakresie', 'warning');
-                    return;
-                }
-
-                showToast(`Znaleziono ${upcomingMatches.length} nadchodzących meczów. Analizuję...`, 'info');
-
-                // Calculate goal statistics for each match
-                const matchStats = [];
-
-                for (const match of upcomingMatches) {
-                    const homeTeam = match.home_team;
-                    const awayTeam = match.away_team;
-                    const league = match.league;
-
-                    // Fetch historical matches for both teams from the same league
-                    const homeHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const homeHistory = await homeHistoryResponse.json();
-
-                    const awayHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const awayHistory = await awayHistoryResponse.json();
-
-                    // Calculate goal statistics
-                    const homeStats = calculateGoalStats(homeHistory, homeTeam);
-                    const awayStats = calculateGoalStats(awayHistory, awayTeam);
-
-                    const totalGoals = homeStats.totalGoals + awayStats.totalGoals;
-                    const totalMatches = homeStats.matchCount + awayStats.matchCount;
-                    const averageGoals = totalMatches > 0 ? (totalGoals / totalMatches).toFixed(2) : 0;
-
-                    // Skip if either team has less than 5 matches
-                    if (homeStats.matchCount < 5 || awayStats.matchCount < 5) {
-                        continue;
-                    }
-
-                    matchStats.push({
-                        date: match.match_date,
-                        league: match.league,
-                        country: match.country || '',
-                        homeTeam: match.home_team,
-                        awayTeam: match.away_team,
-                        homeStats,
-                        awayStats,
-                        totalGoals,
-                        averageGoals: parseFloat(averageGoals)
-                    });
-                }
-
-                // Check if we have any valid matches
-                if (matchStats.length === 0) {
-                    showToast('Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)', 'warning');
-                    return;
-                }
-
-                // Sort by average goals (descending) and take top 10
-                matchStats.sort((a, b) => b.averageGoals - a.averageGoals);
-                const top10 = matchStats.slice(0, 10);
-
-                // Show results in modal
-                showMostGoalsModal(top10, dateFrom, dateTo);
-
-            } catch (error) {
-                console.error('Error finding most goals:', error);
-                showToast('Błąd podczas wyszukiwania', 'error');
-            }
+            return { dateFrom, dateTo };
         }
 
-        async function findLeastGoals() {
-            const dateFrom = document.getElementById('bet-finder-date-from').value;
-            const dateTo = document.getElementById('bet-finder-date-to').value;
+        /**
+         * Generic function to find and analyze matches based on various criteria
+         * @param {Object} config - Configuration object
+         * @param {string} config.searchMessage - Toast message during search
+         * @param {Function} config.calculateStats - Function to calculate team stats (homeHistory, teamName) => stats
+         * @param {Function} config.processMatch - Function to process match data (match, homeStats, awayStats) => matchData
+         * @param {Function} config.sortMatches - Function to sort matches (a, b) => number
+         * @param {Function} config.showModal - Function to display results modal (top10, dateFrom, dateTo) => void
+         * @param {string} config.noMatchesMessage - Message when no matches found
+         * @param {number} config.minMatches - Minimum matches required per team (default: 5)
+         * @param {Function} config.validateTeamStats - Optional function to validate team stats (homeStats, awayStats) => boolean
+         */
+        async function findMatches(config) {
+            const {
+                searchMessage,
+                calculateStats,
+                processMatch,
+                sortMatches,
+                showModal,
+                noMatchesMessage,
+                minMatches = 5,
+                validateTeamStats = null
+            } = config;
 
-            if (!dateFrom || !dateTo) {
-                showToast('Wybierz zakres dat', 'error');
-                return;
-            }
-
-            if (new Date(dateFrom) > new Date(dateTo)) {
-                showToast('Data "od" nie może być późniejsza niż "do"', 'error');
-                return;
-            }
-
-            showToast('Wyszukuję mecze...', 'info');
-
-            try {
-                // Fetch upcoming matches (use high limit to get all matches)
-                const upcomingResponse = await fetch(`/api/database/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no&limit=10000`);
-
-                if (!upcomingResponse.ok) {
-                    const errorData = await upcomingResponse.json();
-                    console.error('API Error:', errorData);
-                    showToast(`Błąd serwera: ${errorData.error || 'Nieznany błąd'}`, 'error');
-                    return;
-                }
-
-                const upcomingMatches = await upcomingResponse.json();
-
-                // Check if response is an array
-                if (!Array.isArray(upcomingMatches)) {
-                    console.error('Invalid response format:', upcomingMatches);
-                    showToast('Błąd: Nieprawidłowy format odpowiedzi z serwera', 'error');
-                    return;
-                }
-
-                if (upcomingMatches.length === 0) {
-                    showToast('Nie znaleziono nadchodzących meczów w wybranym zakresie', 'warning');
-                    return;
-                }
-
-                showToast(`Znaleziono ${upcomingMatches.length} nadchodzących meczów. Analizuję...`, 'info');
-
-                // Calculate goal statistics for each match
-                const matchStats = [];
-
-                for (const match of upcomingMatches) {
-                    const homeTeam = match.home_team;
-                    const awayTeam = match.away_team;
-                    const league = match.league;
-
-                    // Fetch historical matches for both teams from the same league
-                    const homeHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const homeHistory = await homeHistoryResponse.json();
-
-                    const awayHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const awayHistory = await awayHistoryResponse.json();
-
-                    // Calculate goal statistics
-                    const homeStats = calculateGoalStats(homeHistory, homeTeam);
-                    const awayStats = calculateGoalStats(awayHistory, awayTeam);
-
-                    const totalGoals = homeStats.totalGoals + awayStats.totalGoals;
-                    const totalMatches = homeStats.matchCount + awayStats.matchCount;
-                    const averageGoals = totalMatches > 0 ? (totalGoals / totalMatches).toFixed(2) : 0;
-
-                    // Skip if either team has less than 5 matches
-                    if (homeStats.matchCount < 5 || awayStats.matchCount < 5) {
-                        continue;
-                    }
-
-                    matchStats.push({
-                        date: match.match_date,
-                        league: match.league,
-                        country: match.country || '',
-                        homeTeam: match.home_team,
-                        awayTeam: match.away_team,
-                        homeStats,
-                        awayStats,
-                        totalGoals,
-                        averageGoals: parseFloat(averageGoals)
-                    });
-                }
-
-                // Check if we have any valid matches
-                if (matchStats.length === 0) {
-                    showToast('Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)', 'warning');
-                    return;
-                }
-
-                // Sort by average goals (ASCENDING for least goals) and take top 10
-                matchStats.sort((a, b) => a.averageGoals - b.averageGoals);
-                const top10 = matchStats.slice(0, 10);
-
-                // Show results in modal
-                showLeastGoalsModal(top10, dateFrom, dateTo);
-
-            } catch (error) {
-                console.error('Error finding least goals:', error);
-                showToast('Błąd podczas wyszukiwania', 'error');
-            }
-        }
-
-        async function findGoalAdvantage() {
-            const dateFrom = document.getElementById('bet-finder-date-from').value;
-            const dateTo = document.getElementById('bet-finder-date-to').value;
-
-            if (!dateFrom || !dateTo) {
-                showToast('Wybierz zakres dat', 'error');
-                return;
-            }
-
-            if (new Date(dateFrom) > new Date(dateTo)) {
-                showToast('Data "od" nie może być późniejsza niż "do"', 'error');
-                return;
-            }
-
-            showToast('Wyszukuję mecze z przewagą...', 'info');
-
-            try {
-                // Fetch upcoming matches (use high limit to get all matches)
-                const upcomingResponse = await fetch(`/api/database/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no&limit=10000`);
-
-                if (!upcomingResponse.ok) {
-                    const errorData = await upcomingResponse.json();
-                    console.error('API Error:', errorData);
-                    showToast(`Błąd serwera: ${errorData.error || 'Nieznany błąd'}`, 'error');
-                    return;
-                }
-
-                const upcomingMatches = await upcomingResponse.json();
-
-                // Check if response is an array
-                if (!Array.isArray(upcomingMatches)) {
-                    console.error('Invalid response format:', upcomingMatches);
-                    showToast('Błąd: Nieprawidłowy format odpowiedzi z serwera', 'error');
-                    return;
-                }
-
-                if (upcomingMatches.length === 0) {
-                    showToast('Nie znaleziono nadchodzących meczów w wybranym zakresie', 'warning');
-                    return;
-                }
-
-                showToast(`Znaleziono ${upcomingMatches.length} nadchodzących meczów. Analizuję...`, 'info');
-
-                // Calculate goal advantage for each match
-                const matchStats = [];
-
-                for (const match of upcomingMatches) {
-                    const homeTeam = match.home_team;
-                    const awayTeam = match.away_team;
-                    const league = match.league;
-
-                    // Fetch historical matches for both teams from the same league
-                    const homeHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const homeHistory = await homeHistoryResponse.json();
-
-                    const awayHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const awayHistory = await awayHistoryResponse.json();
-
-                    // Calculate goal statistics
-                    const homeStats = calculateGoalStats(homeHistory, homeTeam);
-                    const awayStats = calculateGoalStats(awayHistory, awayTeam);
-
-                    // Skip if either team has less than 5 matches
-                    if (homeStats.matchCount < 5 || awayStats.matchCount < 5) {
-                        continue;
-                    }
-
-                    // Calculate averages for both teams
-                    const homeScoredAvg = homeStats.matchCount > 0 ? (homeStats.totalGoalsScored / homeStats.matchCount) : 0;
-                    const homeConcededAvg = homeStats.matchCount > 0 ? (homeStats.totalGoalsConceded / homeStats.matchCount) : 0;
-                    const awayScoredAvg = awayStats.matchCount > 0 ? (awayStats.totalGoalsScored / awayStats.matchCount) : 0;
-                    const awayConcededAvg = awayStats.matchCount > 0 ? (awayStats.totalGoalsConceded / awayStats.matchCount) : 0;
-
-                    // Calculate advantage in both directions:
-                    // 1. Home scores a lot + Away concedes a lot (home advantage)
-                    const homeAdvantageScore = homeScoredAvg + awayConcededAvg;
-
-                    // 2. Away scores a lot + Home concedes a lot (away advantage)
-                    const awayAdvantageScore = awayScoredAvg + homeConcededAvg;
-
-                    // Take the higher advantage
-                    const advantageScore = Math.max(homeAdvantageScore, awayAdvantageScore);
-                    const advantageType = homeAdvantageScore > awayAdvantageScore ? 'home' : 'away';
-                    const strongTeam = advantageType === 'home' ? match.home_team : match.away_team;
-                    const weakTeam = advantageType === 'home' ? match.away_team : match.home_team;
-                    const strongTeamScored = advantageType === 'home' ? homeScoredAvg : awayScoredAvg;
-                    const weakTeamConceded = advantageType === 'home' ? awayConcededAvg : homeConcededAvg;
-
-                    matchStats.push({
-                        date: match.match_date,
-                        league: match.league,
-                        country: match.country || '',
-                        homeTeam: match.home_team,
-                        awayTeam: match.away_team,
-                        homeStats,
-                        awayStats,
-                        advantageScore: parseFloat(advantageScore.toFixed(2)),
-                        advantageType, // 'home' or 'away'
-                        strongTeam,
-                        weakTeam,
-                        strongTeamScored: parseFloat(strongTeamScored.toFixed(2)),
-                        weakTeamConceded: parseFloat(weakTeamConceded.toFixed(2))
-                    });
-                }
-
-                // Check if we have any valid matches
-                if (matchStats.length === 0) {
-                    showToast('Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)', 'warning');
-                    return;
-                }
-
-                // Sort by advantage score (descending) and take top 10
-                matchStats.sort((a, b) => b.advantageScore - a.advantageScore);
-                const top10 = matchStats.slice(0, 10);
-
-                // Show results in modal
-                showGoalAdvantageModal(top10, dateFrom, dateTo);
-
-            } catch (error) {
-                console.error('Error finding goal advantage:', error);
-                showToast('Błąd podczas wyszukiwania', 'error');
-            }
-        }
-
-        async function findHandicap15() {
-            const dateFrom = document.getElementById('bet-finder-date-from').value;
-            const dateTo = document.getElementById('bet-finder-date-to').value;
-
-            if (!dateFrom || !dateTo) {
-                showToast('Wybierz zakres dat', 'error');
-                return;
-            }
-
-            if (new Date(dateFrom) > new Date(dateTo)) {
-                showToast('Data "od" nie może być późniejsza niż "do"', 'error');
-                return;
-            }
-
-            showToast('Wyszukuję mecze dla Handicap 1.5...', 'info');
+            const dates = validateDateRange();
+            if (!dates) return;
+            
+            const { dateFrom, dateTo } = dates;
+            showToast(searchMessage, 'info');
 
             try {
                 // Fetch upcoming matches
@@ -4858,7 +4553,25 @@
 
                 showToast(`Znaleziono ${upcomingMatches.length} nadchodzących meczów. Analizuję...`, 'info');
 
-                // Calculate handicap statistics for each match
+                // Cache for team histories to avoid duplicate fetches
+                const historyCache = new Map();
+                
+                // Helper function to get or fetch team history
+                const getTeamHistory = async (team, league) => {
+                    const cacheKey = `${team}|${league}`;
+                    if (historyCache.has(cacheKey)) {
+                        return historyCache.get(cacheKey);
+                    }
+                    
+                    const history = await fetch(
+                        `/api/database/matches?team=${encodeURIComponent(team)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
+                    ).then(res => res.json());
+                    
+                    historyCache.set(cacheKey, history);
+                    return history;
+                };
+
+                // Calculate statistics for each match
                 const matchStats = [];
 
                 for (const match of upcomingMatches) {
@@ -4866,37 +4579,167 @@
                     const awayTeam = match.away_team;
                     const league = match.league;
 
-                    // Fetch historical matches for both teams
-                    const homeHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const homeHistory = await homeHistoryResponse.json();
+                    // Fetch historical matches for both teams IN PARALLEL (with caching)
+                    const [homeHistory, awayHistory] = await Promise.all([
+                        getTeamHistory(homeTeam, league),
+                        getTeamHistory(awayTeam, league)
+                    ]);
 
-                    const awayHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const awayHistory = await awayHistoryResponse.json();
+                    // Calculate team statistics
+                    const homeStats = calculateStats(homeHistory, homeTeam);
+                    const awayStats = calculateStats(awayHistory, awayTeam);
 
-                    // Calculate handicap statistics
-                    const homeStats = calculateHandicapStats(homeHistory, homeTeam);
-                    const awayStats = calculateHandicapStats(awayHistory, awayTeam);
-
-                    // Skip if either team has less than 5 matches
-                    if (homeStats.matchCount < 5 || awayStats.matchCount < 5) {
+                    // Skip if either team has less than minimum matches
+                    if (homeStats.matchCount < minMatches || awayStats.matchCount < minMatches) {
                         continue;
                     }
 
+                    // Optional custom validation
+                    if (validateTeamStats && !validateTeamStats(homeStats, awayStats)) {
+                        continue;
+                    }
+
+                    // Process match data
+                    const matchData = processMatch(match, homeStats, awayStats);
+                    matchStats.push(matchData);
+                }
+
+                // Check if we have any valid matches
+                if (matchStats.length === 0) {
+                    showToast(noMatchesMessage, 'warning');
+                    return;
+                }
+
+                // Sort matches and take top 10
+                matchStats.sort(sortMatches);
+                const top10 = matchStats.slice(0, 10);
+
+                // Show results in modal
+                showModal(top10, dateFrom, dateTo);
+
+            } catch (error) {
+                console.error('Error finding matches:', error);
+                showToast('Błąd podczas wyszukiwania', 'error');
+            }
+        }
+
+        // ===== BET FINDER FUNCTIONS =====
+
+        async function findMostGoals() {
+            await findMatches({
+                searchMessage: 'Wyszukuję mecze...',
+                calculateStats: calculateGoalStats,
+                processMatch: (match, homeStats, awayStats) => {
+                    const totalGoals = homeStats.totalGoals + awayStats.totalGoals;
+                    const totalMatches = homeStats.matchCount + awayStats.matchCount;
+                    const averageGoals = totalMatches > 0 ? (totalGoals / totalMatches).toFixed(2) : 0;
+
+                    return {
+                        date: match.match_date,
+                        league: match.league,
+                        country: match.country || '',
+                        homeTeam: match.home_team,
+                        awayTeam: match.away_team,
+                        homeStats,
+                        awayStats,
+                        totalGoals,
+                        averageGoals: parseFloat(averageGoals)
+                    };
+                },
+                sortMatches: (a, b) => b.averageGoals - a.averageGoals,
+                showModal: showMostGoalsModal,
+                noMatchesMessage: 'Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)',
+                minMatches: 5
+            });
+        }
+
+        async function findLeastGoals() {
+            await findMatches({
+                searchMessage: 'Wyszukuję mecze...',
+                calculateStats: calculateGoalStats,
+                processMatch: (match, homeStats, awayStats) => {
+                    const totalGoals = homeStats.totalGoals + awayStats.totalGoals;
+                    const totalMatches = homeStats.matchCount + awayStats.matchCount;
+                    const averageGoals = totalMatches > 0 ? (totalGoals / totalMatches).toFixed(2) : 0;
+
+                    return {
+                        date: match.match_date,
+                        league: match.league,
+                        country: match.country || '',
+                        homeTeam: match.home_team,
+                        awayTeam: match.away_team,
+                        homeStats,
+                        awayStats,
+                        totalGoals,
+                        averageGoals: parseFloat(averageGoals)
+                    };
+                },
+                sortMatches: (a, b) => a.averageGoals - b.averageGoals, // ASCENDING for least goals
+                showModal: showLeastGoalsModal,
+                noMatchesMessage: 'Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)',
+                minMatches: 5
+            });
+        }
+
+        async function findGoalAdvantage() {
+            await findMatches({
+                searchMessage: 'Wyszukuję mecze z przewagą...',
+                calculateStats: calculateGoalStats,
+                processMatch: (match, homeStats, awayStats) => {
+                    // Calculate averages for both teams
+                    const homeScoredAvg = homeStats.matchCount > 0 ? (homeStats.totalGoalsScored / homeStats.matchCount) : 0;
+                    const homeConcededAvg = homeStats.matchCount > 0 ? (homeStats.totalGoalsConceded / homeStats.matchCount) : 0;
+                    const awayScoredAvg = awayStats.matchCount > 0 ? (awayStats.totalGoalsScored / awayStats.matchCount) : 0;
+                    const awayConcededAvg = awayStats.matchCount > 0 ? (awayStats.totalGoalsConceded / awayStats.matchCount) : 0;
+
+                    // Calculate advantage in both directions
+                    const homeAdvantageScore = homeScoredAvg + awayConcededAvg;
+                    const awayAdvantageScore = awayScoredAvg + homeConcededAvg;
+
+                    // Take the higher advantage
+                    const advantageScore = Math.max(homeAdvantageScore, awayAdvantageScore);
+                    const advantageType = homeAdvantageScore > awayAdvantageScore ? 'home' : 'away';
+                    const strongTeam = advantageType === 'home' ? match.home_team : match.away_team;
+                    const weakTeam = advantageType === 'home' ? match.away_team : match.home_team;
+                    const strongTeamScored = advantageType === 'home' ? homeScoredAvg : awayScoredAvg;
+                    const weakTeamConceded = advantageType === 'home' ? awayConcededAvg : homeConcededAvg;
+
+                    return {
+                        date: match.match_date,
+                        league: match.league,
+                        country: match.country || '',
+                        homeTeam: match.home_team,
+                        awayTeam: match.away_team,
+                        homeStats,
+                        awayStats,
+                        advantageScore: parseFloat(advantageScore.toFixed(2)),
+                        advantageType,
+                        strongTeam,
+                        weakTeam,
+                        strongTeamScored: parseFloat(strongTeamScored.toFixed(2)),
+                        weakTeamConceded: parseFloat(weakTeamConceded.toFixed(2))
+                    };
+                },
+                sortMatches: (a, b) => b.advantageScore - a.advantageScore,
+                showModal: showGoalAdvantageModal,
+                noMatchesMessage: 'Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)',
+                minMatches: 5
+            });
+        }
+
+        async function findHandicap15() {
+            await findMatches({
+                searchMessage: 'Wyszukuję mecze dla Handicap 1.5...',
+                calculateStats: calculateHandicapStats,
+                processMatch: (match, homeStats, awayStats) => {
                     // Calculate percentages
                     const homeWinBy2Plus = homeStats.matchCount > 0 ? (homeStats.winsBy2Plus / homeStats.matchCount * 100) : 0;
                     const homeLoseBy2Plus = homeStats.matchCount > 0 ? (homeStats.lossesby2Plus / homeStats.matchCount * 100) : 0;
                     const awayWinBy2Plus = awayStats.matchCount > 0 ? (awayStats.winsBy2Plus / awayStats.matchCount * 100) : 0;
                     const awayLoseBy2Plus = awayStats.matchCount > 0 ? (awayStats.lossesby2Plus / awayStats.matchCount * 100) : 0;
 
-                    // Calculate handicap scores in both directions:
-                    // 1. Home wins by 2+ AND Away loses by 2+ (home handicap -1.5)
+                    // Calculate handicap scores in both directions
                     const homeHandicapScore = homeWinBy2Plus + awayLoseBy2Plus;
-
-                    // 2. Away wins by 2+ AND Home loses by 2+ (away handicap -1.5)
                     const awayHandicapScore = awayWinBy2Plus + homeLoseBy2Plus;
 
                     // Take the higher handicap score
@@ -4909,7 +4752,7 @@
                     const weakTeamLosses = handicapType === 'home' ? awayStats.lossesby2Plus : homeStats.lossesby2Plus;
                     const weakTeamLossesPct = handicapType === 'home' ? awayLoseBy2Plus : homeLoseBy2Plus;
 
-                    matchStats.push({
+                    return {
                         date: match.match_date,
                         league: match.league,
                         country: match.country || '',
@@ -4918,111 +4761,33 @@
                         homeStats,
                         awayStats,
                         handicapScore: parseFloat(handicapScore.toFixed(1)),
-                        handicapType, // 'home' or 'away'
+                        handicapType,
                         strongTeam,
                         weakTeam,
                         strongTeamWins,
                         strongTeamWinsPct: parseFloat(strongTeamWinsPct.toFixed(1)),
                         weakTeamLosses,
                         weakTeamLossesPct: parseFloat(weakTeamLossesPct.toFixed(1))
-                    });
-                }
-
-                // Check if we have any valid matches
-                if (matchStats.length === 0) {
-                    showToast('Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)', 'warning');
-                    return;
-                }
-
-                // Sort by handicap score (descending) and take top 10
-                matchStats.sort((a, b) => b.handicapScore - a.handicapScore);
-                const top10 = matchStats.slice(0, 10);
-
-                // Show results in modal
-                showHandicap15Modal(top10, dateFrom, dateTo);
-
-            } catch (error) {
-                console.error('Error finding handicap 1.5:', error);
-                showToast('Błąd podczas wyszukiwania', 'error');
-            }
+                    };
+                },
+                sortMatches: (a, b) => b.handicapScore - a.handicapScore,
+                showModal: showHandicap15Modal,
+                noMatchesMessage: 'Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)',
+                minMatches: 5
+            });
         }
 
         async function findMostCorners() {
-            const dateFrom = document.getElementById('bet-finder-date-from').value;
-            const dateTo = document.getElementById('bet-finder-date-to').value;
-
-            if (!dateFrom || !dateTo) {
-                showToast('Wybierz zakres dat', 'error');
-                return;
-            }
-
-            if (new Date(dateFrom) > new Date(dateTo)) {
-                showToast('Data "od" nie może być późniejsza niż "do"', 'error');
-                return;
-            }
-
-            showToast('Wyszukuję mecze z największą liczbą rożnych...', 'info');
-
-            try {
-                // Fetch upcoming matches
-                const upcomingResponse = await fetch(`/api/database/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no&limit=10000`);
-
-                if (!upcomingResponse.ok) {
-                    const errorData = await upcomingResponse.json();
-                    console.error('API Error:', errorData);
-                    showToast(`Błąd serwera: ${errorData.error || 'Nieznany błąd'}`, 'error');
-                    return;
-                }
-
-                const upcomingMatches = await upcomingResponse.json();
-
-                if (!Array.isArray(upcomingMatches)) {
-                    console.error('Invalid response format:', upcomingMatches);
-                    showToast('Błąd: Nieprawidłowy format odpowiedzi z serwera', 'error');
-                    return;
-                }
-
-                if (upcomingMatches.length === 0) {
-                    showToast('Nie znaleziono nadchodzących meczów w wybranym zakresie', 'warning');
-                    return;
-                }
-
-                showToast(`Znaleziono ${upcomingMatches.length} nadchodzących meczów. Analizuję...`, 'info');
-
-                // Calculate corner statistics for each match
-                const matchStats = [];
-
-                for (const match of upcomingMatches) {
-                    const homeTeam = match.home_team;
-                    const awayTeam = match.away_team;
-                    const league = match.league;
-
-                    // Fetch historical matches for both teams
-                    const homeHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const homeHistory = await homeHistoryResponse.json();
-
-                    const awayHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const awayHistory = await awayHistoryResponse.json();
-
-                    // Calculate corner statistics
-                    const homeStats = calculateCornerStats(homeHistory, homeTeam);
-                    const awayStats = calculateCornerStats(awayHistory, awayTeam);
-
-                    // Skip if either team has less than 5 matches OR no corner data
-                    if (homeStats.matchCount < 5 || awayStats.matchCount < 5 || homeStats.cornersMatchCount === 0 || awayStats.cornersMatchCount === 0) {
-                        continue;
-                    }
-
+            await findMatches({
+                searchMessage: 'Wyszukuję mecze z największą liczbą rożnych...',
+                calculateStats: calculateCornerStats,
+                processMatch: (match, homeStats, awayStats) => {
                     // Calculate average corners
                     const homeAvgCorners = homeStats.totalCorners / homeStats.cornersMatchCount;
                     const awayAvgCorners = awayStats.totalCorners / awayStats.cornersMatchCount;
                     const combinedAvgCorners = homeAvgCorners + awayAvgCorners;
 
-                    matchStats.push({
+                    return {
                         date: match.match_date,
                         league: match.league,
                         country: match.country || '',
@@ -5033,104 +4798,27 @@
                         homeAvgCorners: parseFloat(homeAvgCorners.toFixed(2)),
                         awayAvgCorners: parseFloat(awayAvgCorners.toFixed(2)),
                         averageCorners: parseFloat(combinedAvgCorners.toFixed(2))
-                    });
-                }
-
-                // Check if we have any valid matches
-                if (matchStats.length === 0) {
-                    showToast('Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)', 'warning');
-                    return;
-                }
-
-                // Sort by average corners (descending) and take top 10
-                matchStats.sort((a, b) => b.averageCorners - a.averageCorners);
-                const top10 = matchStats.slice(0, 10);
-
-                // Show results in modal
-                showMostCornersModal(top10, dateFrom, dateTo);
-
-            } catch (error) {
-                console.error('Error finding most corners:', error);
-                showToast('Błąd podczas wyszukiwania', 'error');
-            }
+                    };
+                },
+                sortMatches: (a, b) => b.averageCorners - a.averageCorners,
+                showModal: showMostCornersModal,
+                noMatchesMessage: 'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+                minMatches: 5,
+                validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount > 0 && awayStats.cornersMatchCount > 0
+            });
         }
 
         async function findLeastCorners() {
-            const dateFrom = document.getElementById('bet-finder-date-from').value;
-            const dateTo = document.getElementById('bet-finder-date-to').value;
-
-            if (!dateFrom || !dateTo) {
-                showToast('Wybierz zakres dat', 'error');
-                return;
-            }
-
-            if (new Date(dateFrom) > new Date(dateTo)) {
-                showToast('Data "od" nie może być późniejsza niż "do"', 'error');
-                return;
-            }
-
-            showToast('Wyszukuję mecze z najmniejszą liczbą rożnych...', 'info');
-
-            try {
-                // Fetch upcoming matches
-                const upcomingResponse = await fetch(`/api/database/matches?date_from=${dateFrom}&date_to=${dateTo}&is_finished=no&limit=10000`);
-
-                if (!upcomingResponse.ok) {
-                    const errorData = await upcomingResponse.json();
-                    console.error('API Error:', errorData);
-                    showToast(`Błąd serwera: ${errorData.error || 'Nieznany błąd'}`, 'error');
-                    return;
-                }
-
-                const upcomingMatches = await upcomingResponse.json();
-
-                if (!Array.isArray(upcomingMatches)) {
-                    console.error('Invalid response format:', upcomingMatches);
-                    showToast('Błąd: Nieprawidłowy format odpowiedzi z serwera', 'error');
-                    return;
-                }
-
-                if (upcomingMatches.length === 0) {
-                    showToast('Nie znaleziono nadchodzących meczów w wybranym zakresie', 'warning');
-                    return;
-                }
-
-                showToast(`Znaleziono ${upcomingMatches.length} nadchodzących meczów. Analizuję...`, 'info');
-
-                // Calculate corner statistics for each match
-                const matchStats = [];
-
-                for (const match of upcomingMatches) {
-                    const homeTeam = match.home_team;
-                    const awayTeam = match.away_team;
-                    const league = match.league;
-
-                    // Fetch historical matches for both teams
-                    const homeHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(homeTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const homeHistory = await homeHistoryResponse.json();
-
-                    const awayHistoryResponse = await fetch(
-                        `/api/database/matches?team=${encodeURIComponent(awayTeam)}&league=${encodeURIComponent(league)}&is_finished=yes&sort=date_desc${selectedMatchCount ? `&limit=${selectedMatchCount}` : ''}`
-                    );
-                    const awayHistory = await awayHistoryResponse.json();
-
-                    // Calculate corner statistics
-                    const homeStats = calculateCornerStats(homeHistory, homeTeam);
-                    const awayStats = calculateCornerStats(awayHistory, awayTeam);
-
-                    // Skip if either team has less than 5 matches OR no corner data
-                    if (homeStats.matchCount < 5 || awayStats.matchCount < 5 || homeStats.cornersMatchCount === 0 || awayStats.cornersMatchCount === 0) {
-                        continue;
-                    }
-
+            await findMatches({
+                searchMessage: 'Wyszukuję mecze z najmniejszą liczbą rożnych...',
+                calculateStats: calculateCornerStats,
+                processMatch: (match, homeStats, awayStats) => {
                     // Calculate average corners
                     const homeAvgCorners = homeStats.totalCorners / homeStats.cornersMatchCount;
                     const awayAvgCorners = awayStats.totalCorners / awayStats.cornersMatchCount;
                     const combinedAvgCorners = homeAvgCorners + awayAvgCorners;
 
-                    matchStats.push({
+                    return {
                         date: match.match_date,
                         league: match.league,
                         country: match.country || '',
@@ -5141,26 +4829,14 @@
                         homeAvgCorners: parseFloat(homeAvgCorners.toFixed(2)),
                         awayAvgCorners: parseFloat(awayAvgCorners.toFixed(2)),
                         averageCorners: parseFloat(combinedAvgCorners.toFixed(2))
-                    });
-                }
-
-                // Check if we have any valid matches
-                if (matchStats.length === 0) {
-                    showToast('Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)', 'warning');
-                    return;
-                }
-
-                // Sort by average corners (ascending) and take top 10
-                matchStats.sort((a, b) => a.averageCorners - b.averageCorners);
-                const top10 = matchStats.slice(0, 10);
-
-                // Show results in modal
-                showLeastCornersModal(top10, dateFrom, dateTo);
-
-            } catch (error) {
-                console.error('Error finding least corners:', error);
-                showToast('Błąd podczas wyszukiwania', 'error');
-            }
+                    };
+                },
+                sortMatches: (a, b) => a.averageCorners - b.averageCorners, // ASCENDING for least corners
+                showModal: showLeastCornersModal,
+                noMatchesMessage: 'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+                minMatches: 5,
+                validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount > 0 && awayStats.cornersMatchCount > 0
+            });
         }
 
         function calculateCornerStats(matches, teamName) {
@@ -5296,7 +4972,26 @@
         let currentModalResults = null;
         let currentModalType = null;
 
-        function showMostGoalsModal(results, dateFrom, dateTo) {
+        // Generic function to create TOP 10 modal structure
+        function createTop10Modal(config) {
+            const {
+                results,
+                dateFrom,
+                dateTo,
+                modalType,
+                title,
+                icon,
+                description,
+                headerGradient = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                descriptionGradient = 'linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%)',
+                descriptionBorder = '#f59e0b',
+                descriptionTextColor = '#78350f',
+                maxWidth = '1200px',
+                tableHeaders,
+                renderTableRow,
+                matchCountField = 'matchCount' // default for goals, can be 'cornersMatchCount' for corners
+            } = config;
+
             if (results.length === 0) {
                 showToast('Brak wyników do wyświetlenia', 'warning');
                 return;
@@ -5304,19 +4999,23 @@
 
             // Store results for minimize/restore
             currentModalResults = results;
-            currentModalType = 'most-goals';
+            currentModalType = modalType;
 
             // Calculate total analyzed matches
-            const totalMatchesAnalyzed = results.reduce((sum, r) => sum + r.homeStats.matchCount + r.awayStats.matchCount, 0);
+            const totalMatchesAnalyzed = results.reduce((sum, r) => {
+                const homeCount = r.homeStats[matchCountField] || r.homeStats.matchCount || 0;
+                const awayCount = r.awayStats[matchCountField] || r.awayStats.matchCount || 0;
+                return sum + homeCount + awayCount;
+            }, 0);
             const formattedDateFrom = new Date(dateFrom).toLocaleDateString('pl-PL');
             const formattedDateTo = new Date(dateTo).toLocaleDateString('pl-PL');
 
             let modalHTML = `
                 <div class="modal-backdrop" onclick="minimizeModal()" style="z-index: 9999;"></div>
-                <div class="modal-dialog" style="max-width: 1200px; z-index: 10000;">
-                    <div class="modal-header">
+                <div class="modal-dialog" style="max-width: ${maxWidth}; z-index: 10000;">
+                    <div class="modal-header" style="background: ${headerGradient};">
                         <div>
-                            <h2>⚽ TOP 10 - Najwięcej bramek</h2>
+                            <h2>${icon} ${title}</h2>
                             <div style="font-size: 13px; opacity: 0.9; margin-top: 5px;">
                                 📅 ${formattedDateFrom} - ${formattedDateTo} | 📊 Analizowano ${totalMatchesAnalyzed} meczów
                             </div>
@@ -5327,68 +5026,23 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                        <div style="background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #f59e0b;">
-                            <p style="margin: 0; color: #78350f; font-size: 14px; line-height: 1.6;">
+                        <div style="background: ${descriptionGradient}; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid ${descriptionBorder};">
+                            <p style="margin: 0; color: ${descriptionTextColor}; font-size: 14px; line-height: 1.6;">
                                 <strong>ℹ️ O czym jest ten modal:</strong><br>
-                                Znajduje mecze gdzie obie drużyny mają najwyższą średnią bramek w ostatnich meczach. 
-                                Im wyższa łączna średnia, tym większe prawdopodobieństwo bramkowego spotkania.
+                                ${description}
                             </p>
                         </div>
                         <table class="results-table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Data</th>
-                                    <th>Liga</th>
-                                    <th>Gospodarze</th>
-                                    <th>Statystyki gospodarzy</th>
-                                    <th>Goście</th>
-                                    <th>Statystyki gości</th>
-                                    <th>Łączna średnia</th>
-                                    <th>Akcje</th>
+                                    ${tableHeaders}
                                 </tr>
                             </thead>
                             <tbody>
             `;
 
             results.forEach((result, index) => {
-                const homeStatsText = `${result.homeStats.totalGoalsScored}:${result.homeStats.totalGoalsConceded} (śr. ${result.homeStats.avgGoals})`;
-                const awayStatsText = `${result.awayStats.totalGoalsScored}:${result.awayStats.totalGoalsConceded} (śr. ${result.awayStats.avgGoals})`;
-
-                // Escape data for onclick attribute
-                const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
-
-                modalHTML += `
-                    <tr>
-                        <td style="font-weight: 700; color: #667eea;">${index + 1}</td>
-                        <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
-                        <td style="font-size: 12px; color: #666;">${result.league}</td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.homeTeam}
-                            </a>
-                        </td>
-                        <td>${homeStatsText}</td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.awayTeam}
-                            </a>
-                        </td>
-                        <td>${awayStatsText}</td>
-                        <td style="font-weight: 700; font-size: 18px; color: #f5576c; cursor: pointer; text-decoration: underline;" 
-                            onclick='showMatchDetailsModal(${resultData})' 
-                            title="Kliknij aby zobaczyć szczegóły meczów">
-                            ${result.averageGoals}
-                        </td>
-                        <td>
-                            <button onclick='addToWatchedMatches(${resultData}, "Najwięcej bramek")' 
-                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
-                                    title="Dodaj do obserwowanych">
-                                ⭐ Dodaj
-                            </button>
-                        </td>
-                    </tr>
-                `;
+                modalHTML += renderTableRow(result, index);
             });
 
             modalHTML += `
@@ -5411,606 +5065,433 @@
             document.body.appendChild(modalContainer);
 
             // Save to localStorage for persistence
-            addOpenModal('most-goals', results, false, dateFrom, dateTo);
+            addOpenModal(modalType, results, false, dateFrom, dateTo);
+        }
+
+        function showMostGoalsModal(results, dateFrom, dateTo) {
+            createTop10Modal({
+                results,
+                dateFrom,
+                dateTo,
+                modalType: 'most-goals',
+                title: 'TOP 10 - Najwięcej bramek',
+                icon: '⚽',
+                description: 'Znajduje mecze gdzie obie drużyny mają najwyższą średnią bramek w ostatnich meczach. Im wyższa łączna średnia, tym większe prawdopodobieństwo bramkowego spotkania.',
+                headerGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                descriptionGradient: 'linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%)',
+                descriptionBorder: '#f59e0b',
+                descriptionTextColor: '#78350f',
+                maxWidth: '1200px',
+                tableHeaders: `
+                    <th>#</th>
+                    <th>Data</th>
+                    <th>Liga</th>
+                    <th>Gospodarze</th>
+                    <th>Statystyki gospodarzy</th>
+                    <th>Goście</th>
+                    <th>Statystyki gości</th>
+                    <th>Łączna średnia</th>
+                    <th>Akcje</th>
+                `,
+                renderTableRow: (result, index) => {
+                    const homeStatsText = `${result.homeStats.totalGoalsScored}:${result.homeStats.totalGoalsConceded} (śr. ${result.homeStats.avgGoals})`;
+                    const awayStatsText = `${result.awayStats.totalGoalsScored}:${result.awayStats.totalGoalsConceded} (śr. ${result.awayStats.avgGoals})`;
+                    const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
+
+                    return `
+                        <tr>
+                            <td style="font-weight: 700; color: #667eea;">${index + 1}</td>
+                            <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                            <td style="font-size: 12px; color: #666;">${result.league}</td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.homeTeam}
+                                </a>
+                            </td>
+                            <td>${homeStatsText}</td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.awayTeam}
+                                </a>
+                            </td>
+                            <td>${awayStatsText}</td>
+                            <td style="font-weight: 700; font-size: 18px; color: #f5576c; cursor: pointer; text-decoration: underline;" 
+                                onclick='showMatchDetailsModal(${resultData})' 
+                                title="Kliknij aby zobaczyć szczegóły meczów">
+                                ${result.averageGoals}
+                            </td>
+                            <td>
+                                <button onclick='addToWatchedMatches(${resultData}, "Najwięcej bramek")' 
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
+                                        title="Dodaj do obserwowanych">
+                                    ⭐ Dodaj
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                }
+            });
         }
 
         function showLeastGoalsModal(results, dateFrom, dateTo) {
-            if (results.length === 0) {
-                showToast('Brak wyników do wyświetlenia', 'warning');
-                return;
-            }
+            createTop10Modal({
+                results,
+                dateFrom,
+                dateTo,
+                modalType: 'least-goals',
+                title: 'TOP 10 - Najmniej bramek',
+                icon: '🧊',
+                description: 'Znajduje mecze gdzie obie drużyny mają najniższą średnią bramek w ostatnich meczach. Im niższa łączna średnia, tym większe prawdopodobieństwo defensywnego, mało bramkowego meczu.',
+                headerGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                descriptionGradient: 'linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%)',
+                descriptionBorder: '#3b82f6',
+                descriptionTextColor: '#1e3a8a',
+                maxWidth: '1200px',
+                tableHeaders: `
+                    <th>#</th>
+                    <th>Data</th>
+                    <th>Liga</th>
+                    <th>Gospodarze</th>
+                    <th>Statystyki gospodarzy</th>
+                    <th>Goście</th>
+                    <th>Statystyki gości</th>
+                    <th>Łączna średnia</th>
+                    <th>Akcje</th>
+                `,
+                renderTableRow: (result, index) => {
+                    const homeStatsText = `${result.homeStats.totalGoalsScored}:${result.homeStats.totalGoalsConceded} (śr. ${result.homeStats.avgGoals})`;
+                    const awayStatsText = `${result.awayStats.totalGoalsScored}:${result.awayStats.totalGoalsConceded} (śr. ${result.awayStats.avgGoals})`;
+                    const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
 
-            // Store results for minimize/restore
-            currentModalResults = results;
-            currentModalType = 'least-goals';
-
-            // Calculate total analyzed matches
-            const totalMatchesAnalyzed = results.reduce((sum, r) => sum + r.homeStats.matchCount + r.awayStats.matchCount, 0);
-            const formattedDateFrom = new Date(dateFrom).toLocaleDateString('pl-PL');
-            const formattedDateTo = new Date(dateTo).toLocaleDateString('pl-PL');
-
-            let modalHTML = `
-                <div class="modal-backdrop" onclick="minimizeModal()" style="z-index: 9999;"></div>
-                <div class="modal-dialog" style="max-width: 1200px; z-index: 10000;">
-                    <div class="modal-header">
-                        <div>
-                            <h2>🧊 TOP 10 - Najmniej bramek</h2>
-                            <div style="font-size: 13px; opacity: 0.9; margin-top: 5px;">
-                                📅 ${formattedDateFrom} - ${formattedDateTo} | 📊 Analizowano ${totalMatchesAnalyzed} meczów
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 10px;">
-                            <button class="modal-minimize" onclick="minimizeModal()" title="Minimalizuj">−</button>
-                            <button class="modal-close" onclick="closeModal()">×</button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div style="background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #3b82f6;">
-                            <p style="margin: 0; color: #1e3a8a; font-size: 14px; line-height: 1.6;">
-                                <strong>ℹ️ O czym jest ten modal:</strong><br>
-                                Znajduje mecze gdzie obie drużyny mają najniższą średnią bramek w ostatnich meczach. 
-                                Im niższa łączna średnia, tym większe prawdopodobieństwo defensywnego, mało bramkowego meczu.
-                            </p>
-                        </div>
-                        <table class="results-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Data</th>
-                                    <th>Liga</th>
-                                    <th>Gospodarze</th>
-                                    <th>Statystyki gospodarzy</th>
-                                    <th>Goście</th>
-                                    <th>Statystyki gości</th>
-                                    <th>Łączna średnia</th>
-                                    <th>Akcje</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-            `;
-
-            results.forEach((result, index) => {
-                const homeStatsText = `${result.homeStats.totalGoalsScored}:${result.homeStats.totalGoalsConceded} (śr. ${result.homeStats.avgGoals})`;
-                const awayStatsText = `${result.awayStats.totalGoalsScored}:${result.awayStats.totalGoalsConceded} (śr. ${result.awayStats.avgGoals})`;
-
-                // Escape data for onclick attribute
-                const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
-
-                modalHTML += `
-                    <tr>
-                        <td style="font-weight: 700; color: #3b82f6;">${index + 1}</td>
-                        <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
-                        <td style="font-size: 12px; color: #666;">${result.league}</td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.homeTeam}
-                            </a>
-                        </td>
-                        <td>${homeStatsText}</td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.awayTeam}
-                            </a>
-                        </td>
-                        <td>${awayStatsText}</td>
-                        <td style="font-weight: 700; font-size: 18px; color: #3b82f6; cursor: pointer; text-decoration: underline;" 
-                            onclick='showMatchDetailsModal(${resultData})' 
-                            title="Kliknij aby zobaczyć szczegóły meczów">
-                            ${result.averageGoals}
-                        </td>
-                        <td>
-                            <button onclick='addToWatchedMatches(${resultData}, "Najmniej bramek")' 
-                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
-                                    title="Dodaj do obserwowanych">
-                                ⭐ Dodaj
-                            </button>
-                        </td>
-                    </tr>
-                `;
+                    return `
+                        <tr>
+                            <td style="font-weight: 700; color: #3b82f6;">${index + 1}</td>
+                            <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                            <td style="font-size: 12px; color: #666;">${result.league}</td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.homeTeam}
+                                </a>
+                            </td>
+                            <td>${homeStatsText}</td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.awayTeam}
+                                </a>
+                            </td>
+                            <td>${awayStatsText}</td>
+                            <td style="font-weight: 700; font-size: 18px; color: #3b82f6; cursor: pointer; text-decoration: underline;" 
+                                onclick='showMatchDetailsModal(${resultData})' 
+                                title="Kliknij aby zobaczyć szczegóły meczów">
+                                ${result.averageGoals}
+                            </td>
+                            <td>
+                                <button onclick='addToWatchedMatches(${resultData}, "Najmniej bramek")' 
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
+                                        title="Dodaj do obserwowanych">
+                                    ⭐ Dodaj
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                }
             });
-
-            modalHTML += `
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            `;
-
-            // Remove existing modal of ANY type before creating new one
-            const existingModal = document.getElementById('bet-finder-modal');
-            if (existingModal) {
-                existingModal.remove();
-            }
-
-            // Create and show modal
-            const modalContainer = document.createElement('div');
-            modalContainer.id = 'bet-finder-modal';
-            modalContainer.innerHTML = modalHTML;
-            document.body.appendChild(modalContainer);
-
-            // Save to localStorage for persistence
-            addOpenModal('least-goals', results, false, dateFrom, dateTo);
         }
 
         function showHandicap15Modal(results, dateFrom, dateTo) {
-            currentModalResults = results;
-            currentModalType = 'handicap-15';
+            createTop10Modal({
+                results,
+                dateFrom,
+                dateTo,
+                modalType: 'handicap-15',
+                title: 'TOP 10 - Handicap 1.5',
+                icon: '🎯',
+                description: 'Znajduje mecze gdzie jedna drużyna często wygrywa różnicą ≥2 bramek, a druga często przegrywa różnicą ≥2 bramek. Wysoki wynik H-1.5 wskazuje na potencjalnie jednostronne spotkanie.',
+                headerGradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                descriptionGradient: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
+                descriptionBorder: '#f59e0b',
+                descriptionTextColor: '#78350f',
+                maxWidth: '1500px',
+                tableHeaders: `
+                    <th>#</th>
+                    <th>Data</th>
+                    <th>Liga</th>
+                    <th>Gospodarze</th>
+                    <th>Goście</th>
+                    <th>Silna drużyna</th>
+                    <th>Wygrane ≥2</th>
+                    <th>% wygranych</th>
+                    <th>Słaba drużyna</th>
+                    <th>Porażki ≥2</th>
+                    <th>% porażek</th>
+                    <th>Wynik H-1.5</th>
+                    <th>Akcje</th>
+                `,
+                renderTableRow: (result, index) => {
+                    const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
+                    const advantageIcon = result.handicapType === 'home' ? '🏠' : '✈️';
 
-            // Calculate total analyzed matches
-            const totalMatchesAnalyzed = results.reduce((sum, r) => sum + r.homeStats.matchCount + r.awayStats.matchCount, 0);
-            const formattedDateFrom = new Date(dateFrom).toLocaleDateString('pl-PL');
-            const formattedDateTo = new Date(dateTo).toLocaleDateString('pl-PL');
-
-            let modalHTML = `
-                <div class="modal-backdrop" onclick="minimizeModal()" style="z-index: 9999;"></div>
-                <div class="modal-dialog" style="max-width: 1500px; z-index: 10000;">
-                    <div class="modal-header" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
-                        <div>
-                            <h2>🎯 TOP 10 - Handicap 1.5</h2>
-                            <div style="font-size: 13px; opacity: 0.9; margin-top: 5px;">
-                                📅 ${formattedDateFrom} - ${formattedDateTo} | 📊 Analizowano ${totalMatchesAnalyzed} meczów
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 10px;">
-                            <button class="modal-minimize" onclick="minimizeModal()" title="Minimalizuj">−</button>
-                            <button class="modal-close" onclick="closeModal()">×</button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #f59e0b;">
-                            <p style="margin: 0; color: #78350f; font-size: 14px; line-height: 1.6;">
-                                <strong>ℹ️ O czym jest ten modal:</strong><br>
-                                Znajduje mecze gdzie jedna drużyna często wygrywa różnicą ≥2 bramek, a druga często przegrywa różnicą ≥2 bramek. 
-                                Wysoki wynik H-1.5 wskazuje na potencjalnie jednostronne spotkanie.
-                            </p>
-                        </div>
-                        <table class="results-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Data</th>
-                                    <th>Liga</th>
-                                    <th>Gospodarze</th>
-                                    <th>Goście</th>
-                                    <th>Silna drużyna</th>
-                                    <th>Wygrane ≥2</th>
-                                    <th>% wygranych</th>
-                                    <th>Słaba drużyna</th>
-                                    <th>Porażki ≥2</th>
-                                    <th>% porażek</th>
-                                    <th>Wynik H-1.5</th>
-                                    <th>Akcje</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-            `;
-
-            results.forEach((result, index) => {
-                // Escape data for onclick attribute
-                const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
-
-                // Determine which team is strong and weak
-                const advantageIcon = result.handicapType === 'home' ? '🏠' : '✈️';
-
-                modalHTML += `
-                    <tr>
-                        <td style="font-weight: 700; color: #f59e0b;">${index + 1}</td>
-                        <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
-                        <td style="font-size: 12px; color: #666;">${result.league}</td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.homeTeam}
-                            </a>
-                        </td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.awayTeam}
-                            </a>
-                        </td>
-                        <td style="font-weight: 700; color: #f59e0b;">
-                            ${advantageIcon} ${result.strongTeam}
-                        </td>
-                        <td style="font-weight: 600; color: #059669;">
-                            ${result.strongTeamWins}
-                        </td>
-                        <td style="font-weight: 700; color: #059669;">
-                            ${result.strongTeamWinsPct}%
-                        </td>
-                        <td style="font-weight: 600; color: #dc2626;">
-                            ${result.weakTeam}
-                        </td>
-                        <td style="font-weight: 600; color: #991b1b;">
-                            ${result.weakTeamLosses}
-                        </td>
-                        <td style="font-weight: 700; color: #991b1b;">
-                            ${result.weakTeamLossesPct}%
-                        </td>
-                        <td style="font-weight: 700; font-size: 18px; color: #f59e0b; cursor: pointer; text-decoration: underline;" 
-                            onclick='showMatchDetailsModal(${resultData})' 
-                            title="Kliknij aby zobaczyć szczegóły meczów">
-                            ${result.handicapScore}
-                        </td>
-                        <td>
-                            <button onclick='addToWatchedMatches(${resultData}, "Handicap 1.5")' 
-                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
-                                    title="Dodaj do obserwowanych">
-                                ⭐ Dodaj
-                            </button>
-                        </td>
-                    </tr>
-                `;
+                    return `
+                        <tr>
+                            <td style="font-weight: 700; color: #f59e0b;">${index + 1}</td>
+                            <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                            <td style="font-size: 12px; color: #666;">${result.league}</td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.homeTeam}
+                                </a>
+                            </td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.awayTeam}
+                                </a>
+                            </td>
+                            <td style="font-weight: 700; color: #f59e0b;">
+                                ${advantageIcon} ${result.strongTeam}
+                            </td>
+                            <td style="font-weight: 600; color: #059669;">
+                                ${result.strongTeamWins}
+                            </td>
+                            <td style="font-weight: 700; color: #059669;">
+                                ${result.strongTeamWinsPct}%
+                            </td>
+                            <td style="font-weight: 600; color: #dc2626;">
+                                ${result.weakTeam}
+                            </td>
+                            <td style="font-weight: 600; color: #991b1b;">
+                                ${result.weakTeamLosses}
+                            </td>
+                            <td style="font-weight: 700; color: #991b1b;">
+                                ${result.weakTeamLossesPct}%
+                            </td>
+                            <td style="font-weight: 700; font-size: 18px; color: #f59e0b; cursor: pointer; text-decoration: underline;" 
+                                onclick='showMatchDetailsModal(${resultData})' 
+                                title="Kliknij aby zobaczyć szczegóły meczów">
+                                ${result.handicapScore}
+                            </td>
+                            <td>
+                                <button onclick='addToWatchedMatches(${resultData}, "Handicap 1.5")' 
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
+                                        title="Dodaj do obserwowanych">
+                                    ⭐ Dodaj
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                }
             });
-
-            modalHTML += `
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            `;
-
-            // Remove existing modal of ANY type before creating new one
-            const existingModal = document.getElementById('bet-finder-modal');
-            if (existingModal) {
-                existingModal.remove();
-            }
-
-            // Create and show modal
-            const modalContainer = document.createElement('div');
-            modalContainer.id = 'bet-finder-modal';
-            modalContainer.innerHTML = modalHTML;
-            document.body.appendChild(modalContainer);
-
-            // Save to localStorage for persistence
-            addOpenModal('handicap-15', results, false, dateFrom, dateTo);
         }
 
         function showMostCornersModal(results, dateFrom, dateTo) {
-            currentModalResults = results;
-            currentModalType = 'most-corners';
+            createTop10Modal({
+                results,
+                dateFrom,
+                dateTo,
+                modalType: 'most-corners',
+                title: 'TOP 10 - Najwięcej rożnych',
+                icon: '⚽',
+                description: 'Znajduje mecze gdzie obie drużyny mają najwyższą średnią rzutów rożnych w ostatnich meczach. Im wyższa łączna średnia, tym więcej można spodziewać się rożnych w nadchodzącym meczu.',
+                headerGradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
+                descriptionGradient: 'linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%)',
+                descriptionBorder: '#8b5cf6',
+                descriptionTextColor: '#4c1d95',
+                maxWidth: '1400px',
+                matchCountField: 'cornersMatchCount',
+                tableHeaders: `
+                    <th>#</th>
+                    <th>Data</th>
+                    <th>Liga</th>
+                    <th>Gospodarze</th>
+                    <th>Śr. rożnych</th>
+                    <th>Goście</th>
+                    <th>Śr. rożnych</th>
+                    <th>Łączna średnia</th>
+                    <th>Akcje</th>
+                `,
+                renderTableRow: (result, index) => {
+                    const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
 
-            // Calculate total analyzed matches
-            const totalMatchesAnalyzed = results.reduce((sum, r) => sum + r.homeStats.cornersMatchCount + r.awayStats.cornersMatchCount, 0);
-            const formattedDateFrom = new Date(dateFrom).toLocaleDateString('pl-PL');
-            const formattedDateTo = new Date(dateTo).toLocaleDateString('pl-PL');
-
-            let modalHTML = `
-                <div class="modal-backdrop" onclick="minimizeModal()" style="z-index: 9999;"></div>
-                <div class="modal-dialog" style="max-width: 1400px; z-index: 10000;">
-                    <div class="modal-header" style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);">
-                        <div>
-                            <h2>⚽ TOP 10 - Najwięcej rożnych</h2>
-                            <div style="font-size: 13px; opacity: 0.9; margin-top: 5px;">
-                                📅 ${formattedDateFrom} - ${formattedDateTo} | 📊 Analizowano ${totalMatchesAnalyzed} meczów
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 10px;">
-                            <button class="modal-minimize" onclick="minimizeModal()" title="Minimalizuj">−</button>
-                            <button class="modal-close" onclick="closeModal()">×</button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #8b5cf6;">
-                            <p style="margin: 0; color: #4c1d95; font-size: 14px; line-height: 1.6;">
-                                <strong>ℹ️ O czym jest ten modal:</strong><br>
-                                Znajduje mecze gdzie obie drużyny mają najwyższą średnią rzutów rożnych w ostatnich meczach. 
-                                Im wyższa łączna średnia, tym więcej można spodziewać się rożnych w nadchodzącym meczu.
-                            </p>
-                        </div>
-                        <table class="results-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Data</th>
-                                    <th>Liga</th>
-                                    <th>Gospodarze</th>
-                                    <th>Śr. rożnych</th>
-                                    <th>Goście</th>
-                                    <th>Śr. rożnych</th>
-                                    <th>Łączna średnia</th>
-                                    <th>Akcje</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-            `;
-
-            results.forEach((result, index) => {
-                // Escape data for onclick attribute
-                const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
-
-                modalHTML += `
-                    <tr>
-                        <td style="font-weight: 700; color: #8b5cf6;">${index + 1}</td>
-                        <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
-                        <td style="font-size: 12px; color: #666;">${result.league}</td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.homeTeam}
-                            </a>
-                        </td>
-                        <td style="font-weight: 600; color: #6d28d9;">
-                            ${result.homeAvgCorners} (${result.homeStats.cornersMatchCount} meczów)
-                        </td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.awayTeam}
-                            </a>
-                        </td>
-                        <td style="font-weight: 600; color: #6d28d9;">
-                            ${result.awayAvgCorners} (${result.awayStats.cornersMatchCount} meczów)
-                        </td>
-                        <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;" 
-                            onclick='showMatchDetailsModal(${resultData})' 
-                            title="Kliknij aby zobaczyć szczegóły meczów">
-                            ${result.averageCorners}
-                        </td>
-                        <td>
-                            <button onclick='addToWatchedMatches(${resultData}, "Najwięcej rożnych")' 
-                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
-                                    title="Dodaj do obserwowanych">
-                                ⭐ Dodaj
-                            </button>
-                        </td>
-                    </tr>
-                `;
+                    return `
+                        <tr>
+                            <td style="font-weight: 700; color: #8b5cf6;">${index + 1}</td>
+                            <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                            <td style="font-size: 12px; color: #666;">${result.league}</td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.homeTeam}
+                                </a>
+                            </td>
+                            <td style="font-weight: 600; color: #6d28d9;">
+                                ${result.homeAvgCorners} (${result.homeStats.cornersMatchCount} meczów)
+                            </td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.awayTeam}
+                                </a>
+                            </td>
+                            <td style="font-weight: 600; color: #6d28d9;">
+                                ${result.awayAvgCorners} (${result.awayStats.cornersMatchCount} meczów)
+                            </td>
+                            <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;" 
+                                onclick='showMatchDetailsModal(${resultData})' 
+                                title="Kliknij aby zobaczyć szczegóły meczów">
+                                ${result.averageCorners}
+                            </td>
+                            <td>
+                                <button onclick='addToWatchedMatches(${resultData}, "Najwięcej rożnych")' 
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
+                                        title="Dodaj do obserwowanych">
+                                    ⭐ Dodaj
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                }
             });
-
-            modalHTML += `
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            `;
-
-            // Remove existing modal of ANY type before creating new one
-            const existingModal = document.getElementById('bet-finder-modal');
-            if (existingModal) {
-                existingModal.remove();
-            }
-
-            // Create and show modal
-            const modalContainer = document.createElement('div');
-            modalContainer.id = 'bet-finder-modal';
-            modalContainer.innerHTML = modalHTML;
-            document.body.appendChild(modalContainer);
-
-            // Save to localStorage for persistence
-            addOpenModal('most-corners', results, false, dateFrom, dateTo);
         }
 
         function showLeastCornersModal(results, dateFrom, dateTo) {
-            currentModalResults = results;
-            currentModalType = 'least-corners';
+            createTop10Modal({
+                results,
+                dateFrom,
+                dateTo,
+                modalType: 'least-corners',
+                title: 'TOP 10 - Najmniej rożnych',
+                icon: '🎯',
+                description: 'Znajduje mecze gdzie obie drużyny mają najniższą średnią rzutów rożnych w ostatnich meczach. Im niższa łączna średnia, tym mniej rożnych można spodziewać się w nadchodzącym meczu.',
+                headerGradient: 'linear-gradient(135deg, #ec4899 0%, #be185d 100%)',
+                descriptionGradient: 'linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%)',
+                descriptionBorder: '#ec4899',
+                descriptionTextColor: '#831843',
+                maxWidth: '1400px',
+                matchCountField: 'cornersMatchCount',
+                tableHeaders: `
+                    <th>#</th>
+                    <th>Data</th>
+                    <th>Liga</th>
+                    <th>Gospodarze</th>
+                    <th>Śr. rożnych</th>
+                    <th>Goście</th>
+                    <th>Śr. rożnych</th>
+                    <th>Łączna średnia</th>
+                    <th>Akcje</th>
+                `,
+                renderTableRow: (result, index) => {
+                    const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
 
-            // Calculate total analyzed matches
-            const totalMatchesAnalyzed = results.reduce((sum, r) => sum + r.homeStats.cornersMatchCount + r.awayStats.cornersMatchCount, 0);
-            const formattedDateFrom = new Date(dateFrom).toLocaleDateString('pl-PL');
-            const formattedDateTo = new Date(dateTo).toLocaleDateString('pl-PL');
-
-            let modalHTML = `
-                <div class="modal-backdrop" onclick="minimizeModal()" style="z-index: 9999;"></div>
-                <div class="modal-dialog" style="max-width: 1400px; z-index: 10000;">
-                    <div class="modal-header" style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);">
-                        <div>
-                            <h2>🎯 TOP 10 - Najmniej rożnych</h2>
-                            <div style="font-size: 13px; opacity: 0.9; margin-top: 5px;">
-                                📅 ${formattedDateFrom} - ${formattedDateTo} | 📊 Analizowano ${totalMatchesAnalyzed} meczów
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 10px;">
-                            <button class="modal-minimize" onclick="minimizeModal()" title="Minimalizuj">−</button>
-                            <button class="modal-close" onclick="closeModal()">×</button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div style="background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #ec4899;">
-                            <p style="margin: 0; color: #831843; font-size: 14px; line-height: 1.6;">
-                                <strong>ℹ️ O czym jest ten modal:</strong><br>
-                                Znajduje mecze gdzie obie drużyny mają najniższą średnią rzutów rożnych w ostatnich meczach. 
-                                Im niższa łączna średnia, tym mniej rożnych można spodziewać się w nadchodzącym meczu.
-                            </p>
-                        </div>
-                        <table class="results-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Data</th>
-                                    <th>Liga</th>
-                                    <th>Gospodarze</th>
-                                    <th>Śr. rożnych</th>
-                                    <th>Goście</th>
-                                    <th>Śr. rożnych</th>
-                                    <th>Łączna średnia</th>
-                                    <th>Akcje</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-            `;
-
-            results.forEach((result, index) => {
-                // Escape data for onclick attribute
-                const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
-
-                modalHTML += `
-                    <tr>
-                        <td style="font-weight: 700; color: #ec4899;">${index + 1}</td>
-                        <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
-                        <td style="font-size: 12px; color: #666;">${result.league}</td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.homeTeam}
-                            </a>
-                        </td>
-                        <td style="font-weight: 600; color: #be185d;">
-                            ${result.homeAvgCorners} (${result.homeStats.cornersMatchCount} meczów)
-                        </td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.awayTeam}
-                            </a>
-                        </td>
-                        <td style="font-weight: 600; color: #be185d;">
-                            ${result.awayAvgCorners} (${result.awayStats.cornersMatchCount} meczów)
-                        </td>
-                        <td style="font-weight: 700; font-size: 18px; color: #ec4899; cursor: pointer; text-decoration: underline;" 
-                            onclick='showMatchDetailsModal(${resultData})' 
-                            title="Kliknij aby zobaczyć szczegóły meczów">
-                            ${result.averageCorners}
-                        </td>
-                        <td>
-                            <button onclick='addToWatchedMatches(${resultData}, "Najmniej rożnych")' 
-                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
-                                    title="Dodaj do obserwowanych">
-                                ⭐ Dodaj
-                            </button>
-                        </td>
-                    </tr>
-                `;
+                    return `
+                        <tr>
+                            <td style="font-weight: 700; color: #ec4899;">${index + 1}</td>
+                            <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                            <td style="font-size: 12px; color: #666;">${result.league}</td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.homeTeam}
+                                </a>
+                            </td>
+                            <td style="font-weight: 600; color: #be185d;">
+                                ${result.homeAvgCorners} (${result.homeStats.cornersMatchCount} meczów)
+                            </td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.awayTeam}
+                                </a>
+                            </td>
+                            <td style="font-weight: 600; color: #be185d;">
+                                ${result.awayAvgCorners} (${result.awayStats.cornersMatchCount} meczów)
+                            </td>
+                            <td style="font-weight: 700; font-size: 18px; color: #ec4899; cursor: pointer; text-decoration: underline;" 
+                                onclick='showMatchDetailsModal(${resultData})' 
+                                title="Kliknij aby zobaczyć szczegóły meczów">
+                                ${result.averageCorners}
+                            </td>
+                            <td>
+                                <button onclick='addToWatchedMatches(${resultData}, "Najmniej rożnych")' 
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
+                                        title="Dodaj do obserwowanych">
+                                    ⭐ Dodaj
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                }
             });
-
-            modalHTML += `
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            `;
-
-            // Remove existing modal of ANY type before creating new one
-            const existingModal = document.getElementById('bet-finder-modal');
-            if (existingModal) {
-                existingModal.remove();
-            }
-
-            // Create and show modal
-            const modalContainer = document.createElement('div');
-            modalContainer.id = 'bet-finder-modal';
-            modalContainer.innerHTML = modalHTML;
-            document.body.appendChild(modalContainer);
-
-            // Save to localStorage for persistence
-            addOpenModal('least-corners', results, false, dateFrom, dateTo);
         }
 
         function showGoalAdvantageModal(results, dateFrom, dateTo) {
-            currentModalResults = results;
-            currentModalType = 'goal-advantage';
+            createTop10Modal({
+                results,
+                dateFrom,
+                dateTo,
+                modalType: 'goal-advantage',
+                title: 'TOP 10 - Przewaga bramek',
+                icon: '⚡',
+                description: 'Znajduje mecze gdzie jedna drużyna dużo strzela, a druga dużo traci. Wysoki wynik przewagi wskazuje na idealny moment na zakład - silna forma ofensywna spotyka się ze słabą defensywą.',
+                headerGradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                descriptionGradient: 'linear-gradient(135deg, #d1fae5 0%, #6ee7b7 100%)',
+                descriptionBorder: '#10b981',
+                descriptionTextColor: '#064e3b',
+                maxWidth: '1400px',
+                tableHeaders: `
+                    <th>#</th>
+                    <th>Data</th>
+                    <th>Liga</th>
+                    <th>Gospodarze</th>
+                    <th>Goście</th>
+                    <th>Silna drużyna</th>
+                    <th>Śr. strzela</th>
+                    <th>Słaba drużyna</th>
+                    <th>Śr. traci</th>
+                    <th>Wynik przewagi</th>
+                    <th>Akcje</th>
+                `,
+                renderTableRow: (result, index) => {
+                    const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
+                    const advantageIcon = result.advantageType === 'home' ? '🏠' : '✈️';
 
-            // Calculate total analyzed matches
-            const totalMatchesAnalyzed = results.reduce((sum, r) => sum + r.homeStats.matchCount + r.awayStats.matchCount, 0);
-            const formattedDateFrom = new Date(dateFrom).toLocaleDateString('pl-PL');
-            const formattedDateTo = new Date(dateTo).toLocaleDateString('pl-PL');
-
-            let modalHTML = `
-                <div class="modal-backdrop" onclick="minimizeModal()" style="z-index: 9999;"></div>
-                <div class="modal-dialog" style="max-width: 1400px; z-index: 10000;">
-                    <div class="modal-header" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
-                        <div>
-                            <h2>⚡ TOP 10 - Przewaga bramek</h2>
-                            <div style="font-size: 13px; opacity: 0.9; margin-top: 5px;">
-                                📅 ${formattedDateFrom} - ${formattedDateTo} | 📊 Analizowano ${totalMatchesAnalyzed} meczów
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 10px;">
-                            <button class="modal-minimize" onclick="minimizeModal()" title="Minimalizuj">−</button>
-                            <button class="modal-close" onclick="closeModal()">×</button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div style="background: linear-gradient(135deg, #d1fae5 0%, #6ee7b7 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #10b981;">
-                            <p style="margin: 0; color: #064e3b; font-size: 14px; line-height: 1.6;">
-                                <strong>ℹ️ O czym jest ten modal:</strong><br>
-                                Znajduje mecze gdzie jedna drużyna dużo strzela, a druga dużo traci. 
-                                Wysoki wynik przewagi wskazuje na idealny moment na zakład - silna forma ofensywna spotyka się ze słabą defensywą.
-                            </p>
-                        </div>
-                        <table class="results-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Data</th>
-                                    <th>Liga</th>
-                                    <th>Gospodarze</th>
-                                    <th>Goście</th>
-                                    <th>Silna drużyna</th>
-                                    <th>Śr. strzela</th>
-                                    <th>Słaba drużyna</th>
-                                    <th>Śr. traci</th>
-                                    <th>Wynik przewagi</th>
-                                    <th>Akcje</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-            `;
-
-            results.forEach((result, index) => {
-                // Escape data for onclick attribute
-                const resultData = JSON.stringify(result).replace(/"/g, '&quot;');
-
-                // Determine which team is strong and weak
-                const advantageIcon = result.advantageType === 'home' ? '🏠' : '✈️';
-
-                modalHTML += `
-                    <tr>
-                        <td style="font-weight: 700; color: #10b981;">${index + 1}</td>
-                        <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
-                        <td style="font-size: 12px; color: #666;">${result.league}</td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.homeTeam}
-                            </a>
-                        </td>
-                        <td style="font-weight: 600;">
-                            <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
-                                ${result.awayTeam}
-                            </a>
-                        </td>
-                        <td style="font-weight: 700; color: #10b981;">
-                            ${advantageIcon} ${result.strongTeam}
-                        </td>
-                        <td style="font-weight: 600; color: #059669;">
-                            ${result.strongTeamScored}
-                        </td>
-                        <td style="font-weight: 600; color: #dc2626;">
-                            ${result.weakTeam}
-                        </td>
-                        <td style="font-weight: 600; color: #991b1b;">
-                            ${result.weakTeamConceded}
-                        </td>
-                        <td style="font-weight: 700; font-size: 18px; color: #10b981; cursor: pointer; text-decoration: underline;" 
-                            onclick='showMatchDetailsModal(${resultData})' 
-                            title="Kliknij aby zobaczyć szczegóły meczów">
-                            ${result.advantageScore}
-                        </td>
-                        <td>
-                            <button onclick='addToWatchedMatches(${resultData}, "Przewaga bramek")' 
-                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
-                                    title="Dodaj do obserwowanych">
-                                ⭐ Dodaj
-                            </button>
-                        </td>
-                    </tr>
-                `;
+                    return `
+                        <tr>
+                            <td style="font-weight: 700; color: #10b981;">${index + 1}</td>
+                            <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                            <td style="font-size: 12px; color: #666;">${result.league}</td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.homeTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.homeTeam}
+                                </a>
+                            </td>
+                            <td style="font-weight: 600;">
+                                <a href="#" class="team-link" onclick="openTeamStats('${result.awayTeam.replace(/'/g, "\\'")}'); return false;">
+                                    ${result.awayTeam}
+                                </a>
+                            </td>
+                            <td style="font-weight: 700; color: #10b981;">
+                                ${advantageIcon} ${result.strongTeam}
+                            </td>
+                            <td style="font-weight: 600; color: #059669;">
+                                ${result.strongTeamScored}
+                            </td>
+                            <td style="font-weight: 600; color: #dc2626;">
+                                ${result.weakTeam}
+                            </td>
+                            <td style="font-weight: 600; color: #991b1b;">
+                                ${result.weakTeamConceded}
+                            </td>
+                            <td style="font-weight: 700; font-size: 18px; color: #10b981; cursor: pointer; text-decoration: underline;" 
+                                onclick='showMatchDetailsModal(${resultData})' 
+                                title="Kliknij aby zobaczyć szczegóły meczów">
+                                ${result.advantageScore}
+                            </td>
+                            <td>
+                                <button onclick='addToWatchedMatches(${resultData}, "Przewaga bramek")' 
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap;" 
+                                        title="Dodaj do obserwowanych">
+                                    ⭐ Dodaj
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                }
             });
-
-            modalHTML += `
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            `;
-
-            // Remove existing modal of ANY type before creating new one
-            const existingModal = document.getElementById('bet-finder-modal');
-            if (existingModal) {
-                existingModal.remove();
-            }
-
-            // Create and show modal
-            const modalContainer = document.createElement('div');
-            modalContainer.id = 'bet-finder-modal';
-            modalContainer.innerHTML = modalHTML;
-            document.body.appendChild(modalContainer);
-
-            addOpenModal('goal-advantage', results, false, dateFrom, dateTo);
         }
 
         // Track multiple minimized modals
