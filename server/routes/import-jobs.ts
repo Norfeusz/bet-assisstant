@@ -27,12 +27,12 @@ router.post('/import-jobs', async (req, res) => {
 		}
 
 		// Create job
-		const job = await prisma.$queryRawUnsafe<Array<{ id: number }>>(
+		const job: any = await prisma.$queryRawUnsafe(
 			`
-			INSERT INTO import_jobs (leagues, date_from, date_to, status, progress)
-			VALUES ($1::jsonb, $2::date, $3::date, 'pending', '{}'::jsonb)
-			RETURNING id
-		`,
+		INSERT INTO import_jobs (leagues, date_from, date_to, status, progress)
+		VALUES ($1::jsonb, $2::date, $3::date, 'pending', '{}'::jsonb)
+		RETURNING id
+	`,
 			JSON.stringify(leagueIds),
 			dateFrom,
 			dateTo
@@ -54,26 +54,7 @@ router.get('/import-jobs', async (req, res) => {
 	try {
 		const showHidden = req.query.showHidden === 'true'
 
-		const jobs = await prisma.$queryRawUnsafe<
-			Array<{
-				id: number
-				leagues: any
-				date_from: Date
-				date_to: Date
-				status: string
-				progress: any
-				total_matches: number
-				imported_matches: number
-				failed_matches: number
-				rate_limit_remaining: number
-				rate_limit_reset_at: Date | null
-				error_message: string | null
-				started_at: Date | null
-				completed_at: Date | null
-				created_at: Date
-				hidden: boolean
-			}>
-		>(
+		const jobs: any = await prisma.$queryRawUnsafe(
 			`
 			SELECT * FROM import_jobs
 			WHERE hidden = $1
@@ -255,12 +236,11 @@ router.post('/import-jobs/:id/retry', async (req, res) => {
 		const jobId = parseInt(req.params.id)
 
 		// Check if job exists and is rate_limited
-		const job = await prisma.$queryRawUnsafe<any[]>(`SELECT status FROM import_jobs WHERE id = $1`, jobId)
+		const job: any = await prisma.$queryRawUnsafe(`SELECT status FROM import_jobs WHERE id = $1`, jobId)
 
 		if (job.length === 0) {
 			return res.status(404).json({ error: 'Job not found' })
 		}
-
 		if (job[0].status !== 'rate_limited') {
 			return res.status(400).json({ error: 'Only rate_limited jobs can be retried' })
 		}

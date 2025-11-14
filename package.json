@@ -29,9 +29,10 @@
 	"license": "ISC",
 	"dependencies": {
 		"@prisma/client": "^6.18.0",
+		"@types/axios": "^0.9.36",
 		"@types/express": "^5.0.5",
 		"@types/nodemailer": "^7.0.3",
-		"axios": "^1.13.2",
+		"axios": "1.6.0",
 		"dotenv": "^17.2.3",
 		"express": "^5.1.0",
 		"nodemailer": "^7.0.10",

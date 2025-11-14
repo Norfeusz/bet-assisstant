@@ -3,7 +3,7 @@
  * https://www.api-football.com/documentation-v3
  */
 
-import axios, { AxiosInstance, AxiosError } from 'axios'
+import axios from 'axios'
 import { RateLimiter } from '../utils/rate-limiter'
 import {
 	ApiFootballResponse,
@@ -21,7 +21,7 @@ import {
 } from '../types/api-football.types'
 
 export class ApiFootballClient {
-	private client: AxiosInstance
+	private client: any
 	private rateLimiter: RateLimiter
 	private apiKey: string
 
@@ -58,7 +58,7 @@ export class ApiFootballClient {
 
 		try {
 			// Make request
-			const response = await this.client.get<ApiFootballResponse<T>>(endpoint, {
+			const response = await this.client.get(endpoint, {
 				params,
 			})
 
@@ -71,21 +71,15 @@ export class ApiFootballClient {
 			}
 
 			return response.data
-		} catch (error) {
-			if (axios.isAxiosError(error)) {
-				const axiosError = error as AxiosError
-				if (axiosError.response) {
-					throw new Error(
-						`API request failed: ${axiosError.response.status} - ${JSON.stringify(axiosError.response.data)}`
-					)
-				} else if (axiosError.request) {
-					throw new Error('API request failed: No response received')
-				}
+		} catch (error: any) {
+			if (error.response) {
+				throw new Error(`API request failed: ${error.response.status} - ${JSON.stringify(error.response.data)}`)
+			} else if (error.request) {
+				throw new Error('API request failed: No response received')
 			}
 			throw error
 		}
 	}
-
 	/**
 	 * Get leagues and competitions
 	 */

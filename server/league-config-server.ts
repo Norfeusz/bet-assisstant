@@ -482,10 +482,10 @@ app.get('/api/database/countries', async (req, res) => {
 		const countries = await prisma.$queryRaw<Array<{ country: string }>>`
 			SELECT DISTINCT country
 			FROM matches
-			ORDER BY country
-		`
+		ORDER BY country
+	`
 
-		const countryNames = countries.map(c => c.country)
+		const countryNames = countries.map((c: any) => c.country)
 
 		await prisma.$disconnect()
 
@@ -643,15 +643,15 @@ app.get('/api/database/matches', async (req, res) => {
 			params.push(team)
 		}
 		if (dateFrom) {
-			conditions.push(`match_date >= $${params.length + 1}`)
+			conditions.push(`match_date >= $${params.length + 1}::date`)
 			params.push(dateFrom)
 		}
 		if (dateTo) {
-			conditions.push(`match_date <= $${params.length + 1}`)
+			conditions.push(`match_date <= $${params.length + 1}::date`)
 			params.push(dateTo)
 		}
 		if (isFinished !== undefined) {
-			const finished = isFinished === 'yes' || isFinished === 'true'
+			const finished = isFinished === 'yes' || isFinished === 'true' ? 'yes' : 'no'
 			conditions.push(`is_finished = $${params.length + 1}`)
 			params.push(finished)
 			console.log(`   ✓ is_finished filter: "${isFinished}" → ${finished}`)
@@ -660,9 +660,7 @@ app.get('/api/database/matches', async (req, res) => {
 		const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : ''
 
 		console.log('   SQL WHERE clause:', whereClause)
-		console.log('   SQL params:', params)
-
-		// Determine sort order
+		console.log('   SQL params:', params) // Determine sort order
 		let orderBy = 'ORDER BY match_date DESC'
 		if (sort === 'date_asc') {
 			orderBy = 'ORDER BY match_date ASC'

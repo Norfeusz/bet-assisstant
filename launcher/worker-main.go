@@ -42,11 +42,19 @@ func main() {
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
 	
-	<-sigChan
+	// Wait for signal or process to finish
+	go func() {
+		<-sigChan
+		fmt.Println("\n\n🛑 Shutting down worker...")
+		if err := cmd.Process.Kill(); err != nil {
+			log.Println(colorRed + "Error stopping worker: " + err.Error() + colorReset)
+		}
+	}()
 	
-	fmt.Println("\n\n🛑 Shutting down worker...")
-	if err := cmd.Process.Kill(); err != nil {
-		log.Println(colorRed + "Error stopping worker: " + err.Error() + colorReset)
+	// Wait for the worker process to finish
+	if err := cmd.Wait(); err != nil {
+		log.Println(colorRed + "Worker exited with error: " + err.Error() + colorReset)
 	}
+	
 	fmt.Println(colorGreen + "👋 Worker stopped!" + colorReset)
 }
