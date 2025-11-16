@@ -910,9 +910,12 @@ async function showBackgroundImportDialog() {
 	const modal = document.getElementById('background-import-modal')
 	const leaguesList = document.getElementById('background-leagues-list')
 
-	// Load leagues
+	// Load leagues from config (contains numeric IDs)
 	try {
-		const leagues = await API.loadDatabaseLeagues()
+		const response = await fetch('/api/config')
+		if (!response.ok) throw new Error('Failed to load leagues')
+		const data = await response.json()
+		const leagues = data.leagues
 
 		let html = ''
 		leagues.forEach(league => {
