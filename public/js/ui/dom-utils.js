@@ -183,9 +183,15 @@ export function renderMatchesTable(matchesList, sectionTitle, selectedTeam = nul
                 <td class="match-date">${date}</td>
                 <td>
                     <div class="match-teams">
-                        <span class="team-name ${homeClass}" style="cursor: pointer; text-decoration: underline;" onclick="window.loadTeamStats('${match.home_team.replace(/'/g, "\\'")}')">${match.home_team}</span>
+                        <span class="team-name ${homeClass}" style="cursor: pointer; text-decoration: underline;" onclick="window.loadTeamStats('${match.home_team.replace(
+			/'/g,
+			"\\'"
+		)}')">${match.home_team}</span>
                         <span>-</span>
-                        <span class="team-name ${awayClass}" style="cursor: pointer; text-decoration: underline;" onclick="window.loadTeamStats('${match.away_team.replace(/'/g, "\\'")}')">${match.away_team}</span>
+                        <span class="team-name ${awayClass}" style="cursor: pointer; text-decoration: underline;" onclick="window.loadTeamStats('${match.away_team.replace(
+			/'/g,
+			"\\'"
+		)}')">${match.away_team}</span>
                     </div>
                 </td>
                 <td class="match-score">
@@ -718,11 +724,12 @@ export async function showMatchDetailsModal(matchId) {
 	// Show loading state
 	modal.style.display = 'flex'
 	modal.classList.add('show')
-	content.innerHTML = '<div style="text-align: center; padding: 40px;"><div class="spinner"></div><p>Ładowanie szczegółów...</p></div>'
+	content.innerHTML =
+		'<div style="text-align: center; padding: 40px;"><div class="spinner"></div><p>Ładowanie szczegółów...</p></div>'
 
 	try {
 		const match = await API.loadMatchDetails(matchId)
-		
+
 		console.log('Match data received:', match)
 		console.log('Is finished:', match.is_finished)
 
@@ -770,9 +777,13 @@ export async function showMatchDetailsModal(matchId) {
                     <div class="match-stat-row">
                         <span class="match-stat-label">Wynik pełny czas</span>
                         <div class="match-stat-values">
-                            <span class="match-stat-value home">${match.home_goals !== null ? match.home_goals : 0}</span>
+                            <span class="match-stat-value home">${
+															match.home_goals !== null ? match.home_goals : 0
+														}</span>
                             <span>:</span>
-                            <span class="match-stat-value away">${match.away_goals !== null ? match.away_goals : 0}</span>
+                            <span class="match-stat-value away">${
+															match.away_goals !== null ? match.away_goals : 0
+														}</span>
                         </div>
                     </div>
                     ${
@@ -966,19 +977,25 @@ export async function showMatchDetailsModal(matchId) {
                     <div class="match-stat-row">
                         <span class="match-stat-label">Wygrana gospodarzy</span>
                         <div class="match-stat-values">
-                            <span class="match-stat-value">${match.home_odds ? parseFloat(match.home_odds).toFixed(2) : 'N/A'}</span>
+                            <span class="match-stat-value">${
+															match.home_odds ? parseFloat(match.home_odds).toFixed(2) : 'N/A'
+														}</span>
                         </div>
                     </div>
                     <div class="match-stat-row">
                         <span class="match-stat-label">Remis</span>
                         <div class="match-stat-values">
-                            <span class="match-stat-value">${match.draw_odds ? parseFloat(match.draw_odds).toFixed(2) : 'N/A'}</span>
+                            <span class="match-stat-value">${
+															match.draw_odds ? parseFloat(match.draw_odds).toFixed(2) : 'N/A'
+														}</span>
                         </div>
                     </div>
                     <div class="match-stat-row">
                         <span class="match-stat-label">Wygrana gości</span>
                         <div class="match-stat-values">
-                            <span class="match-stat-value">${match.away_odds ? parseFloat(match.away_odds).toFixed(2) : 'N/A'}</span>
+                            <span class="match-stat-value">${
+															match.away_odds ? parseFloat(match.away_odds).toFixed(2) : 'N/A'
+														}</span>
                         </div>
                     </div>
                 </div>
@@ -993,13 +1010,17 @@ export async function showMatchDetailsModal(matchId) {
                     <div class="match-stat-row">
                         <span class="match-stat-label">Gospodarz</span>
                         <div class="match-stat-values">
-                            <span class="match-stat-value">${match.standing_home ? `${match.standing_home}. miejsce` : 'N/A'}</span>
+                            <span class="match-stat-value">${
+															match.standing_home ? `${match.standing_home}. miejsce` : 'N/A'
+														}</span>
                         </div>
                     </div>
                     <div class="match-stat-row">
                         <span class="match-stat-label">Gość</span>
                         <div class="match-stat-values">
-                            <span class="match-stat-value">${match.standing_away ? `${match.standing_away}. miejsce` : 'N/A'}</span>
+                            <span class="match-stat-value">${
+															match.standing_away ? `${match.standing_away}. miejsce` : 'N/A'
+														}</span>
                         </div>
                     </div>
                 </div>
@@ -1010,10 +1031,10 @@ export async function showMatchDetailsModal(matchId) {
 		}
 
 		html += `</div>` // Close match-stats-grid
-		
+
 		console.log('📊 Generated HTML length:', html.length)
 		console.log('📊 HTML includes match-stat-card:', html.includes('match-stat-card'))
-		
+
 		// If no stats were added, show message
 		if (!html.includes('match-stat-card')) {
 			content.innerHTML = `
@@ -1035,7 +1056,7 @@ export async function showMatchDetailsModal(matchId) {
 		} else {
 			content.innerHTML = html
 		}
-		
+
 		title.textContent = `${match.home_team} vs ${match.away_team}`
 	} catch (error) {
 		console.error('Error loading match details:', error)
