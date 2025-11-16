@@ -717,6 +717,35 @@ function onTeamFilterChange() {
 /**
  * Apply database filters
  */
+/**
+ * Load statistics for specific team (called when clicking team name)
+ * @param {string} teamName - Team name to load
+ */
+async function loadTeamStats(teamName) {
+	console.log('Loading stats for team:', teamName)
+
+	// Set the team filter
+	document.getElementById('filter-team').value = teamName
+
+	// Update the search input to match
+	const teamSearch = document.getElementById('filter-team-search')
+	if (teamSearch) {
+		teamSearch.value = ''
+	}
+
+	// Apply filters which will load matches and show stats
+	await applyFilters()
+
+	// Scroll to stats container
+	const statsContainer = document.getElementById('team-stats-container')
+	if (statsContainer && statsContainer.style.display !== 'none') {
+		statsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	}
+}
+
+/**
+ * Apply filters and load matches
+ */
 async function applyFilters() {
 	const country = document.getElementById('filter-country').value
 	const league = document.getElementById('filter-league').value
@@ -1910,6 +1939,7 @@ window.applyFilters = applyFilters
 window.resetFilters = resetFilters
 window.onStatsLeagueChange = onStatsLeagueChange
 window.applyLimitToResults = applyLimitToResults
+window.loadTeamStats = loadTeamStats
 
 // Statistics modal
 window.closeStatModal = DOMUtils.closeStatModal

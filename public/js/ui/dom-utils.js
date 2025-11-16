@@ -183,9 +183,9 @@ export function renderMatchesTable(matchesList, sectionTitle, selectedTeam = nul
                 <td class="match-date">${date}</td>
                 <td>
                     <div class="match-teams">
-                        <span class="team-name ${homeClass}">${match.home_team}</span>
+                        <span class="team-name ${homeClass}" style="cursor: pointer; text-decoration: underline;" onclick="window.loadTeamStats('${match.home_team.replace(/'/g, "\\'")}')">${match.home_team}</span>
                         <span>-</span>
-                        <span class="team-name ${awayClass}">${match.away_team}</span>
+                        <span class="team-name ${awayClass}" style="cursor: pointer; text-decoration: underline;" onclick="window.loadTeamStats('${match.away_team.replace(/'/g, "\\'")}')">${match.away_team}</span>
                     </div>
                 </td>
                 <td class="match-score">
