@@ -750,7 +750,7 @@ function showMostGoalsModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #f5576c; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showMatchDetailsModal(${resultData})'
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageGoals}
                     </td>
@@ -819,7 +819,7 @@ function showLeastGoalsModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #3b82f6; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showMatchDetailsModal(${resultData})'
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageGoals}
                     </td>
@@ -889,7 +889,7 @@ function showHandicap15Modal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #10b981; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showMatchDetailsModal(${resultData})'
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.goalDifference}
                     </td>
@@ -960,7 +960,7 @@ function showMostCornersModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #f59e0b; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showMatchDetailsModal(${resultData})'
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageCorners}
                     </td>
@@ -1031,7 +1031,7 @@ function showLeastCornersModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showMatchDetailsModal(${resultData})'
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageCorners}
                     </td>
@@ -1101,7 +1101,7 @@ function showGoalAdvantageModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #ef4444; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showMatchDetailsModal(${resultData})'
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.homeAdvantage}
                     </td>

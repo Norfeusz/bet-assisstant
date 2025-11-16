@@ -1353,7 +1353,7 @@ function closeModal() {
 	}
 }
 
-function showMatchDetailsModal(result) {
+function showBetFinderMatchDetailsModal(result) {
 	console.log('Match details:', result)
 
 	if (!result || !result.homeStats || !result.awayStats) {
@@ -1783,7 +1783,7 @@ function restoreMatchDetailsModal(matchId) {
 	// Get modal data
 	const matchData = minimizedMatchModals.get(matchId)
 	if (matchData) {
-		showMatchDetailsModal(matchData)
+		showBetFinderMatchDetailsModal(matchData)
 	}
 
 	repositionMinimizedMatchCards()
@@ -1918,6 +1918,9 @@ window.closeStatModal = DOMUtils.closeStatModal
 window.showMatchDetailsModal = DOMUtils.showMatchDetailsModal
 window.closeMatchDetailsModal = DOMUtils.closeMatchDetailsModal
 
+// Bet finder match details modal (different from database match details)
+window.showBetFinderMatchDetailsModal = showBetFinderMatchDetailsModal
+
 // Background jobs (placeholders)
 window.showBackgroundImportDialog = showBackgroundImportDialog
 window.closeBackgroundImportDialog = closeBackgroundImportDialog
@@ -1942,8 +1945,6 @@ window.findGoalAdvantage = BetFinder.findGoalAdvantage
 // Bet finder modal helpers
 window.minimizeModal = minimizeModal
 window.closeModal = closeModal
-window.showMatchDetailsModal = showMatchDetailsModal
-window.closeMatchDetailsModal = closeMatchDetailsModal
 window.minimizeMatchDetailsModal = minimizeMatchDetailsModal
 window.restoreMatchDetailsModal = restoreMatchDetailsModal
 window.closeMatchDetailsModalCompletely = closeMatchDetailsModalCompletely
