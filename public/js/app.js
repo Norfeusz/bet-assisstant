@@ -228,7 +228,7 @@ async function init() {
 
 		// Load minimized TOP 10 modals
 		loadMinimizedModals()
-		WatchedMatches.restoreWatchedMatchesModal() // Show minimized card
+		WatchedMatches.ensureWatchedMatchesCard() // Show minimized card only
 
 		console.log('✅ Application initialized successfully')
 	} catch (error) {
@@ -1484,6 +1484,21 @@ function showBetFinderMatchDetailsModal(result) {
 			result.awayStats.matchCount || 0
 		} meczów)`
 		mainStatText = `Przewaga gospodarza: ${result.homeAdvantage}`
+	} else if (result.contrastScore !== undefined) {
+		// Winner vs Loser search
+		searchType = 'winloss'
+		avgThreshold = 0 // Not used for win/loss
+		homeStatsText = `W: ${result.homeStats.wins || 0} | D: ${result.homeStats.draws || 0} | L: ${
+			result.homeStats.losses || 0
+		} (${result.homeStats.winPercent || 0}% / ${result.homeStats.drawPercent || 0}% / ${
+			result.homeStats.lossPercent || 0
+		}%)`
+		awayStatsText = `W: ${result.awayStats.wins || 0} | D: ${result.awayStats.draws || 0} | L: ${
+			result.awayStats.losses || 0
+		} (${result.awayStats.winPercent || 0}% / ${result.awayStats.drawPercent || 0}% / ${
+			result.awayStats.lossPercent || 0
+		}%)`
+		mainStatText = `Kontrast form: ${result.contrastScore} (Mocny: ${result.strongTeam} ${result.strongTeamWinPercent}% W, Słaby: ${result.weakTeam} ${result.weakTeamLossPercent}% L)`
 	} else {
 		// Default fallback
 		searchType = 'default'
@@ -1506,6 +1521,27 @@ function showBetFinderMatchDetailsModal(result) {
 				statLabel = `${statValue} rż.`
 			} else {
 				return '<span style="color: #999;">—</span>'
+			}
+		} else if (searchType === 'winloss') {
+			// For win/loss search, show result with color coding
+			// Determine if this was a win, draw, or loss for the team
+			const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+			const isTeamHome = match.homeTeam === teamName
+			const teamGoals = isTeamHome ? match.homeGoals : match.awayGoals
+			const opponentGoals = isTeamHome ? match.awayGoals : match.homeGoals
+			
+			if (teamGoals > opponentGoals) {
+				// Win - green
+				statLabel = 'W'
+				return `<span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; background: #d1fae5; color: #059669;">${statLabel}</span>`
+			} else if (teamGoals < opponentGoals) {
+				// Loss - red
+				statLabel = 'L'
+				return `<span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; background: #fee2e2; color: #dc2626;">${statLabel}</span>`
+			} else {
+				// Draw - yellow
+				statLabel = 'D'
+				return `<span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; background: #fef3c7; color: #d97706;">${statLabel}</span>`
 			}
 		} else if (searchType === 'handicap') {
 			const isMatchHome = match.homeTeam === result.homeTeam || match.homeTeam === result.awayTeam
@@ -1974,6 +2010,7 @@ window.findHandicap15 = BetFinder.findHandicap15
 window.findMostCorners = BetFinder.findMostCorners
 window.findLeastCorners = BetFinder.findLeastCorners
 window.findGoalAdvantage = BetFinder.findGoalAdvantage
+window.findWinnerVsLoser = BetFinder.findWinnerVsLoser
 
 // Bet finder modal helpers
 window.minimizeModal = minimizeModal

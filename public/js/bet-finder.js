@@ -172,6 +172,58 @@ function calculateHandicapStats(matches, teamName) {
 }
 
 /**
+ * Calculate win/loss statistics for a team
+ * @param {Array} matches - Team's historical matches
+ * @param {string} teamName - Team name
+ * @returns {Object} Win/Loss statistics
+ */
+function calculateWinLossStats(matches, teamName) {
+	let wins = 0
+	let losses = 0
+	let draws = 0
+	let matchCount = 0
+	const matchDetails = []
+
+	matches.forEach(match => {
+		const isHome = match.home_team === teamName
+		const goalsScored = isHome ? match.home_goals : match.away_goals
+		const goalsConceded = isHome ? match.away_goals : match.home_goals
+
+		matchCount++
+
+		// Determine result
+		if (goalsScored > goalsConceded) {
+			wins++
+		} else if (goalsScored < goalsConceded) {
+			losses++
+		} else {
+			draws++
+		}
+
+		matchDetails.push({
+			date: match.match_date,
+			homeTeam: match.home_team,
+			awayTeam: match.away_team,
+			homeGoals: match.home_goals,
+			awayGoals: match.away_goals,
+			result: goalsScored > goalsConceded ? 'W' : goalsScored < goalsConceded ? 'L' : 'D',
+			isHome: isHome,
+		})
+	})
+
+	return {
+		wins,
+		losses,
+		draws,
+		matchCount,
+		winPercent: matchCount > 0 ? parseFloat(((wins / matchCount) * 100).toFixed(1)) : 0,
+		lossPercent: matchCount > 0 ? parseFloat(((losses / matchCount) * 100).toFixed(1)) : 0,
+		drawPercent: matchCount > 0 ? parseFloat(((draws / matchCount) * 100).toFixed(1)) : 0,
+		matches: matchDetails,
+	}
+}
+
+/**
  * Generic function to find and analyze matches based on various criteria
  * @param {Object} config - Configuration object
  * @returns {Promise<void>}
@@ -569,6 +621,62 @@ export async function findGoalAdvantage() {
 	})
 }
 
+/**
+ * Find matches where one team has highest win percentage and other has highest loss percentage
+ */
+export async function findWinnerVsLoser() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze z kontrastem form (wygrywający vs przegrywający)...',
+		calculateStats: calculateWinLossStats,
+		processMatch: (match, homeStats, awayStats) => {
+			// Calculate form contrast score - the bigger the difference, the better
+			// Option 1: Home team is strong (high win%), Away team is weak (high loss%)
+			const homeWinAwayLoss = homeStats.winPercent + awayStats.lossPercent
+			
+			// Option 2: Away team is strong (high win%), Home team is weak (high loss%)
+			const awayWinHomeLoss = awayStats.winPercent + homeStats.lossPercent
+			
+			// Use the higher contrast score
+			const contrastScore = Math.max(homeWinAwayLoss, awayWinHomeLoss)
+			
+			// Determine which team is strong and which is weak
+			let strongTeam, weakTeam, strongTeamWinPercent, weakTeamLossPercent
+			if (homeWinAwayLoss > awayWinHomeLoss) {
+				strongTeam = match.home_team
+				weakTeam = match.away_team
+				strongTeamWinPercent = homeStats.winPercent
+				weakTeamLossPercent = awayStats.lossPercent
+			} else {
+				strongTeam = match.away_team
+				weakTeam = match.home_team
+				strongTeamWinPercent = awayStats.winPercent
+				weakTeamLossPercent = homeStats.lossPercent
+			}
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				contrastScore: parseFloat(contrastScore.toFixed(1)),
+				strongTeam,
+				weakTeam,
+				strongTeamWinPercent: parseFloat(strongTeamWinPercent.toFixed(1)),
+				weakTeamLossPercent: parseFloat(weakTeamLossPercent.toFixed(1)),
+				searchType: 'winner-vs-loser',
+			}
+		},
+		sortMatches: (a, b) => b.contrastScore - a.contrastScore,
+		showModal: showWinnerVsLoserModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów spełniających kryteria (obie drużyny muszą mieć min. 5 zakończonych meczów)',
+		minMatches: 5,
+	})
+}
+
 // ==========================================
 // MODAL DISPLAY FUNCTIONS
 // ==========================================
@@ -593,6 +701,7 @@ export {
 	showLeastCornersModal,
 	showHandicap15Modal,
 	showGoalAdvantageModal,
+	showWinnerVsLoserModal,
 }
 
 // Helper function to generate "Add to Watched" button
@@ -1115,3 +1224,78 @@ function showGoalAdvantageModal(results, dateFrom, dateTo) {
 		},
 	})
 }
+
+function showWinnerVsLoserModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'winner-vs-loser',
+		title: 'TOP 10 - Wygrane vs Przegrane',
+		icon: '🏆',
+		description:
+			'Znajduje mecze gdzie jedna drużyna ma najwyższy procent wygranych, a druga najwyższy procent przegranych w ostatnich meczach. Im wyższy wynik kontrastu, tym większa różnica form.',
+		headerGradient: 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #cffafe 0%, #67e8f9 100%)',
+		descriptionBorder: '#06b6d4',
+		descriptionTextColor: '#164e63',
+		maxWidth: '1400px',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Gospodarze</th>
+            <th>W/D/L % gospodarzy</th>
+            <th>Goście</th>
+            <th>W/D/L % gości</th>
+            <th>Kontrast form</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const homeStatsText = `${result.homeStats.wins}W / ${result.homeStats.draws}D / ${result.homeStats.losses}L (${result.homeStats.winPercent}% / ${result.homeStats.drawPercent}% / ${result.homeStats.lossPercent}%)`
+			const awayStatsText = `${result.awayStats.wins}W / ${result.awayStats.draws}D / ${result.awayStats.losses}L (${result.awayStats.winPercent}% / ${result.awayStats.drawPercent}% / ${result.awayStats.lossPercent}%)`
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+			
+			// Color code based on which team is strong
+			const homeTeamStyle = result.strongTeam === result.homeTeam ? 'color: #10b981; font-weight: 700;' : 'color: #ef4444; font-weight: 700;'
+			const awayTeamStyle = result.strongTeam === result.awayTeam ? 'color: #10b981; font-weight: 700;' : 'color: #ef4444; font-weight: 700;'
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #06b6d4;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="font-weight: 600; ${homeTeamStyle}">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.homeTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.homeTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 13px;">${homeStatsText}</td>
+                    <td style="font-weight: 600; ${awayTeamStyle}">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.awayTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.awayTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 13px;">${awayStatsText}</td>
+                    <td style="font-weight: 700; font-size: 18px; color: #06b6d4; cursor: pointer; text-decoration: underline;"
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.contrastScore}
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Wygrane vs Przegrane")'>
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
+

@@ -149,13 +149,13 @@ class BackgroundImportWorker {
 		} as any)
 
 		const allLeagues = await this.loadLeagueConfigs()
-		
+
 		// Debug logging
 		this.log(job.id, `Loaded ${allLeagues.length} leagues from config`)
 		this.log(job.id, `Job requests leagues: ${job.leagues.join(', ')}`)
-		
+
 		// Convert job.leagues to numbers for comparison (they come as strings from JSON)
-		const requestedLeagueIds = job.leagues.map(id => typeof id === 'string' ? parseInt(id, 10) : id)
+		const requestedLeagueIds = job.leagues.map(id => (typeof id === 'string' ? parseInt(id, 10) : id))
 		const selectedLeagues = allLeagues.filter(l => requestedLeagueIds.includes(l.id))
 
 		this.log(job.id, `Leagues: ${selectedLeagues.map(l => l.name).join(', ')}`)

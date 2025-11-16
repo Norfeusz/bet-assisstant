@@ -310,7 +310,7 @@ function ensureCardsContainer() {
 	return container
 }
 
-function ensureWatchedMatchesCard() {
+export function ensureWatchedMatchesCard() {
 	const container = ensureCardsContainer()
 	let miniCard = document.getElementById('minimized-watched-matches-card')
 
