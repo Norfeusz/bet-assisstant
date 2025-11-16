@@ -1500,8 +1500,8 @@ function showBetFinderMatchDetailsModal(result) {
 		}%)`
 		mainStatText = `Kontrast form: ${result.contrastScore} (Mocny: ${result.strongTeam} ${result.strongTeamWinPercent}% W, Słaby: ${result.weakTeam} ${result.weakTeamLossPercent}% L)`
 	} else if (result.averageTotalCorners !== undefined) {
-		// Total corners search
-		searchType = 'total-corners'
+		// Total corners search (both most and least)
+		searchType = result.searchType === 'total-corners-least' ? 'total-corners-least' : 'total-corners'
 		avgThreshold = 0 // Not used
 		homeStatsText = `Śr. suma rożnych: ${result.homeStats.avgMatchCorners || 0} (${
 			result.homeStats.cornersMatchCount || 0
@@ -1518,6 +1518,33 @@ function showBetFinderMatchDetailsModal(result) {
 		mainStatText = 'Statystyki'
 	}
 
+	// Calculate missing statistics
+	const calculateMissingStats = (matches) => {
+		if (searchType === 'corners' || searchType === 'total-corners' || searchType === 'total-corners-least') {
+			// Count matches without corner data
+			const missingCount = matches.filter(m => m.homeCorners == null || m.awayCorners == null).length
+			const totalCount = matches.length
+			const withDataCount = totalCount - missingCount
+			
+			return {
+				missing: missingCount,
+				total: totalCount,
+				withData: withDataCount,
+				hasMissing: missingCount > 0,
+			}
+		}
+		// For other search types, no missing data
+		return {
+			missing: 0,
+			total: matches.length,
+			withData: matches.length,
+			hasMissing: false,
+		}
+	}
+
+	const homeMissingStats = calculateMissingStats(homeMatches)
+	const awayMissingStats = calculateMissingStats(awayMatches)
+
 	// Helper function to render match statistic with color coding
 	const renderMatchStat = (match, isHomeTeam) => {
 		let statValue = 0
@@ -1526,7 +1553,7 @@ function showBetFinderMatchDetailsModal(result) {
 		if (searchType === 'goals') {
 			statValue = (match.homeGoals || 0) + (match.awayGoals || 0)
 			statLabel = `${statValue} br.`
-		} else if (searchType === 'corners' || searchType === 'total-corners') {
+		} else if (searchType === 'corners' || searchType === 'total-corners' || searchType === 'total-corners-least') {
 			if (match.homeCorners != null && match.awayCorners != null) {
 				statValue = (match.homeCorners || 0) + (match.awayCorners || 0)
 				statLabel = `${statValue} rż.`
@@ -1572,9 +1599,9 @@ function showBetFinderMatchDetailsModal(result) {
 		// Determine color based on comparison with average
 		let color = '#666'
 		let bgColor = 'transparent'
-		if (searchType === 'goals' || searchType === 'corners' || searchType === 'total-corners') {
+		if (searchType === 'goals' || searchType === 'corners' || searchType === 'total-corners' || searchType === 'total-corners-least') {
 			// For "least" searches, reverse the color logic
-			if (isLeastSearch) {
+			if (isLeastSearch || searchType === 'total-corners-least') {
 				if (statValue < avgThreshold) {
 					color = '#059669' // Green for below average in "least" search
 					bgColor = '#d1fae5'
@@ -1628,10 +1655,37 @@ function showBetFinderMatchDetailsModal(result) {
                         <p style="margin-bottom: 10px; font-weight: 600; background: #f3f4f6; padding: 10px; border-radius: 6px;">
                             ${homeStatsText}
                         </p>
-                        <div style="max-height: 400px; overflow-y: auto;">
-                            ${
-															homeMatches.length > 0
-																? `
+                        ${
+													homeMissingStats.hasMissing
+														? `
+                        <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 10px; margin-bottom: 10px; border-radius: 4px;">
+                            <p style="margin: 0; font-size: 12px; color: #92400e;">
+                                ⚠️ Wskazana średnia nie uwzględnia <strong>${homeMissingStats.missing}</strong> ${
+																	homeMissingStats.missing === 1
+																		? 'meczu'
+																		: homeMissingStats.missing < 5
+																		? 'meczów'
+																		: 'meczów'
+															  } dla ${homeMissingStats.missing === 1 ? 'którego' : 'których'} brakuje statystyk.
+                                ${
+																	homeMissingStats.withData > 0
+																		? `Średnia oparta na ${homeMissingStats.withData} ${
+																				homeMissingStats.withData === 1
+																					? 'meczu'
+																					: homeMissingStats.withData < 5
+																					? 'meczach'
+																					: 'meczach'
+																		  }.`
+																		: ''
+																}
+                            </p>
+                        </div>
+                        `
+														: ''
+												}
+                        <div style="max-height: 400px; overflow-y: auto;">${
+													homeMatches.length > 0
+														? `
                                 <table class="results-table" style="font-size: 12px;">
                                     <thead>
                                         <tr>
@@ -1661,8 +1715,8 @@ function showBetFinderMatchDetailsModal(result) {
                                     </tbody>
                                 </table>
                             `
-																: '<p style="text-align: center; color: #999;">Brak danych historycznych</p>'
-														}
+														: '<p style="text-align: center; color: #999;">Brak danych historycznych</p>'
+												}
                         </div>
                     </div>
                     
@@ -1672,6 +1726,34 @@ function showBetFinderMatchDetailsModal(result) {
                         <p style="margin-bottom: 10px; font-weight: 600; background: #f3f4f6; padding: 10px; border-radius: 6px;">
                             ${awayStatsText}
                         </p>
+                        ${
+													awayMissingStats.hasMissing
+														? `
+                        <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 10px; margin-bottom: 10px; border-radius: 4px;">
+                            <p style="margin: 0; font-size: 12px; color: #92400e;">
+                                ⚠️ Wskazana średnia nie uwzględnia <strong>${awayMissingStats.missing}</strong> ${
+																	awayMissingStats.missing === 1
+																		? 'meczu'
+																		: awayMissingStats.missing < 5
+																		? 'meczów'
+																		: 'meczów'
+															  } dla ${awayMissingStats.missing === 1 ? 'którego' : 'których'} brakuje statystyk.
+                                ${
+																	awayMissingStats.withData > 0
+																		? `Średnia oparta na ${awayMissingStats.withData} ${
+																				awayMissingStats.withData === 1
+																					? 'meczu'
+																					: awayMissingStats.withData < 5
+																					? 'meczach'
+																					: 'meczach'
+																		  }.`
+																		: ''
+																}
+                            </p>
+                        </div>
+                        `
+														: ''
+												}
                         <div style="max-height: 400px; overflow-y: auto;">
                             ${
 															awayMatches.length > 0
@@ -2023,6 +2105,7 @@ window.findLeastCorners = BetFinder.findLeastCorners
 window.findGoalAdvantage = BetFinder.findGoalAdvantage
 window.findWinnerVsLoser = BetFinder.findWinnerVsLoser
 window.findMostTotalCorners = BetFinder.findMostTotalCorners
+window.findLeastTotalCorners = BetFinder.findLeastTotalCorners
 
 // Bet finder modal helpers
 window.minimizeModal = minimizeModal
