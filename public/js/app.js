@@ -1499,6 +1499,17 @@ function showBetFinderMatchDetailsModal(result) {
 			result.awayStats.lossPercent || 0
 		}%)`
 		mainStatText = `Kontrast form: ${result.contrastScore} (Mocny: ${result.strongTeam} ${result.strongTeamWinPercent}% W, Słaby: ${result.weakTeam} ${result.weakTeamLossPercent}% L)`
+	} else if (result.averageTotalCorners !== undefined) {
+		// Total corners search
+		searchType = 'total-corners'
+		avgThreshold = 0 // Not used
+		homeStatsText = `Śr. suma rożnych: ${result.homeStats.avgMatchCorners || 0} (${
+			result.homeStats.cornersMatchCount || 0
+		} meczów)`
+		awayStatsText = `Śr. suma rożnych: ${result.awayStats.avgMatchCorners || 0} (${
+			result.awayStats.cornersMatchCount || 0
+		} meczów)`
+		mainStatText = `Średnia suma rożnych w meczu: ${result.averageTotalCorners}`
 	} else {
 		// Default fallback
 		searchType = 'default'
@@ -1515,7 +1526,7 @@ function showBetFinderMatchDetailsModal(result) {
 		if (searchType === 'goals') {
 			statValue = (match.homeGoals || 0) + (match.awayGoals || 0)
 			statLabel = `${statValue} br.`
-		} else if (searchType === 'corners') {
+		} else if (searchType === 'corners' || searchType === 'total-corners') {
 			if (match.homeCorners != null && match.awayCorners != null) {
 				statValue = (match.homeCorners || 0) + (match.awayCorners || 0)
 				statLabel = `${statValue} rż.`
@@ -1529,7 +1540,7 @@ function showBetFinderMatchDetailsModal(result) {
 			const isTeamHome = match.homeTeam === teamName
 			const teamGoals = isTeamHome ? match.homeGoals : match.awayGoals
 			const opponentGoals = isTeamHome ? match.awayGoals : match.homeGoals
-			
+
 			if (teamGoals > opponentGoals) {
 				// Win - green
 				statLabel = 'W'
@@ -1561,7 +1572,7 @@ function showBetFinderMatchDetailsModal(result) {
 		// Determine color based on comparison with average
 		let color = '#666'
 		let bgColor = 'transparent'
-		if (searchType === 'goals' || searchType === 'corners') {
+		if (searchType === 'goals' || searchType === 'corners' || searchType === 'total-corners') {
 			// For "least" searches, reverse the color logic
 			if (isLeastSearch) {
 				if (statValue < avgThreshold) {
@@ -2011,6 +2022,7 @@ window.findMostCorners = BetFinder.findMostCorners
 window.findLeastCorners = BetFinder.findLeastCorners
 window.findGoalAdvantage = BetFinder.findGoalAdvantage
 window.findWinnerVsLoser = BetFinder.findWinnerVsLoser
+window.findMostTotalCorners = BetFinder.findMostTotalCorners
 
 // Bet finder modal helpers
 window.minimizeModal = minimizeModal

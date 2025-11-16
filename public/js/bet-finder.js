@@ -123,6 +123,52 @@ function calculateCornerStats(matches, teamName) {
 }
 
 /**
+ * Calculate total match corners statistics (sum of both teams)
+ * @param {Array} matches - Team's historical matches
+ * @param {string} teamName - Team name
+ * @returns {Object} Total match corners statistics
+ */
+function calculateTotalMatchCornersStats(matches, teamName) {
+	let totalMatchCorners = 0
+	let cornersMatchCount = 0
+	let matchCount = 0
+	const matchDetails = []
+
+	matches.forEach(match => {
+		matchCount++
+
+		const isHome = match.home_team === teamName
+
+		// Only count matches with corner data
+		if (match.home_corners != null && match.away_corners != null) {
+			const matchCornersSum = match.home_corners + match.away_corners
+			totalMatchCorners += matchCornersSum
+			cornersMatchCount++
+
+			matchDetails.push({
+				date: match.match_date,
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeGoals: match.home_goals,
+				awayGoals: match.away_goals,
+				homeCorners: match.home_corners,
+				awayCorners: match.away_corners,
+				totalCorners: matchCornersSum,
+				isHome: isHome,
+			})
+		}
+	})
+
+	return {
+		totalMatchCorners,
+		cornersMatchCount,
+		matchCount,
+		avgMatchCorners: cornersMatchCount > 0 ? parseFloat((totalMatchCorners / cornersMatchCount).toFixed(2)) : 0,
+		matches: matchDetails,
+	}
+}
+
+/**
  * Calculate handicap statistics for a team
  * @param {Array} matches - Team's historical matches
  * @param {string} teamName - Team name
@@ -632,13 +678,13 @@ export async function findWinnerVsLoser() {
 			// Calculate form contrast score - the bigger the difference, the better
 			// Option 1: Home team is strong (high win%), Away team is weak (high loss%)
 			const homeWinAwayLoss = homeStats.winPercent + awayStats.lossPercent
-			
+
 			// Option 2: Away team is strong (high win%), Home team is weak (high loss%)
 			const awayWinHomeLoss = awayStats.winPercent + homeStats.lossPercent
-			
+
 			// Use the higher contrast score
 			const contrastScore = Math.max(homeWinAwayLoss, awayWinHomeLoss)
-			
+
 			// Determine which team is strong and which is weak
 			let strongTeam, weakTeam, strongTeamWinPercent, weakTeamLossPercent
 			if (homeWinAwayLoss > awayWinHomeLoss) {
@@ -677,6 +723,39 @@ export async function findWinnerVsLoser() {
 	})
 }
 
+/**
+ * Find matches with most total corners (sum of both teams)
+ */
+export async function findMostTotalCorners() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze z największą sumą rożnych...',
+		calculateStats: calculateTotalMatchCornersStats,
+		processMatch: (match, homeStats, awayStats) => {
+			const averageTotalCorners = parseFloat(
+				((homeStats.avgMatchCorners + awayStats.avgMatchCorners) / 2).toFixed(2)
+			)
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				averageTotalCorners,
+				searchType: 'total-corners',
+			}
+		},
+		sortMatches: (a, b) => b.averageTotalCorners - a.averageTotalCorners,
+		showModal: showMostTotalCornersModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+		minMatches: 5,
+		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount > 0 && awayStats.cornersMatchCount > 0,
+	})
+}
+
 // ==========================================
 // MODAL DISPLAY FUNCTIONS
 // ==========================================
@@ -702,6 +781,7 @@ export {
 	showHandicap15Modal,
 	showGoalAdvantageModal,
 	showWinnerVsLoserModal,
+	showMostTotalCornersModal,
 }
 
 // Helper function to generate "Add to Watched" button
@@ -1255,10 +1335,16 @@ function showWinnerVsLoserModal(results, dateFrom, dateTo) {
 			const homeStatsText = `${result.homeStats.wins}W / ${result.homeStats.draws}D / ${result.homeStats.losses}L (${result.homeStats.winPercent}% / ${result.homeStats.drawPercent}% / ${result.homeStats.lossPercent}%)`
 			const awayStatsText = `${result.awayStats.wins}W / ${result.awayStats.draws}D / ${result.awayStats.losses}L (${result.awayStats.winPercent}% / ${result.awayStats.drawPercent}% / ${result.awayStats.lossPercent}%)`
 			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
-			
+
 			// Color code based on which team is strong
-			const homeTeamStyle = result.strongTeam === result.homeTeam ? 'color: #10b981; font-weight: 700;' : 'color: #ef4444; font-weight: 700;'
-			const awayTeamStyle = result.strongTeam === result.awayTeam ? 'color: #10b981; font-weight: 700;' : 'color: #ef4444; font-weight: 700;'
+			const homeTeamStyle =
+				result.strongTeam === result.homeTeam
+					? 'color: #10b981; font-weight: 700;'
+					: 'color: #ef4444; font-weight: 700;'
+			const awayTeamStyle =
+				result.strongTeam === result.awayTeam
+					? 'color: #10b981; font-weight: 700;'
+					: 'color: #ef4444; font-weight: 700;'
 
 			return `
                 <tr>
@@ -1299,3 +1385,76 @@ function showWinnerVsLoserModal(results, dateFrom, dateTo) {
 	})
 }
 
+function showMostTotalCornersModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'total-corners',
+		title: 'TOP 10 - Najwięcej Rożnych Mecz',
+		icon: '🚩',
+		description:
+			'Znajduje mecze gdzie suma rzutów rożnych obu drużyn jest największa. Im wyższa średnia, tym więcej rożnych pada w meczach tych drużyn.',
+		headerGradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%)',
+		descriptionBorder: '#8b5cf6',
+		descriptionTextColor: '#581c87',
+		maxWidth: '1400px',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Gospodarze</th>
+            <th>Śr. rożnych (gospodarze)</th>
+            <th>Goście</th>
+            <th>Śr. rożnych (goście)</th>
+            <th>Śr. suma rożnych</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #8b5cf6;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.homeTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.homeTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 14px; color: #6b7280;">
+                        ${result.homeStats.avgMatchCorners} 
+                        <span style="font-size: 11px; color: #9ca3af;">(${result.homeStats.cornersMatchCount} meczów)</span>
+                    </td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.awayTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.awayTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 14px; color: #6b7280;">
+                        ${result.awayStats.avgMatchCorners}
+                        <span style="font-size: 11px; color: #9ca3af;">(${result.awayStats.cornersMatchCount} meczów)</span>
+                    </td>
+                    <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;"
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.averageTotalCorners}
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej Rożnych Mecz")'>
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
