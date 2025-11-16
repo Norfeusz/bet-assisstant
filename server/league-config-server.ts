@@ -505,29 +505,35 @@ app.get('/api/database/leagues', async (req, res) => {
 		const { PrismaClient } = await import('@prisma/client')
 		const prisma = new PrismaClient()
 
-		let leagues: Array<{ league: string }>
+		let leagues: Array<{ league: string; country: string }>
 
 		if (country) {
-			leagues = await prisma.$queryRaw<Array<{ league: string }>>`
-				SELECT DISTINCT league
+			leagues = await prisma.$queryRaw<Array<{ league: string; country: string }>>`
+				SELECT DISTINCT league, country
 				FROM matches
 				WHERE country = ${country}
-				ORDER BY league
+				ORDER BY country, league
 			`
 		} else {
-			leagues = await prisma.$queryRaw<Array<{ league: string }>>`
-				SELECT DISTINCT league
+			leagues = await prisma.$queryRaw<Array<{ league: string; country: string }>>`
+				SELECT DISTINCT league, country
 				FROM matches
-				ORDER BY league
+				ORDER BY country, league
 			`
 		}
 
-		const leagueNames = leagues.map(l => l.league)
+		// Transform to match expected format: { id: string, name: string, country: string }
+		// Use league name as id since we don't have league IDs in database
+		const leagueObjects = leagues.map((l, idx) => ({
+			id: `${l.country}-${l.league}`.replace(/\s+/g, '-').toLowerCase(),
+			name: l.league,
+			country: l.country,
+		}))
 
 		await prisma.$disconnect()
 
-		console.log('📊 Loaded', leagueNames.length, 'leagues' + (country ? ` for ${country}` : ''))
-		res.json(leagueNames)
+		console.log('📊 Loaded', leagueObjects.length, 'leagues' + (country ? ` for ${country}` : ''))
+		res.json(leagueObjects)
 	} catch (error: any) {
 		console.error('Error loading leagues from database:', error)
 		res.status(500).json({ error: error.message })
@@ -731,6 +737,37 @@ app.get('/api/database/matches', async (req, res) => {
 		res.json(serializedMatches)
 	} catch (error: any) {
 		console.error('Error loading matches from database:', error)
+		res.status(500).json({ error: error.message })
+	}
+})
+
+// Get single match details by ID
+app.get('/api/database/matches/:id', async (req, res) => {
+	try {
+		const { PrismaClient } = await import('@prisma/client')
+		const prisma = new PrismaClient()
+		const matchId = parseInt(req.params.id)
+
+		console.log(`🔍 API /api/database/matches/${matchId} called`)
+
+		if (isNaN(matchId)) {
+			return res.status(400).json({ error: 'Invalid match ID' })
+		}
+
+		const match = await prisma.matches.findUnique({
+			where: { id: matchId },
+		})
+
+		await prisma.$disconnect()
+
+		if (!match) {
+			return res.status(404).json({ error: 'Match not found' })
+		}
+
+		console.log(`✅ Match found: ${match.home_team} vs ${match.away_team}`)
+		res.json(match)
+	} catch (error: any) {
+		console.error('❌ Error loading match details:', error)
 		res.status(500).json({ error: error.message })
 	}
 })

@@ -5,114 +5,117 @@
 
 // Global state object
 export const state = {
-    // Country and league selection
-    selectedCountry: null,
-    configuredLeagues: new Set(),
-    leagues: [],
+	// Country and league selection
+	selectedCountry: null,
+	configuredLeagues: new Set(),
+	leagues: [],
 
-    // Database filters
-    databaseCountries: [],
-    databaseLeagues: [],
-    databaseTeams: [],
-    selectedLimit: null,
-    lastFetchedMatches: [],
-    selectedTeamForColoring: null,
-    homeAwayFilter: 'all',
+	// Database filters
+	databaseCountries: [],
+	databaseLeagues: [],
+	databaseTeams: [],
+	selectedLimit: null,
+	lastFetchedMatches: [],
+	selectedTeamForColoring: null,
+	homeAwayFilter: 'all',
 
-    // Bet finder
-    selectedMatchCount: 10,
+	// Bet finder
+	selectedMatchCount: 10,
 
-    // Current team stats
-    currentTeamStats: null
-};
+	// Current team stats
+	currentTeamStats: null,
+
+	// Background jobs
+	backgroundJobsInterval: null,
+}
 
 // Export individual getters/setters for convenience
 export function setSelectedCountry(country) {
-    state.selectedCountry = country;
+	state.selectedCountry = country
 }
 
 export function getSelectedCountry() {
-    return state.selectedCountry;
+	return state.selectedCountry
 }
 
 export function addConfiguredLeague(leagueId) {
-    state.configuredLeagues.add(leagueId);
+	state.configuredLeagues.add(leagueId)
 }
 
 export function removeConfiguredLeague(leagueId) {
-    state.configuredLeagues.delete(leagueId);
+	state.configuredLeagues.delete(leagueId)
 }
 
 export function clearConfiguredLeagues() {
-    state.configuredLeagues.clear();
+	state.configuredLeagues.clear()
 }
 
 export function setLeagues(leagues) {
-    state.leagues = leagues;
+	state.leagues = leagues
 }
 
 export function getLeagues() {
-    return state.leagues;
+	return state.leagues
 }
 
 export function setDatabaseCountries(countries) {
-    state.databaseCountries = countries;
+	state.databaseCountries = countries
 }
 
 export function setDatabaseLeagues(leagues) {
-    state.databaseLeagues = leagues;
+	state.databaseLeagues = leagues
 }
 
 export function setDatabaseTeams(teams) {
-    state.databaseTeams = teams;
+	state.databaseTeams = teams
 }
 
 export function setSelectedLimit(limit) {
-    state.selectedLimit = limit;
+	state.selectedLimit = limit
 }
 
 export function getSelectedLimit() {
-    return state.selectedLimit;
+	return state.selectedLimit
 }
 
 export function setLastFetchedMatches(matches) {
-    state.lastFetchedMatches = matches;
+	state.lastFetchedMatches = matches
 }
 
 export function getLastFetchedMatches() {
-    return state.lastFetchedMatches;
+	return state.lastFetchedMatches
 }
 
 export function setSelectedTeamForColoring(team) {
-    state.selectedTeamForColoring = team;
+	state.selectedTeamForColoring = team
 }
 
 export function getSelectedTeamForColoring() {
-    return state.selectedTeamForColoring;
+	return state.selectedTeamForColoring
 }
 
 export function setHomeAwayFilter(filter) {
-    state.homeAwayFilter = filter;
+	state.homeAwayFilter = filter
 }
 
 export function getHomeAwayFilter() {
-    return state.homeAwayFilter;
+	return state.homeAwayFilter
 }
 
 export function setSelectedMatchCount(count) {
-    state.selectedMatchCount = count;
+	state.selectedMatchCount = count
 }
 
 export function getSelectedMatchCount() {
-    return state.selectedMatchCount;
+	return state.selectedMatchCount
 }
 
 export function setCurrentTeamStats(stats) {
-    state.currentTeamStats = stats;
-    // Also expose globally for modal access
-    window.currentTeamStats = stats;
+	state.currentTeamStats = stats
+	// Also expose globally for modal access
+	window.currentTeamStats = stats
 }
 
 export function getCurrentTeamStats() {
-    return state.currentTeamStats;
+	return state.currentTeamStats
 }

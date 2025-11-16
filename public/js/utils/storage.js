@@ -8,13 +8,13 @@
  * @returns {Array} Array of watched matches
  */
 export function loadWatchedMatches() {
-    try {
-        const saved = localStorage.getItem('watchedMatches');
-        return saved ? JSON.parse(saved) : [];
-    } catch (error) {
-        console.error('Error loading watched matches:', error);
-        return [];
-    }
+	try {
+		const saved = localStorage.getItem('watchedMatches')
+		return saved ? JSON.parse(saved) : []
+	} catch (error) {
+		console.error('Error loading watched matches:', error)
+		return []
+	}
 }
 
 /**
@@ -22,11 +22,11 @@ export function loadWatchedMatches() {
  * @param {Array} matches - Array of watched matches
  */
 export function saveWatchedMatches(matches) {
-    try {
-        localStorage.setItem('watchedMatches', JSON.stringify(matches));
-    } catch (error) {
-        console.error('Error saving watched matches:', error);
-    }
+	try {
+		localStorage.setItem('watchedMatches', JSON.stringify(matches))
+	} catch (error) {
+		console.error('Error saving watched matches:', error)
+	}
 }
 
 /**
@@ -34,13 +34,13 @@ export function saveWatchedMatches(matches) {
  * @returns {Array} Array of open modal states
  */
 export function loadOpenModals() {
-    try {
-        const saved = localStorage.getItem('openModals');
-        return saved ? JSON.parse(saved) : [];
-    } catch (error) {
-        console.error('Error loading open modals:', error);
-        return [];
-    }
+	try {
+		const saved = localStorage.getItem('openModals')
+		return saved ? JSON.parse(saved) : []
+	} catch (error) {
+		console.error('Error loading open modals:', error)
+		return []
+	}
 }
 
 /**
@@ -48,11 +48,11 @@ export function loadOpenModals() {
  * @param {Array} modals - Array of modal states
  */
 export function saveOpenModals(modals) {
-    try {
-        localStorage.setItem('openModals', JSON.stringify(modals));
-    } catch (error) {
-        console.error('Error saving open modals:', error);
-    }
+	try {
+		localStorage.setItem('openModals', JSON.stringify(modals))
+	} catch (error) {
+		console.error('Error saving open modals:', error)
+	}
 }
 
 /**
@@ -60,13 +60,13 @@ export function saveOpenModals(modals) {
  * @returns {Array} Array of minimized card states
  */
 export function loadMinimizedMatchCards() {
-    try {
-        const saved = localStorage.getItem('minimizedMatchCards');
-        return saved ? JSON.parse(saved) : [];
-    } catch (error) {
-        console.error('Error loading minimized cards:', error);
-        return [];
-    }
+	try {
+		const saved = localStorage.getItem('minimizedMatchCards')
+		return saved ? JSON.parse(saved) : []
+	} catch (error) {
+		console.error('Error loading minimized cards:', error)
+		return []
+	}
 }
 
 /**
@@ -74,9 +74,9 @@ export function loadMinimizedMatchCards() {
  * @param {Array} cards - Array of minimized card states
  */
 export function saveMinimizedMatchCards(cards) {
-    try {
-        localStorage.setItem('minimizedMatchCards', JSON.stringify(cards));
-    } catch (error) {
-        console.error('Error saving minimized cards:', error);
-    }
+	try {
+		localStorage.setItem('minimizedMatchCards', JSON.stringify(cards))
+	} catch (error) {
+		console.error('Error saving minimized cards:', error)
+	}
 }

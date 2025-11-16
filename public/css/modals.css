@@ -1,0 +1,690 @@
+/* =============================================================================
+   MODAL STYLES - Bet Finder Modals
+   ============================================================================= */
+
+/* Modal Backdrop */
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(4px);
+	z-index: 9999;
+}
+
+/* Modal Dialog Container */
+#bet-finder-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10000;
+}
+
+.modal-dialog {
+	background: white;
+	border-radius: 12px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Modal Header */
+.modal-header {
+	padding: 20px 30px;
+	border-radius: 12px 12px 0 0;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modal-header h2 {
+	margin: 0;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.modal-minimize,
+.modal-close {
+	background: rgba(255, 255, 255, 0.2);
+	border: none;
+	color: white;
+	font-size: 24px;
+	width: 36px;
+	height: 36px;
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.modal-minimize:hover,
+.modal-close:hover {
+	background: rgba(255, 255, 255, 0.3);
+	transform: scale(1.1);
+}
+
+/* Modal Body */
+.modal-body {
+	padding: 30px;
+	overflow-y: auto;
+	flex: 1;
+}
+
+/* Results Table */
+.results-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.results-table thead {
+	background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.results-table th {
+	padding: 12px 15px;
+	text-align: left;
+	font-weight: 600;
+	color: #374151;
+	border-bottom: 2px solid #d1d5db;
+}
+
+.results-table td {
+	padding: 12px 15px;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.results-table tbody tr {
+	transition: background-color 0.2s;
+}
+
+.results-table tbody tr:hover {
+	background-color: #f9fafb;
+}
+
+/* Team Links */
+.team-link {
+	color: #3b82f6;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.team-link:hover {
+	color: #2563eb;
+	text-decoration: underline;
+}
+
+/* Action Buttons in Table */
+.btn-small {
+	padding: 6px 12px;
+	font-size: 12px;
+	background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+	color: white;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.2s;
+	font-weight: 500;
+}
+
+.btn-small:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.btn-small:active {
+	transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.modal-dialog {
+		max-width: 95%;
+		margin: 10px;
+	}
+
+	.modal-header {
+		padding: 15px 20px;
+	}
+
+	.modal-header h2 {
+		font-size: 18px;
+	}
+
+	.modal-body {
+		padding: 20px;
+	}
+
+	.results-table {
+		font-size: 12px;
+	}
+
+	.results-table th,
+	.results-table td {
+		padding: 8px 10px;
+	}
+}
+
+/* =============================================================================
+   MINIMIZED CARDS
+   ============================================================================= */
+
+.minimized-card {
+	position: fixed;
+	right: 20px;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	padding: 12px 20px;
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	cursor: pointer;
+	transition: all 0.3s;
+	z-index: 9998;
+	min-width: 250px;
+	animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+	from {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.minimized-card:hover {
+	transform: translateX(-5px);
+	box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.minimized-card-content {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex: 1;
+}
+
+.minimized-card-icon {
+	font-size: 20px;
+}
+
+.minimized-card-text {
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.minimized-card-close {
+	background: rgba(255, 255, 255, 0.2);
+	border: none;
+	color: white;
+	font-size: 20px;
+	width: 28px;
+	height: 28px;
+	border-radius: 6px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.minimized-card-close:hover {
+	background: rgba(255, 255, 255, 0.3);
+	transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+	.minimized-card {
+		right: 10px;
+		min-width: 200px;
+		padding: 10px 15px;
+	}
+
+	.minimized-card-text {
+		font-size: 12px;
+	}
+}
+
+/* =============================================================================
+   MINIMIZED MATCH CARDS CONTAINER (Left Side)
+   ============================================================================= */
+
+/* Container for match detail cards - left side */
+.minimized-cards-container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	width: 280px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 20px 0;
+	z-index: 9997;
+	pointer-events: none; /* Allow clicks through container */
+}
+
+/* Individual match cards - aligned to right edge of container */
+.minimized-match-card {
+	position: relative;
+	right: 0;
+	margin-left: auto; /* Align to right edge of container */
+	margin-bottom: 10px;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	padding: 12px 20px;
+	border-radius: 12px 0 0 12px; /* Only left corners rounded */
+	box-shadow: -4px 4px 20px rgba(102, 126, 234, 0.4);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	cursor: pointer;
+	pointer-events: auto; /* Cards should receive clicks */
+	transition: all 0.3s;
+	min-width: 250px;
+	opacity: 0.9;
+}
+
+.minimized-match-card:hover {
+	box-shadow: -6px 6px 25px rgba(102, 126, 234, 0.5);
+	opacity: 1;
+	transform: translateX(-5px);
+}
+
+/* Special styling for watched matches card (red, always at bottom) */
+.minimized-match-card.watched-matches-card {
+	background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+	box-shadow: -4px 4px 20px rgba(239, 68, 68, 0.4);
+}
+
+.minimized-match-card.watched-matches-card:hover {
+	box-shadow: -6px 6px 25px rgba(239, 68, 68, 0.5);
+}
+
+@media (max-width: 768px) {
+	.minimized-cards-container {
+		width: 240px;
+	}
+
+	.minimized-match-card {
+		min-width: 200px;
+		padding: 10px 15px;
+	}
+}
+
+/* =============================================================================
+   MINIMIZED MODAL CARDS CONTAINER (Right Side)
+   ============================================================================= */
+
+/* Container for TOP 10 modal cards - right side */
+.minimized-modals-container {
+	position: fixed;
+	right: -200px; /* Hide most of container */
+	top: 0;
+	height: 100vh;
+	width: 280px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding: 20px 0;
+	z-index: 9997;
+	pointer-events: none; /* Allow clicks through container */
+}
+
+/* Individual TOP 10 modal cards - aligned to left edge of container */
+.minimized-card {
+	position: relative;
+	left: 0;
+	margin-right: auto; /* Align to left edge of container */
+	margin-bottom: 10px;
+	background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+	color: white;
+	padding: 12px 20px;
+	border-radius: 0 12px 12px 0; /* Only right corners rounded */
+	box-shadow: 4px 4px 20px rgba(59, 130, 246, 0.4);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	cursor: pointer;
+	pointer-events: auto; /* Cards should receive clicks */
+	transition: transform 0.3s ease;
+	min-width: 250px;
+	opacity: 0.9;
+}
+
+.minimized-card:hover {
+	transform: translateX(-200px); /* Slide individual card to the left (negative = left) */
+	box-shadow: 6px 6px 25px rgba(59, 130, 246, 0.5);
+	opacity: 1;
+	z-index: 1; /* Bring hovered card to front */
+}
+
+@media (max-width: 768px) {
+	.minimized-modals-container {
+		width: 240px;
+	}
+
+	.minimized-card {
+		min-width: 200px;
+		padding: 10px 15px;
+	}
+}
+
+/* =============================================================================
+   STATISTICS MODAL STYLES
+   ============================================================================= */
+
+.stat-modal-backdrop {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 9998;
+	animation: fadeIn 0.2s ease-in-out;
+}
+
+.stat-modal-backdrop.active {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.stat-modal-content {
+	background: white;
+	border-radius: 12px;
+	width: 90%;
+	max-width: 600px;
+	max-height: 80vh;
+	overflow: hidden;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+	animation: slideIn 0.3s ease-out;
+	display: flex;
+	flex-direction: column;
+}
+
+.stat-modal-header {
+	padding: 20px 25px;
+	border-bottom: 2px solid #e5e7eb;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.stat-modal-title {
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0;
+}
+
+.stat-modal-close {
+	background: none;
+	border: none;
+	font-size: 32px;
+	color: white;
+	cursor: pointer;
+	padding: 0;
+	line-height: 1;
+	opacity: 0.8;
+	transition: opacity 0.2s;
+}
+
+.stat-modal-close:hover {
+	opacity: 1;
+}
+
+.stat-modal-body {
+	padding: 20px 25px;
+	overflow-y: auto;
+	flex: 1;
+}
+
+.modal-match-item {
+	padding: 12px 0;
+	border-bottom: 1px solid #f3f4f6;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modal-match-item:last-child {
+	border-bottom: none;
+}
+
+.modal-match-date {
+	font-size: 13px;
+	color: #6b7280;
+	min-width: 90px;
+}
+
+.modal-match-opponent {
+	flex: 1;
+	margin: 0 15px;
+	font-size: 14px;
+	color: #333;
+}
+
+.modal-match-result {
+	font-size: 12px;
+	padding: 3px 8px;
+	border-radius: 4px;
+	font-weight: 600;
+	margin: 0 10px;
+}
+
+.modal-match-result.win {
+	background: #d1fae5;
+	color: #065f46;
+}
+
+.modal-match-result.draw {
+	background: #fef3c7;
+	color: #92400e;
+}
+
+.modal-match-result.loss {
+	background: #fee2e2;
+	color: #991b1b;
+}
+
+.modal-match-value {
+	font-size: 16px;
+	font-weight: 700;
+	color: #333;
+	min-width: 50px;
+	text-align: right;
+}
+
+.modal-match-value.highlight {
+	color: #667eea;
+	font-size: 18px;
+}
+
+/* =============================================================================
+   MATCH DETAILS MODAL
+   ============================================================================= */
+
+#match-details-modal .modal-content {
+	max-width: 900px;
+	max-height: 90vh;
+	overflow-y: auto;
+}
+
+.match-details-header {
+	text-align: center;
+	margin-bottom: 30px;
+	padding: 20px;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: 12px;
+	color: white;
+}
+
+.match-details-teams {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px 0;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.match-details-score {
+	font-size: 36px;
+	font-weight: 900;
+	margin: 10px 0;
+}
+
+.match-details-info {
+	font-size: 14px;
+	opacity: 0.9;
+	margin-top: 10px;
+}
+
+.match-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 15px;
+	margin-top: 20px;
+}
+
+.match-stat-card {
+	background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+	border-radius: 12px;
+	padding: 20px;
+	border: 1px solid #e2e8f0;
+	transition: all 0.3s ease;
+}
+
+.match-stat-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.match-stat-card h4 {
+	margin: 0 0 15px 0;
+	color: #333;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border-bottom: 2px solid #ddd;
+	padding-bottom: 8px;
+}
+
+.match-stat-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 0;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.match-stat-row:last-child {
+	border-bottom: none;
+}
+
+.match-stat-label {
+	font-size: 13px;
+	color: #666;
+	flex: 1;
+}
+
+.match-stat-values {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.match-stat-value {
+	font-size: 16px;
+	font-weight: 700;
+	color: #333;
+	min-width: 40px;
+	text-align: center;
+}
+
+.match-stat-value.home {
+	color: #3b82f6;
+}
+
+.match-stat-value.away {
+	color: #ef4444;
+}
+
+.match-stat-value.highlight {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	padding: 4px 12px;
+	border-radius: 6px;
+}
+
+.no-data {
+	text-align: center;
+	color: #999;
+	font-style: italic;
+	padding: 20px;
+}
