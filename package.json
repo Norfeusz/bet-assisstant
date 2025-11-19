@@ -22,7 +22,9 @@
 		"railway:worker": "prisma generate && ts-node server/background-import-worker.ts",
 		"db:pull": "prisma db pull",
 		"db:generate": "prisma generate",
-		"db:studio": "prisma studio"
+		"db:studio": "prisma studio",
+		"backup": "ts-node scripts/backup-database.ts --push",
+		"backup:force": "ts-node scripts/backup-database.ts --push --force"
 	},
 	"keywords": [],
 	"author": "",

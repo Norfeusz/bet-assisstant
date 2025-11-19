@@ -34,3 +34,6 @@ fix-stats-with-possession.sql
 *backup*.json
 *temp*.json
 
+# Keep database backups (they should be committed)
+!backups/
+!backups/database-backup.sql

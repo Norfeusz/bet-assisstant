@@ -7,6 +7,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
+import { DatabaseBackup } from '../scripts/backup-database'
 
 dotenv.config()
 
@@ -336,6 +337,19 @@ class BackgroundImportWorker {
 			} as any)
 
 			this.log(job.id, `✅ Job completed successfully`)
+
+			// Create database backup and push to GitHub
+			this.log(job.id, '💾 Creating database backup...')
+			try {
+				const backup = new DatabaseBackup()
+				await backup.createBackup({
+					pushToGit: true,
+					skipIfNoChanges: true,
+				})
+				this.log(job.id, '✅ Database backup created and pushed to GitHub')
+			} catch (error: any) {
+				this.log(job.id, `⚠️  Backup failed (non-critical): ${error.message}`)
+			}
 
 			// Send completion email
 			await this.sendEmail(

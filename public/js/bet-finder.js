@@ -5,6 +5,7 @@
 
 import { showToast } from './utils/helpers.js'
 import { state } from './config/state.js'
+import { isCancelled } from './search-queue.js'
 
 /**
  * Validate date range from bet finder form
@@ -123,6 +124,109 @@ function calculateCornerStats(matches, teamName) {
 }
 
 /**
+ * Calculate offsides statistics for a team
+ * @param {Array} matches - Team's historical matches
+ * @param {string} teamName - Team name
+ * @returns {Object} Offsides statistics
+ */
+function calculateOffsidesStats(matches, teamName) {
+	let totalOffsides = 0
+	let offsidesMatchCount = 0
+	let matchCount = 0
+	const matchDetails = []
+
+	matches.forEach(match => {
+		matchCount++
+
+		const isHome = match.home_team === teamName
+
+		// Only count matches with offsides data
+		if (match.home_offsides != null && match.away_offsides != null) {
+			const teamOffsides = isHome ? match.home_offsides : match.away_offsides
+			const opponentOffsides = isHome ? match.away_offsides : match.home_offsides
+			const totalMatchOffsides = match.home_offsides + match.away_offsides
+
+			totalOffsides += teamOffsides
+			offsidesMatchCount++
+
+			matchDetails.push({
+				date: match.match_date,
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeGoals: match.home_goals,
+				awayGoals: match.away_goals,
+				homeOffsides: match.home_offsides,
+				awayOffsides: match.away_offsides,
+				totalOffsides: totalMatchOffsides,
+				teamOffsides: teamOffsides,
+				isHome: isHome,
+			})
+		}
+	})
+
+	return {
+		totalOffsides,
+		offsidesMatchCount,
+		matchCount,
+		avgOffsides: offsidesMatchCount > 0 ? parseFloat((totalOffsides / offsidesMatchCount).toFixed(2)) : 0,
+		matches: matchDetails,
+	}
+}
+
+/**
+ * Calculate corner advantage statistics (corners for and against)
+ * @param {Array} matches - Team's historical matches
+ * @param {string} teamName - Team name
+ * @returns {Object} Corner advantage statistics
+ */
+function calculateCornerAdvantageStats(matches, teamName) {
+	let totalCornersFor = 0 // Corners executed by team
+	let totalCornersAgainst = 0 // Corners executed by opponents
+	let cornersMatchCount = 0
+	let matchCount = 0
+	const matchDetails = []
+
+	matches.forEach(match => {
+		matchCount++
+
+		const isHome = match.home_team === teamName
+
+		// Only count matches with corner data
+		if (match.home_corners != null && match.away_corners != null) {
+			const teamCorners = isHome ? match.home_corners : match.away_corners
+			const opponentCorners = isHome ? match.away_corners : match.home_corners
+
+			totalCornersFor += teamCorners
+			totalCornersAgainst += opponentCorners
+			cornersMatchCount++
+
+			matchDetails.push({
+				date: match.match_date,
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeGoals: match.home_goals,
+				awayGoals: match.away_goals,
+				homeCorners: match.home_corners,
+				awayCorners: match.away_corners,
+				teamCornersFor: teamCorners,
+				teamCornersAgainst: opponentCorners,
+				isHome: isHome,
+			})
+		}
+	})
+
+	return {
+		totalCornersFor,
+		totalCornersAgainst,
+		cornersMatchCount,
+		matchCount,
+		avgCornersFor: cornersMatchCount > 0 ? parseFloat((totalCornersFor / cornersMatchCount).toFixed(2)) : 0,
+		avgCornersAgainst: cornersMatchCount > 0 ? parseFloat((totalCornersAgainst / cornersMatchCount).toFixed(2)) : 0,
+		matches: matchDetails,
+	}
+}
+
+/**
  * Calculate total match corners statistics (sum of both teams)
  * @param {Array} matches - Team's historical matches
  * @param {string} teamName - Team name
@@ -164,6 +268,52 @@ function calculateTotalMatchCornersStats(matches, teamName) {
 		cornersMatchCount,
 		matchCount,
 		avgMatchCorners: cornersMatchCount > 0 ? parseFloat((totalMatchCorners / cornersMatchCount).toFixed(2)) : 0,
+		matches: matchDetails,
+	}
+}
+
+/**
+ * Calculate total match offsides statistics (sum of both teams)
+ * @param {Array} matches - Team's historical matches
+ * @param {string} teamName - Team name
+ * @returns {Object} Offsides statistics
+ */
+function calculateTotalMatchOffsidesStats(matches, teamName) {
+	let totalMatchOffsides = 0
+	let offsidesMatchCount = 0
+	let matchCount = 0
+	const matchDetails = []
+
+	matches.forEach(match => {
+		matchCount++
+
+		const isHome = match.home_team === teamName
+
+		// Only count matches with offsides data
+		if (match.home_offsides != null && match.away_offsides != null) {
+			const matchOffsidesSum = match.home_offsides + match.away_offsides
+			totalMatchOffsides += matchOffsidesSum
+			offsidesMatchCount++
+
+			matchDetails.push({
+				date: match.match_date,
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeGoals: match.home_goals,
+				awayGoals: match.away_goals,
+				homeOffsides: match.home_offsides,
+				awayOffsides: match.away_offsides,
+				totalOffsides: matchOffsidesSum,
+				isHome: isHome,
+			})
+		}
+	})
+
+	return {
+		totalMatchOffsides,
+		offsidesMatchCount,
+		matchCount,
+		avgMatchOffsides: offsidesMatchCount > 0 ? parseFloat((totalMatchOffsides / offsidesMatchCount).toFixed(2)) : 0,
 		matches: matchDetails,
 	}
 }
@@ -323,6 +473,13 @@ async function findMatches(config) {
 			return
 		}
 
+		// Check for cancellation
+		if (isCancelled()) {
+			console.log('🚫 Search cancelled by user')
+			showToast('Wyszukiwanie anulowane', 'warning')
+			return
+		}
+
 		if (upcomingMatches.length === 0) {
 			showToast('Nie znaleziono nadchodzących meczów w wybranym zakresie', 'warning')
 			return
@@ -359,6 +516,13 @@ async function findMatches(config) {
 		console.log(`📊 Using match count limit: ${state.selectedMatchCount || 'all'}`)
 
 		for (const match of upcomingMatches) {
+			// Check for cancellation
+			if (isCancelled()) {
+				console.log('🚫 Search cancelled by user')
+				showToast('Wyszukiwanie anulowane', 'warning')
+				return
+			}
+
 			const homeTeam = match.home_team
 			const awayTeam = match.away_team
 			const league = match.league
@@ -577,7 +741,7 @@ export async function findMostCorners() {
 		noMatchesMessage:
 			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
 		minMatches: 5,
-		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount > 0 && awayStats.cornersMatchCount > 0,
+		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount >= 5 && awayStats.cornersMatchCount >= 5,
 	})
 }
 
@@ -613,7 +777,79 @@ export async function findLeastCorners() {
 		noMatchesMessage:
 			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
 		minMatches: 5,
-		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount > 0 && awayStats.cornersMatchCount > 0,
+		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount >= 5 && awayStats.cornersMatchCount >= 5,
+	})
+}
+
+/**
+ * Find matches with most offsides (single team)
+ */
+export async function findMostOffsides() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze z największą liczbą spalonych...',
+		calculateStats: calculateOffsidesStats,
+		processMatch: (match, homeStats, awayStats) => {
+			// Calculate average offsides
+			const homeAvgOffsides = homeStats.totalOffsides / homeStats.offsidesMatchCount
+			const awayAvgOffsides = awayStats.totalOffsides / awayStats.offsidesMatchCount
+			const combinedAvgOffsides = homeAvgOffsides + awayAvgOffsides
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				homeAvgOffsides: parseFloat(homeAvgOffsides.toFixed(2)),
+				awayAvgOffsides: parseFloat(awayAvgOffsides.toFixed(2)),
+				averageOffsides: parseFloat(combinedAvgOffsides.toFixed(2)),
+				searchType: 'most-offsides',
+			}
+		},
+		sortMatches: (a, b) => b.averageOffsides - a.averageOffsides,
+		showModal: showMostOffsidesModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów z danymi o spalonych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+		minMatches: 5,
+		validateTeamStats: (homeStats, awayStats) => homeStats.offsidesMatchCount >= 5 && awayStats.offsidesMatchCount >= 5,
+	})
+}
+
+/**
+ * Find matches with least offsides (single team)
+ */
+export async function findLeastOffsides() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze z najmniejszą liczbą spalonych...',
+		calculateStats: calculateOffsidesStats,
+		processMatch: (match, homeStats, awayStats) => {
+			// Calculate average offsides
+			const homeAvgOffsides = homeStats.totalOffsides / homeStats.offsidesMatchCount
+			const awayAvgOffsides = awayStats.totalOffsides / awayStats.offsidesMatchCount
+			const combinedAvgOffsides = homeAvgOffsides + awayAvgOffsides
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				homeAvgOffsides: parseFloat(homeAvgOffsides.toFixed(2)),
+				awayAvgOffsides: parseFloat(awayAvgOffsides.toFixed(2)),
+				averageOffsides: parseFloat(combinedAvgOffsides.toFixed(2)),
+				searchType: 'least-offsides',
+			}
+		},
+		sortMatches: (a, b) => a.averageOffsides - b.averageOffsides, // ASCENDING for least offsides
+		showModal: showLeastOffsidesModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów z danymi o spalonych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+		minMatches: 5,
+		validateTeamStats: (homeStats, awayStats) => homeStats.offsidesMatchCount >= 5 && awayStats.offsidesMatchCount >= 5,
 	})
 }
 
@@ -750,7 +986,7 @@ export async function findMostTotalCorners() {
 		noMatchesMessage:
 			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
 		minMatches: 5,
-		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount > 0 && awayStats.cornersMatchCount > 0,
+		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount >= 5 && awayStats.cornersMatchCount >= 5,
 	})
 }
 
@@ -781,7 +1017,130 @@ export async function findLeastTotalCorners() {
 		noMatchesMessage:
 			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
 		minMatches: 5,
-		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount > 0 && awayStats.cornersMatchCount > 0,
+		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount >= 5 && awayStats.cornersMatchCount >= 5,
+	})
+}
+
+/**
+ * Find matches with corner advantage (one team executes many corners, other concedes many)
+ */
+export async function findCornerAdvantage() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze z przewagą rożnych...',
+		calculateStats: calculateCornerAdvantageStats,
+		processMatch: (match, homeStats, awayStats) => {
+			// Calculate advantage scores:
+			// Option 1: Home executes many + Away concedes many
+			const homeAdvantageScore = homeStats.avgCornersFor + awayStats.avgCornersAgainst
+
+			// Option 2: Away executes many + Home concedes many
+			const awayAdvantageScore = awayStats.avgCornersFor + homeStats.avgCornersAgainst
+
+			// Use the higher advantage
+			const advantageScore = Math.max(homeAdvantageScore, awayAdvantageScore)
+
+			// Determine which team has advantage
+			let strongTeam, weakTeam, strongTeamCornersFor, weakTeamCornersAgainst
+			if (homeAdvantageScore > awayAdvantageScore) {
+				strongTeam = match.home_team
+				weakTeam = match.away_team
+				strongTeamCornersFor = homeStats.avgCornersFor
+				weakTeamCornersAgainst = awayStats.avgCornersAgainst
+			} else {
+				strongTeam = match.away_team
+				weakTeam = match.home_team
+				strongTeamCornersFor = awayStats.avgCornersFor
+				weakTeamCornersAgainst = homeStats.avgCornersAgainst
+			}
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				advantageScore: parseFloat(advantageScore.toFixed(2)),
+				strongTeam,
+				weakTeam,
+				strongTeamCornersFor: parseFloat(strongTeamCornersFor.toFixed(2)),
+				weakTeamCornersAgainst: parseFloat(weakTeamCornersAgainst.toFixed(2)),
+				searchType: 'corner-advantage',
+			}
+		},
+		sortMatches: (a, b) => b.advantageScore - a.advantageScore,
+		showModal: showCornerAdvantageModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+		minMatches: 5,
+		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount >= 5 && awayStats.cornersMatchCount >= 5,
+	})
+}
+
+/**
+ * Find matches with most total offsides (sum of both teams)
+ */
+export async function findMostTotalOffsides() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze z największą sumą spalonych...',
+		calculateStats: calculateTotalMatchOffsidesStats,
+		processMatch: (match, homeStats, awayStats) => {
+			const averageTotalOffsides = parseFloat(
+				((homeStats.avgMatchOffsides + awayStats.avgMatchOffsides) / 2).toFixed(2)
+			)
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				averageTotalOffsides,
+				searchType: 'total-offsides',
+			}
+		},
+		sortMatches: (a, b) => b.averageTotalOffsides - a.averageTotalOffsides,
+		showModal: showMostTotalOffsidesModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów z danymi o spalonych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+		minMatches: 5,
+		validateTeamStats: (homeStats, awayStats) => homeStats.offsidesMatchCount >= 5 && awayStats.offsidesMatchCount >= 5,
+	})
+}
+
+/**
+ * Find matches with least total offsides (sum of both teams)
+ */
+export async function findLeastTotalOffsides() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze z najmniejszą sumą spalonych...',
+		calculateStats: calculateTotalMatchOffsidesStats,
+		processMatch: (match, homeStats, awayStats) => {
+			const averageTotalOffsides = parseFloat(
+				((homeStats.avgMatchOffsides + awayStats.avgMatchOffsides) / 2).toFixed(2)
+			)
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				averageTotalOffsides,
+				searchType: 'total-offsides-least',
+			}
+		},
+		sortMatches: (a, b) => a.averageTotalOffsides - b.averageTotalOffsides,
+		showModal: showLeastTotalOffsidesModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów z danymi o spalonych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+		minMatches: 5,
+		validateTeamStats: (homeStats, awayStats) => homeStats.offsidesMatchCount >= 5 && awayStats.offsidesMatchCount >= 5,
 	})
 }
 
@@ -812,6 +1171,11 @@ export {
 	showWinnerVsLoserModal,
 	showMostTotalCornersModal,
 	showLeastTotalCornersModal,
+	showCornerAdvantageModal,
+	showMostTotalOffsidesModal,
+	showLeastTotalOffsidesModal,
+	showMostOffsidesModal,
+	showLeastOffsidesModal,
 }
 
 // Helper function to generate "Add to Watched" button
@@ -1265,6 +1629,148 @@ function showLeastCornersModal(results, dateFrom, dateTo) {
 	})
 }
 
+function showMostOffsidesModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'most-offsides',
+		title: 'TOP 10 - Najwięcej spalonych',
+		icon: '🚩',
+		description:
+			'Znajduje mecze gdzie obie drużyny mają najwyższą średnią spalonych. Idealny typ zakładu: Over na spalone.',
+		headerGradient: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)',
+		descriptionBorder: '#059669',
+		descriptionTextColor: '#064e3b',
+		maxWidth: '1200px',
+		matchCountField: 'offsidesMatchCount',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Gospodarze</th>
+            <th>Statystyki gospodarzy</th>
+            <th>Goście</th>
+            <th>Statystyki gości</th>
+            <th>Łączna średnia</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const homeStatsText = `${result.homeStats.totalOffsides || 0} (śr. ${result.homeStats.avgOffsides || 0})`
+			const awayStatsText = `${result.awayStats.totalOffsides || 0} (śr. ${result.awayStats.avgOffsides || 0})`
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #059669;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.homeTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.homeTeam}
+                        </a>
+                    </td>
+                    <td>${homeStatsText}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.awayTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.awayTeam}
+                        </a>
+                    </td>
+                    <td>${awayStatsText}</td>
+                    <td style="font-weight: 700; font-size: 18px; color: #059669; cursor: pointer; text-decoration: underline;"
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.averageOffsides}
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej spalonych")'>
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
+
+function showLeastOffsidesModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'least-offsides',
+		title: 'TOP 10 - Najmniej spalonych',
+		icon: '🔻',
+		description:
+			'Znajduje mecze gdzie obie drużyny mają najniższą średnią spalonych. Idealny typ zakładu: Under na spalone.',
+		headerGradient: 'linear-gradient(135deg, #0d9488 0%, #0f766e 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)',
+		descriptionBorder: '#0d9488',
+		descriptionTextColor: '#134e4a',
+		maxWidth: '1200px',
+		matchCountField: 'offsidesMatchCount',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Gospodarze</th>
+            <th>Statystyki gospodarzy</th>
+            <th>Goście</th>
+            <th>Statystyki gości</th>
+            <th>Łączna średnia</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const homeStatsText = `${result.homeStats.totalOffsides || 0} (śr. ${result.homeStats.avgOffsides || 0})`
+			const awayStatsText = `${result.awayStats.totalOffsides || 0} (śr. ${result.awayStats.avgOffsides || 0})`
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #0d9488;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.homeTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.homeTeam}
+                        </a>
+                    </td>
+                    <td>${homeStatsText}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.awayTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.awayTeam}
+                        </a>
+                    </td>
+                    <td>${awayStatsText}</td>
+                    <td style="font-weight: 700; font-size: 18px; color: #0d9488; cursor: pointer; text-decoration: underline;"
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.averageOffsides}
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najmniej spalonych")'>
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
+
 function showGoalAdvantageModal(results, dateFrom, dateTo) {
 	createTop10Modal({
 		results,
@@ -1537,7 +2043,9 @@ function showLeastTotalCornersModal(results, dateFrom, dateTo) {
                     </td>
                     <td style="font-size: 14px; color: #6b7280;">
                         ${result.homeStats.avgMatchCorners} 
-                        <span style="font-size: 11px; color: #9ca3af;">(${result.homeStats.cornersMatchCount} meczów)</span>
+                        <span style="font-size: 11px; color: #9ca3af;">(${
+													result.homeStats.cornersMatchCount
+												} meczów)</span>
                     </td>
                     <td style="font-weight: 600;">
                         <a href="#" class="team-link" onclick="window.openTeamStats('${result.awayTeam.replace(
@@ -1549,7 +2057,9 @@ function showLeastTotalCornersModal(results, dateFrom, dateTo) {
                     </td>
                     <td style="font-size: 14px; color: #6b7280;">
                         ${result.awayStats.avgMatchCorners}
-                        <span style="font-size: 11px; color: #9ca3af;">(${result.awayStats.cornersMatchCount} meczów)</span>
+                        <span style="font-size: 11px; color: #9ca3af;">(${
+													result.awayStats.cornersMatchCount
+												} meczów)</span>
                     </td>
                     <td style="font-weight: 700; font-size: 18px; color: #ec4899; cursor: pointer; text-decoration: underline;"
                         onclick='window.showBetFinderMatchDetailsModal(${resultData})'
@@ -1565,4 +2075,335 @@ function showLeastTotalCornersModal(results, dateFrom, dateTo) {
             `
 		},
 	})
+}
+
+function showCornerAdvantageModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'corner-advantage',
+		title: 'TOP 10 - Przewaga Rożnych',
+		icon: '🎯',
+		description:
+			'Znajduje mecze gdzie jedna drużyna wykonuje dużo rożnych, a druga traci dużo rożnych. Im wyższy wynik przewagi, tym większa różnica potencjału ofensywnego i defensywnego.',
+		headerGradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
+		descriptionBorder: '#f59e0b',
+		descriptionTextColor: '#78350f',
+		maxWidth: '1600px',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Gospodarze</th>
+            <th>Rożne ZA/PRZECIW</th>
+            <th>Goście</th>
+            <th>Rożne ZA/PRZECIW</th>
+            <th>Przewaga</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+
+			// Color code based on which team has advantage
+			const homeTeamStyle =
+				result.strongTeam === result.homeTeam
+					? 'color: #10b981; font-weight: 700;'
+					: 'color: #6b7280; font-weight: 600;'
+			const awayTeamStyle =
+				result.strongTeam === result.awayTeam
+					? 'color: #10b981; font-weight: 700;'
+					: 'color: #6b7280; font-weight: 600;'
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #f59e0b;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="${homeTeamStyle}">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.homeTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.homeTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 13px; color: #6b7280;">
+                        Za: <strong style="color: #10b981;">${result.homeStats.avgCornersFor}</strong> / 
+                        Przeciw: <strong style="color: #dc2626;">${result.homeStats.avgCornersAgainst}</strong>
+                        <br><span style="font-size: 11px; color: #9ca3af;">(${
+													result.homeStats.cornersMatchCount
+												} meczów)</span>
+                    </td>
+                    <td style="${awayTeamStyle}">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.awayTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.awayTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 13px; color: #6b7280;">
+                        Za: <strong style="color: #10b981;">${result.awayStats.avgCornersFor}</strong> / 
+                        Przeciw: <strong style="color: #dc2626;">${result.awayStats.avgCornersAgainst}</strong>
+                        <br><span style="font-size: 11px; color: #9ca3af;">(${
+													result.awayStats.cornersMatchCount
+												} meczów)</span>
+                    </td>
+                    <td style="font-weight: 700; font-size: 18px; color: #f59e0b; cursor: pointer; text-decoration: underline;"
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.advantageScore}
+                        <br><span style="font-size: 11px; color: #9ca3af; font-weight: 400;">
+                            (${result.strongTeam === result.homeTeam ? result.homeTeam : result.awayTeam}: ${
+				result.strongTeamCornersFor
+			} + 
+                            ${result.strongTeam === result.homeTeam ? result.awayTeam : result.homeTeam}: ${
+				result.weakTeamCornersAgainst
+			})
+                        </span>
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Przewaga Rożnych")'>
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
+
+function showMostTotalOffsidesModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'total-offsides',
+		title: 'TOP 10 - Najwięcej Spalonych Mecz',
+		icon: '🚩',
+		description:
+			'Znajduje mecze gdzie suma spalonych obu drużyn jest największa. Im wyższa średnia, tym więcej spalonych pada w meczach tych drużyn.',
+		headerGradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)',
+		descriptionBorder: '#10b981',
+		descriptionTextColor: '#065f46',
+		maxWidth: '1400px',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Gospodarze</th>
+            <th>Śr. spalonych (gospodarze)</th>
+            <th>Goście</th>
+            <th>Śr. spalonych (goście)</th>
+            <th>Śr. suma spalonych</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #10b981;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.homeTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.homeTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 14px; color: #6b7280;">
+                        ${result.homeStats.avgMatchOffsides} 
+                        <span style="font-size: 11px; color: #9ca3af;">(${
+													result.homeStats.offsidesMatchCount
+												} meczów)</span>
+                    </td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.awayTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.awayTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 14px; color: #6b7280;">
+                        ${result.awayStats.avgMatchOffsides}
+                        <span style="font-size: 11px; color: #9ca3af;">(${
+													result.awayStats.offsidesMatchCount
+												} meczów)</span>
+                    </td>
+                    <td style="font-weight: 700; font-size: 18px; color: #10b981; cursor: pointer; text-decoration: underline;"
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.averageTotalOffsides}
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej Spalonych Mecz")'>
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
+
+function showLeastTotalOffsidesModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'total-offsides-least',
+		title: 'TOP 10 - Najmniej Spalonych Mecz',
+		icon: '🎯',
+		description:
+			'Znajduje mecze gdzie suma spalonych obu drużyn jest najmniejsza. Im niższa średnia, tym mniej spalonych pada w meczach tych drużyn.',
+		headerGradient: 'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%)',
+		descriptionBorder: '#14b8a6',
+		descriptionTextColor: '#134e4a',
+		maxWidth: '1400px',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Gospodarze</th>
+            <th>Śr. spalonych (gospodarze)</th>
+            <th>Goście</th>
+            <th>Śr. spalonych (goście)</th>
+            <th>Śr. suma spalonych</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #14b8a6;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.homeTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.homeTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 14px; color: #6b7280;">
+                        ${result.homeStats.avgMatchOffsides} 
+                        <span style="font-size: 11px; color: #9ca3af;">(${
+													result.homeStats.offsidesMatchCount
+												} meczów)</span>
+                    </td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.awayTeam.replace(
+													/'/g,
+													"\\'"
+												)}'); return false;">
+                            ${result.awayTeam}
+                        </a>
+                    </td>
+                    <td style="font-size: 14px; color: #6b7280;">
+                        ${result.awayStats.avgMatchOffsides}
+                        <span style="font-size: 11px; color: #9ca3af;">(${
+													result.awayStats.offsidesMatchCount
+												} meczów)</span>
+                    </td>
+                    <td style="font-weight: 700; font-size: 18px; color: #14b8a6; cursor: pointer; text-decoration: underline;"
+                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.averageTotalOffsides}
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najmniej Spalonych Mecz")'>
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
+
+// =============================================================================
+// QUEUE INTEGRATION
+// =============================================================================
+
+/**
+ * Helper function to add search to queue
+ */
+function queueSearch(name, executeFunc, type) {
+	// Import dynamically to avoid circular dependency
+	import('./search-queue.js').then(({ addToQueue }) => {
+		addToQueue({
+			name,
+			execute: executeFunc,
+			type,
+		})
+	})
+}
+
+/**
+ * Queue versions of search functions
+ */
+export function queueMostGoals() {
+	queueSearch('Najwięcej bramek', () => findMostGoals(), 'most-goals')
+}
+
+export function queueLeastGoals() {
+	queueSearch('Najmniej bramek', () => findLeastGoals(), 'least-goals')
+}
+
+export function queueHandicap15() {
+	queueSearch('Handicap 1.5', () => findHandicap15(), 'handicap-15')
+}
+
+export function queueMostCorners() {
+	queueSearch('Najwięcej rożnych drużyn', () => findMostCorners(), 'most-corners')
+}
+
+export function queueLeastCorners() {
+	queueSearch('Najmniej rożnych drużyn', () => findLeastCorners(), 'least-corners')
+}
+
+export function queueGoalAdvantage() {
+	queueSearch('Przewaga bramkowa', () => findGoalAdvantage(), 'goal-advantage')
+}
+
+export function queueWinnerVsLoser() {
+	queueSearch('Wygrywający vs Przegrywający', () => findWinnerVsLoser(), 'winner-vs-loser')
+}
+
+export function queueMostTotalCorners() {
+	queueSearch('Najwięcej rożnych mecz', () => findMostTotalCorners(), 'most-total-corners')
+}
+
+export function queueLeastTotalCorners() {
+	queueSearch('Najmniej rożnych mecz', () => findLeastTotalCorners(), 'least-total-corners')
+}
+
+export function queueCornerAdvantage() {
+	queueSearch('Przewaga rożnych', () => findCornerAdvantage(), 'corner-advantage')
+}
+
+export function queueMostTotalOffsides() {
+	queueSearch('Najwięcej spalonych mecz', () => findMostTotalOffsides(), 'most-total-offsides')
+}
+
+export function queueLeastTotalOffsides() {
+	queueSearch('Najmniej spalonych mecz', () => findLeastTotalOffsides(), 'least-total-offsides')
+}
+
+export function queueMostOffsides() {
+	queueSearch('Najwięcej spalonych drużyn', () => findMostOffsides(), 'most-offsides')
+}
+
+export function queueLeastOffsides() {
+	queueSearch('Najmniej spalonych drużyn', () => findLeastOffsides(), 'least-offsides')
 }

@@ -177,6 +177,9 @@ import * as DOMUtils from './ui/dom-utils.js'
 // Import bet finder functions
 import * as BetFinder from './bet-finder.js'
 
+// Import search queue module
+import './search-queue.js'
+
 // Import watched matches module
 import * as WatchedMatches from './watched-matches.js'
 
@@ -952,6 +955,29 @@ function closeBackgroundImportDialog() {
 	document.getElementById('background-import-modal').style.display = 'none'
 }
 
+// Toggle all leagues (select/deselect all)
+function toggleAllBackgroundLeagues() {
+	const checkboxes = document.querySelectorAll('.background-league-checkbox')
+	const btn = document.getElementById('toggle-all-leagues-btn')
+	
+	// Check if all are currently selected
+	const allSelected = Array.from(checkboxes).every(cb => cb.checked)
+	
+	// Toggle all
+	checkboxes.forEach(cb => {
+		cb.checked = !allSelected
+	})
+	
+	// Update button text
+	if (allSelected) {
+		btn.innerHTML = '☑️ Zaznacz wszystkie'
+		btn.style.background = '#3b82f6'
+	} else {
+		btn.innerHTML = '☐ Odznacz wszystkie'
+		btn.style.background = '#ef4444'
+	}
+}
+
 // Utwórz zadanie importu
 async function createBackgroundJob() {
 	const checkboxes = document.querySelectorAll('.background-league-checkbox:checked')
@@ -1458,6 +1484,17 @@ function showBetFinderMatchDetailsModal(result) {
 			result.awayStats.matchCount || 0
 		} meczów)`
 		mainStatText = `Różnica bramek: ${result.goalDifference}`
+	} else if (result.advantageScore !== undefined && result.strongTeamCornersFor !== undefined) {
+		// Corner advantage search - CHECK THIS FIRST before goal advantage
+		searchType = 'corner-advantage'
+		avgThreshold = 0 // Not used
+		homeStatsText = `Za: ${result.homeStats.avgCornersFor || 0} / Przeciw: ${
+			result.homeStats.avgCornersAgainst || 0
+		} (${result.homeStats.cornersMatchCount || 0} meczów)`
+		awayStatsText = `Za: ${result.awayStats.avgCornersFor || 0} / Przeciw: ${
+			result.awayStats.avgCornersAgainst || 0
+		} (${result.awayStats.cornersMatchCount || 0} meczów)`
+		mainStatText = `Przewaga rożnych: ${result.advantageScore} (${result.strongTeam}: ${result.strongTeamCornersFor} + ${result.weakTeam}: ${result.weakTeamCornersAgainst})`
 	} else if (result.advantageScore !== undefined) {
 		// Goal advantage search
 		searchType = 'advantage'
@@ -1510,6 +1547,29 @@ function showBetFinderMatchDetailsModal(result) {
 			result.awayStats.cornersMatchCount || 0
 		} meczów)`
 		mainStatText = `Średnia suma rożnych w meczu: ${result.averageTotalCorners}`
+	} else if (result.averageTotalOffsides !== undefined) {
+		// Total offsides search (both most and least)
+		searchType = result.searchType === 'total-offsides-least' ? 'total-offsides-least' : 'total-offsides'
+		avgThreshold = 0 // Not used
+		homeStatsText = `Śr. suma spalonych: ${result.homeStats.avgMatchOffsides || 0} (${
+			result.homeStats.offsidesMatchCount || 0
+		} meczów)`
+		awayStatsText = `Śr. suma spalonych: ${result.awayStats.avgMatchOffsides || 0} (${
+			result.awayStats.offsidesMatchCount || 0
+		} meczów)`
+		mainStatText = `Średnia suma spalonych w meczu: ${result.averageTotalOffsides}`
+	} else if (result.averageOffsides !== undefined) {
+		// Offsides-based search (single team)
+		searchType = result.searchType === 'least-offsides' ? 'least-offsides' : 'most-offsides'
+		avgThreshold = result.averageOffsides
+		isLeastSearch = result.searchType === 'least-offsides'
+		homeStatsText = `Śr. spalonych: ${result.homeStats.avgOffsides || 0} (${
+			result.homeStats.offsidesMatchCount || 0
+		} meczów)`
+		awayStatsText = `Śr. spalonych: ${result.awayStats.avgOffsides || 0} (${
+			result.awayStats.offsidesMatchCount || 0
+		} meczów)`
+		mainStatText = `Łączna średnia spalonych: ${result.averageOffsides}`
 	} else {
 		// Default fallback
 		searchType = 'default'
@@ -1519,13 +1579,35 @@ function showBetFinderMatchDetailsModal(result) {
 	}
 
 	// Calculate missing statistics
-	const calculateMissingStats = (matches) => {
-		if (searchType === 'corners' || searchType === 'total-corners' || searchType === 'total-corners-least') {
+	const calculateMissingStats = matches => {
+		if (
+			searchType === 'corners' ||
+			searchType === 'total-corners' ||
+			searchType === 'total-corners-least' ||
+			searchType === 'corner-advantage'
+		) {
 			// Count matches without corner data
 			const missingCount = matches.filter(m => m.homeCorners == null || m.awayCorners == null).length
 			const totalCount = matches.length
 			const withDataCount = totalCount - missingCount
-			
+
+			return {
+				missing: missingCount,
+				total: totalCount,
+				withData: withDataCount,
+				hasMissing: missingCount > 0,
+			}
+		} else if (
+			searchType === 'most-offsides' ||
+			searchType === 'least-offsides' ||
+			searchType === 'total-offsides' ||
+			searchType === 'total-offsides-least'
+		) {
+			// Count matches without offsides data
+			const missingCount = matches.filter(m => m.homeOffsides == null || m.awayOffsides == null).length
+			const totalCount = matches.length
+			const withDataCount = totalCount - missingCount
+
 			return {
 				missing: missingCount,
 				total: totalCount,
@@ -1553,10 +1635,46 @@ function showBetFinderMatchDetailsModal(result) {
 		if (searchType === 'goals') {
 			statValue = (match.homeGoals || 0) + (match.awayGoals || 0)
 			statLabel = `${statValue} br.`
-		} else if (searchType === 'corners' || searchType === 'total-corners' || searchType === 'total-corners-least') {
+		} else if (
+			searchType === 'corners' ||
+			searchType === 'total-corners' ||
+			searchType === 'total-corners-least' ||
+			searchType === 'corner-advantage'
+		) {
 			if (match.homeCorners != null && match.awayCorners != null) {
-				statValue = (match.homeCorners || 0) + (match.awayCorners || 0)
-				statLabel = `${statValue} rż.`
+				if (searchType === 'corner-advantage') {
+					// Show individual team corners with "Za" label
+					const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+					const isTeamHome = match.homeTeam === teamName
+					const teamCorners = isTeamHome ? match.homeCorners : match.awayCorners
+					statLabel = `${teamCorners} rż.`
+				} else {
+					// Show total corners
+					statValue = (match.homeCorners || 0) + (match.awayCorners || 0)
+					statLabel = `${statValue} rż.`
+				}
+			} else {
+				return '<span style="color: #999;">—</span>'
+			}
+		} else if (
+			searchType === 'most-offsides' ||
+			searchType === 'least-offsides' ||
+			searchType === 'total-offsides' ||
+			searchType === 'total-offsides-least'
+		) {
+			if (match.homeOffsides != null && match.awayOffsides != null) {
+				if (searchType === 'most-offsides' || searchType === 'least-offsides') {
+					// Show individual team offsides
+					const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+					const isTeamHome = match.homeTeam === teamName
+					const teamOffsides = isTeamHome ? match.homeOffsides : match.awayOffsides
+					statValue = teamOffsides
+					statLabel = `${teamOffsides} sp.`
+				} else {
+					// Show total offsides (sum of both teams)
+					statValue = (match.homeOffsides || 0) + (match.awayOffsides || 0)
+					statLabel = `${statValue} sp.`
+				}
 			} else {
 				return '<span style="color: #999;">—</span>'
 			}
@@ -1599,9 +1717,23 @@ function showBetFinderMatchDetailsModal(result) {
 		// Determine color based on comparison with average
 		let color = '#666'
 		let bgColor = 'transparent'
-		if (searchType === 'goals' || searchType === 'corners' || searchType === 'total-corners' || searchType === 'total-corners-least') {
+		if (
+			searchType === 'goals' ||
+			searchType === 'corners' ||
+			searchType === 'total-corners' ||
+			searchType === 'total-corners-least' ||
+			searchType === 'most-offsides' ||
+			searchType === 'least-offsides' ||
+			searchType === 'total-offsides' ||
+			searchType === 'total-offsides-least'
+		) {
 			// For "least" searches, reverse the color logic
-			if (isLeastSearch || searchType === 'total-corners-least') {
+			if (
+				isLeastSearch ||
+				searchType === 'total-corners-least' ||
+				searchType === 'least-offsides' ||
+				searchType === 'total-offsides-least'
+			) {
 				if (statValue < avgThreshold) {
 					color = '#059669' // Green for below average in "least" search
 					bgColor = '#d1fae5'
@@ -1619,6 +1751,10 @@ function showBetFinderMatchDetailsModal(result) {
 					bgColor = '#fee2e2'
 				}
 			}
+		} else if (searchType === 'corner-advantage') {
+			// For corner advantage, don't color code (just display the value)
+			color = '#666'
+			bgColor = 'transparent'
 		} else if (searchType === 'handicap' || searchType === 'advantage') {
 			if (statValue > 0) {
 				color = '#059669'
@@ -1661,12 +1797,12 @@ function showBetFinderMatchDetailsModal(result) {
                         <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 10px; margin-bottom: 10px; border-radius: 4px;">
                             <p style="margin: 0; font-size: 12px; color: #92400e;">
                                 ⚠️ Wskazana średnia nie uwzględnia <strong>${homeMissingStats.missing}</strong> ${
-																	homeMissingStats.missing === 1
-																		? 'meczu'
-																		: homeMissingStats.missing < 5
-																		? 'meczów'
-																		: 'meczów'
-															  } dla ${homeMissingStats.missing === 1 ? 'którego' : 'których'} brakuje statystyk.
+																homeMissingStats.missing === 1
+																	? 'meczu'
+																	: homeMissingStats.missing < 5
+																	? 'meczów'
+																	: 'meczów'
+														  } dla ${homeMissingStats.missing === 1 ? 'którego' : 'których'} brakuje statystyk.
                                 ${
 																	homeMissingStats.withData > 0
 																		? `Średnia oparta na ${homeMissingStats.withData} ${
@@ -1732,12 +1868,12 @@ function showBetFinderMatchDetailsModal(result) {
                         <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 10px; margin-bottom: 10px; border-radius: 4px;">
                             <p style="margin: 0; font-size: 12px; color: #92400e;">
                                 ⚠️ Wskazana średnia nie uwzględnia <strong>${awayMissingStats.missing}</strong> ${
-																	awayMissingStats.missing === 1
-																		? 'meczu'
-																		: awayMissingStats.missing < 5
-																		? 'meczów'
-																		: 'meczów'
-															  } dla ${awayMissingStats.missing === 1 ? 'którego' : 'których'} brakuje statystyk.
+																awayMissingStats.missing === 1
+																	? 'meczu'
+																	: awayMissingStats.missing < 5
+																	? 'meczów'
+																	: 'meczów'
+														  } dla ${awayMissingStats.missing === 1 ? 'którego' : 'których'} brakuje statystyk.
                                 ${
 																	awayMissingStats.withData > 0
 																		? `Średnia oparta na ${awayMissingStats.withData} ${
@@ -2086,6 +2222,7 @@ window.showBetFinderMatchDetailsModal = showBetFinderMatchDetailsModal
 // Background jobs (placeholders)
 window.showBackgroundImportDialog = showBackgroundImportDialog
 window.closeBackgroundImportDialog = closeBackgroundImportDialog
+window.toggleAllBackgroundLeagues = toggleAllBackgroundLeagues
 window.createBackgroundJob = createBackgroundJob
 window.toggleHiddenJobs = toggleHiddenJobs
 window.pauseJob = pauseJob
@@ -2096,7 +2233,7 @@ window.hideJob = hideJob
 window.unhideJob = unhideJob
 window.deleteJob = deleteJob
 
-// Bet finder functions (placeholders)
+// Bet finder functions
 window.findMostGoals = BetFinder.findMostGoals
 window.findLeastGoals = BetFinder.findLeastGoals
 window.findHandicap15 = BetFinder.findHandicap15
@@ -2106,6 +2243,58 @@ window.findGoalAdvantage = BetFinder.findGoalAdvantage
 window.findWinnerVsLoser = BetFinder.findWinnerVsLoser
 window.findMostTotalCorners = BetFinder.findMostTotalCorners
 window.findLeastTotalCorners = BetFinder.findLeastTotalCorners
+window.findCornerAdvantage = BetFinder.findCornerAdvantage
+window.findMostTotalOffsides = BetFinder.findMostTotalOffsides
+window.findLeastTotalOffsides = BetFinder.findLeastTotalOffsides
+window.findMostOffsides = BetFinder.findMostOffsides
+window.findLeastOffsides = BetFinder.findLeastOffsides
+
+// Bet finder queue functions
+window.queueMostGoals = BetFinder.queueMostGoals
+window.queueLeastGoals = BetFinder.queueLeastGoals
+window.queueHandicap15 = BetFinder.queueHandicap15
+window.queueMostCorners = BetFinder.queueMostCorners
+window.queueLeastCorners = BetFinder.queueLeastCorners
+window.queueGoalAdvantage = BetFinder.queueGoalAdvantage
+window.queueWinnerVsLoser = BetFinder.queueWinnerVsLoser
+window.queueMostTotalCorners = BetFinder.queueMostTotalCorners
+window.queueLeastTotalCorners = BetFinder.queueLeastTotalCorners
+window.queueCornerAdvantage = BetFinder.queueCornerAdvantage
+window.queueMostTotalOffsides = BetFinder.queueMostTotalOffsides
+window.queueLeastTotalOffsides = BetFinder.queueLeastTotalOffsides
+window.queueMostOffsides = BetFinder.queueMostOffsides
+window.queueLeastOffsides = BetFinder.queueLeastOffsides
+
+// Queue all searches by category
+window.queueAllResultSearches = function() {
+	BetFinder.queueWinnerVsLoser()
+	showToast('Dodano 1 wyszukiwanie z kategorii "Rezultat" do kolejki', 'success')
+}
+
+window.queueAllGoalsSearches = function() {
+	BetFinder.queueMostGoals()
+	BetFinder.queueLeastGoals()
+	BetFinder.queueGoalAdvantage()
+	BetFinder.queueHandicap15()
+	showToast('Dodano 4 wyszukiwania z kategorii "Bramki" do kolejki', 'success')
+}
+
+window.queueAllCornersSearches = function() {
+	BetFinder.queueMostCorners()
+	BetFinder.queueLeastCorners()
+	BetFinder.queueMostTotalCorners()
+	BetFinder.queueLeastTotalCorners()
+	BetFinder.queueCornerAdvantage()
+	showToast('Dodano 5 wyszukiwań z kategorii "Rożne" do kolejki', 'success')
+}
+
+window.queueAllOffsidesSearches = function() {
+	BetFinder.queueMostOffsides()
+	BetFinder.queueLeastOffsides()
+	BetFinder.queueMostTotalOffsides()
+	BetFinder.queueLeastTotalOffsides()
+	showToast('Dodano 4 wyszukiwania z kategorii "Spalone" do kolejki', 'success')
+}
 
 // Bet finder modal helpers
 window.minimizeModal = minimizeModal

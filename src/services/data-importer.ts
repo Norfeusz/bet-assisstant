@@ -208,19 +208,10 @@ export class DataImporter {
 				return
 			}
 
-			// OPTIMIZATION: Pre-fetch all finished matches from database for this date range
-			// This avoids individual SELECT queries for each match (saves DB calls)
-			const fixtureIds = fixtures.map(f => f.fixture.id)
-			const finishedMatchesInDb = await prisma.$queryRawUnsafe<Array<{ fixture_id: number }>>(
-				`SELECT fixture_id 
-			FROM matches 
-			WHERE fixture_id = ANY($1::int[])
-			AND is_finished = 'yes'`,
-				fixtureIds
-			)
-			const finishedFixtureIds = new Set(finishedMatchesInDb.map(m => m.fixture_id)) // Process each fixture
+			// Process each fixture (no pre-checking for duplicates)
+			// Database will handle duplicates via unique constraint on fixture_id
 			for (const fixture of fixtures) {
-				await this.importSingleMatch(fixture, league, finishedFixtureIds)
+				await this.importSingleMatch(fixture, league)
 			}
 		} catch (error) {
 			console.error(`  Error processing league ${league.name}:`, error)
@@ -276,7 +267,7 @@ export class DataImporter {
 	}
 
 	/**
-	 * Import a single match with statistics and odds (optimized to save API tokens)
+	 * Import a single match with statistics and odds (optimized - no duplicate checking)
 	 */
 	private async importSingleMatch(
 		fixture: FixtureResponse,
@@ -289,90 +280,10 @@ export class DataImporter {
 		const isFinished = ['FT', 'AET', 'PEN'].includes(fixture.fixture.status.short)
 
 		try {
-			// OPTIMIZATION: Quick check using pre-fetched cache
-			if (finishedFixtureIds && finishedFixtureIds.has(fixtureId)) {
-				console.log(`  ⏭️  ${homeTeam} vs ${awayTeam} - already finished in database`)
-				return
-			}
-
-			// OPTIMIZATION: Check if match exists BEFORE fetching statistics/odds from API
-			// Only needed if we don't have the cache
-			const existingMatches = finishedFixtureIds
-				? []
-				: await prisma.$queryRaw<
-						Array<{
-							is_finished: string | null
-							home_odds: number | null
-							draw_odds: number | null
-							away_odds: number | null
-						}>
-				  >`
-				SELECT is_finished, home_odds, draw_odds, away_odds
-				FROM matches
-				WHERE fixture_id = ${fixtureId}
-				LIMIT 1
-			`
-			const existingMatch = existingMatches.length > 0 ? existingMatches[0] : null
-
-			// CASE 1: Match finished in DB → SKIP (saves 2 API tokens!)
-			if (existingMatch && existingMatch.is_finished === 'yes') {
-				console.log(`  ⏭️  ${homeTeam} vs ${awayTeam} - already finished in database`)
-				return
-			}
-
-			// CASE 2: Match not finished in DB, new data also not finished → Only fetch ODDS
-			if (existingMatch && existingMatch.is_finished === 'no' && !isFinished) {
-				let odds: OddsResponse[] = []
-
-				try {
-					const oddsResponse = await this.apiClient.getOdds({
-						fixture: fixtureId,
-					})
-					odds = oddsResponse.response
-				} catch (error) {
-					console.warn(`    Could not fetch odds for fixture ${fixtureId}`)
-				}
-
-				// Extract and compare odds
-				let homeOdds: number | null = null
-				let drawOdds: number | null = null
-				let awayOdds: number | null = null
-
-				if (odds.length > 0) {
-					const oddsData = odds[0]
-					const matchWinnerBet = oddsData.bookmakers[0]?.bets.find(b => b.name === 'Match Winner')
-					if (matchWinnerBet) {
-						homeOdds = parseFloat(matchWinnerBet.values.find(v => v.value === 'Home')?.odd || '0') || null
-						drawOdds = parseFloat(matchWinnerBet.values.find(v => v.value === 'Draw')?.odd || '0') || null
-						awayOdds = parseFloat(matchWinnerBet.values.find(v => v.value === 'Away')?.odd || '0') || null
-					}
-				}
-
-				const oddsChanged =
-					existingMatch.home_odds !== homeOdds ||
-					existingMatch.draw_odds !== drawOdds ||
-					existingMatch.away_odds !== awayOdds
-
-				if (oddsChanged) {
-					await prisma.$executeRawUnsafe(
-						`
-						UPDATE matches
-						SET home_odds = $1, draw_odds = $2, away_odds = $3
-						WHERE fixture_id = $4
-					`,
-						homeOdds,
-						drawOdds,
-						awayOdds,
-						fixtureId
-					)
-					console.log(`  🔄 ${homeTeam} vs ${awayTeam} - odds updated`)
-				} else {
-					console.log(`  ⏭️  ${homeTeam} vs ${awayTeam} - no changes`)
-				}
-				return
-			}
-
-			// CASE 3 & 4: Fetch full data (new match OR match became finished)
+			// FAST MODE: No duplicate checking - let database handle it with ON CONFLICT
+			// This saves API tokens and time by skipping SELECT queries
+			
+			// Fetch full data (statistics + odds)
 			let statistics: FixtureStatisticsResponse[] = []
 			let odds: OddsResponse[] = []
 
@@ -394,19 +305,22 @@ export class DataImporter {
 				console.warn(`    Could not fetch odds for fixture ${fixtureId}`)
 			}
 
-			// Save or update to database
-			await this.saveMatchToDatabase(fixture, statistics, odds, league, existingMatch)
+			// Save to database using UPSERT (INSERT ... ON CONFLICT DO UPDATE)
+			// Database will handle duplicates automatically via unique constraint on fixture_id
+			await this.saveMatchToDatabase(fixture, statistics, odds, league, null)
 
-			if (existingMatch) {
-				console.log(`  ✅ ${homeTeam} vs ${awayTeam} - finished, statistics updated`)
-			} else {
-				console.log(`  ✅ ${homeTeam} vs ${awayTeam} - imported`)
-			}
+			console.log(`  ✅ ${homeTeam} vs ${awayTeam} - saved to database`)
 
 			this.progress.importedMatches++
 			this.progress.totalMatches++
 			this.progress.leagues[league.id].imported++
-		} catch (error) {
+		} catch (error: any) {
+			// Ignore duplicate key errors (means match was already imported)
+			if (error.code === '23505' || error.message?.includes('duplicate key')) {
+				console.log(`  ⏭️  ${homeTeam} vs ${awayTeam} - already exists (skipped)`)
+				return
+			}
+			
 			console.error(`  ❌ Failed to import match ${fixtureId}:`, error)
 			this.progress.failedMatches++
 			this.progress.totalMatches++
@@ -553,75 +467,7 @@ export class DataImporter {
 			}
 		}
 
-		// CASE 3: Match exists with is_finished = "no", new match "yes" → UPDATE ALL EXCEPT ODDS
-		if (existingMatch && existingMatch.is_finished === 'no' && isFinished === 'yes') {
-			await prisma.$executeRawUnsafe(
-				`
-				UPDATE matches
-				SET 
-					home_goals = $1,
-					away_goals = $2,
-					result = $3::match_result_enum,
-					home_goals_ht = $4,
-					away_goals_ht = $5,
-					result_ht = $6,
-					home_xg = $7,
-					away_xg = $8,
-					home_shots = $9,
-					home_shots_on_target = $10,
-					away_shots = $11,
-					away_shots_on_target = $12,
-					home_corners = $13,
-					away_corners = $14,
-					home_offsides = $15,
-					away_offsides = $16,
-					home_y_cards = $17,
-					away_y_cards = $18,
-					home_r_cards = $19,
-					away_r_cards = $20,
-					home_possession = $21,
-					away_possession = $22,
-					home_fouls = $23,
-					away_fouls = $24,
-					standing_home = COALESCE($25, standing_home),
-					standing_away = COALESCE($26, standing_away),
-					is_finished = $27
-				WHERE fixture_id = $28
-			`,
-				homeScore,
-				awayScore,
-				matchResult === 'h-win' ? 'h-win' : matchResult === 'a-win' ? 'a-win' : 'draw',
-				homeScoreHT,
-				awayScoreHT,
-				resultHT,
-				getXGValue(homeStats),
-				getXGValue(awayStats),
-				getStatValue(homeStats, 'Total Shots'),
-				getStatValue(homeStats, 'Shots on Goal'),
-				getStatValue(awayStats, 'Total Shots'),
-				getStatValue(awayStats, 'Shots on Goal'),
-				getStatValue(homeStats, 'Corner Kicks'),
-				getStatValue(awayStats, 'Corner Kicks'),
-				getStatValue(homeStats, 'Offsides'),
-				getStatValue(awayStats, 'Offsides'),
-				getStatValue(homeStats, 'Yellow Cards'),
-				getStatValue(awayStats, 'Yellow Cards'),
-				getStatValue(homeStats, 'Red Cards'),
-				getStatValue(awayStats, 'Red Cards'),
-				getStatValue(homeStats, 'Ball Possession'),
-				getStatValue(awayStats, 'Ball Possession'),
-				getStatValue(homeStats, 'Fouls'),
-				getStatValue(awayStats, 'Fouls'),
-				homeStanding,
-				awayStanding,
-				isFinished,
-				fixtureId
-			)
-			console.log(`  ✅ ${homeTeam} vs ${awayTeam} - finished, statistics updated`)
-			return
-		}
-
-		// CASE 4: Match doesn't exist → INSERT NEW (or update if exists)
+		// UPSERT: Insert new match or update if already exists (using unique constraint on fixture_id)
 		await prisma.$executeRawUnsafe(
 			`
 			INSERT INTO matches (
@@ -662,15 +508,12 @@ export class DataImporter {
 				standing_away,
 				is_finished
 			) VALUES (
-				$1, $2, $3, $4, $5, $6, $7::match_result_enum, $8, $9, $10,
-				$11, $12, $13, $14, $15, $16, $17, $18, $19, $20,
-				$21, $22, $23, $24, $25, $26, $27, $28, $29, $30,
-				$31, $32, $33, $34, $35, $36
+				$1, $2, $3, $4, $5, $6, $7::match_result_enum, $8, $9, $10, $11, $12,
+				$13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26,
+				$27, $28, $29, $30, $31, $32, $33, $34, $35, $36
 			)
 			ON CONFLICT (fixture_id) DO UPDATE SET
-				home_odds = EXCLUDED.home_odds,
-				draw_odds = EXCLUDED.draw_odds,
-				away_odds = EXCLUDED.away_odds,
+				match_date = EXCLUDED.match_date,
 				result = EXCLUDED.result,
 				home_goals = EXCLUDED.home_goals,
 				away_goals = EXCLUDED.away_goals,
@@ -695,8 +538,11 @@ export class DataImporter {
 				away_possession = EXCLUDED.away_possession,
 				home_fouls = EXCLUDED.home_fouls,
 				away_fouls = EXCLUDED.away_fouls,
-				standing_home = EXCLUDED.standing_home,
-				standing_away = EXCLUDED.standing_away,
+				home_odds = COALESCE(EXCLUDED.home_odds, matches.home_odds),
+				draw_odds = COALESCE(EXCLUDED.draw_odds, matches.draw_odds),
+				away_odds = COALESCE(EXCLUDED.away_odds, matches.away_odds),
+				standing_home = COALESCE(EXCLUDED.standing_home, matches.standing_home),
+				standing_away = COALESCE(EXCLUDED.standing_away, matches.standing_away),
 				is_finished = EXCLUDED.is_finished
 		`,
 			fixtureId,
@@ -705,7 +551,7 @@ export class DataImporter {
 			league.name,
 			homeTeam,
 			awayTeam,
-			matchResult === 'h-win' ? 'h-win' : matchResult === 'a-win' ? 'a-win' : 'draw',
+			matchResult,
 			homeScore,
 			awayScore,
 			homeScoreHT,

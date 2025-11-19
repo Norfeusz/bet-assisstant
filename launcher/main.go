@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -13,10 +14,13 @@ import (
 
 const (
 	serverURL = "http://localhost:3000"
+	maxWaitTime = 30 * time.Second
+	checkInterval = 500 * time.Millisecond
 	colorReset = "\033[0m"
 	colorGreen = "\033[32m"
 	colorBlue  = "\033[34m"
 	colorRed   = "\033[31m"
+	colorYellow = "\033[33m"
 )
 
 func main() {
@@ -34,9 +38,14 @@ func main() {
 		log.Fatal(colorRed + "❌ Failed to start server: " + err.Error() + colorReset)
 	}
 	
-	// Wait for server to be ready
+	// Wait for server to be ready with proper health check
 	fmt.Println("⏳ Waiting for server to start...")
-	time.Sleep(3 * time.Second)
+	if !waitForServer(serverURL, maxWaitTime) {
+		fmt.Println(colorRed + "❌ Server failed to start within timeout" + colorReset)
+		fmt.Println(colorYellow + "💡 Try running 'npm run leagues:web' manually to see detailed errors" + colorReset)
+		cmd.Process.Kill()
+		os.Exit(1)
+	}
 	
 	// Open browser
 	fmt.Println("🌐 Opening browser...")
@@ -62,6 +71,40 @@ func main() {
 		log.Println(colorRed + "Error stopping server: " + err.Error() + colorReset)
 	}
 	fmt.Println(colorGreen + "👋 Goodbye!" + colorReset)
+}
+
+// waitForServer checks if the server is responding
+func waitForServer(url string, maxWait time.Duration) bool {
+	client := &http.Client{
+		Timeout: 2 * time.Second,
+	}
+	
+	start := time.Now()
+	dots := 0
+	
+	for time.Since(start) < maxWait {
+		resp, err := client.Get(url)
+		if err == nil && resp.StatusCode == 200 {
+			resp.Body.Close()
+			fmt.Print("\n")
+			return true
+		}
+		if resp != nil {
+			resp.Body.Close()
+		}
+		
+		// Show progress
+		fmt.Print(".")
+		dots++
+		if dots%10 == 0 {
+			fmt.Printf(" %ds\n", int(time.Since(start).Seconds()))
+		}
+		
+		time.Sleep(checkInterval)
+	}
+	
+	fmt.Print("\n")
+	return false
 }
 
 // openBrowser opens the default browser to the given URL
