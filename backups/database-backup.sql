@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict aLdZje46Tf2Ac1jClJ3HmTo72DfDHy7ORamPCGHpwg4ty3mf8KHz3iB7Bm6eOTG
+\restrict Qh2jMKXXJ6xK8LVcHRawB7jdM80rfdPJmdXwZVRbX0dudgrHdMduoSiFOMsIdt5
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -225,8 +225,8 @@ COPY public._prisma_migrations (id, checksum, finished_at, migration_name, logs,
 
 COPY public.import_jobs (id, leagues, date_from, date_to, status, progress, total_matches, imported_matches, failed_matches, rate_limit_remaining, rate_limit_reset_at, error_message, started_at, completed_at, created_at, updated_at, hidden) FROM stdin;
 25	["2", "15", "531", "848"]	2025-08-01	2025-11-24	completed	{"completed_leagues": [2, 15, 531, 848]}	0	163	0	7500	2025-11-20 12:18:54.634+01	\N	\N	2025-11-20 12:18:54.941697+01	2025-11-20 12:01:34.924937+01	2025-11-20 12:18:54.941697+01	f
-27	["39", "42", "40", "41", "45", "43"]	2025-08-01	2025-11-24	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-11-20 12:05:19.194847+01	2025-11-20 12:05:19.194847+01	f
-26	["106", "107", "109"]	2025-08-01	2025-11-24	pending	{}	0	0	0	7500	\N	\N	\N	\N	2025-11-20 12:04:55.307094+01	2025-11-20 12:18:54.943863+01	f
+26	["106", "107", "109"]	2025-08-01	2025-11-24	completed	{"completed_leagues": [106, 107, 109]}	0	153	0	7500	2025-11-20 13:19:24.789+01	\N	\N	2025-11-20 13:23:54.940371+01	2025-11-20 12:04:55.307094+01	2025-11-20 13:23:54.940371+01	f
+27	["39", "42", "40", "41", "45", "43"]	2025-08-01	2025-11-24	pending	{}	0	0	0	7500	\N	\N	\N	\N	2025-11-20 12:05:19.194847+01	2025-11-20 13:23:54.942533+01	f
 \.
 
 
@@ -1916,6 +1916,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 2481	1451374	2025-10-23	World	UEFA Europa Conference League	Rapid Vienna	Fiorentina	a-win	0	3	13	3	17	7	2	5	0	1	2	1	0	0	42.00	58.00	15	14	\N	\N	\N	36	8	2025-11-20 12:03:51.312686	0.66	1.64	0	1	a-win	yes
 2482	1451377	2025-10-23	World	UEFA Europa Conference League	Drita	Omonia Nicosia	draw	1	1	4	2	14	5	2	8	3	3	3	4	0	0	39.00	61.00	15	20	\N	\N	\N	13	29	2025-11-20 12:03:51.463538	0.24	1.15	1	1	draw	yes
 2483	1451385	2025-10-23	World	UEFA Europa Conference League	Crystal Palace	AEK Larnaca	a-win	0	1	15	1	4	2	8	2	3	1	2	2	0	0	67.00	33.00	16	16	\N	\N	\N	9	4	2025-11-20 12:03:51.638899	1.66	0.17	0	0	draw	yes
+2529	1395839	2025-08-15	Poland	II Liga - East	Chojniczanka Chojnice	Podbeskidzie	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	12	2025-11-20 13:03:59.367057	\N	\N	0	0	draw	yes
 2484	1451383	2025-10-23	World	UEFA Europa Conference League	FSV Mainz 05	Zrinjski	h-win	1	0	15	4	2	0	7	2	2	1	1	4	0	1	61.00	39.00	13	13	\N	\N	\N	3	26	2025-11-20 12:03:51.821333	2.62	0.05	1	0	h-win	yes
 2485	1451381	2025-10-23	World	UEFA Europa Conference League	Universitatea Craiova	FC Noah	draw	1	1	6	2	16	4	2	4	2	3	2	1	0	0	48.00	52.00	23	8	\N	\N	\N	20	17	2025-11-20 12:03:52.012161	0.64	1.37	1	0	h-win	yes
 2486	1451386	2025-10-23	World	UEFA Europa Conference League	Shamrock Rovers	Celje	a-win	0	2	11	3	14	4	4	3	1	2	3	2	0	0	43.00	57.00	14	14	\N	\N	\N	31	2	2025-11-20 12:03:52.193195	0.83	2.08	0	2	a-win	yes
@@ -1942,6 +1943,158 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 2507	1451403	2025-11-06	World	UEFA Europa Conference League	Rapid Vienna	Universitatea Craiova	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	36	20	2025-11-20 12:03:53.587482	\N	\N	0	1	a-win	yes
 2508	1451395	2025-11-06	World	UEFA Europa Conference League	Lausanne	Omonia Nicosia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	29	2025-11-20 12:03:53.59396	\N	\N	1	1	draw	yes
 2509	1451400	2025-11-06	World	UEFA Europa Conference League	Shelbourne	Drita	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	30	13	2025-11-20 12:03:53.600556	\N	\N	0	0	draw	yes
+2510	1395820	2025-08-01	Poland	II Liga - East	Rekord Bielsko-Biała	Podhale Nowy Targ	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	4	2025-11-20 13:03:55.624826	\N	\N	0	1	a-win	yes
+2511	1395827	2025-08-01	Poland	II Liga - East	Stal Stalowa Wola	Podbeskidzie	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	12	2025-11-20 13:03:55.845525	\N	\N	3	0	h-win	yes
+2512	1395826	2025-08-02	Poland	II Liga - East	Śląsk Wrocław II	Hutnik Kraków	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	15	2025-11-20 13:03:56.053917	\N	\N	0	0	draw	yes
+2513	1395824	2025-08-02	Poland	II Liga - East	Sandecja Nowy Sącz	Świt Skolwin	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	5	2025-11-20 13:03:56.236773	\N	\N	2	1	h-win	yes
+2514	1395828	2025-08-02	Poland	II Liga - East	Zaglebie Sosnowiec	Resovia Rzeszów	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	10	2025-11-20 13:03:56.432513	\N	\N	1	2	a-win	yes
+2515	1395822	2025-08-02	Poland	II Liga - East	Jastrzębie	ŁKS Łódź II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	17	2025-11-20 13:03:56.601697	\N	\N	0	1	a-win	yes
+2516	1395825	2025-08-02	Poland	II Liga - East	Unia Skierniewice	Olimpia Grudziądz	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	3	2025-11-20 13:03:56.781066	\N	\N	1	1	draw	yes
+2517	1395823	2025-08-03	Poland	II Liga - East	Kalisz	Sokół Kleczew	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	14	2025-11-20 13:03:56.981826	\N	\N	0	0	draw	yes
+2518	1395821	2025-08-03	Poland	II Liga - East	Chojniczanka Chojnice	Warta Poznań	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	2	2025-11-20 13:03:57.227258	\N	\N	1	0	h-win	yes
+2519	1395833	2025-08-08	Poland	II Liga - East	Podbeskidzie	Śląsk Wrocław II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	7	2025-11-20 13:03:57.426621	\N	\N	0	0	draw	yes
+2520	1395829	2025-08-09	Poland	II Liga - East	Hutnik Kraków	Resovia Rzeszów	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	10	2025-11-20 13:03:57.63567	\N	\N	1	1	draw	yes
+2521	1395834	2025-08-09	Poland	II Liga - East	Sandecja Nowy Sącz	Rekord Bielsko-Biała	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	13	2025-11-20 13:03:57.823649	\N	\N	1	0	h-win	yes
+2522	1395830	2025-08-09	Poland	II Liga - East	Sokół Kleczew	Jastrzębie	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	18	2025-11-20 13:03:58.00107	\N	\N	2	0	h-win	yes
+2523	1395836	2025-08-09	Poland	II Liga - East	Stal Stalowa Wola	Kalisz	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	16	2025-11-20 13:03:58.184306	\N	\N	1	0	h-win	yes
+2524	1395831	2025-08-10	Poland	II Liga - East	ŁKS Łódź II	Chojniczanka Chojnice	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	11	2025-11-20 13:03:58.375664	\N	\N	0	0	draw	yes
+2525	1395835	2025-08-10	Poland	II Liga - East	Świt Skolwin	Warta Poznań	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	2	2025-11-20 13:03:58.564854	\N	\N	1	1	draw	yes
+2526	1395832	2025-08-10	Poland	II Liga - East	Olimpia Grudziądz	Podhale Nowy Targ	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	4	2025-11-20 13:03:58.754716	\N	\N	0	1	a-win	yes
+2527	1395837	2025-08-10	Poland	II Liga - East	Zaglebie Sosnowiec	Unia Skierniewice	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	1	2025-11-20 13:03:58.953635	\N	\N	0	1	a-win	yes
+2528	1395840	2025-08-15	Poland	II Liga - East	Jastrzębie	Sandecja Nowy Sącz	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	8	2025-11-20 13:03:59.15601	\N	\N	2	2	draw	yes
+2530	1395838	2025-08-15	Poland	II Liga - East	Rekord Bielsko-Biała	Sokół Kleczew	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	14	2025-11-20 13:03:59.557829	\N	\N	2	0	h-win	yes
+2531	1395844	2025-08-15	Poland	II Liga - East	Resovia Rzeszów	Olimpia Grudziądz	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	3	2025-11-20 13:03:59.749151	\N	\N	1	1	draw	yes
+2532	1395845	2025-08-15	Poland	II Liga - East	Unia Skierniewice	Świt Skolwin	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	5	2025-11-20 13:03:59.932022	\N	\N	0	1	a-win	yes
+2533	1395846	2025-08-16	Poland	II Liga - East	Śląsk Wrocław II	Zaglebie Sosnowiec	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	9	2025-11-20 13:04:00.124285	\N	\N	0	1	a-win	yes
+2534	1395842	2025-08-17	Poland	II Liga - East	ŁKS Łódź II	Warta Poznań	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	2	2025-11-20 13:04:00.325113	\N	\N	0	0	draw	yes
+2535	1395843	2025-08-17	Poland	II Liga - East	Podhale Nowy Targ	Stal Stalowa Wola	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	6	2025-11-20 13:04:00.541953	\N	\N	0	1	a-win	yes
+2536	1395841	2025-08-17	Poland	II Liga - East	Kalisz	Hutnik Kraków	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	15	2025-11-20 13:04:00.747766	\N	\N	0	0	draw	yes
+2537	1395855	2025-08-22	Poland	II Liga - East	Rekord Bielsko-Biała	Warta Poznań	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	2	2025-11-20 13:04:00.94776	\N	\N	1	0	h-win	yes
+2538	1396000	2025-08-22	Poland	II Liga - East	Rekord Bielsko-Biała	Warta Poznań	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	2	2025-11-20 13:04:01.137531	\N	\N	1	0	h-win	yes
+2539	1395849	2025-08-22	Poland	II Liga - East	Sokół Kleczew	Resovia Rzeszów	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	10	2025-11-20 13:04:01.343359	\N	\N	1	0	h-win	yes
+2540	1395854	2025-08-22	Poland	II Liga - East	Stal Stalowa Wola	Unia Skierniewice	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	1	2025-11-20 13:04:01.552496	\N	\N	1	1	draw	yes
+2541	1395852	2025-08-23	Poland	II Liga - East	Podhale Nowy Targ	Zaglebie Sosnowiec	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	9	2025-11-20 13:04:01.75823	\N	\N	1	1	draw	yes
+2542	1395848	2025-08-23	Poland	II Liga - East	Hutnik Kraków	Sandecja Nowy Sącz	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	8	2025-11-20 13:04:01.946431	\N	\N	0	0	draw	yes
+2543	1395853	2025-08-23	Poland	II Liga - East	Świt Skolwin	Jastrzębie	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	18	2025-11-20 13:04:02.13654	\N	\N	2	0	h-win	yes
+2544	1395847	2025-08-23	Poland	II Liga - East	Chojniczanka Chojnice	Kalisz	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	16	2025-11-20 13:04:02.322752	\N	\N	1	0	h-win	yes
+2545	1395851	2025-08-23	Poland	II Liga - East	Podbeskidzie	ŁKS Łódź II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	17	2025-11-20 13:04:02.51241	\N	\N	0	0	draw	yes
+2546	1395850	2025-08-24	Poland	II Liga - East	Olimpia Grudziądz	Śląsk Wrocław II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	7	2025-11-20 13:04:02.705991	\N	\N	2	0	h-win	yes
+2547	1395859	2025-08-29	Poland	II Liga - East	Resovia Rzeszów	Podhale Nowy Targ	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	4	2025-11-20 13:04:02.894903	\N	\N	0	0	draw	yes
+2548	1395861	2025-08-29	Poland	II Liga - East	Unia Skierniewice	Rekord Bielsko-Biała	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	13	2025-11-20 13:04:03.082563	\N	\N	2	0	h-win	yes
+2549	1395858	2025-08-30	Poland	II Liga - East	Podbeskidzie	Hutnik Kraków	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	15	2025-11-20 13:04:03.276753	\N	\N	2	2	draw	yes
+2550	1395857	2025-08-30	Poland	II Liga - East	Kalisz	ŁKS Łódź II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	17	2025-11-20 13:04:03.470721	\N	\N	0	0	draw	yes
+2551	1395862	2025-08-30	Poland	II Liga - East	Śląsk Wrocław II	Stal Stalowa Wola	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	6	2025-11-20 13:04:03.654513	\N	\N	2	2	draw	yes
+2552	1395856	2025-08-30	Poland	II Liga - East	Jastrzębie	Warta Poznań	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	2	2025-11-20 13:04:03.841015	\N	\N	1	0	h-win	yes
+2553	1395864	2025-08-31	Poland	II Liga - East	Zaglebie Sosnowiec	Olimpia Grudziądz	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	3	2025-11-20 13:04:04.02264	\N	\N	1	2	a-win	yes
+2554	1395860	2025-08-31	Poland	II Liga - East	Sandecja Nowy Sącz	Chojniczanka Chojnice	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	11	2025-11-20 13:04:04.210794	\N	\N	1	1	draw	yes
+2555	1395863	2025-09-03	Poland	II Liga - East	Świt Skolwin	Sokół Kleczew	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	14	2025-11-20 13:04:04.387757	\N	\N	1	1	draw	yes
+2556	1395871	2025-09-05	Poland	II Liga - East	Resovia Rzeszów	Śląsk Wrocław II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	7	2025-11-20 13:04:04.59438	\N	\N	1	1	draw	yes
+2557	1395870	2025-09-06	Poland	II Liga - East	Podhale Nowy Targ	Unia Skierniewice	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	1	2025-11-20 13:04:04.763424	\N	\N	1	0	h-win	yes
+2558	1395865	2025-09-06	Poland	II Liga - East	Rekord Bielsko-Biała	Kalisz	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	16	2025-11-20 13:04:04.948091	\N	\N	0	1	a-win	yes
+2559	1395873	2025-09-07	Poland	II Liga - East	Warta Poznań	Zaglebie Sosnowiec	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	9	2025-11-20 13:04:05.134777	\N	\N	0	0	draw	yes
+2560	1395872	2025-09-07	Poland	II Liga - East	Stal Stalowa Wola	Świt Skolwin	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	5	2025-11-20 13:04:05.330178	\N	\N	2	2	draw	yes
+2561	1395877	2025-09-12	Poland	II Liga - East	Sokół Kleczew	Podhale Nowy Targ	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	4	2025-11-20 13:04:05.522842	\N	\N	0	1	a-win	yes
+2562	1395878	2025-09-12	Poland	II Liga - East	ŁKS Łódź II	Olimpia Grudziądz	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	3	2025-11-20 13:04:05.71265	\N	\N	1	2	a-win	yes
+2563	1395880	2025-09-12	Poland	II Liga - East	Unia Skierniewice	Hutnik Kraków	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	15	2025-11-20 13:04:05.878915	\N	\N	1	0	h-win	yes
+2564	1395875	2025-09-13	Poland	II Liga - East	Jastrzębie	Chojniczanka Chojnice	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	11	2025-11-20 13:04:06.072877	\N	\N	0	0	draw	yes
+2565	1395874	2025-09-13	Poland	II Liga - East	Rekord Bielsko-Biała	Zaglebie Sosnowiec	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	9	2025-11-20 13:04:06.271103	\N	\N	1	2	a-win	yes
+2566	1395879	2025-09-13	Poland	II Liga - East	Sandecja Nowy Sącz	Stal Stalowa Wola	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	6	2025-11-20 13:04:06.442041	\N	\N	1	1	draw	yes
+2567	1395882	2025-09-14	Poland	II Liga - East	Świt Skolwin	Resovia Rzeszów	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	10	2025-11-20 13:04:06.613814	\N	\N	1	1	draw	yes
+2568	1395881	2025-09-14	Poland	II Liga - East	Śląsk Wrocław II	Warta Poznań	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	2	2025-11-20 13:04:06.810583	\N	\N	0	0	draw	yes
+2569	1395876	2025-09-14	Poland	II Liga - East	Kalisz	Podbeskidzie	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	12	2025-11-20 13:04:07.001082	\N	\N	0	1	a-win	yes
+2570	1395868	2025-09-16	Poland	II Liga - East	ŁKS Łódź II	Sandecja Nowy Sącz	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	8	2025-11-20 13:04:07.18069	\N	\N	1	0	h-win	yes
+2571	1395867	2025-09-17	Poland	II Liga - East	Hutnik Kraków	Jastrzębie	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	18	2025-11-20 13:04:07.367633	\N	\N	0	0	draw	yes
+2572	1395866	2025-09-17	Poland	II Liga - East	Chojniczanka Chojnice	Sokół Kleczew	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	14	2025-11-20 13:04:07.553819	\N	\N	0	1	a-win	yes
+2573	1395869	2025-09-17	Poland	II Liga - East	Olimpia Grudziądz	Podbeskidzie	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	12	2025-11-20 13:04:07.7323	\N	\N	0	0	draw	yes
+2574	1395891	2025-09-19	Poland	II Liga - East	Zaglebie Sosnowiec	Świt Skolwin	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	5	2025-11-20 13:04:07.924486	\N	\N	0	0	draw	yes
+2575	1395889	2025-09-19	Poland	II Liga - East	Stal Stalowa Wola	ŁKS Łódź II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	17	2025-11-20 13:04:08.119175	\N	\N	1	1	draw	yes
+2576	1395890	2025-09-20	Poland	II Liga - East	Warta Poznań	Sokół Kleczew	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	14	2025-11-20 13:04:08.29956	\N	\N	2	1	h-win	yes
+2577	1395884	2025-09-20	Poland	II Liga - East	Hutnik Kraków	Rekord Bielsko-Biała	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	13	2025-11-20 13:04:08.48356	\N	\N	0	0	draw	yes
+2578	1395883	2025-09-20	Poland	II Liga - East	Chojniczanka Chojnice	Śląsk Wrocław II	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	7	2025-11-20 13:04:08.668296	\N	\N	1	0	h-win	yes
+2579	1395886	2025-09-20	Poland	II Liga - East	Podbeskidzie	Unia Skierniewice	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	1	2025-11-20 13:04:08.85413	\N	\N	2	0	h-win	yes
+2580	1395885	2025-09-20	Poland	II Liga - East	Olimpia Grudziądz	Jastrzębie	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	18	2025-11-20 13:04:09.059323	\N	\N	1	0	h-win	yes
+2581	1395887	2025-09-21	Poland	II Liga - East	Podhale Nowy Targ	Kalisz	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	16	2025-11-20 13:04:09.242527	\N	\N	1	1	draw	yes
+2582	1395888	2025-09-21	Poland	II Liga - East	Resovia Rzeszów	Sandecja Nowy Sącz	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	8	2025-11-20 13:04:09.422775	\N	\N	0	1	a-win	yes
+2583	1395900	2025-09-26	Poland	II Liga - East	Warta Poznań	Stal Stalowa Wola	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	6	2025-11-20 13:04:09.611912	\N	\N	1	0	h-win	yes
+2584	1395894	2025-09-27	Poland	II Liga - East	Kalisz	Olimpia Grudziądz	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	3	2025-11-20 13:04:09.806104	\N	\N	0	0	draw	yes
+2585	1395898	2025-09-27	Poland	II Liga - East	Śląsk Wrocław II	Podhale Nowy Targ	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	4	2025-11-20 13:04:10.016751	\N	\N	0	0	draw	yes
+2586	1395899	2025-09-27	Poland	II Liga - East	Świt Skolwin	Chojniczanka Chojnice	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	11	2025-11-20 13:04:10.203752	\N	\N	1	1	draw	yes
+2587	1395897	2025-09-27	Poland	II Liga - East	Sandecja Nowy Sącz	Unia Skierniewice	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	1	2025-11-20 13:04:10.39053	\N	\N	1	1	draw	yes
+2588	1395895	2025-09-28	Poland	II Liga - East	Sokół Kleczew	Hutnik Kraków	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	15	2025-11-20 13:04:10.57406	\N	\N	2	0	h-win	yes
+2589	1395893	2025-09-28	Poland	II Liga - East	Jastrzębie	Resovia Rzeszów	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	10	2025-11-20 13:04:10.763598	\N	\N	0	0	draw	yes
+2590	1396048	2025-09-28	Poland	II Liga - East	Podbeskidzie	Rekord Bielsko-Biała	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	13	2025-11-20 13:04:10.950581	\N	\N	1	2	a-win	yes
+2591	1395896	2025-09-29	Poland	II Liga - East	ŁKS Łódź II	Zaglebie Sosnowiec	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	9	2025-11-20 13:04:11.180715	\N	\N	1	2	a-win	yes
+2592	1395902	2025-10-03	Poland	II Liga - East	Kalisz	Sandecja Nowy Sącz	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	8	2025-11-20 13:04:11.353853	\N	\N	1	0	h-win	yes
+2593	1395905	2025-10-04	Poland	II Liga - East	Podhale Nowy Targ	ŁKS Łódź II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	17	2025-11-20 13:04:11.538956	\N	\N	1	0	h-win	yes
+2594	1395904	2025-10-04	Poland	II Liga - East	Podbeskidzie	Warta Poznań	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	2	2025-11-20 13:04:11.720864	\N	\N	0	1	a-win	yes
+2595	1395907	2025-10-04	Poland	II Liga - East	Unia Skierniewice	Śląsk Wrocław II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	7	2025-11-20 13:04:11.918232	\N	\N	0	1	a-win	yes
+2596	1395908	2025-10-05	Poland	II Liga - East	Stal Stalowa Wola	Chojniczanka Chojnice	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	11	2025-11-20 13:04:12.098423	\N	\N	1	1	draw	yes
+2597	1395901	2025-10-05	Poland	II Liga - East	Hutnik Kraków	Świt Skolwin	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	5	2025-11-20 13:04:12.283814	\N	\N	1	1	draw	yes
+2598	1395906	2025-10-05	Poland	II Liga - East	Resovia Rzeszów	Rekord Bielsko-Biała	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	13	2025-11-20 13:04:12.471922	\N	\N	1	0	h-win	yes
+2599	1395909	2025-10-05	Poland	II Liga - East	Zaglebie Sosnowiec	Jastrzębie	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	18	2025-11-20 13:04:12.654942	\N	\N	0	0	draw	yes
+2600	1395903	2025-10-05	Poland	II Liga - East	Olimpia Grudziądz	Sokół Kleczew	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	14	2025-11-20 13:04:12.879985	\N	\N	0	0	draw	yes
+2601	1395914	2025-10-10	Poland	II Liga - East	ŁKS Łódź II	Resovia Rzeszów	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	10	2025-11-20 13:04:13.064745	\N	\N	0	0	draw	yes
+2602	1395917	2025-10-11	Poland	II Liga - East	Warta Poznań	Olimpia Grudziądz	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	3	2025-11-20 13:04:13.24064	\N	\N	1	1	draw	yes
+2603	1395916	2025-10-11	Poland	II Liga - East	Świt Skolwin	Podhale Nowy Targ	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	4	2025-11-20 13:04:13.437933	\N	\N	2	0	h-win	yes
+2604	1395913	2025-10-11	Poland	II Liga - East	Sokół Kleczew	Unia Skierniewice	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	1	2025-11-20 13:04:13.615744	\N	\N	0	2	a-win	yes
+2605	1395912	2025-10-11	Poland	II Liga - East	Jastrzębie	Kalisz	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	16	2025-11-20 13:04:13.787645	\N	\N	0	0	draw	yes
+2606	1395910	2025-10-12	Poland	II Liga - East	Rekord Bielsko-Biała	Stal Stalowa Wola	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	6	2025-11-20 13:04:13.949241	\N	\N	1	0	h-win	yes
+2607	1395927	2025-10-17	Poland	II Liga - East	Warta Poznań	Hutnik Kraków	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	15	2025-11-20 13:04:14.103973	\N	\N	1	0	h-win	yes
+2608	1395924	2025-10-17	Poland	II Liga - East	Unia Skierniewice	Jastrzębie	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	18	2025-11-20 13:04:14.26399	\N	\N	1	0	h-win	yes
+2609	1395923	2025-10-18	Poland	II Liga - East	Podhale Nowy Targ	Sandecja Nowy Sącz	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	8	2025-11-20 13:04:14.448916	\N	\N	1	0	h-win	yes
+2610	1395925	2025-10-18	Poland	II Liga - East	Śląsk Wrocław II	Sokół Kleczew	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	14	2025-11-20 13:04:14.630021	\N	\N	0	3	a-win	yes
+2611	1395919	2025-10-18	Poland	II Liga - East	Kalisz	Resovia Rzeszów	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	10	2025-11-20 13:04:14.810886	\N	\N	0	0	draw	yes
+2612	1395921	2025-10-19	Poland	II Liga - East	Olimpia Grudziądz	Chojniczanka Chojnice	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	11	2025-11-20 13:04:14.999804	\N	\N	1	1	draw	yes
+2613	1395922	2025-10-19	Poland	II Liga - East	Podbeskidzie	Świt Skolwin	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	5	2025-11-20 13:04:15.187104	\N	\N	0	0	draw	yes
+2614	1395920	2025-10-19	Poland	II Liga - East	ŁKS Łódź II	Rekord Bielsko-Biała	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	13	2025-11-20 13:04:15.385771	\N	\N	0	2	a-win	yes
+2615	1395926	2025-10-19	Poland	II Liga - East	Stal Stalowa Wola	Zaglebie Sosnowiec	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	9	2025-11-20 13:04:15.581665	\N	\N	0	0	draw	yes
+2616	1395915	2025-10-21	Poland	II Liga - East	Sandecja Nowy Sącz	Śląsk Wrocław II	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	7	2025-11-20 13:04:15.775833	\N	\N	0	2	a-win	yes
+2617	1395911	2025-10-22	Poland	II Liga - East	Chojniczanka Chojnice	Hutnik Kraków	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	15	2025-11-20 13:04:15.950373	\N	\N	1	1	draw	yes
+2618	1395918	2025-10-22	Poland	II Liga - East	Zaglebie Sosnowiec	Podbeskidzie	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	12	2025-11-20 13:04:16.120481	\N	\N	1	0	h-win	yes
+2619	1395936	2025-10-24	Poland	II Liga - East	Świt Skolwin	ŁKS Łódź II	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	17	2025-11-20 13:04:16.310054	\N	\N	2	0	h-win	yes
+2620	1395932	2025-10-24	Poland	II Liga - East	Kalisz	Śląsk Wrocław II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	7	2025-11-20 13:04:16.487254	\N	\N	0	0	draw	yes
+2621	1395931	2025-10-25	Poland	II Liga - East	Hutnik Kraków	Zaglebie Sosnowiec	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	9	2025-11-20 13:04:16.715115	\N	\N	0	0	draw	yes
+2622	1395930	2025-10-25	Poland	II Liga - East	Jastrzębie	Podbeskidzie	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	12	2025-11-20 13:04:16.903527	\N	\N	1	1	draw	yes
+2623	1395928	2025-10-25	Poland	II Liga - East	Rekord Bielsko-Biała	Olimpia Grudziądz	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	3	2025-11-20 13:04:17.100874	\N	\N	0	2	a-win	yes
+2624	1395929	2025-10-25	Poland	II Liga - East	Chojniczanka Chojnice	Podhale Nowy Targ	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	4	2025-11-20 13:04:17.321442	\N	\N	0	0	draw	yes
+2625	1395933	2025-10-26	Poland	II Liga - East	Sokół Kleczew	Stal Stalowa Wola	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	6	2025-11-20 13:04:17.501392	\N	\N	1	0	h-win	yes
+2626	1395935	2025-10-26	Poland	II Liga - East	Sandecja Nowy Sącz	Warta Poznań	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	2	2025-11-20 13:04:17.675605	\N	\N	0	0	draw	yes
+2627	1395934	2025-10-26	Poland	II Liga - East	Resovia Rzeszów	Unia Skierniewice	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	1	2025-11-20 13:04:17.861396	\N	\N	0	1	a-win	yes
+2628	1395938	2025-10-31	Poland	II Liga - East	Sokół Kleczew	Podbeskidzie	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	12	2025-11-20 13:04:18.046172	\N	\N	3	1	h-win	yes
+2629	1395937	2025-10-31	Poland	II Liga - East	Rekord Bielsko-Biała	Jastrzębie	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	18	2025-11-20 13:04:18.238672	\N	\N	1	2	a-win	yes
+2630	1395942	2025-10-31	Poland	II Liga - East	Śląsk Wrocław II	Świt Skolwin	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	5	2025-11-20 13:04:18.424521	\N	\N	2	1	h-win	yes
+2631	1395943	2025-10-31	Poland	II Liga - East	Stal Stalowa Wola	Resovia Rzeszów	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	10	2025-11-20 13:04:18.601543	\N	\N	0	0	draw	yes
+2632	1395944	2025-10-31	Poland	II Liga - East	Warta Poznań	Kalisz	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	16	2025-11-20 13:04:18.781922	\N	\N	0	1	a-win	yes
+2633	1395941	2025-10-31	Poland	II Liga - East	Unia Skierniewice	ŁKS Łódź II	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	17	2025-11-20 13:04:18.966423	\N	\N	2	0	h-win	yes
+2634	1395945	2025-10-31	Poland	II Liga - East	Zaglebie Sosnowiec	Chojniczanka Chojnice	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	11	2025-11-20 13:04:19.151182	\N	\N	0	0	draw	yes
+2635	1395940	2025-11-02	Poland	II Liga - East	Podhale Nowy Targ	Hutnik Kraków	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	15	2025-11-20 13:04:19.333398	\N	\N	0	0	draw	yes
+2636	1395939	2025-11-02	Poland	II Liga - East	Olimpia Grudziądz	Sandecja Nowy Sącz	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	8	2025-11-20 13:04:19.518917	\N	\N	1	0	h-win	yes
+2637	1395946	2025-11-07	Poland	II Liga - East	Chojniczanka Chojnice	Unia Skierniewice	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	1	2025-11-20 13:04:19.707591	\N	\N	0	1	a-win	yes
+2638	1395952	2025-11-07	Poland	II Liga - East	Sandecja Nowy Sącz	Sokół Kleczew	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	14	2025-11-20 13:04:19.885647	\N	\N	0	1	a-win	yes
+2639	1395947	2025-11-08	Poland	II Liga - East	Jastrzębie	Stal Stalowa Wola	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	6	2025-11-20 13:04:20.084889	\N	\N	0	2	a-win	yes
+2640	1395953	2025-11-08	Poland	II Liga - East	Świt Skolwin	Rekord Bielsko-Biała	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	13	2025-11-20 13:04:20.262166	\N	\N	1	2	a-win	yes
+2641	1395954	2025-11-08	Poland	II Liga - East	Warta Poznań	Podhale Nowy Targ	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	4	2025-11-20 13:04:20.437252	\N	\N	0	0	draw	yes
+2642	1395948	2025-11-09	Poland	II Liga - East	Hutnik Kraków	Olimpia Grudziądz	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	3	2025-11-20 13:04:20.62639	\N	\N	1	1	draw	yes
+2643	1395951	2025-11-09	Poland	II Liga - East	Podbeskidzie	Resovia Rzeszów	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	10	2025-11-20 13:04:20.807234	\N	\N	1	0	h-win	yes
+2644	1395949	2025-11-09	Poland	II Liga - East	Kalisz	Zaglebie Sosnowiec	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	9	2025-11-20 13:04:20.989093	\N	\N	1	0	h-win	yes
+2645	1395950	2025-11-10	Poland	II Liga - East	ŁKS Łódź II	Śląsk Wrocław II	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	7	2025-11-20 13:04:21.173195	\N	\N	0	2	a-win	yes
+2646	1395962	2025-11-14	Poland	II Liga - East	Stal Stalowa Wola	Hutnik Kraków	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.75	3.50	3.75	6	15	2025-11-20 13:04:21.349679	\N	\N	1	1	draw	yes
+2647	1395957	2025-11-15	Poland	II Liga - East	Olimpia Grudziądz	Świt Skolwin	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.50	3.85	5.00	3	5	2025-11-20 13:04:21.533533	\N	\N	0	1	a-win	yes
+2648	1395958	2025-11-16	Poland	II Liga - East	Podhale Nowy Targ	Podbeskidzie	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.05	3.20	3.10	4	12	2025-11-20 13:04:21.749682	\N	\N	1	0	h-win	yes
+2649	1395961	2025-11-16	Poland	II Liga - East	Śląsk Wrocław II	Jastrzębie	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.50	4.20	4.50	7	18	2025-11-20 13:04:21.959053	\N	\N	1	2	a-win	yes
+2650	1395955	2025-11-16	Poland	II Liga - East	Rekord Bielsko-Biała	Chojniczanka Chojnice	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.55	3.30	2.33	13	11	2025-11-20 13:04:22.140502	\N	\N	0	3	a-win	yes
+2651	1395960	2025-11-16	Poland	II Liga - East	Unia Skierniewice	Kalisz	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.40	3.95	6.80	1	16	2025-11-20 13:04:22.328365	\N	\N	1	1	draw	yes
+2652	1395959	2025-11-16	Poland	II Liga - East	Resovia Rzeszów	Warta Poznań	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.25	3.20	2.80	10	2	2025-11-20 13:04:22.508111	\N	\N	0	1	a-win	yes
+2653	1395963	2025-11-15	Poland	II Liga - East	Zaglebie Sosnowiec	Sandecja Nowy Sącz	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 13:04:22.698674	\N	\N	0	0	draw	no
+2654	1395968	2025-11-21	Poland	II Liga - East	ŁKS Łódź II	Hutnik Kraków	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.90	3.10	2.15	\N	\N	2025-11-20 13:04:22.892725	\N	\N	0	0	draw	no
+2655	1395972	2025-11-21	Poland	II Liga - East	Zaglebie Sosnowiec	Sokół Kleczew	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.75	3.30	3.90	\N	\N	2025-11-20 13:04:23.079295	\N	\N	0	0	draw	no
+2656	1395967	2025-11-22	Poland	II Liga - East	Kalisz	Świt Skolwin	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.20	3.40	2.70	\N	\N	2025-11-20 13:04:23.280022	\N	\N	0	0	draw	no
+2657	1395966	2025-11-22	Poland	II Liga - East	Jastrzębie	Podhale Nowy Targ	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4.75	3.70	1.57	\N	\N	2025-11-20 13:04:23.494662	\N	\N	0	0	draw	no
+2658	1395964	2025-11-22	Poland	II Liga - East	Rekord Bielsko-Biała	Śląsk Wrocław II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.30	3.40	2.60	\N	\N	2025-11-20 13:04:23.686968	\N	\N	0	0	draw	no
+2659	1395971	2025-11-22	Poland	II Liga - East	Warta Poznań	Unia Skierniewice	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 13:04:23.709727	\N	\N	0	0	draw	no
+2660	1395965	2025-11-22	Poland	II Liga - East	Chojniczanka Chojnice	Resovia Rzeszów	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 13:04:23.726118	\N	\N	0	0	draw	no
+2661	1395969	2025-11-23	Poland	II Liga - East	Sandecja Nowy Sącz	Podbeskidzie	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 13:04:23.738694	\N	\N	0	0	draw	no
+2662	1395970	2025-11-23	Poland	II Liga - East	Stal Stalowa Wola	Olimpia Grudziądz	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 13:04:23.747217	\N	\N	0	0	draw	no
 \.
 
 
@@ -1956,7 +2109,7 @@ SELECT pg_catalog.setval('public.import_jobs_id_seq', 27, true);
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.matches_id_seq', 2509, true);
+SELECT pg_catalog.setval('public.matches_id_seq', 2662, true);
 
 
 --
@@ -2043,5 +2196,5 @@ CREATE UNIQUE INDEX matches_fixture_id_key ON public.matches USING btree (fixtur
 -- PostgreSQL database dump complete
 --
 
-\unrestrict aLdZje46Tf2Ac1jClJ3HmTo72DfDHy7ORamPCGHpwg4ty3mf8KHz3iB7Bm6eOTG
+\unrestrict Qh2jMKXXJ6xK8LVcHRawB7jdM80rfdPJmdXwZVRbX0dudgrHdMduoSiFOMsIdt5
 
