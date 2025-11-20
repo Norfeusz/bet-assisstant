@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict at3PF190QJfncTuMgoIwnligdJLNYB8qPeAvfb26DTM5OGVbnGmdNgvwD1pPpVw
+\restrict WsQB0YnHwJAyi6VlapsvS6fZqEGBphPed2CCvQRac5wbkwdRhANRraTOxFKf7zO
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -225,8 +225,8 @@ COPY public._prisma_migrations (id, checksum, finished_at, migration_name, logs,
 
 COPY public.import_jobs (id, leagues, date_from, date_to, status, progress, total_matches, imported_matches, failed_matches, rate_limit_remaining, rate_limit_reset_at, error_message, started_at, completed_at, created_at, updated_at, hidden) FROM stdin;
 31	["2", "3", "15", "531", "848", "106", "107", "109", "39", "42", "40", "41", "45", "43"]	2025-08-01	2025-11-24	completed	{"completed_leagues": [2, 3, 15, 531, 848, 106, 107, 109, 39, 42, 40, 41, 45, 43]}	0	1963	0	299	\N	\N	\N	2025-11-20 21:06:09.228523+01	2025-11-20 15:01:47.594723+01	2025-11-20 21:06:09.228523+01	f
-33	["135", "136", "137", "138", "942", "943"]	2025-08-01	2025-11-24	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-11-20 20:38:32.849411+01	2025-11-20 20:38:32.849411+01	f
-32	["140", "141", "436", "435", "875", "876", "877", "878", "879", "143"]	2025-08-01	2025-11-24	pending	{}	0	0	0	7500	\N	\N	\N	\N	2025-11-20 15:40:40.415306+01	2025-11-20 21:06:09.235223+01	f
+35	["140", "141", "436", "435"]	2025-08-01	2025-11-24	completed	{"completed_leagues": [140, 141, 436, 435]}	0	554	0	299	2025-11-20 23:12:07.521+01	\N	\N	2025-11-20 23:17:08.096782+01	2025-11-20 21:16:53.516061+01	2025-11-20 23:17:08.096782+01	f
+37	["875", "876", "877", "878", "879", "143", "135", "136", "137", "138", "942", "943", "78", "79", "81", "80", "61", "62", "63", "66", "94", "95", "144", "145", "88", "89", "203", "204", "186", "307", "308", "128", "129", "342", "188", "1202", "218", "219", "419", "116", "117", "344", "72", "71", "172", "265", "169", "210", "211", "318", "346", "345", "119", "120", "233", "242", "329", "363", "197", "494", "339", "234", "274", "542", "291", "407", "98", "99", "305", "240", "239", "292", "293", "162", "361", "261", "262", "263", "103", "104", "955", "304", "252", "281", "288", "283", "284", "286", "506", "332", "373", "179", "183", "180", "207", "208", "114", "113", "296", "591", "585", "333", "269", "268", "270", "253", "369", "110", "271", "301"]	2025-08-01	2025-11-24	pending	{}	0	0	0	7500	\N	\N	\N	\N	2025-11-20 22:51:24.982206+01	2025-11-20 23:17:08.107112+01	f
 \.
 
 
@@ -3872,6 +3872,560 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 4814	1399637	2025-11-22	England	National League	Wealdstone	Forest Green	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 20:08:07.09213	\N	\N	0	0	draw	no
 4815	1399627	2025-11-22	England	National League	Boston United	Carlisle	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 20:08:07.103549	\N	\N	0	0	draw	no
 4816	1399487	2025-09-06	England	National League	Scunthorpe	Wealdstone	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 20:08:07.110203	\N	\N	2	1	h-win	no
+4817	1390824	2025-08-15	Spain	La Liga	Girona	Rayo Vallecano	a-win	1	3	7	2	16	5	2	4	1	1	0	1	1	0	44.00	56.00	8	17	\N	\N	\N	\N	\N	2025-11-20 21:17:06.975831	0.56	3.43	0	3	a-win	yes
+4818	1390828	2025-08-15	Spain	La Liga	Villarreal	Oviedo	h-win	2	0	25	10	5	4	10	1	0	1	1	2	0	1	68.00	32.00	10	8	\N	\N	\N	\N	\N	2025-11-20 21:17:07.166584	2.54	0.94	2	0	h-win	yes
+4819	1390825	2025-08-16	Spain	La Liga	Mallorca	Barcelona	a-win	0	3	4	1	24	8	3	6	2	3	4	1	2	0	29.00	71.00	8	17	\N	\N	\N	\N	\N	2025-11-20 21:17:07.378531	0.21	2.14	0	2	a-win	yes
+4820	1390827	2025-08-16	Spain	La Liga	Valencia	Real Sociedad	draw	1	1	18	2	13	3	8	7	1	2	1	2	0	0	54.00	46.00	5	11	\N	\N	\N	\N	\N	2025-11-20 21:17:07.561909	2.04	0.81	0	0	draw	yes
+4821	1390819	2025-08-16	Spain	La Liga	Alaves	Levante	h-win	2	1	15	4	7	3	10	1	1	3	0	1	0	0	62.00	38.00	15	13	\N	\N	\N	\N	\N	2025-11-20 21:17:07.735636	1.29	0.87	1	0	h-win	yes
+4822	1390821	2025-08-17	Spain	La Liga	Celta Vigo	Getafe	a-win	0	2	11	3	10	3	9	3	2	0	3	2	0	0	69.00	31.00	15	17	\N	\N	\N	\N	\N	2025-11-20 21:17:07.946529	0.73	1.43	0	0	draw	yes
+4823	1390820	2025-08-17	Spain	La Liga	Athletic Club	Sevilla	h-win	3	2	14	3	12	6	10	1	0	8	0	2	0	0	46.00	54.00	8	12	\N	\N	\N	\N	\N	2025-11-20 21:17:08.135003	2.89	1.01	2	0	h-win	yes
+4824	1390823	2025-08-17	Spain	La Liga	Espanyol	Atletico Madrid	h-win	2	1	9	5	15	4	1	3	0	1	3	3	0	0	40.00	60.00	14	11	\N	\N	\N	\N	\N	2025-11-20 21:17:08.317379	1.26	1.10	0	1	a-win	yes
+4825	1390822	2025-08-18	Spain	La Liga	Elche	Real Betis	draw	1	1	6	2	12	4	1	3	4	0	0	1	0	0	68.00	32.00	14	13	\N	\N	\N	\N	\N	2025-11-20 21:17:08.472313	0.73	1.86	0	1	a-win	yes
+4826	1390826	2025-08-19	Spain	La Liga	Real Madrid	Osasuna	h-win	1	0	18	5	2	0	7	0	0	0	1	0	0	1	71.00	29.00	10	12	\N	\N	\N	\N	\N	2025-11-20 21:17:08.661589	1.64	0.36	0	0	draw	yes
+4827	1390831	2025-08-22	Spain	La Liga	Real Betis	Alaves	h-win	1	0	16	5	11	5	5	2	2	3	2	3	0	0	49.00	51.00	10	17	\N	\N	\N	\N	\N	2025-11-20 21:17:08.819409	1.95	1.12	1	0	h-win	yes
+4828	1390833	2025-08-23	Spain	La Liga	Mallorca	Celta Vigo	draw	1	1	12	4	8	2	3	4	1	1	3	3	0	0	50.00	50.00	12	12	\N	\N	\N	\N	\N	2025-11-20 21:17:09.019953	0.68	0.74	0	1	a-win	yes
+4829	1390830	2025-08-23	Spain	La Liga	Atletico Madrid	Elche	draw	1	1	13	6	6	2	10	2	3	0	0	3	0	0	58.00	42.00	14	7	\N	\N	\N	\N	\N	2025-11-20 21:17:09.17039	1.74	0.57	1	1	draw	yes
+4830	1390832	2025-08-23	Spain	La Liga	Levante	Barcelona	a-win	2	3	8	5	26	10	0	11	6	0	3	1	0	0	18.00	82.00	10	8	\N	\N	\N	\N	\N	2025-11-20 21:17:09.329046	2.14	1.93	2	0	h-win	yes
+4831	1390834	2025-08-24	Spain	La Liga	Osasuna	Valencia	h-win	1	0	16	4	4	1	3	4	2	1	2	1	0	1	56.00	44.00	14	13	\N	\N	\N	\N	\N	2025-11-20 21:17:09.505086	0.83	0.41	1	0	h-win	yes
+4832	1390838	2025-08-24	Spain	La Liga	Villarreal	Girona	h-win	5	0	19	7	5	2	8	1	3	0	1	2	0	0	53.00	47.00	8	9	\N	\N	\N	\N	\N	2025-11-20 21:17:09.675398	2.30	0.14	4	0	h-win	yes
+4833	1390835	2025-08-24	Spain	La Liga	Real Sociedad	Espanyol	draw	2	2	15	7	14	3	5	2	1	1	2	2	0	0	62.00	38.00	16	18	\N	\N	\N	\N	\N	2025-11-20 21:17:09.837464	1.10	1.84	0	2	a-win	yes
+4834	1390836	2025-08-24	Spain	La Liga	Oviedo	Real Madrid	a-win	0	3	6	3	26	10	1	9	2	2	2	1	0	0	35.00	65.00	8	7	\N	\N	\N	\N	\N	2025-11-20 21:17:10.032893	0.50	2.67	0	1	a-win	yes
+4835	1390829	2025-08-25	Spain	La Liga	Athletic Club	Rayo Vallecano	h-win	1	0	11	4	6	1	3	6	0	7	0	4	0	0	41.00	59.00	13	13	\N	\N	\N	\N	\N	2025-11-20 21:17:10.214335	1.51	0.29	0	0	draw	yes
+4836	1390837	2025-08-25	Spain	La Liga	Sevilla	Getafe	a-win	1	2	12	3	9	6	5	3	4	1	2	2	0	0	71.00	29.00	10	24	\N	\N	\N	\N	\N	2025-11-20 21:17:10.404821	0.51	0.71	1	1	draw	yes
+4837	1390871	2025-08-27	Spain	La Liga	Celta Vigo	Real Betis	draw	1	1	14	5	7	2	10	4	5	2	1	2	0	0	47.00	53.00	13	11	\N	\N	\N	\N	\N	2025-11-20 21:17:10.59882	0.76	0.32	0	1	a-win	yes
+4838	1390842	2025-08-29	Spain	La Liga	Elche	Levante	h-win	2	0	16	5	11	1	4	2	1	1	1	2	0	0	67.00	33.00	14	17	\N	\N	\N	\N	\N	2025-11-20 21:17:10.807314	1.11	1.01	0	0	draw	yes
+4839	1390848	2025-08-29	Spain	La Liga	Valencia	Getafe	h-win	3	0	7	4	11	1	8	6	0	5	2	0	0	0	57.00	43.00	18	7	\N	\N	\N	\N	\N	2025-11-20 21:17:10.987373	1.13	0.66	1	0	h-win	yes
+4840	1390839	2025-08-30	Spain	La Liga	Alaves	Atletico Madrid	draw	1	1	5	2	15	6	1	6	0	1	2	3	0	0	40.00	60.00	10	17	\N	\N	\N	\N	\N	2025-11-20 21:17:11.16364	0.92	1.09	1	1	draw	yes
+4841	1390847	2025-08-30	Spain	La Liga	Oviedo	Real Sociedad	h-win	1	0	8	1	18	6	1	10	2	1	2	1	0	0	43.00	57.00	7	18	\N	\N	\N	\N	\N	2025-11-20 21:17:11.32167	0.45	1.10	1	0	h-win	yes
+4842	1390844	2025-08-30	Spain	La Liga	Girona	Sevilla	a-win	0	2	20	5	13	4	11	3	2	0	0	1	0	0	59.00	41.00	5	14	\N	\N	\N	\N	\N	2025-11-20 21:17:11.486701	2.12	1.26	0	1	a-win	yes
+4843	1390846	2025-08-30	Spain	La Liga	Real Madrid	Mallorca	h-win	2	1	17	7	9	5	4	5	3	1	2	0	0	0	58.00	42.00	12	7	\N	\N	\N	\N	\N	2025-11-20 21:17:11.646858	1.82	0.72	2	1	h-win	yes
+4844	1390841	2025-08-31	Spain	La Liga	Celta Vigo	Villarreal	draw	1	1	10	2	8	3	1	5	0	0	1	1	0	0	65.00	35.00	11	8	\N	\N	\N	\N	\N	2025-11-20 21:17:11.871616	0.68	1.15	0	0	draw	yes
+4845	1390840	2025-08-31	Spain	La Liga	Real Betis	Athletic Club	a-win	1	2	9	2	15	6	4	10	3	2	1	4	0	1	50.00	50.00	9	16	\N	\N	\N	\N	\N	2025-11-20 21:17:12.060886	0.62	1.11	0	0	draw	yes
+4846	1390843	2025-08-31	Spain	La Liga	Espanyol	Osasuna	h-win	1	0	10	4	10	3	2	3	2	1	2	3	0	0	45.00	55.00	13	14	\N	\N	\N	\N	\N	2025-11-20 21:17:12.23681	1.21	1.37	0	0	draw	yes
+4847	1390845	2025-08-31	Spain	La Liga	Rayo Vallecano	Barcelona	draw	1	1	12	6	12	3	9	4	7	2	4	1	0	0	43.00	57.00	16	8	\N	\N	\N	\N	\N	2025-11-20 21:17:12.434653	1.85	1.83	0	1	a-win	yes
+4848	1390858	2025-09-12	Spain	La Liga	Sevilla	Elche	draw	2	2	7	3	5	2	2	2	1	0	4	3	0	0	53.00	47.00	23	19	\N	\N	\N	\N	\N	2025-11-20 21:17:12.664988	0.40	0.95	1	0	h-win	yes
+4849	1390854	2025-09-13	Spain	La Liga	Getafe	Oviedo	h-win	2	0	10	3	5	1	4	3	1	1	2	5	0	1	48.00	52.00	12	18	\N	\N	\N	\N	\N	2025-11-20 21:17:12.857052	0.75	0.46	2	0	h-win	yes
+4850	1390857	2025-09-13	Spain	La Liga	Real Sociedad	Real Madrid	a-win	1	2	23	4	16	6	12	4	0	2	2	1	0	1	64.00	36.00	17	7	\N	\N	\N	\N	\N	2025-11-20 21:17:13.032318	2.23	2.42	0	2	a-win	yes
+4851	1390849	2025-09-13	Spain	La Liga	Athletic Club	Alaves	a-win	0	1	12	3	4	2	6	6	2	1	4	3	0	0	58.00	42.00	17	21	\N	\N	\N	\N	\N	2025-11-20 21:17:13.239616	1.08	0.09	0	0	draw	yes
+4852	1390850	2025-09-13	Spain	La Liga	Atletico Madrid	Villarreal	h-win	2	0	8	3	8	1	8	3	1	0	2	4	0	0	61.00	39.00	12	15	\N	\N	\N	\N	\N	2025-11-20 21:17:13.435457	1.17	0.97	1	0	h-win	yes
+4853	1390852	2025-09-14	Spain	La Liga	Celta Vigo	Girona	draw	1	1	21	7	13	8	10	3	0	3	0	3	0	0	60.00	40.00	7	9	\N	\N	\N	\N	\N	2025-11-20 21:17:13.637818	2.50	0.64	0	1	a-win	yes
+4854	1390855	2025-09-14	Spain	La Liga	Levante	Real Betis	draw	2	2	5	2	28	9	4	12	2	1	4	2	0	0	33.00	67.00	16	11	\N	\N	\N	\N	\N	2025-11-20 21:17:13.850873	0.73	2.12	2	1	h-win	yes
+4855	1390856	2025-09-14	Spain	La Liga	Osasuna	Rayo Vallecano	h-win	2	0	9	7	19	6	3	6	0	1	3	2	0	0	36.00	64.00	13	7	\N	\N	\N	\N	\N	2025-11-20 21:17:14.010691	1.77	1.04	1	0	h-win	yes
+4856	1390851	2025-09-14	Spain	La Liga	Barcelona	Valencia	h-win	6	0	24	10	2	1	5	4	4	4	0	1	0	0	72.00	28.00	9	8	\N	\N	\N	\N	\N	2025-11-20 21:17:14.235465	3.35	0.18	1	0	h-win	yes
+4857	1390853	2025-09-15	Spain	La Liga	Espanyol	Mallorca	h-win	3	2	9	3	24	10	3	9	0	2	2	1	1	0	38.00	62.00	9	16	\N	\N	\N	\N	\N	2025-11-20 21:17:14.408414	2.51	2.17	2	1	h-win	yes
+4858	1390861	2025-09-19	Spain	La Liga	Real Betis	Real Sociedad	h-win	3	1	21	6	11	5	3	5	0	3	3	7	0	0	50.00	50.00	7	20	\N	\N	\N	\N	\N	2025-11-20 21:17:14.58679	2.09	0.67	1	1	draw	yes
+4859	1390863	2025-09-20	Spain	La Liga	Girona	Levante	a-win	0	4	7	1	14	7	5	4	0	1	4	3	2	0	35.00	65.00	11	17	\N	\N	\N	\N	\N	2025-11-20 21:17:14.740933	0.50	2.88	0	1	a-win	yes
+4860	1390866	2025-09-20	Spain	La Liga	Real Madrid	Espanyol	h-win	2	0	16	5	8	1	5	3	2	0	2	0	0	0	72.00	28.00	10	20	\N	\N	\N	\N	\N	2025-11-20 21:17:14.905333	1.18	0.96	1	0	h-win	yes
+4861	1390868	2025-09-20	Spain	La Liga	Villarreal	Osasuna	h-win	2	1	26	8	6	3	7	0	2	1	2	3	0	1	66.00	34.00	10	11	\N	\N	\N	\N	\N	2025-11-20 21:17:15.100092	2.55	1.80	0	1	a-win	yes
+4862	1390859	2025-09-20	Spain	La Liga	Alaves	Sevilla	a-win	1	2	8	5	9	3	4	4	3	4	1	7	0	0	48.00	52.00	20	19	\N	\N	\N	\N	\N	2025-11-20 21:17:15.30744	0.95	0.48	1	1	draw	yes
+4863	1390867	2025-09-20	Spain	La Liga	Valencia	Athletic Club	h-win	2	0	13	5	11	5	5	6	0	1	1	1	0	1	44.00	56.00	13	6	\N	\N	\N	\N	\N	2025-11-20 21:17:15.495816	1.88	0.49	0	0	draw	yes
+4864	1390865	2025-09-21	Spain	La Liga	Rayo Vallecano	Celta Vigo	draw	1	1	15	5	9	5	5	7	1	0	1	1	0	0	59.00	41.00	8	10	\N	\N	\N	\N	\N	2025-11-20 21:17:15.677894	0.99	0.81	0	0	draw	yes
+4865	1390864	2025-09-21	Spain	La Liga	Mallorca	Atletico Madrid	draw	1	1	8	3	12	7	3	6	0	1	0	0	0	1	43.00	57.00	14	6	\N	\N	\N	\N	\N	2025-11-20 21:17:15.83769	0.60	2.26	0	0	draw	yes
+4866	1390862	2025-09-21	Spain	La Liga	Elche	Oviedo	h-win	1	0	15	5	12	4	3	3	1	1	2	2	0	0	61.00	39.00	9	18	\N	\N	\N	\N	\N	2025-11-20 21:17:16.011727	1.55	1.09	1	0	h-win	yes
+4867	1390860	2025-09-21	Spain	La Liga	Barcelona	Getafe	h-win	3	0	16	7	3	2	3	2	3	1	2	4	0	0	71.00	29.00	9	16	\N	\N	\N	\N	\N	2025-11-20 21:17:16.160241	1.97	0.27	2	0	h-win	yes
+4868	1390869	2025-09-23	Spain	La Liga	Athletic Club	Girona	draw	1	1	17	5	6	3	8	1	0	5	0	2	0	0	67.00	33.00	19	15	\N	\N	\N	\N	\N	2025-11-20 21:17:16.345415	1.46	0.78	0	1	a-win	yes
+4869	1390872	2025-09-23	Spain	La Liga	Espanyol	Valencia	draw	2	2	21	10	5	2	8	3	5	2	1	4	0	0	56.00	44.00	9	9	\N	\N	\N	\N	\N	2025-11-20 21:17:16.53546	2.50	0.74	0	1	a-win	yes
+4870	1390878	2025-09-23	Spain	La Liga	Sevilla	Villarreal	a-win	1	2	16	2	12	5	3	3	0	3	2	3	0	0	65.00	35.00	17	14	\N	\N	\N	\N	\N	2025-11-20 21:17:16.712585	0.97	1.95	0	1	a-win	yes
+4871	1390874	2025-09-23	Spain	La Liga	Levante	Real Madrid	a-win	1	4	11	2	24	10	1	7	0	1	1	1	0	0	37.00	63.00	17	9	\N	\N	\N	\N	\N	2025-11-20 21:17:16.909692	1.60	3.94	0	2	a-win	yes
+4872	1390873	2025-09-24	Spain	La Liga	Getafe	Alaves	draw	1	1	7	1	10	4	2	7	5	6	2	3	0	0	46.00	54.00	14	20	\N	\N	\N	\N	\N	2025-11-20 21:17:17.093795	0.24	0.57	0	0	draw	yes
+4873	1390870	2025-09-24	Spain	La Liga	Atletico Madrid	Rayo Vallecano	h-win	3	2	20	8	9	3	8	6	3	2	3	5	0	0	61.00	39.00	6	12	\N	\N	\N	\N	\N	2025-11-20 21:17:17.26804	3.61	1.60	1	1	draw	yes
+4874	1390876	2025-09-24	Spain	La Liga	Real Sociedad	Mallorca	h-win	1	0	17	4	7	3	11	2	2	0	2	2	0	0	64.00	36.00	13	15	\N	\N	\N	\N	\N	2025-11-20 21:17:17.477124	2.76	0.76	0	0	draw	yes
+4875	1390875	2025-09-25	Spain	La Liga	Osasuna	Elche	draw	1	1	9	2	12	4	2	3	0	0	2	2	0	0	39.00	61.00	19	13	\N	\N	\N	\N	\N	2025-11-20 21:17:17.672067	1.10	0.78	1	0	h-win	yes
+4876	1390877	2025-09-25	Spain	La Liga	Oviedo	Barcelona	a-win	1	3	7	3	22	10	6	9	7	1	1	0	0	0	21.00	79.00	10	6	\N	\N	\N	\N	\N	2025-11-20 21:17:17.90714	0.99	2.14	1	0	h-win	yes
+4877	1390884	2025-09-26	Spain	La Liga	Girona	Espanyol	draw	0	0	12	3	20	5	8	4	1	1	0	1	0	0	60.00	40.00	9	11	\N	\N	\N	\N	\N	2025-11-20 21:17:18.09288	1.08	1.08	0	0	draw	yes
+4878	1390883	2025-09-27	Spain	La Liga	Getafe	Levante	draw	1	1	11	4	11	3	6	2	2	2	4	3	0	0	54.00	46.00	15	16	\N	\N	\N	\N	\N	2025-11-20 21:17:18.278568	0.55	1.24	0	1	a-win	yes
+4879	1390879	2025-09-27	Spain	La Liga	Atletico Madrid	Real Madrid	h-win	5	2	13	7	6	2	7	2	1	1	5	4	0	0	37.00	63.00	17	14	\N	\N	\N	\N	\N	2025-11-20 21:17:18.468388	2.34	0.66	2	2	draw	yes
+4880	1390885	2025-09-27	Spain	La Liga	Mallorca	Alaves	h-win	1	0	12	3	12	3	4	8	0	2	2	3	0	0	39.00	61.00	14	18	\N	\N	\N	\N	\N	2025-11-20 21:17:18.689057	0.74	0.78	1	0	h-win	yes
+4881	1390888	2025-09-27	Spain	La Liga	Villarreal	Athletic Club	h-win	1	0	14	5	16	4	6	5	7	0	2	0	0	0	42.00	58.00	13	11	\N	\N	\N	\N	\N	2025-11-20 21:17:18.856517	1.22	1.44	0	0	draw	yes
+4882	1390886	2025-09-28	Spain	La Liga	Rayo Vallecano	Sevilla	a-win	0	1	18	6	4	1	12	4	0	1	3	2	1	0	64.00	36.00	11	15	\N	\N	\N	\N	\N	2025-11-20 21:17:19.05652	1.89	0.63	0	0	draw	yes
+4883	1390882	2025-09-28	Spain	La Liga	Elche	Celta Vigo	h-win	2	1	17	8	8	2	7	2	3	3	3	3	0	0	62.00	38.00	12	20	\N	\N	\N	\N	\N	2025-11-20 21:17:19.221493	3.58	0.77	1	1	draw	yes
+4884	1390880	2025-09-28	Spain	La Liga	Barcelona	Real Sociedad	h-win	2	1	22	12	7	2	12	1	3	5	1	2	0	0	75.00	25.00	6	12	\N	\N	\N	\N	\N	2025-11-20 21:17:19.393281	2.21	0.97	1	1	draw	yes
+4885	1390881	2025-09-28	Spain	La Liga	Real Betis	Osasuna	h-win	2	0	12	6	12	1	5	5	2	2	0	1	0	0	51.00	49.00	6	7	\N	\N	\N	\N	\N	2025-11-20 21:17:19.548783	0.76	0.70	2	0	h-win	yes
+4886	1390887	2025-09-30	Spain	La Liga	Valencia	Oviedo	a-win	1	2	16	5	10	4	5	4	1	4	1	4	0	1	57.00	43.00	14	12	\N	\N	\N	\N	\N	2025-11-20 21:17:19.716428	1.51	0.77	1	0	h-win	yes
+4887	1390894	2025-10-03	Spain	La Liga	Osasuna	Getafe	h-win	2	1	7	3	6	2	1	6	3	6	1	4	0	0	58.00	42.00	11	14	\N	\N	\N	\N	\N	2025-11-20 21:17:19.945259	0.43	0.85	1	1	draw	yes
+4888	1390897	2025-10-04	Spain	La Liga	Oviedo	Levante	a-win	0	2	13	2	14	5	9	3	1	2	2	2	0	0	57.00	43.00	10	10	\N	\N	\N	\N	\N	2025-11-20 21:17:20.189619	1.31	1.94	0	1	a-win	yes
+4889	1390893	2025-10-04	Spain	La Liga	Girona	Valencia	h-win	2	1	4	4	19	6	0	7	5	1	5	1	2	0	45.00	55.00	13	12	\N	\N	\N	\N	\N	2025-11-20 21:17:20.379477	1.02	1.21	1	0	h-win	yes
+4890	1390890	2025-10-04	Spain	La Liga	Athletic Club	Mallorca	h-win	2	1	18	5	6	2	7	2	0	5	4	6	0	1	52.00	48.00	16	13	\N	\N	\N	\N	\N	2025-11-20 21:17:20.585374	2.05	0.32	1	0	h-win	yes
+4891	1390895	2025-10-04	Spain	La Liga	Real Madrid	Villarreal	h-win	3	1	26	7	9	2	4	0	0	0	2	4	0	1	70.00	30.00	9	14	\N	\N	\N	\N	\N	2025-11-20 21:17:20.823579	3.52	1.00	0	0	draw	yes
+4892	1390889	2025-10-05	Spain	La Liga	Alaves	Elche	h-win	3	1	25	5	6	3	14	4	2	1	3	1	0	1	47.00	53.00	13	9	\N	\N	\N	\N	\N	2025-11-20 21:17:21.001689	2.42	0.38	0	0	draw	yes
+4893	1390898	2025-10-05	Spain	La Liga	Sevilla	Barcelona	h-win	4	1	13	5	17	8	7	6	10	0	7	5	0	0	39.00	61.00	18	9	\N	\N	\N	\N	\N	2025-11-20 21:17:21.231147	2.80	2.25	2	1	h-win	yes
+4894	1390892	2025-10-05	Spain	La Liga	Espanyol	Real Betis	a-win	1	2	14	5	12	3	10	5	2	1	2	6	0	0	50.00	50.00	16	4	\N	\N	\N	\N	\N	2025-11-20 21:17:21.415839	2.24	1.33	1	0	h-win	yes
+4895	1390896	2025-10-05	Spain	La Liga	Real Sociedad	Rayo Vallecano	a-win	0	1	10	3	7	2	7	5	0	1	1	2	0	0	51.00	49.00	13	21	\N	\N	\N	\N	\N	2025-11-20 21:17:21.587852	0.79	0.80	0	0	draw	yes
+4896	1390891	2025-10-05	Spain	La Liga	Celta Vigo	Atletico Madrid	draw	1	1	18	4	6	1	6	3	2	0	1	3	0	1	59.00	41.00	7	10	\N	\N	\N	\N	\N	2025-11-20 21:17:21.74788	1.92	0.30	0	1	a-win	yes
+4897	1390906	2025-10-17	Spain	La Liga	Oviedo	Espanyol	a-win	0	2	13	4	19	10	3	5	0	2	2	1	0	0	61.00	39.00	13	19	\N	\N	\N	\N	\N	2025-11-20 21:17:21.921622	0.77	3.74	0	0	draw	yes
+4898	1390907	2025-10-18	Spain	La Liga	Sevilla	Mallorca	a-win	1	3	13	4	7	6	9	2	3	0	2	1	0	0	58.00	42.00	16	13	\N	\N	\N	\N	\N	2025-11-20 21:17:22.096396	1.26	1.85	1	0	h-win	yes
+4899	1390901	2025-10-18	Spain	La Liga	Barcelona	Girona	h-win	2	1	27	9	11	4	11	5	1	2	1	2	0	0	68.00	32.00	27	11	\N	\N	\N	\N	\N	2025-11-20 21:17:22.290158	1.61	1.55	1	1	draw	yes
+4900	1390908	2025-10-18	Spain	La Liga	Villarreal	Real Betis	draw	2	2	7	3	16	3	5	6	3	1	1	1	0	0	40.00	60.00	13	10	\N	\N	\N	\N	\N	2025-11-20 21:17:22.453298	0.66	1.18	1	0	h-win	yes
+4901	1390900	2025-10-18	Spain	La Liga	Atletico Madrid	Osasuna	h-win	1	0	18	9	9	2	4	2	6	1	1	3	0	0	59.00	41.00	10	11	\N	\N	\N	\N	\N	2025-11-20 21:17:22.625027	2.58	1.14	0	0	draw	yes
+4902	1390903	2025-10-19	Spain	La Liga	Elche	Athletic Club	draw	0	0	15	5	4	1	6	2	3	3	2	3	0	0	69.00	31.00	15	4	\N	\N	\N	\N	\N	2025-11-20 21:17:22.824548	1.08	0.25	0	0	draw	yes
+4903	1390902	2025-10-19	Spain	La Liga	Celta Vigo	Real Sociedad	draw	1	1	4	1	17	7	1	10	1	8	4	3	1	0	41.00	59.00	4	17	\N	\N	\N	\N	\N	2025-11-20 21:17:23.007346	0.95	1.55	1	0	h-win	yes
+4904	1390905	2025-10-19	Spain	La Liga	Levante	Rayo Vallecano	a-win	0	3	17	4	10	5	11	4	1	0	0	1	0	0	54.00	46.00	17	10	\N	\N	\N	\N	\N	2025-11-20 21:17:23.189829	0.91	1.55	0	2	a-win	yes
+4905	1390904	2025-10-19	Spain	La Liga	Getafe	Real Madrid	a-win	0	1	7	1	23	10	1	4	2	3	4	1	2	0	24.00	76.00	27	11	\N	\N	\N	\N	\N	2025-11-20 21:17:23.393066	0.48	1.96	0	0	draw	yes
+4906	1390899	2025-10-20	Spain	La Liga	Alaves	Valencia	draw	0	0	13	3	5	2	7	0	3	0	1	2	0	0	63.00	37.00	13	20	\N	\N	\N	\N	\N	2025-11-20 21:17:23.554234	0.81	0.45	0	0	draw	yes
+4907	1390917	2025-10-24	Spain	La Liga	Real Sociedad	Sevilla	h-win	2	1	5	3	6	1	1	9	2	1	1	3	0	0	40.00	60.00	19	14	\N	\N	\N	\N	\N	2025-11-20 21:17:23.726516	1.61	0.23	2	1	h-win	yes
+4908	1390912	2025-10-25	Spain	La Liga	Girona	Oviedo	draw	3	3	8	6	10	5	11	4	2	2	4	3	0	0	65.00	35.00	13	16	\N	\N	\N	\N	\N	2025-11-20 21:17:23.915251	2.03	1.79	0	1	a-win	yes
+4909	1390911	2025-10-25	Spain	La Liga	Espanyol	Elche	h-win	1	0	16	7	13	4	4	2	0	1	4	2	0	0	32.00	68.00	14	15	\N	\N	\N	\N	\N	2025-11-20 21:17:24.080312	1.93	0.86	0	0	draw	yes
+4910	1390909	2025-10-25	Spain	La Liga	Athletic Club	Getafe	a-win	0	1	7	4	8	3	1	5	3	4	1	3	0	0	57.00	43.00	15	14	\N	\N	\N	\N	\N	2025-11-20 21:17:24.239022	0.39	0.93	0	0	draw	yes
+4911	1390918	2025-10-25	Spain	La Liga	Valencia	Villarreal	a-win	0	2	15	3	12	5	7	5	2	3	2	4	0	0	57.00	43.00	13	14	\N	\N	\N	\N	\N	2025-11-20 21:17:24.408561	0.78	2.08	0	1	a-win	yes
+4912	1390913	2025-10-26	Spain	La Liga	Mallorca	Levante	draw	1	1	20	4	13	5	5	4	3	3	3	2	0	0	63.00	37.00	8	13	\N	\N	\N	\N	\N	2025-11-20 21:17:24.599758	1.58	2.08	0	1	a-win	yes
+4913	1390916	2025-10-26	Spain	La Liga	Real Madrid	Barcelona	h-win	2	1	23	10	15	6	12	4	5	2	5	5	1	1	32.00	68.00	12	9	\N	\N	\N	\N	\N	2025-11-20 21:17:24.780878	3.63	1.03	2	1	h-win	yes
+4914	1390914	2025-10-26	Spain	La Liga	Osasuna	Celta Vigo	a-win	2	3	17	7	11	5	6	2	0	5	3	4	0	0	61.00	39.00	10	13	\N	\N	\N	\N	\N	2025-11-20 21:17:24.94525	2.31	1.96	2	1	h-win	yes
+4915	1390915	2025-10-26	Spain	La Liga	Rayo Vallecano	Alaves	h-win	1	0	15	5	12	2	7	5	2	0	1	3	0	0	54.00	46.00	13	11	\N	\N	\N	\N	\N	2025-11-20 21:17:25.109193	1.18	0.84	0	0	draw	yes
+4916	1390910	2025-10-27	Spain	La Liga	Real Betis	Atletico Madrid	a-win	0	2	17	5	9	4	2	5	4	4	2	1	0	0	57.00	43.00	9	18	\N	\N	\N	\N	\N	2025-11-20 21:17:25.282682	1.07	0.60	0	2	a-win	yes
+4917	1390923	2025-10-31	Spain	La Liga	Getafe	Girona	h-win	2	1	12	4	8	4	8	3	3	0	1	2	0	0	40.00	60.00	17	15	\N	\N	\N	\N	\N	2025-11-20 21:17:25.451183	0.88	1.43	0	0	draw	yes
+4918	1390928	2025-11-01	Spain	La Liga	Villarreal	Rayo Vallecano	h-win	4	0	16	7	13	3	3	5	1	0	1	1	0	0	47.00	53.00	7	11	\N	\N	\N	3	12	2025-11-20 21:17:25.714616	3.02	1.02	1	0	h-win	yes
+4919	1390920	2025-11-01	Spain	La Liga	Atletico Madrid	Sevilla	h-win	3	0	15	6	10	2	9	4	0	0	0	3	0	0	47.00	53.00	9	12	\N	\N	\N	4	9	2025-11-20 21:17:25.877199	3.53	0.46	0	0	draw	yes
+4920	1390926	2025-11-01	Spain	La Liga	Real Sociedad	Athletic Club	h-win	3	2	9	5	11	4	6	2	3	1	2	3	0	0	51.00	49.00	20	8	\N	\N	\N	14	7	2025-11-20 21:17:26.043304	1.52	0.83	1	1	draw	yes
+4921	1390925	2025-11-01	Spain	La Liga	Real Madrid	Valencia	h-win	4	0	21	11	4	1	7	1	2	0	1	1	0	0	65.00	35.00	14	7	\N	\N	\N	1	17	2025-11-20 21:17:26.198139	2.71	0.49	3	0	h-win	yes
+4922	1390924	2025-11-02	Spain	La Liga	Levante	Celta Vigo	a-win	1	2	9	3	20	6	4	4	0	0	2	3	1	0	36.00	64.00	10	12	\N	\N	\N	19	13	2025-11-20 21:17:26.357127	1.20	2.00	0	1	a-win	yes
+5020	1391319	2025-09-28	Spain	Segunda División	Valladolid	Cultural Leonesa	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.600718	\N	\N	0	1	a-win	yes
+4923	1390919	2025-11-02	Spain	La Liga	Alaves	Espanyol	h-win	2	1	13	4	18	2	1	6	0	0	4	2	1	0	54.00	46.00	14	12	\N	\N	\N	10	6	2025-11-20 21:17:26.509077	1.22	1.06	2	0	h-win	yes
+4924	1390921	2025-11-02	Spain	La Liga	Barcelona	Elche	h-win	3	1	17	5	9	3	6	3	5	5	0	1	0	0	49.00	51.00	12	16	\N	\N	\N	2	11	2025-11-20 21:17:26.675202	1.88	0.66	2	1	h-win	yes
+4925	1390922	2025-11-02	Spain	La Liga	Real Betis	Mallorca	h-win	3	0	15	8	14	1	4	5	1	4	0	3	0	0	52.00	48.00	9	8	\N	\N	\N	5	15	2025-11-20 21:17:26.857669	2.36	0.62	3	0	h-win	yes
+4926	1390927	2025-11-03	Spain	La Liga	Oviedo	Osasuna	draw	0	0	8	2	11	5	4	2	3	0	3	1	0	0	53.00	47.00	17	17	\N	\N	\N	20	16	2025-11-20 21:17:27.014941	0.96	0.82	0	0	draw	yes
+4927	1390932	2025-11-07	Spain	La Liga	Elche	Real Sociedad	draw	1	1	12	3	13	5	1	3	1	2	1	3	0	0	63.00	37.00	14	15	\N	\N	\N	11	14	2025-11-20 21:17:27.178891	0.80	1.36	0	0	draw	yes
+4928	1390934	2025-11-08	Spain	La Liga	Girona	Alaves	h-win	1	0	10	2	14	5	6	1	1	3	0	3	0	0	52.00	48.00	9	15	\N	\N	\N	18	10	2025-11-20 21:17:27.370825	0.85	1.84	1	0	h-win	yes
+4929	1390937	2025-11-08	Spain	La Liga	Sevilla	Osasuna	h-win	1	0	10	4	9	3	5	6	6	0	5	3	0	0	47.00	53.00	21	13	\N	\N	\N	9	16	2025-11-20 21:17:27.566156	1.70	1.29	0	0	draw	yes
+4930	1390930	2025-11-08	Spain	La Liga	Atletico Madrid	Levante	h-win	3	1	25	10	6	3	21	4	1	4	3	1	0	0	74.00	26.00	5	6	\N	\N	\N	4	19	2025-11-20 21:17:27.741561	2.92	1.19	1	1	draw	yes
+4931	1390933	2025-11-08	Spain	La Liga	Espanyol	Villarreal	a-win	0	2	14	3	9	3	4	2	2	3	0	2	0	0	55.00	45.00	9	9	\N	\N	\N	6	3	2025-11-20 21:17:27.896847	0.50	1.61	0	1	a-win	yes
+4932	1390929	2025-11-09	Spain	La Liga	Athletic Club	Oviedo	h-win	1	0	21	7	4	2	7	4	0	4	1	1	0	0	48.00	52.00	12	8	\N	\N	\N	7	20	2025-11-20 21:17:28.05257	1.70	0.22	1	0	h-win	yes
+4933	1390936	2025-11-09	Spain	La Liga	Rayo Vallecano	Real Madrid	draw	0	0	13	2	21	5	5	8	1	1	3	2	0	0	46.00	54.00	17	7	\N	\N	\N	12	1	2025-11-20 21:17:28.272276	1.20	0.98	0	0	draw	yes
+4934	1390938	2025-11-09	Spain	La Liga	Valencia	Real Betis	draw	1	1	17	4	9	2	7	2	4	1	3	3	0	0	43.00	57.00	13	10	\N	\N	\N	17	5	2025-11-20 21:17:28.474669	1.94	1.60	0	0	draw	yes
+4935	1390935	2025-11-09	Spain	La Liga	Mallorca	Getafe	h-win	1	0	6	4	14	3	1	14	0	1	0	2	0	0	39.00	61.00	15	8	\N	\N	\N	15	8	2025-11-20 21:17:28.684486	1.17	0.85	1	0	h-win	yes
+4936	1390931	2025-11-09	Spain	La Liga	Celta Vigo	Barcelona	a-win	2	4	5	3	21	9	2	5	5	2	1	5	0	1	39.00	61.00	13	10	\N	\N	\N	13	2	2025-11-20 21:17:28.894808	0.58	3.31	2	3	a-win	yes
+4937	1390947	2025-11-21	Spain	La Liga	Valencia	Levante	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.08	3.35	3.50	17	19	2025-11-20 21:17:29.08695	\N	\N	0	0	draw	no
+4938	1390939	2025-11-22	Spain	La Liga	Alaves	Celta Vigo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.50	3.05	3.00	10	13	2025-11-20 21:17:29.28459	\N	\N	0	0	draw	no
+4939	1390940	2025-11-22	Spain	La Liga	Barcelona	Athletic Club	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.43	5.25	5.90	2	7	2025-11-20 21:17:29.474219	\N	\N	0	0	draw	no
+4940	1390945	2025-11-22	Spain	La Liga	Osasuna	Real Sociedad	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.70	3.05	2.74	16	14	2025-11-20 21:17:29.6796	\N	\N	0	0	draw	no
+4941	1390948	2025-11-22	Spain	La Liga	Villarreal	Mallorca	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.42	4.70	6.80	3	15	2025-11-20 21:17:29.876572	\N	\N	0	0	draw	no
+4942	1390946	2025-11-23	Spain	La Liga	Oviedo	Rayo Vallecano	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3.30	3.20	2.22	20	12	2025-11-20 21:17:30.069167	\N	\N	0	0	draw	no
+4943	1390941	2025-11-23	Spain	La Liga	Real Betis	Girona	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.55	4.20	5.40	5	18	2025-11-20 21:17:30.258405	\N	\N	0	0	draw	no
+4944	1390944	2025-11-23	Spain	La Liga	Getafe	Atletico Madrid	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5.40	3.20	1.75	8	4	2025-11-20 21:17:30.430144	\N	\N	0	0	draw	no
+4945	1390942	2025-11-23	Spain	La Liga	Elche	Real Madrid	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7.90	4.90	1.35	11	1	2025-11-20 21:17:30.621055	\N	\N	0	0	draw	no
+4946	1390943	2025-11-24	Spain	La Liga	Espanyol	Sevilla	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.08	3.25	3.55	6	9	2025-11-20 21:17:30.812253	\N	\N	0	0	draw	no
+4947	1396944	2025-08-15	Spain	Segunda División	Valladolid	AD Ceuta FC	h-win	3	0	16	9	5	0	6	4	7	2	3	2	0	0	42.00	58.00	18	11	\N	\N	\N	\N	\N	2025-11-20 21:17:32.176926	\N	\N	2	0	h-win	yes
+4948	1391254	2025-08-15	Spain	Segunda División	Burgos	Cultural Leonesa	h-win	5	1	15	7	8	1	3	3	3	0	1	1	0	1	65.00	35.00	13	10	\N	\N	\N	\N	\N	2025-11-20 21:17:32.368852	\N	\N	3	0	h-win	yes
+4949	1391256	2025-08-16	Spain	Segunda División	Racing Santander	Castellón	h-win	3	1	10	5	17	8	3	12	2	5	3	0	0	1	37.00	63.00	16	14	\N	\N	\N	\N	\N	2025-11-20 21:17:32.544118	\N	\N	2	1	h-win	yes
+4950	1391259	2025-08-16	Spain	Segunda División	Malaga	Eibar	draw	1	1	11	4	7	3	8	3	1	3	2	2	0	0	54.00	46.00	10	7	\N	\N	\N	\N	\N	2025-11-20 21:17:32.699516	\N	\N	0	0	draw	yes
+4951	1391253	2025-08-16	Spain	Segunda División	Granada CF	Deportivo La Coruna	a-win	1	3	14	2	15	7	7	1	1	3	3	2	1	0	46.00	54.00	9	11	\N	\N	\N	\N	\N	2025-11-20 21:17:32.862552	\N	\N	0	1	a-win	yes
+4952	1391257	2025-08-17	Spain	Segunda División	Real Sociedad II	Zaragoza	h-win	1	0	3	2	18	5	2	9	0	1	4	2	0	0	40.00	60.00	24	12	\N	\N	\N	\N	\N	2025-11-20 21:17:33.050689	\N	\N	1	0	h-win	yes
+4953	1391255	2025-08-17	Spain	Segunda División	Cadiz	Mirandes	h-win	1	0	24	3	1	0	7	0	2	0	3	2	0	1	72.00	28.00	14	9	\N	\N	\N	\N	\N	2025-11-20 21:17:33.242174	\N	\N	1	0	h-win	yes
+4954	1396943	2025-08-17	Spain	Segunda División	Las Palmas	FC Andorra	draw	1	1	10	2	7	2	1	2	4	1	2	3	1	0	43.00	57.00	16	17	\N	\N	\N	\N	\N	2025-11-20 21:17:33.421601	\N	\N	1	0	h-win	yes
+4955	1391258	2025-08-17	Spain	Segunda División	Huesca	Leganes	draw	1	1	14	3	7	3	5	3	1	3	2	2	0	0	56.00	44.00	11	12	\N	\N	\N	\N	\N	2025-11-20 21:17:33.574898	\N	\N	0	0	draw	yes
+4956	1396942	2025-08-18	Spain	Segunda División	Sporting Gijon	Cordoba	h-win	2	1	9	4	15	5	2	4	7	1	2	2	0	0	35.00	65.00	13	7	\N	\N	\N	\N	\N	2025-11-20 21:17:33.72706	\N	\N	1	1	draw	yes
+4957	1396941	2025-08-18	Spain	Segunda División	Almeria	Albacete	draw	4	4	31	11	17	5	17	5	1	2	3	2	0	0	67.00	33.00	9	9	\N	\N	\N	\N	\N	2025-11-20 21:17:33.896537	\N	\N	1	1	draw	yes
+4958	1391266	2025-08-22	Spain	Segunda División	Eibar	Granada CF	h-win	3	0	16	6	3	0	6	3	5	0	2	4	0	1	47.00	53.00	23	16	\N	\N	\N	\N	\N	2025-11-20 21:17:34.110608	\N	\N	1	0	h-win	yes
+4959	1391262	2025-08-22	Spain	Segunda División	Leganes	Cadiz	draw	1	1	9	4	10	3	7	5	2	2	2	1	0	0	51.00	49.00	13	17	\N	\N	\N	\N	\N	2025-11-20 21:17:34.272368	\N	\N	1	0	h-win	yes
+4960	1391264	2025-08-22	Spain	Segunda División	Castellón	Valladolid	a-win	0	1	11	4	10	4	8	9	2	3	3	3	0	0	63.00	37.00	14	19	\N	\N	\N	\N	\N	2025-11-20 21:17:34.455409	\N	\N	0	1	a-win	yes
+4961	1391261	2025-08-23	Spain	Segunda División	Mirandes	Huesca	a-win	0	1	5	2	6	2	1	4	4	2	5	2	0	0	52.00	48.00	16	13	\N	\N	\N	\N	\N	2025-11-20 21:17:34.635109	\N	\N	0	1	a-win	yes
+4962	1391265	2025-08-23	Spain	Segunda División	AD Ceuta FC	Sporting Gijon	a-win	0	1	12	7	7	4	3	3	0	4	1	2	0	0	63.00	37.00	11	15	\N	\N	\N	\N	\N	2025-11-20 21:17:34.809521	\N	\N	0	1	a-win	yes
+4963	1396945	2025-08-23	Spain	Segunda División	Zaragoza	FC Andorra	a-win	1	3	13	6	17	10	6	5	2	0	1	2	1	0	45.00	55.00	14	17	\N	\N	\N	\N	\N	2025-11-20 21:17:34.987988	\N	\N	0	1	a-win	yes
+4964	1391268	2025-08-24	Spain	Segunda División	Deportivo La Coruna	Burgos	draw	0	0	10	2	11	1	2	6	2	2	2	1	0	0	56.00	44.00	12	14	\N	\N	\N	\N	\N	2025-11-20 21:17:35.165817	\N	\N	0	0	draw	yes
+4965	1391269	2025-08-24	Spain	Segunda División	Cultural Leonesa	Almeria	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.193367	\N	\N	0	0	draw	yes
+4966	1391263	2025-08-24	Spain	Segunda División	Malaga	Real Sociedad II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.203394	\N	\N	0	0	draw	yes
+4967	1391267	2025-08-25	Spain	Segunda División	Albacete	Racing Santander	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.216268	\N	\N	0	0	draw	yes
+4968	1391260	2025-08-25	Spain	Segunda División	Cordoba	Las Palmas	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.231945	\N	\N	0	1	a-win	yes
+4969	1391274	2025-08-29	Spain	Segunda División	Real Sociedad II	Almeria	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.243239	\N	\N	1	1	draw	yes
+4970	1391278	2025-08-29	Spain	Segunda División	Sporting Gijon	Cultural Leonesa	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.253775	\N	\N	0	0	draw	yes
+4971	1391277	2025-08-30	Spain	Segunda División	Racing Santander	AD Ceuta FC	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.260116	\N	\N	2	1	h-win	yes
+4972	1391279	2025-08-30	Spain	Segunda División	Valladolid	Cordoba	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.265961	\N	\N	0	0	draw	yes
+4973	1391275	2025-08-30	Spain	Segunda División	Castellón	Zaragoza	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.274037	\N	\N	0	0	draw	yes
+4974	1396947	2025-08-31	Spain	Segunda División	Cadiz	Albacete	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.280208	\N	\N	1	0	h-win	yes
+4975	1396946	2025-08-31	Spain	Segunda División	FC Andorra	Burgos	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.286532	\N	\N	1	0	h-win	yes
+4976	1391280	2025-08-31	Spain	Segunda División	Las Palmas	Malaga	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.294673	\N	\N	0	1	a-win	yes
+4977	1391271	2025-08-31	Spain	Segunda División	Granada CF	Mirandes	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.300596	\N	\N	0	0	draw	yes
+4978	1391276	2025-09-01	Spain	Segunda División	Huesca	Eibar	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.309544	\N	\N	1	1	draw	yes
+4979	1391272	2025-09-01	Spain	Segunda División	Leganes	Deportivo La Coruna	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.315841	\N	\N	2	0	h-win	yes
+4980	1391285	2025-09-05	Spain	Segunda División	Albacete	Mirandes	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.324481	\N	\N	0	1	a-win	yes
+4981	1391287	2025-09-05	Spain	Segunda División	Cordoba	Castellón	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.330616	\N	\N	0	1	a-win	yes
+4982	1391290	2025-09-06	Spain	Segunda División	Deportivo La Coruna	Sporting Gijon	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.338777	\N	\N	0	0	draw	yes
+4983	1391283	2025-09-06	Spain	Segunda División	Zaragoza	Valladolid	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.345068	\N	\N	0	0	draw	yes
+4984	1391281	2025-09-06	Spain	Segunda División	Malaga	Granada CF	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.35274	\N	\N	2	1	h-win	yes
+4985	1391288	2025-09-07	Spain	Segunda División	AD Ceuta FC	Huesca	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.358791	\N	\N	1	0	h-win	yes
+4986	1391289	2025-09-07	Spain	Segunda División	Burgos	Las Palmas	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.365129	\N	\N	0	0	draw	yes
+4987	1391284	2025-09-07	Spain	Segunda División	Real Sociedad II	Cadiz	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.372349	\N	\N	1	1	draw	yes
+4988	1391286	2025-09-07	Spain	Segunda División	Almeria	Racing Santander	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.378662	\N	\N	2	0	h-win	yes
+4989	1396948	2025-09-07	Spain	Segunda División	Cultural Leonesa	Leganes	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.386875	\N	\N	0	0	draw	yes
+4990	1396949	2025-09-08	Spain	Segunda División	Eibar	FC Andorra	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.392765	\N	\N	0	0	draw	yes
+4991	1396951	2025-09-12	Spain	Segunda División	Las Palmas	Real Sociedad II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.401025	\N	\N	1	0	h-win	yes
+4992	1391296	2025-09-13	Spain	Segunda División	Cadiz	Eibar	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.406756	\N	\N	0	0	draw	yes
+4993	1391298	2025-09-13	Spain	Segunda División	Mirandes	Deportivo La Coruna	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.415322	\N	\N	0	2	a-win	yes
+4994	1391299	2025-09-13	Spain	Segunda División	Huesca	Malaga	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.421274	\N	\N	0	0	draw	yes
+4995	1391294	2025-09-13	Spain	Segunda División	Valladolid	Almeria	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.42719	\N	\N	1	0	h-win	yes
+4996	1396950	2025-09-14	Spain	Segunda División	FC Andorra	Cordoba	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.435274	\N	\N	2	1	h-win	yes
+4997	1391295	2025-09-14	Spain	Segunda División	Racing Santander	Cultural Leonesa	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.441075	\N	\N	0	3	a-win	yes
+4998	1391293	2025-09-14	Spain	Segunda División	Sporting Gijon	Burgos	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.448045	\N	\N	0	2	a-win	yes
+4999	1391297	2025-09-14	Spain	Segunda División	Castellón	AD Ceuta FC	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.453903	\N	\N	2	1	h-win	yes
+5000	1391292	2025-09-14	Spain	Segunda División	Granada CF	Leganes	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.461303	\N	\N	0	1	a-win	yes
+5001	1391291	2025-09-15	Spain	Segunda División	Zaragoza	Albacete	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.467149	\N	\N	0	0	draw	yes
+5002	1391307	2025-09-19	Spain	Segunda División	Deportivo La Coruna	Huesca	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.475402	\N	\N	3	0	h-win	yes
+5003	1391301	2025-09-20	Spain	Segunda División	Cultural Leonesa	Castellón	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.481614	\N	\N	0	2	a-win	yes
+5004	1391302	2025-09-20	Spain	Segunda División	Leganes	Las Palmas	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.489653	\N	\N	0	0	draw	yes
+5005	1396952	2025-09-20	Spain	Segunda División	FC Andorra	Mirandes	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.495816	\N	\N	1	1	draw	yes
+5006	1391300	2025-09-20	Spain	Segunda División	Almeria	Sporting Gijon	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.50377	\N	\N	0	1	a-win	yes
+5007	1391306	2025-09-21	Spain	Segunda División	AD Ceuta FC	Zaragoza	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.509837	\N	\N	0	0	draw	yes
+5008	1391309	2025-09-21	Spain	Segunda División	Albacete	Valladolid	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.515762	\N	\N	0	0	draw	yes
+5009	1391308	2025-09-21	Spain	Segunda División	Malaga	Cadiz	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.523317	\N	\N	0	1	a-win	yes
+5010	1391310	2025-09-21	Spain	Segunda División	Eibar	Real Sociedad II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.529525	\N	\N	1	0	h-win	yes
+5011	1391303	2025-09-21	Spain	Segunda División	Cordoba	Racing Santander	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.537283	\N	\N	0	0	draw	yes
+5012	1391305	2025-09-22	Spain	Segunda División	Burgos	Granada CF	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.543305	\N	\N	0	0	draw	yes
+5013	1391312	2025-09-26	Spain	Segunda División	Mirandes	Zaragoza	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.550972	\N	\N	0	1	a-win	yes
+5014	1391317	2025-09-27	Spain	Segunda División	Eibar	Deportivo La Coruna	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.556892	\N	\N	0	1	a-win	yes
+5015	1396953	2025-09-27	Spain	Segunda División	Racing Santander	FC Andorra	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.563105	\N	\N	0	0	draw	yes
+5016	1391316	2025-09-27	Spain	Segunda División	Las Palmas	Almeria	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.570101	\N	\N	0	1	a-win	yes
+5017	1391315	2025-09-28	Spain	Segunda División	Real Sociedad II	Cordoba	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.576187	\N	\N	1	0	h-win	yes
+5018	1391318	2025-09-28	Spain	Segunda División	Cadiz	AD Ceuta FC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.58588	\N	\N	0	0	draw	yes
+5019	1391314	2025-09-28	Spain	Segunda División	Burgos	Malaga	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.592203	\N	\N	1	1	draw	yes
+5021	1391320	2025-09-28	Spain	Segunda División	Sporting Gijon	Albacete	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.606674	\N	\N	3	1	h-win	yes
+5022	1391321	2025-09-28	Spain	Segunda División	Huesca	Granada CF	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.616035	\N	\N	0	1	a-win	yes
+5023	1391311	2025-09-29	Spain	Segunda División	Leganes	Castellón	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.621824	\N	\N	0	1	a-win	yes
+5024	1391328	2025-10-03	Spain	Segunda División	AD Ceuta FC	Eibar	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.628645	\N	\N	1	0	h-win	yes
+5025	1391322	2025-10-04	Spain	Segunda División	Deportivo La Coruna	Almeria	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.634889	\N	\N	0	1	a-win	yes
+5026	1391330	2025-10-04	Spain	Segunda División	Huesca	Burgos	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.640626	\N	\N	1	0	h-win	yes
+5027	1396954	2025-10-04	Spain	Segunda División	FC Andorra	Leganes	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.648871	\N	\N	0	0	draw	yes
+5028	1391323	2025-10-04	Spain	Segunda División	Granada CF	Real Sociedad II	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.654645	\N	\N	5	1	h-win	yes
+5029	1391325	2025-10-05	Spain	Segunda División	Zaragoza	Cordoba	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.663038	\N	\N	0	0	draw	yes
+5030	1391327	2025-10-05	Spain	Segunda División	Castellón	Sporting Gijon	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.668839	\N	\N	2	1	h-win	yes
+5031	1391331	2025-10-05	Spain	Segunda División	Valladolid	Mirandes	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.675989	\N	\N	0	1	a-win	yes
+5032	1391324	2025-10-05	Spain	Segunda División	Racing Santander	Malaga	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.681943	\N	\N	0	0	draw	yes
+5033	1391332	2025-10-05	Spain	Segunda División	Las Palmas	Cadiz	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.687882	\N	\N	0	0	draw	yes
+5034	1391329	2025-10-06	Spain	Segunda División	Cultural Leonesa	Albacete	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.69566	\N	\N	0	0	draw	yes
+5035	1391337	2025-10-10	Spain	Segunda División	Granada CF	Las Palmas	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.702529	\N	\N	0	0	draw	yes
+5036	1391335	2025-10-11	Spain	Segunda División	Mirandes	Leganes	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.71154	\N	\N	0	0	draw	yes
+5037	1391341	2025-10-11	Spain	Segunda División	Almeria	Zaragoza	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.717341	\N	\N	0	0	draw	yes
+5038	1396955	2025-10-11	Spain	Segunda División	Real Sociedad II	FC Andorra	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.725911	\N	\N	1	0	h-win	yes
+5039	1391336	2025-10-12	Spain	Segunda División	Albacete	AD Ceuta FC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.73218	\N	\N	0	0	draw	yes
+5040	1391343	2025-10-12	Spain	Segunda División	Eibar	Castellón	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.740381	\N	\N	0	0	draw	yes
+5041	1391333	2025-10-12	Spain	Segunda División	Sporting Gijon	Racing Santander	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.746515	\N	\N	1	0	h-win	yes
+5042	1391334	2025-10-12	Spain	Segunda División	Cadiz	Huesca	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.754304	\N	\N	0	0	draw	yes
+5043	1391342	2025-10-12	Spain	Segunda División	Burgos	Valladolid	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.760726	\N	\N	0	0	draw	yes
+5044	1391339	2025-10-12	Spain	Segunda División	Malaga	Deportivo La Coruna	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.766472	\N	\N	2	0	h-win	yes
+5045	1391340	2025-10-13	Spain	Segunda División	Cordoba	Cultural Leonesa	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.77389	\N	\N	1	0	h-win	yes
+5046	1396956	2025-10-17	Spain	Segunda División	FC Andorra	Granada CF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.780277	\N	\N	0	0	draw	yes
+5047	1391350	2025-10-18	Spain	Segunda División	AD Ceuta FC	Mirandes	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.788804	\N	\N	2	0	h-win	yes
+5048	1391344	2025-10-18	Spain	Segunda División	Zaragoza	Cultural Leonesa	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.795047	\N	\N	0	2	a-win	yes
+5049	1391345	2025-10-19	Spain	Segunda División	Leganes	Malaga	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.803973	\N	\N	1	0	h-win	yes
+5050	1391346	2025-10-19	Spain	Segunda División	Valladolid	Sporting Gijon	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.810002	\N	\N	1	1	draw	yes
+5051	1391351	2025-10-19	Spain	Segunda División	Castellón	Albacete	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.818161	\N	\N	0	1	a-win	yes
+5052	1391353	2025-10-19	Spain	Segunda División	Cordoba	Almeria	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.823933	\N	\N	1	1	draw	yes
+5053	1391352	2025-10-19	Spain	Segunda División	Racing Santander	Deportivo La Coruna	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.832716	\N	\N	1	1	draw	yes
+5054	1391349	2025-10-19	Spain	Segunda División	Las Palmas	Eibar	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.83868	\N	\N	1	0	h-win	yes
+5055	1396957	2025-10-20	Spain	Segunda División	Cadiz	Burgos	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.845003	\N	\N	1	2	a-win	yes
+5056	1391355	2025-10-24	Spain	Segunda División	Huesca	Las Palmas	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.852099	\N	\N	1	0	h-win	yes
+5057	1396958	2025-10-25	Spain	Segunda División	Cultural Leonesa	AD Ceuta FC	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.8579	\N	\N	0	1	a-win	yes
+5058	1391358	2025-10-25	Spain	Segunda División	Eibar	Leganes	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.866333	\N	\N	0	0	draw	yes
+5059	1391360	2025-10-25	Spain	Segunda División	Albacete	Cordoba	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.872199	\N	\N	0	2	a-win	yes
+5060	1391356	2025-10-25	Spain	Segunda División	Granada CF	Cadiz	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.879465	\N	\N	0	0	draw	yes
+5061	1391362	2025-10-25	Spain	Segunda División	Burgos	Real Sociedad II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.88558	\N	\N	0	0	draw	yes
+5062	1391361	2025-10-25	Spain	Segunda División	Mirandes	Racing Santander	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.891183	\N	\N	1	1	draw	yes
+5063	1396959	2025-10-26	Spain	Segunda División	Malaga	FC Andorra	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.899295	\N	\N	1	0	h-win	yes
+5064	1391357	2025-10-26	Spain	Segunda División	Almeria	Castellón	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.905131	\N	\N	0	0	draw	yes
+5065	1391354	2025-10-26	Spain	Segunda División	Sporting Gijon	Zaragoza	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.913305	\N	\N	1	0	h-win	yes
+5066	1391359	2025-10-26	Spain	Segunda División	Deportivo La Coruna	Valladolid	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.919268	\N	\N	0	1	a-win	yes
+5067	1391887	2025-10-31	Spain	Segunda División	Racing Santander	Real Sociedad II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.927024	\N	\N	1	0	h-win	yes
+5068	1391890	2025-11-01	Spain	Segunda División	Cultural Leonesa	Mirandes	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.943232	\N	\N	1	1	draw	yes
+5069	1391891	2025-11-01	Spain	Segunda División	Leganes	Burgos	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.951484	\N	\N	1	2	a-win	yes
+5070	1391888	2025-11-01	Spain	Segunda División	Albacete	Huesca	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.961839	\N	\N	0	1	a-win	yes
+5071	1391895	2025-11-01	Spain	Segunda División	Almeria	Eibar	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.969729	\N	\N	3	0	h-win	yes
+5072	1396960	2025-11-02	Spain	Segunda División	FC Andorra	Cadiz	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.979954	\N	\N	0	0	draw	yes
+5073	1391896	2025-11-02	Spain	Segunda División	Cordoba	AD Ceuta FC	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.989342	\N	\N	2	0	h-win	yes
+5074	1391892	2025-11-02	Spain	Segunda División	Sporting Gijon	Las Palmas	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:35.997643	\N	\N	0	0	draw	yes
+5075	1391893	2025-11-02	Spain	Segunda División	Castellón	Malaga	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.00606	\N	\N	0	0	draw	yes
+5076	1391889	2025-11-02	Spain	Segunda División	Zaragoza	Deportivo La Coruna	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.014611	\N	\N	0	0	draw	yes
+5077	1391894	2025-11-03	Spain	Segunda División	Valladolid	Granada CF	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.024704	\N	\N	0	1	a-win	yes
+5078	1391348	2025-11-05	Spain	Segunda División	Real Sociedad II	Huesca	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.032964	\N	\N	1	0	h-win	yes
+5079	1391905	2025-11-07	Spain	Segunda División	Mirandes	Sporting Gijon	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.042986	\N	\N	0	1	a-win	yes
+5080	1391904	2025-11-08	Spain	Segunda División	Real Sociedad II	Leganes	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.052824	\N	\N	1	1	draw	yes
+5081	1391902	2025-11-08	Spain	Segunda División	Eibar	Albacete	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.060553	\N	\N	0	1	a-win	yes
+5082	1396961	2025-11-08	Spain	Segunda División	Huesca	FC Andorra	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.069759	\N	\N	0	2	a-win	yes
+5083	1391903	2025-11-08	Spain	Segunda División	Deportivo La Coruna	Cultural Leonesa	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.07664	\N	\N	2	0	h-win	yes
+5084	1391900	2025-11-08	Spain	Segunda División	Malaga	Cordoba	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.086489	\N	\N	0	0	draw	yes
+5085	1391906	2025-11-09	Spain	Segunda División	Las Palmas	Racing Santander	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.094122	\N	\N	3	1	h-win	yes
+5086	1391899	2025-11-09	Spain	Segunda División	Granada CF	Zaragoza	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.103593	\N	\N	1	1	draw	yes
+5087	1391907	2025-11-09	Spain	Segunda División	Cadiz	Valladolid	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.110383	\N	\N	0	0	draw	yes
+5088	1391898	2025-11-10	Spain	Segunda División	Burgos	Castellón	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.119269	\N	\N	0	0	draw	yes
+5089	1391911	2025-11-14	Spain	Segunda División	Valladolid	Las Palmas	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.12607	\N	\N	0	1	a-win	yes
+5090	1396962	2025-11-15	Spain	Segunda División	Albacete	FC Andorra	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.136435	\N	\N	0	0	draw	yes
+5091	1391910	2025-11-15	Spain	Segunda División	Castellón	Real Sociedad II	h-win	5	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.145536	\N	\N	1	1	draw	yes
+5092	1391908	2025-11-15	Spain	Segunda División	Racing Santander	Granada CF	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.152913	\N	\N	2	0	h-win	yes
+5093	1391915	2025-11-16	Spain	Segunda División	AD Ceuta FC	Leganes	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.163186	\N	\N	0	1	a-win	yes
+5094	1391913	2025-11-16	Spain	Segunda División	Almeria	Cadiz	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.170659	\N	\N	1	0	h-win	yes
+5095	1391912	2025-11-16	Spain	Segunda División	Sporting Gijon	Eibar	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.180673	\N	\N	0	1	a-win	yes
+5096	1391914	2025-11-16	Spain	Segunda División	Cordoba	Deportivo La Coruna	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.188258	\N	\N	0	0	draw	yes
+5097	1391909	2025-11-16	Spain	Segunda División	Mirandes	Burgos	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.199612	\N	\N	0	0	draw	yes
+5098	1391918	2025-11-16	Spain	Segunda División	Zaragoza	Huesca	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.210693	\N	\N	1	0	h-win	yes
+5099	1391917	2025-11-17	Spain	Segunda División	Cultural Leonesa	Malaga	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.218307	\N	\N	1	0	h-win	yes
+5100	1391922	2025-11-21	Spain	Segunda División	Las Palmas	Albacete	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.22817	\N	\N	0	0	draw	no
+5101	1396963	2025-11-22	Spain	Segunda División	FC Andorra	Castellón	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.235645	\N	\N	0	0	draw	no
+5102	1391928	2025-11-22	Spain	Segunda División	Leganes	Almeria	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.245997	\N	\N	0	0	draw	no
+5103	1391919	2025-11-22	Spain	Segunda División	Eibar	Zaragoza	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.255464	\N	\N	0	0	draw	no
+5104	1391923	2025-11-22	Spain	Segunda División	Granada CF	Cordoba	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.262873	\N	\N	0	0	draw	no
+5105	1391925	2025-11-23	Spain	Segunda División	Deportivo La Coruna	AD Ceuta FC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.272353	\N	\N	0	0	draw	no
+5106	1391920	2025-11-23	Spain	Segunda División	Cadiz	Cultural Leonesa	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.28059	\N	\N	0	0	draw	no
+5107	1391927	2025-11-23	Spain	Segunda División	Huesca	Sporting Gijon	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.290194	\N	\N	0	0	draw	no
+5108	1391924	2025-11-23	Spain	Segunda División	Burgos	Racing Santander	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.298133	\N	\N	0	0	draw	no
+5109	1391929	2025-11-23	Spain	Segunda División	Malaga	Mirandes	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.308677	\N	\N	0	0	draw	no
+5110	1391921	2025-11-24	Spain	Segunda División	Real Sociedad II	Valladolid	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 21:17:36.318639	\N	\N	0	0	draw	no
+5111	1431131	2025-08-29	Spain	Primera División RFEF - Group 2	Gimnastic	Algeciras	h-win	2	1	4	1	8	3	3	5	0	0	3	2	0	0	52.00	48.00	0	0	\N	\N	\N	\N	\N	2025-11-20 22:17:08.430616	\N	\N	1	0	h-win	yes
+5112	1431134	2025-08-30	Spain	Primera División RFEF - Group 2	Sabadell	Eldense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:08.603098	\N	\N	0	0	draw	yes
+5113	1431137	2025-08-30	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Europa Fc	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:08.760725	\N	\N	0	0	draw	yes
+5114	1431135	2025-08-30	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Ibiza	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:08.927898	\N	\N	0	1	a-win	yes
+5115	1431132	2025-08-30	Spain	Primera División RFEF - Group 2	Hércules	Tarazona	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:09.098261	\N	\N	0	0	draw	yes
+5116	1431136	2025-08-31	Spain	Primera División RFEF - Group 2	Teruel	Real Betis II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:09.26335	\N	\N	0	0	draw	yes
+5117	1431129	2025-08-31	Spain	Primera División RFEF - Group 2	Antequera	FC Cartagena	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:09.428023	\N	\N	0	0	draw	yes
+5118	1431130	2025-09-01	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Sanluqueño	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:09.600548	\N	\N	0	0	draw	yes
+5119	1431138	2025-09-01	Spain	Primera División RFEF - Group 2	Villarreal II	Alcorcon	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:09.761022	\N	\N	0	0	draw	yes
+5120	1431133	2025-09-01	Spain	Primera División RFEF - Group 2	Marbella	Real Murcia	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:09.928001	\N	\N	1	1	draw	yes
+5121	1431141	2025-09-05	Spain	Primera División RFEF - Group 2	Real Betis II	Gimnastic	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:10.124797	\N	\N	2	2	draw	yes
+5122	1431144	2025-09-05	Spain	Primera División RFEF - Group 2	FC Cartagena	Atlético Madrid II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:10.291848	\N	\N	1	1	draw	yes
+5123	1431143	2025-09-06	Spain	Primera División RFEF - Group 2	Eldense	Villarreal II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:10.479264	\N	\N	0	0	draw	yes
+5124	1431139	2025-09-06	Spain	Primera División RFEF - Group 2	Alcorcon	Teruel	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:10.640877	\N	\N	1	1	draw	yes
+5125	1431142	2025-09-06	Spain	Primera División RFEF - Group 2	Europa Fc	Sevilla Atletico	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:10.801691	\N	\N	0	1	a-win	yes
+5126	1431148	2025-09-06	Spain	Primera División RFEF - Group 2	Ibiza	Hércules	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:10.98912	\N	\N	2	1	h-win	yes
+5127	1431147	2025-09-07	Spain	Primera División RFEF - Group 2	Tarazona	Antequera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:11.156009	\N	\N	0	0	draw	yes
+5128	1431140	2025-09-07	Spain	Primera División RFEF - Group 2	Algeciras	Marbella	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:11.306923	\N	\N	0	0	draw	yes
+5129	1431145	2025-09-07	Spain	Primera División RFEF - Group 2	Real Murcia	Juventud Torremolinos	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:11.469312	\N	\N	1	0	h-win	yes
+5130	1431146	2025-09-07	Spain	Primera División RFEF - Group 2	Sanluqueño	Sabadell	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:11.632294	\N	\N	0	1	a-win	yes
+5131	1431152	2025-09-12	Spain	Primera División RFEF - Group 2	Hércules	Algeciras	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:11.793868	\N	\N	0	0	draw	yes
+5132	1431153	2025-09-13	Spain	Primera División RFEF - Group 2	Marbella	Ibiza	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:11.97108	\N	\N	1	0	h-win	yes
+5133	1431156	2025-09-13	Spain	Primera División RFEF - Group 2	Teruel	Eldense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:12.133426	\N	\N	0	0	draw	yes
+5134	1431158	2025-09-13	Spain	Primera División RFEF - Group 2	Villarreal II	Europa Fc	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:12.300389	\N	\N	0	2	a-win	yes
+5135	1431151	2025-09-13	Spain	Primera División RFEF - Group 2	Gimnastic	Sanluqueño	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:12.461383	\N	\N	0	2	a-win	yes
+5136	1431155	2025-09-13	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Real Betis II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:12.627851	\N	\N	1	0	h-win	yes
+5137	1431149	2025-09-13	Spain	Primera División RFEF - Group 2	Antequera	Alcorcon	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:12.800339	\N	\N	0	1	a-win	yes
+5138	1431150	2025-09-14	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Real Murcia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:12.965254	\N	\N	0	0	draw	yes
+5139	1431157	2025-09-14	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Tarazona	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:13.154112	\N	\N	1	1	draw	yes
+5140	1431165	2025-09-19	Spain	Primera División RFEF - Group 2	Real Murcia	Villarreal II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:13.319868	\N	\N	0	1	a-win	yes
+5141	1431161	2025-09-20	Spain	Primera División RFEF - Group 2	Real Betis II	Atlético Madrid II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:13.487734	\N	\N	0	1	a-win	yes
+5142	1431160	2025-09-20	Spain	Primera División RFEF - Group 2	Algeciras	Sabadell	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:13.65405	\N	\N	0	2	a-win	yes
+5143	1431159	2025-09-20	Spain	Primera División RFEF - Group 2	Alcorcon	Juventud Torremolinos	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:13.814762	\N	\N	1	0	h-win	yes
+5144	1431162	2025-09-20	Spain	Primera División RFEF - Group 2	Europa Fc	Gimnastic	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:13.987581	\N	\N	0	0	draw	yes
+5145	1431167	2025-09-21	Spain	Primera División RFEF - Group 2	Tarazona	Marbella	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:14.169443	\N	\N	0	0	draw	yes
+5146	1431163	2025-09-21	Spain	Primera División RFEF - Group 2	Eldense	Sevilla Atletico	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:14.330649	\N	\N	1	0	h-win	yes
+5147	1431164	2025-09-21	Spain	Primera División RFEF - Group 2	FC Cartagena	Hércules	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:14.485553	\N	\N	1	1	draw	yes
+5148	1431166	2025-09-21	Spain	Primera División RFEF - Group 2	Sanluqueño	Teruel	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:14.648751	\N	\N	0	1	a-win	yes
+5149	1431168	2025-09-21	Spain	Primera División RFEF - Group 2	Ibiza	Antequera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:14.820075	\N	\N	1	1	draw	yes
+5150	1431154	2025-09-24	Spain	Primera División RFEF - Group 2	Sabadell	FC Cartagena	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:14.986379	\N	\N	0	0	draw	yes
+5151	1431178	2025-09-27	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Antequera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:15.153721	\N	\N	0	0	draw	yes
+5152	1431174	2025-09-27	Spain	Primera División RFEF - Group 2	Sabadell	Villarreal II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:15.320307	\N	\N	1	0	h-win	yes
+5153	1431171	2025-09-27	Spain	Primera División RFEF - Group 2	Gimnastic	Eldense	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:15.490499	\N	\N	0	0	draw	yes
+5154	1431173	2025-09-27	Spain	Primera División RFEF - Group 2	Marbella	Real Betis II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:15.653205	\N	\N	0	1	a-win	yes
+5155	1431176	2025-09-28	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Tarazona	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:15.909832	\N	\N	0	0	draw	yes
+5156	1431177	2025-09-28	Spain	Primera División RFEF - Group 2	Teruel	Europa Fc	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:16.27105	\N	\N	1	0	h-win	yes
+5157	1431175	2025-09-28	Spain	Primera División RFEF - Group 2	Sanluqueño	FC Cartagena	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:16.493249	\N	\N	3	0	h-win	yes
+5158	1431172	2025-09-28	Spain	Primera División RFEF - Group 2	Hércules	Alcorcon	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:16.719896	\N	\N	0	0	draw	yes
+5159	1431169	2025-09-28	Spain	Primera División RFEF - Group 2	Algeciras	Real Murcia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:16.887397	\N	\N	1	0	h-win	yes
+5160	1431170	2025-09-28	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Ibiza	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:17.072369	\N	\N	2	0	h-win	yes
+5161	1431188	2025-10-03	Spain	Primera División RFEF - Group 2	Villarreal II	Atlético Madrid II	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:17.238972	\N	\N	1	3	a-win	yes
+5162	1431185	2025-10-03	Spain	Primera División RFEF - Group 2	Real Murcia	Sevilla Atletico	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:17.392933	\N	\N	0	1	a-win	yes
+5163	1431181	2025-10-04	Spain	Primera División RFEF - Group 2	Real Betis II	Algeciras	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:17.582572	\N	\N	0	1	a-win	yes
+5164	1431182	2025-10-04	Spain	Primera División RFEF - Group 2	Europa Fc	Marbella	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:17.74554	\N	\N	1	0	h-win	yes
+5165	1431179	2025-10-04	Spain	Primera División RFEF - Group 2	Alcorcon	Sanluqueño	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:17.912348	\N	\N	0	0	draw	yes
+5166	1431183	2025-10-04	Spain	Primera División RFEF - Group 2	Eldense	Juventud Torremolinos	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:18.074556	\N	\N	1	2	a-win	yes
+5167	1431187	2025-10-04	Spain	Primera División RFEF - Group 2	Ibiza	Gimnastic	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:18.242694	\N	\N	0	2	a-win	yes
+5168	1431180	2025-10-05	Spain	Primera División RFEF - Group 2	Antequera	Sabadell	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:18.410181	\N	\N	0	0	draw	yes
+5169	1431186	2025-10-05	Spain	Primera División RFEF - Group 2	Teruel	Hércules	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:18.562913	\N	\N	2	0	h-win	yes
+5170	1431184	2025-10-05	Spain	Primera División RFEF - Group 2	FC Cartagena	Tarazona	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:18.731425	\N	\N	2	0	h-win	yes
+5171	1431198	2025-10-11	Spain	Primera División RFEF - Group 2	Villarreal II	Real Betis II	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:18.899696	\N	\N	2	0	h-win	yes
+5172	1431192	2025-10-11	Spain	Primera División RFEF - Group 2	Marbella	Eldense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:19.050817	\N	\N	1	0	h-win	yes
+5173	1431196	2025-10-11	Spain	Primera División RFEF - Group 2	Tarazona	Real Murcia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:19.213521	\N	\N	0	0	draw	yes
+5174	1431189	2025-10-11	Spain	Primera División RFEF - Group 2	Algeciras	Europa Fc	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:19.378806	\N	\N	1	1	draw	yes
+5175	1431193	2025-10-12	Spain	Primera División RFEF - Group 2	Sabadell	Teruel	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:19.532599	\N	\N	0	0	draw	yes
+5176	1431197	2025-10-12	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Ibiza	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:19.703594	\N	\N	3	0	h-win	yes
+5177	1431195	2025-10-12	Spain	Primera División RFEF - Group 2	Sevilla Atletico	FC Cartagena	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:19.859328	\N	\N	0	0	draw	yes
+5178	1431194	2025-10-12	Spain	Primera División RFEF - Group 2	Sanluqueño	Antequera	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:20.012639	\N	\N	0	1	a-win	yes
+5179	1431190	2025-10-12	Spain	Primera División RFEF - Group 2	Gimnastic	Alcorcon	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:20.164614	\N	\N	0	1	a-win	yes
+5180	1431199	2025-10-17	Spain	Primera División RFEF - Group 2	Alcorcon	Sabadell	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:20.338968	\N	\N	0	1	a-win	yes
+5181	1431204	2025-10-17	Spain	Primera División RFEF - Group 2	FC Cartagena	Algeciras	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:20.543229	\N	\N	1	0	h-win	yes
+5182	1431206	2025-10-18	Spain	Primera División RFEF - Group 2	Hércules	Villarreal II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:20.711143	\N	\N	1	1	draw	yes
+5183	1431203	2025-10-18	Spain	Primera División RFEF - Group 2	Europa Fc	Eldense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:20.870657	\N	\N	0	0	draw	yes
+5184	1431205	2025-10-19	Spain	Primera División RFEF - Group 2	Gimnastic	Tarazona	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:21.033433	\N	\N	2	1	h-win	yes
+5185	1431201	2025-10-19	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Juventud Torremolinos	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:21.186005	\N	\N	2	0	h-win	yes
+5186	1431208	2025-10-19	Spain	Primera División RFEF - Group 2	Teruel	Sevilla Atletico	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:21.368618	\N	\N	0	0	draw	yes
+5187	1431207	2025-10-19	Spain	Primera División RFEF - Group 2	Real Murcia	Ibiza	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:21.531978	\N	\N	0	1	a-win	yes
+5188	1431200	2025-10-19	Spain	Primera División RFEF - Group 2	Antequera	Marbella	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:21.697138	\N	\N	1	0	h-win	yes
+5189	1431202	2025-10-19	Spain	Primera División RFEF - Group 2	Real Betis II	Sanluqueño	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:21.869694	\N	\N	1	0	h-win	yes
+5190	1431191	2025-10-22	Spain	Primera División RFEF - Group 2	Hércules	Atlético Madrid II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:22.034524	\N	\N	0	0	draw	yes
+5191	1431209	2025-10-25	Spain	Primera División RFEF - Group 2	Algeciras	Alcorcon	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:22.200437	\N	\N	1	0	h-win	yes
+5192	1431216	2025-10-25	Spain	Primera División RFEF - Group 2	Tarazona	Real Betis II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:22.366502	\N	\N	0	0	draw	yes
+5193	1431213	2025-10-25	Spain	Primera División RFEF - Group 2	Sabadell	Gimnastic	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:22.532665	\N	\N	0	0	draw	yes
+5194	1431214	2025-10-25	Spain	Primera División RFEF - Group 2	Sanluqueño	Juventud Torremolinos	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:22.70414	\N	\N	0	0	draw	yes
+5195	1431212	2025-10-26	Spain	Primera División RFEF - Group 2	Marbella	FC Cartagena	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:22.880709	\N	\N	0	0	draw	yes
+5196	1431217	2025-10-26	Spain	Primera División RFEF - Group 2	Ibiza	Teruel	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:23.037803	\N	\N	0	0	draw	yes
+5197	1431218	2025-10-26	Spain	Primera División RFEF - Group 2	Villarreal II	Antequera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:23.190096	\N	\N	0	1	a-win	yes
+5198	1431211	2025-10-26	Spain	Primera División RFEF - Group 2	Eldense	Real Murcia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:23.353645	\N	\N	0	0	draw	yes
+5199	1431215	2025-10-26	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Hércules	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:23.52374	\N	\N	0	0	draw	yes
+5200	1431210	2025-10-26	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Europa Fc	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:23.692176	\N	\N	1	0	h-win	yes
+5201	1431219	2025-10-31	Spain	Primera División RFEF - Group 2	Alcorcon	Sevilla Atletico	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:23.862666	\N	\N	0	0	draw	yes
+5202	1431228	2025-11-01	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Sabadell	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	3	2025-11-20 22:17:24.114442	\N	\N	0	1	a-win	yes
+5203	1431223	2025-11-01	Spain	Primera División RFEF - Group 2	Eldense	Algeciras	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	12	2025-11-20 22:17:24.324693	\N	\N	1	0	h-win	yes
+5204	1431224	2025-11-01	Spain	Primera División RFEF - Group 2	FC Cartagena	Villarreal II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	10	2025-11-20 22:17:24.504414	\N	\N	0	0	draw	yes
+5205	1431222	2025-11-01	Spain	Primera División RFEF - Group 2	Europa Fc	Sanluqueño	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	18	2025-11-20 22:17:24.667389	\N	\N	1	0	h-win	yes
+5206	1431227	2025-11-02	Spain	Primera División RFEF - Group 2	Teruel	Marbella	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	19	2025-11-20 22:17:24.837556	\N	\N	1	0	h-win	yes
+5207	1431226	2025-11-02	Spain	Primera División RFEF - Group 2	Tarazona	Ibiza	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	13	2025-11-20 22:17:25.006717	\N	\N	0	0	draw	yes
+5208	1431221	2025-11-02	Spain	Primera División RFEF - Group 2	Real Betis II	Real Murcia	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	15	2025-11-20 22:17:25.173655	\N	\N	0	1	a-win	yes
+5209	1431220	2025-11-02	Spain	Primera División RFEF - Group 2	Antequera	Hércules	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	14	2025-11-20 22:17:25.352497	\N	\N	0	0	draw	yes
+5210	1431225	2025-11-02	Spain	Primera División RFEF - Group 2	Gimnastic	Atlético Madrid II	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	1	2025-11-20 22:17:25.542737	\N	\N	0	1	a-win	yes
+5211	1431234	2025-11-07	Spain	Primera División RFEF - Group 2	Sabadell	Tarazona	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	7	2025-11-20 22:17:25.730952	\N	\N	0	0	draw	yes
+5212	1431230	2025-11-07	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Eldense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	6	2025-11-20 22:17:25.900948	\N	\N	1	1	draw	yes
+5213	1431236	2025-11-08	Spain	Primera División RFEF - Group 2	Teruel	FC Cartagena	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	5	2025-11-20 22:17:26.077049	\N	\N	1	1	draw	yes
+5214	1431231	2025-11-08	Spain	Primera División RFEF - Group 2	Hércules	Europa Fc	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	2	2025-11-20 22:17:26.245995	\N	\N	0	0	draw	yes
+5215	1431229	2025-11-08	Spain	Primera División RFEF - Group 2	Algeciras	Antequera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	16	2025-11-20 22:17:26.41552	\N	\N	1	0	h-win	yes
+5216	1431233	2025-11-08	Spain	Primera División RFEF - Group 2	Real Murcia	Gimnastic	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	8	2025-11-20 22:17:26.593999	\N	\N	2	1	h-win	yes
+5217	1431235	2025-11-09	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Juventud Torremolinos	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	11	2025-11-20 22:17:26.751838	\N	\N	0	1	a-win	yes
+5218	1431232	2025-11-09	Spain	Primera División RFEF - Group 2	Marbella	Alcorcon	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	9	2025-11-20 22:17:26.918713	\N	\N	1	1	draw	yes
+5219	1431237	2025-11-09	Spain	Primera División RFEF - Group 2	Ibiza	Real Betis II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	20	2025-11-20 22:17:27.097584	\N	\N	0	0	draw	yes
+5220	1431238	2025-11-09	Spain	Primera División RFEF - Group 2	Villarreal II	Sanluqueño	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	18	2025-11-20 22:17:27.269964	\N	\N	2	0	h-win	yes
+5221	1431241	2025-11-14	Spain	Primera División RFEF - Group 2	Real Betis II	Sabadell	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.88	2.80	2.50	20	3	2025-11-20 22:17:27.464215	\N	\N	0	1	a-win	yes
+5222	1431247	2025-11-15	Spain	Primera División RFEF - Group 2	Tarazona	Villarreal II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.50	2.85	2.88	7	10	2025-11-20 22:17:27.662385	\N	\N	0	1	a-win	yes
+5223	1431246	2025-11-15	Spain	Primera División RFEF - Group 2	Sanluqueño	Ibiza	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3.50	3.00	2.10	18	13	2025-11-20 22:17:27.852839	\N	\N	0	0	draw	yes
+5224	1431239	2025-11-16	Spain	Primera División RFEF - Group 2	Alcorcon	Atlético Madrid II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.75	2.88	2.60	9	1	2025-11-20 22:17:28.044137	\N	\N	0	1	a-win	yes
+5225	1431245	2025-11-16	Spain	Primera División RFEF - Group 2	Real Murcia	Teruel	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.05	2.85	3.75	15	4	2025-11-20 22:17:28.241182	\N	\N	0	0	draw	yes
+5226	1431240	2025-11-16	Spain	Primera División RFEF - Group 2	Antequera	Sevilla Atletico	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.25	2.88	3.25	16	17	2025-11-20 22:17:28.439345	\N	\N	0	0	draw	yes
+5227	1431248	2025-11-16	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Algeciras	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.60	2.90	2.70	11	12	2025-11-20 22:17:28.637825	\N	\N	1	1	draw	yes
+5228	1431244	2025-11-16	Spain	Primera División RFEF - Group 2	Gimnastic	Marbella	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.05	3.20	3.35	8	19	2025-11-20 22:17:28.874733	\N	\N	1	0	h-win	yes
+5229	1431243	2025-11-16	Spain	Primera División RFEF - Group 2	Eldense	Hércules	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.95	3.00	3.90	6	14	2025-11-20 22:17:29.081973	\N	\N	1	0	h-win	yes
+5230	1431242	2025-11-16	Spain	Primera División RFEF - Group 2	Europa Fc	FC Cartagena	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.30	3.00	3.00	2	5	2025-11-20 22:17:29.342999	\N	\N	0	0	draw	yes
+5231	1431258	2025-11-21	Spain	Primera División RFEF - Group 2	Villarreal II	Gimnastic	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.95	3.20	3.65	10	8	2025-11-20 22:17:29.519055	\N	\N	0	0	draw	no
+5232	1431251	2025-11-22	Spain	Primera División RFEF - Group 2	Antequera	Real Murcia	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.65	2.88	2.65	16	15	2025-11-20 22:17:29.695759	\N	\N	0	0	draw	no
+5233	1431254	2025-11-22	Spain	Primera División RFEF - Group 2	Marbella	Atlético Madrid II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3.20	2.85	2.33	19	1	2025-11-20 22:17:29.877309	\N	\N	0	0	draw	no
+5234	1431256	2025-11-22	Spain	Primera División RFEF - Group 2	Teruel	Juventud Torremolinos	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.85	2.80	4.40	4	11	2025-11-20 22:17:30.057807	\N	\N	0	0	draw	no
+5235	1431253	2025-11-22	Spain	Primera División RFEF - Group 2	Hércules	Real Betis II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.83	3.00	4.20	14	20	2025-11-20 22:17:30.229106	\N	\N	0	0	draw	no
+5236	1431249	2025-11-23	Spain	Primera División RFEF - Group 2	Alcorcon	Tarazona	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.00	2.80	3.90	9	7	2025-11-20 22:17:30.400642	\N	\N	0	0	draw	no
+5237	1431250	2025-11-23	Spain	Primera División RFEF - Group 2	Algeciras	Sanluqueño	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1.91	3.00	3.90	12	18	2025-11-20 22:17:30.571661	\N	\N	0	0	draw	no
+5238	1431252	2025-11-23	Spain	Primera División RFEF - Group 2	FC Cartagena	Eldense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2.00	3.00	3.60	5	6	2025-11-20 22:17:30.731961	\N	\N	0	0	draw	no
+5239	1431257	2025-11-23	Spain	Primera División RFEF - Group 2	Ibiza	Europa Fc	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	2	2025-11-20 22:17:30.894251	\N	\N	0	0	draw	no
+5240	1431255	2025-11-23	Spain	Primera División RFEF - Group 2	Sabadell	Sevilla Atletico	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	17	2025-11-20 22:17:31.077132	\N	\N	0	0	draw	no
+5241	1431516	2025-08-29	Spain	Primera División RFEF - Group 1	Real Madrid II	Lugo	h-win	2	1	8	3	9	3	4	3	0	0	3	2	0	0	43.00	57.00	0	0	\N	\N	\N	\N	\N	2025-11-20 22:17:32.327871	\N	\N	0	0	draw	yes
+5242	1431513	2025-08-30	Spain	Primera División RFEF - Group 1	Pontevedra	Cacereño	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:32.490723	\N	\N	0	1	a-win	yes
+5243	1431517	2025-08-30	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Osasuna II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:32.660261	\N	\N	0	0	draw	yes
+5244	1431518	2025-08-30	Spain	Primera División RFEF - Group 1	Zamora	Celta de Vigo II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:32.828136	\N	\N	0	0	draw	yes
+5245	1431511	2025-08-30	Spain	Primera División RFEF - Group 1	Mérida AD	Barakaldo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:32.993393	\N	\N	0	0	draw	yes
+5246	1431514	2025-08-31	Spain	Primera División RFEF - Group 1	Racing Ferrol	CF Talavera	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:33.158152	\N	\N	1	1	draw	yes
+5247	1431509	2025-08-31	Spain	Primera División RFEF - Group 1	Arenas Getxo	Arenteiro	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:33.311416	\N	\N	1	0	h-win	yes
+5248	1431510	2025-08-31	Spain	Primera División RFEF - Group 1	Guadalajara	Tenerife	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:33.465321	\N	\N	0	1	a-win	yes
+5249	1431512	2025-08-31	Spain	Primera División RFEF - Group 1	Ourense CF	Athletic Club II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:33.640623	\N	\N	0	0	draw	yes
+5250	1431515	2025-08-31	Spain	Primera División RFEF - Group 1	Real Avilés	Ponferradina	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:33.807711	\N	\N	0	3	a-win	yes
+5251	1431524	2025-09-06	Spain	Primera División RFEF - Group 1	Lugo	Real Avilés	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:33.975578	\N	\N	0	0	draw	yes
+5252	1431521	2025-09-06	Spain	Primera División RFEF - Group 1	Barakaldo	Zamora	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:34.135611	\N	\N	0	0	draw	yes
+5253	1431519	2025-09-06	Spain	Primera División RFEF - Group 1	Arenas Getxo	Cacereño	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:34.316348	\N	\N	2	1	h-win	yes
+5254	1431526	2025-09-06	Spain	Primera División RFEF - Group 1	Ponferradina	Pontevedra	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:34.477988	\N	\N	0	0	draw	yes
+5255	1431528	2025-09-06	Spain	Primera División RFEF - Group 1	Tenerife	Mérida AD	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:34.643226	\N	\N	1	0	h-win	yes
+5256	1431523	2025-09-07	Spain	Primera División RFEF - Group 1	CF Talavera	Athletic Club II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:34.813624	\N	\N	1	1	draw	yes
+5257	1431522	2025-09-07	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Guadalajara	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.003515	\N	\N	0	0	draw	yes
+5258	1431525	2025-09-07	Spain	Primera División RFEF - Group 1	Osasuna II	Ourense CF	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.154862	\N	\N	0	1	a-win	yes
+5259	1431520	2025-09-07	Spain	Primera División RFEF - Group 1	Arenteiro	Unionistas de Salamanca	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.166861	\N	\N	0	0	draw	yes
+5260	1431530	2025-09-12	Spain	Primera División RFEF - Group 1	Barakaldo	Arenas Getxo	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.173431	\N	\N	0	0	draw	yes
+5261	1431533	2025-09-13	Spain	Primera División RFEF - Group 1	Mérida AD	Celta de Vigo II	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.179578	\N	\N	0	1	a-win	yes
+5262	1431534	2025-09-14	Spain	Primera División RFEF - Group 1	Ourense CF	CF Talavera	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.191045	\N	\N	1	1	draw	yes
+5263	1431537	2025-09-14	Spain	Primera División RFEF - Group 1	Real Avilés	Osasuna II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.199011	\N	\N	1	0	h-win	yes
+5264	1431531	2025-09-14	Spain	Primera División RFEF - Group 1	Cacereño	Arenteiro	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.208878	\N	\N	0	1	a-win	yes
+5265	1431529	2025-09-14	Spain	Primera División RFEF - Group 1	Athletic Club II	Real Madrid II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.215086	\N	\N	1	0	h-win	yes
+5266	1431535	2025-09-14	Spain	Primera División RFEF - Group 1	Pontevedra	Tenerife	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.227859	\N	\N	0	1	a-win	yes
+5267	1431538	2025-09-14	Spain	Primera División RFEF - Group 1	Zamora	Lugo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.236826	\N	\N	0	0	draw	yes
+5268	1431532	2025-09-14	Spain	Primera División RFEF - Group 1	Guadalajara	Unionistas de Salamanca	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.243632	\N	\N	1	0	h-win	yes
+5269	1431536	2025-09-14	Spain	Primera División RFEF - Group 1	Racing Ferrol	Ponferradina	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.252795	\N	\N	0	0	draw	yes
+5270	1431527	2025-09-17	Spain	Primera División RFEF - Group 1	Real Madrid II	Racing Ferrol	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.258678	\N	\N	0	1	a-win	yes
+5271	1431546	2025-09-19	Spain	Primera División RFEF - Group 1	Ponferradina	Guadalajara	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.264802	\N	\N	0	1	a-win	yes
+5272	1431539	2025-09-20	Spain	Primera División RFEF - Group 1	Arenteiro	Zamora	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.275227	\N	\N	0	0	draw	yes
+5273	1431541	2025-09-20	Spain	Primera División RFEF - Group 1	Cacereño	Mérida AD	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.281517	\N	\N	0	0	draw	yes
+5274	1431540	2025-09-20	Spain	Primera División RFEF - Group 1	Athletic Club II	Pontevedra	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.290953	\N	\N	1	0	h-win	yes
+5275	1431547	2025-09-21	Spain	Primera División RFEF - Group 1	Tenerife	Ourense CF	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.297602	\N	\N	1	0	h-win	yes
+5276	1431543	2025-09-21	Spain	Primera División RFEF - Group 1	CF Talavera	Barakaldo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.30899	\N	\N	1	0	h-win	yes
+5277	1431545	2025-09-21	Spain	Primera División RFEF - Group 1	Osasuna II	Real Madrid II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.315399	\N	\N	1	0	h-win	yes
+5278	1431544	2025-09-21	Spain	Primera División RFEF - Group 1	Lugo	Racing Ferrol	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.325536	\N	\N	0	1	a-win	yes
+5279	1431542	2025-09-21	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Arenas Getxo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.332612	\N	\N	1	0	h-win	yes
+5280	1431548	2025-09-21	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Real Avilés	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.341861	\N	\N	0	0	draw	yes
+5281	1431552	2025-09-26	Spain	Primera División RFEF - Group 1	CF Talavera	Lugo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.348086	\N	\N	0	0	draw	yes
+5282	1431555	2025-09-26	Spain	Primera División RFEF - Group 1	Racing Ferrol	Guadalajara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.36001	\N	\N	0	0	draw	yes
+5283	1431550	2025-09-27	Spain	Primera División RFEF - Group 1	Barakaldo	Cacereño	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.367114	\N	\N	0	1	a-win	yes
+5284	1431551	2025-09-27	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Arenteiro	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.376404	\N	\N	1	0	h-win	yes
+5285	1431554	2025-09-27	Spain	Primera División RFEF - Group 1	Ourense CF	Pontevedra	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.383524	\N	\N	0	2	a-win	yes
+5286	1431549	2025-09-27	Spain	Primera División RFEF - Group 1	Arenas Getxo	Unionistas de Salamanca	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.395276	\N	\N	1	0	h-win	yes
+5287	1431557	2025-09-27	Spain	Primera División RFEF - Group 1	Real Madrid II	Tenerife	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.404824	\N	\N	0	3	a-win	yes
+5288	1431556	2025-09-28	Spain	Primera División RFEF - Group 1	Real Avilés	Athletic Club II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.412436	\N	\N	0	1	a-win	yes
+5289	1431558	2025-09-28	Spain	Primera División RFEF - Group 1	Zamora	Mérida AD	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.421241	\N	\N	1	0	h-win	yes
+5290	1431553	2025-09-28	Spain	Primera División RFEF - Group 1	Osasuna II	Ponferradina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.427698	\N	\N	0	0	draw	yes
+5291	1431562	2025-10-04	Spain	Primera División RFEF - Group 1	Lugo	Cacereño	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.437404	\N	\N	0	0	draw	yes
+5292	1431568	2025-10-04	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Celta de Vigo II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.444043	\N	\N	0	0	draw	yes
+5293	1431566	2025-10-04	Spain	Primera División RFEF - Group 1	Racing Ferrol	Ourense CF	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.453314	\N	\N	0	1	a-win	yes
+5294	1431567	2025-10-04	Spain	Primera División RFEF - Group 1	Tenerife	Zamora	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.460602	\N	\N	1	0	h-win	yes
+5295	1431565	2025-10-05	Spain	Primera División RFEF - Group 1	Pontevedra	CF Talavera	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.470909	\N	\N	1	0	h-win	yes
+5296	1431563	2025-10-05	Spain	Primera División RFEF - Group 1	Mérida AD	Arenas Getxo	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.477882	\N	\N	3	0	h-win	yes
+5297	1431559	2025-10-05	Spain	Primera División RFEF - Group 1	Arenteiro	Barakaldo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.48757	\N	\N	0	0	draw	yes
+5298	1431564	2025-10-05	Spain	Primera División RFEF - Group 1	Ponferradina	Real Madrid II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.495699	\N	\N	1	1	draw	yes
+5299	1431561	2025-10-05	Spain	Primera División RFEF - Group 1	Guadalajara	Real Avilés	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.505699	\N	\N	0	2	a-win	yes
+5300	1431560	2025-10-05	Spain	Primera División RFEF - Group 1	Athletic Club II	Osasuna II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.512005	\N	\N	0	0	draw	yes
+5301	1431571	2025-10-10	Spain	Primera División RFEF - Group 1	Barakaldo	Athletic Club II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.521193	\N	\N	0	0	draw	yes
+5302	1431573	2025-10-11	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Ourense CF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.529667	\N	\N	0	0	draw	yes
+5303	1431577	2025-10-11	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Mérida AD	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.543441	\N	\N	0	0	draw	yes
+5304	1431574	2025-10-11	Spain	Primera División RFEF - Group 1	CF Talavera	Ponferradina	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.55713	\N	\N	0	0	draw	yes
+5305	1431569	2025-10-11	Spain	Primera División RFEF - Group 1	Arenas Getxo	Lugo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.564091	\N	\N	0	0	draw	yes
+5306	1431576	2025-10-12	Spain	Primera División RFEF - Group 1	Real Madrid II	Pontevedra	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.574341	\N	\N	1	0	h-win	yes
+5307	1431575	2025-10-12	Spain	Primera División RFEF - Group 1	Osasuna II	Racing Ferrol	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.580659	\N	\N	1	0	h-win	yes
+5308	1431578	2025-10-12	Spain	Primera División RFEF - Group 1	Zamora	Real Avilés	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.589583	\N	\N	1	1	draw	yes
+5309	1431570	2025-10-12	Spain	Primera División RFEF - Group 1	Arenteiro	CD Guadalajara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.595154	\N	\N	0	0	draw	yes
+5310	1431572	2025-10-12	Spain	Primera División RFEF - Group 1	Cacereño	Tenerife	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.604766	\N	\N	0	0	draw	yes
+5311	1431586	2025-10-18	Spain	Primera División RFEF - Group 1	Racing Ferrol	Arenas Getxo	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.610897	\N	\N	3	0	h-win	yes
+5312	1431585	2025-10-18	Spain	Primera División RFEF - Group 1	Pontevedra	Osasuna II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.619991	\N	\N	0	0	draw	yes
+5313	1431582	2025-10-18	Spain	Primera División RFEF - Group 1	Mérida AD	Arenteiro	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.627205	\N	\N	1	0	h-win	yes
+5314	1431580	2025-10-18	Spain	Primera División RFEF - Group 1	CD Guadalajara	Barakaldo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.633437	\N	\N	0	0	draw	yes
+5315	1431581	2025-10-18	Spain	Primera División RFEF - Group 1	Lugo	Celta de Vigo II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.643857	\N	\N	1	0	h-win	yes
+5316	1431588	2025-10-18	Spain	Primera División RFEF - Group 1	Tenerife	Unionistas de Salamanca	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.652582	\N	\N	0	1	a-win	yes
+5317	1431584	2025-10-19	Spain	Primera División RFEF - Group 1	Ponferradina	Zamora	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.660103	\N	\N	1	0	h-win	yes
+5318	1431583	2025-10-19	Spain	Primera División RFEF - Group 1	Ourense CF	Real Madrid II	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.6667	\N	\N	0	0	draw	yes
+5319	1431587	2025-10-19	Spain	Primera División RFEF - Group 1	Real Avilés	CF Talavera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.674984	\N	\N	0	0	draw	yes
+5320	1431579	2025-10-19	Spain	Primera División RFEF - Group 1	Athletic Club II	Cacereño	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.680834	\N	\N	0	2	a-win	yes
+5321	1431595	2025-10-24	Spain	Primera División RFEF - Group 1	Mérida AD	Ponferradina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.691648	\N	\N	0	0	draw	yes
+5322	1431591	2025-10-24	Spain	Primera División RFEF - Group 1	Barakaldo	Tenerife	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.698179	\N	\N	0	0	draw	yes
+5323	1431592	2025-10-25	Spain	Primera División RFEF - Group 1	Cacereño	Ourense CF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.70819	\N	\N	0	0	draw	yes
+5324	1431593	2025-10-25	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Racing Ferrol	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.715032	\N	\N	0	0	draw	yes
+5325	1431589	2025-10-25	Spain	Primera División RFEF - Group 1	Arenas Getxo	Guadalajara	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.727483	\N	\N	2	0	h-win	yes
+5326	1431594	2025-10-25	Spain	Primera División RFEF - Group 1	CF Talavera	Osasuna II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.733986	\N	\N	2	0	h-win	yes
+5327	1431596	2025-10-25	Spain	Primera División RFEF - Group 1	Real Madrid II	Real Avilés	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.741665	\N	\N	2	0	h-win	yes
+5328	1431590	2025-10-26	Spain	Primera División RFEF - Group 1	Arenteiro	Pontevedra	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.75148	\N	\N	0	0	draw	yes
+5329	1431597	2025-10-26	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Lugo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.758025	\N	\N	0	0	draw	yes
+5330	1431598	2025-10-26	Spain	Primera División RFEF - Group 1	Zamora	Athletic Club II	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.764145	\N	\N	2	0	h-win	yes
+5331	1431601	2025-10-31	Spain	Primera División RFEF - Group 1	Lugo	Barakaldo	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.773867	\N	\N	1	2	a-win	yes
+5332	1431605	2025-11-01	Spain	Primera División RFEF - Group 1	Pontevedra	Zamora	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.782009	\N	\N	1	1	draw	yes
+5333	1431599	2025-11-01	Spain	Primera División RFEF - Group 1	Athletic Club II	Unionistas de Salamanca	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.794097	\N	\N	0	0	draw	yes
+5334	1431600	2025-11-01	Spain	Primera División RFEF - Group 1	Guadalajara	Mérida AD	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.806385	\N	\N	0	2	a-win	yes
+5335	1431602	2025-11-01	Spain	Primera División RFEF - Group 1	Osasuna II	Celta de Vigo II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.816117	\N	\N	0	0	draw	yes
+5336	1431606	2025-11-01	Spain	Primera División RFEF - Group 1	Racing Ferrol	Tenerife	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.828407	\N	\N	0	1	a-win	yes
+5337	1431603	2025-11-02	Spain	Primera División RFEF - Group 1	Ourense CF	Arenas Getxo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.839115	\N	\N	1	0	h-win	yes
+5338	1431604	2025-11-02	Spain	Primera División RFEF - Group 1	Ponferradina	Cacereño	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.847126	\N	\N	0	0	draw	yes
+5339	1431608	2025-11-02	Spain	Primera División RFEF - Group 1	Real Madrid II	CF Talavera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.859864	\N	\N	0	0	draw	yes
+5340	1431607	2025-11-02	Spain	Primera División RFEF - Group 1	Real Avilés	Arenteiro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.871346	\N	\N	1	0	h-win	yes
+5341	1431613	2025-11-08	Spain	Primera División RFEF - Group 1	Celta de Vigo II	CF Talavera	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.880749	\N	\N	0	3	a-win	yes
+5342	1431610	2025-11-08	Spain	Primera División RFEF - Group 1	Arenteiro	Racing Ferrol	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.894493	\N	\N	0	1	a-win	yes
+5343	1431617	2025-11-08	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Pontevedra	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.904889	\N	\N	0	1	a-win	yes
+5344	1431616	2025-11-08	Spain	Primera División RFEF - Group 1	Tenerife	Athletic Club II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.913677	\N	\N	0	0	draw	yes
+5345	1431609	2025-11-08	Spain	Primera División RFEF - Group 1	Arenas Getxo	Osasuna II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.924345	\N	\N	1	0	h-win	yes
+5346	1431615	2025-11-09	Spain	Primera División RFEF - Group 1	Mérida AD	Real Madrid II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.931831	\N	\N	2	0	h-win	yes
+5347	1431612	2025-11-09	Spain	Primera División RFEF - Group 1	Cacereño	Real Avilés	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.944084	\N	\N	0	2	a-win	yes
+5348	1431611	2025-11-09	Spain	Primera División RFEF - Group 1	Barakaldo	Ponferradina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.954731	\N	\N	0	0	draw	yes
+5349	1431614	2025-11-09	Spain	Primera División RFEF - Group 1	Guadalajara	Lugo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.963676	\N	\N	0	0	draw	yes
+5350	1431618	2025-11-12	Spain	Primera División RFEF - Group 1	Zamora	Ourense CF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.976972	\N	\N	0	0	draw	yes
+5351	1431626	2025-11-14	Spain	Primera División RFEF - Group 1	Real Avilés	Arenas Getxo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.988831	\N	\N	0	0	draw	yes
+5352	1431627	2025-11-15	Spain	Primera División RFEF - Group 1	Real Madrid II	Cacereño	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:35.997738	\N	\N	0	0	draw	yes
+5353	1431621	2025-11-15	Spain	Primera División RFEF - Group 1	Osasuna II	Barakaldo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.008931	\N	\N	1	0	h-win	yes
+5354	1431624	2025-11-15	Spain	Primera División RFEF - Group 1	Pontevedra	Mérida AD	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.02088	\N	\N	1	0	h-win	yes
+5355	1431623	2025-11-15	Spain	Primera División RFEF - Group 1	Ponferradina	Lugo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.030027	\N	\N	1	1	draw	yes
+5356	1431628	2025-11-15	Spain	Primera División RFEF - Group 1	Tenerife	Celta de Vigo II	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.041549	\N	\N	2	0	h-win	yes
+5357	1431622	2025-11-16	Spain	Primera División RFEF - Group 1	Ourense CF	Guadalajara	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.055002	\N	\N	1	0	h-win	yes
+5358	1431620	2025-11-16	Spain	Primera División RFEF - Group 1	CF Talavera	Unionistas de Salamanca	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.063779	\N	\N	0	1	a-win	yes
+5359	1431619	2025-11-16	Spain	Primera División RFEF - Group 1	Athletic Club II	Arenteiro	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.076626	\N	\N	1	0	h-win	yes
+5360	1431625	2025-11-16	Spain	Primera División RFEF - Group 1	Racing Ferrol	Zamora	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.0875	\N	\N	1	0	h-win	yes
+5361	1431637	2025-11-21	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Real Madrid II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.095679	\N	\N	0	0	draw	no
+5362	1431635	2025-11-22	Spain	Primera División RFEF - Group 1	Lugo	Pontevedra	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.108487	\N	\N	0	0	draw	no
+5363	1431636	2025-11-22	Spain	Primera División RFEF - Group 1	Mérida AD	Real Avilés	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.116601	\N	\N	0	0	draw	no
+5364	1431629	2025-11-22	Spain	Primera División RFEF - Group 1	Arenas Getxo	Tenerife	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.128882	\N	\N	0	0	draw	no
+5365	1431630	2025-11-22	Spain	Primera División RFEF - Group 1	Arenteiro	Ourense CF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.141006	\N	\N	0	0	draw	no
+5366	1431634	2025-11-22	Spain	Primera División RFEF - Group 1	Guadalajara	Athletic Club II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.149726	\N	\N	0	0	draw	no
+5367	1431633	2025-11-23	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Ponferradina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.160508	\N	\N	0	0	draw	no
+5368	1431631	2025-11-23	Spain	Primera División RFEF - Group 1	Barakaldo	Racing Ferrol	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.17085	\N	\N	0	0	draw	no
+5369	1431638	2025-11-23	Spain	Primera División RFEF - Group 1	Zamora	CF Talavera	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.178226	\N	\N	0	0	draw	no
+5370	1431632	2025-11-23	Spain	Primera División RFEF - Group 1	Cacereño	Osasuna II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-11-20 22:17:36.189886	\N	\N	0	0	draw	no
 \.
 
 
@@ -3879,14 +4433,14 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 -- Name: import_jobs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.import_jobs_id_seq', 33, true);
+SELECT pg_catalog.setval('public.import_jobs_id_seq', 37, true);
 
 
 --
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.matches_id_seq', 4816, true);
+SELECT pg_catalog.setval('public.matches_id_seq', 5370, true);
 
 
 --
@@ -3973,5 +4527,5 @@ CREATE UNIQUE INDEX matches_fixture_id_key ON public.matches USING btree (fixtur
 -- PostgreSQL database dump complete
 --
 
-\unrestrict at3PF190QJfncTuMgoIwnligdJLNYB8qPeAvfb26DTM5OGVbnGmdNgvwD1pPpVw
+\unrestrict WsQB0YnHwJAyi6VlapsvS6fZqEGBphPed2CCvQRac5wbkwdRhANRraTOxFKf7zO
 
