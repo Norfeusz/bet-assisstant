@@ -307,8 +307,13 @@ export class DataImporter {
 			const statsResponse = await this.apiClient.getFixtureStatistics({ fixture: fixtureId })
 			statistics = statsResponse.response
 			await this.sleep(334) // Rate limit: ~3 requests/sec
-		} catch (error) {
-			console.warn(`  ⚠️  Could not fetch statistics for fixture ${fixtureId}`)
+		} catch (error: any) {
+			// If rate limit exceeded, rethrow to stop updating incomplete matches
+			if (error.message?.includes('Rate limit exceeded')) {
+				console.warn(`  ⚠️  Rate limit reached while fetching statistics`)
+				throw error
+			}
+			console.warn(`  ⚠️  Could not fetch statistics for fixture ${fixtureId}:`, error.message)
 		}
 
 		// Check if odds are available for this league (cache result)
@@ -330,8 +335,13 @@ export class DataImporter {
 				} else if (odds.length > 0) {
 					this.leagueOddsAvailability.set(league.id, true)
 				}
-			} catch (error) {
-				console.warn(`  ⚠️  Could not fetch odds for fixture ${fixtureId}`)
+			} catch (error: any) {
+				// If rate limit exceeded, rethrow to stop updating incomplete matches
+				if (error.message?.includes('Rate limit exceeded')) {
+					console.warn(`  ⚠️  Rate limit reached while fetching odds`)
+					throw error
+				}
+				console.warn(`  ⚠️  Could not fetch odds for fixture ${fixtureId}:`, error.message)
 			}
 		}			// Update match in database using saveMatchToDatabase
 			await this.saveMatchToDatabase(fixture, statistics, odds, league, {
@@ -473,8 +483,13 @@ export class DataImporter {
 				fixture: fixtureId,
 			})
 			statistics = statsResponse.response
-		} catch (error) {
-			console.warn(`    Could not fetch statistics for fixture ${fixtureId}`)
+		} catch (error: any) {
+			// If rate limit exceeded, rethrow to stop importing incomplete matches
+			if (error.message?.includes('Rate limit exceeded')) {
+				console.warn(`  ⚠️  Rate limit reached while fetching statistics`)
+				throw error
+			}
+			console.warn(`    Could not fetch statistics for fixture ${fixtureId}:`, error.message)
 		}
 
 		// Check if odds are available for this league (cache result)
@@ -497,9 +512,14 @@ export class DataImporter {
 				} else if (odds.length > 0) {
 					this.leagueOddsAvailability.set(league.id, true)
 				}
-			} catch (error) {
-				console.warn(`    Could not fetch odds for fixture ${fixtureId}`)
-				// On error, assume odds might be available for other matches
+			} catch (error: any) {
+				// If rate limit exceeded, rethrow to stop importing incomplete matches
+				if (error.message?.includes('Rate limit exceeded')) {
+					console.warn(`  ⚠️  Rate limit reached while fetching odds`)
+					throw error
+				}
+				console.warn(`    Could not fetch odds for fixture ${fixtureId}:`, error.message)
+				// On other errors, assume odds might be available for other matches
 			}
 		}			// Save to database using UPSERT (INSERT ... ON CONFLICT DO UPDATE)
 			// Database will handle duplicates automatically via unique constraint on fixture_id
