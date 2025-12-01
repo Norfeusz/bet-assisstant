@@ -30,21 +30,24 @@ async function refreshBackgroundJobs() {
 			const totalLeagues = leagues.length
 			const progressPercent = totalLeagues > 0 ? Math.round((completedLeagues.length / totalLeagues) * 100) : 0
 
-			const statusClass = `job-status-${job.status}`
-			const statusText =
-				{
-					pending: 'Oczekuje',
-					running: 'W trakcie',
-					paused: 'Wstrzymane',
-					completed: 'Zakończone',
-					failed: 'Błąd',
-					rate_limited: 'Limit API',
-				}[job.status] || job.status
+		const statusClass = `job-status-${job.status}`
+		const statusText =
+		{
+			in_queue: 'W kolejce',
+			pending: 'Oczekuje',
+			running: 'W trakcie',
+			paused: 'Wstrzymane',
+			completed: 'Zakończone',
+			failed: 'Błąd',
+			rate_limited: 'Limit API',
+		}[job.status] || job.status
 
-			if (job.status === 'running' || job.status === 'rate_limited') {
-				hasActiveJobs = true
-			}
-
+		if (job.status === 'running' || job.status === 'rate_limited') {
+			hasActiveJobs = true
+		}
+		
+		const jobTypeLabel = job.job_type === 'update_results' ? '🔄 Aktualizacja wyników' : '🆕 Import nowych meczów'
+		
 			html += `
                 <div class="job-card">
                     <div class="job-header">
@@ -53,6 +56,7 @@ async function refreshBackgroundJobs() {
                     </div>
                     
                     <div class="job-info">
+                        <div>🎯 Typ: ${jobTypeLabel}</div>
                         <div>📅 Utworzone: ${createdAt}</div>
                         <div>📆️ Zakres: ${dateFrom} → ${dateTo}</div>
                         <div>🏆 Ligi: ${totalLeagues}</div>
@@ -220,6 +224,12 @@ async function init() {
 		// Załaduj zadania w tle na starcie
 		await refreshBackgroundJobs()
 
+		// Załaduj kolejkę importu na starcie
+		await refreshImportQueue()
+
+		// Odświeżaj kolejkę co 5 sekund
+		setInterval(refreshImportQueue, 5000)
+
 		// Inicjalizuj bet finder (ustawia domyślne daty i event listenery)
 		EventHandlers.initBetFinder()
 
@@ -233,6 +243,9 @@ async function init() {
 		loadMinimizedModals()
 		WatchedMatches.ensureWatchedMatchesCard() // Show minimized card only
 
+		// Create control buttons for minimized containers
+		createMinimizedControls()
+
 		console.log('✅ Application initialized successfully')
 	} catch (error) {
 		console.error('❌ Error initializing application:', error)
@@ -241,6 +254,7 @@ async function init() {
 }
 // Background jobs refresh handler
 window.refreshBackgroundJobs = refreshBackgroundJobs
+window.refreshImportQueue = refreshImportQueue
 
 /**
  * Check for incomplete import and show resume button
@@ -729,6 +743,9 @@ async function loadTeamStats(teamName) {
 
 	// Set the team filter
 	document.getElementById('filter-team').value = teamName
+	
+	// Clear league filter to show all competitions
+	document.getElementById('filter-league').value = ''
 
 	// Update the search input to match
 	const teamSearch = document.getElementById('filter-team-search')
@@ -754,14 +771,24 @@ async function applyFilters() {
 	const league = document.getElementById('filter-league').value
 	const team = document.getElementById('filter-team').value
 
-	console.log('Applying filters:', { country, league, team, limit: state.selectedLimit })
+	console.log('🔍 Filter values - Country:', country, 'League:', league, 'Team:', team)
 
 	try {
 		const filters = {}
-		if (country) filters.country = country
-		if (league) filters.league = league
-		if (team) filters.team = team
+		// When team is selected, show ALL their matches from all competitions (no country/league filters)
+		if (team) {
+			console.log('🚫 Skipping country & league filters because team is selected:', team)
+			filters.team = team
+		} else {
+			// No team selected - apply country/league filters normally
+			if (country) filters.country = country
+			if (league) {
+				console.log('✅ Adding league filter:', league, '(no team selected)')
+				filters.league = league
+			}
+		}
 
+		console.log('📦 Final filters object:', filters)
 		const allMatches = await API.loadDatabaseMatches(filters)
 
 		state.lastFetchedMatches = allMatches
@@ -891,14 +918,26 @@ function onStatsLeagueChange() {
 	const leagueFilter = document.getElementById('stats-league-filter').value
 	if (state.selectedTeamForColoring && state.lastFetchedMatches.length > 0) {
 		let matches = [...state.lastFetchedMatches]
+		
+		// Filter matches by selected league (if not "all")
+		let filteredMatches = matches
+		if (leagueFilter !== 'all') {
+			filteredMatches = matches.filter(m => m.league === leagueFilter)
+		}
+		
+		// Apply limit if set
 		if (state.selectedLimit) {
-			matches = matches.sort((a, b) => new Date(b.match_date) - new Date(a.match_date)).slice(0, state.selectedLimit)
+			filteredMatches = filteredMatches.sort((a, b) => new Date(b.match_date) - new Date(a.match_date)).slice(0, state.selectedLimit)
 		}
 
+		// Calculate statistics based on league filter
 		const stats = Statistics.calculateTeamStatistics(state.selectedTeamForColoring, matches, leagueFilter)
 		const availableLeagues = [...new Set(matches.map(m => m.league))]
 		DOMUtils.displayTeamStatistics(stats, availableLeagues)
 		document.getElementById('stats-league-filter').value = leagueFilter
+		
+		// Display filtered matches
+		DOMUtils.displayDatabaseResults(filteredMatches)
 	}
 }
 
@@ -943,6 +982,18 @@ async function showBackgroundImportDialog() {
 		document.getElementById('background-date-from').value = weekAgo.toISOString().split('T')[0]
 		document.getElementById('background-date-to').value = today.toISOString().split('T')[0]
 
+		// Add listener for job type change
+		const jobTypeSelect = document.getElementById('background-job-type')
+		const descriptionElem = document.getElementById('job-type-description')
+		
+		jobTypeSelect.addEventListener('change', function() {
+			if (this.value === 'update_results') {
+				descriptionElem.textContent = 'Aktualizuje wyniki meczów, które są w bazie jako nierozegrane (is_finished=no).'
+			} else {
+				descriptionElem.textContent = 'Importuje nadchodzące mecze dla wybranych lig.'
+			}
+		})
+
 		modal.style.display = 'flex'
 	} catch (error) {
 		console.error('Error loading leagues:', error)
@@ -984,6 +1035,7 @@ async function createBackgroundJob() {
 	const leagueIds = Array.from(checkboxes).map(cb => cb.value)
 	const dateFrom = document.getElementById('background-date-from').value
 	const dateTo = document.getElementById('background-date-to').value
+	const jobType = document.getElementById('background-job-type').value
 
 	if (leagueIds.length === 0) {
 		showToast('Wybierz przynajmniej jedną ligę', 'error')
@@ -1001,11 +1053,12 @@ async function createBackgroundJob() {
 	}
 
 	try {
-		const result = await API.createBackgroundJob({ leagueIds, dateFrom, dateTo })
+		const result = await API.createBackgroundJob({ leagueIds, dateFrom, dateTo, jobType })
 
 		closeBackgroundImportDialog()
+		const jobTypeLabel = jobType === 'update_results' ? 'Aktualizacja wyników' : 'Import nowych meczów'
 		showToast(
-			`✅ Zadanie utworzone! ID: ${result.jobId}\n\nImport rozpocznie się automatycznie w ciągu 60 sekund.`,
+			`✅ Zadanie utworzone! ID: ${result.jobId}\n\nTyp: ${jobTypeLabel}\nStart: automatycznie w ciągu 60 sekund.`,
 			'success'
 		)
 
@@ -1228,6 +1281,8 @@ function saveMinimizedModals() {
 		title: data.title,
 		results: data.results,
 		modalType: data.modalType,
+		dateFrom: data.dateFrom,
+		dateTo: data.dateTo,
 	}))
 	localStorage.setItem('minimizedModals', JSON.stringify(modalsData))
 }
@@ -1241,8 +1296,8 @@ function loadMinimizedModals() {
 			// Ensure container exists
 			const container = ensureModalsContainer()
 
-			modalsData.forEach(({ id, title, results, modalType }) => {
-				minimizedModals.set(id, { title, results, modalType })
+			modalsData.forEach(({ id, title, results, modalType, dateFrom, dateTo }) => {
+				minimizedModals.set(id, { title, results, modalType, dateFrom, dateTo })
 
 				// Recreate the minimized card
 				const miniCardId = `minimized-modal-card-${id}`
@@ -1281,23 +1336,25 @@ function minimizeModal() {
 	const modal = document.getElementById('bet-finder-modal')
 	if (!modal) return
 
-	// Get modal title to create unique ID
-	const modalHeader = modal.querySelector('.modal-header h2')
-	const modalTitle = modalHeader?.textContent || 'TOP 10'
-	const modalId = modalTitle.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()
+	// Get modalId from data attribute
+	const modalId = modal.dataset.modalId
+	if (!modalId) {
+		console.error('Modal missing modalId data attribute')
+		return
+	}
 
-	// Hide modal
-	modal.style.display = 'none'
+	// Get modal data from BetFinder's store
+	const modalData = BetFinder.getModalData(modalId)
+	if (!modalData) {
+		console.error('Modal data not found for modalId:', modalId)
+		return
+	}
 
-	// Get current modal data from bet-finder
-	const modalData = BetFinder.getCurrentModalData()
+	// Remove modal from DOM (not just hide it)
+	modal.remove()
 
 	// Store modal data
-	minimizedModals.set(modalId, {
-		title: modalTitle,
-		results: modalData.results,
-		modalType: modalData.modalType,
-	})
+	minimizedModals.set(modalId, modalData)
 	saveMinimizedModals()
 
 	// Ensure container exists
@@ -1315,7 +1372,7 @@ function minimizeModal() {
 		miniCard.innerHTML = `
             <div class="minimized-card-content" onclick="window.restoreModal('${modalId}')">
                 <span class="minimized-card-icon">⚽</span>
-                <span class="minimized-card-text">${modalTitle}</span>
+                <span class="minimized-card-text">${modalData.title}</span>
             </div>
             <button class="minimized-card-close" onclick="window.closeModalCompletely(event, '${modalId}')">×</button>
         `
@@ -1340,38 +1397,36 @@ function restoreModal(modalId) {
 	const miniCard = document.getElementById(miniCardId)
 
 	const modal = document.getElementById('bet-finder-modal')
-	if (modal && modal.style.display === 'none') {
-		// Modal exists but is hidden - show it
-		modal.style.display = 'flex'
-		if (miniCard) {
-			miniCard.style.display = 'none'
-		}
-	} else if (!modal) {
-		// Modal doesn't exist (after page refresh) - recreate from stored data
-		const modalData = minimizedModals.get(modalId)
-		if (modalData && modalData.results && modalData.modalType) {
-			// Map modalType to appropriate show function
-			const showFunctions = {
-				'most-goals': BetFinder.showMostGoalsModal,
-				'least-goals': BetFinder.showLeastGoalsModal,
-				'most-corners': BetFinder.showMostCornersModal,
-				'least-corners': BetFinder.showLeastCornersModal,
-				'most-advantage': BetFinder.showGoalAdvantageModal,
-				'most-handicap': BetFinder.showHandicap15Modal,
-			}
+	
+	// Get stored modal data
+	const modalData = minimizedModals.get(modalId)
+	if (!modalData) {
+		showToast('Nie można odtworzyć modalu: brak danych', 'error')
+		return
+	}
 
-			const showFunction = showFunctions[modalData.modalType]
-			if (showFunction) {
-				showFunction(modalData.results)
-				if (miniCard) {
-					miniCard.style.display = 'none'
-				}
-			} else {
-				showToast('Nie można odtworzyć modalu: nieznany typ', 'error')
-			}
-		} else {
-			showToast('Modal został utracony po odświeżeniu. Uruchom wyszukiwanie ponownie.', 'info')
+	// If there's a different modal open, minimize it first
+	if (modal) {
+		const currentModalId = modal.dataset.modalId
+		if (currentModalId !== modalId) {
+			// Different modal is open - minimize it
+			minimizeModal()
 		}
+	}
+
+	// Recreate modal using the appropriate show function based on modalType
+	const showFunction = BetFinder.modalTypeToShowFunction[modalData.modalType]
+	if (showFunction) {
+		showFunction(modalData)
+	} else {
+		showToast('Nie można odtworzyć modalu: nieznany typ', 'error')
+		console.error('Unknown modalType:', modalData.modalType)
+		return
+	}
+
+	// Hide minimized card
+	if (miniCard) {
+		miniCard.style.display = 'none'
 	}
 }
 
@@ -1411,7 +1466,24 @@ function closeModal() {
 	}
 }
 
-function showBetFinderMatchDetailsModal(result) {
+// Helper function to format team name with standing position
+function formatTeamWithStanding(teamName, standing, matchDate) {
+	if (!standing) return teamName
+	
+	// Check if standing is approximate (from future match)
+	const isApproximate = standing.isApproximate || false
+	const standingValue = standing.standing || standing
+	
+	// Gray out if approximate OR before November 2025
+	const cutoffDate = new Date('2025-11-01')
+	const date = new Date(matchDate)
+	const isBeforeCutoff = date < cutoffDate
+	
+	const standingColor = (isApproximate || isBeforeCutoff) ? '#999' : '#000'
+	return `${teamName} <span style="font-size: 10px; color: ${standingColor};">(${standingValue})</span>`
+}
+
+async function showBetFinderMatchDetailsModal(result) {
 	console.log('Match details:', result)
 
 	if (!result || !result.homeStats || !result.awayStats) {
@@ -1419,12 +1491,36 @@ function showBetFinderMatchDetailsModal(result) {
 		return
 	}
 
+	// Load Superbet link for this league
+	const { getSuperbetLink, createSuperbetIcon } = await import('./utils/superbet-links.js')
+	const superbetUrl = await getSuperbetLink(result.league, result.country)
+
 	// Store current match data for minimization
 	currentMatchDetailsData = result
 
+	// Check if this is a home/away search type
+	const isHomeAwaySearch = ['home-wins', 'away-wins', 'home-losses', 'away-losses', 'home-advantage', 'away-advantage'].includes(result.searchType)
+
 	// Generate modal HTML
-	const homeMatches = result.homeStats.matches || []
-	const awayMatches = result.awayStats.matches || []
+	// For home/away searches, filter matches appropriately based on search type:
+	let homeMatches = result.homeStats.matches || []
+	let awayMatches = result.awayStats.matches || []
+	
+	if (isHomeAwaySearch) {
+		if (result.searchType === 'home-wins' || result.searchType === 'home-losses') {
+			// Home wins/losses: Home team = only HOME matches, Away team = ALL matches
+			homeMatches = homeMatches.filter(m => m.isHome === true)
+			// awayMatches stays as is (all matches)
+		} else if (result.searchType === 'away-wins' || result.searchType === 'away-losses') {
+			// Away wins/losses: Home team = ALL matches, Away team = only AWAY matches
+			// homeMatches stays as is (all matches)
+			awayMatches = awayMatches.filter(m => m.isHome === false)
+		} else if (result.searchType === 'home-advantage' || result.searchType === 'away-advantage') {
+			// Both advantages: Home team = only HOME matches, Away team = only AWAY matches
+			homeMatches = homeMatches.filter(m => m.isHome === true)
+			awayMatches = awayMatches.filter(m => m.isHome === false)
+		}
+	}
 
 	// Determine what type of statistics to show and how to render them
 	let homeStatsText = ''
@@ -1539,7 +1635,8 @@ function showBetFinderMatchDetailsModal(result) {
 	} else if (result.averageTotalCorners !== undefined) {
 		// Total corners search (both most and least)
 		searchType = result.searchType === 'total-corners-least' ? 'total-corners-least' : 'total-corners'
-		avgThreshold = 0 // Not used
+		avgThreshold = result.averageTotalCorners
+		isLeastSearch = result.searchType === 'total-corners-least'
 		homeStatsText = `Śr. suma rożnych: ${result.homeStats.avgMatchCorners || 0} (${
 			result.homeStats.cornersMatchCount || 0
 		} meczów)`
@@ -1550,7 +1647,8 @@ function showBetFinderMatchDetailsModal(result) {
 	} else if (result.averageTotalOffsides !== undefined) {
 		// Total offsides search (both most and least)
 		searchType = result.searchType === 'total-offsides-least' ? 'total-offsides-least' : 'total-offsides'
-		avgThreshold = 0 // Not used
+		avgThreshold = result.averageTotalOffsides
+		isLeastSearch = result.searchType === 'total-offsides-least'
 		homeStatsText = `Śr. suma spalonych: ${result.homeStats.avgMatchOffsides || 0} (${
 			result.homeStats.offsidesMatchCount || 0
 		} meczów)`
@@ -1570,6 +1668,36 @@ function showBetFinderMatchDetailsModal(result) {
 			result.awayStats.offsidesMatchCount || 0
 		} meczów)`
 		mainStatText = `Łączna średnia spalonych: ${result.averageOffsides}`
+	} else if (isHomeAwaySearch) {
+		// Home/Away win/loss statistics
+		searchType = result.searchType
+		avgThreshold = 0
+		
+		if (result.searchType === 'home-wins') {
+			homeStatsText = `Wygrane u siebie: ${result.homeStats.homeWins || 0}/${result.homeStats.homeMatchCount || 0} (${result.homeWinPercent || 0}%)`
+			awayStatsText = `Meczów: ${result.awayStats.homeMatchCount || 0} (śr. goście)`
+			mainStatText = `Procent wygranych gospodarzy: ${result.homeWinPercent}%`
+		} else if (result.searchType === 'away-wins') {
+			homeStatsText = `Meczów: ${result.homeStats.homeMatchCount || 0} (śr. gospodarze)`
+			awayStatsText = `Wygrane na wyjeździe: ${result.awayStats.awayWins || 0}/${result.awayStats.awayMatchCount || 0} (${result.awayWinPercent || 0}%)`
+			mainStatText = `Procent wygranych gości: ${result.awayWinPercent}%`
+		} else if (result.searchType === 'home-losses') {
+			homeStatsText = `Porażki u siebie: ${result.homeStats.homeLosses || 0}/${result.homeStats.homeMatchCount || 0} (${result.homeLossPercent || 0}%)`
+			awayStatsText = `Meczów: ${result.awayStats.awayMatchCount || 0} (śr. goście)`
+			mainStatText = `Procent porażek gospodarzy: ${result.homeLossPercent}%`
+		} else if (result.searchType === 'away-losses') {
+			homeStatsText = `Meczów: ${result.homeStats.homeMatchCount || 0} (śr. gospodarze)`
+			awayStatsText = `Porażki na wyjeździe: ${result.awayStats.awayLosses || 0}/${result.awayStats.awayMatchCount || 0} (${result.awayLossPercent || 0}%)`
+			mainStatText = `Procent porażek gości: ${result.awayLossPercent}%`
+		} else if (result.searchType === 'home-advantage') {
+			homeStatsText = `Wygrane u siebie: ${result.homeStats.homeWins || 0}/${result.homeStats.homeMatchCount || 0} (${result.homeWinPercent || 0}%)`
+			awayStatsText = `Porażki na wyjeździe: ${result.awayStats.awayLosses || 0}/${result.awayStats.awayMatchCount || 0} (${result.awayLossPercent || 0}%)`
+			mainStatText = `Wynik przewagi gospodarzy: ${result.advantageScore}%`
+		} else if (result.searchType === 'away-advantage') {
+			homeStatsText = `Porażki u siebie: ${result.homeStats.homeLosses || 0}/${result.homeStats.homeMatchCount || 0} (${result.homeLossPercent || 0}%)`
+			awayStatsText = `Wygrane na wyjeździe: ${result.awayStats.awayWins || 0}/${result.awayStats.awayMatchCount || 0} (${result.awayWinPercent || 0}%)`
+			mainStatText = `Wynik przewagi gości: ${result.advantageScore}%`
+		}
 	} else {
 		// Default fallback
 		searchType = 'default'
@@ -1699,16 +1827,55 @@ function showBetFinderMatchDetailsModal(result) {
 				statLabel = 'D'
 				return `<span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; background: #fef3c7; color: #d97706;">${statLabel}</span>`
 			}
-		} else if (searchType === 'handicap') {
-			const isMatchHome = match.homeTeam === result.homeTeam || match.homeTeam === result.awayTeam
-			if (isHomeTeam) {
-				statValue = (match.homeGoals || 0) - (match.awayGoals || 0)
+		} else if (isHomeAwaySearch) {
+			// For home/away searches, show result with color coding (W/D/L)
+			const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+			const isTeamHome = match.homeTeam === teamName
+			const teamGoals = isTeamHome ? match.homeGoals : match.awayGoals
+			const opponentGoals = isTeamHome ? match.awayGoals : match.homeGoals
+
+			if (teamGoals > opponentGoals) {
+				// Win - green
+				statLabel = 'W'
+				return `<span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; background: #d1fae5; color: #059669;">${statLabel}</span>`
+			} else if (teamGoals < opponentGoals) {
+				// Loss - red
+				statLabel = 'L'
+				return `<span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; background: #fee2e2; color: #dc2626;">${statLabel}</span>`
 			} else {
-				statValue = (match.awayGoals || 0) - (match.homeGoals || 0)
+				// Draw - yellow
+				statLabel = 'D'
+				return `<span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; background: #fef3c7; color: #d97706;">${statLabel}</span>`
 			}
+		} else if (searchType === 'handicap') {
+			// For handicap search, calculate goal difference from team perspective
+			const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+			const isTeamHome = match.homeTeam === teamName
+			const teamGoals = isTeamHome ? match.homeGoals : match.awayGoals
+			const opponentGoals = isTeamHome ? match.awayGoals : match.homeGoals
+			statValue = (teamGoals || 0) - (opponentGoals || 0)
 			statLabel = statValue > 0 ? `+${statValue}` : `${statValue}`
 		} else if (searchType === 'advantage') {
-			statValue = (match.homeGoals || 0) - (match.awayGoals || 0)
+			// Calculate goal difference from the perspective of the team we're analyzing
+			if (isHomeTeam) {
+				// We're looking at home team stats - calculate from their perspective
+				if (match.homeTeam === result.homeTeam) {
+					// Team played as home
+					statValue = (match.homeGoals || 0) - (match.awayGoals || 0)
+				} else {
+					// Team played as away
+					statValue = (match.awayGoals || 0) - (match.homeGoals || 0)
+				}
+			} else {
+				// We're looking at away team stats - calculate from their perspective
+				if (match.homeTeam === result.awayTeam) {
+					// Team played as home
+					statValue = (match.homeGoals || 0) - (match.awayGoals || 0)
+				} else {
+					// Team played as away
+					statValue = (match.awayGoals || 0) - (match.homeGoals || 0)
+				}
+			}
 			statLabel = statValue > 0 ? `+${statValue}` : `${statValue}`
 		} else {
 			return ''
@@ -1755,7 +1922,16 @@ function showBetFinderMatchDetailsModal(result) {
 			// For corner advantage, don't color code (just display the value)
 			color = '#666'
 			bgColor = 'transparent'
-		} else if (searchType === 'handicap' || searchType === 'advantage') {
+		} else if (searchType === 'handicap') {
+			// For handicap, green only for wins by 2+ goals, red for everything else
+			if (statValue >= 2) {
+				color = '#059669'
+				bgColor = '#d1fae5'
+			} else {
+				color = '#dc2626'
+				bgColor = '#fee2e2'
+			}
+		} else if (searchType === 'advantage') {
 			if (statValue > 0) {
 				color = '#059669'
 				bgColor = '#d1fae5'
@@ -1771,9 +1947,13 @@ function showBetFinderMatchDetailsModal(result) {
 	const modalHTML = `
         <div class="modal-backdrop" onclick="window.closeMatchDetailsModal()"></div>
         <div class="modal-dialog" style="max-width: 1200px;">
-            <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="modal-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position: relative;">
                 <h2>📊 Szczegóły: ${result.homeTeam} vs ${result.awayTeam}</h2>
-                <div style="display: flex; gap: 10px;">
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    ${superbetUrl ? createSuperbetIcon(superbetUrl) : ''}
+                    <button class="btn-small" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" onclick='window.addToWatchedMatches(${JSON.stringify(result).replace(/'/g, "\\'")}, "${result.searchType || 'manual'}")'>
+                        ⭐ Dodaj do obserwowanych
+                    </button>
                     <button class="modal-minimize" onclick="window.minimizeMatchDetailsModal()">−</button>
                     <button class="modal-close" onclick="window.closeMatchDetailsModal()">×</button>
                 </div>
@@ -1837,7 +2017,10 @@ function showBetFinderMatchDetailsModal(result) {
 																						m => `
                                             <tr>
                                                 <td>${new Date(m.date).toLocaleDateString('pl-PL')}</td>
-                                                <td style="font-size: 11px;">${m.homeTeam} - ${m.awayTeam}</td>
+                                                <td style="font-size: 11px;">
+                                                    ${formatTeamWithStanding(m.homeTeam, m.standing_home, m.date)} - 
+                                                    ${formatTeamWithStanding(m.awayTeam, m.standing_away, m.date)}
+                                                </td>
                                                 <td style="font-weight: 600;">${m.homeGoals}:${m.awayGoals}</td>
                                                 ${
 																									searchType !== 'default'
@@ -1909,7 +2092,10 @@ function showBetFinderMatchDetailsModal(result) {
 																						m => `
                                             <tr>
                                                 <td>${new Date(m.date).toLocaleDateString('pl-PL')}</td>
-                                                <td style="font-size: 11px;">${m.homeTeam} - ${m.awayTeam}</td>
+                                                <td style="font-size: 11px;">
+                                                    ${formatTeamWithStanding(m.homeTeam, m.standing_home, m.date)} - 
+                                                    ${formatTeamWithStanding(m.awayTeam, m.standing_away, m.date)}
+                                                </td>
                                                 <td style="font-weight: 600;">${m.homeGoals}:${m.awayGoals}</td>
                                                 ${
 																									searchType !== 'default'
@@ -1935,10 +2121,15 @@ function showBetFinderMatchDetailsModal(result) {
         </div>
     `
 
-	// Remove existing modal
+	// If there's an existing match details modal, minimize it instead of removing it
 	const existingModal = document.getElementById('match-details-modal')
 	if (existingModal) {
-		existingModal.remove()
+		// Call the minimize function
+		if (window.minimizeMatchDetailsModal) {
+			window.minimizeMatchDetailsModal()
+		} else {
+			existingModal.remove() // Fallback if minimizeMatchDetailsModal not available
+		}
 	}
 
 	// Create and show modal
@@ -1980,12 +2171,17 @@ function loadMinimizedMatchCards() {
 					const miniCard = document.createElement('div')
 					miniCard.id = miniCardId
 					miniCard.className = 'minimized-match-card'
+					
+					// Extract country code (first 3 letters)
+					const countryCode = (data.country || 'INT').substring(0, 3).toUpperCase()
+					
 					miniCard.innerHTML = `
-                        <div class="minimized-card-content" onclick="window.restoreMatchDetailsModal('${id}')">
+                        <button class="minimized-card-close" onclick="window.closeMatchDetailsModalCompletely(event, '${id}')" style="order: 1;">×</button>
+                        <div class="minimized-card-content" onclick="window.restoreMatchDetailsModal('${id}')" style="order: 2; flex: 1;">
                             <span class="minimized-card-icon">📊</span>
                             <span class="minimized-card-text">${data.homeTeam} vs ${data.awayTeam}</span>
                         </div>
-                        <button class="minimized-card-close" onclick="window.closeMatchDetailsModalCompletely(event, '${id}')">×</button>
+                        <span style="order: 3; font-size: 11px; font-weight: 700; color: #6b7280; padding: 0 8px;">${countryCode}</span>
                     `
 					container.appendChild(miniCard)
 				}
@@ -2031,10 +2227,10 @@ function minimizeMatchDetailsModal() {
 	const existingMiniCard = document.getElementById(miniCardId)
 
 	if (existingMiniCard) {
-		// Card already exists, just show it and remove modal
+		// Card already exists, just show it and hide modal
 		existingMiniCard.style.display = 'flex'
 		if (modal) {
-			modal.remove()
+			modal.style.display = 'none'
 		}
 		repositionMinimizedMatchCards()
 		return
@@ -2043,8 +2239,8 @@ function minimizeMatchDetailsModal() {
 	// No modal to minimize
 	if (!modal) return
 
-	// Remove modal
-	modal.remove()
+	// Hide modal (don't remove it)
+	modal.style.display = 'none'
 
 	// Store modal data
 	minimizedMatchModals.set(matchId, currentMatchDetailsData)
@@ -2057,12 +2253,17 @@ function minimizeMatchDetailsModal() {
 	const miniCard = document.createElement('div')
 	miniCard.id = miniCardId
 	miniCard.className = 'minimized-match-card'
+	
+	// Extract country code (first 3 letters)
+	const countryCode = (currentMatchDetailsData.country || 'INT').substring(0, 3).toUpperCase()
+	
 	miniCard.innerHTML = `
-        <div class="minimized-card-content" onclick="window.restoreMatchDetailsModal('${matchId}')">
+        <button class="minimized-card-close" onclick="window.closeMatchDetailsModalCompletely(event, '${matchId}')" style="order: 1;">×</button>
+        <div class="minimized-card-content" onclick="window.restoreMatchDetailsModal('${matchId}')" style="order: 2; flex: 1;">
             <span class="minimized-card-icon">📊</span>
             <span class="minimized-card-text">${currentMatchDetailsData.homeTeam} vs ${currentMatchDetailsData.awayTeam}</span>
         </div>
-        <button class="minimized-card-close" onclick="window.closeMatchDetailsModalCompletely(event, '${matchId}')">×</button>
+        <span style="order: 3; font-size: 11px; font-weight: 700; color: #6b7280; padding: 0 8px;">${countryCode}</span>
     `
 	container.appendChild(miniCard)
 
@@ -2077,23 +2278,39 @@ function restoreMatchDetailsModal(matchId) {
 		miniCard.style.display = 'none'
 	}
 
-	// Get modal data
-	const matchData = minimizedMatchModals.get(matchId)
-	if (matchData) {
-		showBetFinderMatchDetailsModal(matchData)
+	// Check if modal already exists (hidden)
+	const modal = document.getElementById('match-details-modal')
+	if (modal) {
+		// Modal exists, just show it
+		modal.style.display = 'block'
+	} else {
+		// Get modal data and recreate
+		const matchData = minimizedMatchModals.get(matchId)
+		if (matchData) {
+			showBetFinderMatchDetailsModal(matchData)
+		}
 	}
 
 	repositionMinimizedMatchCards()
 }
 
 function closeMatchDetailsModalCompletely(event, matchId) {
-	event.stopPropagation()
+	if (event) {
+		event.stopPropagation()
+	}
 
 	const miniCardId = `minimized-match-card-${matchId}`
 	const miniCard = document.getElementById(miniCardId)
 	if (miniCard) {
 		miniCard.remove()
 	}
+
+	// Also remove the modal if it exists (hidden)
+	const modal = document.getElementById('match-details-modal')
+	if (modal) {
+		modal.remove()
+	}
+	currentMatchDetailsData = null
 
 	// Remove from map
 	minimizedMatchModals.delete(matchId)
@@ -2209,6 +2426,101 @@ window.onStatsLeagueChange = onStatsLeagueChange
 window.applyLimitToResults = applyLimitToResults
 window.loadTeamStats = loadTeamStats
 
+// ============================================================================
+// MINIMIZED CARDS CONTROLS
+// ============================================================================
+
+function expandAllMatchCards() {
+	const container = document.getElementById('minimized-cards-container')
+	if (container) {
+		// Toggle expanded state
+		if (container.classList.contains('expanded')) {
+			container.classList.remove('expanded')
+		} else {
+			container.classList.add('expanded')
+		}
+	}
+}
+
+function closeAllMatchCards() {
+	const container = document.getElementById('minimized-cards-container')
+	if (container) {
+		// Close expanded state first
+		container.classList.remove('expanded')
+		
+		// Close all individual cards
+		minimizedMatchModals.forEach((_, matchId) => {
+			closeMatchDetailsModalCompletely(null, matchId)
+		})
+	}
+}
+
+function expandAllModalCards() {
+	const container = document.getElementById('minimized-modals-container')
+	if (container) {
+		container.classList.add('expanded')
+	}
+}
+
+function closeAllModalCards() {
+	const container = document.getElementById('minimized-modals-container')
+	if (container) {
+		// Close expanded state first
+		container.classList.remove('expanded')
+		
+		// Close all individual modal cards
+		minimizedModals.forEach((_, modalId) => {
+			const modalElement = document.getElementById(modalId)
+			if (modalElement) {
+				modalElement.remove()
+			}
+		})
+		minimizedModals.clear()
+		saveMinimizedModals()
+		
+		// Remove all minimized cards
+		const cards = container.querySelectorAll('.minimized-card')
+		cards.forEach(card => card.remove())
+	}
+}
+
+// Create control buttons for minimized containers
+function createMinimizedControls() {
+	// Left controls (for match cards)
+	let leftControls = document.getElementById('minimized-match-controls')
+	if (!leftControls) {
+		leftControls = document.createElement('div')
+		leftControls.id = 'minimized-match-controls'
+		leftControls.className = 'minimized-controls left'
+		leftControls.innerHTML = `
+			<button class="minimized-control-btn" onclick="window.expandAllMatchCards()" title="Rozwiń wszystkie karty meczów">
+				📖 Rozwiń
+			</button>
+			<button class="minimized-control-btn danger" onclick="window.closeAllMatchCards()" title="Zamknij wszystkie karty meczów">
+				✕ Zamknij
+			</button>
+		`
+		document.body.appendChild(leftControls)
+	}
+	
+	// Right controls (for TOP10 modal cards)
+	let rightControls = document.getElementById('minimized-modal-controls')
+	if (!rightControls) {
+		rightControls = document.createElement('div')
+		rightControls.id = 'minimized-modal-controls'
+		rightControls.className = 'minimized-controls right'
+		rightControls.innerHTML = `
+			<button class="minimized-control-btn" onclick="window.expandAllModalCards()" title="Rozwiń wszystkie karty TOP10">
+				📖 Rozwiń
+			</button>
+			<button class="minimized-control-btn danger" onclick="window.closeAllModalCards()" title="Zamknij wszystkie karty TOP10">
+				✕ Zamknij
+			</button>
+		`
+		document.body.appendChild(rightControls)
+	}
+}
+
 // Statistics modal
 window.closeStatModal = DOMUtils.closeStatModal
 
@@ -2233,6 +2545,15 @@ window.hideJob = hideJob
 window.unhideJob = unhideJob
 window.deleteJob = deleteJob
 
+// Minimized cards controls
+window.expandAllMatchCards = expandAllMatchCards
+window.closeAllMatchCards = closeAllMatchCards
+window.expandAllModalCards = expandAllModalCards
+window.closeAllModalCards = closeAllModalCards
+
+// Date range controls
+window.setTodayDate = EventHandlers.setTodayDate
+
 // Bet finder functions
 window.findMostGoals = BetFinder.findMostGoals
 window.findLeastGoals = BetFinder.findLeastGoals
@@ -2255,6 +2576,14 @@ window.queueLeastGoals = BetFinder.queueLeastGoals
 window.queueHandicap15 = BetFinder.queueHandicap15
 window.queueMostCorners = BetFinder.queueMostCorners
 window.queueLeastCorners = BetFinder.queueLeastCorners
+window.queueMostBTS = BetFinder.queueMostBTS
+window.queueNoBTS = BetFinder.queueNoBTS
+window.queueHomeWins = BetFinder.queueHomeWins
+window.queueAwayWins = BetFinder.queueAwayWins
+window.queueHomeLosses = BetFinder.queueHomeLosses
+window.queueAwayLosses = BetFinder.queueAwayLosses
+window.queueHomeAdvantage = BetFinder.queueHomeAdvantage
+window.queueAwayAdvantage = BetFinder.queueAwayAdvantage
 window.queueGoalAdvantage = BetFinder.queueGoalAdvantage
 window.queueWinnerVsLoser = BetFinder.queueWinnerVsLoser
 window.queueMostTotalCorners = BetFinder.queueMostTotalCorners
@@ -2296,6 +2625,16 @@ window.queueAllOffsidesSearches = function() {
 	showToast('Dodano 4 wyszukiwania z kategorii "Spalone" do kolejki', 'success')
 }
 
+window.queueAllHomeAwaySearches = function() {
+	BetFinder.queueHomeWins()
+	BetFinder.queueAwayWins()
+	BetFinder.queueHomeLosses()
+	BetFinder.queueAwayLosses()
+	BetFinder.queueHomeAdvantage()
+	BetFinder.queueAwayAdvantage()
+	showToast('Dodano 6 wyszukiwań z kategorii "Dom/Wyjazd" do kolejki', 'success')
+}
+
 // Bet finder modal helpers
 window.minimizeModal = minimizeModal
 window.closeModal = closeModal
@@ -2326,6 +2665,125 @@ document.addEventListener('keydown', function (e) {
 		}
 	}
 })
+
+/**
+ * Refresh import queue display
+ */
+async function refreshImportQueue() {
+	const container = document.getElementById('import-queue-list')
+	const countBadge = document.getElementById('queue-count')
+	if (!container) return
+
+	try {
+		const response = await fetch('/api/import-jobs/queue')
+		const queue = await response.json()
+
+		if (!queue || queue.length === 0) {
+			container.innerHTML =
+				'<p style="text-align: center; color: #999; padding: 40px;">📭 Kolejka jest pusta</p>'
+			if (countBadge) countBadge.textContent = '0'
+			return
+		}
+
+		if (countBadge) countBadge.textContent = queue.length
+
+		let html = '<div style="display: flex; flex-direction: column; gap: 12px;">'
+		
+		queue.forEach((job, index) => {
+			const createdAt = new Date(job.created_at).toLocaleString('pl-PL')
+			const dateFrom = new Date(job.date_from).toLocaleDateString('pl-PL')
+			const dateTo = new Date(job.date_to).toLocaleDateString('pl-PL')
+			const leagues = typeof job.leagues === 'string' ? JSON.parse(job.leagues) : job.leagues
+			const progress = job.progress ? (typeof job.progress === 'string' ? JSON.parse(job.progress) : job.progress) : {}
+			const completedLeagues = progress.completed_leagues || []
+			const progressPercent = leagues.length > 0 ? Math.round((completedLeagues.length / leagues.length) * 100) : 0
+
+		const statusEmoji = {
+			in_queue: '📋',
+			pending: '⏳',
+			running: '▶️',
+			rate_limited: '⏸️'
+		}[job.status] || '❓'
+
+		const statusText = {
+			in_queue: 'W kolejce',
+			pending: 'Gotowe do startu',
+			running: 'W trakcie',
+			rate_limited: 'Pauza (limit API)'
+		}[job.status] || job.status
+
+		const positionBadge = job.status === 'running'
+			? '<span style="background: #10b981; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">AKTYWNE</span>'
+			: job.status === 'rate_limited'
+			? '<span style="background: #f59e0b; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">PAUZA</span>'
+			: job.status === 'pending'
+			? '<span style="background: #3b82f6; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;">NASTĘPNE</span>'
+			: `<span style="background: #6b7280; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px;">#${index + 1} w kolejce</span>`
+
+			html += `
+				<div style="background: #f9fafb; border-radius: 6px; padding: 12px; border-left: 4px solid ${job.status === 'running' ? '#10b981' : job.status === 'rate_limited' ? '#f59e0b' : '#6b7280'};">
+					<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+						<div>
+							<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+								<span style="font-size: 18px;">${statusEmoji}</span>
+								<strong style="font-size: 14px;">Zadanie #${job.id}</strong>
+								${positionBadge}
+							</div>
+							<div style="font-size: 12px; color: #6b7280;">
+								${statusText} • ${leagues.length} lig • ${dateFrom} - ${dateTo}
+							</div>
+						</div>
+						<div style="text-align: right; font-size: 11px; color: #9ca3af;">
+							${createdAt}
+						</div>
+					</div>
+					${progressPercent > 0 ? `
+						<div style="margin-top: 8px;">
+							<div style="display: flex; justify-content: space-between; font-size: 11px; color: #6b7280; margin-bottom: 4px;">
+								<span>Postęp: ${completedLeagues.length}/${leagues.length} lig</span>
+								<span>${progressPercent}%</span>
+							</div>
+							<div style="background: #e5e7eb; height: 6px; border-radius: 3px; overflow: hidden;">
+								<div style="background: #10b981; height: 100%; width: ${progressPercent}%; transition: width 0.3s;"></div>
+							</div>
+						</div>
+					` : ''}
+					${job.status === 'rate_limited' && job.rate_limit_reset_at ? `
+						<div style="margin-top: 8px; font-size: 11px; color: #f59e0b; display: flex; align-items: center; gap: 4px;">
+							⏰ Wznowienie za: ${getTimeUntil(new Date(job.rate_limit_reset_at))}
+						</div>
+					` : ''}
+				</div>
+			`
+		})
+
+		html += '</div>'
+		container.innerHTML = html
+
+	} catch (error) {
+		console.error('Error loading import queue:', error)
+		container.innerHTML =
+			'<p style="text-align: center; color: #ef4444; padding: 40px;">❌ Błąd ładowania kolejki</p>'
+	}
+}
+
+/**
+ * Get time until specific date
+ */
+function getTimeUntil(date) {
+	const now = new Date()
+	const diff = date - now
+	
+	if (diff <= 0) return 'już teraz'
+	
+	const minutes = Math.floor(diff / 60000)
+	const seconds = Math.floor((diff % 60000) / 1000)
+	
+	if (minutes > 0) {
+		return `${minutes}m ${seconds}s`
+	}
+	return `${seconds}s`
+}
 
 // Initialize on DOM load
 if (document.readyState === 'loading') {

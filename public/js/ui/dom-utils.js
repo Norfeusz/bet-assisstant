@@ -7,6 +7,7 @@ import { showToast, getPercentageColorClass } from '../utils/helpers.js'
 import { state, setCurrentTeamStats } from '../config/state.js'
 import * as API from '../api/api-client.js'
 import { prepareModalData, preparePercentageModalData } from '../utils/statistics.js'
+import { formatTeamWithStanding } from '../bet-finder.js'
 
 /**
  * Render countries list
@@ -178,6 +179,9 @@ export function renderMatchesTable(matchesList, sectionTitle, selectedTeam = nul
 
 		const statusIcon = isFinished ? '✅' : '❓'
 
+		const homeTeamDisplay = formatTeamWithStanding(match.home_team, match.standing_home, match.match_date)
+		const awayTeamDisplay = formatTeamWithStanding(match.away_team, match.standing_away, match.match_date)
+
 		html += `
             <tr>
                 <td class="match-date">${date}</td>
@@ -186,12 +190,12 @@ export function renderMatchesTable(matchesList, sectionTitle, selectedTeam = nul
                         <span class="team-name ${homeClass}" style="cursor: pointer; text-decoration: underline;" onclick="window.loadTeamStats('${match.home_team.replace(
 			/'/g,
 			"\\'"
-		)}')">${match.home_team}</span>
+		)}')">${homeTeamDisplay}</span>
                         <span>-</span>
                         <span class="team-name ${awayClass}" style="cursor: pointer; text-decoration: underline;" onclick="window.loadTeamStats('${match.away_team.replace(
 			/'/g,
 			"\\'"
-		)}')">${match.away_team}</span>
+		)}')">${awayTeamDisplay}</span>
                     </div>
                 </td>
                 <td class="match-score">
@@ -733,6 +737,10 @@ export async function showMatchDetailsModal(matchId) {
 		console.log('Match data received:', match)
 		console.log('Is finished:', match.is_finished)
 
+		// Load Superbet link for this league
+		const { getSuperbetLink, createSuperbetIcon } = await import('../utils/superbet-links.js')
+		const superbetUrl = await getSuperbetLink(match.league, match.country)
+
 		// Format date
 		const matchDate = new Date(match.match_date).toLocaleDateString('pl-PL', {
 			weekday: 'long',
@@ -743,7 +751,8 @@ export async function showMatchDetailsModal(matchId) {
 
 		// Build match details HTML
 		let html = `
-            <div class="match-details-header">
+            <div class="match-details-header" style="position: relative;">
+                ${superbetUrl ? createSuperbetIcon(superbetUrl) : ''}
                 <div class="match-details-info">${matchDate} • ${match.league} • ${match.country}</div>
                 <div class="match-details-teams">
                     <span>${match.home_team}</span>

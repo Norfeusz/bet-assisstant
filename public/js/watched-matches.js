@@ -197,7 +197,15 @@ export function showWatchedMatchesModal() {
                             ${match.awayTeam}
                         </a>
                     </td>
-                    <td style="padding: 12px; font-size: 11px; color: #666;">${match.searchType || '-'}</td>
+                    <td style="padding: 12px; font-size: 11px;">
+                        <a href="#" 
+                            onclick="window.showBetFinderMatchDetailsModal(${JSON.stringify(match).replace(/"/g, '&quot;')}); return false;"
+                            style="color: #3b82f6; text-decoration: underline; cursor: pointer;"
+                            onmouseover="this.style.color='#2563eb'"
+                            onmouseout="this.style.color='#3b82f6'">
+                            ${match.searchType || '-'}
+                        </a>
+                    </td>
                     <td style="padding: 12px;">
                         <input type="text" value="${oddsValue}" 
                             onchange="window.updateWatchedMatchOdds('${match.id}', this.value)"

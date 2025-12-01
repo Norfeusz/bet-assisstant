@@ -334,9 +334,11 @@ export async function loadDatabaseMatches(filters = {}) {
 		if (filters.team) params.append('team', filters.team)
 
 		const url = `/api/database/matches${params.toString() ? '?' + params.toString() : ''}`
+		console.log('🌐 API Request:', url, 'Filters:', filters)
 		const response = await fetch(url)
 		if (!response.ok) throw new Error('Failed to load matches')
 		const matches = await response.json()
+		console.log(`✅ API Response: ${matches.length} matches`, matches.slice(0, 3))
 		return matches
 	} catch (error) {
 		showToast('Nie udało się załadować meczów: ' + error.message, 'error')

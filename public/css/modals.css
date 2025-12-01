@@ -290,7 +290,7 @@
 /* Container for match detail cards - left side */
 .minimized-cards-container {
 	position: fixed;
-	left: 0;
+	left: 0; /* Show partially - start position */
 	top: 0;
 	height: 100vh;
 	width: 280px;
@@ -300,6 +300,58 @@
 	padding: 20px 0;
 	z-index: 9997;
 	pointer-events: none; /* Allow clicks through container */
+	transition: left 0.3s ease;
+}
+
+.minimized-cards-container.expanded {
+	left: 220px; /* Slide right when expanded */
+}
+
+/* Control buttons for minimized containers */
+.minimized-controls {
+	position: fixed;
+	top: 20px;
+	z-index: 9998;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	pointer-events: auto;
+}
+
+.minimized-controls.left {
+	left: 10px;
+}
+
+.minimized-controls.right {
+	right: 10px;
+}
+
+.minimized-control-btn {
+	background: rgba(59, 130, 246, 0.95);
+	color: white;
+	border: none;
+	padding: 8px 12px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 600;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	transition: all 0.2s;
+	white-space: nowrap;
+}
+
+.minimized-control-btn:hover {
+	background: rgba(37, 99, 235, 0.95);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+	transform: translateY(-2px);
+}
+
+.minimized-control-btn.danger {
+	background: rgba(239, 68, 68, 0.95);
+}
+
+.minimized-control-btn.danger:hover {
+	background: rgba(220, 38, 38, 0.95);
 }
 
 /* Individual match cards - aligned to right edge of container */
@@ -368,6 +420,11 @@
 	padding: 20px 0;
 	z-index: 9997;
 	pointer-events: none; /* Allow clicks through container */
+	transition: right 0.3s ease;
+}
+
+.minimized-modals-container.expanded {
+	right: 0; /* Show full container */
 }
 
 /* Individual TOP 10 modal cards - aligned to left edge of container */
@@ -687,4 +744,35 @@
 	color: #999;
 	font-style: italic;
 	padding: 20px;
+}
+
+/* Superbet Icon */
+.superbet-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 6px;
+	background: #fff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transition: all 0.2s ease;
+	vertical-align: middle;
+}
+
+.superbet-icon:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.superbet-icon img {
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+}
+
+.match-details-header .superbet-icon {
+	position: absolute;
+	right: 50px;
+	top: 20px;
 }

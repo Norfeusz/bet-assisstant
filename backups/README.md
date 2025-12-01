@@ -2,41 +2,52 @@
 
 Ten folder zawiera automatyczne backupy bazy danych PostgreSQL.
 
-## Pliki
+## System rotacyjny backupów
 
-- `database-backup.sql` - Najnowszy backup bazy danych (automatycznie aktualizowany po każdym imporcie)
+- Przechowywanych jest **maksymalnie 10 backupów** (database-backup-1.sql do database-backup-10.sql)
+- Każdy nowy backup **nadpisuje najstarszy** plik
+- Backupy są tworzone automatycznie po każdym zadaniu importu
+- Wszystkie backupy są commitowane do repozytorium Git
+
+## Struktura plików
+
+```
+backups/
+├── database-backup-1.sql   # Backup slot #1
+├── database-backup-2.sql   # Backup slot #2
+├── ...
+└── database-backup-10.sql  # Backup slot #10
+```
 
 ## Automatyczne backupy
 
 Backup jest tworzony automatycznie:
 - Po zakończeniu każdego zadania importu w tle (background import worker)
 - Backup jest automatycznie commitowany i pushowany do GitHub
+- System wybiera najstarszy slot do nadpisania
 
-## Ręczne backupy
-
-Możesz również utworzyć backup ręcznie:
+## Ręczne tworzenie backupu
 
 ```bash
-# Backup z automatycznym pushem do GitHub
+# Utwórz backup (nadpisze najstarszy plik)
 npm run backup
 
-# Backup z wymuszonym pushem (nawet jeśli nie ma zmian)
-npm run backup:force
+# Utwórz backup i wyślij do GitHub
+npm run backup -- --push
+
+# Utwórz backup nawet jeśli nie ma zmian
+npm run backup -- --push --force
 ```
 
-## Przywracanie backupu
-
-Aby przywrócić bazę danych z backupu:
+## Przywracanie z backupu
 
 ```powershell
+# Znajdź odpowiedni backup (wyświetl listę z datami)
+Get-ChildItem backups\*.sql | Sort-Object LastWriteTime -Descending | Select-Object Name, LastWriteTime, @{N='Size MB';E={[math]::Round($_.Length/1MB,2)}}
+
+# Przywróć wybrany backup
 $env:PGPASSWORD="Iron4maiden124!"
-& "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -p 1906 -d bet_assistant -f backups/database-backup.sql
-```
-
-Lub przez npm script (jeśli zostanie dodany):
-
-```bash
-npm run db:restore
+& "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -p 1906 -d bet_assistant -f backups/database-backup-5.sql
 ```
 
 ## Format backupu
@@ -47,8 +58,23 @@ Backup zawiera:
 - `INSERT INTO` - wstawia wszystkie dane
 - Bez uprawnień właściciela (--no-owner --no-privileges)
 
-## Rozmiar
+## Monitoring
 
-Typowy rozmiar backupu:
-- Pusta baza: ~5-10 KB
-- Z danymi: zależny od liczby zaimportowanych meczów (typowo kilka MB)
+Przy każdym backupie wyświetlana jest lista istniejących backupów:
+```
+📋 Existing backups:
+  backup-5: 2025-12-01 20:15:03 (5.42 MB)
+  backup-3: 2025-11-30 18:30:12 (4.87 MB)
+  backup-1: 2025-11-29 22:14:59 (4.23 MB)
+  ...
+```
+
+## Informacje o backupach
+
+Każdy backup zawiera informacje:
+- Numer slotu (1-10)
+- Data i czas utworzenia
+- Rozmiar pliku w MB
+- Liczba tabel
+- Liczba instrukcji INSERT
+- Timestamp w nazwie commita Git

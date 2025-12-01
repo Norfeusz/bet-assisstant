@@ -4,6 +4,7 @@
 
 import express from 'express'
 import * as dotenv from 'dotenv'
+import * as path from 'path'
 import { ApiFootballClient } from '../src/services/api-football-client'
 import { LeagueSelector, LeagueConfig } from '../src/services/league-selector'
 import { ImportStateManager } from '../src/utils/import-state'
@@ -704,7 +705,8 @@ app.get('/api/database/matches', async (req, res) => {
 				home_shots, away_shots,
 				home_shots_on_target, away_shots_on_target,
 				home_xg, away_xg,
-				home_possession, away_possession
+				home_possession, away_possession,
+				standing_home, standing_away
 			FROM matches
 			${whereClause}
 			${orderBy}
@@ -735,6 +737,8 @@ app.get('/api/database/matches', async (req, res) => {
 			away_xg: match.away_xg !== null ? parseFloat(match.away_xg) : null,
 			home_possession: match.home_possession !== null ? Number(match.home_possession) : null,
 			away_possession: match.away_possession !== null ? Number(match.away_possession) : null,
+			standing_home: match.standing_home !== null ? Number(match.standing_home) : null,
+			standing_away: match.standing_away !== null ? Number(match.standing_away) : null,
 		}))
 
 		console.log('📊 Found', serializedMatches.length, 'matches with filters:', {
@@ -819,6 +823,11 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 	console.error('   Request:', req.method, req.url)
 	console.error('   Body:', req.body)
 	res.status(500).json({ error: err.message || 'Internal Server Error' })
+})
+
+// Serve Lista rozgrywek.csv from root directory
+app.get('/Lista rozgrywek.csv', (req, res) => {
+	res.sendFile(path.join(process.cwd(), 'Lista rozgrywek.csv'))
 })
 
 // Serve static files AFTER all API routes

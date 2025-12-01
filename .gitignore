@@ -36,4 +36,4 @@ fix-stats-with-possession.sql
 
 # Keep database backups (they should be committed)
 !backups/
-!backups/database-backup.sql
+!backups/*.sql

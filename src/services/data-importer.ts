@@ -181,6 +181,169 @@ export class DataImporter {
 	}
 
 	/**
+	 * Update results for unfinished matches in date range
+	 */
+	async updateResults(
+		fromDate: string,
+		toDate: string,
+		resume: boolean = false
+	): Promise<void> {
+		const enabledLeagues = this.leagueSelector.getEnabledLeagues()
+
+		if (enabledLeagues.length === 0) {
+			throw new Error('No leagues enabled. Run league selector initialization first.')
+		}
+
+		console.log(`\n=== Updating match results from ${fromDate} to ${toDate} ===`)
+		console.log(`Leagues to process: ${enabledLeagues.length}`)
+
+		try {
+			for (const league of enabledLeagues) {
+				// Check if user requested stop
+				if (getShouldStopImport()) {
+					console.log('\n⏸️  Update stopped by user')
+					console.log(`✅ Updated ${this.progress.importedMatches} matches so far`)
+					return
+				}
+
+				try {
+					await this.updateLeagueResults(league, fromDate, toDate)
+					this.displayProgress()
+					await this.sleep(1000)
+				} catch (error: any) {
+					console.error(`  Error updating league ${league.name}:`, error)
+					if (error.message?.includes('rate limit') || error.message?.includes('429')) {
+						console.log('\n⏸️  Rate limit reached.')
+						throw error
+					}
+				}
+			}
+
+			console.log('\n✅ Results update completed!')
+			console.log(`Updated: ${this.progress.importedMatches} matches`)
+		} catch (error) {
+			console.error('Error during results update:', error)
+			throw error
+		}
+	}
+
+	/**
+	 * Update results for a single league
+	 */
+	private async updateLeagueResults(league: LeagueConfig, fromDate: string, toDate: string): Promise<void> {
+		console.log(`\nUpdating results: ${league.name} (${league.country})`)
+
+		if (!this.progress.leagues[league.id]) {
+			this.progress.leagues[league.id] = {
+				name: league.name,
+				imported: 0,
+				failed: 0,
+			}
+		}
+
+		try {
+			const currentYear = new Date().getFullYear()
+			
+			console.log(`  🔍 Fetching finished fixtures: league=${league.id}, season=${currentYear}, from=${fromDate}, to=${toDate}`)
+
+			// Fetch fixtures from API
+			const fixtures = await this.apiClient.getLeagueFixtures(league.id, currentYear, { from: fromDate, to: toDate })
+			
+			console.log(`  ✅ API returned ${fixtures.length} fixtures for ${league.name}`)
+
+			if (fixtures.length === 0) {
+				return
+			}
+
+			// Filter only finished fixtures
+			const finishedFixtures = fixtures.filter(f => ['FT', 'AET', 'PEN'].includes(f.fixture.status.short))
+			console.log(`  📊 Found ${finishedFixtures.length} finished fixtures`)
+
+			// Process each finished fixture
+			for (const fixture of finishedFixtures) {
+				await this.updateSingleMatchResult(fixture, league)
+			}
+		} catch (error) {
+			console.error(`  Error updating league ${league.name}:`, error)
+			this.progress.leagues[league.id].failed++
+			throw error
+		}
+	}
+
+	/**
+	 * Update a single match result if it exists in database and is unfinished
+	 */
+	private async updateSingleMatchResult(fixture: FixtureResponse, league: LeagueConfig): Promise<void> {
+		const fixtureId = fixture.fixture.id
+		const homeTeam = fixture.teams.home.name
+		const awayTeam = fixture.teams.away.name
+
+		try {
+			// Check if match exists and is unfinished
+			const existingMatch = await prisma.matches.findUnique({
+				where: { fixture_id: fixtureId },
+				select: { fixture_id: true, is_finished: true }
+			})
+
+			if (!existingMatch) {
+				// Match doesn't exist in database - skip
+				return
+			}
+
+			if (existingMatch.is_finished === 'yes') {
+				// Already updated - skip
+				return
+			}
+
+			console.log(`  🔄 Updating: ${homeTeam} vs ${awayTeam}`)
+
+			// Fetch statistics and odds
+			let statistics: FixtureStatisticsResponse[] = []
+			let odds: OddsResponse[] = []
+
+			try {
+				statistics = await this.apiClient.getFixtureStatistics(fixtureId)
+				await this.sleep(334) // Rate limit: ~3 requests/sec
+			} catch (error) {
+				console.warn(`  ⚠️  Could not fetch statistics for fixture ${fixtureId}`)
+			}
+
+			try {
+				odds = await this.apiClient.getFixtureOdds(fixtureId)
+				await this.sleep(334)
+			} catch (error) {
+				console.warn(`  ⚠️  Could not fetch odds for fixture ${fixtureId}`)
+			}
+
+			// Get standings
+			const currentYear = new Date().getFullYear()
+			const { homeStanding, awayStanding } = await this.getTeamStandings(
+				league.id,
+				currentYear,
+				homeTeam,
+				awayTeam
+			)
+
+			// Extract match data
+			const matchData = this.extractMatchData(fixture, statistics, odds, league, homeStanding, awayStanding)
+
+			// Update match in database
+			await prisma.matches.update({
+				where: { fixture_id: fixtureId },
+				data: matchData
+			})
+
+			this.progress.importedMatches++
+			this.progress.leagues[league.id].imported++
+			console.log(`  ✅ Updated: ${homeTeam} vs ${awayTeam}`)
+		} catch (error: any) {
+			console.error(`  ❌ Error updating ${homeTeam} vs ${awayTeam}:`, error.message)
+			this.progress.failedMatches++
+			this.progress.leagues[league.id].failed++
+		}
+	}
+
+	/**
 	 * Import matches for a single league in date range
 	 */
 	private async importLeagueMatches(league: LeagueConfig, fromDate: string, toDate: string): Promise<void> {
@@ -199,10 +362,12 @@ export class DataImporter {
 			// Get current season (2025 for Nov 2025)
 			const currentYear = new Date().getFullYear()
 
+			console.log(`  🔍 Fetching fixtures: league=${league.id}, season=${currentYear}, from=${fromDate}, to=${toDate}`)
+
 			// Fetch fixtures for this league in date range
 			const fixtures = await this.apiClient.getLeagueFixtures(league.id, currentYear, { from: fromDate, to: toDate })
 
-			console.log(`  Found ${fixtures.length} matches`)
+			console.log(`  ✅ API returned ${fixtures.length} fixtures for ${league.name}`)
 
 			if (fixtures.length === 0) {
 				return
@@ -280,8 +445,16 @@ export class DataImporter {
 		const isFinished = ['FT', 'AET', 'PEN'].includes(fixture.fixture.status.short)
 
 		try {
-			// FAST MODE: No duplicate checking - let database handle it with ON CONFLICT
-			// This saves API tokens and time by skipping SELECT queries
+			// Check if match already exists in database BEFORE making API calls
+			const existingMatch = await prisma.matches.findUnique({
+				where: { fixture_id: fixtureId },
+				select: { fixture_id: true }
+			})
+
+			if (existingMatch) {
+				console.log(`  ⏭️  ${homeTeam} vs ${awayTeam} - already exists (skipped)`)
+				return
+			}
 			
 			// Fetch full data (statistics + odds)
 			let statistics: FixtureStatisticsResponse[] = []
@@ -355,11 +528,12 @@ export class DataImporter {
 		// Determine if match is finished (FT = Full Time, AET = After Extra Time, PEN = Penalties)
 		const isFinished = ['FT', 'AET', 'PEN'].includes(fixture.fixture.status.short) ? 'yes' : 'no'
 
-		// Get team standings ONLY for finished matches
+		// Get team standings ONLY for matches from November 1, 2025 onwards
 		let homeStanding: number | null = null
 		let awayStanding: number | null = null
 
-		if (isFinished === 'yes') {
+		const standingsCutoffDate = new Date('2025-11-01')
+		if (matchDate >= standingsCutoffDate) {
 			const season = new Date(fixture.fixture.date).getFullYear()
 			const standings = await this.getTeamStandings(league.id, season, homeTeam, awayTeam)
 			homeStanding = standings.homeStanding

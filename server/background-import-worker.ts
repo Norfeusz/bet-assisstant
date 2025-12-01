@@ -18,6 +18,7 @@ interface ImportJob {
 	leagues: number[]
 	date_from: Date
 	date_to: Date
+	job_type: 'new_matches' | 'update_results'
 	status: string
 	progress: JobProgress
 	total_matches: number
@@ -38,6 +39,7 @@ interface JobProgress {
 class BackgroundImportWorker {
 	private logDir: string
 	private emailTransporter: nodemailer.Transporter | null = null
+	private processingJobId: number | null = null // Lock to prevent concurrent processing
 
 	constructor() {
 		this.logDir = path.join(process.cwd(), 'logs')
@@ -98,6 +100,23 @@ class BackgroundImportWorker {
 		}
 	}
 
+	private async promoteNextQueuedJob(): Promise<void> {
+		// When a job completes/fails, promote the next in_queue job to pending
+		await prisma.$executeRaw`
+			UPDATE import_jobs
+			SET status = 'pending'::job_status_enum,
+			    updated_at = NOW()
+			WHERE id = (
+				SELECT id
+				FROM import_jobs
+				WHERE status = 'in_queue'
+				ORDER BY created_at ASC
+				LIMIT 1
+			)
+		`
+		console.log('✅ Promoted next job from queue to pending')
+	}
+
 	private async updateJobStatus(jobId: number, status: string, updates: Partial<ImportJob> = {}): Promise<void> {
 		await prisma.$executeRawUnsafe(
 			`
@@ -136,20 +155,26 @@ class BackgroundImportWorker {
 		}
 	}
 
-	private async processJob(job: ImportJob): Promise<void> {
-		this.log(job.id, `Starting job: ${job.leagues.length} leagues, ${job.date_from} to ${job.date_to}`)
+private async processJob(job: ImportJob): Promise<void> {
+	const isResume = job.progress?.completed_leagues && job.progress.completed_leagues.length > 0
+	
+	this.log(job.id, `${isResume ? 'Resuming' : 'Starting'} job: ${job.leagues.length} leagues, ${job.date_from} to ${job.date_to}`)
 
+	// Only update started_at if this is a new job
+	if (!isResume && !job.started_at) {
 		await this.updateJobStatus(job.id, 'running', {
 			...job,
 			started_at: new Date(),
 			progress: {
-				completed_leagues: job.progress?.completed_leagues || [],
+				completed_leagues: [],
 				current_league: undefined,
 				current_date: undefined,
 			},
 		} as any)
-
-		const allLeagues = await this.loadLeagueConfigs()
+	} else {
+		// Just ensure status is running for resume
+		await this.updateJobStatus(job.id, 'running', job as any)
+	}		const allLeagues = await this.loadLeagueConfigs()
 
 		// Debug logging
 		this.log(job.id, `Loaded ${allLeagues.length} leagues from config`)
@@ -202,17 +227,17 @@ class BackgroundImportWorker {
 					},
 				} as any)
 
-				// Import matches for this league - create temp config with single league
-				const tempConfigPath = path.join(process.cwd(), 'logs', `temp-config-${job.id}-${league.id}.json`)
-				const mainConfigPath = path.join(process.cwd(), 'league-config.json')
+			// Import matches for this league - create temp config with single league
+			const tempConfigPath = path.join(process.cwd(), 'logs', `temp-config-${job.id}-${league.id}.json`)
+			const mainConfigPath = path.join(process.cwd(), 'data', 'leagues.json')
 
-				// Write temp config for single league
-				fs.writeFileSync(tempConfigPath, JSON.stringify([league], null, 2))
+			// Write temp config for single league
+			fs.writeFileSync(tempConfigPath, JSON.stringify([league], null, 2))
 
-				try {
-					// Backup existing config if it exists
-					let hadExistingConfig = false
-					let backupConfigPath = ''
+			try {
+				// Backup existing config if it exists
+				let hadExistingConfig = false
+				let backupConfigPath = ''
 
 					if (fs.existsSync(mainConfigPath)) {
 						hadExistingConfig = true
@@ -227,30 +252,40 @@ class BackgroundImportWorker {
 					const tempLeagueSelector = new LeagueSelector(apiClient)
 					const tempImporter = new DataImporter(apiClient, tempLeagueSelector)
 
+				// Use appropriate import method based on job type
+				if (job.job_type === 'update_results') {
+					await tempImporter.updateResults(
+						job.date_from.toISOString().split('T')[0],
+						job.date_to.toISOString().split('T')[0],
+						false // don't resume
+					)
+				} else {
+					// Default: import new matches
 					await tempImporter.importDateRange(
 						job.date_from.toISOString().split('T')[0],
 						job.date_to.toISOString().split('T')[0],
 						false, // don't resume
 						false // no auto-retry (we handle it ourselves)
 					)
+				}
 
 					// Restore original config if it existed
-					if (hadExistingConfig && backupConfigPath) {
+					if (hadExistingConfig && backupConfigPath && fs.existsSync(backupConfigPath)) {
 						fs.copyFileSync(backupConfigPath, mainConfigPath)
 						fs.unlinkSync(backupConfigPath)
-					} else {
-						// Remove temp config file
+					} else if (!hadExistingConfig && fs.existsSync(mainConfigPath)) {
+						// Remove temp config file if we created it
 						fs.unlinkSync(mainConfigPath)
 					}
 
 					// Cleanup temp file
-					fs.unlinkSync(tempConfigPath)
+					if (fs.existsSync(tempConfigPath)) {
+						fs.unlinkSync(tempConfigPath)
+					}
 
 					// Check rate limit
 					const rateLimitInfo = tempImporter.getRateLimitInfo()
-					const progress = tempImporter.getProgress()
-
-					// Log league details
+					const progress = tempImporter.getProgress()					// Log league details
 					const leagueProgress = progress.leagues[league.id]
 					if (leagueProgress) {
 						const total = leagueProgress.imported + leagueProgress.failed
@@ -276,7 +311,27 @@ class BackgroundImportWorker {
 						`📊 Progress: ${cumulativeImported} total imported, ${rateLimitInfo.remaining} API requests remaining`
 					)
 
-					// Mark league as completed BEFORE checking rate limit
+					// Check if rate limited BEFORE marking league as completed
+					if (rateLimitInfo.remaining <= 10) {
+						// Keep small buffer
+						this.log(job.id, '⏸️  Rate limit reached during league import, pausing job for 15 minutes')
+						this.log(job.id, `⚠️  League ${league.name} will be retried after rate limit reset`)
+						await this.updateJobStatus(job.id, 'rate_limited', {
+							...job,
+							imported_matches: cumulativeImported,
+							failed_matches: cumulativeFailed,
+							rate_limit_reset_at: new Date(Date.now() + 15 * 60 * 1000), // 15 minutes
+							progress: {
+								...job.progress,
+								completed_leagues: completedLeagues,
+								current_league: league.id, // Keep current league so it will be retried
+							},
+						} as any)
+						return // Exit and let scheduler resume later
+					}
+
+					// Only mark league as completed if we have enough API requests
+					// This ensures leagues hit by rate limit will be retried
 					completedLeagues.push(league.id)
 
 					// Update job with league completion and cumulative stats
@@ -292,54 +347,70 @@ class BackgroundImportWorker {
 						},
 					} as any)
 
-					this.log(job.id, `✅ Completed league: ${league.name} (${completedLeagues.length}/${selectedLeagues.length})`)
+				this.log(job.id, `✅ Completed league: ${league.name} (${completedLeagues.length}/${selectedLeagues.length})`)
 
-					// If rate limited, pause job
-					if (rateLimitInfo.remaining <= 10) {
-						// Keep small buffer
-						this.log(job.id, '⏸️  Rate limit reached, pausing job for 15 minutes')
-						await this.updateJobStatus(job.id, 'rate_limited', {
-							...job,
-							imported_matches: cumulativeImported,
-							failed_matches: cumulativeFailed,
-							rate_limit_reset_at: new Date(Date.now() + 15 * 60 * 1000), // 15 minutes
-							progress: {
-								...job.progress,
-								completed_leagues: completedLeagues,
-								current_league: undefined,
-							},
-						} as any)
-						return // Exit and let scheduler resume later
-					}
 				} catch (error: any) {
-					this.log(job.id, `❌ Error processing league ${league.name}: ${error.message}`)
+				this.log(job.id, `❌ Error processing league ${league.name}: ${error.message}`)
 
-					// Cleanup all temp files on error
-					const originalConfigPath = path.join(process.cwd(), 'league-config.json')
-					const backupConfigPath = path.join(process.cwd(), 'logs', `backup-config-${job.id}.json`)
+				// Cleanup all temp files on error
+				const originalConfigPath = path.join(process.cwd(), 'league-config.json')
+				const backupConfigPath = path.join(process.cwd(), 'logs', `backup-config-${job.id}.json`)
 
-					if (fs.existsSync(backupConfigPath)) {
+				// Only restore backup if it exists
+				if (fs.existsSync(backupConfigPath)) {
+					try {
 						fs.copyFileSync(backupConfigPath, originalConfigPath)
 						fs.unlinkSync(backupConfigPath)
+					} catch (restoreError: any) {
+						this.log(job.id, `⚠️  Warning: Could not restore config backup: ${restoreError.message}`)
 					}
-					if (fs.existsSync(tempConfigPath)) {
-						fs.unlinkSync(tempConfigPath)
-					}
-
-					// Continue with next league
 				}
-			}
+				
+				// Remove temp config if it exists
+				if (fs.existsSync(tempConfigPath)) {
+					try {
+						fs.unlinkSync(tempConfigPath)
+					} catch (cleanupError: any) {
+						this.log(job.id, `⚠️  Warning: Could not remove temp config: ${cleanupError.message}`)
+					}
+				}
 
-			// Job completed
+				// Check if this is a rate limit error
+				if (error.message?.includes('Rate limit') || error.message?.includes('rate limit') || error.message?.includes('429')) {
+					this.log(job.id, '⏸️  Rate limit reached during league import, pausing job for 15 minutes')
+					this.log(job.id, `⚠️  League ${league.name} will be retried after rate limit reset`)
+					await this.updateJobStatus(job.id, 'rate_limited', {
+						...job,
+						imported_matches: cumulativeImported,
+						failed_matches: cumulativeFailed,
+						rate_limit_reset_at: new Date(Date.now() + 15 * 60 * 1000), // 15 minutes
+						progress: {
+							...job.progress,
+							completed_leagues: completedLeagues,
+							current_league: league.id, // Keep current league so it will be retried
+						},
+					} as any)
+					return // Exit and let scheduler resume later
+				}
+
+				// For other errors, continue with next league
+				this.log(job.id, `⚠️  Skipping league ${league.name} due to error, continuing with next league`)
+			}
+		}
+
+		// Job completed
 			await this.updateJobStatus(job.id, 'completed', {
 				imported_matches: cumulativeImported,
 				failed_matches: cumulativeFailed,
 			} as any)
 
-			this.log(job.id, `✅ Job completed successfully`)
+		this.log(job.id, `✅ Job completed successfully`)
 
-			// Create database backup and push to GitHub
-			this.log(job.id, '💾 Creating database backup...')
+		// Promote next job in queue
+		await this.promoteNextQueuedJob()
+
+		// Create database backup and push to GitHub
+		this.log(job.id, '💾 Creating database backup...')
 			try {
 				const backup = new DatabaseBackup()
 				await backup.createBackup({
@@ -360,14 +431,15 @@ class BackgroundImportWorker {
 					`Failed: ${cumulativeFailed} matches\n` +
 					`Date range: ${job.date_from.toISOString().split('T')[0]} to ${job.date_to.toISOString().split('T')[0]}`
 			)
-		} catch (error: any) {
-			this.log(job.id, `❌ Job failed: ${error.message}`)
-			await this.updateJobStatus(job.id, 'failed', {
-				...job,
-				error_message: error.message,
-			} as any)
+	} catch (error: any) {
+		this.log(job.id, `❌ Job failed: ${error.message}`)
+		await this.updateJobStatus(job.id, 'failed', {
+			...job,
+			error_message: error.message,
+		} as any)
 
-			// Send error email
+		// Promote next job in queue even on failure
+		await this.promoteNextQueuedJob()			// Send error email
 			await this.sendEmail(
 				'Import Job Failed',
 				`Job #${job.id} has failed.\n\n` + `Error: ${error.message}\n\n` + `Stack trace:\n${error.stack}`
@@ -378,17 +450,15 @@ class BackgroundImportWorker {
 	async start() {
 		console.log('🚀 Background Import Worker started')
 		console.log(`📁 Logs directory: ${this.logDir}`)
-		console.log('⏰ Checking for jobs every 60 seconds...\n')
+		console.log('⏰ Checking for jobs every 5 minutes...\n')
 
 		// Check immediately on start
 		await this.checkAndProcessJobs()
 
-		// Check for pending/rate_limited jobs every minute
-		setInterval(async () => {
-			await this.checkAndProcessJobs()
-		}, 60000) // Check every minute
-
-		// Keep process alive
+	// Check for pending/rate_limited jobs every 5 minutes
+	setInterval(async () => {
+		await this.checkAndProcessJobs()
+	}, 300000) // Check every 5 minutes		// Keep process alive
 		process.on('SIGINT', async () => {
 			console.log('\n⏹️  Shutting down worker...')
 			await prisma.$disconnect()
@@ -398,46 +468,80 @@ class BackgroundImportWorker {
 
 	private async checkAndProcessJobs() {
 		try {
+			// Don't check for new jobs if we're already processing one
+			if (this.processingJobId !== null) {
+				console.log(`⏳ Still processing job #${this.processingJobId}, skipping check`)
+				return
+			}
+
 			console.log('🔍 Checking for pending jobs...')
 
-			// Find jobs that need processing
-			const jobs = await prisma.$queryRaw<ImportJob[]>`
-				SELECT * FROM import_jobs
-				WHERE status IN ('pending', 'rate_limited')
-				AND (
+		// Find jobs that need processing
+		// Priority: 1. rate_limited jobs ready to resume, 2. pending jobs (ONLY if no active/paused job exists)
+		const jobs = await prisma.$queryRaw<ImportJob[]>`
+			SELECT * FROM import_jobs
+			WHERE (
+				-- Rate limited jobs that are ready to resume
+				(status = 'rate_limited' AND rate_limit_reset_at < NOW())
+				OR 
+				-- Pending jobs ONLY if there are NO running or rate_limited jobs at all
+				(
 					status = 'pending' 
-					OR (status = 'rate_limited' AND rate_limit_reset_at < NOW())
+					AND NOT EXISTS (
+						SELECT 1 FROM import_jobs 
+						WHERE status IN ('running', 'rate_limited')
+					)
 				)
-				ORDER BY created_at ASC
-				LIMIT 1
-			`
+			)
+			ORDER BY 
+				CASE 
+					WHEN status = 'rate_limited' THEN 1
+					WHEN status = 'pending' THEN 2
+				END,
+				created_at ASC
+			LIMIT 1
+		`
 
-			if (jobs.length > 0) {
-				const job = jobs[0]
+		if (jobs.length > 0) {
+			const job = jobs[0]
 
 				// Parse progress if it's a string
 				if (typeof job.progress === 'string') {
 					job.progress = JSON.parse(job.progress)
 				}
 
-				console.log(`✅ Found job #${job.id} to process`)
+			console.log(`✅ Found job #${job.id} to process`)
 
-				// If resuming from rate_limited, reset status to running
-				if (job.status === 'rate_limited') {
-					const completedCount = job.progress?.completed_leagues?.length || 0
-					console.log(`🔄 Resuming rate-limited job #${job.id} (${completedCount} leagues already completed)`)
-					await this.updateJobStatus(job.id, 'running', {
-						...job,
-						rate_limit_reset_at: null,
-					} as any)
-				}
+			// Set lock
+			this.processingJobId = job.id
 
+			// If resuming from rate_limited, reset status
+			if (job.status === 'rate_limited') {
+				const completedCount = job.progress?.completed_leagues?.length || 0
+				console.log(`🔄 Resuming rate-limited job #${job.id} (${completedCount} leagues already completed)`)
+				await this.updateJobStatus(job.id, 'running', {
+					...job,
+					rate_limit_reset_at: null,
+				} as any)
+			}
+
+			try {
 				await this.processJob(job)
+			} finally {
+				// Release lock when done (completed, failed, or rate-limited)
+				this.processingJobId = null
+				
+				// Immediately check for next job (don't wait for the 5-minute interval)
+				console.log('🔍 Job finished, checking for next job in queue...')
+				setImmediate(() => this.checkAndProcessJobs())
+			}
 			} else {
 				console.log('💤 No jobs to process')
 			}
 		} catch (error) {
 			console.error('❌ Worker error:', error)
+			// Release lock on error
+			this.processingJobId = null
 		}
 	}
 }

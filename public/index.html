@@ -77,6 +77,25 @@
                 </div>
             </div>
 
+            <!-- Import Queue Section -->
+            <div
+                style="background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <h2 style="margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px;">
+                    📋 Kolejka Importu
+                    <span id="queue-count" style="background: #3b82f6; color: white; padding: 4px 12px; border-radius: 12px; font-size: 14px; margin-left: 10px;">0</span>
+                    <button class="btn" style="background: #3b82f6; color: white; padding: 8px 16px; margin-left: auto;"
+                        onclick="refreshImportQueue()">
+                        🔄 Odśwież
+                    </button>
+                </h2>
+                <div id="import-queue-list">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Ładowanie kolejki...
+                    </div>
+                </div>
+            </div>
+
             <!-- Background Jobs Section -->
             <div
                 style="background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
@@ -277,6 +296,13 @@
                             <label for="bet-finder-date-to">Do:</label>
                             <input type="date" id="bet-finder-date-to" class="date-input">
                         </div>
+                        <button 
+                            onclick="window.setTodayDate()" 
+                            class="btn-primary"
+                            style="padding: 8px 16px; font-size: 13px; margin-top: 10px; width: auto;"
+                            title="Ustaw zakres dat na dzisiejszy dzień">
+                            📅 Dzisiejsze mecze
+                        </button>
                     </div>
                 </div>
 
@@ -358,6 +384,22 @@
                             <span class="info-tooltip">
                                 Znajduje mecze gdzie jedna drużyna często wygrywa różnicą ≥2, a druga często
                                 przegrywa różnicą ≥2
+                            </span>
+                        </button>
+                        <button class="bet-finder-btn btn-with-info" onclick="queueMostBTS()"
+                            style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">
+                            🎯 Najwięcej BTS
+                            <span class="info-icon">i</span>
+                            <span class="info-tooltip">
+                                Znajduje mecze gdzie obie drużyny najczęściej strzelały bramki (Both Teams to Score)
+                            </span>
+                        </button>
+                        <button class="bet-finder-btn btn-with-info" onclick="queueNoBTS()"
+                            style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                            🛡️ Bez BTS
+                            <span class="info-icon">i</span>
+                            <span class="info-tooltip">
+                                Znajduje mecze gdzie tylko jedna drużyna (lub żadna) strzeliła bramki - przeciwieństwo BTS
                             </span>
                         </button>
                     </div>
@@ -464,6 +506,71 @@
                             <span class="info-icon">i</span>
                             <span class="info-tooltip">
                                 Znajduje mecze gdzie suma spalonych obu drużyn (w meczu) jest najmniejsza
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grupa 5: Dom/Wyjazd -->
+                <div style="margin-bottom: 30px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h4 style="color: #1e40af; margin: 0; font-size: 17px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">
+                            🏠 Dom/Wyjazd
+                        </h4>
+                        <button onclick="queueAllHomeAwaySearches()" 
+                            style="padding: 6px 12px; background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+                            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)';"
+                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)';">
+                            ➕ Dodaj wszystkie do kolejki
+                        </button>
+                    </div>
+                    <div class="bet-finder-buttons">
+                        <button class="bet-finder-btn btn-with-info" onclick="queueHomeWins()"
+                            style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);">
+                            🏠 Zwycięstwa gospodarzy
+                            <span class="info-icon">i</span>
+                            <span class="info-tooltip">
+                                Znajduje mecze gdzie gospodarz wygrywał najczęściej w swoich ostatnich meczach u siebie
+                            </span>
+                        </button>
+                        <button class="bet-finder-btn btn-with-info" onclick="queueAwayWins()"
+                            style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);">
+                            ✈️ Zwycięstwa gości
+                            <span class="info-icon">i</span>
+                            <span class="info-tooltip">
+                                Znajduje mecze gdzie gość wygrywał najczęściej w swoich ostatnich meczach na wyjeździe
+                            </span>
+                        </button>
+                        <button class="bet-finder-btn btn-with-info" onclick="queueHomeLosses()"
+                            style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
+                            📉 Najwięcej porażek gospodarzy
+                            <span class="info-icon">i</span>
+                            <span class="info-tooltip">
+                                Znajduje mecze gdzie gospodarz najczęściej przegrywa w swoich meczach domowych - dobry typ na wygraną gości
+                            </span>
+                        </button>
+                        <button class="bet-finder-btn btn-with-info" onclick="queueAwayLosses()"
+                            style="background: linear-gradient(135deg, #84cc16 0%, #65a30d 100%);">
+                            📊 Najwięcej porażek gości
+                            <span class="info-icon">i</span>
+                            <span class="info-tooltip">
+                                Znajduje mecze gdzie gość najczęściej przegrywa w swoich meczach wyjazdowych - dobry typ na wygraną gospodarzy
+                            </span>
+                        </button>
+                        <button class="bet-finder-btn btn-with-info" onclick="queueHomeAdvantage()"
+                            style="background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);">
+                            🛡️ Przewaga gospodarzy
+                            <span class="info-icon">i</span>
+                            <span class="info-tooltip">
+                                Znajduje mecze gdzie gospodarze często wygrywają u siebie, a goście często przegrywają na wyjeździe - mocna przewaga dla gospodarzy
+                            </span>
+                        </button>
+                        <button class="bet-finder-btn btn-with-info" onclick="queueAwayAdvantage()"
+                            style="background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);">
+                            ⚔️ Przewaga gości
+                            <span class="info-icon">i</span>
+                            <span class="info-tooltip">
+                                Znajduje mecze gdzie goście często wygrywają na wyjeździe, a gospodarze często przegrywają u siebie - mocna przewaga dla gości
                             </span>
                         </button>
                     </div>
@@ -656,6 +763,19 @@
             <p style="color: #666; margin-bottom: 20px;">Skonfiguruj automatyczny import danych</p>
 
             <div class="modal-body">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">
+                        Typ Zadania:
+                    </label>
+                    <select id="background-job-type" class="btn" style="width: 100%; padding: 10px;">
+                        <option value="new_matches">🆕 Import nowych meczów</option>
+                        <option value="update_results">🔄 Aktualizacja wyników</option>
+                    </select>
+                    <p style="margin: 8px 0 0 0; font-size: 12px; color: #666;" id="job-type-description">
+                        Importuje nadchodzące mecze dla wybranych lig.
+                    </p>
+                </div>
+
                 <div style="margin-bottom: 20px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
                         <label style="font-weight: 600;">

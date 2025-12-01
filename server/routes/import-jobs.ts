@@ -10,39 +10,52 @@ interface CreateJobRequest {
 	leagueIds: number[]
 	dateFrom: string
 	dateTo: string
+	jobType?: 'new_matches' | 'update_results'
 }
 
 // Create new import job
 router.post('/import-jobs', async (req, res) => {
 	try {
-		const { leagueIds, dateFrom, dateTo } = req.body as CreateJobRequest
+		const { leagueIds, dateFrom, dateTo, jobType = 'new_matches' } = req.body as CreateJobRequest
 
 		// Validation
 		if (!leagueIds || !Array.isArray(leagueIds) || leagueIds.length === 0) {
 			return res.status(400).json({ error: 'leagueIds is required and must be a non-empty array' })
 		}
 
-		if (!dateFrom || !dateTo) {
-			return res.status(400).json({ error: 'dateFrom and dateTo are required' })
-		}
+	if (!dateFrom || !dateTo) {
+		return res.status(400).json({ error: 'dateFrom and dateTo are required' })
+	}
 
-		// Create job
-		const job: any = await prisma.$queryRawUnsafe(
-			`
-		INSERT INTO import_jobs (leagues, date_from, date_to, status, progress)
-		VALUES ($1::jsonb, $2::date, $3::date, 'pending', '{}'::jsonb)
-		RETURNING id
-	`,
-			JSON.stringify(leagueIds),
-			dateFrom,
-			dateTo
-		)
+	// Check if there's already an active or queued job
+	const existingJobs = await prisma.$queryRaw<Array<{ count: bigint }>>`
+		SELECT COUNT(*) as count
+		FROM import_jobs
+		WHERE status IN ('pending', 'running', 'rate_limited', 'in_queue')
+	`
+	
+	// New job gets 'pending' only if no other jobs are active/queued, otherwise 'in_queue'
+	const initialStatus = existingJobs[0].count > 0 ? 'in_queue' : 'pending'
 
-		res.json({
-			success: true,
-			jobId: job[0].id,
-			message: 'Import job created successfully. Worker will process it shortly.',
-		})
+	// Create job
+	const job: any = await prisma.$queryRawUnsafe(
+		`
+	INSERT INTO import_jobs (leagues, date_from, date_to, job_type, status, progress)
+	VALUES ($1::jsonb, $2::date, $3::date, $4::job_type_enum, $5::job_status_enum, '{}'::jsonb)
+	RETURNING id
+`,
+		JSON.stringify(leagueIds),
+		dateFrom,
+		dateTo,
+		jobType,
+		initialStatus
+	)
+
+	res.json({
+		success: true,
+		jobId: job[0].id,
+		message: 'Import job created successfully. Worker will process it shortly.',
+	})
 	} catch (error: any) {
 		console.error('Error creating import job:', error)
 		res.status(500).json({ error: error.message })
@@ -69,6 +82,44 @@ router.get('/import-jobs', async (req, res) => {
 		console.error('Error fetching jobs:', error)
 		res.status(500).json({ error: error.message })
 	}
+})
+
+// Get import queue (in_queue, pending, running, rate_limited jobs ordered by priority)
+router.get('/import-jobs/queue', async (req, res) => {
+try {
+	const jobs = await prisma.$queryRaw<any[]>`
+		SELECT 
+			id, 
+			leagues, 
+			date_from, 
+			date_to, 
+			status, 
+			progress,
+			total_matches,
+			imported_matches,
+			failed_matches,
+			rate_limit_remaining,
+			rate_limit_reset_at,
+			created_at,
+			started_at
+		FROM import_jobs
+		WHERE status IN ('in_queue', 'pending', 'running', 'rate_limited')
+		AND hidden = false
+		ORDER BY 
+			CASE 
+				WHEN status = 'running' THEN 1
+				WHEN status = 'rate_limited' THEN 2
+				WHEN status = 'pending' THEN 3
+				WHEN status = 'in_queue' THEN 4
+			END,
+			created_at ASC
+	`
+
+	res.json(jobs)
+} catch (error: any) {
+	console.error('Error fetching import queue:', error)
+	res.status(500).json({ error: error.message })
+}
 })
 
 // Get single job
@@ -268,20 +319,20 @@ router.delete('/import-jobs/:id', async (req, res) => {
 	try {
 		const jobId = parseInt(req.params.id)
 
-		// Only allow deleting completed, failed, or paused jobs
-		await prisma.$executeRawUnsafe(
-			`
-			DELETE FROM import_jobs
-			WHERE id = $1 AND status NOT IN ('running', 'pending')
-		`,
-			jobId
-		)
+	// Only allow deleting completed, failed, or paused jobs
+	await prisma.$executeRawUnsafe(
+		`
+		DELETE FROM import_jobs
+		WHERE id = $1 AND status NOT IN ('running', 'pending')
+	`,
+		jobId
+	)
 
-		res.json({ success: true, message: 'Job deleted' })
-	} catch (error: any) {
-		console.error('Error deleting job:', error)
-		res.status(500).json({ error: error.message })
-	}
+	res.json({ success: true, message: 'Job deleted' })
+} catch (error: any) {
+	console.error('Error deleting job:', error)
+	res.status(500).json({ error: error.message })
+}
 })
 
 export default router

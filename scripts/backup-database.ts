@@ -22,10 +22,11 @@ export class DatabaseBackup {
 	private backupDir: string
 	private backupFile: string
 	private pgDumpPath: string
+	private readonly MAX_BACKUPS = 10
 
 	constructor() {
 		this.backupDir = path.join(process.cwd(), 'backups')
-		this.backupFile = path.join(this.backupDir, 'database-backup.sql')
+		this.backupFile = '' // Will be determined in createBackup
 		this.pgDumpPath = 'C:\\Program Files\\PostgreSQL\\18\\bin\\pg_dump.exe'
 
 		// Create backups directory if it doesn't exist
@@ -36,13 +37,74 @@ export class DatabaseBackup {
 	}
 
 	/**
+	 * Find the oldest backup file to overwrite
+	 */
+	private getOldestBackupFile(): string {
+		const backupFiles: Array<{ path: string; mtime: Date; number: number }> = []
+
+		// Check all backup slots (1-10)
+		for (let i = 1; i <= this.MAX_BACKUPS; i++) {
+			const filePath = path.join(this.backupDir, `database-backup-${i}.sql`)
+			if (fs.existsSync(filePath)) {
+				const stats = fs.statSync(filePath)
+				backupFiles.push({ path: filePath, mtime: stats.mtime, number: i })
+			} else {
+				// If slot is empty, use it
+				return filePath
+			}
+		}
+
+		// All slots full - find oldest
+		if (backupFiles.length > 0) {
+			backupFiles.sort((a, b) => a.mtime.getTime() - b.mtime.getTime())
+			return backupFiles[0].path
+		}
+
+		// Default to backup-1 if something went wrong
+		return path.join(this.backupDir, 'database-backup-1.sql')
+	}
+
+	/**
+	 * List all backups sorted by date
+	 */
+	private listBackups(): void {
+		const backupFiles: Array<{ number: number; mtime: Date; size: number }> = []
+
+		for (let i = 1; i <= this.MAX_BACKUPS; i++) {
+			const filePath = path.join(this.backupDir, `database-backup-${i}.sql`)
+			if (fs.existsSync(filePath)) {
+				const stats = fs.statSync(filePath)
+				backupFiles.push({ number: i, mtime: stats.mtime, size: stats.size })
+			}
+		}
+
+		if (backupFiles.length > 0) {
+			console.log('\n📋 Existing backups:')
+			backupFiles.sort((a, b) => b.mtime.getTime() - a.mtime.getTime())
+			backupFiles.forEach(f => {
+				const sizeMB = (f.size / 1024 / 1024).toFixed(2)
+				const date = f.mtime.toISOString().replace('T', ' ').substring(0, 19)
+				console.log(`  backup-${f.number}: ${date} (${sizeMB} MB)`)
+			})
+		}
+	}
+
+	/**
 	 * Create database backup
 	 */
 	async createBackup(options: BackupOptions = {}): Promise<void> {
 		const { pushToGit = true, skipIfNoChanges = true } = options
 
 		try {
-			console.log('\n💾 Creating database backup...')
+			// List existing backups
+			this.listBackups()
+
+			// Determine which backup file to use
+			this.backupFile = this.getOldestBackupFile()
+			const backupNumber = path.basename(this.backupFile).match(/\d+/)?.[0] || '?'
+
+			console.log(`\n💾 Creating database backup #${backupNumber}...`)
+			console.log(`  📄 File: ${path.basename(this.backupFile)}`)
 
 			// Extract connection details from DATABASE_URL
 			const dbUrl = process.env.DATABASE_URL!
@@ -68,10 +130,10 @@ export class DatabaseBackup {
 
 			// Get file size
 			const stats = fs.statSync(this.backupFile)
-			const fileSizeKB = (stats.size / 1024).toFixed(2)
+			const fileSizeMB = (stats.size / 1024 / 1024).toFixed(2)
 
-			console.log(`  ✅ Backup created: ${this.backupFile}`)
-			console.log(`  📊 Size: ${fileSizeKB} KB`)
+			console.log(`  ✅ Backup created: backup-${backupNumber}`)
+			console.log(`  📊 Size: ${fileSizeMB} MB`)
 
 			// Count tables and records
 			const tableCount = (stdout.match(/CREATE TABLE/g) || []).length
@@ -81,7 +143,7 @@ export class DatabaseBackup {
 			console.log(`  📝 Insert statements: ${insertCount}`)
 
 			if (pushToGit) {
-				await this.pushToGitHub(skipIfNoChanges)
+				await this.pushToGitHub(skipIfNoChanges, backupNumber)
 			}
 
 			console.log('✅ Backup completed successfully!\n')
@@ -94,14 +156,15 @@ export class DatabaseBackup {
 	/**
 	 * Push backup to GitHub
 	 */
-	private async pushToGitHub(skipIfNoChanges: boolean): Promise<void> {
+	private async pushToGitHub(skipIfNoChanges: boolean, backupNumber: string): Promise<void> {
 		try {
 			console.log('\n📤 Pushing backup to GitHub...')
 
 			// Check if there are changes
 			const { stdout: statusOutput } = await execAsync('git status --porcelain')
 
-			if (!statusOutput.includes('backups/database-backup.sql')) {
+			const backupFileName = `database-backup-${backupNumber}.sql`
+			if (!statusOutput.includes(backupFileName)) {
 				if (skipIfNoChanges) {
 					console.log('  ℹ️  No changes in backup file, skipping push')
 					return
@@ -109,8 +172,8 @@ export class DatabaseBackup {
 			}
 
 			// Add backup file
-			await execAsync('git add backups/database-backup.sql')
-			console.log('  ✅ Added backup file to git')
+			await execAsync(`git add backups/${backupFileName}`)
+			console.log(`  ✅ Added ${backupFileName} to git`)
 
 			// Get current date for commit message
 			const now = new Date()
@@ -118,7 +181,7 @@ export class DatabaseBackup {
 			const timeStr = now.toTimeString().split(' ')[0]
 
 			// Commit
-			const commitMessage = `chore: database backup ${dateStr} ${timeStr}`
+			const commitMessage = `chore: database backup #${backupNumber} ${dateStr} ${timeStr}`
 			await execAsync(`git commit -m "${commitMessage}"`)
 			console.log(`  ✅ Committed: ${commitMessage}`)
 

@@ -370,6 +370,21 @@ export function initBetFinder() {
 }
 
 /**
+ * Set date range to today only
+ */
+export function setTodayDate() {
+	const today = new Date()
+	const dateFromInput = document.getElementById('bet-finder-date-from')
+	const dateToInput = document.getElementById('bet-finder-date-to')
+
+	if (dateFromInput && dateToInput) {
+		dateFromInput.valueAsDate = today
+		dateToInput.valueAsDate = today
+		console.log('📅 Date range set to today:', today.toISOString().split('T')[0])
+	}
+}
+
+/**
  * Save and close configuration
  */
 export function saveAndClose() {

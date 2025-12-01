@@ -82,6 +82,7 @@ export interface FixtureResponse {
 		away: number | null
 	}
 	score: Score
+	statistics?: FixtureStatisticsResponse[]
 }
 
 export interface Fixture {
@@ -127,6 +128,10 @@ export interface Score {
 		away: number | null
 	}
 	penalty: {
+		home: number | null
+		away: number | null
+	}
+	xg?: {
 		home: number | null
 		away: number | null
 	}
