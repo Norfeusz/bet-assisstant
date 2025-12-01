@@ -35,12 +35,14 @@ export class DataImporter {
 	private progress: ImportProgress
 	private stateManager: ImportStateManager
 	private standingsCache: Map<string, StandingsResponse> // Cache: "leagueId-season" -> standings
+	private leagueOddsAvailability: Map<number, boolean> // Cache: leagueId -> has odds
 
 	constructor(apiClient: ApiFootballClient, leagueSelector: LeagueSelector) {
 		this.apiClient = apiClient
 		this.leagueSelector = leagueSelector
 		this.stateManager = new ImportStateManager()
 		this.standingsCache = new Map()
+		this.leagueOddsAvailability = new Map()
 		this.progress = {
 			totalMatches: 0,
 			importedMatches: 0,
@@ -295,42 +297,48 @@ export class DataImporter {
 				return
 			}
 
-			console.log(`  🔄 Updating: ${homeTeam} vs ${awayTeam}`)
+		console.log(`  🔄 Updating: ${homeTeam} vs ${awayTeam}`)
 
-			// Fetch statistics and odds
-			let statistics: FixtureStatisticsResponse[] = []
-			let odds: OddsResponse[] = []
+		// Fetch statistics and odds
+		let statistics: FixtureStatisticsResponse[] = []
+		let odds: OddsResponse[] = []
 
+		try {
+			const statsResponse = await this.apiClient.getFixtureStatistics({ fixture: fixtureId })
+			statistics = statsResponse.response
+			await this.sleep(334) // Rate limit: ~3 requests/sec
+		} catch (error) {
+			console.warn(`  ⚠️  Could not fetch statistics for fixture ${fixtureId}`)
+		}
+
+		// Check if odds are available for this league (cache result)
+		let shouldFetchOdds = true
+		if (this.leagueOddsAvailability.has(league.id)) {
+			shouldFetchOdds = this.leagueOddsAvailability.get(league.id)!
+		}
+
+		if (shouldFetchOdds) {
 			try {
-				statistics = await this.apiClient.getFixtureStatistics(fixtureId)
-				await this.sleep(334) // Rate limit: ~3 requests/sec
-			} catch (error) {
-				console.warn(`  ⚠️  Could not fetch statistics for fixture ${fixtureId}`)
-			}
-
-			try {
-				odds = await this.apiClient.getFixtureOdds(fixtureId)
+				const oddsResponse = await this.apiClient.getOdds({ fixture: fixtureId })
+				odds = oddsResponse.response
 				await this.sleep(334)
+
+				// Cache result: if no odds returned, don't fetch for other matches in this league
+				if (odds.length === 0 && !this.leagueOddsAvailability.has(league.id)) {
+					console.log(`  ℹ️  No odds available for league ${league.name}, skipping odds for remaining matches`)
+					this.leagueOddsAvailability.set(league.id, false)
+				} else if (odds.length > 0) {
+					this.leagueOddsAvailability.set(league.id, true)
+				}
 			} catch (error) {
 				console.warn(`  ⚠️  Could not fetch odds for fixture ${fixtureId}`)
 			}
-
-			// Get standings
-			const currentYear = new Date().getFullYear()
-			const { homeStanding, awayStanding } = await this.getTeamStandings(
-				league.id,
-				currentYear,
-				homeTeam,
-				awayTeam
-			)
-
-			// Extract match data
-			const matchData = this.extractMatchData(fixture, statistics, odds, league, homeStanding, awayStanding)
-
-			// Update match in database
-			await prisma.matches.update({
-				where: { fixture_id: fixtureId },
-				data: matchData
+		}			// Update match in database using saveMatchToDatabase
+			await this.saveMatchToDatabase(fixture, statistics, odds, league, {
+				is_finished: existingMatch.is_finished,
+				home_odds: null,
+				draw_odds: null,
+				away_odds: null
 			})
 
 			this.progress.importedMatches++
@@ -456,29 +464,44 @@ export class DataImporter {
 				return
 			}
 			
-			// Fetch full data (statistics + odds)
-			let statistics: FixtureStatisticsResponse[] = []
-			let odds: OddsResponse[] = []
+		// Fetch full data (statistics + odds)
+		let statistics: FixtureStatisticsResponse[] = []
+		let odds: OddsResponse[] = []
 
-			try {
-				const statsResponse = await this.apiClient.getFixtureStatistics({
-					fixture: fixtureId,
-				})
-				statistics = statsResponse.response
-			} catch (error) {
-				console.warn(`    Could not fetch statistics for fixture ${fixtureId}`)
-			}
+		try {
+			const statsResponse = await this.apiClient.getFixtureStatistics({
+				fixture: fixtureId,
+			})
+			statistics = statsResponse.response
+		} catch (error) {
+			console.warn(`    Could not fetch statistics for fixture ${fixtureId}`)
+		}
 
+		// Check if odds are available for this league (cache result)
+		let shouldFetchOdds = true
+		if (this.leagueOddsAvailability.has(league.id)) {
+			shouldFetchOdds = this.leagueOddsAvailability.get(league.id)!
+		}
+
+		if (shouldFetchOdds) {
 			try {
 				const oddsResponse = await this.apiClient.getOdds({
 					fixture: fixtureId,
 				})
 				odds = oddsResponse.response
+
+				// Cache result: if no odds returned, don't fetch for other matches in this league
+				if (odds.length === 0 && !this.leagueOddsAvailability.has(league.id)) {
+					console.log(`  ℹ️  No odds available for league ${league.name}, skipping odds for remaining matches`)
+					this.leagueOddsAvailability.set(league.id, false)
+				} else if (odds.length > 0) {
+					this.leagueOddsAvailability.set(league.id, true)
+				}
 			} catch (error) {
 				console.warn(`    Could not fetch odds for fixture ${fixtureId}`)
+				// On error, assume odds might be available for other matches
 			}
-
-			// Save to database using UPSERT (INSERT ... ON CONFLICT DO UPDATE)
+		}			// Save to database using UPSERT (INSERT ... ON CONFLICT DO UPDATE)
 			// Database will handle duplicates automatically via unique constraint on fixture_id
 			await this.saveMatchToDatabase(fixture, statistics, odds, league, null)
 
