@@ -308,12 +308,13 @@ export class DataImporter {
 			statistics = statsResponse.response
 			await this.sleep(334) // Rate limit: ~3 requests/sec
 		} catch (error: any) {
-			// If rate limit exceeded, rethrow to stop updating incomplete matches
-			if (error.message?.includes('Rate limit exceeded')) {
+			// If rate limit exceeded (our internal check OR API 429), rethrow to pause update
+			if (error.message?.includes('Rate limit exceeded') || error.message?.includes('429')) {
 				console.warn(`  ⚠️  Rate limit reached while fetching statistics`)
 				throw error
 			}
-			console.warn(`  ⚠️  Could not fetch statistics for fixture ${fixtureId}:`, error.message)
+			// For other errors (API doesn't have stats, network issues), continue without stats
+			console.warn(`  ⚠️  Could not fetch statistics for fixture ${fixtureId}: ${error.message || error}`)
 		}
 
 		// Check if odds are available for this league (cache result)
@@ -336,12 +337,13 @@ export class DataImporter {
 					this.leagueOddsAvailability.set(league.id, true)
 				}
 			} catch (error: any) {
-				// If rate limit exceeded, rethrow to stop updating incomplete matches
-				if (error.message?.includes('Rate limit exceeded')) {
+				// If rate limit exceeded (our internal check OR API 429), rethrow to pause update
+				if (error.message?.includes('Rate limit exceeded') || error.message?.includes('429')) {
 					console.warn(`  ⚠️  Rate limit reached while fetching odds`)
 					throw error
 				}
-				console.warn(`  ⚠️  Could not fetch odds for fixture ${fixtureId}:`, error.message)
+				// For other errors (API doesn't have odds, network issues), continue without odds
+				console.warn(`  ⚠️  Could not fetch odds for fixture ${fixtureId}: ${error.message || error}`)
 			}
 		}			// Update match in database using saveMatchToDatabase
 			await this.saveMatchToDatabase(fixture, statistics, odds, league, {
@@ -484,12 +486,13 @@ export class DataImporter {
 			})
 			statistics = statsResponse.response
 		} catch (error: any) {
-			// If rate limit exceeded, rethrow to stop importing incomplete matches
-			if (error.message?.includes('Rate limit exceeded')) {
+			// If rate limit exceeded (our internal check OR API 429), rethrow to pause import
+			if (error.message?.includes('Rate limit exceeded') || error.message?.includes('429')) {
 				console.warn(`  ⚠️  Rate limit reached while fetching statistics`)
 				throw error
 			}
-			console.warn(`    Could not fetch statistics for fixture ${fixtureId}:`, error.message)
+			// For other errors (API doesn't have stats, network issues, etc.), continue without stats
+			console.warn(`    Could not fetch statistics for fixture ${fixtureId}: ${error.message || error}`)
 		}
 
 		// Check if odds are available for this league (cache result)
@@ -513,13 +516,13 @@ export class DataImporter {
 					this.leagueOddsAvailability.set(league.id, true)
 				}
 			} catch (error: any) {
-				// If rate limit exceeded, rethrow to stop importing incomplete matches
-				if (error.message?.includes('Rate limit exceeded')) {
+				// If rate limit exceeded (our internal check OR API 429), rethrow to pause import
+				if (error.message?.includes('Rate limit exceeded') || error.message?.includes('429')) {
 					console.warn(`  ⚠️  Rate limit reached while fetching odds`)
 					throw error
 				}
-				console.warn(`    Could not fetch odds for fixture ${fixtureId}:`, error.message)
-				// On other errors, assume odds might be available for other matches
+				// For other errors (API doesn't have odds, network issues), continue without odds
+				console.warn(`    Could not fetch odds for fixture ${fixtureId}: ${error.message || error}`)
 			}
 		}			// Save to database using UPSERT (INSERT ... ON CONFLICT DO UPDATE)
 			// Database will handle duplicates automatically via unique constraint on fixture_id
