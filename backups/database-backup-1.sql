@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict VC8UA6JwLNA2m3PQIHq1KLOnR8pIBp4aClSGZUFvKQKPuOUfKculDcLlrOMyppw
+\restrict ah1cKaQHZb1P3wtD6HcG5GeQBQiSKPcbaKmeq4V4bAdjX7W3EfCxSBjfdtfbWty
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -262,7 +262,16 @@ aa33466f-72a7-4f3f-b395-308108b88f88	5bb42562aa1346bea0d552989daf8274e8dd0d62345
 --
 
 COPY public.import_jobs (id, leagues, date_from, date_to, status, progress, total_matches, imported_matches, failed_matches, rate_limit_remaining, rate_limit_reset_at, error_message, started_at, completed_at, created_at, updated_at, hidden, job_type) FROM stdin;
-8	["2"]	2025-07-01	2025-12-01	pending	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-01 18:48:57.981997+01	2025-12-01 18:48:57.981997+01	f	new_matches
+8	["2"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [2]}	0	164	0	299	\N	\N	\N	2025-12-01 19:08:25.904195+01	2025-12-01 18:48:57.981997+01	2025-12-01 19:08:25.904195+01	f	new_matches
+9	["3", "15", "531", "848", "106", "107", "109"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [3, 15, 531, 848, 106, 107, 109]}	0	955	0	125	2025-12-01 23:04:46.462+01	\N	\N	2025-12-01 23:05:05.211003+01	2025-12-01 19:02:34.75213+01	2025-12-01 23:05:05.211003+01	f	new_matches
+10	["39", "42", "40", "41", "45", "43", "140", "141", "436", "435", "875", "876", "877", "878", "879", "143"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [39, 42, 40, 41, 45, 43, 140, 141, 436, 435, 875, 876, 877, 878, 879, 143]}	0	3053	1625	101	2025-12-02 09:14:33.01+01	\N	\N	2025-12-02 09:19:51.846519+01	2025-12-01 19:03:01.14205+01	2025-12-02 09:19:51.846519+01	f	new_matches
+16	["262", "263", "103", "104", "955", "304", "252", "281", "288", "283", "284", "286", "506", "332", "373"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-01 19:06:18.134007+01	2025-12-01 19:06:18.134007+01	f	new_matches
+17	["179", "183", "180", "207", "208", "114", "113", "296", "591", "585", "333", "269", "268", "270", "253", "369", "110", "271", "301"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-01 19:06:46.269704+01	2025-12-01 19:06:46.269704+01	f	new_matches
+12	["61", "62", "63", "66", "94", "95", "144", "145", "88", "89", "203", "204"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [61, 62, 63, 66, 94, 95, 144, 145, 88, 89, 203, 204]}	0	0	0	300	\N	\N	\N	2025-12-02 11:17:45.353291+01	2025-12-01 19:04:32.146282+01	2025-12-02 11:17:45.353291+01	f	new_matches
+14	["265", "169", "210", "211", "318", "346", "345", "119", "120", "233", "242", "329", "363", "197", "494", "339"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [265, 169, 210, 211, 318, 346, 345, 119, 120, 233, 242, 329, 363, 197, 494, 339]}	0	0	0	300	\N	\N	\N	2025-12-02 11:19:07.434532+01	2025-12-01 19:05:22.289881+01	2025-12-02 11:19:07.434532+01	f	new_matches
+15	["234", "274", "542", "291", "407", "98", "99", "305", "240", "239", "292", "293", "162", "361", "261"]	2025-07-01	2025-12-01	pending	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-01 19:05:46.03362+01	2025-12-02 11:19:07.435852+01	f	new_matches
+13	["186", "307", "308", "128", "129", "342", "188", "1202", "218", "219", "419", "116", "117", "344", "72", "71", "172"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [186, 307, 308, 128, 129, 342, 188, 1202, 218, 219, 419, 116, 117, 344, 72, 71, 172]}	0	0	0	300	\N	\N	\N	2025-12-02 11:18:26.026874+01	2025-12-01 19:04:54.521857+01	2025-12-02 11:18:26.026874+01	f	new_matches
+11	["135", "136", "137", "138", "942", "943", "78", "79", "81", "80"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [135, 136, 137, 138, 942, 943, 78, 79, 81, 80]}	0	388	100	300	2025-12-02 11:11:52.061+01	\N	\N	2025-12-02 11:17:20.470752+01	2025-12-01 19:03:36.519277+01	2025-12-02 11:17:20.470752+01	f	new_matches
 \.
 
 
@@ -414,6 +423,4566 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 141	1476764	2025-11-27	Uganda	Premier League	BUL	Entebbe UPPC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	5	2025-11-25 20:14:47.209891	\N	\N	0	0	draw	no
 142	1476711	2025-11-27	Uganda	Premier League	Police	Kitara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	4	2025-11-25 20:14:47.368771	\N	\N	0	0	draw	no
 143	1485789	2025-11-25	USA	Major League Soccer	San Diego	Minnesota United FC	h-win	1	0	9	1	11	4	5	1	1	1	2	4	0	0	71.00	29.00	14	14	1.58	4.20	5.30	1	4	2025-11-25 20:14:53.134033	0.70	0.79	0	0	draw	yes
+144	1383422	2025-07-08	World	UEFA Champions League	KuPS	Milsami Orhei	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:33.931862	\N	\N	0	0	draw	yes
+145	1383423	2025-07-08	World	UEFA Champions League	Saburtalo	Malmo FF	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:34.211397	\N	\N	0	1	a-win	yes
+146	1383424	2025-07-08	World	UEFA Champions League	FC Noah	Buducnost Podgorica	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:34.512694	\N	\N	0	0	draw	yes
+147	1383425	2025-07-08	World	UEFA Champions League	FC Levadia Tallinn	Rīgas FS	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:34.753116	\N	\N	0	0	draw	yes
+148	1383426	2025-07-08	World	UEFA Champions League	Olimpija Ljubljana	Kairat Almaty	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:34.918073	\N	\N	0	0	draw	yes
+149	1383428	2025-07-08	World	UEFA Champions League	The New Saints	Shkendija	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:35.134448	\N	\N	0	0	draw	yes
+150	1383429	2025-07-08	World	UEFA Champions League	Vikingur Gota	Lincoln Red Imps FC	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:35.394638	\N	\N	2	3	a-win	yes
+151	1383427	2025-07-08	World	UEFA Champions League	Drita	FC Differdange 03	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:35.557365	\N	\N	0	0	draw	yes
+152	1383431	2025-07-08	World	UEFA Champions League	Egnatia Rrogozhinë	Breidablik	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:35.720904	\N	\N	0	0	draw	yes
+153	1383430	2025-07-08	World	UEFA Champions League	Virtus	Zrinjski	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:35.920408	\N	\N	0	1	a-win	yes
+154	1383432	2025-07-09	World	UEFA Champions League	FK Zalgiris Vilnius	Hamrun Spartans	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:36.12831	\N	\N	0	0	draw	yes
+155	1383434	2025-07-09	World	UEFA Champions League	FCSB	Inter Club d'Escaldes	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:36.291506	\N	\N	2	0	h-win	yes
+156	1383433	2025-07-09	World	UEFA Champions League	Ludogorets	Dinamo Minsk	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:36.492089	\N	\N	0	0	draw	yes
+157	1383435	2025-07-09	World	UEFA Champions League	Shelbourne	Linfield	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:36.734134	\N	\N	0	0	draw	yes
+158	1383436	2025-07-15	World	UEFA Champions League	Kairat Almaty	Olimpija Ljubljana	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:36.999974	\N	\N	2	0	h-win	yes
+159	1383437	2025-07-15	World	UEFA Champions League	Lincoln Red Imps FC	Vikingur Gota	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:37.315281	\N	\N	0	0	draw	yes
+160	1383440	2025-07-15	World	UEFA Champions League	Malmo FF	Saburtalo	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:37.555464	\N	\N	0	0	draw	yes
+161	1383438	2025-07-15	World	UEFA Champions League	Milsami Orhei	KuPS	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:37.815366	\N	\N	0	0	draw	yes
+162	1383441	2025-07-15	World	UEFA Champions League	Rīgas FS	FC Levadia Tallinn	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:38.107738	\N	\N	0	0	draw	yes
+163	1383439	2025-07-15	World	UEFA Champions League	Hamrun Spartans	FK Zalgiris Vilnius	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:38.354176	\N	\N	2	0	h-win	yes
+164	1383443	2025-07-15	World	UEFA Champions League	Shkendija	The New Saints	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:38.644031	\N	\N	1	1	draw	yes
+165	1383442	2025-07-15	World	UEFA Champions League	FC Differdange 03	Drita	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:38.937443	\N	\N	1	2	a-win	yes
+166	1383444	2025-07-15	World	UEFA Champions League	Inter Club d'Escaldes	FCSB	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:39.200797	\N	\N	0	0	draw	yes
+167	1383446	2025-07-15	World	UEFA Champions League	Breidablik	Egnatia Rrogozhinë	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:39.550124	\N	\N	4	0	h-win	yes
+168	1383447	2025-07-15	World	UEFA Champions League	Buducnost Podgorica	FC Noah	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:39.890127	\N	\N	0	2	a-win	yes
+169	1383445	2025-07-15	World	UEFA Champions League	Zrinjski	Virtus	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:40.129235	\N	\N	1	0	h-win	yes
+170	1383449	2025-07-16	World	UEFA Champions League	Dinamo Minsk	Ludogorets	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:40.397343	\N	\N	0	1	a-win	yes
+171	1383448	2025-07-16	World	UEFA Champions League	Linfield	Shelbourne	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:40.652967	\N	\N	1	1	draw	yes
+172	1405443	2025-07-22	World	UEFA Champions League	KuPS	Kairat Almaty	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:40.83505	\N	\N	0	0	draw	yes
+173	1405445	2025-07-22	World	UEFA Champions League	Lincoln Red Imps FC	FK Crvena Zvezda	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:41.011502	\N	\N	0	1	a-win	yes
+174	1405446	2025-07-22	World	UEFA Champions League	FC Noah	Ferencvarosi TC	a-win	1	2	10	3	10	5	2	5	1	0	2	0	0	1	56.00	44.00	11	9	\N	\N	\N	\N	\N	2025-12-01 18:57:41.187733	\N	\N	1	1	draw	yes
+175	1405448	2025-07-22	World	UEFA Champions League	FC Copenhagen	Drita	h-win	2	0	16	5	8	1	6	3	1	1	1	3	0	0	65.00	35.00	9	10	\N	\N	\N	\N	\N	2025-12-01 18:57:41.400023	\N	\N	0	0	draw	yes
+176	1383450	2025-07-22	World	UEFA Champions League	Plzen	Servette FC	a-win	0	1	25	9	6	2	9	3	2	3	0	0	0	0	62.00	38.00	5	10	\N	\N	\N	\N	\N	2025-12-01 18:57:41.595191	\N	\N	0	1	a-win	yes
+177	1383451	2025-07-22	World	UEFA Champions League	Pafos	Maccabi Tel Aviv	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:41.808595	\N	\N	0	0	draw	yes
+178	1405447	2025-07-22	World	UEFA Champions League	Rīgas FS	Malmo FF	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	0	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:42.008105	\N	\N	1	2	a-win	yes
+179	1405449	2025-07-22	World	UEFA Champions League	Hamrun Spartans	Dynamo Kyiv	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:42.232649	\N	\N	0	1	a-win	yes
+180	1405450	2025-07-22	World	UEFA Champions League	Shkendija	FCSB	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:42.459944	\N	\N	0	0	draw	yes
+181	1405451	2025-07-22	World	UEFA Champions League	Slovan Bratislava	Zrinjski	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:42.668645	\N	\N	2	0	h-win	yes
+182	1405452	2025-07-22	World	UEFA Champions League	Lech Poznan	Breidablik	h-win	7	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:42.911226	\N	\N	5	1	h-win	yes
+183	1383452	2025-07-22	World	UEFA Champions League	Rangers	Panathinaikos	h-win	2	0	16	5	14	4	3	6	1	0	2	2	0	1	75.00	25.00	10	12	\N	\N	\N	\N	\N	2025-12-01 18:57:43.131727	\N	\N	0	0	draw	yes
+184	1405453	2025-07-22	World	UEFA Champions League	HNK Rijeka	Ludogorets	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:43.371409	\N	\N	0	0	draw	yes
+185	1383453	2025-07-23	World	UEFA Champions League	Brann	Red Bull Salzburg	a-win	1	4	8	2	22	10	1	7	1	5	4	1	0	0	47.00	53.00	10	18	\N	\N	\N	\N	\N	2025-12-01 18:57:43.656728	\N	\N	1	0	h-win	yes
+186	1405444	2025-07-23	World	UEFA Champions League	Shelbourne	Qarabag	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:43.924244	\N	\N	0	1	a-win	yes
+187	1405454	2025-07-29	World	UEFA Champions League	Kairat Almaty	KuPS	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:44.204705	\N	\N	3	0	h-win	yes
+188	1405457	2025-07-29	World	UEFA Champions League	Dynamo Kyiv	Hamrun Spartans	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:44.501522	\N	\N	2	0	h-win	yes
+189	1405456	2025-07-29	World	UEFA Champions League	Drita	FC Copenhagen	a-win	0	1	9	2	9	4	3	5	0	2	0	3	1	0	36.00	64.00	13	19	\N	\N	\N	\N	\N	2025-12-01 18:57:44.723216	\N	\N	0	1	a-win	yes
+190	1405458	2025-07-29	World	UEFA Champions League	Zrinjski	Slovan Bratislava	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:44.976905	\N	\N	0	0	draw	yes
+191	1405459	2025-07-29	World	UEFA Champions League	FK Crvena Zvezda	Lincoln Red Imps FC	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:45.28268	\N	\N	4	0	h-win	yes
+192	1405460	2025-07-30	World	UEFA Champions League	Qarabag	Shelbourne	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:45.533001	\N	\N	1	0	h-win	yes
+193	1405461	2025-07-30	World	UEFA Champions League	Malmo FF	Rīgas FS	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:45.810431	\N	\N	1	0	h-win	yes
+194	1405462	2025-07-30	World	UEFA Champions League	FCSB	Shkendija	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:46.073266	\N	\N	1	1	draw	yes
+195	1405455	2025-07-30	World	UEFA Champions League	Ludogorets	HNK Rijeka	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:46.287884	\N	\N	1	0	h-win	yes
+196	1383454	2025-07-30	World	UEFA Champions League	Maccabi Tel Aviv	Pafos	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:46.455141	\N	\N	0	1	a-win	yes
+197	1383455	2025-07-30	World	UEFA Champions League	Panathinaikos	Rangers	draw	1	1	20	6	10	3	9	5	2	1	1	2	0	0	44.00	56.00	11	13	\N	\N	\N	\N	\N	2025-12-01 18:57:46.623329	\N	\N	0	0	draw	yes
+198	1405463	2025-07-30	World	UEFA Champions League	Ferencvarosi TC	FC Noah	h-win	4	3	15	6	10	7	3	1	5	1	2	4	0	0	48.00	52.00	15	14	\N	\N	\N	\N	\N	2025-12-01 18:57:46.782948	\N	\N	2	2	draw	yes
+199	1405464	2025-07-30	World	UEFA Champions League	Breidablik	Lech Poznan	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:46.945773	\N	\N	0	1	a-win	yes
+200	1383456	2025-07-30	World	UEFA Champions League	Red Bull Salzburg	Brann	draw	1	1	11	4	10	5	2	2	2	3	5	6	0	0	37.00	63.00	19	11	\N	\N	\N	\N	\N	2025-12-01 18:57:47.139223	\N	\N	1	1	draw	yes
+201	1383457	2025-07-30	World	UEFA Champions League	Servette FC	Plzen	a-win	1	3	17	5	14	8	8	4	1	1	4	1	1	1	59.00	41.00	11	11	\N	\N	\N	\N	\N	2025-12-01 18:57:47.356917	\N	\N	1	2	a-win	yes
+202	1421137	2025-08-05	World	UEFA Champions League	Malmo FF	FC Copenhagen	draw	0	0	4	0	10	1	0	7	1	1	1	2	0	0	51.00	49.00	7	16	\N	\N	\N	\N	\N	2025-12-01 18:57:47.591312	\N	\N	0	0	draw	yes
+203	1421138	2025-08-05	World	UEFA Champions League	Dynamo Kyiv	Pafos	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:47.777084	\N	\N	0	0	draw	yes
+204	1421139	2025-08-05	World	UEFA Champions League	Shkendija	Qarabag	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:47.97114	\N	\N	0	1	a-win	yes
+205	1421140	2025-08-05	World	UEFA Champions League	Rangers	Plzen	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:48.162768	\N	\N	2	0	h-win	yes
+206	1419568	2025-08-06	World	UEFA Champions League	Kairat Almaty	Slovan Bratislava	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:48.344954	\N	\N	0	0	draw	yes
+207	1421141	2025-08-06	World	UEFA Champions League	Red Bull Salzburg	Club Brugge KV	a-win	0	1	20	5	12	5	6	6	1	1	1	1	0	0	46.00	54.00	6	3	\N	\N	\N	\N	\N	2025-12-01 18:57:48.525078	\N	\N	0	0	draw	yes
+208	1421142	2025-08-06	World	UEFA Champions League	Ludogorets	Ferencvarosi TC	draw	0	0	10	0	17	2	2	9	1	3	1	3	0	0	41.00	59.00	12	14	\N	\N	\N	\N	\N	2025-12-01 18:57:48.705264	\N	\N	0	0	draw	yes
+209	1421143	2025-08-06	World	UEFA Champions League	Lech Poznan	FK Crvena Zvezda	a-win	1	3	11	4	12	6	4	4	1	3	1	1	0	0	59.00	41.00	13	11	\N	\N	\N	\N	\N	2025-12-01 18:57:48.898842	\N	\N	1	1	draw	yes
+210	1414143	2025-08-06	World	UEFA Champions League	Nice	Benfica	a-win	0	2	12	2	14	6	4	5	1	3	3	1	0	0	47.00	53.00	9	14	\N	\N	\N	\N	\N	2025-12-01 18:57:49.120818	\N	\N	0	0	draw	yes
+211	1414142	2025-08-06	World	UEFA Champions League	Feyenoord	Fenerbahçe	h-win	2	1	13	3	8	2	3	5	0	4	2	0	0	0	44.00	56.00	16	15	\N	\N	\N	\N	\N	2025-12-01 18:57:49.372297	\N	\N	1	0	h-win	yes
+212	1421144	2025-08-12	World	UEFA Champions League	Qarabag	Shkendija	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:49.645058	\N	\N	4	1	h-win	yes
+213	1421148	2025-08-12	World	UEFA Champions League	FC Copenhagen	Malmo FF	h-win	5	0	12	8	7	3	2	1	3	1	0	2	0	0	53.00	47.00	15	6	\N	\N	\N	\N	\N	2025-12-01 18:57:49.88735	\N	\N	2	0	h-win	yes
+214	1421146	2025-08-12	World	UEFA Champions League	Plzen	Rangers	h-win	2	1	27	10	9	2	6	3	2	0	1	2	0	0	41.00	59.00	15	11	\N	\N	\N	\N	\N	2025-12-01 18:57:50.189007	\N	\N	1	0	h-win	yes
+215	1414144	2025-08-12	World	UEFA Champions League	Fenerbahçe	Feyenoord	h-win	5	2	14	8	16	8	5	7	1	0	2	2	0	0	47.00	53.00	18	14	\N	\N	\N	\N	\N	2025-12-01 18:57:50.510385	\N	\N	2	1	h-win	yes
+216	1421145	2025-08-12	World	UEFA Champions League	Pafos	Dynamo Kyiv	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:50.833073	\N	\N	1	0	h-win	yes
+217	1421147	2025-08-12	World	UEFA Champions League	Club Brugge KV	Red Bull Salzburg	h-win	3	2	23	9	12	3	8	3	1	1	1	0	0	0	55.00	45.00	7	4	\N	\N	\N	\N	\N	2025-12-01 18:57:51.130218	\N	\N	0	2	a-win	yes
+218	1421149	2025-08-12	World	UEFA Champions League	Ferencvarosi TC	Ludogorets	h-win	3	0	15	6	11	4	5	4	0	1	3	4	0	0	41.00	59.00	15	14	\N	\N	\N	\N	\N	2025-12-01 18:57:51.361409	\N	\N	1	0	h-win	yes
+219	1419569	2025-08-12	World	UEFA Champions League	Slovan Bratislava	Kairat Almaty	h-win	1	0	16	2	14	6	6	5	1	3	7	4	0	0	55.00	45.00	29	23	\N	\N	\N	\N	\N	2025-12-01 18:57:51.577031	\N	\N	1	0	h-win	yes
+220	1414145	2025-08-12	World	UEFA Champions League	Benfica	Nice	h-win	2	0	21	5	9	0	6	6	2	2	1	2	0	0	58.00	42.00	9	13	\N	\N	\N	\N	\N	2025-12-01 18:57:51.807494	\N	\N	2	0	h-win	yes
+221	1421150	2025-08-12	World	UEFA Champions League	FK Crvena Zvezda	Lech Poznan	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 18:57:52.054841	\N	\N	1	0	h-win	yes
+222	1435547	2025-08-19	World	UEFA Champions League	Rangers	Club Brugge KV	a-win	1	3	15	1	10	7	9	9	0	2	3	1	0	0	53.00	47.00	11	9	\N	\N	\N	\N	\N	2025-12-01 18:57:52.240611	\N	\N	0	3	a-win	yes
+223	1435546	2025-08-19	World	UEFA Champions League	FK Crvena Zvezda	Pafos	a-win	1	2	25	6	14	3	13	4	0	0	1	1	0	0	57.00	43.00	9	17	\N	\N	\N	\N	\N	2025-12-01 18:57:52.575328	\N	\N	0	1	a-win	yes
+224	1435545	2025-08-19	World	UEFA Champions League	Ferencvarosi TC	Qarabag	a-win	1	3	12	4	11	4	4	3	0	2	2	1	0	0	44.00	56.00	20	8	\N	\N	\N	\N	\N	2025-12-01 18:57:52.805004	\N	\N	1	0	h-win	yes
+225	1435549	2025-08-20	World	UEFA Champions League	Celtic	Kairat Almaty	draw	0	0	11	3	8	0	15	3	0	3	2	3	0	0	75.00	25.00	12	9	\N	\N	\N	\N	\N	2025-12-01 18:57:52.995385	\N	\N	0	0	draw	yes
+226	1424397	2025-08-20	World	UEFA Champions League	Bodo/Glimt	Sturm Graz	h-win	5	0	17	6	8	1	5	1	2	0	1	2	0	0	58.00	42.00	12	12	\N	\N	\N	\N	\N	2025-12-01 18:57:53.228796	\N	\N	3	0	h-win	yes
+227	1435548	2025-08-20	World	UEFA Champions League	FC Basel 1893	FC Copenhagen	draw	1	1	11	6	11	4	2	3	0	2	5	3	1	0	46.00	54.00	11	12	\N	\N	\N	\N	\N	2025-12-01 18:57:53.458221	\N	\N	1	1	draw	yes
+228	1435550	2025-08-20	World	UEFA Champions League	Fenerbahçe	Benfica	draw	0	0	13	6	9	3	4	4	2	0	3	5	0	1	54.00	46.00	16	18	\N	\N	\N	\N	\N	2025-12-01 18:57:53.703653	\N	\N	0	0	draw	yes
+229	1435551	2025-08-26	World	UEFA Champions League	Kairat Almaty	Celtic	draw	0	0	12	4	11	5	5	7	3	0	0	1	0	0	33.00	67.00	12	19	\N	\N	\N	\N	\N	2025-12-01 18:57:53.909199	\N	\N	0	0	draw	yes
+230	1424398	2025-08-26	World	UEFA Champions League	Sturm Graz	Bodo/Glimt	h-win	2	1	18	8	10	5	3	8	3	1	2	1	0	0	51.00	49.00	12	13	\N	\N	\N	\N	\N	2025-12-01 18:57:54.14829	\N	\N	1	1	draw	yes
+231	1435552	2025-08-26	World	UEFA Champions League	Pafos	FK Crvena Zvezda	draw	1	1	11	5	12	3	3	3	1	3	3	3	0	0	50.00	50.00	17	17	\N	\N	\N	\N	\N	2025-12-01 18:57:54.37652	\N	\N	0	0	draw	yes
+232	1435553	2025-08-27	World	UEFA Champions League	Qarabag	Ferencvarosi TC	a-win	2	3	10	2	17	6	1	2	3	1	3	3	0	0	41.00	59.00	14	21	\N	\N	\N	\N	\N	2025-12-01 18:57:54.596113	\N	\N	2	1	h-win	yes
+233	1435556	2025-08-27	World	UEFA Champions League	Benfica	Fenerbahçe	h-win	1	0	15	3	6	0	4	1	4	4	2	4	0	1	53.00	47.00	11	20	\N	\N	\N	\N	\N	2025-12-01 18:57:54.777421	\N	\N	1	0	h-win	yes
+234	1435554	2025-08-27	World	UEFA Champions League	FC Copenhagen	FC Basel 1893	h-win	2	0	11	7	20	5	3	6	1	3	1	0	0	0	43.00	57.00	25	15	\N	\N	\N	\N	\N	2025-12-01 18:57:55.00305	\N	\N	0	0	draw	yes
+235	1435555	2025-08-27	World	UEFA Champions League	Club Brugge KV	Rangers	h-win	6	0	32	16	3	1	10	1	0	0	1	1	0	1	72.00	28.00	4	6	\N	\N	\N	\N	\N	2025-12-01 18:57:55.278208	\N	\N	5	0	h-win	yes
+236	1451020	2025-09-16	World	UEFA Champions League	PSV Eindhoven	Union St. Gilloise	a-win	1	3	10	3	18	8	7	7	0	8	0	0	0	0	63.00	37.00	9	9	\N	\N	\N	\N	\N	2025-12-01 18:57:55.583004	2.52	3.34	0	2	a-win	yes
+991	1421942	2025-08-25	Poland	I Liga	Tychy 71	Stal Mielec	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:47.418396	\N	\N	0	1	a-win	yes
+237	1451021	2025-09-16	World	UEFA Champions League	Athletic Club	Arsenal	a-win	0	2	11	2	11	6	2	2	0	2	1	3	0	0	38.00	62.00	18	15	\N	\N	\N	\N	\N	2025-12-01 18:57:55.918787	0.35	1.28	0	0	draw	yes
+238	1451023	2025-09-16	World	UEFA Champions League	Tottenham	Villarreal	h-win	1	0	9	1	10	0	3	3	1	1	4	3	0	0	58.00	42.00	14	13	\N	\N	\N	\N	\N	2025-12-01 18:57:56.216814	0.54	0.48	1	0	h-win	yes
+239	1451025	2025-09-16	World	UEFA Champions League	Benfica	Qarabag	a-win	2	3	14	3	10	5	8	3	1	1	0	0	0	0	53.00	47.00	11	6	\N	\N	\N	\N	\N	2025-12-01 18:57:56.477316	1.38	1.52	2	1	h-win	yes
+240	1451022	2025-09-16	World	UEFA Champions League	Juventus	Borussia Dortmund	draw	4	4	19	7	10	5	4	2	4	0	0	1	0	0	52.00	48.00	13	8	\N	\N	\N	\N	\N	2025-12-01 18:57:56.710535	1.92	1.71	0	0	draw	yes
+241	1451024	2025-09-16	World	UEFA Champions League	Real Madrid	Marseille	h-win	2	1	28	15	15	5	9	4	1	3	3	2	1	0	43.00	57.00	9	14	\N	\N	\N	\N	\N	2025-12-01 18:57:56.866891	3.65	0.73	1	1	draw	yes
+242	1451026	2025-09-17	World	UEFA Champions League	Olympiakos Piraeus	Pafos	draw	0	0	18	3	6	1	9	0	2	1	3	3	0	1	69.00	31.00	15	14	\N	\N	\N	\N	\N	2025-12-01 18:57:57.027084	1.52	0.30	0	0	draw	yes
+243	1451027	2025-09-17	World	UEFA Champions League	Slavia Praha	Bodo/Glimt	draw	2	2	26	11	11	10	8	4	5	0	2	3	0	0	46.00	54.00	13	11	\N	\N	\N	\N	\N	2025-12-01 18:57:57.189755	3.98	2.52	1	0	h-win	yes
+244	1451030	2025-09-17	World	UEFA Champions League	Liverpool	Atletico Madrid	h-win	3	2	20	6	10	4	7	6	1	2	1	2	0	0	56.00	44.00	7	9	\N	\N	\N	\N	\N	2025-12-01 18:57:57.343875	2.60	0.61	2	1	h-win	yes
+245	1451029	2025-09-17	World	UEFA Champions League	Paris Saint Germain	Atalanta	h-win	4	0	22	13	7	2	6	1	3	2	0	1	0	0	67.00	33.00	5	11	\N	\N	\N	\N	\N	2025-12-01 18:57:57.516096	3.48	0.55	2	0	h-win	yes
+246	1451031	2025-09-17	World	UEFA Champions League	Bayern München	Chelsea	h-win	3	1	16	5	9	3	6	2	4	3	3	1	0	0	56.00	44.00	12	7	\N	\N	\N	\N	\N	2025-12-01 18:57:57.676986	2.07	0.73	2	1	h-win	yes
+247	1451028	2025-09-17	World	UEFA Champions League	Ajax	Inter	a-win	0	2	7	2	14	4	3	5	2	1	1	2	0	0	56.00	44.00	15	17	\N	\N	\N	\N	\N	2025-12-01 18:57:57.841759	1.26	1.24	0	1	a-win	yes
+248	1451033	2025-09-18	World	UEFA Champions League	FC Copenhagen	Bayer Leverkusen	draw	2	2	12	7	15	4	4	5	0	0	3	2	0	0	36.00	64.00	14	13	\N	\N	\N	\N	\N	2025-12-01 18:57:58.002354	1.89	1.21	1	0	h-win	yes
+249	1451032	2025-09-18	World	UEFA Champions League	Club Brugge KV	Monaco	h-win	4	1	26	10	13	5	4	5	0	1	2	2	0	0	49.00	51.00	11	9	\N	\N	\N	\N	\N	2025-12-01 18:57:58.189944	3.15	1.45	3	0	h-win	yes
+250	1451036	2025-09-18	World	UEFA Champions League	Newcastle	Barcelona	a-win	1	2	10	6	19	5	6	4	3	0	2	4	0	0	36.00	64.00	11	12	\N	\N	\N	\N	\N	2025-12-01 18:57:58.358987	1.46	1.31	0	0	draw	yes
+251	1451037	2025-09-18	World	UEFA Champions League	Manchester City	Napoli	h-win	2	0	23	8	1	1	9	2	1	1	0	1	0	1	74.00	26.00	3	4	\N	\N	\N	\N	\N	2025-12-01 18:57:58.595269	2.18	0.17	0	0	draw	yes
+252	1451034	2025-09-18	World	UEFA Champions League	Eintracht Frankfurt	Galatasaray	h-win	5	1	11	5	14	5	4	3	1	0	1	0	0	0	38.00	62.00	10	13	\N	\N	\N	\N	\N	2025-12-01 18:57:58.761703	1.21	1.09	3	1	h-win	yes
+253	1451035	2025-09-18	World	UEFA Champions League	Sporting CP	Kairat Almaty	h-win	4	1	21	8	9	4	8	3	0	1	4	2	0	0	64.00	36.00	14	11	\N	\N	\N	\N	\N	2025-12-01 18:57:58.915358	4.25	0.70	1	0	h-win	yes
+254	1451039	2025-09-30	World	UEFA Champions League	Atalanta	Club Brugge KV	h-win	2	1	20	3	7	2	7	1	1	0	2	0	0	0	48.00	52.00	8	10	\N	\N	\N	\N	\N	2025-12-01 18:57:59.08463	2.96	0.86	0	1	a-win	yes
+255	1451038	2025-09-30	World	UEFA Champions League	Kairat Almaty	Real Madrid	a-win	0	5	11	4	20	12	3	6	1	0	2	0	0	0	33.00	67.00	6	9	\N	\N	\N	\N	\N	2025-12-01 18:57:59.277726	0.43	3.54	0	1	a-win	yes
+256	1451042	2025-09-30	World	UEFA Champions League	Chelsea	Benfica	h-win	1	0	8	3	9	3	3	5	1	2	4	5	1	0	56.00	44.00	13	14	\N	\N	\N	\N	\N	2025-12-01 18:57:59.486869	0.93	0.85	1	0	h-win	yes
+257	1451041	2025-09-30	World	UEFA Champions League	Marseille	Ajax	h-win	4	0	9	6	13	2	0	7	0	2	2	3	0	0	48.00	52.00	18	12	\N	\N	\N	\N	\N	2025-12-01 18:57:59.783695	1.13	0.80	3	0	h-win	yes
+258	1451044	2025-09-30	World	UEFA Champions League	Bodo/Glimt	Tottenham	draw	2	2	18	4	8	3	4	5	3	2	2	2	0	0	52.00	48.00	11	7	\N	\N	\N	\N	\N	2025-12-01 18:58:00.042994	2.52	1.46	0	0	draw	yes
+259	1451043	2025-09-30	World	UEFA Champions League	Inter	Slavia Praha	h-win	3	0	21	6	3	1	5	0	0	0	2	1	0	0	57.00	43.00	13	17	\N	\N	\N	\N	\N	2025-12-01 18:58:00.290947	3.99	0.11	2	0	h-win	yes
+260	1451040	2025-09-30	World	UEFA Champions League	Atletico Madrid	Eintracht Frankfurt	h-win	5	1	18	12	6	2	5	2	2	0	1	1	0	0	51.00	49.00	11	6	\N	\N	\N	\N	\N	2025-12-01 18:58:00.516489	4.44	0.59	3	0	h-win	yes
+261	1451046	2025-09-30	World	UEFA Champions League	Galatasaray	Liverpool	h-win	1	0	9	4	16	4	3	7	2	1	5	3	0	0	33.00	67.00	12	14	\N	\N	\N	\N	\N	2025-12-01 18:58:00.726952	1.34	1.81	1	0	h-win	yes
+262	1451045	2025-09-30	World	UEFA Champions League	Pafos	Bayern München	a-win	1	5	6	2	26	15	2	6	0	0	1	0	0	0	33.00	67.00	11	9	\N	\N	\N	\N	\N	2025-12-01 18:58:00.884898	0.39	4.54	1	4	a-win	yes
+263	1451047	2025-10-01	World	UEFA Champions League	Qarabag	FC Copenhagen	h-win	2	0	10	6	12	4	4	7	2	4	3	1	0	0	49.00	51.00	10	20	\N	\N	\N	\N	\N	2025-12-01 18:58:01.047227	1.91	0.98	1	0	h-win	yes
+264	1451048	2025-10-01	World	UEFA Champions League	Union St. Gilloise	Newcastle	a-win	0	4	17	6	13	6	7	5	1	0	4	1	0	0	43.00	57.00	15	8	\N	\N	\N	\N	\N	2025-12-01 18:58:01.286902	0.88	2.76	0	2	a-win	yes
+265	1451052	2025-10-01	World	UEFA Champions League	Arsenal	Olympiakos Piraeus	h-win	2	0	16	5	10	3	3	5	2	4	3	1	0	0	61.00	39.00	14	17	\N	\N	\N	\N	\N	2025-12-01 18:58:01.551381	2.90	0.50	1	0	h-win	yes
+266	1451051	2025-10-01	World	UEFA Champions League	Monaco	Manchester City	draw	2	2	8	3	18	6	7	3	0	2	1	5	0	0	29.00	71.00	9	13	\N	\N	\N	\N	\N	2025-12-01 18:58:01.778296	1.45	1.54	1	2	a-win	yes
+267	1451049	2025-10-01	World	UEFA Champions League	Borussia Dortmund	Athletic Club	h-win	4	1	13	8	6	3	4	0	3	3	1	2	0	0	52.00	48.00	14	15	\N	\N	\N	\N	\N	2025-12-01 18:58:02.02631	1.18	0.95	1	0	h-win	yes
+268	1451054	2025-10-01	World	UEFA Champions League	Bayer Leverkusen	PSV Eindhoven	draw	1	1	14	4	6	1	7	4	2	2	0	2	0	0	46.00	54.00	8	11	\N	\N	\N	\N	\N	2025-12-01 18:58:02.277275	1.74	0.49	0	0	draw	yes
+269	1451053	2025-10-01	World	UEFA Champions League	Napoli	Sporting CP	h-win	2	1	12	3	8	4	7	2	1	0	0	0	0	0	51.00	49.00	16	9	\N	\N	\N	\N	\N	2025-12-01 18:58:02.54315	0.88	1.35	1	0	h-win	yes
+270	1451050	2025-10-01	World	UEFA Champions League	Barcelona	Paris Saint Germain	a-win	1	2	12	3	16	7	4	9	0	2	4	2	0	0	47.00	53.00	12	14	\N	\N	\N	\N	\N	2025-12-01 18:58:02.778363	1.27	1.67	1	1	draw	yes
+271	1451055	2025-10-01	World	UEFA Champions League	Villarreal	Juventus	draw	2	2	17	6	13	4	4	3	1	1	1	3	0	0	45.00	55.00	7	19	\N	\N	\N	\N	\N	2025-12-01 18:58:03.035763	1.72	1.60	1	0	h-win	yes
+272	1451057	2025-10-21	World	UEFA Champions League	Barcelona	Olympiakos Piraeus	h-win	6	1	14	7	5	2	7	2	2	1	1	4	0	1	73.00	27.00	7	10	\N	\N	\N	\N	\N	2025-12-01 18:58:03.303699	2.48	1.00	2	0	h-win	yes
+273	1451056	2025-10-21	World	UEFA Champions League	Kairat Almaty	Pafos	draw	0	0	22	2	9	6	6	4	1	3	3	1	0	1	69.00	31.00	11	9	\N	\N	\N	\N	\N	2025-12-01 18:58:03.501143	1.26	1.76	0	0	draw	yes
+274	1451064	2025-10-21	World	UEFA Champions League	Newcastle	Benfica	h-win	3	0	19	10	7	2	12	8	2	1	1	1	0	0	52.00	48.00	16	7	\N	\N	\N	\N	\N	2025-12-01 18:58:03.667703	2.63	0.33	1	0	h-win	yes
+275	1451061	2025-10-21	World	UEFA Champions League	Arsenal	Atletico Madrid	h-win	4	0	19	8	11	1	3	4	2	0	1	2	0	0	52.00	48.00	14	10	\N	\N	\N	\N	\N	2025-12-01 18:58:03.89284	2.19	0.67	0	0	draw	yes
+276	1451060	2025-10-21	World	UEFA Champions League	Bayer Leverkusen	Paris Saint Germain	a-win	2	7	6	3	24	8	3	4	3	0	2	1	1	1	29.00	71.00	8	6	\N	\N	\N	\N	\N	2025-12-01 18:58:04.099828	2.50	2.86	1	4	a-win	yes
+277	1451059	2025-10-21	World	UEFA Champions League	PSV Eindhoven	Napoli	h-win	6	2	19	8	10	2	4	8	2	1	4	1	0	1	59.00	41.00	11	9	\N	\N	\N	\N	\N	2025-12-01 18:58:04.310597	2.89	1.16	2	1	h-win	yes
+278	1451062	2025-10-21	World	UEFA Champions League	FC Copenhagen	Borussia Dortmund	a-win	2	4	11	4	9	5	4	7	0	0	2	1	0	0	36.00	64.00	10	7	\N	\N	\N	\N	\N	2025-12-01 18:58:04.486777	0.82	1.64	1	1	draw	yes
+279	1451063	2025-10-21	World	UEFA Champions League	Villarreal	Manchester City	a-win	0	2	11	2	10	6	1	3	0	0	4	2	0	0	34.00	66.00	17	15	\N	\N	\N	\N	\N	2025-12-01 18:58:04.66118	1.28	1.34	0	2	a-win	yes
+280	1451058	2025-10-21	World	UEFA Champions League	Union St. Gilloise	Inter	a-win	0	4	15	6	21	7	3	4	4	0	1	1	0	0	30.00	70.00	15	6	\N	\N	\N	\N	\N	2025-12-01 18:58:04.834129	0.95	4.54	0	2	a-win	yes
+281	1451066	2025-10-22	World	UEFA Champions League	Athletic Club	Qarabag	h-win	3	1	21	5	9	4	8	3	1	0	0	0	0	0	60.00	40.00	14	5	\N	\N	\N	\N	\N	2025-12-01 18:58:04.989471	3.47	0.52	1	1	draw	yes
+282	1451065	2025-10-22	World	UEFA Champions League	Galatasaray	Bodo/Glimt	h-win	3	1	23	11	8	2	7	4	3	1	1	1	0	0	38.00	62.00	10	7	\N	\N	\N	\N	\N	2025-12-01 18:58:05.165137	4.09	1.41	2	0	h-win	yes
+283	1451070	2025-10-22	World	UEFA Champions League	Chelsea	Ajax	h-win	5	1	22	10	2	1	11	0	3	1	2	1	0	1	66.00	34.00	15	6	\N	\N	\N	\N	\N	2025-12-01 18:58:05.335203	3.65	1.05	4	1	h-win	yes
+284	1451067	2025-10-22	World	UEFA Champions League	Monaco	Tottenham	draw	0	0	23	8	11	2	5	4	1	1	0	1	0	0	56.00	44.00	25	0	\N	\N	\N	\N	\N	2025-12-01 18:58:05.515455	2.45	0.88	0	0	draw	yes
+285	1451073	2025-10-22	World	UEFA Champions League	Bayern München	Club Brugge KV	h-win	4	0	26	13	5	2	9	1	1	0	1	0	0	0	63.00	37.00	14	3	\N	\N	\N	\N	\N	2025-12-01 18:58:05.703773	4.20	0.25	3	0	h-win	yes
+286	1451069	2025-10-22	World	UEFA Champions League	Eintracht Frankfurt	Liverpool	a-win	1	5	4	1	18	14	2	10	1	3	2	0	0	0	35.00	65.00	4	5	\N	\N	\N	\N	\N	2025-12-01 18:58:05.97507	0.23	3.26	1	3	a-win	yes
+287	1451072	2025-10-22	World	UEFA Champions League	Sporting CP	Marseille	h-win	2	1	14	7	10	3	3	1	2	0	2	4	0	1	53.00	47.00	11	16	\N	\N	\N	\N	\N	2025-12-01 18:58:06.229874	1.11	0.54	0	1	a-win	yes
+288	1451071	2025-10-22	World	UEFA Champions League	Atalanta	Slavia Praha	draw	0	0	22	5	16	4	6	3	5	3	3	2	0	0	56.00	44.00	8	15	\N	\N	\N	\N	\N	2025-12-01 18:58:06.421302	2.59	0.73	0	0	draw	yes
+289	1451068	2025-10-22	World	UEFA Champions League	Real Madrid	Juventus	h-win	1	0	28	10	13	4	13	7	1	2	1	0	0	0	66.00	34.00	10	18	\N	\N	\N	\N	\N	2025-12-01 18:58:06.63276	2.69	0.59	0	0	draw	yes
+290	1451074	2025-11-04	World	UEFA Champions League	Napoli	Eintracht Frankfurt	draw	0	0	18	3	7	3	5	3	1	0	2	1	0	0	64.00	36.00	12	10	\N	\N	\N	20	28	2025-12-01 18:58:06.944107	1.85	0.36	0	0	draw	yes
+291	1451075	2025-11-04	World	UEFA Champions League	Slavia Praha	Arsenal	a-win	0	3	9	1	14	8	4	7	5	0	3	4	0	0	43.00	57.00	31	0	\N	\N	\N	31	1	2025-12-01 18:58:07.083679	0.47	1.81	0	1	a-win	yes
+292	1451077	2025-11-04	World	UEFA Champions League	Liverpool	Real Madrid	h-win	1	0	17	9	8	2	4	2	2	0	1	4	0	0	39.00	61.00	16	11	\N	\N	\N	13	5	2025-12-01 18:58:07.24476	2.51	0.45	0	0	draw	yes
+293	1451076	2025-11-04	World	UEFA Champions League	Tottenham	FC Copenhagen	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	29	2025-12-01 18:58:07.258563	\N	\N	1	0	h-win	yes
+294	1451081	2025-11-04	World	UEFA Champions League	Paris Saint Germain	Bayern München	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	3	2025-12-01 18:58:07.271084	\N	\N	0	2	a-win	yes
+295	1451080	2025-11-04	World	UEFA Champions League	Bodo/Glimt	Monaco	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	32	23	2025-12-01 18:58:07.285137	\N	\N	0	1	a-win	yes
+296	1451082	2025-11-04	World	UEFA Champions League	Juventus	Sporting CP	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	22	8	2025-12-01 18:58:07.301796	\N	\N	1	1	draw	yes
+297	1451079	2025-11-04	World	UEFA Champions League	Atletico Madrid	Union St. Gilloise	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	25	2025-12-01 18:58:07.318104	\N	\N	1	0	h-win	yes
+298	1451078	2025-11-04	World	UEFA Champions League	Olympiakos Piraeus	PSV Eindhoven	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	33	15	2025-12-01 18:58:07.331912	\N	\N	1	0	h-win	yes
+299	1451083	2025-11-05	World	UEFA Champions League	Qarabag	Chelsea	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	7	2025-12-01 18:58:07.347154	\N	\N	2	1	h-win	yes
+300	1451084	2025-11-05	World	UEFA Champions League	Pafos	Villarreal	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	24	34	2025-12-01 18:58:07.362814	\N	\N	0	0	draw	yes
+301	1451088	2025-11-05	World	UEFA Champions League	Newcastle	Athletic Club	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	27	2025-12-01 18:58:07.377829	\N	\N	1	0	h-win	yes
+302	1451085	2025-11-05	World	UEFA Champions League	Manchester City	Borussia Dortmund	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	6	2025-12-01 18:58:07.393084	\N	\N	2	0	h-win	yes
+303	1451091	2025-11-05	World	UEFA Champions League	Marseille	Atalanta	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	21	10	2025-12-01 18:58:07.406695	\N	\N	0	0	draw	yes
+304	1451087	2025-11-05	World	UEFA Champions League	Ajax	Galatasaray	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	36	14	2025-12-01 18:58:07.422662	\N	\N	0	0	draw	yes
+305	1451089	2025-11-05	World	UEFA Champions League	Benfica	Bayer Leverkusen	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	30	17	2025-12-01 18:58:07.437976	\N	\N	0	0	draw	yes
+306	1451090	2025-11-05	World	UEFA Champions League	Inter	Kairat Almaty	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	35	2025-12-01 18:58:07.450325	\N	\N	1	0	h-win	yes
+307	1451086	2025-11-05	World	UEFA Champions League	Club Brugge KV	Barcelona	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	26	18	2025-12-01 18:58:07.46578	\N	\N	2	1	h-win	yes
+308	1383540	2025-07-10	World	UEFA Europa League	Sabah FA	Celje	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	0	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:30.750885	\N	\N	2	1	h-win	yes
+309	1383541	2025-07-10	World	UEFA Europa League	AEK Larnaca	FK Partizan	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	1	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:30.943409	\N	\N	0	0	draw	yes
+310	1383543	2025-07-10	World	UEFA Europa League	Sheriff Tiraspol	Prishtina	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	0	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:31.112578	\N	\N	2	0	h-win	yes
+311	1383542	2025-07-10	World	UEFA Europa League	Paks	CFR 1907 Cluj	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	2	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:31.294733	\N	\N	0	0	draw	yes
+312	1383544	2025-07-10	World	UEFA Europa League	Levski Sofia	Hapoel Beer Sheva	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	3	5	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:31.466802	\N	\N	0	0	draw	yes
+313	1383545	2025-07-10	World	UEFA Europa League	Shakhtar Donetsk	Ilves	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	0	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:31.61662	\N	\N	2	0	h-win	yes
+314	1383546	2025-07-10	World	UEFA Europa League	Spartak Trnava	BK Hacken	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	5	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:31.777109	\N	\N	0	0	draw	yes
+315	1383547	2025-07-10	World	UEFA Europa League	Legia Warszawa	Aktobe	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	0	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:31.958731	\N	\N	1	0	h-win	yes
+316	1383549	2025-07-17	World	UEFA Europa League	Ilves	Shakhtar Donetsk	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	1	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:32.287682	\N	\N	0	0	draw	yes
+317	1383548	2025-07-17	World	UEFA Europa League	Aktobe	Legia Warszawa	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	3	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:32.538808	\N	\N	0	0	draw	yes
+318	1383551	2025-07-17	World	UEFA Europa League	BK Hacken	Spartak Trnava	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	3	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:32.703623	\N	\N	1	0	h-win	yes
+319	1383550	2025-07-17	World	UEFA Europa League	CFR 1907 Cluj	Paks	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	2	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:32.84961	\N	\N	1	0	h-win	yes
+320	1383553	2025-07-17	World	UEFA Europa League	Hapoel Beer Sheva	Levski Sofia	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	4	1	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:33.028614	\N	\N	0	0	draw	yes
+321	1383552	2025-07-17	World	UEFA Europa League	Prishtina	Sheriff Tiraspol	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	1	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:33.209514	\N	\N	0	0	draw	yes
+322	1383554	2025-07-17	World	UEFA Europa League	Celje	Sabah FA	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	4	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:33.400726	\N	\N	1	1	draw	yes
+323	1383555	2025-07-17	World	UEFA Europa League	FK Partizan	AEK Larnaca	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	3	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:33.615704	\N	\N	0	0	draw	yes
+324	1410068	2025-07-24	World	UEFA Europa League	Sheriff Tiraspol	Utrecht	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	3	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:33.835816	\N	\N	1	1	draw	yes
+325	1410069	2025-07-24	World	UEFA Europa League	Baník Ostrava	Legia Warszawa	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	1	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:34.074532	\N	\N	1	1	draw	yes
+326	1383556	2025-07-24	World	UEFA Europa League	FC Midtjylland	Hibernian	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	1	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:34.27508	\N	\N	0	1	a-win	yes
+327	1410070	2025-07-24	World	UEFA Europa League	Levski Sofia	SC Braga	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	2	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:34.498091	\N	\N	0	0	draw	yes
+328	1410072	2025-07-24	World	UEFA Europa League	Beşiktaş	Shakhtar Donetsk	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	3	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:34.760926	\N	\N	1	2	a-win	yes
+329	1410071	2025-07-24	World	UEFA Europa League	Anderlecht	BK Hacken	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	2	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:35.027052	\N	\N	1	0	h-win	yes
+330	1410073	2025-07-24	World	UEFA Europa League	Celje	AEK Larnaca	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	3	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:35.313551	\N	\N	1	0	h-win	yes
+331	1410074	2025-07-24	World	UEFA Europa League	FC Lugano	CFR 1907 Cluj	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	2	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:35.576054	\N	\N	0	0	draw	yes
+332	1410076	2025-07-31	World	UEFA Europa League	AEK Larnaca	Celje	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	1	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:35.804476	\N	\N	1	0	h-win	yes
+333	1410077	2025-07-31	World	UEFA Europa League	BK Hacken	Anderlecht	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	1	6	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:36.051476	\N	\N	1	0	h-win	yes
+334	1410078	2025-07-31	World	UEFA Europa League	CFR 1907 Cluj	FC Lugano	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	4	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:36.299538	\N	\N	0	0	draw	yes
+335	1410079	2025-07-31	World	UEFA Europa League	Utrecht	Sheriff Tiraspol	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	0	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:36.50569	\N	\N	1	0	h-win	yes
+336	1410075	2025-07-31	World	UEFA Europa League	Shakhtar Donetsk	Beşiktaş	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	6	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:36.77758	\N	\N	2	0	h-win	yes
+337	1410080	2025-07-31	World	UEFA Europa League	SC Braga	Levski Sofia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	0	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:37.096554	\N	\N	0	0	draw	yes
+338	1383557	2025-07-31	World	UEFA Europa League	Hibernian	FC Midtjylland	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	4	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:37.358709	\N	\N	0	0	draw	yes
+339	1410081	2025-07-31	World	UEFA Europa League	Legia Warszawa	Baník Ostrava	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	3	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:37.659494	\N	\N	0	1	a-win	yes
+340	1421215	2025-08-05	World	UEFA Europa League	Hamrun Spartans	Maccabi Tel Aviv	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	3	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:37.919798	\N	\N	0	0	draw	yes
+341	1421213	2025-08-06	World	UEFA Europa League	Rīgas FS	KuPS	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	1	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:38.208354	\N	\N	0	2	a-win	yes
+342	1421212	2025-08-06	World	UEFA Europa League	HNK Rijeka	Shelbourne	a-win	1	2	0	7	0	2	6	1	0	1	0	0	0	0	68.00	32.00	7	7	\N	\N	\N	\N	\N	2025-12-01 19:08:38.487668	\N	\N	0	0	draw	yes
+343	1421219	2025-08-07	World	UEFA Europa League	Lincoln Red Imps FC	FC Noah	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	1	7	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:38.819753	\N	\N	1	1	draw	yes
+344	1421210	2025-08-07	World	UEFA Europa League	Fredrikstad	FC Midtjylland	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	0	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:39.047512	\N	\N	0	2	a-win	yes
+345	1421214	2025-08-07	World	UEFA Europa League	AEK Larnaca	Legia Warszawa	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	1	4	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:39.303673	\N	\N	1	1	draw	yes
+346	1421209	2025-08-07	World	UEFA Europa League	CFR 1907 Cluj	SC Braga	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	2	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:39.607986	\N	\N	1	1	draw	yes
+347	1421211	2025-08-07	World	UEFA Europa League	BK Hacken	Brann	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	1	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:39.927582	\N	\N	0	1	a-win	yes
+348	1413127	2025-08-07	World	UEFA Europa League	PAOK	Wolfsberger AC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	4	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:40.204672	\N	\N	0	0	draw	yes
+349	1421220	2025-08-07	World	UEFA Europa League	Zrinjski	Breidablik	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	1	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:40.449822	\N	\N	0	1	a-win	yes
+350	1421218	2025-08-07	World	UEFA Europa League	Panathinaikos	Shakhtar Donetsk	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	2	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:40.639045	\N	\N	0	0	draw	yes
+351	1421217	2025-08-07	World	UEFA Europa League	FCSB	Drita	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	1	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:40.841985	\N	\N	0	1	a-win	yes
+352	1421216	2025-08-07	World	UEFA Europa League	Servette FC	Utrecht	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	2	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:41.068696	\N	\N	1	0	h-win	yes
+353	1421222	2025-08-12	World	UEFA Europa League	Shelbourne	HNK Rijeka	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	0	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:41.322048	\N	\N	0	1	a-win	yes
+354	1421228	2025-08-14	World	UEFA Europa League	KuPS	Rīgas FS	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	3	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:41.5678	\N	\N	0	0	draw	yes
+355	1423465	2025-08-14	World	UEFA Europa League	FC Midtjylland	Fredrikstad	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	1	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:41.773254	\N	\N	2	0	h-win	yes
+356	1421225	2025-08-14	World	UEFA Europa League	Brann	BK Hacken	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	2	5	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:41.917238	\N	\N	0	1	a-win	yes
+357	1413128	2025-08-14	World	UEFA Europa League	Wolfsberger AC	PAOK	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	5	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:42.142069	\N	\N	0	0	draw	yes
+358	1421224	2025-08-14	World	UEFA Europa League	FC Noah	Lincoln Red Imps FC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	2	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:42.349587	\N	\N	0	0	draw	yes
+359	1421229	2025-08-14	World	UEFA Europa League	Breidablik	Zrinjski	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	4	1	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:42.613432	\N	\N	0	1	a-win	yes
+360	1421230	2025-08-14	World	UEFA Europa League	Utrecht	Servette FC	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	4	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:42.862818	\N	\N	0	0	draw	yes
+361	1421227	2025-08-14	World	UEFA Europa League	Shakhtar Donetsk	Panathinaikos	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	4	6	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:43.085808	\N	\N	0	0	draw	yes
+362	1421226	2025-08-14	World	UEFA Europa League	Maccabi Tel Aviv	Hamrun Spartans	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	1	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:43.347668	\N	\N	2	1	h-win	yes
+363	1421221	2025-08-14	World	UEFA Europa League	Drita	FCSB	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	2	2	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:43.614804	\N	\N	0	2	a-win	yes
+364	1421223	2025-08-14	World	UEFA Europa League	SC Braga	CFR 1907 Cluj	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	0	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:43.911262	\N	\N	2	0	h-win	yes
+365	1421231	2025-08-14	World	UEFA Europa League	Legia Warszawa	AEK Larnaca	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	4	6	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 19:08:44.251479	\N	\N	2	0	h-win	yes
+992	1381588	2025-08-29	Poland	I Liga	Slask Wroclaw	Tychy 71	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:47.576474	\N	\N	0	0	draw	yes
+366	1437226	2025-08-21	World	UEFA Europa League	FC Midtjylland	KuPS	h-win	4	0	13	9	4	2	4	5	0	1	1	2	0	0	48.00	52.00	11	10	\N	\N	\N	\N	\N	2025-12-01 19:08:44.528265	\N	\N	2	0	h-win	yes
+367	1437228	2025-08-21	World	UEFA Europa League	Brann	AEK Larnaca	h-win	2	1	15	10	8	3	6	5	0	0	2	3	0	0	60.00	40.00	16	11	\N	\N	\N	\N	\N	2025-12-01 19:08:44.835539	\N	\N	1	1	draw	yes
+368	1437227	2025-08-21	World	UEFA Europa League	Malmo FF	Sigma Olomouc	h-win	3	0	12	4	8	2	9	3	1	4	2	3	0	0	50.00	50.00	11	10	\N	\N	\N	\N	\N	2025-12-01 19:08:45.139947	\N	\N	2	0	h-win	yes
+369	1437229	2025-08-21	World	UEFA Europa League	Zrinjski	Utrecht	a-win	0	2	12	3	12	7	6	2	1	0	5	3	1	0	52.00	48.00	10	9	\N	\N	\N	\N	\N	2025-12-01 19:08:45.519387	\N	\N	0	1	a-win	yes
+370	1436776	2025-08-21	World	UEFA Europa League	Maccabi Tel Aviv	Dynamo Kyiv	h-win	3	1	21	11	11	3	6	5	2	2	1	4	0	1	63.00	37.00	12	11	\N	\N	\N	\N	\N	2025-12-01 19:08:45.852305	\N	\N	1	1	draw	yes
+371	1436778	2025-08-21	World	UEFA Europa League	Shkendija	Ludogorets	h-win	2	1	14	4	14	4	4	2	4	2	2	1	0	0	\N	\N	8	17	\N	\N	\N	\N	\N	2025-12-01 19:08:46.167356	\N	\N	1	1	draw	yes
+372	1436779	2025-08-21	World	UEFA Europa League	Panathinaikos	Samsunspor	h-win	2	1	10	5	7	3	8	4	0	4	2	2	0	0	49.00	51.00	10	9	\N	\N	\N	\N	\N	2025-12-01 19:08:46.468177	\N	\N	0	0	draw	yes
+373	1436777	2025-08-21	World	UEFA Europa League	Slovan Bratislava	BSC Young Boys	a-win	0	1	6	0	4	2	9	5	3	2	3	2	0	0	48.00	52.00	14	23	\N	\N	\N	\N	\N	2025-12-01 19:08:46.769857	\N	\N	0	1	a-win	yes
+374	1436775	2025-08-21	World	UEFA Europa League	Lech Poznan	Genk	a-win	1	5	14	7	19	11	3	5	0	1	1	3	0	0	40.00	60.00	5	5	\N	\N	\N	\N	\N	2025-12-01 19:08:47.004029	\N	\N	1	4	a-win	yes
+375	1436774	2025-08-21	World	UEFA Europa League	Aberdeen	FCSB	draw	2	2	29	9	11	6	4	3	1	0	4	2	0	1	49.00	51.00	14	9	\N	\N	\N	\N	\N	2025-12-01 19:08:47.249625	\N	\N	0	1	a-win	yes
+376	1436773	2025-08-21	World	UEFA Europa League	HNK Rijeka	PAOK	h-win	1	0	15	7	11	3	4	2	3	1	2	5	0	0	60.00	40.00	13	16	\N	\N	\N	\N	\N	2025-12-01 19:08:47.505643	\N	\N	1	0	h-win	yes
+377	1437230	2025-08-21	World	UEFA Europa League	Lincoln Red Imps FC	SC Braga	a-win	0	4	2	1	11	4	0	4	3	2	2	1	0	0	\N	\N	12	12	\N	\N	\N	\N	\N	2025-12-01 19:08:47.756231	\N	\N	0	2	a-win	yes
+378	1437231	2025-08-27	World	UEFA Europa League	AEK Larnaca	Brann	a-win	0	4	9	0	11	6	4	3	4	3	0	2	1	0	51.00	49.00	9	13	\N	\N	\N	\N	\N	2025-12-01 19:08:47.970511	\N	\N	0	1	a-win	yes
+379	1437233	2025-08-28	World	UEFA Europa League	KuPS	FC Midtjylland	a-win	0	2	8	6	30	8	1	10	1	1	0	0	1	0	40.00	60.00	8	7	\N	\N	\N	\N	\N	2025-12-01 19:08:48.21858	\N	\N	0	0	draw	yes
+380	1436780	2025-08-28	World	UEFA Europa League	Sigma Olomouc	Malmo FF	a-win	0	2	13	2	12	7	10	2	0	2	2	3	0	0	58.00	42.00	19	18	\N	\N	\N	\N	\N	2025-12-01 19:08:48.434192	\N	\N	0	0	draw	yes
+381	1437234	2025-08-28	World	UEFA Europa League	Samsunspor	Panathinaikos	draw	0	0	10	3	7	2	7	3	3	0	3	3	0	0	56.00	44.00	16	11	\N	\N	\N	\N	\N	2025-12-01 19:08:48.589606	\N	\N	0	0	draw	yes
+382	1436783	2025-08-28	World	UEFA Europa League	Ludogorets	Shkendija	h-win	4	1	28	11	8	1	4	4	2	2	1	3	0	0	62.00	38.00	14	12	\N	\N	\N	\N	\N	2025-12-01 19:08:48.755167	\N	\N	2	0	h-win	yes
+383	1437235	2025-08-28	World	UEFA Europa League	PAOK	HNK Rijeka	h-win	5	0	16	13	4	1	6	2	0	2	0	2	0	1	59.00	41.00	12	10	\N	\N	\N	\N	\N	2025-12-01 19:08:48.915705	\N	\N	2	0	h-win	yes
+384	1437232	2025-08-28	World	UEFA Europa League	Utrecht	Zrinjski	draw	0	0	7	1	4	1	4	7	0	1	2	3	0	0	48.00	52.00	12	9	\N	\N	\N	\N	\N	2025-12-01 19:08:49.066632	\N	\N	0	0	draw	yes
+385	1436785	2025-08-28	World	UEFA Europa League	BSC Young Boys	Slovan Bratislava	h-win	3	2	10	5	17	7	7	4	1	1	2	0	0	0	51.00	49.00	12	7	\N	\N	\N	\N	\N	2025-12-01 19:08:49.231683	\N	\N	2	1	h-win	yes
+386	1436784	2025-08-28	World	UEFA Europa League	Dynamo Kyiv	Maccabi Tel Aviv	h-win	1	0	6	2	4	2	8	7	2	2	1	2	0	0	52.00	48.00	14	14	\N	\N	\N	\N	\N	2025-12-01 19:08:49.386462	\N	\N	1	0	h-win	yes
+387	1436781	2025-08-28	World	UEFA Europa League	Genk	Lech Poznan	a-win	1	2	12	4	8	2	8	4	2	0	1	1	0	0	64.00	36.00	15	12	\N	\N	\N	\N	\N	2025-12-01 19:08:49.60165	\N	\N	1	1	draw	yes
+388	1436782	2025-08-28	World	UEFA Europa League	FCSB	Aberdeen	h-win	3	0	8	4	6	2	4	3	1	1	1	5	0	1	64.00	36.00	11	16	\N	\N	\N	\N	\N	2025-12-01 19:08:49.795726	\N	\N	1	0	h-win	yes
+389	1437236	2025-08-28	World	UEFA Europa League	SC Braga	Lincoln Red Imps FC	h-win	5	1	20	11	4	2	4	3	1	1	1	3	0	0	57.00	43.00	8	10	\N	\N	\N	\N	\N	2025-12-01 19:08:50.121806	\N	\N	3	0	h-win	yes
+390	1451164	2025-09-24	World	UEFA Europa League	FC Midtjylland	Sturm Graz	h-win	2	0	7	5	11	4	4	3	5	0	3	2	0	0	53.00	47.00	16	16	\N	\N	\N	\N	\N	2025-12-01 19:08:50.367372	0.56	0.91	1	0	h-win	yes
+391	1451165	2025-09-24	World	UEFA Europa League	PAOK	Maccabi Tel Aviv	draw	0	0	18	5	9	3	9	3	1	1	1	3	0	0	55.00	45.00	14	18	\N	\N	\N	\N	\N	2025-12-01 19:08:50.603147	1.43	1.56	0	0	draw	yes
+392	1451171	2025-09-24	World	UEFA Europa League	Nice	AS Roma	a-win	1	2	7	2	12	4	3	5	2	3	0	5	0	0	43.00	57.00	9	19	\N	\N	\N	\N	\N	2025-12-01 19:08:50.938506	0.96	0.80	0	0	draw	yes
+393	1451166	2025-09-24	World	UEFA Europa League	SC Freiburg	FC Basel 1893	h-win	2	1	15	5	15	4	4	4	0	0	2	2	0	0	48.00	52.00	10	16	\N	\N	\N	\N	\N	2025-12-01 19:08:51.244836	0.92	1.10	1	0	h-win	yes
+394	1451172	2025-09-24	World	UEFA Europa League	SC Braga	Feyenoord	h-win	1	0	8	2	5	1	7	2	0	4	1	2	0	0	45.00	55.00	10	15	\N	\N	\N	\N	\N	2025-12-01 19:08:51.527514	0.68	0.27	0	0	draw	yes
+395	1451168	2025-09-24	World	UEFA Europa League	Malmo FF	Ludogorets	a-win	1	2	10	5	21	10	2	3	0	2	3	3	0	0	60.00	40.00	9	14	\N	\N	\N	\N	\N	2025-12-01 19:08:51.762336	0.65	2.92	0	2	a-win	yes
+396	1451170	2025-09-24	World	UEFA Europa League	Real Betis	Nottingham Forest	draw	2	2	9	4	16	6	3	3	0	1	3	2	0	0	56.00	44.00	16	16	\N	\N	\N	\N	\N	2025-12-01 19:08:52.004167	0.49	3.27	1	2	a-win	yes
+397	1451167	2025-09-24	World	UEFA Europa League	FK Crvena Zvezda	Celtic	draw	1	1	16	4	8	6	8	4	3	2	2	2	0	0	47.00	53.00	12	10	\N	\N	\N	\N	\N	2025-12-01 19:08:52.159429	1.61	1.68	0	0	draw	yes
+398	1451169	2025-09-24	World	UEFA Europa League	Dinamo Zagreb	Fenerbahçe	h-win	3	1	11	3	6	2	5	6	1	1	2	3	0	0	42.00	58.00	7	8	\N	\N	\N	\N	\N	2025-12-01 19:08:52.320774	1.50	0.17	1	1	draw	yes
+399	1451174	2025-09-25	World	UEFA Europa League	Lille	Brann	h-win	2	1	17	4	12	3	11	4	3	0	1	2	0	0	55.00	45.00	7	12	\N	\N	\N	\N	\N	2025-12-01 19:08:52.494659	1.57	0.77	0	0	draw	yes
+400	1451173	2025-09-25	World	UEFA Europa League	GO Ahead Eagles	FCSB	a-win	0	1	17	7	8	6	7	1	0	1	1	5	0	0	73.00	27.00	9	14	\N	\N	\N	\N	\N	2025-12-01 19:08:52.696824	1.30	0.56	0	1	a-win	yes
+401	1451176	2025-09-25	World	UEFA Europa League	Aston Villa	Bologna	h-win	1	0	12	4	17	7	8	3	2	9	2	2	0	0	47.00	53.00	16	14	\N	\N	\N	\N	\N	2025-12-01 19:08:52.916516	1.24	1.10	1	0	h-win	yes
+402	1452153	2025-09-25	World	UEFA Europa League	VfB Stuttgart	Celta Vigo	h-win	2	1	19	6	8	1	9	2	2	1	2	2	0	0	59.00	41.00	12	13	\N	\N	\N	\N	\N	2025-12-01 19:08:53.102847	1.54	0.53	0	0	draw	yes
+403	1452154	2025-09-25	World	UEFA Europa League	Utrecht	Lyon	a-win	0	1	11	2	12	4	4	5	1	4	2	4	0	0	38.00	62.00	19	13	\N	\N	\N	\N	\N	2025-12-01 19:08:53.279079	1.14	1.00	0	0	draw	yes
+404	1451179	2025-09-25	World	UEFA Europa League	Rangers	Genk	a-win	0	1	11	2	18	4	4	2	1	4	1	3	1	0	54.00	46.00	13	16	\N	\N	\N	\N	\N	2025-12-01 19:08:53.439005	1.01	2.94	0	0	draw	yes
+405	1451177	2025-09-25	World	UEFA Europa League	BSC Young Boys	Panathinaikos	a-win	1	4	19	3	18	6	9	4	3	2	1	0	0	0	59.00	41.00	14	6	\N	\N	\N	\N	\N	2025-12-01 19:08:53.615544	1.14	1.17	1	3	a-win	yes
+406	1451175	2025-09-25	World	UEFA Europa League	Red Bull Salzburg	FC Porto	a-win	0	1	14	3	15	3	2	8	2	2	4	1	0	0	43.00	57.00	14	8	\N	\N	\N	\N	\N	2025-12-01 19:08:53.862858	1.26	1.41	0	0	draw	yes
+407	1451178	2025-09-25	World	UEFA Europa League	Ferencvarosi TC	Plzen	draw	1	1	10	2	9	3	3	3	0	0	4	2	1	0	53.00	47.00	21	17	\N	\N	\N	\N	\N	2025-12-01 19:08:54.115772	0.93	0.67	0	1	a-win	yes
+408	1451180	2025-10-02	World	UEFA Europa League	Celtic	SC Braga	a-win	0	2	9	3	13	6	7	5	1	2	2	1	0	0	56.00	44.00	15	9	\N	\N	\N	\N	\N	2025-12-01 19:08:54.342578	0.65	1.05	0	1	a-win	yes
+409	1451185	2025-10-02	World	UEFA Europa League	Brann	Utrecht	h-win	1	0	11	3	6	2	4	3	2	3	2	2	0	0	45.00	55.00	16	11	\N	\N	\N	\N	\N	2025-12-01 19:08:54.5584	0.66	0.51	1	0	h-win	yes
+410	1451188	2025-10-02	World	UEFA Europa League	AS Roma	Lille	a-win	0	1	20	6	9	5	6	3	0	1	0	4	0	0	50.00	50.00	19	13	\N	\N	\N	\N	\N	2025-12-01 19:08:54.777521	2.20	1.49	0	1	a-win	yes
+411	1451183	2025-10-02	World	UEFA Europa League	Bologna	SC Freiburg	draw	1	1	8	3	12	6	2	8	2	3	2	2	0	0	55.00	45.00	16	18	\N	\N	\N	\N	\N	2025-12-01 19:08:54.932338	0.79	2.08	1	0	h-win	yes
+412	1451186	2025-10-02	World	UEFA Europa League	FCSB	BSC Young Boys	a-win	0	2	17	3	16	9	8	3	1	0	1	3	0	0	51.00	49.00	11	18	\N	\N	\N	\N	\N	2025-12-01 19:08:55.12346	0.69	1.50	0	2	a-win	yes
+413	1451182	2025-10-02	World	UEFA Europa League	Ludogorets	Real Betis	a-win	0	2	13	2	12	2	6	5	2	5	1	3	0	0	53.00	47.00	8	15	\N	\N	\N	\N	\N	2025-12-01 19:08:55.333406	0.44	0.75	0	1	a-win	yes
+414	1451187	2025-10-02	World	UEFA Europa League	Plzen	Malmo FF	h-win	3	0	14	7	8	1	3	6	4	2	2	4	1	2	59.00	41.00	12	16	\N	\N	\N	\N	\N	2025-12-01 19:08:55.514006	2.17	0.36	2	0	h-win	yes
+415	1451184	2025-10-02	World	UEFA Europa League	Fenerbahçe	Nice	h-win	2	1	17	5	10	3	3	4	3	0	3	1	0	0	59.00	41.00	12	17	\N	\N	\N	\N	\N	2025-12-01 19:08:55.702203	1.52	1.29	2	1	h-win	yes
+416	1451181	2025-10-02	World	UEFA Europa League	Panathinaikos	GO Ahead Eagles	a-win	1	2	33	9	7	4	14	3	0	1	1	1	0	0	64.00	36.00	8	12	\N	\N	\N	\N	\N	2025-12-01 19:08:55.969265	2.23	1.02	0	0	draw	yes
+417	1451194	2025-10-02	World	UEFA Europa League	Nottingham Forest	FC Midtjylland	a-win	2	3	22	9	8	5	10	8	3	2	3	2	0	0	61.00	39.00	14	15	\N	\N	\N	\N	\N	2025-12-01 19:08:56.268029	2.05	2.10	1	2	a-win	yes
+418	1451191	2025-10-02	World	UEFA Europa League	Lyon	Red Bull Salzburg	h-win	2	0	15	6	11	5	2	1	0	2	1	1	0	0	65.00	35.00	10	14	\N	\N	\N	\N	\N	2025-12-01 19:08:56.476634	3.21	0.51	1	0	h-win	yes
+419	1452155	2025-10-02	World	UEFA Europa League	Feyenoord	Aston Villa	a-win	0	2	19	8	6	3	8	1	2	2	3	3	0	0	41.00	59.00	17	10	\N	\N	\N	\N	\N	2025-12-01 19:08:56.65727	1.47	0.63	0	0	draw	yes
+420	1451192	2025-10-02	World	UEFA Europa League	FC Porto	FK Crvena Zvezda	h-win	2	1	18	4	9	2	5	3	1	1	3	2	0	0	50.00	50.00	11	8	\N	\N	\N	\N	\N	2025-12-01 19:08:56.847748	2.65	0.53	1	1	draw	yes
+421	1451196	2025-10-02	World	UEFA Europa League	Celta Vigo	PAOK	h-win	3	1	15	9	5	2	5	1	2	1	3	2	0	0	63.00	37.00	9	13	\N	\N	\N	\N	\N	2025-12-01 19:08:57.040567	2.70	0.75	1	1	draw	yes
+422	1451189	2025-10-02	World	UEFA Europa League	FC Basel 1893	VfB Stuttgart	h-win	2	0	12	4	29	7	1	9	0	1	3	0	0	0	35.00	65.00	19	10	\N	\N	\N	\N	\N	2025-12-01 19:08:57.242417	1.43	2.54	1	0	h-win	yes
+423	1451193	2025-10-02	World	UEFA Europa League	Maccabi Tel Aviv	Dinamo Zagreb	a-win	1	3	11	4	6	5	5	3	2	2	1	1	0	0	50.00	50.00	8	11	\N	\N	\N	\N	\N	2025-12-01 19:08:57.476437	0.59	0.69	1	2	a-win	yes
+424	1451195	2025-10-02	World	UEFA Europa League	Sturm Graz	Rangers	h-win	2	1	16	8	16	10	3	7	1	0	2	1	0	0	41.00	59.00	20	13	\N	\N	\N	\N	\N	2025-12-01 19:08:57.660754	1.64	1.87	2	0	h-win	yes
+425	1451190	2025-10-02	World	UEFA Europa League	Genk	Ferencvarosi TC	a-win	0	1	13	3	8	5	5	3	3	2	0	3	0	0	63.00	37.00	8	16	\N	\N	\N	\N	\N	2025-12-01 19:08:57.885886	1.19	1.18	0	1	a-win	yes
+426	1451203	2025-10-23	World	UEFA Europa League	Lyon	FC Basel 1893	h-win	2	0	18	6	10	3	4	2	3	0	1	1	0	0	61.00	39.00	12	12	\N	\N	\N	\N	\N	2025-12-01 19:08:58.035645	2.47	1.19	1	0	h-win	yes
+427	1451204	2025-10-23	World	UEFA Europa League	SC Braga	FK Crvena Zvezda	h-win	2	0	11	4	9	3	2	2	2	3	0	1	0	0	50.00	50.00	13	5	\N	\N	\N	\N	\N	2025-12-01 19:08:58.212782	1.73	0.41	1	0	h-win	yes
+428	1451198	2025-10-23	World	UEFA Europa League	Brann	Rangers	h-win	3	0	13	5	9	1	3	5	0	2	1	2	0	0	53.00	47.00	10	10	\N	\N	\N	\N	\N	2025-12-01 19:08:58.377412	2.33	1.27	1	0	h-win	yes
+429	1451199	2025-10-23	World	UEFA Europa League	GO Ahead Eagles	Aston Villa	h-win	2	1	5	3	18	7	1	10	5	1	2	0	0	0	30.00	70.00	22	0	\N	\N	\N	\N	\N	2025-12-01 19:08:58.545576	0.83	2.82	1	1	draw	yes
+430	1451205	2025-10-23	World	UEFA Europa League	FCSB	Bologna	a-win	1	2	9	6	21	7	4	10	1	1	3	5	0	0	46.00	54.00	18	20	\N	\N	\N	\N	\N	2025-12-01 19:08:58.690903	0.66	1.72	0	2	a-win	yes
+431	1451202	2025-10-23	World	UEFA Europa League	Red Bull Salzburg	Ferencvarosi TC	a-win	2	3	16	4	13	7	5	2	3	1	0	3	0	0	54.00	46.00	12	13	\N	\N	\N	\N	\N	2025-12-01 19:08:58.844514	1.30	2.77	1	0	h-win	yes
+432	1451197	2025-10-23	World	UEFA Europa League	Fenerbahçe	VfB Stuttgart	h-win	1	0	19	7	11	2	4	7	2	0	6	4	0	0	35.00	65.00	11	15	\N	\N	\N	\N	\N	2025-12-01 19:08:59.00491	1.79	1.00	1	0	h-win	yes
+433	1451200	2025-10-23	World	UEFA Europa League	Genk	Real Betis	draw	0	0	5	1	10	3	2	1	3	2	1	3	0	0	44.00	56.00	12	12	\N	\N	\N	\N	\N	2025-12-01 19:08:59.199382	0.23	0.79	0	0	draw	yes
+434	1451210	2025-10-23	World	UEFA Europa League	Nottingham Forest	FC Porto	h-win	2	0	8	3	10	2	3	8	0	2	2	2	0	0	51.00	49.00	13	15	\N	\N	\N	\N	\N	2025-12-01 19:08:59.445688	2.09	0.60	1	0	h-win	yes
+435	1451212	2025-10-23	World	UEFA Europa League	Lille	PAOK	a-win	3	4	22	11	8	7	13	2	3	0	1	5	0	1	65.00	35.00	7	15	\N	\N	\N	\N	\N	2025-12-01 19:08:59.693579	1.59	2.40	0	3	a-win	yes
+436	1452156	2025-10-23	World	UEFA Europa League	SC Freiburg	Utrecht	h-win	2	0	14	7	11	2	5	4	1	0	0	1	0	0	52.00	48.00	12	11	\N	\N	\N	\N	\N	2025-12-01 19:08:59.979741	1.56	0.97	2	0	h-win	yes
+437	1451201	2025-10-23	World	UEFA Europa League	Feyenoord	Panathinaikos	h-win	3	1	18	8	12	5	3	2	3	6	1	5	0	0	50.00	50.00	18	9	\N	\N	\N	\N	\N	2025-12-01 19:09:00.253875	2.63	1.13	1	1	draw	yes
+438	1451208	2025-10-23	World	UEFA Europa League	Celtic	Sturm Graz	h-win	2	1	20	7	8	1	9	2	1	7	1	1	0	1	66.00	34.00	16	16	\N	\N	\N	\N	\N	2025-12-01 19:09:00.493802	4.02	0.46	0	1	a-win	yes
+439	1451213	2025-10-23	World	UEFA Europa League	Malmo FF	Dinamo Zagreb	draw	1	1	6	3	21	5	3	10	1	1	1	2	0	0	25.00	75.00	6	9	\N	\N	\N	\N	\N	2025-12-01 19:09:00.740091	0.63	2.45	1	0	h-win	yes
+480	1383467	2025-07-10	World	UEFA Europa Conference League	Racing FC Union Luxembourg	Dila	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:11.439022	\N	\N	0	0	draw	yes
+440	1451209	2025-10-23	World	UEFA Europa League	AS Roma	Plzen	a-win	1	2	20	8	6	2	10	3	1	2	2	5	0	0	68.00	32.00	12	19	\N	\N	\N	\N	\N	2025-12-01 19:09:00.989327	2.28	0.16	0	2	a-win	yes
+441	1451206	2025-10-23	World	UEFA Europa League	Celta Vigo	Nice	h-win	2	1	25	6	9	3	7	4	3	0	1	4	0	1	65.00	35.00	20	7	\N	\N	\N	\N	\N	2025-12-01 19:09:01.240333	1.31	1.18	1	1	draw	yes
+442	1451207	2025-10-23	World	UEFA Europa League	BSC Young Boys	Ludogorets	h-win	3	2	15	6	15	4	3	2	3	2	2	1	0	0	59.00	41.00	9	9	\N	\N	\N	\N	\N	2025-12-01 19:09:01.481631	4.36	0.99	1	1	draw	yes
+443	1451211	2025-10-23	World	UEFA Europa League	Maccabi Tel Aviv	FC Midtjylland	a-win	0	3	12	3	12	4	4	6	1	2	0	4	0	0	44.00	56.00	10	14	\N	\N	\N	\N	\N	2025-12-01 19:09:01.674152	0.95	1.44	0	1	a-win	yes
+444	1451214	2025-11-06	World	UEFA Europa League	Nice	SC Freiburg	a-win	1	3	17	4	16	7	5	4	1	1	1	2	0	0	60.00	40.00	9	14	\N	\N	\N	36	4	2025-12-01 19:09:01.980452	1.79	2.13	1	3	a-win	yes
+445	1451217	2025-11-06	World	UEFA Europa League	Utrecht	FC Porto	draw	1	1	11	3	19	8	2	7	0	1	3	5	1	0	25.00	75.00	16	12	\N	\N	\N	32	8	2025-12-01 19:09:02.216542	0.54	1.22	0	0	draw	yes
+446	1451221	2025-11-06	World	UEFA Europa League	Malmo FF	Panathinaikos	a-win	0	1	12	2	11	4	4	2	2	0	2	4	0	0	57.00	43.00	12	17	\N	\N	\N	34	14	2025-12-01 19:09:02.398011	1.42	1.36	0	0	draw	yes
+447	1452157	2025-11-06	World	UEFA Europa League	FC Midtjylland	Celtic	h-win	3	1	24	12	5	3	4	4	1	0	0	3	0	0	60.00	40.00	13	14	\N	\N	\N	2	21	2025-12-01 19:09:02.557552	2.73	0.98	3	0	h-win	yes
+448	1451220	2025-11-06	World	UEFA Europa League	FC Basel 1893	FCSB	h-win	3	1	25	9	14	7	8	5	3	2	2	3	0	1	67.00	33.00	13	15	\N	\N	\N	24	31	2025-12-01 19:09:02.744578	3.91	1.16	1	0	h-win	yes
+449	1451216	2025-11-06	World	UEFA Europa League	Red Bull Salzburg	GO Ahead Eagles	h-win	2	0	17	8	10	2	3	4	1	2	0	2	0	0	43.00	57.00	7	7	\N	\N	\N	29	27	2025-12-01 19:09:02.948005	2.33	1.37	0	0	draw	yes
+450	1451219	2025-11-06	World	UEFA Europa League	FK Crvena Zvezda	Lille	h-win	1	0	11	3	11	3	5	3	3	0	3	4	0	0	40.00	60.00	17	15	\N	\N	\N	22	11	2025-12-01 19:09:03.178398	1.71	1.58	0	0	draw	yes
+451	1451218	2025-11-06	World	UEFA Europa League	Dinamo Zagreb	Celta Vigo	a-win	0	3	10	5	8	3	5	2	3	3	0	0	0	0	59.00	41.00	6	12	\N	\N	\N	23	10	2025-12-01 19:09:03.476224	0.75	1.44	0	3	a-win	yes
+452	1451215	2025-11-06	World	UEFA Europa League	Sturm Graz	Nottingham Forest	draw	0	0	3	2	9	2	0	4	2	2	1	1	0	0	42.00	58.00	17	13	\N	\N	\N	28	16	2025-12-01 19:09:03.768751	0.09	1.70	0	0	draw	yes
+453	1451230	2025-11-06	World	UEFA Europa League	Aston Villa	Maccabi Tel Aviv	h-win	2	0	14	8	6	3	3	1	2	2	0	2	0	0	66.00	34.00	12	18	\N	\N	\N	3	35	2025-12-01 19:09:04.029047	2.07	1.10	1	0	h-win	yes
+454	1451228	2025-11-06	World	UEFA Europa League	VfB Stuttgart	Feyenoord	h-win	2	0	13	6	12	4	2	5	0	1	4	4	0	0	53.00	47.00	26	22	\N	\N	\N	12	30	2025-12-01 19:09:04.323409	1.73	0.89	0	0	draw	yes
+455	1451226	2025-11-06	World	UEFA Europa League	SC Braga	Genk	a-win	3	4	20	6	9	8	9	2	1	1	2	1	0	0	63.00	37.00	6	14	\N	\N	\N	7	9	2025-12-01 19:09:04.582414	2.55	1.09	1	1	draw	yes
+456	1451222	2025-11-06	World	UEFA Europa League	Rangers	AS Roma	a-win	0	2	11	2	14	3	2	6	2	3	0	0	0	0	40.00	60.00	11	17	\N	\N	\N	33	15	2025-12-01 19:09:04.686003	0.91	2.05	0	2	a-win	yes
+457	1451225	2025-11-06	World	UEFA Europa League	Bologna	Brann	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	19	2025-12-01 19:09:04.693189	\N	\N	0	0	draw	yes
+458	1451227	2025-11-06	World	UEFA Europa League	Real Betis	Lyon	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	1	2025-12-01 19:09:04.698938	\N	\N	2	0	h-win	yes
+459	1451223	2025-11-06	World	UEFA Europa League	Plzen	Fenerbahçe	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	20	2025-12-01 19:09:04.707633	\N	\N	0	0	draw	yes
+460	1451229	2025-11-06	World	UEFA Europa League	PAOK	BSC Young Boys	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	26	2025-12-01 19:09:04.713558	\N	\N	0	0	draw	yes
+461	1451224	2025-11-06	World	UEFA Europa League	Ferencvarosi TC	Ludogorets	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	25	2025-12-01 19:09:04.719634	\N	\N	1	0	h-win	yes
+462	1386548	2025-07-01	World	FIFA Club World Cup	Manchester City	Al-Hilal Saudi FC	a-win	3	4	30	15	17	6	19	4	0	2	3	1	0	0	69.00	31.00	17	7	\N	\N	\N	\N	\N	2025-12-01 20:12:05.702108	\N	\N	1	0	h-win	yes
+463	1386549	2025-07-01	World	FIFA Club World Cup	Real Madrid	Juventus	h-win	1	0	21	11	6	2	11	4	0	2	1	0	0	0	57.00	43.00	11	5	\N	\N	\N	\N	\N	2025-12-01 20:12:05.87147	\N	\N	0	0	draw	yes
+464	1386550	2025-07-02	World	FIFA Club World Cup	Borussia Dortmund	Monterrey	h-win	2	1	6	3	14	7	3	5	5	2	2	0	0	0	42.00	58.00	13	9	\N	\N	\N	\N	\N	2025-12-01 20:12:06.043978	\N	\N	2	0	h-win	yes
+465	1390817	2025-07-04	World	FIFA Club World Cup	Fluminense	Al-Hilal Saudi FC	h-win	2	1	10	3	15	4	4	12	3	1	3	4	0	0	43.00	57.00	13	12	\N	\N	\N	\N	\N	2025-12-01 20:12:06.207485	\N	\N	1	0	h-win	yes
+466	1390026	2025-07-05	World	FIFA Club World Cup	Palmeiras	Chelsea	a-win	1	2	7	2	19	6	3	10	3	0	1	3	0	0	37.00	63.00	14	16	\N	\N	\N	\N	\N	2025-12-01 20:12:06.385456	\N	\N	0	1	a-win	yes
+467	1390797	2025-07-05	World	FIFA Club World Cup	Paris Saint Germain	Bayern München	h-win	2	0	11	5	13	5	0	4	0	3	1	1	2	0	46.00	54.00	12	13	\N	\N	\N	\N	\N	2025-12-01 20:12:06.673942	\N	\N	0	0	draw	yes
+468	1390818	2025-07-05	World	FIFA Club World Cup	Real Madrid	Borussia Dortmund	h-win	3	2	15	8	12	5	3	3	1	1	1	2	1	0	48.00	52.00	10	6	\N	\N	\N	\N	\N	2025-12-01 20:12:06.841411	\N	\N	2	0	h-win	yes
+469	1392812	2025-07-08	World	FIFA Club World Cup	Fluminense	Chelsea	a-win	0	2	12	3	17	5	3	4	2	4	2	1	0	0	46.00	54.00	11	11	\N	\N	\N	\N	\N	2025-12-01 20:12:06.993477	\N	\N	0	1	a-win	yes
+470	1392813	2025-07-09	World	FIFA Club World Cup	Paris Saint Germain	Real Madrid	h-win	4	0	17	7	11	2	3	6	4	0	1	2	0	0	68.00	32.00	9	9	\N	\N	\N	\N	\N	2025-12-01 20:12:07.173181	\N	\N	3	0	h-win	yes
+471	1399365	2025-07-13	World	FIFA Club World Cup	Chelsea	Paris Saint Germain	h-win	3	0	10	5	8	6	3	5	3	2	4	2	0	1	34.00	66.00	15	12	\N	\N	\N	\N	\N	2025-12-01 20:12:07.336628	\N	\N	3	0	h-win	yes
+472	1377400	2025-08-13	World	UEFA Super Cup	Paris Saint Germain	Tottenham	draw	2	2	12	3	13	5	7	2	2	4	3	2	0	0	74.00	26.00	12	12	\N	\N	\N	\N	\N	2025-12-01 20:12:08.675961	\N	\N	0	1	a-win	yes
+473	1383458	2025-07-08	World	UEFA Europa Conference League	St Joseph S Fc	Cliftonville FC	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:10.007732	\N	\N	0	1	a-win	yes
+474	1383459	2025-07-08	World	UEFA Europa Conference League	Floriana	Haverfordwest County AFC	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:10.168799	\N	\N	1	1	draw	yes
+475	1383460	2025-07-10	World	UEFA Europa Conference League	Atlètic Club d'Escaldes	F91 Dudelange	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:10.320263	\N	\N	2	0	h-win	yes
+476	1383462	2025-07-10	World	UEFA Europa Conference League	Magpies	Paide	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:10.747491	\N	\N	1	2	a-win	yes
+477	1383465	2025-07-10	World	UEFA Europa Conference League	Torpedo Kutaisi	Ordabasy	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:10.965439	\N	\N	2	2	draw	yes
+478	1383464	2025-07-10	World	UEFA Europa Conference League	SJK	KI Klaksvik	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:11.122505	\N	\N	0	1	a-win	yes
+479	1383466	2025-07-10	World	UEFA Europa Conference League	Kauno Žalgiris	Penybont	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:11.289085	\N	\N	2	0	h-win	yes
+481	1383468	2025-07-10	World	UEFA Europa Conference League	FC Urartu	Neman	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:11.598946	\N	\N	0	0	draw	yes
+482	1383469	2025-07-10	World	UEFA Europa Conference League	Kalju Nomme	Partizani	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:11.752078	\N	\N	0	0	draw	yes
+483	1383470	2025-07-10	World	UEFA Europa Conference League	Torpedo Zhodino	FK Rabotnicki	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:11.930342	\N	\N	1	0	h-win	yes
+484	1383473	2025-07-10	World	UEFA Europa Conference League	Birkirkara	Petrocub	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:12.093192	\N	\N	0	0	draw	yes
+485	1383472	2025-07-10	World	UEFA Europa Conference League	Vllaznia Shkodër	BFC Daugavpils	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:12.256628	\N	\N	0	0	draw	yes
+486	1383471	2025-07-10	World	UEFA Europa Conference League	Dečić	Sileks	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:12.582583	\N	\N	1	0	h-win	yes
+487	1383463	2025-07-10	World	UEFA Europa Conference League	Malisheva	Vikingur Reykjavik	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:12.763995	\N	\N	0	1	a-win	yes
+488	1383476	2025-07-10	World	UEFA Europa Conference League	Vardar Skopje	La Fiorita	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:12.92648	\N	\N	0	0	draw	yes
+489	1383475	2025-07-10	World	UEFA Europa Conference League	Zeljeznicar Sarajevo	Koper	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:13.080886	\N	\N	0	1	a-win	yes
+490	1383474	2025-07-10	World	UEFA Europa Conference League	Sutjeska	Dinamo Brest	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:13.255938	\N	\N	0	1	a-win	yes
+491	1383478	2025-07-10	World	UEFA Europa Conference League	NSI Runavik	HJK helsinki	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:13.41142	\N	\N	2	0	h-win	yes
+492	1383477	2025-07-10	World	UEFA Europa Conference League	St Patrick's Athl.	Hegelmann Litauen	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:13.571856	\N	\N	0	0	draw	yes
+493	1383461	2025-07-10	World	UEFA Europa Conference League	Tre Fiori	Pyunik Yerevan	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:13.732598	\N	\N	0	0	draw	yes
+494	1383480	2025-07-10	World	UEFA Europa Conference League	Borac Banja Luka	FC Santa Coloma	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:13.897208	\N	\N	0	3	a-win	yes
+495	1383479	2025-07-10	World	UEFA Europa Conference League	Larne	Auda	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:14.045636	\N	\N	0	0	draw	yes
+496	1383481	2025-07-10	World	UEFA Europa Conference League	Valur Reykjavik	Flora Tallinn	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:14.212652	\N	\N	3	0	h-win	yes
+497	1383482	2025-07-16	World	UEFA Europa Conference League	Auda	Larne	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:14.37419	\N	\N	1	0	h-win	yes
+498	1383483	2025-07-17	World	UEFA Europa Conference League	BFC Daugavpils	Vllaznia Shkodër	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:14.571842	\N	\N	2	2	draw	yes
+499	1383488	2025-07-17	World	UEFA Europa Conference League	FC Santa Coloma	Borac Banja Luka	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:14.738016	\N	\N	0	0	draw	yes
+500	1383489	2025-07-17	World	UEFA Europa Conference League	HJK helsinki	NSI Runavik	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:14.933985	\N	\N	1	0	h-win	yes
+501	1383484	2025-07-17	World	UEFA Europa Conference League	FK Rabotnicki	Torpedo Zhodino	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:15.1085	\N	\N	0	1	a-win	yes
+502	1383491	2025-07-17	World	UEFA Europa Conference League	Flora Tallinn	Valur Reykjavik	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:15.272443	\N	\N	1	1	draw	yes
+503	1383490	2025-07-17	World	UEFA Europa Conference League	Ordabasy	Torpedo Kutaisi	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:15.43581	\N	\N	0	1	a-win	yes
+504	1383487	2025-07-17	World	UEFA Europa Conference League	Pyunik Yerevan	Tre Fiori	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:15.595167	\N	\N	3	0	h-win	yes
+505	1383485	2025-07-17	World	UEFA Europa Conference League	Dila	Racing FC Union Luxembourg	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:15.775137	\N	\N	0	0	draw	yes
+506	1383486	2025-07-17	World	UEFA Europa Conference League	Hegelmann Litauen	St Patrick's Athl.	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:16.000408	\N	\N	0	1	a-win	yes
+507	1383492	2025-07-17	World	UEFA Europa Conference League	Paide	Magpies	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:16.183297	\N	\N	1	0	h-win	yes
+508	1383497	2025-07-17	World	UEFA Europa Conference League	F91 Dudelange	Atlètic Club d'Escaldes	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:16.365875	\N	\N	1	1	draw	yes
+509	1383496	2025-07-17	World	UEFA Europa Conference League	Penybont	Kauno Žalgiris	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:16.527982	\N	\N	1	1	draw	yes
+510	1383493	2025-07-17	World	UEFA Europa Conference League	Haverfordwest County AFC	Floriana	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:16.680719	\N	\N	2	2	draw	yes
+511	1383495	2025-07-17	World	UEFA Europa Conference League	Petrocub	Birkirkara	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:16.843802	\N	\N	1	0	h-win	yes
+512	1383494	2025-07-17	World	UEFA Europa Conference League	Sileks	Dečić	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:17.009582	\N	\N	1	1	draw	yes
+513	1383498	2025-07-17	World	UEFA Europa Conference League	Koper	Zeljeznicar Sarajevo	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:17.163269	\N	\N	3	1	h-win	yes
+514	1383499	2025-07-17	World	UEFA Europa Conference League	Neman	FC Urartu	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:17.320667	\N	\N	1	0	h-win	yes
+515	1383500	2025-07-17	World	UEFA Europa Conference League	Partizani	Kalju Nomme	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:17.47656	\N	\N	0	0	draw	yes
+516	1383501	2025-07-17	World	UEFA Europa Conference League	Dinamo Brest	Sutjeska	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:17.642303	\N	\N	0	0	draw	yes
+517	1383503	2025-07-17	World	UEFA Europa Conference League	Vikingur Reykjavik	Malisheva	h-win	8	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:17.799266	\N	\N	5	0	h-win	yes
+518	1383504	2025-07-17	World	UEFA Europa Conference League	KI Klaksvik	SJK	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:17.971565	\N	\N	0	0	draw	yes
+519	1383502	2025-07-17	World	UEFA Europa Conference League	Cliftonville FC	St Joseph S Fc	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:18.189463	\N	\N	1	1	draw	yes
+520	1383505	2025-07-17	World	UEFA Europa Conference League	La Fiorita	Vardar Skopje	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:18.35651	\N	\N	1	0	h-win	yes
+521	1410004	2025-07-22	World	UEFA Europa Conference League	Ballkani	Floriana	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:18.509354	\N	\N	3	2	h-win	yes
+522	1383506	2025-07-23	World	UEFA Europa Conference League	Zira	HNK Hajduk Split	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:18.66803	\N	\N	1	0	h-win	yes
+523	1410005	2025-07-23	World	UEFA Europa Conference League	FC Levadia Tallinn	Saburtalo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:18.817763	\N	\N	0	0	draw	yes
+524	1383514	2025-07-23	World	UEFA Europa Conference League	Silkeborg	KA Akureyri	draw	1	1	16	8	6	2	3	5	1	3	3	0	0	0	65.00	35.00	8	7	\N	\N	\N	\N	\N	2025-12-01 20:12:18.978463	\N	\N	1	0	h-win	yes
+525	1410006	2025-07-23	World	UEFA Europa Conference League	The New Saints	FC Differdange 03	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:19.126997	\N	\N	0	1	a-win	yes
+526	1410007	2025-07-23	World	UEFA Europa Conference League	Olimpija Ljubljana	Inter Club d'Escaldes	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:19.27954	\N	\N	0	1	a-win	yes
+527	1410008	2025-07-23	World	UEFA Europa Conference League	Buducnost Podgorica	Milsami Orhei	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:19.452654	\N	\N	0	0	draw	yes
+528	1383532	2025-07-24	World	UEFA Europa Conference League	FC Astana	Zimbru	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:19.624616	\N	\N	0	1	a-win	yes
+529	1410009	2025-07-24	World	UEFA Europa Conference League	Atlètic Club d'Escaldes	Dinamo Tirana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:19.777544	\N	\N	1	0	h-win	yes
+530	1410018	2025-07-24	World	UEFA Europa Conference League	Paide	AIK Stockholm	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:19.933178	\N	\N	0	1	a-win	yes
+531	1383522	2025-07-24	World	UEFA Europa Conference League	Rosenborg	Banga	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:20.321985	\N	\N	1	0	h-win	yes
+532	1410014	2025-07-24	World	UEFA Europa Conference League	FK Zalgiris Vilnius	Linfield	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:20.569622	\N	\N	0	0	draw	yes
+533	1410011	2025-07-24	World	UEFA Europa Conference League	St Joseph S Fc	Shamrock Rovers	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:20.792013	\N	\N	0	1	a-win	yes
+534	1410016	2025-07-24	World	UEFA Europa Conference League	Pyunik Yerevan	Gyori ETO FC	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:20.992678	\N	\N	1	0	h-win	yes
+535	1410012	2025-07-24	World	UEFA Europa Conference League	Ilves	AZ Alkmaar	h-win	4	3	14	7	23	8	4	9	0	0	0	2	0	0	35.00	65.00	7	8	\N	\N	\N	\N	\N	2025-12-01 20:12:21.153644	\N	\N	2	1	h-win	yes
+536	1410017	2025-07-24	World	UEFA Europa Conference League	Arda Kardzhali	HJK helsinki	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:21.302825	\N	\N	0	0	draw	yes
+537	1383518	2025-07-24	World	UEFA Europa Conference League	Aris	Puskas Academy	h-win	3	2	17	5	7	4	1	2	0	1	3	3	0	0	39.00	61.00	15	16	\N	\N	\N	\N	\N	2025-12-01 20:12:21.463809	\N	\N	2	0	h-win	yes
+538	1383510	2025-07-24	World	UEFA Europa Conference League	Ararat-Armenia	Universitatea Cluj	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:21.651159	\N	\N	0	0	draw	yes
+539	1410015	2025-07-24	World	UEFA Europa Conference League	Kauno Žalgiris	Valur Reykjavik	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:21.823895	\N	\N	0	0	draw	yes
+540	1410010	2025-07-24	World	UEFA Europa Conference League	Hibernians	Spartak Trnava	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:21.986312	\N	\N	0	1	a-win	yes
+541	1410013	2025-07-24	World	UEFA Europa Conference League	Aktobe	Sparta Praha	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:22.18415	\N	\N	1	0	h-win	yes
+542	1383508	2025-07-24	World	UEFA Europa Conference League	Araz	Aris Thessalonikis	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:22.355343	\N	\N	0	0	draw	yes
+543	1383511	2025-07-24	World	UEFA Europa Conference League	Hammarby FF	Charleroi	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:22.54386	\N	\N	0	0	draw	yes
+544	1410020	2025-07-24	World	UEFA Europa Conference League	Viking	Koper	h-win	7	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:22.729947	\N	\N	1	0	h-win	yes
+545	1383512	2025-07-24	World	UEFA Europa Conference League	Cherno More Varna	Başakşehir	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:22.903257	\N	\N	0	0	draw	yes
+546	1410021	2025-07-24	World	UEFA Europa Conference League	Petrocub	Sabah FA	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:23.063778	\N	\N	0	0	draw	yes
+547	1383507	2025-07-24	World	UEFA Europa Conference League	Novi Pazar	Jagiellonia	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:23.219253	\N	\N	1	1	draw	yes
+548	1410019	2025-07-24	World	UEFA Europa Conference League	Omonia Nicosia	Torpedo Kutaisi	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:23.374289	\N	\N	1	0	h-win	yes
+549	1410024	2025-07-24	World	UEFA Europa Conference League	Oleksandria	FK Partizan	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:23.58337	\N	\N	0	1	a-win	yes
+550	1410022	2025-07-24	World	UEFA Europa Conference League	Polessya	FC Santa Coloma	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:23.735024	\N	\N	1	2	a-win	yes
+551	1410023	2025-07-24	World	UEFA Europa Conference League	Riga	Dila	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:23.932193	\N	\N	1	0	h-win	yes
+552	1383520	2025-07-24	World	UEFA Europa Conference League	FC Vaduz	Dungannon Swifts	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:24.116413	\N	\N	0	0	draw	yes
+553	1410025	2025-07-24	World	UEFA Europa Conference League	Torpedo Zhodino	Maccabi Haifa	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:24.279345	\N	\N	0	1	a-win	yes
+554	1412428	2025-07-24	World	UEFA Europa Conference League	AEK Athens FC	Hapoel Beer Sheva	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:24.50137	\N	\N	0	0	draw	yes
+555	1383521	2025-07-24	World	UEFA Europa Conference League	NK Varazdin	Santa Clara	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:24.740466	\N	\N	1	0	h-win	yes
+556	1410028	2025-07-24	World	UEFA Europa Conference League	Paks	Maribor	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:24.943926	\N	\N	0	0	draw	yes
+557	1410026	2025-07-24	World	UEFA Europa Conference League	Radnicki 1923	KI Klaksvik	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:25.120616	\N	\N	0	0	draw	yes
+558	1410027	2025-07-24	World	UEFA Europa Conference League	FK Košice	Neman	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:25.308668	\N	\N	2	0	h-win	yes
+559	1410030	2025-07-24	World	UEFA Europa Conference League	Vardar Skopje	Lausanne	h-win	2	1	11	6	7	2	6	3	2	1	2	2	0	0	42.00	58.00	8	5	\N	\N	\N	\N	\N	2025-12-01 20:12:25.463707	\N	\N	1	0	h-win	yes
+560	1383519	2025-07-24	World	UEFA Europa Conference League	Austria Vienna	Spaeri	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:25.624366	\N	\N	1	0	h-win	yes
+561	1412427	2025-07-24	World	UEFA Europa Conference League	Sutjeska	Beitar Jerusalem	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:25.78516	\N	\N	1	1	draw	yes
+562	1410029	2025-07-24	World	UEFA Europa Conference League	Vllaznia Shkodër	Vikingur Reykjavik	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:25.944797	\N	\N	0	1	a-win	yes
+563	1410031	2025-07-24	World	UEFA Europa Conference League	Dinamo Minsk	Egnatia Rrogozhinë	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:26.123684	\N	\N	0	1	a-win	yes
+564	1383516	2025-07-24	World	UEFA Europa Conference League	Dundee Utd	UNA Strassen	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:26.310446	\N	\N	0	0	draw	yes
+565	1410032	2025-07-24	World	UEFA Europa Conference League	St Patrick's Athl.	Kalju Nomme	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:26.504372	\N	\N	0	0	draw	yes
+566	1383515	2025-07-24	World	UEFA Europa Conference League	HB	Brondby	draw	1	1	13	4	22	5	2	6	1	2	1	1	0	0	34.00	66.00	7	9	\N	\N	\N	\N	\N	2025-12-01 20:12:26.68931	\N	\N	0	0	draw	yes
+567	1383513	2025-07-24	World	UEFA Europa Conference League	FK Sarajevo	Universitatea Craiova	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:26.890819	\N	\N	2	0	h-win	yes
+568	1383517	2025-07-24	World	UEFA Europa Conference League	Raków Częstochowa	Žilina	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:27.099401	\N	\N	0	0	draw	yes
+569	1410033	2025-07-24	World	UEFA Europa Conference League	Dečić	Rapid Vienna	a-win	0	2	6	1	11	3	7	10	4	2	3	3	0	0	48.00	52.00	13	24	\N	\N	\N	\N	\N	2025-12-01 20:12:27.297492	\N	\N	0	2	a-win	yes
+570	1410034	2025-07-24	World	UEFA Europa Conference League	Larne	Prishtina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:27.471745	\N	\N	0	0	draw	yes
+571	1410035	2025-07-29	World	UEFA Europa Conference League	Saburtalo	FC Levadia Tallinn	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:27.65333	\N	\N	1	0	h-win	yes
+572	1410036	2025-07-29	World	UEFA Europa Conference League	FC Differdange 03	The New Saints	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:27.824912	\N	\N	0	0	draw	yes
+573	1410037	2025-07-29	World	UEFA Europa Conference League	Inter Club d'Escaldes	Olimpija Ljubljana	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:27.987594	\N	\N	0	1	a-win	yes
+574	1410039	2025-07-31	World	UEFA Europa Conference League	Spartak Trnava	Hibernians	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:28.159868	\N	\N	2	1	h-win	yes
+575	1410043	2025-07-31	World	UEFA Europa Conference League	FC Santa Coloma	Polessya	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:28.322049	\N	\N	0	1	a-win	yes
+576	1410041	2025-07-31	World	UEFA Europa Conference League	HJK helsinki	Arda Kardzhali	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:28.540761	\N	\N	1	1	draw	yes
+577	1410048	2025-07-31	World	UEFA Europa Conference League	Gyori ETO FC	Pyunik Yerevan	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:28.713382	\N	\N	1	0	h-win	yes
+578	1410040	2025-07-31	World	UEFA Europa Conference League	Dila	Riga	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:28.88544	\N	\N	1	1	draw	yes
+579	1383537	2025-07-31	World	UEFA Europa Conference League	Banga	Rosenborg	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:29.068319	\N	\N	0	0	draw	yes
+580	1410042	2025-07-31	World	UEFA Europa Conference League	Sabah FA	Petrocub	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:29.223334	\N	\N	4	1	h-win	yes
+581	1383524	2025-07-31	World	UEFA Europa Conference League	Spaeri	Austria Vienna	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:29.403462	\N	\N	0	3	a-win	yes
+582	1410045	2025-07-31	World	UEFA Europa Conference League	AZ Alkmaar	Ilves	h-win	5	0	27	16	7	2	9	1	4	1	3	2	0	0	57.00	43.00	15	9	\N	\N	\N	\N	\N	2025-12-01 20:12:29.579389	\N	\N	4	0	h-win	yes
+583	1410044	2025-07-31	World	UEFA Europa Conference League	Kalju Nomme	St Patrick's Athl.	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:29.779439	\N	\N	1	0	h-win	yes
+584	1410047	2025-07-31	World	UEFA Europa Conference League	AIK Stockholm	Paide	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:30.009669	\N	\N	3	0	h-win	yes
+585	1410049	2025-07-31	World	UEFA Europa Conference League	Torpedo Kutaisi	Omonia Nicosia	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:30.27902	\N	\N	0	1	a-win	yes
+586	1410046	2025-07-31	World	UEFA Europa Conference League	Milsami Orhei	Buducnost Podgorica	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:30.467422	\N	\N	0	0	draw	yes
+587	1383526	2025-07-31	World	UEFA Europa Conference League	UNA Strassen	Dundee Utd	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:30.622319	\N	\N	0	0	draw	yes
+588	1383534	2025-07-31	World	UEFA Europa Conference League	Universitatea Cluj	Ararat-Armenia	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:30.791267	\N	\N	1	0	h-win	yes
+589	1383509	2025-07-31	World	UEFA Europa Conference League	Zimbru	FC Astana	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:30.957552	\N	\N	0	2	a-win	yes
+590	1383533	2025-07-31	World	UEFA Europa Conference League	Brondby	HB	h-win	1	0	28	5	10	2	12	1	2	0	0	2	0	0	66.00	34.00	9	12	\N	\N	\N	\N	\N	2025-12-01 20:12:31.103604	\N	\N	1	0	h-win	yes
+591	1383539	2025-07-31	World	UEFA Europa Conference League	Universitatea Craiova	FK Sarajevo	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:31.272965	\N	\N	0	0	draw	yes
+592	1410050	2025-07-31	World	UEFA Europa Conference League	Beitar Jerusalem	Sutjeska	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:31.450598	\N	\N	2	2	draw	yes
+593	1383527	2025-07-31	World	UEFA Europa Conference League	Başakşehir	Cherno More Varna	h-win	4	0	13	6	10	4	4	8	0	1	0	3	0	0	70.00	30.00	7	10	\N	\N	\N	\N	\N	2025-12-01 20:12:31.625419	\N	\N	3	0	h-win	yes
+594	1383531	2025-07-31	World	UEFA Europa Conference League	Santa Clara	NK Varazdin	h-win	2	0	0	6	0	3	11	3	2	2	2	4	0	0	51.00	49.00	19	17	\N	\N	\N	\N	\N	2025-12-01 20:12:31.78674	\N	\N	1	0	h-win	yes
+595	1383529	2025-07-31	World	UEFA Europa Conference League	KA Akureyri	Silkeborg	a-win	2	3	21	7	22	7	5	5	0	3	3	1	0	0	37.00	63.00	16	19	\N	\N	\N	\N	\N	2025-12-01 20:12:31.96734	\N	\N	1	0	h-win	yes
+596	1410038	2025-07-31	World	UEFA Europa Conference League	Neman	FK Košice	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:32.147102	\N	\N	0	0	draw	yes
+597	1410052	2025-07-31	World	UEFA Europa Conference League	Maribor	Paks	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:32.348681	\N	\N	1	0	h-win	yes
+598	1410053	2025-07-31	World	UEFA Europa Conference League	Hapoel Beer Sheva	AEK Athens FC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:32.571964	\N	\N	0	0	draw	yes
+599	1410054	2025-07-31	World	UEFA Europa Conference League	Sparta Praha	Aktobe	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:32.743776	\N	\N	0	0	draw	yes
+600	1410057	2025-07-31	World	UEFA Europa Conference League	Prishtina	Larne	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:32.911756	\N	\N	1	0	h-win	yes
+601	1383535	2025-07-31	World	UEFA Europa Conference League	Charleroi	Hammarby FF	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:33.066789	\N	\N	0	1	a-win	yes
+602	1383523	2025-07-31	World	UEFA Europa Conference League	Puskas Academy	Aris	a-win	0	2	6	1	21	9	4	7	3	0	4	1	1	0	48.00	52.00	12	18	\N	\N	\N	\N	\N	2025-12-01 20:12:33.231589	\N	\N	0	0	draw	yes
+603	1410056	2025-07-31	World	UEFA Europa Conference League	Maccabi Haifa	Torpedo Zhodino	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:33.404262	\N	\N	2	0	h-win	yes
+604	1410055	2025-07-31	World	UEFA Europa Conference League	Koper	Viking	a-win	3	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:33.619756	\N	\N	2	1	h-win	yes
+605	1383538	2025-07-31	World	UEFA Europa Conference League	Jagiellonia	Novi Pazar	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:33.811461	\N	\N	0	0	draw	yes
+606	1410058	2025-07-31	World	UEFA Europa Conference League	Lausanne	Vardar Skopje	h-win	5	0	16	9	8	3	4	3	1	5	2	1	0	0	57.00	43.00	12	13	\N	\N	\N	\N	\N	2025-12-01 20:12:34.020277	\N	\N	3	0	h-win	yes
+607	1383525	2025-07-31	World	UEFA Europa Conference League	Aris Thessalonikis	Araz	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.196058	\N	\N	0	2	a-win	yes
+608	1410059	2025-07-31	World	UEFA Europa Conference League	Valur Reykjavik	Kauno Žalgiris	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.36675	\N	\N	1	1	draw	yes
+609	1410060	2025-07-31	World	UEFA Europa Conference League	Rapid Vienna	Dečić	h-win	4	2	26	7	10	3	6	5	2	0	0	1	0	0	64.00	36.00	6	7	\N	\N	\N	\N	\N	2025-12-01 20:12:34.570495	\N	\N	2	0	h-win	yes
+610	1383536	2025-07-31	World	UEFA Europa Conference League	Žilina	Raków Częstochowa	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.577653	\N	\N	1	1	draw	yes
+611	1410062	2025-07-31	World	UEFA Europa Conference League	Vikingur Reykjavik	Vllaznia Shkodër	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.582788	\N	\N	1	1	draw	yes
+612	1410061	2025-07-31	World	UEFA Europa Conference League	Linfield	FK Zalgiris Vilnius	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.589831	\N	\N	2	0	h-win	yes
+613	1410064	2025-07-31	World	UEFA Europa Conference League	KI Klaksvik	Radnicki 1923	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.5947	\N	\N	1	0	h-win	yes
+614	1410063	2025-07-31	World	UEFA Europa Conference League	Dinamo Tirana	Atlètic Club d'Escaldes	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.602189	\N	\N	1	0	h-win	yes
+615	1410051	2025-07-31	World	UEFA Europa Conference League	Floriana	Ballkani	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.607116	\N	\N	1	1	draw	yes
+616	1383528	2025-07-31	World	UEFA Europa Conference League	Dungannon Swifts	FC Vaduz	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.611881	\N	\N	0	0	draw	yes
+617	1410065	2025-07-31	World	UEFA Europa Conference League	FK Partizan	Oleksandria	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.619114	\N	\N	3	0	h-win	yes
+618	1383530	2025-07-31	World	UEFA Europa Conference League	HNK Hajduk Split	Zira	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.624241	\N	\N	1	0	h-win	yes
+619	1410066	2025-07-31	World	UEFA Europa Conference League	Shamrock Rovers	St Joseph S Fc	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.633116	\N	\N	0	0	draw	yes
+620	1410067	2025-07-31	World	UEFA Europa Conference League	Egnatia Rrogozhinë	Dinamo Minsk	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.639151	\N	\N	0	0	draw	yes
+621	1421174	2025-08-05	World	UEFA Europa Conference League	KI Klaksvik	Neman	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.645077	\N	\N	2	0	h-win	yes
+622	1423750	2025-08-07	World	UEFA Europa Conference League	Rosenborg	Hammarby FF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.653366	\N	\N	0	0	draw	yes
+623	1421160	2025-08-07	World	UEFA Europa Conference League	Milsami Orhei	Virtus	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.659197	\N	\N	1	0	h-win	yes
+624	1421172	2025-08-07	World	UEFA Europa Conference League	Aris	AEK Athens FC	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.670789	\N	\N	2	2	draw	yes
+625	1421167	2025-08-07	World	UEFA Europa Conference League	Kauno Žalgiris	Arda Kardzhali	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.676938	\N	\N	0	0	draw	yes
+626	1421175	2025-08-07	World	UEFA Europa Conference League	Araz	Omonia Nicosia	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.683978	\N	\N	0	2	a-win	yes
+627	1421169	2025-08-07	World	UEFA Europa Conference League	Baník Ostrava	Austria Vienna	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.688581	\N	\N	2	1	h-win	yes
+628	1421155	2025-08-07	World	UEFA Europa Conference League	AIK Stockholm	Gyori ETO FC	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.695356	\N	\N	2	0	h-win	yes
+629	1421163	2025-08-07	World	UEFA Europa Conference League	Viking	Başakşehir	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.700086	\N	\N	1	0	h-win	yes
+630	1421162	2025-08-07	World	UEFA Europa Conference League	Silkeborg	Jagiellonia	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.704644	\N	\N	0	1	a-win	yes
+631	1421156	2025-08-07	World	UEFA Europa Conference League	Riga	Beitar Jerusalem	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.71168	\N	\N	0	0	draw	yes
+632	1421158	2025-08-07	World	UEFA Europa Conference League	AZ Alkmaar	FC Vaduz	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.716693	\N	\N	1	0	h-win	yes
+633	1421178	2025-08-07	World	UEFA Europa Conference League	Anderlecht	Sheriff Tiraspol	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.720976	\N	\N	1	0	h-win	yes
+634	1421170	2025-08-07	World	UEFA Europa Conference League	Vikingur Gota	Linfield	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.727911	\N	\N	1	1	draw	yes
+635	1421168	2025-08-07	World	UEFA Europa Conference League	Sparta Praha	Ararat-Armenia	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.732712	\N	\N	2	1	h-win	yes
+636	1421173	2025-08-07	World	UEFA Europa Conference League	Levski Sofia	Sabah FA	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.737441	\N	\N	0	0	draw	yes
+637	1421179	2025-08-07	World	UEFA Europa Conference League	Olimpija Ljubljana	Egnatia Rrogozhinë	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.745089	\N	\N	0	0	draw	yes
+638	1419570	2025-08-07	World	UEFA Europa Conference League	FC Differdange 03	FC Levadia Tallinn	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.749969	\N	\N	1	2	a-win	yes
+639	1421153	2025-08-07	World	UEFA Europa Conference League	Polessya	Paks	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.75476	\N	\N	2	0	h-win	yes
+640	1421159	2025-08-07	World	UEFA Europa Conference League	Lausanne	FC Astana	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.761579	\N	\N	2	0	h-win	yes
+641	1421157	2025-08-07	World	UEFA Europa Conference League	FC Lugano	Celje	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.766402	\N	\N	0	2	a-win	yes
+642	1421154	2025-08-07	World	UEFA Europa Conference League	Universitatea Craiova	Spartak Trnava	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.773099	\N	\N	0	0	draw	yes
+643	1421161	2025-08-07	World	UEFA Europa Conference League	Ballkani	Shamrock Rovers	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.778272	\N	\N	0	0	draw	yes
+644	1421164	2025-08-07	World	UEFA Europa Conference League	Vikingur Reykjavik	Brondby	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.783097	\N	\N	1	0	h-win	yes
+645	1421176	2025-08-07	World	UEFA Europa Conference League	St Patrick's Athl.	Beşiktaş	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.78992	\N	\N	0	4	a-win	yes
+646	1421171	2025-08-07	World	UEFA Europa Conference League	FK Partizan	Hibernian	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.794848	\N	\N	0	1	a-win	yes
+647	1421180	2025-08-07	World	UEFA Europa Conference League	HNK Hajduk Split	Dinamo Tirana	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.799921	\N	\N	0	1	a-win	yes
+648	1421177	2025-08-07	World	UEFA Europa Conference League	Rapid Vienna	Dundee Utd	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.807328	\N	\N	2	1	h-win	yes
+649	1421166	2025-08-07	World	UEFA Europa Conference League	Raków Częstochowa	Maccabi Haifa	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.812267	\N	\N	0	0	draw	yes
+650	1421165	2025-08-07	World	UEFA Europa Conference League	Larne	Santa Clara	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.817115	\N	\N	0	3	a-win	yes
+651	1421208	2025-08-13	World	UEFA Europa Conference League	Başakşehir	Viking	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.823501	\N	\N	1	1	draw	yes
+652	1421188	2025-08-14	World	UEFA Europa Conference League	FC Astana	Lausanne	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.828329	\N	\N	0	0	draw	yes
+653	1421197	2025-08-14	World	UEFA Europa Conference League	Ararat-Armenia	Sparta Praha	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.835775	\N	\N	1	1	draw	yes
+654	1421207	2025-08-14	World	UEFA Europa Conference League	Sabah FA	Levski Sofia	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.840947	\N	\N	0	1	a-win	yes
+655	1419571	2025-08-14	World	UEFA Europa Conference League	FC Levadia Tallinn	FC Differdange 03	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.845701	\N	\N	0	0	draw	yes
+656	1421204	2025-08-14	World	UEFA Europa Conference League	Hammarby FF	Rosenborg	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.85313	\N	\N	0	0	draw	yes
+657	1421198	2025-08-14	World	UEFA Europa Conference League	Sheriff Tiraspol	Anderlecht	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.857943	\N	\N	0	0	draw	yes
+658	1421185	2025-08-14	World	UEFA Europa Conference League	Paks	Polessya	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.863237	\N	\N	1	0	h-win	yes
+659	1421201	2025-08-14	World	UEFA Europa Conference League	Gyori ETO FC	AIK Stockholm	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.869819	\N	\N	1	0	h-win	yes
+660	1421202	2025-08-14	World	UEFA Europa Conference League	Omonia Nicosia	Araz	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.874637	\N	\N	4	0	h-win	yes
+661	1421187	2025-08-14	World	UEFA Europa Conference League	Brondby	Vikingur Reykjavik	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.879475	\N	\N	1	0	h-win	yes
+662	1421196	2025-08-14	World	UEFA Europa Conference League	Beitar Jerusalem	Riga	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.886252	\N	\N	2	0	h-win	yes
+663	1421186	2025-08-14	World	UEFA Europa Conference League	FC Vaduz	AZ Alkmaar	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.891222	\N	\N	0	0	draw	yes
+664	1421192	2025-08-14	World	UEFA Europa Conference League	Arda Kardzhali	Kauno Žalgiris	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.898131	\N	\N	2	0	h-win	yes
+665	1421189	2025-08-14	World	UEFA Europa Conference League	Neman	KI Klaksvik	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.903401	\N	\N	0	0	draw	yes
+666	1421184	2025-08-14	World	UEFA Europa Conference League	Beşiktaş	St Patrick's Athl.	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.908808	\N	\N	1	2	a-win	yes
+667	1421203	2025-08-14	World	UEFA Europa Conference League	AEK Athens FC	Aris	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.915783	\N	\N	0	0	draw	yes
+668	1421182	2025-08-14	World	UEFA Europa Conference League	Maccabi Haifa	Raków Częstochowa	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.921155	\N	\N	0	1	a-win	yes
+669	1421181	2025-08-14	World	UEFA Europa Conference League	Celje	FC Lugano	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.92617	\N	\N	1	1	draw	yes
+670	1421183	2025-08-14	World	UEFA Europa Conference League	Jagiellonia	Silkeborg	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.932769	\N	\N	2	0	h-win	yes
+671	1421199	2025-08-14	World	UEFA Europa Conference League	Spartak Trnava	Universitatea Craiova	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.937887	\N	\N	1	1	draw	yes
+672	1423751	2025-08-14	World	UEFA Europa Conference League	Linfield	Vikingur Gota	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.94465	\N	\N	2	0	h-win	yes
+673	1421195	2025-08-14	World	UEFA Europa Conference League	Dundee Utd	Rapid Vienna	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.949541	\N	\N	2	0	h-win	yes
+674	1421205	2025-08-14	World	UEFA Europa Conference League	Dinamo Tirana	HNK Hajduk Split	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.954673	\N	\N	1	0	h-win	yes
+675	1421191	2025-08-14	World	UEFA Europa Conference League	Santa Clara	Larne	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.961646	\N	\N	0	0	draw	yes
+676	1421200	2025-08-14	World	UEFA Europa Conference League	Hibernian	FK Partizan	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.9665	\N	\N	0	2	a-win	yes
+677	1421193	2025-08-14	World	UEFA Europa Conference League	Austria Vienna	Baník Ostrava	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.971328	\N	\N	0	1	a-win	yes
+678	1421190	2025-08-14	World	UEFA Europa Conference League	Shamrock Rovers	Ballkani	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.978303	\N	\N	1	0	h-win	yes
+679	1421206	2025-08-14	World	UEFA Europa Conference League	Egnatia Rrogozhinë	Olimpija Ljubljana	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.983081	\N	\N	1	1	draw	yes
+680	1421194	2025-08-14	World	UEFA Europa Conference League	Virtus	Milsami Orhei	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.987895	\N	\N	0	0	draw	yes
+681	1438686	2025-08-21	World	UEFA Europa Conference League	Rosenborg	FSV Mainz 05	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:34.995247	\N	\N	1	1	draw	yes
+682	1438687	2025-08-21	World	UEFA Europa Conference League	BK Hacken	CFR 1907 Cluj	h-win	7	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.000073	\N	\N	4	1	h-win	yes
+683	1438688	2025-08-21	World	UEFA Europa Conference League	Wolfsberger AC	Omonia Nicosia	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.004881	\N	\N	1	1	draw	yes
+684	1438690	2025-08-21	World	UEFA Europa Conference League	Gyori ETO FC	Rapid Vienna	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.011754	\N	\N	0	0	draw	yes
+685	1438689	2025-08-21	World	UEFA Europa Conference League	Hamrun Spartans	Rīgas FS	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.016597	\N	\N	0	0	draw	yes
+686	1438691	2025-08-21	World	UEFA Europa Conference League	Başakşehir	Universitatea Craiova	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.023372	\N	\N	0	1	a-win	yes
+687	1438698	2025-08-21	World	UEFA Europa Conference League	Strasbourg	Brondby	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.028472	\N	\N	0	0	draw	yes
+688	1438701	2025-08-21	World	UEFA Europa Conference League	Breidablik	Virtus	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.033208	\N	\N	1	1	draw	yes
+689	1438696	2025-08-21	World	UEFA Europa Conference League	Neman	Rayo Vallecano	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.040133	\N	\N	0	0	draw	yes
+690	1438695	2025-08-21	World	UEFA Europa Conference League	Shakhtar Donetsk	Servette FC	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.045252	\N	\N	0	1	a-win	yes
+691	1438693	2025-08-21	World	UEFA Europa Conference League	Anderlecht	AEK Athens FC	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.050722	\N	\N	1	0	h-win	yes
+692	1438697	2025-08-21	World	UEFA Europa Conference League	Sparta Praha	Riga	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.058486	\N	\N	1	0	h-win	yes
+693	1438694	2025-08-21	World	UEFA Europa Conference League	Levski Sofia	AZ Alkmaar	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.063486	\N	\N	0	0	draw	yes
+694	1438699	2025-08-21	World	UEFA Europa Conference League	Olimpija Ljubljana	FC Noah	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.070388	\N	\N	0	2	a-win	yes
+695	1438700	2025-08-21	World	UEFA Europa Conference League	Celje	Baník Ostrava	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.075317	\N	\N	1	0	h-win	yes
+696	1438692	2025-08-21	World	UEFA Europa Conference League	Polessya	Fiorentina	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.080211	\N	\N	0	2	a-win	yes
+697	1438702	2025-08-21	World	UEFA Europa Conference League	Drita	FC Differdange 03	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.087153	\N	\N	1	0	h-win	yes
+698	1438704	2025-08-21	World	UEFA Europa Conference League	Jagiellonia	Dinamo Tirana	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.091988	\N	\N	2	0	h-win	yes
+699	1438703	2025-08-21	World	UEFA Europa Conference League	Lausanne	Beşiktaş	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.097047	\N	\N	0	1	a-win	yes
+700	1438705	2025-08-21	World	UEFA Europa Conference League	Shelbourne	Linfield	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.103904	\N	\N	1	0	h-win	yes
+701	1438706	2025-08-21	World	UEFA Europa Conference League	Crystal Palace	Fredrikstad	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.108867	\N	\N	0	0	draw	yes
+702	1438708	2025-08-21	World	UEFA Europa Conference League	Santa Clara	Shamrock Rovers	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.113844	\N	\N	1	1	draw	yes
+703	1438707	2025-08-21	World	UEFA Europa Conference League	Hibernian	Legia Warszawa	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.120684	\N	\N	0	2	a-win	yes
+704	1438709	2025-08-21	World	UEFA Europa Conference League	Raków Częstochowa	Arda Kardzhali	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.125536	\N	\N	1	0	h-win	yes
+705	1438710	2025-08-27	World	UEFA Europa Conference League	Riga	Sparta Praha	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.130298	\N	\N	0	0	draw	yes
+706	1438711	2025-08-28	World	UEFA Europa Conference League	Fredrikstad	Crystal Palace	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.137461	\N	\N	0	0	draw	yes
+707	1438713	2025-08-28	World	UEFA Europa Conference League	Omonia Nicosia	Wolfsberger AC	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.142319	\N	\N	1	0	h-win	yes
+708	1438712	2025-08-28	World	UEFA Europa Conference League	FC Noah	Olimpija Ljubljana	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.149194	\N	\N	2	0	h-win	yes
+709	1438714	2025-08-28	World	UEFA Europa Conference League	Beşiktaş	Lausanne	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.154206	\N	\N	0	1	a-win	yes
+710	1438815	2025-08-28	World	UEFA Europa Conference League	Rapid Vienna	Gyori ETO FC	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.158996	\N	\N	1	0	h-win	yes
+711	1438715	2025-08-28	World	UEFA Europa Conference League	Rīgas FS	Hamrun Spartans	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.166499	\N	\N	1	1	draw	yes
+712	1438816	2025-08-28	World	UEFA Europa Conference League	AZ Alkmaar	Levski Sofia	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.171566	\N	\N	3	0	h-win	yes
+713	1438818	2025-08-28	World	UEFA Europa Conference League	Universitatea Craiova	Başakşehir	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.176645	\N	\N	2	1	h-win	yes
+714	1438817	2025-08-28	World	UEFA Europa Conference League	CFR 1907 Cluj	BK Hacken	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.183505	\N	\N	0	0	draw	yes
+715	1438822	2025-08-28	World	UEFA Europa Conference League	Brondby	Strasbourg	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.18852	\N	\N	1	2	a-win	yes
+716	1438819	2025-08-28	World	UEFA Europa Conference League	Fiorentina	Polessya	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.195249	\N	\N	0	2	a-win	yes
+717	1438820	2025-08-28	World	UEFA Europa Conference League	AEK Athens FC	Anderlecht	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.200303	\N	\N	1	0	h-win	yes
+718	1438825	2025-08-28	World	UEFA Europa Conference League	FC Differdange 03	Drita	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.205384	\N	\N	0	0	draw	yes
+719	1438821	2025-08-28	World	UEFA Europa Conference League	Rayo Vallecano	Neman	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.21226	\N	\N	0	0	draw	yes
+720	1438823	2025-08-28	World	UEFA Europa Conference League	Arda Kardzhali	Raków Częstochowa	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.217056	\N	\N	0	1	a-win	yes
+721	1438824	2025-08-28	World	UEFA Europa Conference League	Baník Ostrava	Celje	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.222517	\N	\N	0	2	a-win	yes
+722	1438827	2025-08-28	World	UEFA Europa Conference League	Linfield	Shelbourne	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.229679	\N	\N	0	2	a-win	yes
+723	1438826	2025-08-28	World	UEFA Europa Conference League	Dinamo Tirana	Jagiellonia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.234567	\N	\N	0	0	draw	yes
+724	1438829	2025-08-28	World	UEFA Europa Conference League	FSV Mainz 05	Rosenborg	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.241671	\N	\N	3	1	h-win	yes
+725	1438830	2025-08-28	World	UEFA Europa Conference League	Legia Warszawa	Hibernian	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.246656	\N	\N	1	0	h-win	yes
+726	1438831	2025-08-28	World	UEFA Europa Conference League	Shamrock Rovers	Santa Clara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.251401	\N	\N	0	0	draw	yes
+727	1438828	2025-08-28	World	UEFA Europa Conference League	Servette FC	Shakhtar Donetsk	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.258475	\N	\N	0	0	draw	yes
+728	1438832	2025-08-28	World	UEFA Europa Conference League	Virtus	Breidablik	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.263303	\N	\N	1	1	draw	yes
+729	1451357	2025-10-02	World	UEFA Europa Conference League	Jagiellonia	Hamrun Spartans	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.26804	\N	\N	0	0	draw	yes
+730	1451356	2025-10-02	World	UEFA Europa Conference League	Lech Poznan	Rapid Vienna	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.275268	\N	\N	3	0	h-win	yes
+731	1451358	2025-10-02	World	UEFA Europa Conference League	Dynamo Kyiv	Crystal Palace	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.280703	\N	\N	0	1	a-win	yes
+732	1451354	2025-10-02	World	UEFA Europa Conference League	Zrinjski	Lincoln Red Imps FC	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.287316	\N	\N	3	0	h-win	yes
+733	1451361	2025-10-02	World	UEFA Europa Conference League	Rayo Vallecano	Shkendija	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.292559	\N	\N	2	0	h-win	yes
+734	1452158	2025-10-02	World	UEFA Europa Conference League	Lausanne	Breidablik	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.297376	\N	\N	3	0	h-win	yes
+735	1451359	2025-10-02	World	UEFA Europa Conference League	KuPS	Drita	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.304544	\N	\N	0	0	draw	yes
+736	1451355	2025-10-02	World	UEFA Europa Conference League	Omonia Nicosia	FSV Mainz 05	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.309617	\N	\N	0	0	draw	yes
+737	1451360	2025-10-02	World	UEFA Europa Conference League	FC Noah	HNK Rijeka	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.314406	\N	\N	1	0	h-win	yes
+738	1451363	2025-10-02	World	UEFA Europa Conference League	Aberdeen	Shakhtar Donetsk	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.321271	\N	\N	1	1	draw	yes
+739	1451364	2025-10-02	World	UEFA Europa Conference League	Legia Warszawa	Samsunspor	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.326324	\N	\N	0	1	a-win	yes
+740	1451365	2025-10-02	World	UEFA Europa Conference League	Fiorentina	Sigma Olomouc	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.331861	\N	\N	1	0	h-win	yes
+741	1451367	2025-10-02	World	UEFA Europa Conference League	AEK Larnaca	AZ Alkmaar	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.337951	\N	\N	1	0	h-win	yes
+742	1451369	2025-10-02	World	UEFA Europa Conference League	Sparta Praha	Shamrock Rovers	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.342752	\N	\N	2	0	h-win	yes
+743	1452159	2025-10-02	World	UEFA Europa Conference League	Slovan Bratislava	Strasbourg	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.349734	\N	\N	0	2	a-win	yes
+744	1451366	2025-10-02	World	UEFA Europa Conference League	Raków Częstochowa	Universitatea Craiova	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.354722	\N	\N	0	0	draw	yes
+745	1451362	2025-10-02	World	UEFA Europa Conference League	Shelbourne	BK Hacken	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.359504	\N	\N	0	0	draw	yes
+746	1451368	2025-10-02	World	UEFA Europa Conference League	Celje	AEK Athens FC	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.367406	\N	\N	1	1	draw	yes
+747	1451373	2025-10-23	World	UEFA Europa Conference League	Strasbourg	Jagiellonia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.372217	\N	\N	0	0	draw	yes
+748	1451378	2025-10-23	World	UEFA Europa Conference League	AZ Alkmaar	Slovan Bratislava	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.376992	\N	\N	1	0	h-win	yes
+749	1451370	2025-10-23	World	UEFA Europa Conference League	Breidablik	KuPS	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.383831	\N	\N	0	0	draw	yes
+750	1451371	2025-10-23	World	UEFA Europa Conference League	BK Hacken	Rayo Vallecano	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.388739	\N	\N	1	1	draw	yes
+751	1451376	2025-10-23	World	UEFA Europa Conference League	Shakhtar Donetsk	Legia Warszawa	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.394304	\N	\N	0	1	a-win	yes
+752	1452160	2025-10-23	World	UEFA Europa Conference League	AEK Athens FC	Aberdeen	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.400968	\N	\N	3	0	h-win	yes
+753	1451375	2025-10-23	World	UEFA Europa Conference League	Shkendija	Shelbourne	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.405806	\N	\N	0	0	draw	yes
+754	1451374	2025-10-23	World	UEFA Europa Conference League	Rapid Vienna	Fiorentina	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.412657	\N	\N	0	1	a-win	yes
+755	1451377	2025-10-23	World	UEFA Europa Conference League	Drita	Omonia Nicosia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.417808	\N	\N	1	1	draw	yes
+756	1451385	2025-10-23	World	UEFA Europa Conference League	Crystal Palace	AEK Larnaca	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.422728	\N	\N	0	0	draw	yes
+757	1451383	2025-10-23	World	UEFA Europa Conference League	FSV Mainz 05	Zrinjski	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.429631	\N	\N	1	0	h-win	yes
+758	1451381	2025-10-23	World	UEFA Europa Conference League	Universitatea Craiova	FC Noah	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.434741	\N	\N	1	0	h-win	yes
+759	1451386	2025-10-23	World	UEFA Europa Conference League	Shamrock Rovers	Celje	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.43957	\N	\N	0	2	a-win	yes
+760	1451379	2025-10-23	World	UEFA Europa Conference League	Lincoln Red Imps FC	Lech Poznan	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.44651	\N	\N	1	0	h-win	yes
+761	1451380	2025-10-23	World	UEFA Europa Conference League	Sigma Olomouc	Raków Częstochowa	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.451822	\N	\N	0	0	draw	yes
+762	1451382	2025-10-23	World	UEFA Europa Conference League	Samsunspor	Dynamo Kyiv	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.456649	\N	\N	2	0	h-win	yes
+763	1451384	2025-10-23	World	UEFA Europa Conference League	Hamrun Spartans	Lausanne	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.463272	\N	\N	0	1	a-win	yes
+764	1451372	2025-10-24	World	UEFA Europa Conference League	HNK Rijeka	Sparta Praha	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.468081	\N	\N	0	0	draw	yes
+765	1451394	2025-11-06	World	UEFA Europa Conference League	FSV Mainz 05	Fiorentina	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.47686	\N	\N	0	1	a-win	yes
+766	1451388	2025-11-06	World	UEFA Europa Conference League	Shakhtar Donetsk	Breidablik	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.483211	\N	\N	1	0	h-win	yes
+767	1451387	2025-11-06	World	UEFA Europa Conference League	AEK Athens FC	Shamrock Rovers	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.492361	\N	\N	0	1	a-win	yes
+768	1451392	2025-11-06	World	UEFA Europa Conference League	AEK Larnaca	Aberdeen	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.498611	\N	\N	0	0	draw	yes
+769	1451390	2025-11-06	World	UEFA Europa Conference League	Sparta Praha	Raków Częstochowa	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.506736	\N	\N	0	0	draw	yes
+770	1452161	2025-11-06	World	UEFA Europa Conference League	KuPS	Slovan Bratislava	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.513182	\N	\N	1	1	draw	yes
+771	1451393	2025-11-06	World	UEFA Europa Conference League	Samsunspor	Hamrun Spartans	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.52165	\N	\N	1	0	h-win	yes
+772	1451389	2025-11-06	World	UEFA Europa Conference League	FC Noah	Sigma Olomouc	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.528121	\N	\N	1	2	a-win	yes
+773	1451391	2025-11-06	World	UEFA Europa Conference League	Celje	Legia Warszawa	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.534316	\N	\N	0	1	a-win	yes
+774	1451401	2025-11-06	World	UEFA Europa Conference League	Crystal Palace	AZ Alkmaar	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.543513	\N	\N	2	0	h-win	yes
+775	1451399	2025-11-06	World	UEFA Europa Conference League	BK Hacken	Strasbourg	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.550235	\N	\N	0	1	a-win	yes
+776	1451397	2025-11-06	World	UEFA Europa Conference League	Dynamo Kyiv	Zrinjski	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.559001	\N	\N	1	0	h-win	yes
+777	1451396	2025-11-06	World	UEFA Europa Conference League	Shkendija	Jagiellonia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.565156	\N	\N	0	0	draw	yes
+778	1451398	2025-11-06	World	UEFA Europa Conference League	Lincoln Red Imps FC	HNK Rijeka	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.573149	\N	\N	0	1	a-win	yes
+779	1451402	2025-11-06	World	UEFA Europa Conference League	Rayo Vallecano	Lech Poznan	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.579602	\N	\N	0	2	a-win	yes
+780	1451403	2025-11-06	World	UEFA Europa Conference League	Rapid Vienna	Universitatea Craiova	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.587774	\N	\N	0	1	a-win	yes
+781	1451395	2025-11-06	World	UEFA Europa Conference League	Lausanne	Omonia Nicosia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.594388	\N	\N	1	1	draw	yes
+782	1451400	2025-11-06	World	UEFA Europa Conference League	Shelbourne	Drita	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 20:12:35.602607	\N	\N	0	0	draw	yes
+783	1380386	2025-07-18	Poland	Ekstraklasa	Jagiellonia	Nieciecza	a-win	0	4	13	4	18	6	3	8	4	1	1	0	0	0	64.00	36.00	7	10	\N	\N	\N	\N	\N	2025-12-01 21:06:37.93583	1.00	2.40	0	3	a-win	yes
+784	1380387	2025-07-18	Poland	Ekstraklasa	Lech Poznan	Cracovia Krakow	a-win	1	4	10	2	7	5	5	0	3	1	1	2	0	0	75.00	25.00	10	12	\N	\N	\N	\N	\N	2025-12-01 21:06:38.098769	1.10	1.01	1	2	a-win	yes
+785	1380391	2025-07-19	Poland	Ekstraklasa	Widzew Łódź	Zaglebie Lubin	h-win	1	0	15	4	11	2	8	6	1	3	3	4	0	0	53.00	47.00	8	20	\N	\N	\N	\N	\N	2025-12-01 21:06:38.265238	0.53	0.65	1	0	h-win	yes
+786	1380392	2025-07-19	Poland	Ekstraklasa	Wisla Plock	Korona Kielce	h-win	2	0	22	8	5	1	7	1	1	4	1	3	0	2	64.00	36.00	12	13	\N	\N	\N	\N	\N	2025-12-01 21:06:38.43554	3.08	0.09	1	0	h-win	yes
+787	1380384	2025-07-19	Poland	Ekstraklasa	GKS Katowice	Raków Częstochowa	a-win	0	1	3	0	18	4	3	6	2	0	1	1	0	0	49.00	51.00	7	14	\N	\N	\N	\N	\N	2025-12-01 21:06:38.634548	0.23	2.38	0	0	draw	yes
+788	1380385	2025-07-20	Poland	Ekstraklasa	Gornik Zabrze	Lechia Gdansk	h-win	2	1	21	6	15	6	6	3	1	1	1	1	0	0	53.00	47.00	8	10	\N	\N	\N	\N	\N	2025-12-01 21:06:38.801089	2.23	2.06	1	0	h-win	yes
+789	1380389	2025-07-20	Poland	Ekstraklasa	Motor Lublin	Arka Gdynia	h-win	1	0	17	5	9	1	8	8	3	3	2	4	0	0	60.00	40.00	14	11	\N	\N	\N	\N	\N	2025-12-01 21:06:38.97736	1.83	0.93	0	0	draw	yes
+790	1380390	2025-07-20	Poland	Ekstraklasa	Radomiak Radom	Pogon Szczecin	h-win	5	1	15	8	6	1	4	4	2	5	1	1	0	0	43.00	57.00	8	9	\N	\N	\N	\N	\N	2025-12-01 21:06:39.14927	1.19	1.30	1	0	h-win	yes
+791	1380394	2025-07-25	Poland	Ekstraklasa	Cracovia Krakow	Nieciecza	h-win	2	0	14	3	7	4	5	6	1	0	3	5	0	0	46.00	54.00	16	16	\N	\N	\N	\N	\N	2025-12-01 21:06:39.329248	1.35	0.68	1	0	h-win	yes
+792	1380393	2025-07-25	Poland	Ekstraklasa	Arka Gdynia	Radomiak Radom	draw	1	1	10	4	15	3	5	4	3	2	1	3	0	0	49.00	51.00	16	12	\N	\N	\N	\N	\N	2025-12-01 21:06:39.520446	0.73	0.75	1	0	h-win	yes
+793	1380399	2025-07-26	Poland	Ekstraklasa	Piast Gliwice	Gornik Zabrze	a-win	0	1	10	0	8	4	6	2	2	0	2	1	0	0	62.00	38.00	13	8	\N	\N	\N	\N	\N	2025-12-01 21:06:39.757134	0.49	0.38	0	0	draw	yes
+794	1380400	2025-07-26	Poland	Ekstraklasa	Pogon Szczecin	Motor Lublin	h-win	4	1	19	5	20	8	6	8	0	1	2	1	0	0	42.00	58.00	11	8	\N	\N	\N	\N	\N	2025-12-01 21:06:40.021834	2.26	1.92	2	1	h-win	yes
+795	1380398	2025-07-26	Poland	Ekstraklasa	Lechia Gdansk	Lech Poznan	a-win	3	4	16	7	21	11	9	10	0	0	3	3	0	0	40.00	60.00	13	11	\N	\N	\N	\N	\N	2025-12-01 21:06:40.225575	1.95	3.73	2	0	h-win	yes
+796	1380401	2025-07-27	Poland	Ekstraklasa	Raków Częstochowa	Wisla Plock	a-win	1	2	11	3	11	5	6	3	0	1	4	4	0	0	61.00	39.00	17	21	\N	\N	\N	\N	\N	2025-12-01 21:06:40.463514	1.23	2.31	1	1	draw	yes
+797	1380396	2025-07-27	Poland	Ekstraklasa	Jagiellonia	Widzew Łódź	h-win	3	2	12	5	18	7	4	2	4	1	2	3	0	0	59.00	41.00	12	18	\N	\N	\N	\N	\N	2025-12-01 21:06:40.757198	1.29	2.33	1	1	draw	yes
+798	1380397	2025-07-27	Poland	Ekstraklasa	Korona Kielce	Legia Warszawa	a-win	0	2	18	2	17	5	13	7	0	2	0	1	0	0	52.00	48.00	8	15	\N	\N	\N	\N	\N	2025-12-01 21:06:41.044875	1.29	2.54	0	1	a-win	yes
+799	1380395	2025-07-28	Poland	Ekstraklasa	GKS Katowice	Zaglebie Lubin	draw	2	2	20	8	20	3	14	8	1	2	1	1	0	0	56.00	44.00	9	16	\N	\N	\N	\N	\N	2025-12-01 21:06:41.247076	1.75	2.53	0	2	a-win	yes
+800	1380410	2025-08-01	Poland	Ekstraklasa	Zaglebie Lubin	Korona Kielce	draw	1	1	8	2	17	5	7	8	1	2	2	2	0	0	46.00	54.00	15	19	\N	\N	\N	\N	\N	2025-12-01 21:06:41.481297	1.11	1.86	0	0	draw	yes
+801	1380409	2025-08-01	Poland	Ekstraklasa	Wisla Plock	Piast Gliwice	h-win	2	0	10	3	6	1	8	6	4	0	2	4	0	0	30.00	70.00	10	11	\N	\N	\N	\N	\N	2025-12-01 21:06:41.789246	1.43	0.66	1	0	h-win	yes
+802	1380407	2025-08-02	Poland	Ekstraklasa	Nieciecza	Pogon Szczecin	draw	1	1	16	7	12	2	6	9	2	0	0	2	0	0	42.00	58.00	8	14	\N	\N	\N	\N	\N	2025-12-01 21:06:42.106018	1.64	1.26	1	0	h-win	yes
+803	1380408	2025-08-02	Poland	Ekstraklasa	Widzew Łódź	GKS Katowice	h-win	3	0	21	4	8	3	8	6	0	2	4	2	0	0	43.00	57.00	6	7	\N	\N	\N	\N	\N	2025-12-01 21:06:42.438132	2.18	1.02	1	0	h-win	yes
+804	1380403	2025-08-02	Poland	Ekstraklasa	Lech Poznan	Gornik Zabrze	h-win	2	1	12	5	12	1	6	8	0	1	2	1	0	0	56.00	44.00	9	5	\N	\N	\N	\N	\N	2025-12-01 21:06:42.786049	1.99	0.42	0	0	draw	yes
+805	1380402	2025-08-03	Poland	Ekstraklasa	Cracovia Krakow	Lechia Gdansk	draw	2	2	19	6	11	2	5	4	0	0	3	2	0	0	56.00	44.00	13	13	\N	\N	\N	\N	\N	2025-12-01 21:06:43.09223	\N	\N	1	1	draw	yes
+806	1380406	2025-08-03	Poland	Ekstraklasa	Radomiak Radom	Raków Częstochowa	h-win	3	1	12	6	12	5	1	7	0	3	3	3	0	0	36.00	64.00	20	14	\N	\N	\N	\N	\N	2025-12-01 21:06:43.418171	\N	\N	0	0	draw	yes
+807	1380404	2025-08-03	Poland	Ekstraklasa	Legia Warszawa	Arka Gdynia	draw	0	0	20	3	6	0	13	4	1	1	3	3	0	0	63.00	37.00	19	13	\N	\N	\N	\N	\N	2025-12-01 21:06:43.762017	\N	\N	0	0	draw	yes
+808	1380414	2025-08-08	Poland	Ekstraklasa	Korona Kielce	Radomiak Radom	h-win	3	0	13	3	7	3	2	5	3	2	5	3	0	0	43.00	57.00	15	16	\N	\N	\N	\N	\N	2025-12-01 21:06:44.058166	1.88	0.59	2	0	h-win	yes
+809	1380412	2025-08-08	Poland	Ekstraklasa	Gornik Zabrze	Nieciecza	a-win	0	1	25	5	7	2	7	2	1	0	3	3	0	0	62.00	38.00	12	15	\N	\N	\N	\N	\N	2025-12-01 21:06:44.32313	1.87	0.66	0	1	a-win	yes
+810	1380411	2025-08-09	Poland	Ekstraklasa	Arka Gdynia	Pogon Szczecin	h-win	2	1	11	5	13	3	6	5	1	0	3	3	0	0	44.00	56.00	13	14	\N	\N	\N	\N	\N	2025-12-01 21:06:44.583139	\N	\N	1	1	draw	yes
+811	1380419	2025-08-09	Poland	Ekstraklasa	Widzew Łódź	Wisla Plock	draw	1	1	15	6	5	1	5	0	1	1	2	3	0	0	61.00	39.00	7	12	\N	\N	\N	\N	\N	2025-12-01 21:06:44.826054	\N	\N	1	1	draw	yes
+812	1380413	2025-08-10	Poland	Ekstraklasa	Jagiellonia	Cracovia Krakow	h-win	5	2	15	8	12	4	10	5	1	1	2	3	0	1	63.00	37.00	14	17	\N	\N	\N	\N	\N	2025-12-01 21:06:45.03603	\N	\N	1	2	a-win	yes
+813	1380416	2025-08-10	Poland	Ekstraklasa	Legia Warszawa	GKS Katowice	h-win	3	1	20	7	7	6	5	7	1	1	3	1	0	0	58.00	42.00	11	13	\N	\N	\N	\N	\N	2025-12-01 21:06:45.250103	\N	\N	1	0	h-win	yes
+814	1380415	2025-08-11	Poland	Ekstraklasa	Lechia Gdansk	Motor Lublin	draw	3	3	18	9	14	4	3	8	0	2	2	2	0	0	53.00	47.00	11	12	\N	\N	\N	\N	\N	2025-12-01 21:06:45.415155	2.60	0.99	2	2	draw	yes
+815	1380428	2025-08-15	Poland	Ekstraklasa	Zaglebie Lubin	Lechia Gdansk	h-win	6	2	22	9	7	2	5	4	1	0	0	0	0	0	41.00	59.00	6	9	\N	\N	\N	\N	\N	2025-12-01 21:06:45.644077	\N	\N	2	1	h-win	yes
+816	1380420	2025-08-15	Poland	Ekstraklasa	Cracovia Krakow	Widzew Łódź	h-win	1	0	10	2	12	3	7	8	1	0	2	1	0	0	44.00	56.00	16	11	\N	\N	\N	\N	\N	2025-12-01 21:06:45.902973	\N	\N	0	0	draw	yes
+817	1380423	2025-08-16	Poland	Ekstraklasa	Motor Lublin	Piast Gliwice	draw	0	0	8	1	17	4	7	6	4	5	4	2	1	0	41.00	59.00	17	16	\N	\N	\N	\N	\N	2025-12-01 21:06:46.237646	\N	\N	0	0	draw	yes
+818	1380421	2025-08-16	Poland	Ekstraklasa	GKS Katowice	Arka Gdynia	h-win	4	1	24	10	12	3	8	5	1	0	1	4	0	0	42.00	58.00	19	12	\N	\N	\N	\N	\N	2025-12-01 21:06:46.640926	\N	\N	2	1	h-win	yes
+819	1380422	2025-08-16	Poland	Ekstraklasa	Lech Poznan	Korona Kielce	draw	1	1	18	8	16	2	6	0	2	2	1	1	0	0	65.00	35.00	12	10	\N	\N	\N	\N	\N	2025-12-01 21:06:46.989531	\N	\N	0	0	draw	yes
+820	1380424	2025-08-17	Poland	Ekstraklasa	Pogon Szczecin	Gornik Zabrze	a-win	0	3	14	3	20	6	6	9	1	1	2	0	0	0	53.00	47.00	11	16	\N	\N	\N	\N	\N	2025-12-01 21:06:47.237387	\N	\N	0	0	draw	yes
+821	1380425	2025-08-17	Poland	Ekstraklasa	Radomiak Radom	Jagiellonia	a-win	1	2	11	5	15	5	6	7	3	3	6	1	0	0	40.00	60.00	21	12	\N	\N	\N	\N	\N	2025-12-01 21:06:47.496174	\N	\N	1	1	draw	yes
+822	1380427	2025-08-17	Poland	Ekstraklasa	Wisla Plock	Legia Warszawa	h-win	1	0	10	4	23	3	3	9	1	1	0	1	0	0	34.00	66.00	5	9	\N	\N	\N	\N	\N	2025-12-01 21:06:47.761159	\N	\N	1	0	h-win	yes
+823	1380426	2025-08-17	Poland	Ekstraklasa	Nieciecza	Raków Częstochowa	a-win	2	3	9	3	17	10	6	2	1	0	2	4	0	0	47.00	53.00	17	14	\N	\N	\N	\N	\N	2025-12-01 21:06:48.07884	\N	\N	1	1	draw	yes
+824	1380434	2025-08-22	Poland	Ekstraklasa	Radomiak Radom	Nieciecza	draw	1	1	17	4	13	2	2	5	3	3	1	2	0	0	62.00	38.00	12	11	\N	\N	\N	\N	\N	2025-12-01 21:06:48.430367	\N	\N	1	1	draw	yes
+825	1380436	2025-08-22	Poland	Ekstraklasa	Widzew Łódź	Pogon Szczecin	a-win	1	2	13	4	8	4	2	0	2	2	1	4	1	0	55.00	45.00	5	16	\N	\N	\N	\N	\N	2025-12-01 21:06:48.749239	\N	\N	1	1	draw	yes
+826	1380430	2025-08-23	Poland	Ekstraklasa	Korona Kielce	Motor Lublin	h-win	2	0	17	8	13	2	5	6	1	1	4	5	0	0	32.00	68.00	15	13	\N	\N	\N	\N	\N	2025-12-01 21:06:48.992037	\N	\N	0	0	draw	yes
+827	1380429	2025-08-23	Poland	Ekstraklasa	Gornik Zabrze	GKS Katowice	h-win	3	0	18	6	10	1	2	4	0	0	0	1	0	0	51.00	49.00	9	11	\N	\N	\N	\N	\N	2025-12-01 21:06:49.267081	\N	\N	1	0	h-win	yes
+828	1380433	2025-08-24	Poland	Ekstraklasa	Piast Gliwice	Cracovia Krakow	draw	0	0	14	1	8	2	4	2	1	0	1	0	0	0	60.00	40.00	20	17	\N	\N	\N	\N	\N	2025-12-01 21:06:49.764669	\N	\N	0	0	draw	yes
+829	1380431	2025-08-24	Poland	Ekstraklasa	Lechia Gdansk	Arka Gdynia	h-win	1	0	12	3	7	1	4	4	2	0	2	3	0	0	53.00	47.00	10	12	\N	\N	\N	\N	\N	2025-12-01 21:06:50.205991	\N	\N	0	0	draw	yes
+830	1380437	2025-08-25	Poland	Ekstraklasa	Wisla Plock	Zaglebie Lubin	h-win	2	1	15	4	8	3	4	3	2	1	1	0	0	0	58.00	42.00	15	9	\N	\N	\N	\N	\N	2025-12-01 21:06:50.684776	1.81	0.39	0	1	a-win	yes
+831	1380438	2025-08-29	Poland	Ekstraklasa	Arka Gdynia	Wisla Plock	h-win	1	0	8	2	18	4	0	5	1	1	1	2	0	0	51.00	49.00	12	10	\N	\N	\N	\N	\N	2025-12-01 21:06:51.111889	\N	\N	0	0	draw	yes
+832	1380440	2025-08-29	Poland	Ekstraklasa	GKS Katowice	Radomiak Radom	h-win	3	2	18	8	9	4	8	4	3	1	3	6	0	0	47.00	53.00	16	21	\N	\N	\N	\N	\N	2025-12-01 21:06:51.45101	\N	\N	2	2	draw	yes
+833	1380445	2025-08-30	Poland	Ekstraklasa	Nieciecza	Korona Kielce	a-win	1	3	8	5	24	9	3	1	2	1	0	2	0	0	46.00	54.00	13	12	\N	\N	\N	\N	\N	2025-12-01 21:06:51.849023	\N	\N	1	0	h-win	yes
+834	1380446	2025-08-30	Poland	Ekstraklasa	Zaglebie Lubin	Piast Gliwice	draw	2	2	11	2	15	5	3	5	2	3	3	3	0	0	30.00	70.00	15	9	\N	\N	\N	\N	\N	2025-12-01 21:06:52.193	\N	\N	1	1	draw	yes
+835	1380441	2025-08-30	Poland	Ekstraklasa	Gornik Zabrze	Motor Lublin	a-win	0	1	18	3	10	3	10	5	2	1	5	4	0	0	58.00	42.00	9	14	\N	\N	\N	\N	\N	2025-12-01 21:06:52.629473	\N	\N	0	0	draw	yes
+836	1380442	2025-08-31	Poland	Ekstraklasa	Jagiellonia	Lechia Gdansk	h-win	2	0	12	4	14	3	1	5	2	0	4	4	0	0	52.00	48.00	13	20	\N	\N	\N	\N	\N	2025-12-01 21:06:52.921928	\N	\N	2	0	h-win	yes
+837	1380443	2025-08-31	Poland	Ekstraklasa	Lech Poznan	Widzew Łódź	h-win	2	1	13	5	15	3	5	7	1	6	3	0	0	0	51.00	49.00	10	8	\N	\N	\N	\N	\N	2025-12-01 21:06:53.181068	\N	\N	1	0	h-win	yes
+838	1380444	2025-08-31	Poland	Ekstraklasa	Pogon Szczecin	Raków Częstochowa	h-win	2	0	8	3	18	3	1	14	3	2	4	3	0	0	45.00	55.00	16	10	\N	\N	\N	\N	\N	2025-12-01 21:06:53.393002	\N	\N	0	0	draw	yes
+839	1380439	2025-08-31	Poland	Ekstraklasa	Cracovia Krakow	Legia Warszawa	h-win	2	1	2	2	13	5	2	5	1	1	4	2	0	0	56.00	44.00	13	17	\N	\N	\N	\N	\N	2025-12-01 21:06:53.637289	\N	\N	1	0	h-win	yes
+840	1380448	2025-09-12	Poland	Ekstraklasa	Lechia Gdansk	GKS Katowice	h-win	2	0	13	3	11	3	2	5	0	0	3	1	0	0	42.00	58.00	8	10	\N	\N	\N	\N	\N	2025-12-01 21:06:53.826061	1.77	0.32	1	0	h-win	yes
+841	1380449	2025-09-12	Poland	Ekstraklasa	Lech Poznan	Zaglebie Lubin	a-win	1	2	26	6	10	4	7	6	0	4	3	3	0	0	64.00	36.00	11	9	\N	\N	\N	\N	\N	2025-12-01 21:06:54.047996	3.34	0.78	1	1	draw	yes
+842	1380447	2025-09-13	Poland	Ekstraklasa	Korona Kielce	Pogon Szczecin	h-win	1	0	17	6	21	10	12	7	5	2	1	1	0	0	45.00	55.00	9	11	\N	\N	\N	\N	\N	2025-12-01 21:06:54.330049	\N	\N	1	0	h-win	yes
+843	1380452	2025-09-13	Poland	Ekstraklasa	Piast Gliwice	Jagiellonia	draw	1	1	15	4	11	6	4	1	2	1	6	3	1	0	53.00	47.00	11	13	\N	\N	\N	\N	\N	2025-12-01 21:06:54.540505	\N	\N	0	0	draw	yes
+844	1380451	2025-09-14	Poland	Ekstraklasa	Motor Lublin	Nieciecza	draw	1	1	14	2	10	6	5	4	4	1	2	4	0	0	51.00	49.00	16	13	\N	\N	\N	\N	\N	2025-12-01 21:06:54.757024	\N	\N	1	0	h-win	yes
+845	1380450	2025-09-14	Poland	Ekstraklasa	Legia Warszawa	Radomiak Radom	h-win	4	1	13	6	12	4	5	5	0	0	1	2	0	0	55.00	45.00	17	15	\N	\N	\N	\N	\N	2025-12-01 21:06:54.955068	\N	\N	1	0	h-win	yes
+846	1380454	2025-09-14	Poland	Ekstraklasa	Widzew Łódź	Arka Gdynia	h-win	2	0	14	8	13	5	1	2	1	3	0	1	0	0	49.00	51.00	4	16	\N	\N	\N	\N	\N	2025-12-01 21:06:55.149991	\N	\N	1	0	h-win	yes
+847	1380453	2025-09-15	Poland	Ekstraklasa	Raków Częstochowa	Gornik Zabrze	a-win	0	1	9	1	16	7	3	6	2	0	1	6	0	0	67.00	33.00	7	16	\N	\N	\N	\N	\N	2025-12-01 21:06:55.331027	\N	\N	0	1	a-win	yes
+848	1380457	2025-09-19	Poland	Ekstraklasa	GKS Katowice	Cracovia Krakow	a-win	0	3	16	5	13	6	11	3	0	0	2	1	0	0	58.00	42.00	6	13	\N	\N	\N	\N	\N	2025-12-01 21:06:55.506982	\N	\N	0	2	a-win	yes
+849	1380459	2025-09-19	Poland	Ekstraklasa	Wisla Plock	Jagiellonia	a-win	0	1	17	4	12	9	4	5	3	3	0	2	0	0	41.00	59.00	13	8	\N	\N	\N	\N	\N	2025-12-01 21:06:55.724957	\N	\N	0	0	draw	yes
+850	1380461	2025-09-20	Poland	Ekstraklasa	Radomiak Radom	Piast Gliwice	h-win	1	0	16	4	11	2	3	2	1	1	0	1	0	0	40.00	60.00	21	13	\N	\N	\N	\N	\N	2025-12-01 21:06:55.965751	\N	\N	0	0	draw	yes
+851	1380456	2025-09-20	Poland	Ekstraklasa	Arka Gdynia	Korona Kielce	draw	0	0	11	3	9	0	4	6	1	0	3	2	0	0	49.00	51.00	12	15	\N	\N	\N	\N	\N	2025-12-01 21:06:56.211067	\N	\N	0	0	draw	yes
+852	1380463	2025-09-20	Poland	Ekstraklasa	Nieciecza	Lech Poznan	a-win	0	2	13	2	18	9	3	10	0	2	1	1	0	0	54.00	46.00	7	7	\N	\N	\N	\N	\N	2025-12-01 21:06:56.458156	\N	\N	0	1	a-win	yes
+853	1380462	2025-09-20	Poland	Ekstraklasa	Raków Częstochowa	Legia Warszawa	draw	1	1	7	3	16	2	1	2	2	0	1	3	0	0	40.00	60.00	15	18	\N	\N	\N	\N	\N	2025-12-01 21:06:56.755033	\N	\N	1	1	draw	yes
+854	1380464	2025-09-21	Poland	Ekstraklasa	Zaglebie Lubin	Motor Lublin	draw	2	2	10	3	15	6	6	5	2	3	3	4	0	0	44.00	56.00	14	15	\N	\N	\N	\N	\N	2025-12-01 21:06:57.067063	\N	\N	1	0	h-win	yes
+855	1380460	2025-09-21	Poland	Ekstraklasa	Pogon Szczecin	Lechia Gdansk	a-win	3	4	22	10	12	9	4	4	1	0	3	3	0	0	59.00	41.00	9	11	\N	\N	\N	\N	\N	2025-12-01 21:06:57.406941	\N	\N	2	1	h-win	yes
+856	1380458	2025-09-21	Poland	Ekstraklasa	Gornik Zabrze	Widzew Łódź	h-win	3	2	17	7	11	5	6	4	2	0	4	1	0	0	50.00	50.00	16	11	\N	\N	\N	\N	\N	2025-12-01 21:06:57.789259	\N	\N	2	1	h-win	yes
+857	1380435	2025-09-24	Poland	Ekstraklasa	Raków Częstochowa	Lech Poznan	draw	2	2	16	7	10	3	6	2	4	1	3	1	0	1	64.00	36.00	10	15	\N	\N	\N	\N	\N	2025-12-01 21:06:58.125792	\N	\N	0	2	a-win	yes
+858	1380432	2025-09-24	Poland	Ekstraklasa	Legia Warszawa	Jagiellonia	draw	0	0	20	7	4	1	2	2	0	6	1	3	0	0	51.00	49.00	19	16	\N	\N	\N	\N	\N	2025-12-01 21:06:58.5316	\N	\N	0	0	draw	yes
+859	1380472	2025-09-26	Poland	Ekstraklasa	Wisla Plock	GKS Katowice	draw	1	1	11	5	10	5	4	2	1	2	1	1	0	0	46.00	54.00	14	11	\N	\N	\N	\N	\N	2025-12-01 21:06:58.879178	\N	\N	1	0	h-win	yes
+860	1380466	2025-09-27	Poland	Ekstraklasa	Korona Kielce	Lechia Gdansk	h-win	3	0	17	7	10	3	6	5	1	0	2	1	0	1	44.00	56.00	12	13	\N	\N	\N	\N	\N	2025-12-01 21:06:59.172794	\N	\N	1	0	h-win	yes
+861	1380470	2025-09-27	Poland	Ekstraklasa	Piast Gliwice	Nieciecza	h-win	4	2	20	7	22	7	2	7	1	2	1	3	1	0	48.00	52.00	7	15	\N	\N	\N	\N	\N	2025-12-01 21:06:59.464945	\N	\N	1	2	a-win	yes
+862	1380465	2025-09-27	Poland	Ekstraklasa	Cracovia Krakow	Gornik Zabrze	draw	1	1	13	3	10	2	6	7	1	0	1	2	0	0	64.00	36.00	4	10	\N	\N	\N	\N	\N	2025-12-01 21:06:59.75341	\N	\N	0	0	draw	yes
+863	1380471	2025-09-28	Poland	Ekstraklasa	Widzew Łódź	Raków Częstochowa	a-win	0	1	6	1	21	6	3	3	3	0	3	4	0	0	38.00	62.00	11	17	\N	\N	\N	\N	\N	2025-12-01 21:07:00.131325	\N	\N	0	0	draw	yes
+864	1380467	2025-09-28	Poland	Ekstraklasa	Lech Poznan	Jagiellonia	draw	2	2	13	6	15	3	5	10	0	1	1	4	0	0	53.00	47.00	10	13	\N	\N	\N	\N	\N	2025-12-01 21:07:00.430888	\N	\N	0	1	a-win	yes
+865	1380468	2025-09-28	Poland	Ekstraklasa	Legia Warszawa	Pogon Szczecin	h-win	1	0	14	6	6	1	6	1	3	2	2	3	0	0	55.00	45.00	17	15	\N	\N	\N	\N	\N	2025-12-01 21:07:00.609517	\N	\N	1	0	h-win	yes
+866	1380473	2025-09-29	Poland	Ekstraklasa	Zaglebie Lubin	Arka Gdynia	h-win	4	0	9	6	9	2	2	2	0	2	0	3	0	0	40.00	60.00	15	16	\N	\N	\N	\N	\N	2025-12-01 21:07:00.817593	\N	\N	4	0	h-win	yes
+867	1380469	2025-09-29	Poland	Ekstraklasa	Motor Lublin	Radomiak Radom	draw	2	2	11	4	20	5	5	3	2	0	1	3	0	0	55.00	45.00	10	14	\N	\N	\N	\N	\N	2025-12-01 21:07:01.011704	\N	\N	0	1	a-win	yes
+868	1380478	2025-10-03	Poland	Ekstraklasa	Lechia Gdansk	Wisla Plock	draw	1	1	12	5	9	1	3	4	2	0	1	3	0	0	56.00	44.00	7	11	\N	\N	\N	\N	\N	2025-12-01 21:07:01.151902	0.82	0.96	1	0	h-win	yes
+869	1380479	2025-10-03	Poland	Ekstraklasa	Pogon Szczecin	Piast Gliwice	h-win	2	1	28	10	8	2	6	1	2	1	2	1	0	0	48.00	52.00	11	16	\N	\N	\N	\N	\N	2025-12-01 21:07:01.283257	5.25	1.06	1	1	draw	yes
+870	1380482	2025-10-04	Poland	Ekstraklasa	Nieciecza	Widzew Łódź	a-win	2	4	9	4	14	10	3	4	0	1	1	2	0	0	53.00	47.00	15	16	\N	\N	\N	\N	\N	2025-12-01 21:07:01.45975	0.91	1.88	1	1	draw	yes
+871	1380480	2025-10-04	Poland	Ekstraklasa	Radomiak Radom	Zaglebie Lubin	h-win	3	1	17	5	18	7	5	6	1	4	0	3	0	0	50.00	50.00	11	13	\N	\N	\N	\N	\N	2025-12-01 21:07:01.626866	1.86	1.60	2	0	h-win	yes
+872	1380474	2025-10-04	Poland	Ekstraklasa	Arka Gdynia	Cracovia Krakow	h-win	2	1	8	3	13	1	4	6	2	2	0	2	0	0	37.00	63.00	20	17	\N	\N	\N	\N	\N	2025-12-01 21:07:01.796375	0.72	1.07	1	0	h-win	yes
+873	1380477	2025-10-05	Poland	Ekstraklasa	Jagiellonia	Korona Kielce	h-win	3	1	18	6	14	3	7	7	1	3	1	1	0	0	69.00	31.00	9	10	\N	\N	\N	\N	\N	2025-12-01 21:07:01.977068	2.13	0.93	1	0	h-win	yes
+874	1380481	2025-10-05	Poland	Ekstraklasa	Raków Częstochowa	Motor Lublin	h-win	2	0	22	8	5	2	4	5	2	2	1	3	1	0	54.00	46.00	12	15	\N	\N	\N	\N	\N	2025-12-01 21:07:02.147748	3.02	0.36	1	0	h-win	yes
+875	1380475	2025-10-05	Poland	Ekstraklasa	GKS Katowice	Lech Poznan	a-win	0	1	14	5	11	3	6	2	4	0	1	3	0	0	43.00	57.00	15	17	\N	\N	\N	\N	\N	2025-12-01 21:07:02.310189	1.82	1.98	0	1	a-win	yes
+876	1380476	2025-10-05	Poland	Ekstraklasa	Gornik Zabrze	Legia Warszawa	h-win	3	1	9	6	15	3	0	6	2	0	1	1	0	0	39.00	61.00	10	10	\N	\N	\N	\N	\N	2025-12-01 21:07:02.531837	1.33	1.05	2	0	h-win	yes
+877	1380487	2025-10-17	Poland	Ekstraklasa	Motor Lublin	GKS Katowice	a-win	2	5	18	6	15	4	10	2	0	2	2	3	1	0	51.00	49.00	10	14	\N	\N	\N	\N	\N	2025-12-01 21:07:02.767057	1.79	1.83	2	2	draw	yes
+878	1380489	2025-10-17	Poland	Ekstraklasa	Widzew Łódź	Radomiak Radom	h-win	3	2	18	6	19	6	2	4	1	4	2	2	0	0	48.00	52.00	18	19	\N	\N	\N	\N	\N	2025-12-01 21:07:03.018684	2.74	1.73	2	1	h-win	yes
+879	1380485	2025-10-18	Poland	Ekstraklasa	Korona Kielce	Gornik Zabrze	draw	1	1	12	4	16	3	9	7	3	1	2	0	0	0	43.00	57.00	7	12	\N	\N	\N	\N	\N	2025-12-01 21:07:03.280006	2.35	1.06	1	0	h-win	yes
+880	1380484	2025-10-18	Poland	Ekstraklasa	Jagiellonia	Arka Gdynia	h-win	4	0	18	7	8	1	3	5	2	1	1	1	0	0	55.00	45.00	8	10	\N	\N	\N	\N	\N	2025-12-01 21:07:03.635237	2.65	0.78	1	0	h-win	yes
+881	1380483	2025-10-18	Poland	Ekstraklasa	Cracovia Krakow	Raków Częstochowa	h-win	2	0	17	4	3	1	5	2	2	2	3	4	0	0	42.00	58.00	17	3	\N	\N	\N	\N	\N	2025-12-01 21:07:03.93222	1.74	0.12	1	0	h-win	yes
+882	1380488	2025-10-19	Poland	Ekstraklasa	Piast Gliwice	Lechia Gdansk	a-win	1	2	15	3	9	3	9	6	2	0	2	3	0	0	62.00	38.00	15	9	\N	\N	\N	\N	\N	2025-12-01 21:07:04.221258	\N	\N	0	1	a-win	yes
+883	1380486	2025-10-19	Poland	Ekstraklasa	Lech Poznan	Pogon Szczecin	draw	2	2	26	12	16	6	9	4	6	5	1	0	0	0	66.00	34.00	26	16	\N	\N	\N	\N	\N	2025-12-01 21:07:04.503267	2.52	1.78	0	1	a-win	yes
+884	1380491	2025-10-19	Poland	Ekstraklasa	Zaglebie Lubin	Legia Warszawa	h-win	3	1	16	5	12	2	3	4	3	1	1	1	0	1	35.00	65.00	16	12	\N	\N	\N	\N	\N	2025-12-01 21:07:04.806292	1.64	0.94	2	0	h-win	yes
+885	1380490	2025-10-20	Poland	Ekstraklasa	Wisla Plock	Nieciecza	h-win	3	1	20	7	14	2	6	5	1	2	0	1	0	0	55.00	45.00	6	9	\N	\N	\N	\N	\N	2025-12-01 21:07:05.189144	2.18	2.08	3	0	h-win	yes
+886	1380500	2025-10-24	Poland	Ekstraklasa	Nieciecza	Zaglebie Lubin	draw	1	1	14	3	13	6	7	5	1	0	3	2	0	1	54.00	46.00	9	12	\N	\N	\N	\N	\N	2025-12-01 21:07:05.352712	1.12	1.51	0	0	draw	yes
+887	1380496	2025-10-24	Poland	Ekstraklasa	Motor Lublin	Widzew Łódź	h-win	3	0	16	5	13	4	5	4	6	1	1	2	0	0	46.00	54.00	8	12	\N	\N	\N	\N	\N	2025-12-01 21:07:05.491275	2.18	0.92	1	0	h-win	yes
+888	1380492	2025-10-25	Poland	Ekstraklasa	Arka Gdynia	Piast Gliwice	h-win	2	1	6	3	23	4	4	10	1	0	2	4	0	0	37.00	63.00	17	13	\N	\N	\N	\N	\N	2025-12-01 21:07:05.659845	\N	\N	2	1	h-win	yes
+889	1380497	2025-10-25	Poland	Ekstraklasa	Pogon Szczecin	Cracovia Krakow	h-win	2	1	11	3	17	7	8	3	2	0	2	4	0	0	56.00	44.00	10	13	\N	\N	\N	\N	\N	2025-12-01 21:07:05.891816	\N	\N	0	1	a-win	yes
+890	1380493	2025-10-25	Poland	Ekstraklasa	GKS Katowice	Korona Kielce	h-win	1	0	14	4	14	3	3	3	2	1	4	3	0	0	40.00	60.00	16	8	\N	\N	\N	\N	\N	2025-12-01 21:07:06.223117	\N	\N	0	0	draw	yes
+891	1380499	2025-10-26	Poland	Ekstraklasa	Raków Częstochowa	Lechia Gdansk	h-win	2	1	10	4	10	5	4	4	4	0	2	3	1	0	43.00	57.00	3	17	\N	\N	\N	\N	\N	2025-12-01 21:07:06.481244	\N	\N	1	1	draw	yes
+892	1380494	2025-10-26	Poland	Ekstraklasa	Gornik Zabrze	Jagiellonia	h-win	2	1	22	6	15	3	5	4	1	1	0	1	0	0	41.00	59.00	8	6	\N	\N	\N	\N	\N	2025-12-01 21:07:06.747594	\N	\N	1	1	draw	yes
+893	1380495	2025-10-26	Poland	Ekstraklasa	Legia Warszawa	Lech Poznan	draw	0	0	13	4	12	2	8	5	1	4	1	2	0	0	48.00	52.00	16	13	\N	\N	\N	\N	\N	2025-12-01 21:07:06.999542	\N	\N	0	0	draw	yes
+894	1380498	2025-10-27	Poland	Ekstraklasa	Radomiak Radom	Wisla Plock	draw	1	1	19	2	9	3	4	5	2	1	1	1	0	0	55.00	45.00	16	13	\N	\N	\N	\N	\N	2025-12-01 21:07:07.273928	\N	\N	1	1	draw	yes
+895	1380507	2025-10-31	Poland	Ekstraklasa	Nieciecza	GKS Katowice	a-win	0	3	18	7	11	7	7	2	1	4	1	2	0	0	66.00	34.00	13	18	\N	\N	\N	\N	\N	2025-12-01 21:07:07.559837	2.08	2.15	0	1	a-win	yes
+896	1380506	2025-10-31	Poland	Ekstraklasa	Piast Gliwice	Korona Kielce	draw	0	0	10	2	20	4	7	9	0	1	2	1	1	0	49.00	51.00	13	8	\N	\N	\N	\N	\N	2025-12-01 21:07:07.903379	0.44	1.74	0	0	draw	yes
+897	1380502	2025-11-02	Poland	Ekstraklasa	Gornik Zabrze	Arka Gdynia	h-win	5	1	29	11	8	2	10	2	0	1	1	3	0	0	53.00	47.00	9	10	\N	\N	\N	1	15	2025-12-01 21:07:08.332691	\N	\N	1	0	h-win	yes
+898	1380505	2025-11-02	Poland	Ekstraklasa	Lech Poznan	Motor Lublin	draw	2	2	18	3	8	2	6	2	1	2	2	1	0	0	60.00	40.00	10	15	\N	\N	\N	7	10	2025-12-01 21:07:08.611207	\N	\N	2	2	draw	yes
+899	1380503	2025-11-02	Poland	Ekstraklasa	Jagiellonia	Raków Częstochowa	a-win	1	2	26	6	10	5	5	4	0	1	5	2	0	0	67.00	33.00	19	17	\N	\N	\N	2	4	2025-12-01 21:07:08.875806	\N	\N	0	1	a-win	yes
+900	1380508	2025-11-02	Poland	Ekstraklasa	Widzew Łódź	Legia Warszawa	draw	1	1	10	3	20	3	3	8	3	0	3	3	0	0	42.00	58.00	10	13	\N	\N	\N	11	14	2025-12-01 21:07:09.113236	\N	\N	0	0	draw	yes
+901	1380509	2025-11-03	Poland	Ekstraklasa	Wisla Plock	Pogon Szczecin	h-win	2	0	15	5	22	9	6	8	0	1	1	1	0	0	32.00	68.00	5	7	\N	\N	\N	3	12	2025-12-01 21:07:09.336575	2.20	1.28	1	0	h-win	yes
+902	1380504	2025-11-03	Poland	Ekstraklasa	Lechia Gdansk	Radomiak Radom	a-win	1	2	14	4	11	5	8	4	2	1	2	4	0	0	47.00	53.00	11	12	\N	\N	\N	16	5	2025-12-01 21:07:09.551066	1.27	1.36	0	1	a-win	yes
+903	1380501	2025-11-03	Poland	Ekstraklasa	Cracovia Krakow	Zaglebie Lubin	draw	0	0	14	3	8	3	2	0	3	0	0	0	0	0	68.00	32.00	11	11	\N	\N	\N	6	9	2025-12-01 21:07:09.799399	1.18	0.28	0	0	draw	yes
+904	1380517	2025-11-07	Poland	Ekstraklasa	Radomiak Radom	Cracovia Krakow	h-win	3	0	12	8	4	2	5	3	1	2	2	3	0	0	51.00	49.00	12	17	\N	\N	\N	5	6	2025-12-01 21:07:10.095891	2.43	0.56	0	0	draw	yes
+905	1380518	2025-11-07	Poland	Ekstraklasa	Zaglebie Lubin	Gornik Zabrze	h-win	2	0	6	3	15	2	1	12	1	1	4	1	0	0	30.00	70.00	12	12	\N	\N	\N	9	1	2025-12-01 21:07:10.370425	1.54	0.83	1	0	h-win	yes
+906	1380513	2025-11-08	Poland	Ekstraklasa	Lechia Gdansk	Widzew Łódź	h-win	2	1	14	3	9	3	5	3	2	1	2	4	0	0	52.00	48.00	14	11	\N	\N	\N	16	11	2025-12-01 21:07:10.622627	1.29	1.29	0	0	draw	yes
+907	1380515	2025-11-08	Poland	Ekstraklasa	Motor Lublin	Wisla Plock	draw	1	1	14	4	10	2	5	1	2	0	3	6	0	0	64.00	36.00	18	14	\N	\N	\N	10	3	2025-12-01 21:07:10.844011	3.36	0.79	1	0	h-win	yes
+908	1380511	2025-11-08	Poland	Ekstraklasa	GKS Katowice	Piast Gliwice	a-win	1	3	9	3	17	6	3	3	2	0	2	2	0	0	54.00	46.00	10	16	\N	\N	\N	13	18	2025-12-01 21:07:11.07606	0.83	1.51	0	2	a-win	yes
+909	1380514	2025-11-09	Poland	Ekstraklasa	Legia Warszawa	Nieciecza	a-win	1	2	23	6	13	7	11	2	2	3	1	4	0	0	70.00	30.00	13	17	\N	\N	\N	14	17	2025-12-01 21:07:11.309005	1.38	1.48	0	1	a-win	yes
+910	1380512	2025-11-09	Poland	Ekstraklasa	Korona Kielce	Raków Częstochowa	a-win	1	4	12	2	7	5	5	0	2	0	3	2	0	0	49.00	51.00	15	9	\N	\N	\N	8	4	2025-12-01 21:07:11.548672	1.18	2.13	1	2	a-win	yes
+911	1380516	2025-11-09	Poland	Ekstraklasa	Pogon Szczecin	Jagiellonia	a-win	1	2	35	10	11	5	10	1	0	1	2	1	0	0	39.00	61.00	8	9	\N	\N	\N	12	2	2025-12-01 21:07:11.771644	4.00	2.11	1	1	draw	yes
+912	1380510	2025-11-09	Poland	Ekstraklasa	Arka Gdynia	Lech Poznan	h-win	3	1	19	7	13	6	3	3	2	1	3	3	0	1	44.00	56.00	19	16	\N	\N	\N	15	7	2025-12-01 21:07:12.052323	1.34	2.67	0	1	a-win	yes
+913	1380526	2025-11-21	Poland	Ekstraklasa	Nieciecza	Arka Gdynia	h-win	2	0	7	4	11	2	1	2	0	4	3	4	0	1	51.00	49.00	12	20	\N	\N	\N	17	15	2025-12-01 21:07:12.320787	0.70	1.49	1	0	h-win	yes
+914	1380520	2025-11-21	Poland	Ekstraklasa	Gornik Zabrze	Wisla Plock	draw	1	1	17	3	7	1	4	1	2	0	1	3	0	0	59.00	41.00	12	10	\N	\N	\N	1	3	2025-12-01 21:07:12.596082	1.37	0.95	0	0	draw	yes
+915	1380519	2025-11-22	Poland	Ekstraklasa	Cracovia Krakow	Motor Lublin	a-win	1	2	9	2	6	5	4	7	2	1	3	1	0	0	57.00	43.00	16	15	\N	\N	\N	6	10	2025-12-01 21:07:12.813816	0.39	0.52	0	0	draw	yes
+916	1380525	2025-11-22	Poland	Ekstraklasa	Raków Częstochowa	Piast Gliwice	a-win	1	3	12	3	13	5	3	2	1	1	0	2	0	0	58.00	42.00	5	11	\N	\N	\N	4	18	2025-12-01 21:07:13.042686	1.47	1.62	0	1	a-win	yes
+917	1380523	2025-11-22	Poland	Ekstraklasa	Legia Warszawa	Lechia Gdansk	draw	2	2	13	3	17	5	6	2	0	1	4	0	0	0	54.00	46.00	12	2	\N	\N	\N	14	16	2025-12-01 21:07:13.211321	0.91	2.57	0	1	a-win	yes
+918	1380522	2025-11-23	Poland	Ekstraklasa	Lech Poznan	Radomiak Radom	h-win	4	1	13	5	23	5	5	5	2	0	0	2	0	0	53.00	47.00	8	14	\N	\N	\N	7	5	2025-12-01 21:07:13.405199	2.98	1.29	1	0	h-win	yes
+919	1380527	2025-11-23	Poland	Ekstraklasa	Widzew Łódź	Korona Kielce	a-win	1	3	22	5	13	5	5	4	1	2	6	4	1	0	57.00	43.00	9	9	\N	\N	\N	11	8	2025-12-01 21:07:13.678026	2.84	2.71	0	2	a-win	yes
+920	1380524	2025-11-24	Poland	Ekstraklasa	Pogon Szczecin	Zaglebie Lubin	h-win	5	1	13	6	16	5	4	2	0	2	2	1	0	0	51.00	49.00	13	9	1.83	3.75	4.00	12	9	2025-12-01 21:07:13.983856	2.83	1.65	3	0	h-win	yes
+921	1380533	2025-11-28	Poland	Ekstraklasa	Piast Gliwice	Widzew Łódź	a-win	0	2	24	3	10	4	10	4	3	1	1	3	0	0	68.00	32.00	8	12	2.30	3.20	3.20	18	11	2025-12-01 21:07:14.341904	1.94	2.11	0	1	a-win	yes
+922	1380534	2025-11-28	Poland	Ekstraklasa	Radomiak Radom	Gornik Zabrze	h-win	4	0	19	8	9	2	4	0	1	2	3	2	0	0	48.00	52.00	19	11	2.64	3.30	2.64	5	1	2025-12-01 21:07:14.697451	2.31	0.24	2	0	h-win	yes
+923	1380531	2025-11-29	Poland	Ekstraklasa	Lechia Gdansk	Nieciecza	h-win	5	1	15	8	4	3	4	2	2	0	1	2	0	0	55.00	45.00	14	9	1.61	4.20	5.00	16	17	2025-12-01 21:07:15.023715	\N	\N	2	1	h-win	yes
+924	1380530	2025-11-29	Poland	Ekstraklasa	Korona Kielce	Cracovia Krakow	a-win	0	1	16	4	10	3	5	4	2	3	0	3	0	0	53.00	47.00	15	15	2.38	3.10	3.15	8	6	2025-12-01 21:07:15.206031	\N	\N	0	0	draw	yes
+925	1380529	2025-11-29	Poland	Ekstraklasa	GKS Katowice	Pogon Szczecin	h-win	2	0	9	5	27	3	3	7	1	0	0	0	0	0	23.00	77.00	17	10	2.96	3.55	2.26	13	12	2025-12-01 21:07:15.393006	\N	\N	2	0	h-win	yes
+926	1380528	2025-11-30	Poland	Ekstraklasa	Arka Gdynia	Raków Częstochowa	a-win	1	4	6	2	17	6	3	4	1	1	1	3	1	0	37.00	63.00	12	14	4.45	3.20	1.91	15	4	2025-12-01 21:07:15.553363	\N	\N	0	3	a-win	yes
+927	1380536	2025-11-30	Poland	Ekstraklasa	Zaglebie Lubin	Jagiellonia	draw	0	0	9	4	19	4	2	5	3	4	2	3	0	0	27.00	73.00	17	18	3.30	3.45	2.14	9	2	2025-12-01 21:07:15.711849	\N	\N	0	0	draw	yes
+928	1380535	2025-11-30	Poland	Ekstraklasa	Wisla Plock	Lech Poznan	draw	0	0	7	2	25	2	2	15	2	1	0	2	0	0	32.00	68.00	8	13	3.05	3.45	2.24	3	7	2025-12-01 21:07:15.911528	\N	\N	0	0	draw	yes
+929	1380532	2025-12-01	Poland	Ekstraklasa	Motor Lublin	Legia Warszawa	draw	1	1	4	1	14	4	5	1	2	0	0	3	0	0	50.00	50.00	9	22	3.05	3.45	2.26	10	14	2025-12-01 21:07:16.058729	\N	\N	1	1	draw	yes
+930	1381524	2025-07-18	Poland	I Liga	Slask Wroclaw	Wieczysta Kraków	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:36.185178	\N	\N	1	0	h-win	yes
+931	1381521	2025-07-18	Poland	I Liga	ŁKS Łódź	Znicz Pruszków	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:36.377662	\N	\N	1	0	h-win	yes
+932	1381519	2025-07-19	Poland	I Liga	Pogoń Grod. Mazowiecki	Stal Rzeszów	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:36.534691	\N	\N	2	0	h-win	yes
+933	1381520	2025-07-19	Poland	I Liga	Górnik Łęczna	Polonia Bytom	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:36.724736	\N	\N	0	1	a-win	yes
+934	1381526	2025-07-19	Poland	I Liga	Tychy 71	Miedz Legnica	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:36.90964	\N	\N	0	0	draw	yes
+935	1381525	2025-07-20	Poland	I Liga	Stal Mielec	Wisla Krakow	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:37.058539	\N	\N	0	2	a-win	yes
+936	1381518	2025-07-20	Poland	I Liga	Chrobry Głogów	Odra Opole	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:37.237289	\N	\N	1	0	h-win	yes
+937	1381522	2025-07-20	Poland	I Liga	Pogoń Siedlce	Polonia Warszawa	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:37.458381	\N	\N	1	0	h-win	yes
+938	1381523	2025-07-21	Poland	I Liga	Puszcza Niepołomice	Ruch Chorzów	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:37.732427	\N	\N	0	0	draw	yes
+939	1381531	2025-07-25	Poland	I Liga	Znicz Pruszków	Stal Mielec	a-win	4	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:37.994351	\N	\N	1	2	a-win	yes
+940	1381534	2025-07-25	Poland	I Liga	Stal Rzeszów	Slask Wroclaw	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:38.221538	\N	\N	1	1	draw	yes
+941	1381535	2025-07-26	Poland	I Liga	Wisla Krakow	ŁKS Łódź	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:38.517313	\N	\N	4	0	h-win	yes
+942	1381532	2025-07-26	Poland	I Liga	Puszcza Niepołomice	Pogoń Grod. Mazowiecki	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:38.686871	\N	\N	1	1	draw	yes
+943	1381527	2025-07-26	Poland	I Liga	Chrobry Głogów	Polonia Bytom	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:38.853765	\N	\N	0	1	a-win	yes
+944	1381528	2025-07-27	Poland	I Liga	Wieczysta Kraków	Pogoń Siedlce	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:39.024456	\N	\N	2	1	h-win	yes
+945	1381533	2025-07-27	Poland	I Liga	Ruch Chorzów	Górnik Łęczna	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:39.187261	\N	\N	1	0	h-win	yes
+946	1381530	2025-07-27	Poland	I Liga	Polonia Warszawa	Tychy 71	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:39.423187	\N	\N	1	1	draw	yes
+947	1381529	2025-07-28	Poland	I Liga	Odra Opole	Miedz Legnica	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:39.744783	\N	\N	2	1	h-win	yes
+948	1381537	2025-08-01	Poland	I Liga	Wieczysta Kraków	Znicz Pruszków	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:40.009545	\N	\N	1	0	h-win	yes
+949	1381539	2025-08-01	Poland	I Liga	ŁKS Łódź	Polonia Bytom	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:40.199739	\N	\N	1	0	h-win	yes
+950	1381536	2025-08-02	Poland	I Liga	Pogoń Grod. Mazowiecki	Miedz Legnica	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:40.361595	\N	\N	2	0	h-win	yes
+951	1381542	2025-08-02	Poland	I Liga	Stal Rzeszów	Chrobry Głogów	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:40.545497	\N	\N	0	1	a-win	yes
+952	1381543	2025-08-02	Poland	I Liga	Stal Mielec	Polonia Warszawa	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:40.724183	\N	\N	0	2	a-win	yes
+953	1381541	2025-08-03	Poland	I Liga	Slask Wroclaw	Ruch Chorzów	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:40.937696	\N	\N	3	1	h-win	yes
+954	1381540	2025-08-03	Poland	I Liga	Pogoń Siedlce	Odra Opole	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:41.102491	\N	\N	0	0	draw	yes
+955	1381538	2025-08-03	Poland	I Liga	Górnik Łęczna	Puszcza Niepołomice	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:41.266064	\N	\N	2	1	h-win	yes
+956	1381544	2025-08-04	Poland	I Liga	Tychy 71	Wisla Krakow	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:41.440909	\N	\N	1	1	draw	yes
+957	1381550	2025-08-08	Poland	I Liga	Ruch Chorzów	Pogoń Siedlce	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:41.617752	\N	\N	0	2	a-win	yes
+958	1381551	2025-08-08	Poland	I Liga	Slask Wroclaw	Miedz Legnica	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:41.798482	\N	\N	1	1	draw	yes
+959	1381545	2025-08-09	Poland	I Liga	Chrobry Głogów	ŁKS Łódź	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:42.007869	\N	\N	0	0	draw	yes
+960	1381552	2025-08-09	Poland	I Liga	Stal Mielec	Górnik Łęczna	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:42.189911	\N	\N	0	1	a-win	yes
+961	1381547	2025-08-09	Poland	I Liga	Polonia Bytom	Stal Rzeszów	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:42.374702	\N	\N	0	1	a-win	yes
+962	1381553	2025-08-10	Poland	I Liga	Wisla Krakow	Pogoń Grod. Mazowiecki	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:42.581685	\N	\N	3	1	h-win	yes
+963	1381546	2025-08-10	Poland	I Liga	Odra Opole	Tychy 71	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:42.766831	\N	\N	0	0	draw	yes
+964	1381548	2025-08-10	Poland	I Liga	Znicz Pruszków	Polonia Warszawa	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:42.933573	\N	\N	0	1	a-win	yes
+965	1381549	2025-08-11	Poland	I Liga	Puszcza Niepołomice	Wieczysta Kraków	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:43.08979	\N	\N	0	0	draw	yes
+966	1381557	2025-08-15	Poland	I Liga	ŁKS Łódź	Stal Mielec	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:43.259293	\N	\N	1	0	h-win	yes
+967	1381560	2025-08-15	Poland	I Liga	Polonia Warszawa	Ruch Chorzów	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:43.410483	\N	\N	0	0	draw	yes
+968	1381556	2025-08-16	Poland	I Liga	Chrobry Głogów	Miedz Legnica	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:43.573456	\N	\N	1	0	h-win	yes
+969	1381561	2025-08-16	Poland	I Liga	Stal Rzeszów	Puszcza Niepołomice	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:43.758325	\N	\N	1	2	a-win	yes
+970	1381554	2025-08-16	Poland	I Liga	Pogoń Grod. Mazowiecki	Znicz Pruszków	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:43.921608	\N	\N	3	1	h-win	yes
+971	1381558	2025-08-17	Poland	I Liga	Odra Opole	Slask Wroclaw	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:44.116674	\N	\N	0	0	draw	yes
+972	1381562	2025-08-17	Poland	I Liga	Tychy 71	Górnik Łęczna	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:44.29744	\N	\N	2	1	h-win	yes
+973	1381559	2025-08-17	Poland	I Liga	Pogoń Siedlce	Polonia Bytom	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:44.469586	\N	\N	0	0	draw	yes
+974	1381565	2025-08-19	Poland	I Liga	Miedz Legnica	ŁKS Łódź	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:44.638015	\N	\N	2	0	h-win	yes
+975	1381567	2025-08-19	Poland	I Liga	Polonia Warszawa	Wieczysta Kraków	a-win	1	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:44.800718	\N	\N	0	2	a-win	yes
+976	1381568	2025-08-19	Poland	I Liga	Znicz Pruszków	Wisla Krakow	a-win	0	7	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:44.961627	\N	\N	0	3	a-win	yes
+977	1381563	2025-08-20	Poland	I Liga	Chrobry Głogów	Slask Wroclaw	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:45.126382	\N	\N	0	2	a-win	yes
+978	1381566	2025-08-20	Poland	I Liga	Polonia Bytom	Pogoń Grod. Mazowiecki	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:45.281603	\N	\N	1	0	h-win	yes
+979	1381570	2025-08-20	Poland	I Liga	Ruch Chorzów	Stal Rzeszów	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:45.444284	\N	\N	2	0	h-win	yes
+980	1381569	2025-08-21	Poland	I Liga	Puszcza Niepołomice	Tychy 71	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:45.609567	\N	\N	1	0	h-win	yes
+981	1381571	2025-08-21	Poland	I Liga	Stal Mielec	Odra Opole	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:45.748689	\N	\N	0	0	draw	yes
+982	1381564	2025-08-21	Poland	I Liga	Górnik Łęczna	Pogoń Siedlce	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:45.922556	\N	\N	0	1	a-win	yes
+983	1381574	2025-08-23	Poland	I Liga	ŁKS Łódź	Polonia Warszawa	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:46.071848	\N	\N	0	2	a-win	yes
+984	1381578	2025-08-23	Poland	I Liga	Stal Rzeszów	Miedz Legnica	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:46.228872	\N	\N	0	0	draw	yes
+985	1381572	2025-08-23	Poland	I Liga	Pogoń Grod. Mazowiecki	Chrobry Głogów	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:46.397912	\N	\N	0	0	draw	yes
+986	1381575	2025-08-24	Poland	I Liga	Odra Opole	Znicz Pruszków	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:46.553888	\N	\N	0	1	a-win	yes
+987	1381580	2025-08-24	Poland	I Liga	Wisla Krakow	Slask Wroclaw	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:46.708413	\N	\N	2	0	h-win	yes
+988	1381577	2025-08-24	Poland	I Liga	Ruch Chorzów	Polonia Bytom	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:46.870563	\N	\N	0	0	draw	yes
+989	1381576	2025-08-24	Poland	I Liga	Pogoń Siedlce	Puszcza Niepołomice	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:47.019624	\N	\N	0	0	draw	yes
+990	1421941	2025-08-25	Poland	I Liga	Wieczysta Kraków	Górnik Łęczna	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:47.201724	\N	\N	1	0	h-win	yes
+993	1381582	2025-08-29	Poland	I Liga	Miedz Legnica	Wisla Krakow	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:47.792313	\N	\N	1	0	h-win	yes
+994	1381584	2025-08-30	Poland	I Liga	Polonia Bytom	Wieczysta Kraków	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:48.011333	\N	\N	3	1	h-win	yes
+995	1381581	2025-08-30	Poland	I Liga	Górnik Łęczna	Stal Rzeszów	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:48.194162	\N	\N	0	2	a-win	yes
+996	1381586	2025-08-30	Poland	I Liga	Znicz Pruszków	Pogoń Siedlce	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:48.381566	\N	\N	0	0	draw	yes
+997	1381585	2025-08-30	Poland	I Liga	Polonia Warszawa	Pogoń Grod. Mazowiecki	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:48.56734	\N	\N	2	1	h-win	yes
+998	1381589	2025-08-31	Poland	I Liga	Stal Mielec	Ruch Chorzów	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:48.762331	\N	\N	1	0	h-win	yes
+999	1381583	2025-08-31	Poland	I Liga	Odra Opole	ŁKS Łódź	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:48.993199	\N	\N	0	0	draw	yes
+1000	1381587	2025-08-31	Poland	I Liga	Puszcza Niepołomice	Chrobry Głogów	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:49.189706	\N	\N	0	0	draw	yes
+1001	1381597	2025-09-12	Poland	I Liga	Tychy 71	Polonia Bytom	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:49.38276	\N	\N	1	1	draw	yes
+1002	1381590	2025-09-12	Poland	I Liga	Chrobry Głogów	Pogoń Siedlce	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:49.563592	\N	\N	0	0	draw	yes
+1003	1381595	2025-09-13	Poland	I Liga	Slask Wroclaw	Puszcza Niepołomice	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:49.746478	\N	\N	0	0	draw	yes
+1004	1381598	2025-09-13	Poland	I Liga	Wisla Krakow	Odra Opole	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:49.935537	\N	\N	1	1	draw	yes
+1005	1381596	2025-09-13	Poland	I Liga	Stal Rzeszów	Znicz Pruszków	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:50.11791	\N	\N	1	0	h-win	yes
+1006	1381593	2025-09-14	Poland	I Liga	Miedz Legnica	Polonia Warszawa	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:50.281574	\N	\N	0	1	a-win	yes
+1007	1381594	2025-09-14	Poland	I Liga	Ruch Chorzów	ŁKS Łódź	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:50.450567	\N	\N	2	0	h-win	yes
+1008	1381591	2025-09-14	Poland	I Liga	Pogoń Grod. Mazowiecki	Górnik Łęczna	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:50.615545	\N	\N	1	2	a-win	yes
+1009	1381592	2025-09-15	Poland	I Liga	Wieczysta Kraków	Stal Mielec	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:50.775578	\N	\N	2	0	h-win	yes
+1010	1381601	2025-09-19	Poland	I Liga	Odra Opole	Stal Rzeszów	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:50.967489	\N	\N	2	1	h-win	yes
+1011	1381607	2025-09-19	Poland	I Liga	Stal Mielec	Pogoń Grod. Mazowiecki	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:51.16251	\N	\N	1	1	draw	yes
+1012	1381602	2025-09-20	Poland	I Liga	Pogoń Siedlce	Slask Wroclaw	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:51.365565	\N	\N	2	1	h-win	yes
+1013	1381603	2025-09-20	Poland	I Liga	Polonia Bytom	Miedz Legnica	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:51.632661	\N	\N	3	0	h-win	yes
+1014	1381604	2025-09-20	Poland	I Liga	Polonia Warszawa	Puszcza Niepołomice	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:51.918723	\N	\N	0	2	a-win	yes
+1015	1381599	2025-09-21	Poland	I Liga	Górnik Łęczna	Wisla Krakow	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:52.18039	\N	\N	1	0	h-win	yes
+1016	1381605	2025-09-21	Poland	I Liga	Znicz Pruszków	Tychy 71	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:52.472777	\N	\N	2	0	h-win	yes
+1017	1381600	2025-09-21	Poland	I Liga	ŁKS Łódź	Wieczysta Kraków	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:52.727247	\N	\N	0	0	draw	yes
+1018	1381606	2025-09-22	Poland	I Liga	Ruch Chorzów	Chrobry Głogów	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:52.972589	\N	\N	1	1	draw	yes
+1019	1381613	2025-09-26	Poland	I Liga	Slask Wroclaw	Polonia Warszawa	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:53.217465	\N	\N	1	0	h-win	yes
+1020	1381612	2025-09-27	Poland	I Liga	Puszcza Niepołomice	Odra Opole	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:53.430275	\N	\N	0	0	draw	yes
+1021	1381615	2025-09-27	Poland	I Liga	Tychy 71	Pogoń Siedlce	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:53.693515	\N	\N	0	1	a-win	yes
+1022	1381614	2025-09-27	Poland	I Liga	Stal Rzeszów	Stal Mielec	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:53.86065	\N	\N	1	0	h-win	yes
+1023	1381611	2025-09-28	Poland	I Liga	Miedz Legnica	Znicz Pruszków	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:54.033195	\N	\N	1	1	draw	yes
+1024	1381610	2025-09-28	Poland	I Liga	Wieczysta Kraków	Ruch Chorzów	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:54.226552	\N	\N	1	1	draw	yes
+1025	1381608	2025-09-28	Poland	I Liga	Chrobry Głogów	Górnik Łęczna	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:54.380694	\N	\N	0	0	draw	yes
+1026	1381609	2025-09-29	Poland	I Liga	Pogoń Grod. Mazowiecki	ŁKS Łódź	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:54.549622	\N	\N	2	0	h-win	yes
+1027	1381616	2025-09-29	Poland	I Liga	Wisla Krakow	Polonia Bytom	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:54.744341	\N	\N	0	0	draw	yes
+1028	1381555	2025-10-02	Poland	I Liga	Wieczysta Kraków	Wisla Krakow	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:54.925502	\N	\N	1	0	h-win	yes
+1029	1381624	2025-10-03	Poland	I Liga	Stal Mielec	Chrobry Głogów	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:55.172341	\N	\N	0	0	draw	yes
+1030	1381622	2025-10-03	Poland	I Liga	Polonia Warszawa	Stal Rzeszów	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:55.432255	\N	\N	0	2	a-win	yes
+1031	1381620	2025-10-04	Poland	I Liga	Pogoń Siedlce	Pogoń Grod. Mazowiecki	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:55.693557	\N	\N	1	2	a-win	yes
+1032	1381623	2025-10-04	Poland	I Liga	Znicz Pruszków	Slask Wroclaw	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:55.985535	\N	\N	2	0	h-win	yes
+1033	1381621	2025-10-04	Poland	I Liga	Polonia Bytom	Puszcza Niepołomice	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:56.313236	\N	\N	1	1	draw	yes
+1034	1381619	2025-10-05	Poland	I Liga	Odra Opole	Wieczysta Kraków	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:56.569721	\N	\N	0	0	draw	yes
+1035	1381618	2025-10-05	Poland	I Liga	ŁKS Łódź	Tychy 71	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:56.86309	\N	\N	1	0	h-win	yes
+1036	1381617	2025-10-05	Poland	I Liga	Górnik Łęczna	Miedz Legnica	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:57.132659	\N	\N	0	0	draw	yes
+1037	1381625	2025-10-05	Poland	I Liga	Wisla Krakow	Ruch Chorzów	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:57.43283	\N	\N	1	0	h-win	yes
+1038	1381627	2025-10-17	Poland	I Liga	Pogoń Grod. Mazowiecki	Ruch Chorzów	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:57.71455	\N	\N	1	1	draw	yes
+1039	1381629	2025-10-17	Poland	I Liga	Miedz Legnica	Pogoń Siedlce	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:57.993157	\N	\N	1	2	a-win	yes
+1040	1381626	2025-10-18	Poland	I Liga	Chrobry Głogów	Polonia Warszawa	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:58.221103	\N	\N	0	0	draw	yes
+1041	1381634	2025-10-18	Poland	I Liga	Tychy 71	Wieczysta Kraków	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:58.436131	\N	\N	1	2	a-win	yes
+1042	1381633	2025-10-18	Poland	I Liga	Stal Rzeszów	ŁKS Łódź	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:58.602236	\N	\N	0	3	a-win	yes
+1043	1381630	2025-10-19	Poland	I Liga	Polonia Bytom	Odra Opole	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:58.782292	\N	\N	0	0	draw	yes
+1044	1381632	2025-10-19	Poland	I Liga	Slask Wroclaw	Stal Mielec	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:58.93914	\N	\N	2	0	h-win	yes
+1045	1381628	2025-10-19	Poland	I Liga	Górnik Łęczna	Znicz Pruszków	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:59.115811	\N	\N	0	0	draw	yes
+1046	1381631	2025-10-20	Poland	I Liga	Puszcza Niepołomice	Wisla Krakow	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:59.338321	\N	\N	0	3	a-win	yes
+1047	1381639	2025-10-24	Poland	I Liga	Znicz Pruszków	Puszcza Niepołomice	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:59.517094	\N	\N	0	1	a-win	yes
+1048	1381636	2025-10-24	Poland	I Liga	Odra Opole	Ruch Chorzów	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:59.694199	\N	\N	0	1	a-win	yes
+1049	1381640	2025-10-25	Poland	I Liga	Slask Wroclaw	Górnik Łęczna	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:16:59.891513	\N	\N	1	0	h-win	yes
+1050	1381637	2025-10-25	Poland	I Liga	Pogoń Siedlce	ŁKS Łódź	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:17:00.079212	\N	\N	1	1	draw	yes
+1051	1381638	2025-10-25	Poland	I Liga	Polonia Warszawa	Polonia Bytom	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:17:00.266278	\N	\N	0	0	draw	yes
+1052	1381642	2025-10-26	Poland	I Liga	Tychy 71	Chrobry Głogów	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:17:00.527496	\N	\N	0	1	a-win	yes
+1053	1381643	2025-10-26	Poland	I Liga	Wisla Krakow	Stal Rzeszów	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:17:00.68246	\N	\N	1	0	h-win	yes
+1054	1381641	2025-10-26	Poland	I Liga	Stal Mielec	Miedz Legnica	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:17:00.875264	\N	\N	1	0	h-win	yes
+1055	1381635	2025-10-27	Poland	I Liga	Wieczysta Kraków	Pogoń Grod. Mazowiecki	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:17:01.0281	\N	\N	2	1	h-win	yes
+1056	1381652	2025-10-31	Poland	I Liga	Górnik Łęczna	Polonia Warszawa	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:17:01.196387	\N	\N	1	2	a-win	yes
+1057	1381650	2025-10-31	Poland	I Liga	Ruch Chorzów	Tychy 71	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 22:17:01.366362	\N	\N	2	0	h-win	yes
+1058	1381651	2025-11-02	Poland	I Liga	Stal Rzeszów	Pogoń Siedlce	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	13	2025-12-01 22:17:01.604485	\N	\N	0	0	draw	yes
+1059	1381644	2025-11-02	Poland	I Liga	Chrobry Głogów	Wisla Krakow	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	1	2025-12-01 22:17:01.766182	\N	\N	0	1	a-win	yes
+1060	1381648	2025-11-02	Poland	I Liga	Polonia Bytom	Znicz Pruszków	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	15	2025-12-01 22:17:01.935286	\N	\N	1	0	h-win	yes
+1061	1381646	2025-11-02	Poland	I Liga	Miedz Legnica	Wieczysta Kraków	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	8	2025-12-01 22:17:02.099415	\N	\N	1	0	h-win	yes
+1062	1381647	2025-11-03	Poland	I Liga	ŁKS Łódź	Slask Wroclaw	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	6	2025-12-01 22:17:02.273577	\N	\N	0	0	draw	yes
+1063	1381645	2025-11-03	Poland	I Liga	Pogoń Grod. Mazowiecki	Odra Opole	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	12	2025-12-01 22:17:02.434296	\N	\N	1	1	draw	yes
+1064	1381649	2025-11-05	Poland	I Liga	Puszcza Niepołomice	Stal Mielec	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	16	2025-12-01 22:17:02.59749	\N	\N	1	0	h-win	yes
+1065	1381654	2025-11-07	Poland	I Liga	Ruch Chorzów	Miedz Legnica	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	10	2025-12-01 22:17:02.756407	\N	\N	2	1	h-win	yes
+1066	1381657	2025-11-07	Poland	I Liga	Znicz Pruszków	Chrobry Głogów	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	4	2025-12-01 22:17:02.930483	\N	\N	0	0	draw	yes
+1067	1381661	2025-11-08	Poland	I Liga	Wisla Krakow	Polonia Warszawa	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	7	2025-12-01 22:17:03.098234	\N	\N	1	1	draw	yes
+1068	1381659	2025-11-08	Poland	I Liga	Stal Mielec	Pogoń Siedlce	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	13	2025-12-01 22:17:03.262784	\N	\N	0	0	draw	yes
+1069	1381655	2025-11-08	Poland	I Liga	ŁKS Łódź	Puszcza Niepołomice	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	14	2025-12-01 22:17:03.428509	\N	\N	0	1	a-win	yes
+1070	1381653	2025-11-08	Poland	I Liga	Wieczysta Kraków	Stal Rzeszów	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	5	2025-12-01 22:17:03.629173	\N	\N	0	0	draw	yes
+1071	1381656	2025-11-09	Poland	I Liga	Odra Opole	Górnik Łęczna	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	18	2025-12-01 22:17:03.841289	\N	\N	1	1	draw	yes
+1072	1381658	2025-11-09	Poland	I Liga	Slask Wroclaw	Polonia Bytom	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	3	2025-12-01 22:17:04.060418	\N	\N	0	2	a-win	yes
+1073	1381660	2025-11-09	Poland	I Liga	Tychy 71	Pogoń Grod. Mazowiecki	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	2	2025-12-01 22:17:04.285748	\N	\N	1	2	a-win	yes
+1074	1381668	2025-11-21	Poland	I Liga	Puszcza Niepołomice	Miedz Legnica	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	10	2025-12-01 22:17:04.476534	\N	\N	0	1	a-win	yes
+1075	1381663	2025-11-21	Poland	I Liga	Pogoń Grod. Mazowiecki	Slask Wroclaw	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	6	2025-12-01 22:17:04.636645	\N	\N	1	2	a-win	yes
+1076	1381662	2025-11-22	Poland	I Liga	Chrobry Głogów	Wieczysta Kraków	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	8	2025-12-01 22:17:04.83241	\N	\N	1	2	a-win	yes
+1077	1381670	2025-11-22	Poland	I Liga	Stal Rzeszów	Tychy 71	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	17	2025-12-01 22:17:04.999437	\N	\N	1	1	draw	yes
+1078	1381666	2025-11-22	Poland	I Liga	Polonia Bytom	Stal Mielec	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	16	2025-12-01 22:17:05.093144	\N	\N	2	1	h-win	yes
+1079	1381669	2025-11-23	Poland	I Liga	Ruch Chorzów	Znicz Pruszków	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	15	2025-12-01 22:17:05.100217	\N	\N	0	1	a-win	yes
+1080	1381665	2025-11-23	Poland	I Liga	Pogoń Siedlce	Wisla Krakow	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	1	2025-12-01 22:17:05.106936	\N	\N	0	0	draw	yes
+1081	1381664	2025-11-23	Poland	I Liga	Górnik Łęczna	ŁKS Łódź	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	11	2025-12-01 22:17:05.115768	\N	\N	0	1	a-win	yes
+1082	1381667	2025-11-23	Poland	I Liga	Polonia Warszawa	Odra Opole	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	12	2025-12-01 22:17:05.121942	\N	\N	0	0	draw	yes
+1083	1381674	2025-11-28	Poland	I Liga	Polonia Bytom	Górnik Łęczna	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	18	2025-12-01 22:17:05.131676	\N	\N	0	1	a-win	yes
+1084	1381672	2025-11-28	Poland	I Liga	Miedz Legnica	Tychy 71	h-win	6	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	17	2025-12-01 22:17:05.138754	\N	\N	4	1	h-win	yes
+1085	1381673	2025-11-29	Poland	I Liga	Odra Opole	Chrobry Głogów	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	4	2025-12-01 22:17:05.147976	\N	\N	0	0	draw	yes
+1086	1381677	2025-11-29	Poland	I Liga	Ruch Chorzów	Puszcza Niepołomice	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	14	2025-12-01 22:17:05.154716	\N	\N	2	0	h-win	yes
+1087	1381675	2025-11-29	Poland	I Liga	Polonia Warszawa	Pogoń Siedlce	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	13	2025-12-01 22:17:05.162591	\N	\N	1	0	h-win	yes
+1088	1381676	2025-11-30	Poland	I Liga	Znicz Pruszków	ŁKS Łódź	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	11	2025-12-01 22:17:05.169435	\N	\N	1	1	draw	yes
+1089	1381671	2025-11-30	Poland	I Liga	Wieczysta Kraków	Slask Wroclaw	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	6	2025-12-01 22:17:05.178174	\N	\N	2	2	draw	yes
+1090	1381679	2025-11-30	Poland	I Liga	Wisla Krakow	Stal Mielec	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	16	2025-12-01 22:17:05.185175	\N	\N	3	0	h-win	yes
+1091	1381678	2025-12-01	Poland	I Liga	Stal Rzeszów	Pogoń Grod. Mazowiecki	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	2	2025-12-01 22:17:05.193792	\N	\N	1	0	h-win	yes
+1092	1395817	2025-07-25	Poland	II Liga - East	Świt Skolwin	Kalisz	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:48.588634	\N	\N	0	0	draw	yes
+1093	1395811	2025-07-25	Poland	II Liga - East	Podbeskidzie	Sandecja Nowy Sącz	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:48.665358	\N	\N	0	1	a-win	yes
+1094	1395812	2025-07-25	Poland	II Liga - East	Olimpia Grudziądz	Stal Stalowa Wola	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:48.743655	\N	\N	0	0	draw	yes
+1095	1395813	2025-07-26	Poland	II Liga - East	Podhale Nowy Targ	Jastrzębie	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:48.821954	\N	\N	1	0	h-win	yes
+1096	1395816	2025-07-26	Poland	II Liga - East	Śląsk Wrocław II	Rekord Bielsko-Biała	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:48.907026	\N	\N	0	0	draw	yes
+1097	1395814	2025-07-26	Poland	II Liga - East	Hutnik Kraków	ŁKS Łódź II	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:48.998256	\N	\N	3	0	h-win	yes
+1098	1395818	2025-07-27	Poland	II Liga - East	Sokół Kleczew	Zaglebie Sosnowiec	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.078694	\N	\N	1	1	draw	yes
+1099	1395815	2025-07-27	Poland	II Liga - East	Resovia Rzeszów	Chojniczanka Chojnice	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.153754	\N	\N	1	0	h-win	yes
+1100	1395819	2025-07-27	Poland	II Liga - East	Unia Skierniewice	Warta Poznań	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.23891	\N	\N	0	1	a-win	yes
+1101	1395820	2025-08-01	Poland	II Liga - East	Rekord Bielsko-Biała	Podhale Nowy Targ	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.320533	\N	\N	0	1	a-win	yes
+1102	1395827	2025-08-01	Poland	II Liga - East	Stal Stalowa Wola	Podbeskidzie	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.422029	\N	\N	3	0	h-win	yes
+1103	1395826	2025-08-02	Poland	II Liga - East	Śląsk Wrocław II	Hutnik Kraków	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.521882	\N	\N	0	0	draw	yes
+1104	1395824	2025-08-02	Poland	II Liga - East	Sandecja Nowy Sącz	Świt Skolwin	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.604086	\N	\N	2	1	h-win	yes
+1105	1395828	2025-08-02	Poland	II Liga - East	Zaglebie Sosnowiec	Resovia Rzeszów	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.681944	\N	\N	1	2	a-win	yes
+1106	1395822	2025-08-02	Poland	II Liga - East	Jastrzębie	ŁKS Łódź II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.767679	\N	\N	0	1	a-win	yes
+1107	1395825	2025-08-02	Poland	II Liga - East	Unia Skierniewice	Olimpia Grudziądz	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.853595	\N	\N	1	1	draw	yes
+1108	1395823	2025-08-03	Poland	II Liga - East	Kalisz	Sokół Kleczew	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:49.932556	\N	\N	0	0	draw	yes
+1109	1395821	2025-08-03	Poland	II Liga - East	Chojniczanka Chojnice	Warta Poznań	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.012901	\N	\N	1	0	h-win	yes
+1110	1395833	2025-08-08	Poland	II Liga - East	Podbeskidzie	Śląsk Wrocław II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.095775	\N	\N	0	0	draw	yes
+1111	1395829	2025-08-09	Poland	II Liga - East	Hutnik Kraków	Resovia Rzeszów	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.17726	\N	\N	1	1	draw	yes
+1112	1395834	2025-08-09	Poland	II Liga - East	Sandecja Nowy Sącz	Rekord Bielsko-Biała	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.25122	\N	\N	1	0	h-win	yes
+1113	1395830	2025-08-09	Poland	II Liga - East	Sokół Kleczew	Jastrzębie	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.33651	\N	\N	2	0	h-win	yes
+1114	1395836	2025-08-09	Poland	II Liga - East	Stal Stalowa Wola	Kalisz	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.416404	\N	\N	1	0	h-win	yes
+1115	1395831	2025-08-10	Poland	II Liga - East	ŁKS Łódź II	Chojniczanka Chojnice	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.498241	\N	\N	0	0	draw	yes
+1116	1395835	2025-08-10	Poland	II Liga - East	Świt Skolwin	Warta Poznań	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.589154	\N	\N	1	1	draw	yes
+1117	1395832	2025-08-10	Poland	II Liga - East	Olimpia Grudziądz	Podhale Nowy Targ	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.671617	\N	\N	0	1	a-win	yes
+1118	1395837	2025-08-10	Poland	II Liga - East	Zaglebie Sosnowiec	Unia Skierniewice	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.764411	\N	\N	0	1	a-win	yes
+1119	1395840	2025-08-15	Poland	II Liga - East	Jastrzębie	Sandecja Nowy Sącz	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.841212	\N	\N	2	2	draw	yes
+1120	1395839	2025-08-15	Poland	II Liga - East	Chojniczanka Chojnice	Podbeskidzie	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:50.930596	\N	\N	0	0	draw	yes
+1121	1395838	2025-08-15	Poland	II Liga - East	Rekord Bielsko-Biała	Sokół Kleczew	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.023912	\N	\N	2	0	h-win	yes
+1122	1395844	2025-08-15	Poland	II Liga - East	Resovia Rzeszów	Olimpia Grudziądz	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.133218	\N	\N	1	1	draw	yes
+1123	1395845	2025-08-15	Poland	II Liga - East	Unia Skierniewice	Świt Skolwin	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.228417	\N	\N	0	1	a-win	yes
+1124	1395846	2025-08-16	Poland	II Liga - East	Śląsk Wrocław II	Zaglebie Sosnowiec	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.39367	\N	\N	0	1	a-win	yes
+1125	1395842	2025-08-17	Poland	II Liga - East	ŁKS Łódź II	Warta Poznań	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.485272	\N	\N	0	0	draw	yes
+1126	1395843	2025-08-17	Poland	II Liga - East	Podhale Nowy Targ	Stal Stalowa Wola	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.561862	\N	\N	0	1	a-win	yes
+1127	1395841	2025-08-17	Poland	II Liga - East	Kalisz	Hutnik Kraków	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.642732	\N	\N	0	0	draw	yes
+1128	1395855	2025-08-22	Poland	II Liga - East	Rekord Bielsko-Biała	Warta Poznań	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.732279	\N	\N	1	0	h-win	yes
+1129	1396000	2025-08-22	Poland	II Liga - East	Rekord Bielsko-Biała	Warta Poznań	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.828228	\N	\N	1	0	h-win	yes
+1130	1395849	2025-08-22	Poland	II Liga - East	Sokół Kleczew	Resovia Rzeszów	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.917152	\N	\N	1	0	h-win	yes
+1131	1395854	2025-08-22	Poland	II Liga - East	Stal Stalowa Wola	Unia Skierniewice	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:51.997939	\N	\N	1	1	draw	yes
+1132	1395852	2025-08-23	Poland	II Liga - East	Podhale Nowy Targ	Zaglebie Sosnowiec	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.075568	\N	\N	1	1	draw	yes
+1133	1395848	2025-08-23	Poland	II Liga - East	Hutnik Kraków	Sandecja Nowy Sącz	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.169142	\N	\N	0	0	draw	yes
+1134	1395853	2025-08-23	Poland	II Liga - East	Świt Skolwin	Jastrzębie	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.251397	\N	\N	2	0	h-win	yes
+1135	1395847	2025-08-23	Poland	II Liga - East	Chojniczanka Chojnice	Kalisz	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.338959	\N	\N	1	0	h-win	yes
+1136	1395851	2025-08-23	Poland	II Liga - East	Podbeskidzie	ŁKS Łódź II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.441145	\N	\N	0	0	draw	yes
+1137	1395850	2025-08-24	Poland	II Liga - East	Olimpia Grudziądz	Śląsk Wrocław II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.565423	\N	\N	2	0	h-win	yes
+1138	1395859	2025-08-29	Poland	II Liga - East	Resovia Rzeszów	Podhale Nowy Targ	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.646438	\N	\N	0	0	draw	yes
+1139	1395861	2025-08-29	Poland	II Liga - East	Unia Skierniewice	Rekord Bielsko-Biała	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.739059	\N	\N	2	0	h-win	yes
+1140	1395858	2025-08-30	Poland	II Liga - East	Podbeskidzie	Hutnik Kraków	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.826323	\N	\N	2	2	draw	yes
+1141	1395857	2025-08-30	Poland	II Liga - East	Kalisz	ŁKS Łódź II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:52.926179	\N	\N	0	0	draw	yes
+1142	1395862	2025-08-30	Poland	II Liga - East	Śląsk Wrocław II	Stal Stalowa Wola	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.017332	\N	\N	2	2	draw	yes
+1143	1395856	2025-08-30	Poland	II Liga - East	Jastrzębie	Warta Poznań	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.108003	\N	\N	1	0	h-win	yes
+1144	1395864	2025-08-31	Poland	II Liga - East	Zaglebie Sosnowiec	Olimpia Grudziądz	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.207717	\N	\N	1	2	a-win	yes
+1145	1395860	2025-08-31	Poland	II Liga - East	Sandecja Nowy Sącz	Chojniczanka Chojnice	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.34622	\N	\N	1	1	draw	yes
+1146	1395863	2025-09-03	Poland	II Liga - East	Świt Skolwin	Sokół Kleczew	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.430371	\N	\N	1	1	draw	yes
+1147	1395871	2025-09-05	Poland	II Liga - East	Resovia Rzeszów	Śląsk Wrocław II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.522022	\N	\N	1	1	draw	yes
+1148	1395870	2025-09-06	Poland	II Liga - East	Podhale Nowy Targ	Unia Skierniewice	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.609326	\N	\N	1	0	h-win	yes
+1149	1395865	2025-09-06	Poland	II Liga - East	Rekord Bielsko-Biała	Kalisz	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.698422	\N	\N	0	1	a-win	yes
+1150	1395873	2025-09-07	Poland	II Liga - East	Warta Poznań	Zaglebie Sosnowiec	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.788084	\N	\N	0	0	draw	yes
+1151	1395872	2025-09-07	Poland	II Liga - East	Stal Stalowa Wola	Świt Skolwin	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.878368	\N	\N	2	2	draw	yes
+1152	1395877	2025-09-12	Poland	II Liga - East	Sokół Kleczew	Podhale Nowy Targ	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:53.970701	\N	\N	0	1	a-win	yes
+1153	1395878	2025-09-12	Poland	II Liga - East	ŁKS Łódź II	Olimpia Grudziądz	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.068427	\N	\N	1	2	a-win	yes
+1154	1395880	2025-09-12	Poland	II Liga - East	Unia Skierniewice	Hutnik Kraków	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.160703	\N	\N	1	0	h-win	yes
+1155	1395875	2025-09-13	Poland	II Liga - East	Jastrzębie	Chojniczanka Chojnice	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.266677	\N	\N	0	0	draw	yes
+1156	1395874	2025-09-13	Poland	II Liga - East	Rekord Bielsko-Biała	Zaglebie Sosnowiec	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.346478	\N	\N	1	2	a-win	yes
+1157	1395879	2025-09-13	Poland	II Liga - East	Sandecja Nowy Sącz	Stal Stalowa Wola	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.441189	\N	\N	1	1	draw	yes
+1158	1395882	2025-09-14	Poland	II Liga - East	Świt Skolwin	Resovia Rzeszów	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.53541	\N	\N	1	1	draw	yes
+1159	1395881	2025-09-14	Poland	II Liga - East	Śląsk Wrocław II	Warta Poznań	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.628296	\N	\N	0	0	draw	yes
+1160	1395876	2025-09-14	Poland	II Liga - East	Kalisz	Podbeskidzie	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.711987	\N	\N	0	1	a-win	yes
+1161	1395868	2025-09-16	Poland	II Liga - East	ŁKS Łódź II	Sandecja Nowy Sącz	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.801607	\N	\N	1	0	h-win	yes
+1162	1395867	2025-09-17	Poland	II Liga - East	Hutnik Kraków	Jastrzębie	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.88236	\N	\N	0	0	draw	yes
+1163	1395866	2025-09-17	Poland	II Liga - East	Chojniczanka Chojnice	Sokół Kleczew	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:54.962166	\N	\N	0	1	a-win	yes
+1164	1395869	2025-09-17	Poland	II Liga - East	Olimpia Grudziądz	Podbeskidzie	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.05511	\N	\N	0	0	draw	yes
+1165	1395891	2025-09-19	Poland	II Liga - East	Zaglebie Sosnowiec	Świt Skolwin	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.146284	\N	\N	0	0	draw	yes
+1166	1395889	2025-09-19	Poland	II Liga - East	Stal Stalowa Wola	ŁKS Łódź II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.236512	\N	\N	1	1	draw	yes
+1167	1395890	2025-09-20	Poland	II Liga - East	Warta Poznań	Sokół Kleczew	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.321946	\N	\N	2	1	h-win	yes
+1168	1395884	2025-09-20	Poland	II Liga - East	Hutnik Kraków	Rekord Bielsko-Biała	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.420477	\N	\N	0	0	draw	yes
+1169	1395883	2025-09-20	Poland	II Liga - East	Chojniczanka Chojnice	Śląsk Wrocław II	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.526197	\N	\N	1	0	h-win	yes
+1170	1395886	2025-09-20	Poland	II Liga - East	Podbeskidzie	Unia Skierniewice	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.631178	\N	\N	2	0	h-win	yes
+1171	1395885	2025-09-20	Poland	II Liga - East	Olimpia Grudziądz	Jastrzębie	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.711429	\N	\N	1	0	h-win	yes
+1172	1395887	2025-09-21	Poland	II Liga - East	Podhale Nowy Targ	Kalisz	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.796745	\N	\N	1	1	draw	yes
+1173	1395888	2025-09-21	Poland	II Liga - East	Resovia Rzeszów	Sandecja Nowy Sącz	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.882465	\N	\N	0	1	a-win	yes
+1174	1395900	2025-09-26	Poland	II Liga - East	Warta Poznań	Stal Stalowa Wola	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:55.982136	\N	\N	1	0	h-win	yes
+1175	1395894	2025-09-27	Poland	II Liga - East	Kalisz	Olimpia Grudziądz	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.062318	\N	\N	0	0	draw	yes
+1176	1395898	2025-09-27	Poland	II Liga - East	Śląsk Wrocław II	Podhale Nowy Targ	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.146004	\N	\N	0	0	draw	yes
+1177	1395899	2025-09-27	Poland	II Liga - East	Świt Skolwin	Chojniczanka Chojnice	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.231836	\N	\N	1	1	draw	yes
+1178	1395897	2025-09-27	Poland	II Liga - East	Sandecja Nowy Sącz	Unia Skierniewice	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.311519	\N	\N	1	1	draw	yes
+1179	1395895	2025-09-28	Poland	II Liga - East	Sokół Kleczew	Hutnik Kraków	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.393111	\N	\N	2	0	h-win	yes
+1180	1395893	2025-09-28	Poland	II Liga - East	Jastrzębie	Resovia Rzeszów	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.47282	\N	\N	0	0	draw	yes
+1181	1396048	2025-09-28	Poland	II Liga - East	Podbeskidzie	Rekord Bielsko-Biała	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.553122	\N	\N	1	2	a-win	yes
+1182	1395896	2025-09-29	Poland	II Liga - East	ŁKS Łódź II	Zaglebie Sosnowiec	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.635167	\N	\N	1	2	a-win	yes
+1183	1395902	2025-10-03	Poland	II Liga - East	Kalisz	Sandecja Nowy Sącz	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.719003	\N	\N	1	0	h-win	yes
+1184	1395905	2025-10-04	Poland	II Liga - East	Podhale Nowy Targ	ŁKS Łódź II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.80098	\N	\N	1	0	h-win	yes
+1185	1395904	2025-10-04	Poland	II Liga - East	Podbeskidzie	Warta Poznań	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.890746	\N	\N	0	1	a-win	yes
+1186	1395907	2025-10-04	Poland	II Liga - East	Unia Skierniewice	Śląsk Wrocław II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:56.991595	\N	\N	0	1	a-win	yes
+1187	1395908	2025-10-05	Poland	II Liga - East	Stal Stalowa Wola	Chojniczanka Chojnice	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.0707	\N	\N	1	1	draw	yes
+1188	1395901	2025-10-05	Poland	II Liga - East	Hutnik Kraków	Świt Skolwin	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.153074	\N	\N	1	1	draw	yes
+1189	1395906	2025-10-05	Poland	II Liga - East	Resovia Rzeszów	Rekord Bielsko-Biała	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.236602	\N	\N	1	0	h-win	yes
+1190	1395909	2025-10-05	Poland	II Liga - East	Zaglebie Sosnowiec	Jastrzębie	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.322987	\N	\N	0	0	draw	yes
+1191	1395903	2025-10-05	Poland	II Liga - East	Olimpia Grudziądz	Sokół Kleczew	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.405796	\N	\N	0	0	draw	yes
+1192	1395914	2025-10-10	Poland	II Liga - East	ŁKS Łódź II	Resovia Rzeszów	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.487959	\N	\N	0	0	draw	yes
+1193	1395917	2025-10-11	Poland	II Liga - East	Warta Poznań	Olimpia Grudziądz	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.567756	\N	\N	1	1	draw	yes
+1194	1395916	2025-10-11	Poland	II Liga - East	Świt Skolwin	Podhale Nowy Targ	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.64245	\N	\N	2	0	h-win	yes
+1195	1395913	2025-10-11	Poland	II Liga - East	Sokół Kleczew	Unia Skierniewice	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.730784	\N	\N	0	2	a-win	yes
+1196	1395912	2025-10-11	Poland	II Liga - East	Jastrzębie	Kalisz	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.807032	\N	\N	0	0	draw	yes
+1197	1395910	2025-10-12	Poland	II Liga - East	Rekord Bielsko-Biała	Stal Stalowa Wola	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.896749	\N	\N	1	0	h-win	yes
+1198	1395927	2025-10-17	Poland	II Liga - East	Warta Poznań	Hutnik Kraków	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:57.98687	\N	\N	1	0	h-win	yes
+1199	1395924	2025-10-17	Poland	II Liga - East	Unia Skierniewice	Jastrzębie	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:58.077564	\N	\N	1	0	h-win	yes
+1200	1395923	2025-10-18	Poland	II Liga - East	Podhale Nowy Targ	Sandecja Nowy Sącz	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:58.490706	\N	\N	1	0	h-win	yes
+1201	1395925	2025-10-18	Poland	II Liga - East	Śląsk Wrocław II	Sokół Kleczew	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:58.571706	\N	\N	0	3	a-win	yes
+1202	1395919	2025-10-18	Poland	II Liga - East	Kalisz	Resovia Rzeszów	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:58.66044	\N	\N	0	0	draw	yes
+1203	1395921	2025-10-19	Poland	II Liga - East	Olimpia Grudziądz	Chojniczanka Chojnice	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:58.745269	\N	\N	1	1	draw	yes
+1204	1395922	2025-10-19	Poland	II Liga - East	Podbeskidzie	Świt Skolwin	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:58.831546	\N	\N	0	0	draw	yes
+1205	1395920	2025-10-19	Poland	II Liga - East	ŁKS Łódź II	Rekord Bielsko-Biała	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:58.91078	\N	\N	0	2	a-win	yes
+1206	1395926	2025-10-19	Poland	II Liga - East	Stal Stalowa Wola	Zaglebie Sosnowiec	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.045283	\N	\N	0	0	draw	yes
+1207	1395915	2025-10-21	Poland	II Liga - East	Sandecja Nowy Sącz	Śląsk Wrocław II	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.172691	\N	\N	0	2	a-win	yes
+1208	1395911	2025-10-22	Poland	II Liga - East	Chojniczanka Chojnice	Hutnik Kraków	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.262041	\N	\N	1	1	draw	yes
+1209	1395918	2025-10-22	Poland	II Liga - East	Zaglebie Sosnowiec	Podbeskidzie	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.356719	\N	\N	1	0	h-win	yes
+1210	1395936	2025-10-24	Poland	II Liga - East	Świt Skolwin	ŁKS Łódź II	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.443232	\N	\N	2	0	h-win	yes
+1211	1395932	2025-10-24	Poland	II Liga - East	Kalisz	Śląsk Wrocław II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.525558	\N	\N	0	0	draw	yes
+1212	1395931	2025-10-25	Poland	II Liga - East	Hutnik Kraków	Zaglebie Sosnowiec	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.606382	\N	\N	0	0	draw	yes
+1213	1395930	2025-10-25	Poland	II Liga - East	Jastrzębie	Podbeskidzie	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.696999	\N	\N	1	1	draw	yes
+1214	1395928	2025-10-25	Poland	II Liga - East	Rekord Bielsko-Biała	Olimpia Grudziądz	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.776337	\N	\N	0	2	a-win	yes
+1215	1395929	2025-10-25	Poland	II Liga - East	Chojniczanka Chojnice	Podhale Nowy Targ	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.856964	\N	\N	0	0	draw	yes
+1216	1395933	2025-10-26	Poland	II Liga - East	Sokół Kleczew	Stal Stalowa Wola	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:04:59.943485	\N	\N	1	0	h-win	yes
+1217	1395935	2025-10-26	Poland	II Liga - East	Sandecja Nowy Sącz	Warta Poznań	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.034965	\N	\N	0	0	draw	yes
+1218	1395934	2025-10-26	Poland	II Liga - East	Resovia Rzeszów	Unia Skierniewice	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.127924	\N	\N	0	1	a-win	yes
+1219	1395938	2025-10-31	Poland	II Liga - East	Sokół Kleczew	Podbeskidzie	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.212346	\N	\N	3	1	h-win	yes
+1220	1395937	2025-10-31	Poland	II Liga - East	Rekord Bielsko-Biała	Jastrzębie	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.297766	\N	\N	1	2	a-win	yes
+1221	1395942	2025-10-31	Poland	II Liga - East	Śląsk Wrocław II	Świt Skolwin	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.382837	\N	\N	2	1	h-win	yes
+1222	1395943	2025-10-31	Poland	II Liga - East	Stal Stalowa Wola	Resovia Rzeszów	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.467243	\N	\N	0	0	draw	yes
+1223	1395944	2025-10-31	Poland	II Liga - East	Warta Poznań	Kalisz	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.556073	\N	\N	0	1	a-win	yes
+1224	1395941	2025-10-31	Poland	II Liga - East	Unia Skierniewice	ŁKS Łódź II	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.637162	\N	\N	2	0	h-win	yes
+1225	1395945	2025-10-31	Poland	II Liga - East	Zaglebie Sosnowiec	Chojniczanka Chojnice	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-01 23:05:00.726639	\N	\N	0	0	draw	yes
+1226	1395940	2025-11-02	Poland	II Liga - East	Podhale Nowy Targ	Hutnik Kraków	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	14	2025-12-01 23:05:00.955637	\N	\N	0	0	draw	yes
+1227	1395939	2025-11-02	Poland	II Liga - East	Olimpia Grudziądz	Sandecja Nowy Sącz	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	11	2025-12-01 23:05:01.046733	\N	\N	1	0	h-win	yes
+1228	1395946	2025-11-07	Poland	II Liga - East	Chojniczanka Chojnice	Unia Skierniewice	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	1	2025-12-01 23:05:01.14664	\N	\N	0	1	a-win	yes
+1229	1395952	2025-11-07	Poland	II Liga - East	Sandecja Nowy Sącz	Sokół Kleczew	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	12	2025-12-01 23:05:01.239029	\N	\N	0	1	a-win	yes
+1230	1395947	2025-11-08	Poland	II Liga - East	Jastrzębie	Stal Stalowa Wola	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	6	2025-12-01 23:05:01.321787	\N	\N	0	2	a-win	yes
+1231	1395953	2025-11-08	Poland	II Liga - East	Świt Skolwin	Rekord Bielsko-Biała	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	15	2025-12-01 23:05:01.409082	\N	\N	1	2	a-win	yes
+1232	1395954	2025-11-08	Poland	II Liga - East	Warta Poznań	Podhale Nowy Targ	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	3	2025-12-01 23:05:01.49729	\N	\N	0	0	draw	yes
+1233	1395948	2025-11-09	Poland	II Liga - East	Hutnik Kraków	Olimpia Grudziądz	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	4	2025-12-01 23:05:01.582277	\N	\N	1	1	draw	yes
+1234	1395951	2025-11-09	Poland	II Liga - East	Podbeskidzie	Resovia Rzeszów	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	7	2025-12-01 23:05:01.671601	\N	\N	1	0	h-win	yes
+1235	1395949	2025-11-09	Poland	II Liga - East	Kalisz	Zaglebie Sosnowiec	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	13	2025-12-01 23:05:01.771399	\N	\N	1	0	h-win	yes
+1236	1395950	2025-11-10	Poland	II Liga - East	ŁKS Łódź II	Śląsk Wrocław II	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	9	2025-12-01 23:05:01.859688	\N	\N	0	2	a-win	yes
+1237	1395962	2025-11-14	Poland	II Liga - East	Stal Stalowa Wola	Hutnik Kraków	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	14	2025-12-01 23:05:01.944883	\N	\N	1	1	draw	yes
+1238	1395957	2025-11-15	Poland	II Liga - East	Olimpia Grudziądz	Świt Skolwin	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	5	2025-12-01 23:05:02.046516	\N	\N	0	1	a-win	yes
+1239	1395958	2025-11-16	Poland	II Liga - East	Podhale Nowy Targ	Podbeskidzie	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	8	2025-12-01 23:05:02.128103	\N	\N	1	0	h-win	yes
+1240	1395961	2025-11-16	Poland	II Liga - East	Śląsk Wrocław II	Jastrzębie	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	18	2025-12-01 23:05:02.229799	\N	\N	1	2	a-win	yes
+1241	1395955	2025-11-16	Poland	II Liga - East	Rekord Bielsko-Biała	Chojniczanka Chojnice	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	10	2025-12-01 23:05:02.317631	\N	\N	0	3	a-win	yes
+1242	1395960	2025-11-16	Poland	II Liga - East	Unia Skierniewice	Kalisz	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	16	2025-12-01 23:05:02.397971	\N	\N	1	1	draw	yes
+1243	1395959	2025-11-16	Poland	II Liga - East	Resovia Rzeszów	Warta Poznań	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	2	2025-12-01 23:05:02.485626	\N	\N	0	1	a-win	yes
+1244	1395968	2025-11-21	Poland	II Liga - East	ŁKS Łódź II	Hutnik Kraków	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	14	2025-12-01 23:05:02.567884	\N	\N	0	0	draw	yes
+1245	1395972	2025-11-21	Poland	II Liga - East	Zaglebie Sosnowiec	Sokół Kleczew	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	12	2025-12-01 23:05:02.652335	\N	\N	0	1	a-win	yes
+1246	1395967	2025-11-22	Poland	II Liga - East	Kalisz	Świt Skolwin	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	5	2025-12-01 23:05:02.741897	\N	\N	0	1	a-win	yes
+1247	1395966	2025-11-22	Poland	II Liga - East	Jastrzębie	Podhale Nowy Targ	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	3	2025-12-01 23:05:02.822468	\N	\N	0	2	a-win	yes
+1248	1395964	2025-11-22	Poland	II Liga - East	Rekord Bielsko-Biała	Śląsk Wrocław II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	9	2025-12-01 23:05:02.938257	\N	\N	0	1	a-win	yes
+1249	1395971	2025-11-22	Poland	II Liga - East	Warta Poznań	Unia Skierniewice	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	1	2025-12-01 23:05:03.031083	\N	\N	0	1	a-win	yes
+1250	1395965	2025-11-22	Poland	II Liga - East	Chojniczanka Chojnice	Resovia Rzeszów	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	7	2025-12-01 23:05:03.130253	\N	\N	1	0	h-win	yes
+1251	1395969	2025-11-23	Poland	II Liga - East	Sandecja Nowy Sącz	Podbeskidzie	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	8	2025-12-01 23:05:03.221273	\N	\N	0	0	draw	yes
+1252	1395970	2025-11-23	Poland	II Liga - East	Stal Stalowa Wola	Olimpia Grudziądz	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	4	2025-12-01 23:05:03.309853	\N	\N	1	0	h-win	yes
+1253	1395979	2025-11-28	Poland	II Liga - East	Resovia Rzeszów	Zaglebie Sosnowiec	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	13	2025-12-01 23:05:03.395496	\N	\N	1	0	h-win	yes
+1254	1395981	2025-11-29	Poland	II Liga - East	Warta Poznań	Chojniczanka Chojnice	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	10	2025-12-01 23:05:03.48794	\N	\N	1	0	h-win	yes
+1255	1395978	2025-11-29	Poland	II Liga - East	Podhale Nowy Targ	Rekord Bielsko-Biała	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	15	2025-12-01 23:05:03.576201	\N	\N	1	0	h-win	yes
+1256	1395975	2025-11-29	Poland	II Liga - East	ŁKS Łódź II	Jastrzębie	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	18	2025-12-01 23:05:03.663844	\N	\N	0	0	draw	yes
+1257	1395976	2025-11-30	Poland	II Liga - East	Olimpia Grudziądz	Unia Skierniewice	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	1	2025-12-01 23:05:03.765279	\N	\N	0	0	draw	yes
+1258	1395980	2025-11-30	Poland	II Liga - East	Świt Skolwin	Sandecja Nowy Sącz	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	11	2025-12-01 23:05:03.855491	\N	\N	0	0	draw	yes
+1259	1395973	2025-11-30	Poland	II Liga - East	Hutnik Kraków	Śląsk Wrocław II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	9	2025-12-01 23:05:03.937113	\N	\N	1	0	h-win	yes
+1260	1395974	2025-11-30	Poland	II Liga - East	Sokół Kleczew	Kalisz	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	16	2025-12-01 23:05:04.016832	\N	\N	0	0	draw	yes
+1261	1395977	2025-11-30	Poland	II Liga - East	Podbeskidzie	Stal Stalowa Wola	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	6	2025-12-01 23:05:04.102692	\N	\N	1	1	draw	yes
+1262	1395963	2025-11-15	Poland	II Liga - East	Zaglebie Sosnowiec	Sandecja Nowy Sącz	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	11	2025-12-01 23:05:04.190919	\N	\N	0	0	draw	no
+1263	1378969	2025-08-15	England	Premier League	Liverpool	Bournemouth	h-win	4	2	19	10	10	3	6	7	2	2	1	2	0	0	61.00	39.00	7	10	\N	\N	\N	\N	\N	2025-12-01 23:05:08.772461	2.21	1.70	1	0	h-win	yes
+1264	1378970	2025-08-16	England	Premier League	Aston Villa	Newcastle	draw	0	0	3	3	16	3	3	6	2	1	1	1	1	0	40.00	60.00	13	11	\N	\N	\N	\N	\N	2025-12-01 23:05:08.85036	0.20	1.43	0	0	draw	yes
+1265	1378974	2025-08-16	England	Premier League	Tottenham	Burnley	h-win	3	0	16	6	14	4	6	5	0	4	0	0	0	0	67.00	33.00	14	8	\N	\N	\N	\N	\N	2025-12-01 23:05:08.930392	2.32	0.94	1	0	h-win	yes
+1266	1378971	2025-08-16	England	Premier League	Brighton	Fulham	draw	1	1	10	4	7	2	4	3	3	2	3	3	0	0	50.00	50.00	16	15	\N	\N	\N	\N	\N	2025-12-01 23:05:09.026437	1.48	0.76	0	0	draw	yes
+1267	1378973	2025-08-16	England	Premier League	Sunderland	West Ham	h-win	3	0	10	5	12	4	5	7	0	0	0	1	0	0	37.00	63.00	8	10	\N	\N	\N	\N	\N	2025-12-01 23:05:09.105857	0.68	0.56	0	0	draw	yes
+1268	1378975	2025-08-16	England	Premier League	Wolves	Manchester City	a-win	0	4	9	3	15	4	4	5	4	0	1	2	0	0	42.00	58.00	13	7	\N	\N	\N	\N	\N	2025-12-01 23:05:09.198344	0.56	2.47	0	2	a-win	yes
+1269	1378976	2025-08-17	England	Premier League	Chelsea	Crystal Palace	draw	0	0	19	3	11	4	11	2	0	0	2	3	0	0	72.00	28.00	10	12	\N	\N	\N	\N	\N	2025-12-01 23:05:09.290779	1.60	0.66	0	0	draw	yes
+1270	1378972	2025-08-17	England	Premier League	Nottingham Forest	Brentford	h-win	3	1	11	5	10	3	5	5	2	0	1	2	0	0	55.00	45.00	7	15	\N	\N	\N	\N	\N	2025-12-01 23:05:09.387847	1.86	1.50	3	0	h-win	yes
+1271	1378977	2025-08-17	England	Premier League	Manchester United	Arsenal	a-win	0	1	22	7	9	3	3	4	1	2	1	4	0	0	61.00	39.00	10	19	\N	\N	\N	\N	\N	2025-12-01 23:05:09.479759	1.52	1.31	0	1	a-win	yes
+1272	1378978	2025-08-18	England	Premier League	Leeds	Everton	h-win	1	0	21	3	7	1	7	2	1	2	0	2	0	0	54.00	46.00	6	8	\N	\N	\N	\N	\N	2025-12-01 23:05:09.562323	2.13	0.80	0	0	draw	yes
+1273	1378988	2025-08-22	England	Premier League	West Ham	Chelsea	a-win	1	5	12	4	12	7	7	5	4	2	0	1	0	0	41.00	59.00	7	10	\N	\N	\N	\N	\N	2025-12-01 23:05:09.657064	0.73	2.74	1	3	a-win	yes
+1274	1378986	2025-08-23	England	Premier League	Manchester City	Tottenham	a-win	0	2	10	4	12	5	7	2	0	1	1	4	0	0	61.00	39.00	7	12	\N	\N	\N	\N	\N	2025-12-01 23:05:09.751728	1.55	1.11	0	2	a-win	yes
+1275	1378980	2025-08-23	England	Premier League	Bournemouth	Wolves	h-win	1	0	14	4	6	1	8	3	2	2	2	4	0	1	59.00	41.00	13	16	\N	\N	\N	\N	\N	2025-12-01 23:05:09.845069	1.29	0.46	1	0	h-win	yes
+1276	1378982	2025-08-23	England	Premier League	Burnley	Sunderland	h-win	2	0	7	2	9	1	4	3	0	2	0	1	0	0	42.00	58.00	9	5	\N	\N	\N	\N	\N	2025-12-01 23:05:09.941555	1.00	0.77	0	0	draw	yes
+1277	1378981	2025-08-23	England	Premier League	Brentford	Aston Villa	h-win	1	0	9	2	17	2	2	9	1	0	1	2	0	0	24.00	76.00	11	9	\N	\N	\N	\N	\N	2025-12-01 23:05:10.032811	1.27	1.23	1	0	h-win	yes
+1278	1378979	2025-08-23	England	Premier League	Arsenal	Leeds	h-win	5	0	18	5	3	1	2	2	0	0	0	2	0	0	68.00	32.00	8	11	\N	\N	\N	\N	\N	2025-12-01 23:05:10.13636	2.88	0.17	2	0	h-win	yes
+1279	1378984	2025-08-24	England	Premier League	Everton	Brighton	h-win	2	0	11	3	13	4	2	2	0	6	4	3	0	0	42.00	58.00	7	15	\N	\N	\N	\N	\N	2025-12-01 23:05:10.230385	1.60	2.43	1	0	h-win	yes
+1280	1378983	2025-08-24	England	Premier League	Crystal Palace	Nottingham Forest	draw	1	1	8	4	9	1	1	3	2	2	3	3	0	0	42.00	58.00	11	11	\N	\N	\N	\N	\N	2025-12-01 23:05:10.337026	1.10	0.93	1	0	h-win	yes
+1281	1378985	2025-08-24	England	Premier League	Fulham	Manchester United	draw	1	1	13	4	10	3	9	6	2	1	1	1	0	0	52.00	48.00	12	10	\N	\N	\N	\N	\N	2025-12-01 23:05:10.42072	1.76	1.63	0	0	draw	yes
+1282	1378987	2025-08-25	England	Premier League	Newcastle	Liverpool	a-win	2	3	10	3	5	4	7	1	0	0	2	3	1	0	38.00	62.00	17	15	\N	\N	\N	\N	\N	2025-12-01 23:05:10.504385	0.98	0.69	0	1	a-win	yes
+1283	1378991	2025-08-30	England	Premier League	Chelsea	Fulham	h-win	2	0	13	6	11	3	6	4	3	1	2	2	0	0	54.00	46.00	11	17	\N	\N	\N	\N	\N	2025-12-01 23:05:10.58974	2.35	1.02	1	0	h-win	yes
+1284	1378994	2025-08-30	England	Premier League	Manchester United	Burnley	h-win	3	2	26	6	6	3	7	1	1	1	1	5	0	0	62.00	38.00	9	9	\N	\N	\N	\N	\N	2025-12-01 23:05:10.674861	3.54	1.20	1	0	h-win	yes
+1285	1378998	2025-08-30	England	Premier League	Wolves	Everton	a-win	2	3	12	4	10	4	2	2	2	1	0	1	0	0	59.00	41.00	15	10	\N	\N	\N	\N	\N	2025-12-01 23:05:10.780553	1.11	1.93	1	2	a-win	yes
+1286	1378997	2025-08-30	England	Premier League	Tottenham	Bournemouth	a-win	0	1	5	1	20	6	0	8	2	3	2	4	0	0	61.00	39.00	17	13	\N	\N	\N	\N	\N	2025-12-01 23:05:10.864597	0.19	1.59	0	1	a-win	yes
+1287	1378996	2025-08-30	England	Premier League	Sunderland	Brentford	h-win	2	1	12	3	7	4	3	4	0	3	3	2	0	0	54.00	46.00	11	12	\N	\N	\N	\N	\N	2025-12-01 23:05:10.959412	1.54	1.20	0	0	draw	yes
+1288	1378992	2025-08-30	England	Premier League	Leeds	Newcastle	draw	0	0	10	1	8	2	5	5	1	0	1	1	0	0	43.00	57.00	10	15	\N	\N	\N	\N	\N	2025-12-01 23:05:11.07382	0.69	0.46	0	0	draw	yes
+1289	1378990	2025-08-31	England	Premier League	Brighton	Manchester City	h-win	2	1	12	7	12	3	3	2	1	0	2	2	0	0	37.00	63.00	16	14	\N	\N	\N	\N	\N	2025-12-01 23:05:11.179763	2.29	1.84	0	1	a-win	yes
+1290	1378995	2025-08-31	England	Premier League	Nottingham Forest	West Ham	a-win	0	3	11	3	12	8	9	7	0	0	0	0	0	0	58.00	42.00	14	6	\N	\N	\N	\N	\N	2025-12-01 23:05:11.264442	0.73	2.42	0	0	draw	yes
+1291	1378993	2025-08-31	England	Premier League	Liverpool	Arsenal	h-win	1	0	9	3	11	1	3	8	1	0	2	2	0	0	53.00	47.00	7	10	\N	\N	\N	\N	\N	2025-12-01 23:05:11.349818	0.52	0.49	0	0	draw	yes
+1292	1378989	2025-08-31	England	Premier League	Aston Villa	Crystal Palace	a-win	0	3	13	4	6	4	10	1	0	2	2	3	0	0	58.00	42.00	7	14	\N	\N	\N	\N	\N	2025-12-01 23:05:11.43942	1.14	2.65	0	1	a-win	yes
+1293	1378999	2025-09-13	England	Premier League	Arsenal	Nottingham Forest	h-win	3	0	16	5	5	1	8	3	2	0	1	1	0	0	54.00	46.00	8	11	\N	\N	\N	\N	\N	2025-12-01 23:05:11.53963	1.84	0.20	1	0	h-win	yes
+1294	1379007	2025-09-13	England	Premier League	Newcastle	Wolves	h-win	1	0	16	4	8	3	9	4	1	0	1	4	0	0	57.00	43.00	10	17	\N	\N	\N	\N	\N	2025-12-01 23:05:11.621043	1.55	0.50	1	0	h-win	yes
+1295	1379000	2025-09-13	England	Premier League	Bournemouth	Brighton	h-win	2	1	13	5	6	2	4	4	1	0	4	4	0	0	51.00	49.00	16	10	\N	\N	\N	\N	\N	2025-12-01 23:05:11.704444	1.45	0.62	1	0	h-win	yes
+1296	1379005	2025-09-13	England	Premier League	Fulham	Leeds	h-win	1	0	5	3	10	3	3	3	1	3	1	2	0	0	54.00	46.00	20	15	\N	\N	\N	\N	\N	2025-12-01 23:05:11.78571	0.85	0.79	0	0	draw	yes
+1297	1379004	2025-09-13	England	Premier League	Everton	Aston Villa	draw	0	0	20	2	7	1	10	3	2	2	3	3	0	0	48.00	52.00	17	15	\N	\N	\N	\N	\N	2025-12-01 23:05:11.869169	2.08	0.54	0	0	draw	yes
+1298	1379003	2025-09-13	England	Premier League	Crystal Palace	Sunderland	draw	0	0	14	6	6	0	5	3	0	2	1	1	0	0	56.00	44.00	10	8	\N	\N	\N	\N	\N	2025-12-01 23:05:11.975902	1.77	0.36	0	0	draw	yes
+1299	1379008	2025-09-13	England	Premier League	West Ham	Tottenham	a-win	0	3	7	4	14	5	2	13	0	4	0	1	1	0	36.00	64.00	8	7	\N	\N	\N	\N	\N	2025-12-01 23:05:12.086938	0.60	1.29	0	0	draw	yes
+1300	1379001	2025-09-13	England	Premier League	Brentford	Chelsea	draw	2	2	7	4	16	6	5	6	0	4	3	2	0	0	34.00	66.00	13	9	\N	\N	\N	\N	\N	2025-12-01 23:05:12.166791	1.43	1.25	1	0	h-win	yes
+1301	1379002	2025-09-14	England	Premier League	Burnley	Liverpool	a-win	0	1	3	0	27	4	1	13	3	1	2	2	1	0	19.00	81.00	9	9	\N	\N	\N	\N	\N	2025-12-01 23:05:12.246878	0.13	2.65	0	0	draw	yes
+1302	1379006	2025-09-14	England	Premier League	Manchester City	Manchester United	h-win	3	0	13	6	12	2	2	4	2	3	0	0	0	0	45.00	55.00	8	8	\N	\N	\N	\N	\N	2025-12-01 23:05:12.356416	2.63	1.52	1	0	h-win	yes
+1303	1379014	2025-09-20	England	Premier League	Liverpool	Everton	h-win	2	1	11	3	9	2	5	4	1	1	2	3	0	0	57.00	43.00	11	10	\N	\N	\N	\N	\N	2025-12-01 23:05:12.446785	0.90	0.70	2	0	h-win	yes
+1304	1379018	2025-09-20	England	Premier League	Wolves	Leeds	a-win	1	3	16	6	6	4	4	0	0	2	1	1	0	0	56.00	44.00	11	9	\N	\N	\N	\N	\N	2025-12-01 23:05:12.53371	1.78	0.48	1	3	a-win	yes
+1305	1379012	2025-09-20	England	Premier League	Burnley	Nottingham Forest	draw	1	1	12	5	17	8	4	5	1	2	1	1	0	0	37.00	63.00	12	11	\N	\N	\N	\N	\N	2025-12-01 23:05:12.609806	0.85	1.10	1	1	draw	yes
+1306	1379017	2025-09-20	England	Premier League	West Ham	Crystal Palace	a-win	1	2	8	3	18	3	8	8	1	2	3	3	0	0	57.00	43.00	15	5	\N	\N	\N	\N	\N	2025-12-01 23:05:12.728983	0.66	2.31	0	1	a-win	yes
+1307	1379011	2025-09-20	England	Premier League	Brighton	Tottenham	draw	2	2	12	4	11	3	2	10	0	1	1	2	0	0	36.00	64.00	10	13	\N	\N	\N	\N	\N	2025-12-01 23:05:12.814444	1.32	1.22	2	1	h-win	yes
+1308	1379015	2025-09-20	England	Premier League	Manchester United	Chelsea	h-win	2	1	11	4	5	1	5	5	3	2	2	5	1	1	41.00	59.00	13	14	\N	\N	\N	\N	\N	2025-12-01 23:05:12.896816	1.84	0.43	2	0	h-win	yes
+1309	1379013	2025-09-20	England	Premier League	Fulham	Brentford	h-win	3	1	14	3	8	3	2	10	2	2	4	1	0	0	53.00	47.00	11	13	\N	\N	\N	\N	\N	2025-12-01 23:05:12.996247	1.01	0.60	2	1	h-win	yes
+1310	1379010	2025-09-21	England	Premier League	Bournemouth	Newcastle	draw	0	0	11	2	4	1	5	2	3	2	2	1	0	0	56.00	44.00	7	10	\N	\N	\N	\N	\N	2025-12-01 23:05:13.074572	0.46	0.14	0	0	draw	yes
+1311	1379016	2025-09-21	England	Premier League	Sunderland	Aston Villa	draw	1	1	14	4	12	2	6	5	0	3	2	1	1	0	29.00	71.00	14	8	\N	\N	\N	\N	\N	2025-12-01 23:05:13.164461	1.04	0.78	0	0	draw	yes
+1312	1379009	2025-09-21	England	Premier League	Arsenal	Manchester City	draw	1	1	12	3	5	3	11	1	4	2	1	2	0	0	67.00	33.00	11	10	\N	\N	\N	\N	\N	2025-12-01 23:05:13.249381	0.89	0.87	0	1	a-win	yes
+1313	1379020	2025-09-27	England	Premier League	Brentford	Manchester United	h-win	3	1	10	8	14	6	4	2	2	1	2	2	0	0	44.00	56.00	14	10	\N	\N	\N	\N	\N	2025-12-01 23:05:13.330883	1.99	2.03	2	1	h-win	yes
+1314	1379021	2025-09-27	England	Premier League	Chelsea	Brighton	a-win	1	3	13	3	12	3	5	7	2	2	3	5	1	0	60.00	40.00	9	16	\N	\N	\N	\N	\N	2025-12-01 23:05:13.40935	1.81	2.28	1	0	h-win	yes
+1315	1379025	2025-09-27	England	Premier League	Manchester City	Burnley	h-win	5	1	21	8	9	2	10	2	1	1	1	3	0	0	69.00	31.00	5	7	\N	\N	\N	\N	\N	2025-12-01 23:05:13.491572	2.03	0.41	1	1	draw	yes
+1316	1379022	2025-09-27	England	Premier League	Crystal Palace	Liverpool	h-win	2	1	16	7	20	4	2	6	2	1	1	3	0	0	28.00	72.00	10	8	\N	\N	\N	\N	\N	2025-12-01 23:05:13.576558	2.92	2.14	1	0	h-win	yes
+1317	1379024	2025-09-27	England	Premier League	Leeds	Bournemouth	draw	2	2	19	8	12	5	7	4	0	2	2	2	0	0	41.00	59.00	12	13	\N	\N	\N	\N	\N	2025-12-01 23:05:13.65939	1.84	0.82	1	1	draw	yes
+1318	1379027	2025-09-27	England	Premier League	Nottingham Forest	Sunderland	a-win	0	1	22	6	11	3	7	4	0	1	4	2	0	0	65.00	35.00	11	6	\N	\N	\N	\N	\N	2025-12-01 23:05:13.740081	1.65	1.19	0	1	a-win	yes
+1319	1379028	2025-09-27	England	Premier League	Tottenham	Wolves	draw	1	1	10	3	9	3	10	9	2	0	3	2	0	0	51.00	49.00	9	11	\N	\N	\N	\N	\N	2025-12-01 23:05:13.82092	0.87	1.15	0	0	draw	yes
+1320	1379019	2025-09-28	England	Premier League	Aston Villa	Fulham	h-win	3	1	9	4	11	4	2	8	2	4	1	4	0	0	48.00	52.00	10	13	\N	\N	\N	\N	\N	2025-12-01 23:05:13.907523	1.11	0.92	1	1	draw	yes
+1321	1379026	2025-09-28	England	Premier League	Newcastle	Arsenal	a-win	1	2	8	3	20	7	7	12	1	0	2	1	0	0	37.00	63.00	8	9	\N	\N	\N	\N	\N	2025-12-01 23:05:13.989352	0.61	2.04	1	0	h-win	yes
+1322	1379023	2025-09-29	England	Premier League	Everton	West Ham	draw	1	1	12	6	14	3	3	5	0	2	3	4	0	0	52.00	48.00	7	16	\N	\N	\N	\N	\N	2025-12-01 23:05:14.072554	0.73	1.19	1	0	h-win	yes
+1323	1379031	2025-10-03	England	Premier League	Bournemouth	Fulham	h-win	3	1	11	6	12	4	4	3	2	2	0	1	0	0	54.00	46.00	8	10	\N	\N	\N	\N	\N	2025-12-01 23:05:14.149381	1.12	0.88	0	0	draw	yes
+1324	1379035	2025-10-04	England	Premier League	Leeds	Tottenham	a-win	1	2	16	4	9	3	4	1	1	2	2	3	0	0	57.00	43.00	10	12	\N	\N	\N	\N	\N	2025-12-01 23:05:14.226649	1.68	0.53	1	1	draw	yes
+1325	1379036	2025-10-04	England	Premier League	Manchester United	Sunderland	h-win	2	0	15	6	8	3	2	3	1	2	1	4	0	0	51.00	49.00	10	12	\N	\N	\N	\N	\N	2025-12-01 23:05:14.304599	1.88	0.71	2	0	h-win	yes
+1326	1379029	2025-10-04	England	Premier League	Arsenal	West Ham	h-win	2	0	21	5	4	0	8	3	1	1	0	2	0	0	68.00	32.00	14	14	\N	\N	\N	\N	\N	2025-12-01 23:05:14.38453	2.77	0.49	1	0	h-win	yes
+1327	1379033	2025-10-04	England	Premier League	Chelsea	Liverpool	h-win	2	1	12	6	12	2	7	2	2	2	0	2	0	0	53.00	47.00	9	8	\N	\N	\N	\N	\N	2025-12-01 23:05:14.45933	1.00	1.95	1	0	h-win	yes
+1328	1379037	2025-10-05	England	Premier League	Newcastle	Nottingham Forest	h-win	2	0	18	9	5	4	8	1	0	2	0	4	0	0	52.00	48.00	16	15	\N	\N	\N	\N	\N	2025-12-01 23:05:14.545431	3.28	0.29	0	0	draw	yes
+1329	1379038	2025-10-05	England	Premier League	Wolves	Brighton	draw	1	1	6	3	17	6	2	8	1	3	2	4	0	0	42.00	58.00	13	9	\N	\N	\N	\N	\N	2025-12-01 23:05:14.630905	0.56	0.92	1	0	h-win	yes
+1330	1379034	2025-10-05	England	Premier League	Everton	Crystal Palace	h-win	2	1	14	7	15	8	2	4	0	1	2	3	0	0	50.00	50.00	13	16	\N	\N	\N	\N	\N	2025-12-01 23:05:14.712999	2.03	1.53	0	1	a-win	yes
+1331	1379030	2025-10-05	England	Premier League	Aston Villa	Burnley	h-win	2	1	15	7	5	2	6	4	3	5	3	1	0	0	55.00	45.00	9	15	\N	\N	\N	\N	\N	2025-12-01 23:05:14.806596	1.16	0.40	1	0	h-win	yes
+1332	1379032	2025-10-05	England	Premier League	Brentford	Manchester City	a-win	0	1	6	1	10	4	3	2	1	1	3	2	0	0	30.00	70.00	10	6	\N	\N	\N	\N	\N	2025-12-01 23:05:14.890293	0.70	0.85	0	1	a-win	yes
+1333	1379045	2025-10-18	England	Premier League	Nottingham Forest	Chelsea	a-win	0	3	12	2	17	6	5	2	1	2	2	4	0	1	50.00	50.00	12	17	\N	\N	\N	\N	\N	2025-12-01 23:05:14.967202	2.35	1.67	0	0	draw	yes
+1334	1379040	2025-10-18	England	Premier League	Burnley	Leeds	h-win	2	0	4	3	19	4	1	5	1	0	2	1	0	0	31.00	69.00	10	7	\N	\N	\N	\N	\N	2025-12-01 23:05:15.054787	0.45	2.63	1	0	h-win	yes
+1335	1379044	2025-10-18	England	Premier League	Manchester City	Everton	h-win	2	0	19	7	5	1	11	3	0	1	0	2	0	0	71.00	29.00	8	14	\N	\N	\N	\N	\N	2025-12-01 23:05:15.151132	2.38	0.81	0	0	draw	yes
+1336	1379039	2025-10-18	England	Premier League	Brighton	Newcastle	h-win	2	1	13	5	16	3	8	4	3	1	0	1	0	0	46.00	54.00	13	16	\N	\N	\N	\N	\N	2025-12-01 23:05:15.244599	0.91	1.45	1	0	h-win	yes
+1337	1379041	2025-10-18	England	Premier League	Crystal Palace	Bournemouth	draw	3	3	20	7	8	5	6	5	3	3	1	4	0	0	52.00	48.00	8	16	\N	\N	\N	\N	\N	2025-12-01 23:05:15.319119	4.44	2.03	0	2	a-win	yes
+1338	1379046	2025-10-18	England	Premier League	Sunderland	Wolves	h-win	2	0	8	2	16	3	2	2	2	2	0	0	0	0	41.00	59.00	5	12	\N	\N	\N	\N	\N	2025-12-01 23:05:15.405103	0.65	0.83	1	0	h-win	yes
+1339	1379042	2025-10-18	England	Premier League	Fulham	Arsenal	a-win	0	1	9	0	16	5	6	10	0	2	0	0	0	0	37.00	63.00	11	4	\N	\N	\N	\N	\N	2025-12-01 23:05:15.489836	0.44	1.87	0	0	draw	yes
+1340	1379047	2025-10-19	England	Premier League	Tottenham	Aston Villa	a-win	1	2	9	3	8	2	6	6	6	1	2	0	0	0	53.00	47.00	11	7	\N	\N	\N	\N	\N	2025-12-01 23:05:15.566835	0.75	0.32	1	1	draw	yes
+1341	1379043	2025-10-19	England	Premier League	Liverpool	Manchester United	a-win	1	2	19	6	12	4	9	4	1	1	0	2	0	0	64.00	36.00	19	12	\N	\N	\N	\N	\N	2025-12-01 23:05:15.650597	2.75	1.34	0	1	a-win	yes
+1342	1379048	2025-10-20	England	Premier League	West Ham	Brentford	a-win	0	2	7	1	22	7	6	10	3	2	1	1	0	0	43.00	57.00	10	10	\N	\N	\N	\N	\N	2025-12-01 23:05:15.74158	0.33	2.31	0	1	a-win	yes
+1343	1379055	2025-10-24	England	Premier League	Leeds	West Ham	h-win	2	1	13	5	9	3	3	4	1	1	3	3	0	0	41.00	59.00	12	11	\N	\N	\N	\N	\N	2025-12-01 23:05:15.82592	1.49	0.65	2	0	h-win	yes
+1344	1379057	2025-10-25	England	Premier League	Newcastle	Fulham	h-win	2	1	18	7	12	5	4	3	0	1	0	2	0	0	51.00	49.00	11	18	\N	\N	\N	\N	\N	2025-12-01 23:05:15.908879	2.14	1.53	1	0	h-win	yes
+1345	1379053	2025-10-25	England	Premier League	Chelsea	Sunderland	a-win	1	2	16	7	10	4	9	1	3	2	1	1	0	0	68.00	32.00	15	13	\N	\N	\N	\N	\N	2025-12-01 23:05:15.989376	0.90	1.31	1	1	draw	yes
+1346	1379056	2025-10-25	England	Premier League	Manchester United	Brighton	h-win	4	2	13	9	17	5	1	6	2	2	2	2	0	0	44.00	56.00	4	13	\N	\N	\N	\N	\N	2025-12-01 23:05:16.082025	1.29	1.12	2	0	h-win	yes
+1347	1379052	2025-10-25	England	Premier League	Brentford	Liverpool	h-win	3	2	17	8	18	5	5	4	2	0	3	2	0	0	34.00	66.00	7	10	\N	\N	\N	\N	\N	2025-12-01 23:05:16.160132	2.75	2.30	2	1	h-win	yes
+1348	1379051	2025-10-26	England	Premier League	Bournemouth	Nottingham Forest	h-win	2	0	13	5	8	4	6	4	3	0	3	1	0	0	52.00	48.00	17	7	\N	\N	\N	\N	\N	2025-12-01 23:05:16.234066	0.59	0.35	2	0	h-win	yes
+1349	1379058	2025-10-26	England	Premier League	Wolves	Burnley	a-win	2	3	15	7	11	7	4	3	2	2	1	0	0	0	57.00	43.00	12	7	\N	\N	\N	\N	\N	2025-12-01 23:05:16.316467	2.28	1.43	2	2	draw	yes
+1350	1379049	2025-10-26	England	Premier League	Arsenal	Crystal Palace	h-win	1	0	10	3	7	1	4	3	2	1	0	0	0	0	60.00	40.00	6	11	\N	\N	\N	\N	\N	2025-12-01 23:05:16.396139	0.92	0.45	1	0	h-win	yes
+1351	1379050	2025-10-26	England	Premier League	Aston Villa	Manchester City	h-win	1	0	9	3	18	4	5	6	1	3	1	4	0	0	47.00	53.00	8	16	\N	\N	\N	\N	\N	2025-12-01 23:05:16.472734	0.81	1.18	1	0	h-win	yes
+1352	1379054	2025-10-26	England	Premier League	Everton	Tottenham	a-win	0	3	12	2	7	4	9	8	2	2	2	0	0	0	53.00	47.00	9	8	\N	\N	\N	\N	\N	2025-12-01 23:05:16.549342	1.53	2.08	0	2	a-win	yes
+1353	1379062	2025-11-01	England	Premier League	Fulham	Wolves	h-win	3	0	19	6	5	2	10	1	3	0	1	3	0	1	63.00	37.00	13	14	\N	\N	\N	15	20	2025-12-01 23:05:16.704595	1.39	0.24	1	0	h-win	yes
+1354	1379060	2025-11-01	England	Premier League	Burnley	Arsenal	a-win	0	2	3	0	12	8	1	6	0	1	2	1	0	0	46.00	54.00	10	13	\N	\N	\N	19	1	2025-12-01 23:05:16.77911	0.42	2.42	0	2	a-win	yes
+1355	1379059	2025-11-01	England	Premier League	Brighton	Leeds	h-win	3	0	14	7	5	2	4	7	3	1	0	1	0	0	50.00	50.00	10	7	\N	\N	\N	5	18	2025-12-01 23:05:16.874063	3.07	0.50	1	0	h-win	yes
+1356	1379061	2025-11-01	England	Premier League	Crystal Palace	Brentford	h-win	2	0	10	3	6	2	6	5	1	3	0	3	0	0	36.00	64.00	7	11	\N	\N	\N	9	10	2025-12-01 23:05:16.959336	0.70	0.54	1	0	h-win	yes
+1357	1379065	2025-11-01	England	Premier League	Nottingham Forest	Manchester United	draw	2	2	17	3	18	7	8	5	2	1	1	1	0	0	41.00	59.00	17	0	\N	\N	\N	16	7	2025-12-01 23:05:17.039181	1.93	1.12	0	1	a-win	yes
+1358	1379067	2025-11-01	England	Premier League	Tottenham	Chelsea	a-win	0	1	3	1	15	9	6	5	1	1	4	2	0	0	48.00	52.00	14	12	\N	\N	\N	12	3	2025-12-01 23:05:17.114385	0.10	3.68	0	1	a-win	yes
+1359	1379063	2025-11-01	England	Premier League	Liverpool	Aston Villa	h-win	2	0	16	4	10	3	1	4	8	0	2	3	0	0	53.00	47.00	13	11	\N	\N	\N	8	4	2025-12-01 23:05:17.194345	1.19	0.41	1	0	h-win	yes
+1360	1379068	2025-11-02	England	Premier League	West Ham	Newcastle	h-win	3	1	15	9	12	4	7	6	4	0	1	2	0	0	37.00	63.00	5	10	\N	\N	\N	17	13	2025-12-01 23:05:17.269579	1.75	0.52	2	1	h-win	yes
+1361	1379064	2025-11-02	England	Premier League	Manchester City	Bournemouth	h-win	3	1	15	8	8	5	9	4	0	3	2	2	0	0	48.00	52.00	8	11	\N	\N	\N	2	11	2025-12-01 23:05:17.359287	2.22	0.72	2	1	h-win	yes
+1362	1379066	2025-11-03	England	Premier League	Sunderland	Everton	draw	1	1	17	3	8	2	4	1	2	0	3	2	0	0	61.00	39.00	10	12	\N	\N	\N	6	14	2025-12-01 23:05:17.459404	1.22	0.89	0	1	a-win	yes
+1363	1379077	2025-11-08	England	Premier League	Tottenham	Manchester United	draw	2	2	10	4	5	2	5	3	2	3	5	1	0	0	55.00	45.00	10	8	\N	\N	\N	12	7	2025-12-01 23:05:17.539264	0.92	0.63	0	1	a-win	yes
+1364	1379073	2025-11-08	England	Premier League	Everton	Fulham	h-win	2	0	14	5	8	4	7	5	5	1	2	2	0	0	50.00	50.00	11	14	\N	\N	\N	14	15	2025-12-01 23:05:17.619324	1.44	0.40	1	0	h-win	yes
+1365	1379078	2025-11-08	England	Premier League	West Ham	Burnley	h-win	3	2	15	6	16	7	7	4	2	1	2	2	0	0	43.00	57.00	15	13	\N	\N	\N	17	19	2025-12-01 23:05:17.699248	3.02	1.06	1	1	draw	yes
+1366	1379076	2025-11-08	England	Premier League	Sunderland	Arsenal	draw	2	2	6	2	17	7	2	2	2	0	2	1	0	0	35.00	65.00	13	13	\N	\N	\N	6	1	2025-12-01 23:05:17.792421	0.44	1.91	1	0	h-win	yes
+1367	1379071	2025-11-08	England	Premier League	Chelsea	Wolves	h-win	3	0	20	8	3	0	10	1	0	0	1	2	0	0	64.00	36.00	12	14	\N	\N	\N	3	20	2025-12-01 23:05:17.901805	3.31	0.17	0	0	draw	yes
+1368	1379072	2025-11-09	England	Premier League	Crystal Palace	Brighton	draw	0	0	10	2	7	3	4	8	2	1	1	4	0	0	42.00	58.00	10	12	\N	\N	\N	9	5	2025-12-01 23:05:17.985861	0.75	0.39	0	0	draw	yes
+1369	1379070	2025-11-09	England	Premier League	Brentford	Newcastle	h-win	3	1	15	7	5	1	6	2	2	0	2	3	0	1	49.00	51.00	23	0	\N	\N	\N	10	13	2025-12-01 23:05:18.084323	2.35	0.44	0	1	a-win	yes
+1370	1379075	2025-11-09	England	Premier League	Nottingham Forest	Leeds	h-win	3	1	14	6	10	3	6	4	2	1	2	1	0	0	46.00	54.00	10	11	\N	\N	\N	16	18	2025-12-01 23:05:18.175891	2.55	0.69	1	1	draw	yes
+1371	1379069	2025-11-09	England	Premier League	Aston Villa	Bournemouth	h-win	4	0	16	8	12	3	6	9	0	2	2	2	0	0	52.00	48.00	8	20	\N	\N	\N	4	11	2025-12-01 23:05:18.291461	1.70	1.61	2	0	h-win	yes
+1372	1379074	2025-11-09	England	Premier League	Manchester City	Liverpool	h-win	3	0	14	6	7	1	7	7	1	7	2	4	0	0	49.00	51.00	14	15	\N	\N	\N	2	8	2025-12-01 23:05:18.37415	1.51	0.61	2	0	h-win	yes
+1373	1379082	2025-11-22	England	Premier League	Burnley	Chelsea	a-win	0	2	8	2	15	5	1	9	0	3	2	3	0	0	44.00	56.00	13	8	\N	\N	\N	19	3	2025-12-01 23:05:18.464454	0.44	1.72	0	1	a-win	yes
+1374	1379080	2025-11-22	England	Premier League	Bournemouth	West Ham	draw	2	2	28	10	5	2	9	2	2	2	3	2	0	0	76.00	24.00	9	10	\N	\N	\N	11	17	2025-12-01 23:05:18.549015	4.05	0.65	0	2	a-win	yes
+1736	1386679	2025-10-22	England	Championship	Swansea	QPR	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.707516	\N	\N	0	1	a-win	yes
+1375	1379083	2025-11-22	England	Premier League	Fulham	Sunderland	h-win	1	0	24	6	4	2	7	4	1	3	3	3	0	0	57.00	43.00	5	13	\N	\N	\N	15	6	2025-12-01 23:05:18.634329	2.16	0.17	0	0	draw	yes
+1376	1379088	2025-11-22	England	Premier League	Wolves	Crystal Palace	a-win	0	2	8	1	10	4	1	4	2	3	2	3	0	0	48.00	52.00	13	9	\N	\N	\N	20	9	2025-12-01 23:05:18.715257	1.79	1.27	0	0	draw	yes
+1377	1379085	2025-11-22	England	Premier League	Liverpool	Nottingham Forest	a-win	0	3	21	4	15	7	8	6	0	2	2	0	0	0	75.00	25.00	11	8	\N	\N	\N	8	16	2025-12-01 23:05:18.796865	1.93	1.58	0	1	a-win	yes
+1378	1379081	2025-11-22	England	Premier League	Brighton	Brentford	h-win	2	1	14	5	10	4	7	4	0	1	4	2	0	0	64.00	36.00	10	9	\N	\N	\N	5	10	2025-12-01 23:05:18.881719	1.22	1.91	0	1	a-win	yes
+1379	1379087	2025-11-22	England	Premier League	Newcastle	Manchester City	h-win	2	1	9	5	17	4	5	9	3	2	1	3	0	0	33.00	67.00	13	8	\N	\N	\N	13	2	2025-12-01 23:05:18.964232	2.24	2.49	0	0	draw	yes
+1380	1379084	2025-11-23	England	Premier League	Leeds	Aston Villa	a-win	1	2	14	5	14	3	3	3	4	2	5	1	0	0	48.00	52.00	18	16	\N	\N	\N	18	4	2025-12-01 23:05:19.039313	1.79	1.58	1	0	h-win	yes
+1381	1379079	2025-11-23	England	Premier League	Arsenal	Tottenham	h-win	4	1	17	8	3	2	4	1	3	1	1	3	0	0	57.00	43.00	11	15	\N	\N	\N	1	12	2025-12-01 23:05:19.139883	1.93	0.07	2	0	h-win	yes
+1382	1379086	2025-11-24	England	Premier League	Manchester United	Everton	a-win	0	1	25	6	3	1	9	1	1	2	2	0	0	1	70.00	30.00	12	9	\N	\N	\N	7	14	2025-12-01 23:05:19.229361	1.71	0.21	0	1	a-win	yes
+1383	1379094	2025-11-29	England	Premier League	Manchester City	Leeds	h-win	3	2	18	9	9	4	8	1	2	4	4	1	0	0	62.00	38.00	17	11	\N	\N	\N	2	18	2025-12-01 23:05:19.317537	3.10	1.54	2	0	h-win	yes
+1384	1379090	2025-11-29	England	Premier League	Brentford	Burnley	h-win	3	1	14	4	6	2	5	6	3	1	0	2	0	0	52.00	48.00	7	7	\N	\N	\N	10	19	2025-12-01 23:05:19.407591	3.06	0.95	0	0	draw	yes
+1385	1379096	2025-11-29	England	Premier League	Sunderland	Bournemouth	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	11	2025-12-01 23:05:19.415143	\N	\N	1	2	a-win	yes
+1386	1379093	2025-11-29	England	Premier League	Everton	Newcastle	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	13	2025-12-01 23:05:19.423513	\N	\N	0	3	a-win	yes
+1387	1379097	2025-11-29	England	Premier League	Tottenham	Fulham	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	15	2025-12-01 23:05:19.43056	\N	\N	0	2	a-win	yes
+1388	1379092	2025-11-30	England	Premier League	Crystal Palace	Manchester United	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	7	2025-12-01 23:05:19.435298	\N	\N	1	0	h-win	yes
+1389	1379098	2025-11-30	England	Premier League	West Ham	Liverpool	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	8	2025-12-01 23:05:19.440428	\N	\N	0	0	draw	yes
+1390	1379095	2025-11-30	England	Premier League	Nottingham Forest	Brighton	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	5	2025-12-01 23:05:19.447749	\N	\N	0	1	a-win	yes
+1391	1379089	2025-11-30	England	Premier League	Aston Villa	Wolves	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	20	2025-12-01 23:05:19.452402	\N	\N	0	0	draw	yes
+1392	1379091	2025-11-30	England	Premier League	Chelsea	Arsenal	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	1	2025-12-01 23:05:19.456997	\N	\N	0	0	draw	yes
+1393	1385998	2025-08-02	England	League Two	Bristol Rovers	Harrogate Town	a-win	0	1	18	2	6	2	13	4	0	4	1	3	0	0	59.00	41.00	10	11	\N	\N	\N	\N	\N	2025-12-02 00:04:48.846609	\N	\N	0	0	draw	yes
+1394	1386006	2025-08-02	England	League Two	Walsall	Swindon Town	h-win	2	1	6	4	16	5	1	5	1	2	2	1	1	0	27.00	73.00	13	18	\N	\N	\N	\N	\N	2025-12-02 00:04:48.934338	\N	\N	1	0	h-win	yes
+1395	1386000	2025-08-02	England	League Two	Chesterfield	Barrow	h-win	1	0	7	3	10	1	4	3	2	0	1	1	0	0	63.00	37.00	9	9	\N	\N	\N	\N	\N	2025-12-02 00:04:49.032639	\N	\N	1	0	h-win	yes
+1396	1386003	2025-08-02	England	League Two	Milton Keynes Dons	Oldham	draw	0	0	5	0	5	1	7	3	2	0	1	3	0	0	63.00	37.00	17	16	\N	\N	\N	\N	\N	2025-12-02 00:04:49.126205	\N	\N	0	0	draw	yes
+1397	1386005	2025-08-02	England	League Two	Shrewsbury	Bromley	draw	0	0	6	2	17	2	4	5	2	1	3	1	0	0	59.00	41.00	13	14	\N	\N	\N	\N	\N	2025-12-02 00:04:49.213526	\N	\N	0	0	draw	yes
+1398	1385996	2025-08-02	England	League Two	Accrington ST	Gillingham	draw	1	1	10	3	8	0	3	3	2	1	2	2	0	0	55.00	45.00	12	15	\N	\N	\N	\N	\N	2025-12-02 00:04:49.305275	\N	\N	0	0	draw	yes
+1399	1386001	2025-08-02	England	League Two	Colchester	Tranmere	draw	1	1	10	2	10	2	4	5	0	1	2	2	0	0	66.00	34.00	10	17	\N	\N	\N	\N	\N	2025-12-02 00:04:49.396084	\N	\N	0	1	a-win	yes
+1400	1386002	2025-08-02	England	League Two	Grimsby	Crawley Town	h-win	3	0	20	6	5	1	10	3	5	3	0	2	0	0	48.00	52.00	13	14	\N	\N	\N	\N	\N	2025-12-02 00:04:49.490409	\N	\N	2	0	h-win	yes
+1401	1385997	2025-08-02	England	League Two	Barnet	Fleetwood Town	a-win	0	2	19	6	12	7	8	2	4	2	0	0	0	0	67.00	33.00	11	15	\N	\N	\N	\N	\N	2025-12-02 00:04:49.586086	\N	\N	0	1	a-win	yes
+1402	1385999	2025-08-02	England	League Two	Cambridge United	Cheltenham	h-win	1	0	13	4	7	2	4	2	0	2	0	2	0	0	51.00	49.00	11	22	\N	\N	\N	\N	\N	2025-12-02 00:04:49.664966	\N	\N	0	0	draw	yes
+1403	1386004	2025-08-02	England	League Two	Salford City	Crewe	a-win	1	3	11	5	22	10	7	10	2	2	4	2	0	0	51.00	49.00	15	17	\N	\N	\N	\N	\N	2025-12-02 00:04:49.771245	\N	\N	1	3	a-win	yes
+1404	1386007	2025-08-02	England	League Two	Newport County	Notts County	draw	1	1	6	1	13	5	2	6	0	1	1	1	0	0	31.00	69.00	18	11	\N	\N	\N	\N	\N	2025-12-02 00:04:49.860056	\N	\N	0	0	draw	yes
+1405	1386015	2025-08-09	England	League Two	Notts County	Salford City	a-win	1	2	9	3	11	5	1	7	0	1	3	3	0	0	58.00	42.00	11	18	\N	\N	\N	\N	\N	2025-12-02 00:04:49.952988	\N	\N	0	1	a-win	yes
+1406	1386018	2025-08-09	England	League Two	Tranmere	Shrewsbury	h-win	4	0	10	6	12	3	2	5	3	1	1	3	0	1	58.00	42.00	13	11	\N	\N	\N	\N	\N	2025-12-02 00:04:50.040743	\N	\N	2	0	h-win	yes
+1407	1386012	2025-08-09	England	League Two	Fleetwood Town	Bristol Rovers	h-win	2	1	7	3	14	2	1	6	2	3	1	3	0	0	39.00	61.00	15	16	\N	\N	\N	\N	\N	2025-12-02 00:04:50.130848	\N	\N	2	0	h-win	yes
+1408	1386013	2025-08-09	England	League Two	Gillingham	Walsall	h-win	1	0	8	2	6	2	5	2	0	0	3	3	0	0	56.00	44.00	14	17	\N	\N	\N	\N	\N	2025-12-02 00:04:50.223486	\N	\N	0	0	draw	yes
+1409	1386016	2025-08-09	England	League Two	Oldham	Colchester	draw	1	1	21	7	8	3	8	7	1	2	1	1	0	0	50.00	50.00	19	13	\N	\N	\N	\N	\N	2025-12-02 00:04:50.306001	\N	\N	1	1	draw	yes
+1410	1386017	2025-08-09	England	League Two	Swindon Town	Cambridge United	h-win	3	2	9	5	10	4	2	7	2	3	2	1	0	0	40.00	60.00	11	10	\N	\N	\N	\N	\N	2025-12-02 00:04:50.398891	\N	\N	2	1	h-win	yes
+1411	1386019	2025-08-09	England	League Two	Crawley Town	Newport County	a-win	1	2	18	6	8	3	6	3	0	2	1	2	0	0	61.00	39.00	11	18	\N	\N	\N	\N	\N	2025-12-02 00:04:50.496175	\N	\N	0	0	draw	yes
+1412	1386011	2025-08-09	England	League Two	Crewe	Accrington ST	h-win	2	0	15	4	9	3	8	2	0	2	1	2	0	0	56.00	44.00	13	19	\N	\N	\N	\N	\N	2025-12-02 00:04:50.582126	\N	\N	2	0	h-win	yes
+1413	1386010	2025-08-09	England	League Two	Cheltenham	Chesterfield	a-win	0	2	6	2	16	8	2	5	2	2	7	1	0	0	44.00	56.00	19	16	\N	\N	\N	\N	\N	2025-12-02 00:04:50.66386	\N	\N	0	0	draw	yes
+1414	1386008	2025-08-09	England	League Two	Barrow	Milton Keynes Dons	a-win	0	2	7	0	12	5	1	5	3	2	3	2	0	0	47.00	53.00	19	12	\N	\N	\N	\N	\N	2025-12-02 00:04:50.759956	\N	\N	0	0	draw	yes
+2105	1419496	2025-08-02	England	FA Cup	Broadbridge Heath	Cobham	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:31.749816	\N	\N	0	0	draw	yes
+1415	1386009	2025-08-09	England	League Two	Bromley	Barnet	h-win	2	0	9	3	10	2	6	6	1	2	3	1	0	0	37.00	63.00	15	12	\N	\N	\N	\N	\N	2025-12-02 00:04:50.855207	\N	\N	1	0	h-win	yes
+1416	1386014	2025-08-09	England	League Two	Harrogate Town	Grimsby	draw	3	3	8	3	13	4	3	4	2	1	5	3	0	0	39.00	61.00	12	9	\N	\N	\N	\N	\N	2025-12-02 00:04:50.952978	\N	\N	0	0	draw	yes
+1417	1386024	2025-08-16	England	League Two	Chesterfield	Bristol Rovers	h-win	3	1	20	10	7	3	4	4	5	2	3	3	0	1	70.00	30.00	9	11	\N	\N	\N	\N	\N	2025-12-02 00:04:51.050292	\N	\N	1	0	h-win	yes
+1418	1386027	2025-08-16	England	League Two	Oldham	Swindon Town	a-win	1	2	13	5	13	3	4	2	5	1	0	3	0	0	54.00	46.00	9	11	\N	\N	\N	\N	\N	2025-12-02 00:04:51.135872	\N	\N	1	2	a-win	yes
+1419	1386026	2025-08-16	England	League Two	Milton Keynes Dons	Cheltenham	h-win	5	0	16	8	9	2	3	1	4	1	1	4	0	0	53.00	47.00	10	13	\N	\N	\N	\N	\N	2025-12-02 00:04:51.23055	\N	\N	3	0	h-win	yes
+1420	1386029	2025-08-16	England	League Two	Shrewsbury	Colchester	a-win	0	2	8	1	9	4	6	1	2	5	2	1	1	0	46.00	54.00	16	9	\N	\N	\N	\N	\N	2025-12-02 00:04:51.322999	\N	\N	0	0	draw	yes
+1421	1386025	2025-08-16	England	League Two	Crewe	Crawley Town	h-win	1	0	13	2	16	4	7	3	7	0	4	2	0	0	47.00	53.00	20	16	\N	\N	\N	\N	\N	2025-12-02 00:04:51.416034	\N	\N	1	0	h-win	yes
+1422	1386031	2025-08-16	England	League Two	Grimsby	Newport County	h-win	2	1	22	6	12	3	12	3	3	4	2	3	0	0	63.00	37.00	12	12	\N	\N	\N	\N	\N	2025-12-02 00:04:51.511073	\N	\N	1	0	h-win	yes
+1423	1386020	2025-08-16	England	League Two	Barnet	Walsall	a-win	1	2	10	3	6	2	7	1	0	3	4	0	1	0	66.00	34.00	14	8	\N	\N	\N	\N	\N	2025-12-02 00:04:51.609741	\N	\N	1	2	a-win	yes
+1424	1386023	2025-08-16	England	League Two	Cambridge United	Harrogate Town	draw	1	1	16	5	4	1	9	3	1	3	1	1	0	0	62.00	38.00	10	11	\N	\N	\N	\N	\N	2025-12-02 00:04:51.711726	\N	\N	1	0	h-win	yes
+1425	1386030	2025-08-16	England	League Two	Tranmere	Gillingham	draw	1	1	12	2	6	1	3	4	0	0	2	4	0	1	55.00	45.00	9	13	\N	\N	\N	\N	\N	2025-12-02 00:04:51.803613	\N	\N	0	0	draw	yes
+1426	1386021	2025-08-16	England	League Two	Barrow	Notts County	h-win	2	1	11	5	7	3	3	3	4	1	1	1	0	0	35.00	65.00	7	11	\N	\N	\N	\N	\N	2025-12-02 00:04:51.890072	\N	\N	1	0	h-win	yes
+1427	1386022	2025-08-16	England	League Two	Bromley	Fleetwood Town	draw	2	2	17	5	14	4	7	2	3	2	4	2	0	0	52.00	48.00	11	15	\N	\N	\N	\N	\N	2025-12-02 00:04:51.978251	\N	\N	1	1	draw	yes
+1428	1386028	2025-08-16	England	League Two	Salford City	Accrington ST	h-win	2	1	10	3	12	4	5	1	0	2	1	3	0	0	45.00	55.00	20	13	\N	\N	\N	\N	\N	2025-12-02 00:04:52.070486	\N	\N	2	0	h-win	yes
+1429	1386032	2025-08-19	England	League Two	Newport County	Salford City	a-win	0	1	11	2	11	3	5	3	2	3	1	3	0	0	55.00	45.00	15	11	\N	\N	\N	\N	\N	2025-12-02 00:04:52.156476	\N	\N	0	0	draw	yes
+1430	1386034	2025-08-19	England	League Two	Bristol Rovers	Oldham	draw	0	0	13	4	10	1	4	1	2	1	3	2	0	0	62.00	38.00	15	15	\N	\N	\N	\N	\N	2025-12-02 00:04:52.24994	\N	\N	0	0	draw	yes
+1431	1386038	2025-08-19	England	League Two	Fleetwood Town	Crewe	a-win	1	4	9	3	17	10	2	3	3	3	6	4	0	0	53.00	47.00	18	11	\N	\N	\N	\N	\N	2025-12-02 00:04:52.335706	\N	\N	0	2	a-win	yes
+1432	1386039	2025-08-19	England	League Two	Gillingham	Chesterfield	h-win	4	1	11	6	7	3	0	2	0	1	4	1	0	0	29.00	71.00	15	13	\N	\N	\N	\N	\N	2025-12-02 00:04:52.421347	\N	\N	1	0	h-win	yes
+1433	1386042	2025-08-19	England	League Two	Swindon Town	Barnet	a-win	0	2	8	4	11	5	6	8	2	9	2	3	0	0	51.00	49.00	13	13	\N	\N	\N	\N	\N	2025-12-02 00:04:52.508297	\N	\N	0	0	draw	yes
+1434	1386036	2025-08-19	England	League Two	Colchester	Cambridge United	a-win	1	2	9	3	12	4	2	11	2	0	2	4	0	0	51.00	49.00	11	16	\N	\N	\N	\N	\N	2025-12-02 00:04:52.593838	\N	\N	1	2	a-win	yes
+1435	1386037	2025-08-19	England	League Two	Crawley Town	Milton Keynes Dons	draw	1	1	12	6	15	6	8	11	0	2	4	1	0	0	53.00	47.00	22	11	\N	\N	\N	\N	\N	2025-12-02 00:04:52.691873	\N	\N	1	0	h-win	yes
+1436	1386035	2025-08-19	England	League Two	Cheltenham	Bromley	a-win	1	2	13	6	18	4	12	7	2	0	1	3	0	0	54.00	46.00	12	21	\N	\N	\N	\N	\N	2025-12-02 00:04:52.786179	\N	\N	0	1	a-win	yes
+1437	1386040	2025-08-19	England	League Two	Harrogate Town	Barrow	h-win	1	0	22	5	17	1	4	6	1	0	0	0	0	0	45.00	55.00	7	8	\N	\N	\N	\N	\N	2025-12-02 00:04:52.877908	\N	\N	1	0	h-win	yes
+1438	1386043	2025-08-19	England	League Two	Walsall	Grimsby	a-win	0	1	11	2	15	5	4	6	3	1	2	2	0	0	46.00	54.00	10	10	\N	\N	\N	\N	\N	2025-12-02 00:04:52.974466	\N	\N	0	0	draw	yes
+1439	1386041	2025-08-20	England	League Two	Notts County	Shrewsbury	h-win	4	1	11	8	7	2	4	4	0	2	3	3	0	0	53.00	47.00	10	16	\N	\N	\N	\N	\N	2025-12-02 00:04:53.081095	\N	\N	2	1	h-win	yes
+1440	1386054	2025-08-23	England	League Two	Walsall	Salford City	h-win	1	0	18	6	6	3	5	2	3	4	2	1	0	0	30.00	70.00	12	9	\N	\N	\N	\N	\N	2025-12-02 00:04:53.168064	\N	\N	1	0	h-win	yes
+1441	1386055	2025-08-23	England	League Two	Newport County	Milton Keynes Dons	a-win	1	2	10	3	17	4	3	7	4	7	1	2	0	0	48.00	52.00	12	13	\N	\N	\N	\N	\N	2025-12-02 00:04:53.256215	\N	\N	1	1	draw	yes
+1442	1386045	2025-08-23	England	League Two	Bristol Rovers	Cambridge United	h-win	1	0	9	3	8	0	3	4	1	3	2	3	0	1	43.00	57.00	11	11	\N	\N	\N	\N	\N	2025-12-02 00:04:53.340364	\N	\N	1	0	h-win	yes
+1443	1386049	2025-08-23	England	League Two	Fleetwood Town	Oldham	draw	1	1	12	4	22	3	4	8	0	3	2	0	0	0	53.00	47.00	13	13	\N	\N	\N	\N	\N	2025-12-02 00:04:53.426167	\N	\N	1	1	draw	yes
+1444	1386050	2025-08-23	England	League Two	Gillingham	Crewe	h-win	1	0	17	5	7	2	4	3	0	4	2	2	0	0	50.00	50.00	14	18	\N	\N	\N	\N	\N	2025-12-02 00:04:53.510297	\N	\N	0	0	draw	yes
+1445	1386053	2025-08-23	England	League Two	Swindon Town	Shrewsbury	h-win	2	1	15	7	10	3	5	2	0	0	1	2	0	0	57.00	43.00	11	9	\N	\N	\N	\N	\N	2025-12-02 00:04:53.603805	\N	\N	1	0	h-win	yes
+1446	1386044	2025-08-23	England	League Two	Accrington ST	Grimsby	draw	1	1	11	3	13	4	5	0	2	1	5	0	0	0	42.00	58.00	25	7	\N	\N	\N	\N	\N	2025-12-02 00:04:53.69733	\N	\N	0	1	a-win	yes
+1447	1386047	2025-08-23	England	League Two	Colchester	Barrow	a-win	0	2	24	6	9	4	14	2	1	2	2	3	0	0	66.00	34.00	10	14	\N	\N	\N	\N	\N	2025-12-02 00:04:53.78033	\N	\N	0	1	a-win	yes
+1448	1386048	2025-08-23	England	League Two	Crawley Town	Tranmere	a-win	0	2	20	3	10	2	8	9	4	3	1	4	0	0	63.00	37.00	7	20	\N	\N	\N	\N	\N	2025-12-02 00:04:53.864749	\N	\N	0	0	draw	yes
+1449	1386046	2025-08-23	England	League Two	Cheltenham	Barnet	a-win	0	1	11	1	15	6	1	4	3	1	1	1	0	1	51.00	49.00	14	23	\N	\N	\N	\N	\N	2025-12-02 00:04:53.953065	\N	\N	0	0	draw	yes
+1450	1386052	2025-08-23	England	League Two	Notts County	Bromley	draw	2	2	8	3	9	3	3	5	1	0	1	4	0	0	53.00	47.00	12	14	\N	\N	\N	\N	\N	2025-12-02 00:04:54.044019	\N	\N	2	1	h-win	yes
+1451	1386051	2025-08-23	England	League Two	Harrogate Town	Chesterfield	a-win	1	2	9	3	13	5	6	5	1	0	0	1	0	0	51.00	49.00	8	11	\N	\N	\N	\N	\N	2025-12-02 00:04:54.140847	\N	\N	0	1	a-win	yes
+1452	1386064	2025-08-29	England	League Two	Salford City	Cheltenham	draw	1	1	26	7	5	3	14	1	1	3	2	1	0	0	69.00	31.00	14	14	\N	\N	\N	\N	\N	2025-12-02 00:04:54.227415	\N	\N	0	0	draw	yes
+1453	1386060	2025-08-30	England	League Two	Crewe	Swindon Town	a-win	0	3	10	3	19	9	3	4	0	2	1	1	0	0	47.00	53.00	12	11	\N	\N	\N	\N	\N	2025-12-02 00:04:54.324859	\N	\N	0	3	a-win	yes
+2106	1419332	2025-08-02	England	FA Cup	Burnham	Holyport	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:31.827757	\N	\N	0	0	draw	yes
+1454	1386057	2025-08-30	England	League Two	Barrow	Fleetwood Town	a-win	0	1	8	1	19	6	4	9	0	1	2	3	1	0	32.00	68.00	12	14	\N	\N	\N	\N	\N	2025-12-02 00:04:54.411282	\N	\N	0	1	a-win	yes
+1455	1386059	2025-08-30	England	League Two	Chesterfield	Crawley Town	draw	2	2	12	3	3	3	8	5	1	3	5	5	0	0	62.00	38.00	20	15	\N	\N	\N	\N	\N	2025-12-02 00:04:54.496213	\N	\N	0	2	a-win	yes
+1456	1386062	2025-08-30	England	League Two	Milton Keynes Dons	Walsall	a-win	0	1	18	5	6	2	5	3	0	1	2	1	0	0	66.00	34.00	8	14	\N	\N	\N	\N	\N	2025-12-02 00:04:54.583781	\N	\N	0	0	draw	yes
+1457	1386063	2025-08-30	England	League Two	Oldham	Gillingham	a-win	0	1	11	3	8	2	7	2	2	1	5	3	0	0	56.00	44.00	11	16	\N	\N	\N	\N	\N	2025-12-02 00:04:54.675457	\N	\N	0	0	draw	yes
+1458	1386065	2025-08-30	England	League Two	Shrewsbury	Accrington ST	draw	0	0	17	5	9	4	2	6	2	2	3	3	0	0	53.00	47.00	8	15	\N	\N	\N	\N	\N	2025-12-02 00:04:54.764089	\N	\N	0	0	draw	yes
+1459	1386061	2025-08-30	England	League Two	Grimsby	Bristol Rovers	a-win	0	1	12	2	7	3	9	8	4	1	1	3	0	0	67.00	33.00	9	15	\N	\N	\N	\N	\N	2025-12-02 00:04:54.86187	\N	\N	0	1	a-win	yes
+1460	1386056	2025-08-30	England	League Two	Barnet	Colchester	draw	1	1	15	6	7	2	8	3	1	5	2	0	0	0	63.00	37.00	16	12	\N	\N	\N	\N	\N	2025-12-02 00:04:54.951295	\N	\N	0	1	a-win	yes
+1461	1386067	2025-08-30	England	League Two	Cambridge United	Newport County	h-win	2	0	10	3	4	2	7	4	3	3	0	1	0	0	55.00	45.00	10	14	\N	\N	\N	\N	\N	2025-12-02 00:04:55.040171	\N	\N	1	0	h-win	yes
+1462	1386066	2025-08-30	England	League Two	Tranmere	Notts County	a-win	1	2	15	2	7	4	8	3	0	0	5	2	0	0	49.00	51.00	10	8	\N	\N	\N	\N	\N	2025-12-02 00:04:55.152969	\N	\N	1	0	h-win	yes
+1463	1386058	2025-08-30	England	League Two	Bromley	Harrogate Town	h-win	2	0	17	6	7	3	3	4	0	2	2	2	0	0	51.00	49.00	10	12	\N	\N	\N	\N	\N	2025-12-02 00:04:55.258253	\N	\N	0	0	draw	yes
+1464	1386078	2025-09-06	England	League Two	Newport County	Bristol Rovers	a-win	2	3	10	5	12	4	1	3	2	4	1	3	0	0	47.00	53.00	16	15	\N	\N	\N	\N	\N	2025-12-02 00:04:55.341956	\N	\N	0	0	draw	yes
+1465	1386077	2025-09-06	England	League Two	Walsall	Chesterfield	h-win	1	0	7	2	10	0	7	2	1	0	4	4	1	0	26.00	74.00	15	9	\N	\N	\N	\N	\N	2025-12-02 00:04:55.421343	\N	\N	1	0	h-win	yes
+1466	1386074	2025-09-06	England	League Two	Milton Keynes Dons	Grimsby	a-win	2	3	8	2	13	8	6	5	2	0	2	1	1	0	29.00	71.00	11	11	\N	\N	\N	\N	\N	2025-12-02 00:04:55.510301	\N	\N	0	3	a-win	yes
+1467	1386072	2025-09-06	England	League Two	Colchester	Crewe	draw	1	1	14	7	5	1	3	1	0	3	2	4	0	0	65.00	35.00	14	17	\N	\N	\N	\N	\N	2025-12-02 00:04:55.596053	\N	\N	0	1	a-win	yes
+1468	1386079	2025-09-06	England	League Two	Barnet	Shrewsbury	a-win	1	3	16	6	12	4	6	3	2	3	1	5	0	0	75.00	25.00	11	8	\N	\N	\N	\N	\N	2025-12-02 00:04:55.681053	\N	\N	1	3	a-win	yes
+1469	1386070	2025-09-06	England	League Two	Cambridge United	Oldham	a-win	0	1	13	2	6	4	10	2	1	2	3	2	0	0	64.00	36.00	7	10	\N	\N	\N	\N	\N	2025-12-02 00:04:55.768099	\N	\N	0	1	a-win	yes
+1470	1386071	2025-09-06	England	League Two	Cheltenham	Accrington ST	h-win	1	0	13	3	7	1	5	5	1	2	1	3	0	0	47.00	53.00	13	17	\N	\N	\N	\N	\N	2025-12-02 00:04:55.86025	\N	\N	1	0	h-win	yes
+1471	1386075	2025-09-06	England	League Two	Notts County	Fleetwood Town	h-win	1	0	13	4	13	6	9	5	3	1	3	3	0	0	58.00	42.00	16	16	\N	\N	\N	\N	\N	2025-12-02 00:04:55.950829	\N	\N	0	0	draw	yes
+1472	1386068	2025-09-06	England	League Two	Barrow	Swindon Town	a-win	1	3	14	2	8	3	8	2	5	1	1	3	0	0	46.00	54.00	9	12	\N	\N	\N	\N	\N	2025-12-02 00:04:56.038519	\N	\N	0	2	a-win	yes
+1473	1386073	2025-09-06	England	League Two	Harrogate Town	Crawley Town	a-win	0	1	20	6	12	3	5	7	3	0	1	5	0	1	49.00	51.00	18	14	\N	\N	\N	\N	\N	2025-12-02 00:04:56.1261	\N	\N	0	1	a-win	yes
+1474	1386076	2025-09-06	England	League Two	Salford City	Tranmere	h-win	3	1	27	8	11	4	10	2	2	2	1	0	0	0	53.00	47.00	13	13	\N	\N	\N	\N	\N	2025-12-02 00:04:56.216157	\N	\N	0	0	draw	yes
+1475	1386069	2025-09-06	England	League Two	Bromley	Gillingham	draw	2	2	16	6	15	5	5	7	5	0	2	2	0	0	47.00	53.00	8	11	\N	\N	\N	\N	\N	2025-12-02 00:04:56.309863	\N	\N	2	0	h-win	yes
+1476	1386080	2025-09-13	England	League Two	Accrington ST	Colchester	h-win	1	0	16	8	5	0	5	4	3	2	2	3	0	1	42.00	58.00	15	17	\N	\N	\N	\N	\N	2025-12-02 00:04:56.398249	\N	\N	1	0	h-win	yes
+1477	1386083	2025-09-13	England	League Two	Crawley Town	Cheltenham	h-win	2	0	17	6	11	3	7	4	2	2	2	1	0	0	58.00	42.00	13	15	\N	\N	\N	\N	\N	2025-12-02 00:04:56.490154	\N	\N	0	0	draw	yes
+1478	1386081	2025-09-13	England	League Two	Bristol Rovers	Barrow	h-win	2	1	12	3	15	2	5	9	1	1	2	3	0	0	48.00	52.00	7	13	\N	\N	\N	\N	\N	2025-12-02 00:04:56.578991	\N	\N	2	0	h-win	yes
+1479	1386085	2025-09-13	England	League Two	Fleetwood Town	Walsall	draw	1	1	9	2	13	2	6	6	1	1	1	1	0	0	62.00	38.00	10	11	\N	\N	\N	\N	\N	2025-12-02 00:04:56.671289	\N	\N	1	1	draw	yes
+1480	1386082	2025-09-13	England	League Two	Chesterfield	Milton Keynes Dons	draw	1	1	12	4	4	1	7	4	1	1	1	4	0	0	57.00	43.00	9	16	\N	\N	\N	\N	\N	2025-12-02 00:04:56.752863	\N	\N	0	1	a-win	yes
+1481	1386086	2025-09-13	England	League Two	Gillingham	Notts County	h-win	1	0	7	3	9	1	2	4	2	1	4	1	0	0	41.00	59.00	10	8	\N	\N	\N	\N	\N	2025-12-02 00:04:56.842974	\N	\N	0	0	draw	yes
+1482	1386088	2025-09-13	England	League Two	Oldham	Bromley	h-win	1	0	16	6	14	3	8	8	1	5	2	1	0	0	54.00	46.00	11	11	\N	\N	\N	\N	\N	2025-12-02 00:04:56.934002	\N	\N	0	0	draw	yes
+1483	1386089	2025-09-13	England	League Two	Shrewsbury	Salford City	a-win	1	3	17	3	11	3	7	4	1	1	1	2	0	0	44.00	56.00	9	7	\N	\N	\N	\N	\N	2025-12-02 00:04:57.030947	\N	\N	0	1	a-win	yes
+1484	1386090	2025-09-13	England	League Two	Swindon Town	Harrogate Town	h-win	3	1	22	7	7	4	6	7	1	6	2	2	0	0	59.00	41.00	10	8	\N	\N	\N	\N	\N	2025-12-02 00:04:57.157718	\N	\N	1	1	draw	yes
+1485	1386084	2025-09-13	England	League Two	Crewe	Barnet	a-win	1	2	11	4	11	4	5	6	2	2	0	4	0	0	52.00	48.00	10	16	\N	\N	\N	\N	\N	2025-12-02 00:04:57.243417	\N	\N	0	0	draw	yes
+1486	1386087	2025-09-13	England	League Two	Grimsby	Cambridge United	draw	1	1	11	5	11	4	5	5	0	2	3	4	0	0	63.00	37.00	15	22	\N	\N	\N	\N	\N	2025-12-02 00:04:57.325724	\N	\N	0	1	a-win	yes
+1487	1386091	2025-09-13	England	League Two	Tranmere	Newport County	draw	1	1	14	4	11	4	3	2	2	4	2	3	0	0	54.00	46.00	11	13	\N	\N	\N	\N	\N	2025-12-02 00:04:57.407866	\N	\N	1	0	h-win	yes
+1488	1386095	2025-09-20	England	League Two	Cambridge United	Fleetwood Town	h-win	2	1	23	5	9	3	10	1	3	1	1	0	0	0	43.00	57.00	11	12	\N	\N	\N	\N	\N	2025-12-02 00:04:57.500287	\N	\N	0	0	draw	yes
+1489	1386098	2025-09-20	England	League Two	Harrogate Town	Shrewsbury	h-win	2	0	13	9	16	2	4	5	3	2	3	3	0	0	53.00	47.00	10	12	\N	\N	\N	\N	\N	2025-12-02 00:04:57.583127	\N	\N	0	0	draw	yes
+1490	1386102	2025-09-20	England	League Two	Walsall	Tranmere	h-win	4	2	15	7	17	3	8	8	1	0	0	1	0	0	36.00	64.00	9	8	\N	\N	\N	\N	\N	2025-12-02 00:04:57.671248	\N	\N	2	1	h-win	yes
+1491	1386099	2025-09-20	England	League Two	Milton Keynes Dons	Accrington ST	a-win	1	2	7	3	15	6	3	5	4	1	5	2	1	0	54.00	46.00	14	7	\N	\N	\N	\N	\N	2025-12-02 00:04:57.759325	\N	\N	0	1	a-win	yes
+1492	1386097	2025-09-20	England	League Two	Colchester	Bristol Rovers	draw	1	1	10	4	10	1	4	2	3	1	2	5	0	0	51.00	49.00	7	17	\N	\N	\N	\N	\N	2025-12-02 00:04:57.856084	\N	\N	0	1	a-win	yes
+2281	1423502	2025-08-05	England	FA Cup	Benfleet	Leighton Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.129441	\N	\N	0	0	draw	yes
+1493	1386103	2025-09-20	England	League Two	Newport County	Gillingham	a-win	1	3	15	7	12	6	5	5	6	1	2	4	0	0	65.00	35.00	8	15	\N	\N	\N	\N	\N	2025-12-02 00:04:57.943533	\N	\N	1	3	a-win	yes
+1494	1386092	2025-09-20	England	League Two	Barnet	Grimsby	h-win	3	0	19	5	7	1	9	4	2	2	2	0	0	0	52.00	48.00	9	6	\N	\N	\N	\N	\N	2025-12-02 00:04:58.038204	\N	\N	1	0	h-win	yes
+1495	1386096	2025-09-20	England	League Two	Cheltenham	Oldham	a-win	0	3	9	2	22	9	6	7	3	4	3	0	0	0	47.00	53.00	14	18	\N	\N	\N	\N	\N	2025-12-02 00:04:58.124603	\N	\N	0	1	a-win	yes
+1496	1386100	2025-09-20	England	League Two	Notts County	Crawley Town	h-win	4	0	12	8	7	2	6	1	3	1	0	2	0	0	50.00	50.00	12	18	\N	\N	\N	\N	\N	2025-12-02 00:04:58.221207	\N	\N	1	0	h-win	yes
+1497	1386093	2025-09-20	England	League Two	Barrow	Crewe	h-win	1	0	8	3	11	5	2	8	0	2	2	2	0	0	36.00	64.00	10	8	\N	\N	\N	\N	\N	2025-12-02 00:04:58.30876	\N	\N	0	0	draw	yes
+1498	1386094	2025-09-20	England	League Two	Bromley	Chesterfield	draw	2	2	15	6	9	2	9	4	4	3	2	3	0	0	36.00	64.00	12	8	\N	\N	\N	\N	\N	2025-12-02 00:04:58.391356	\N	\N	1	1	draw	yes
+1499	1386101	2025-09-20	England	League Two	Salford City	Swindon Town	h-win	3	2	11	7	11	6	6	10	2	1	1	2	0	0	41.00	59.00	12	10	\N	\N	\N	\N	\N	2025-12-02 00:04:58.473177	\N	\N	2	0	h-win	yes
+1500	1386111	2025-09-27	England	League Two	Oldham	Barnet	draw	1	1	13	4	13	3	4	6	2	0	2	3	0	0	48.00	52.00	15	15	\N	\N	\N	\N	\N	2025-12-02 00:04:58.551216	\N	\N	0	1	a-win	yes
+1501	1386107	2025-09-27	England	League Two	Crewe	Notts County	h-win	2	1	9	3	18	6	8	5	0	0	3	4	0	0	37.00	63.00	18	14	\N	\N	\N	\N	\N	2025-12-02 00:04:58.638158	\N	\N	1	1	draw	yes
+1502	1386105	2025-09-27	England	League Two	Bristol Rovers	Salford City	h-win	2	1	7	2	18	6	2	5	2	1	2	4	0	1	47.00	53.00	17	14	\N	\N	\N	\N	\N	2025-12-02 00:04:58.720009	\N	\N	1	1	draw	yes
+1503	1386108	2025-09-27	England	League Two	Fleetwood Town	Colchester	h-win	4	2	18	7	12	4	4	1	0	2	0	0	0	0	50.00	50.00	14	13	\N	\N	\N	\N	\N	2025-12-02 00:04:58.813045	\N	\N	1	2	a-win	yes
+1504	1386115	2025-09-27	England	League Two	Chesterfield	Newport County	h-win	4	1	12	4	10	3	4	3	1	2	3	2	0	0	56.00	44.00	12	21	\N	\N	\N	\N	\N	2025-12-02 00:04:58.90813	\N	\N	2	0	h-win	yes
+1505	1386109	2025-09-27	England	League Two	Gillingham	Harrogate Town	a-win	0	1	19	3	7	2	12	1	1	3	1	1	0	0	55.00	45.00	12	4	\N	\N	\N	\N	\N	2025-12-02 00:04:59.005484	\N	\N	0	1	a-win	yes
+1506	1386112	2025-09-27	England	League Two	Shrewsbury	Milton Keynes Dons	a-win	1	2	11	4	7	4	7	1	0	1	2	0	0	0	46.00	54.00	15	11	\N	\N	\N	\N	\N	2025-12-02 00:04:59.107074	\N	\N	0	2	a-win	yes
+1507	1386113	2025-09-27	England	League Two	Swindon Town	Bromley	h-win	2	0	11	6	15	2	6	4	2	0	2	1	0	0	48.00	52.00	13	9	\N	\N	\N	\N	\N	2025-12-02 00:04:59.206992	\N	\N	2	0	h-win	yes
+1508	1386104	2025-09-27	England	League Two	Accrington ST	Walsall	a-win	1	3	20	6	9	5	8	3	1	1	0	1	0	0	60.00	40.00	11	14	\N	\N	\N	\N	\N	2025-12-02 00:04:59.305946	\N	\N	0	0	draw	yes
+1509	1386106	2025-09-27	England	League Two	Crawley Town	Barrow	a-win	1	2	20	6	18	8	12	7	4	4	3	3	0	0	67.00	33.00	5	6	\N	\N	\N	\N	\N	2025-12-02 00:04:59.395544	\N	\N	0	2	a-win	yes
+1510	1386110	2025-09-27	England	League Two	Grimsby	Cheltenham	h-win	7	1	26	12	3	1	8	1	2	0	0	6	0	2	77.00	23.00	12	13	\N	\N	\N	\N	\N	2025-12-02 00:04:59.492506	\N	\N	2	1	h-win	yes
+1511	1386114	2025-09-27	England	League Two	Tranmere	Cambridge United	draw	0	0	4	1	13	1	1	7	0	0	1	2	0	0	45.00	55.00	11	12	\N	\N	\N	\N	\N	2025-12-02 00:04:59.585492	\N	\N	0	0	draw	yes
+1512	1386123	2025-10-04	England	League Two	Milton Keynes Dons	Gillingham	h-win	3	2	13	4	14	4	3	4	1	2	2	3	0	0	46.00	54.00	20	11	\N	\N	\N	\N	\N	2025-12-02 00:04:59.678376	\N	\N	1	0	h-win	yes
+1513	1386127	2025-10-04	England	League Two	Newport County	Swindon Town	a-win	0	1	9	1	11	3	5	6	0	1	4	5	0	0	44.00	56.00	14	15	\N	\N	\N	\N	\N	2025-12-02 00:04:59.771854	\N	\N	0	1	a-win	yes
+1514	1386126	2025-10-04	England	League Two	Walsall	Bristol Rovers	h-win	2	1	6	2	6	3	3	2	4	1	3	3	0	0	33.00	67.00	12	15	\N	\N	\N	\N	\N	2025-12-02 00:04:59.860248	\N	\N	0	1	a-win	yes
+1515	1386121	2025-10-04	England	League Two	Colchester	Chesterfield	h-win	6	2	22	12	6	2	3	3	3	1	1	1	0	0	46.00	54.00	7	16	\N	\N	\N	\N	\N	2025-12-02 00:04:59.949732	\N	\N	4	1	h-win	yes
+1516	1386116	2025-10-04	England	League Two	Barnet	Accrington ST	h-win	2	0	15	5	15	2	4	4	3	2	1	3	0	0	52.00	48.00	9	10	\N	\N	\N	\N	\N	2025-12-02 00:05:00.035091	\N	\N	1	0	h-win	yes
+1517	1386119	2025-10-04	England	League Two	Cambridge United	Crawley Town	h-win	3	1	7	5	14	3	2	10	0	3	2	5	0	0	29.00	71.00	11	16	\N	\N	\N	\N	\N	2025-12-02 00:05:00.144961	\N	\N	1	0	h-win	yes
+1518	1386120	2025-10-04	England	League Two	Cheltenham	Fleetwood Town	h-win	2	0	11	5	18	7	0	6	0	1	1	4	0	0	45.00	55.00	7	11	\N	\N	\N	\N	\N	2025-12-02 00:05:00.260674	\N	\N	0	0	draw	yes
+1519	1386124	2025-10-04	England	League Two	Notts County	Oldham	h-win	3	1	18	11	10	4	2	9	1	2	1	1	0	0	51.00	49.00	2	12	\N	\N	\N	\N	\N	2025-12-02 00:05:00.350531	\N	\N	2	0	h-win	yes
+1520	1386117	2025-10-04	England	League Two	Barrow	Shrewsbury	draw	0	0	7	2	9	2	3	7	2	4	2	2	0	0	48.00	52.00	11	12	\N	\N	\N	\N	\N	2025-12-02 00:05:00.431265	\N	\N	0	0	draw	yes
+1521	1386118	2025-10-04	England	League Two	Bromley	Tranmere	draw	3	3	18	8	9	4	8	2	1	1	2	3	1	0	48.00	52.00	9	18	\N	\N	\N	\N	\N	2025-12-02 00:05:00.532623	\N	\N	2	1	h-win	yes
+1522	1386125	2025-10-04	England	League Two	Salford City	Grimsby	a-win	0	2	13	4	12	3	4	5	1	3	3	3	0	0	55.00	45.00	18	18	\N	\N	\N	\N	\N	2025-12-02 00:05:00.693662	\N	\N	0	2	a-win	yes
+1523	1386122	2025-10-06	England	League Two	Harrogate Town	Crewe	a-win	1	2	10	1	14	3	3	6	1	0	2	0	0	0	42.00	58.00	11	13	\N	\N	\N	\N	\N	2025-12-02 00:05:00.783004	\N	\N	1	1	draw	yes
+1524	1386128	2025-10-11	England	League Two	Bristol Rovers	Milton Keynes Dons	a-win	0	4	6	1	13	7	7	2	2	1	2	2	0	0	52.00	48.00	9	13	\N	\N	\N	\N	\N	2025-12-02 00:05:00.889331	\N	\N	0	1	a-win	yes
+1525	1386132	2025-10-11	England	League Two	Fleetwood Town	Harrogate Town	h-win	3	2	16	5	13	5	4	3	1	1	0	0	0	0	33.00	67.00	13	10	\N	\N	\N	\N	\N	2025-12-02 00:05:00.993042	\N	\N	1	1	draw	yes
+1526	1386129	2025-10-11	England	League Two	Chesterfield	Salford City	h-win	2	0	10	3	10	2	4	7	3	3	3	2	0	0	52.00	48.00	12	13	\N	\N	\N	\N	\N	2025-12-02 00:05:01.079688	\N	\N	0	0	draw	yes
+1527	1386133	2025-10-11	England	League Two	Gillingham	Cheltenham	draw	1	1	29	10	11	1	11	2	2	2	0	2	0	0	53.00	47.00	10	13	\N	\N	\N	\N	\N	2025-12-02 00:05:01.161109	\N	\N	0	0	draw	yes
+1528	1386136	2025-10-11	England	League Two	Shrewsbury	Cambridge United	h-win	2	0	4	2	7	1	3	3	1	4	2	1	0	0	39.00	61.00	9	8	\N	\N	\N	\N	\N	2025-12-02 00:05:01.241449	\N	\N	2	0	h-win	yes
+1529	1386139	2025-10-11	England	League Two	Accrington ST	Newport County	a-win	0	1	12	2	7	2	4	3	3	5	1	1	0	0	57.00	43.00	9	10	\N	\N	\N	\N	\N	2025-12-02 00:05:01.326146	\N	\N	0	1	a-win	yes
+1530	1386130	2025-10-11	England	League Two	Crawley Town	Walsall	draw	1	1	16	8	9	4	4	7	3	2	2	2	0	0	73.00	27.00	12	14	\N	\N	\N	\N	\N	2025-12-02 00:05:01.421159	\N	\N	1	0	h-win	yes
+1531	1386131	2025-10-11	England	League Two	Crewe	Bromley	a-win	0	1	7	1	12	5	5	5	3	2	1	2	0	0	55.00	45.00	13	16	\N	\N	\N	\N	\N	2025-12-02 00:05:01.517938	\N	\N	0	0	draw	yes
+1532	1386134	2025-10-11	England	League Two	Grimsby	Colchester	a-win	1	2	6	2	15	6	6	3	3	1	3	4	0	0	57.00	43.00	14	12	\N	\N	\N	\N	\N	2025-12-02 00:05:01.60127	\N	\N	1	1	draw	yes
+1533	1386138	2025-10-11	England	League Two	Tranmere	Barnet	a-win	0	2	13	0	14	4	2	6	1	1	0	4	0	0	50.00	50.00	13	14	\N	\N	\N	\N	\N	2025-12-02 00:05:01.698823	\N	\N	0	2	a-win	yes
+1534	1386135	2025-10-11	England	League Two	Oldham	Barrow	draw	0	0	18	4	6	2	7	4	3	3	1	1	0	0	57.00	43.00	9	15	\N	\N	\N	\N	\N	2025-12-02 00:05:01.791253	\N	\N	0	0	draw	yes
+1535	1386143	2025-10-18	England	League Two	Cambridge United	Bromley	h-win	2	1	13	4	11	2	3	3	0	3	2	1	0	0	56.00	44.00	12	12	\N	\N	\N	\N	\N	2025-12-02 00:05:01.88075	\N	\N	2	0	h-win	yes
+1536	1386148	2025-10-18	England	League Two	Salford City	Oldham	h-win	1	0	29	8	15	5	7	7	3	3	3	2	0	1	49.00	51.00	11	19	\N	\N	\N	\N	\N	2025-12-02 00:05:01.97565	\N	\N	1	0	h-win	yes
+1537	1386142	2025-10-18	England	League Two	Bristol Rovers	Tranmere	a-win	1	4	12	2	20	9	6	5	1	2	2	2	0	0	61.00	39.00	13	14	\N	\N	\N	\N	\N	2025-12-02 00:05:02.065307	\N	\N	0	1	a-win	yes
+1538	1386150	2025-10-18	England	League Two	Walsall	Barrow	a-win	1	2	24	11	5	2	14	0	4	1	1	4	0	1	59.00	41.00	7	11	\N	\N	\N	\N	\N	2025-12-02 00:05:02.153625	\N	\N	0	1	a-win	yes
+1539	1386144	2025-10-18	England	League Two	Chesterfield	Fleetwood Town	draw	1	1	14	5	6	2	9	9	0	4	1	3	0	0	68.00	32.00	5	9	\N	\N	\N	\N	\N	2025-12-02 00:05:02.243831	\N	\N	1	1	draw	yes
+1540	1386147	2025-10-18	England	League Two	Milton Keynes Dons	Crewe	h-win	3	1	10	7	10	2	4	7	1	3	4	0	0	0	44.00	56.00	10	10	\N	\N	\N	\N	\N	2025-12-02 00:05:02.348059	\N	\N	2	0	h-win	yes
+1541	1386149	2025-10-18	England	League Two	Shrewsbury	Crawley Town	h-win	1	0	13	4	15	3	6	6	5	1	3	5	0	1	34.00	66.00	13	15	\N	\N	\N	\N	\N	2025-12-02 00:05:02.440059	\N	\N	0	0	draw	yes
+1542	1386140	2025-10-18	England	League Two	Accrington ST	Swindon Town	h-win	4	0	19	6	8	3	3	5	0	1	0	3	0	1	42.00	58.00	9	8	\N	\N	\N	\N	\N	2025-12-02 00:05:02.561051	\N	\N	1	0	h-win	yes
+1543	1386145	2025-10-18	England	League Two	Colchester	Harrogate Town	h-win	3	1	19	8	5	2	5	4	1	1	1	3	0	0	53.00	47.00	12	14	\N	\N	\N	\N	\N	2025-12-02 00:05:02.647381	\N	\N	3	1	h-win	yes
+1544	1386146	2025-10-18	England	League Two	Grimsby	Gillingham	h-win	1	0	24	9	3	2	6	2	3	1	3	6	0	2	78.00	22.00	24	3	\N	\N	\N	\N	\N	2025-12-02 00:05:02.741873	\N	\N	0	0	draw	yes
+1545	1386151	2025-10-18	England	League Two	Newport County	Cheltenham	a-win	0	2	9	3	10	4	3	3	1	0	4	1	0	0	58.00	42.00	7	13	\N	\N	\N	\N	\N	2025-12-02 00:05:02.849057	\N	\N	0	1	a-win	yes
+1546	1386141	2025-10-18	England	League Two	Barnet	Notts County	a-win	0	1	18	5	4	1	12	2	4	0	3	2	0	0	57.00	43.00	14	17	\N	\N	\N	\N	\N	2025-12-02 00:05:02.949512	\N	\N	0	0	draw	yes
+1547	1386137	2025-10-21	England	League Two	Swindon Town	Notts County	draw	2	2	11	5	8	5	5	1	0	2	2	4	0	0	53.00	47.00	10	17	\N	\N	\N	\N	\N	2025-12-02 00:05:03.031211	\N	\N	1	1	draw	yes
+1548	1386157	2025-10-25	England	League Two	Fleetwood Town	Accrington ST	h-win	2	1	15	7	14	2	7	9	0	2	1	3	0	0	49.00	51.00	9	14	\N	\N	\N	\N	\N	2025-12-02 00:05:03.110923	\N	\N	0	1	a-win	yes
+1549	1386154	2025-10-25	England	League Two	Cheltenham	Walsall	h-win	1	0	8	1	14	6	1	4	0	0	2	1	0	0	67.00	33.00	6	9	\N	\N	\N	\N	\N	2025-12-02 00:05:03.225316	\N	\N	0	0	draw	yes
+1550	1386158	2025-10-25	England	League Two	Gillingham	Salford City	a-win	1	2	14	7	13	2	5	5	2	0	2	5	0	0	48.00	52.00	17	16	\N	\N	\N	\N	\N	2025-12-02 00:05:03.312938	\N	\N	1	2	a-win	yes
+1551	1386160	2025-10-25	England	League Two	Oldham	Shrewsbury	draw	2	2	12	4	9	3	7	2	0	2	1	4	0	0	60.00	40.00	8	17	\N	\N	\N	\N	\N	2025-12-02 00:05:03.400366	\N	\N	0	0	draw	yes
+1552	1386161	2025-10-25	England	League Two	Swindon Town	Colchester	draw	0	0	9	2	9	1	1	5	0	5	1	0	0	0	53.00	47.00	11	8	\N	\N	\N	\N	\N	2025-12-02 00:05:03.511117	\N	\N	0	0	draw	yes
+1553	1386155	2025-10-25	England	League Two	Crawley Town	Bristol Rovers	h-win	4	0	14	5	4	3	5	3	5	0	2	3	0	1	73.00	27.00	13	14	\N	\N	\N	\N	\N	2025-12-02 00:05:03.640461	\N	\N	1	0	h-win	yes
+1554	1386156	2025-10-25	England	League Two	Crewe	Grimsby	h-win	3	2	11	5	12	2	3	3	5	1	1	1	0	0	55.00	45.00	15	15	\N	\N	\N	\N	\N	2025-12-02 00:05:03.729442	\N	\N	2	2	draw	yes
+1555	1386159	2025-10-25	England	League Two	Notts County	Cambridge United	h-win	2	0	4	3	5	1	0	5	2	3	0	4	0	0	66.00	34.00	12	17	\N	\N	\N	\N	\N	2025-12-02 00:05:03.821669	\N	\N	0	0	draw	yes
+1556	1386162	2025-10-25	England	League Two	Tranmere	Chesterfield	draw	1	1	13	6	9	4	4	7	3	3	0	2	0	0	57.00	43.00	14	14	\N	\N	\N	\N	\N	2025-12-02 00:05:03.91411	\N	\N	0	1	a-win	yes
+1557	1386152	2025-10-25	England	League Two	Barrow	Barnet	draw	2	2	6	3	19	9	4	7	1	3	2	1	1	0	26.00	74.00	8	2	\N	\N	\N	\N	\N	2025-12-02 00:05:04.000614	\N	\N	1	0	h-win	yes
+1558	1386153	2025-10-25	England	League Two	Bromley	Milton Keynes Dons	h-win	2	1	10	4	7	3	7	2	2	0	1	0	0	0	45.00	55.00	8	11	\N	\N	\N	\N	\N	2025-12-02 00:05:04.091225	\N	\N	0	1	a-win	yes
+1559	1386163	2025-10-25	England	League Two	Harrogate Town	Newport County	a-win	0	3	13	3	16	8	4	1	4	2	2	0	0	0	62.00	38.00	8	15	\N	\N	\N	\N	\N	2025-12-02 00:05:04.178975	\N	\N	0	1	a-win	yes
+1560	1386033	2025-10-28	England	League Two	Accrington ST	Tranmere	draw	1	1	15	4	9	3	4	2	4	0	1	2	0	0	40.00	60.00	5	13	\N	\N	\N	\N	\N	2025-12-02 00:05:04.274562	\N	\N	1	0	h-win	yes
+1561	1386169	2025-11-08	England	League Two	Colchester	Bromley	a-win	0	2	11	2	7	4	9	2	0	0	2	3	0	0	71.00	29.00	10	13	\N	\N	\N	10	5	2025-12-02 00:05:04.429368	1.75	0.72	0	0	draw	yes
+1562	1386171	2025-11-08	England	League Two	Crewe	Shrewsbury	h-win	3	1	21	6	16	2	7	4	6	1	2	4	0	0	52.00	48.00	6	12	\N	\N	\N	11	20	2025-12-02 00:05:04.518064	2.05	0.87	1	1	draw	yes
+1563	1386166	2025-11-08	England	League Two	Bristol Rovers	Gillingham	a-win	0	1	17	4	7	2	12	3	0	3	1	4	0	0	70.00	30.00	3	14	\N	\N	\N	21	8	2025-12-02 00:05:04.610989	1.82	1.52	0	0	draw	yes
+1564	1386168	2025-11-08	England	League Two	Chesterfield	Accrington ST	draw	3	3	17	5	16	8	11	3	1	2	3	5	0	0	60.00	40.00	9	10	\N	\N	\N	9	17	2025-12-02 00:05:04.699732	3.02	1.85	1	2	a-win	yes
+1565	1386174	2025-11-08	England	League Two	Swindon Town	Tranmere	h-win	2	1	18	7	8	2	7	3	0	1	3	3	0	0	55.00	45.00	5	18	\N	\N	\N	2	15	2025-12-02 00:05:04.795377	1.92	0.98	0	0	draw	yes
+1566	1386170	2025-11-08	England	League Two	Crawley Town	Fleetwood Town	h-win	2	1	21	5	7	1	11	3	2	2	2	4	0	1	73.00	27.00	6	13	\N	\N	\N	19	13	2025-12-02 00:05:04.880936	1.42	1.02	1	0	h-win	yes
+1567	1386175	2025-11-08	England	League Two	Newport County	Walsall	a-win	2	4	12	3	17	10	4	5	2	3	4	2	0	0	69.00	31.00	10	14	\N	\N	\N	24	1	2025-12-02 00:05:04.986391	1.16	3.24	2	3	a-win	yes
+1568	1386164	2025-11-08	England	League Two	Barnet	Milton Keynes Dons	draw	2	2	12	5	7	4	6	2	2	4	1	4	0	0	51.00	49.00	12	20	\N	\N	\N	14	3	2025-12-02 00:05:05.070845	2.21	0.47	2	1	h-win	yes
+1569	1386165	2025-11-08	England	League Two	Barrow	Grimsby	draw	2	2	11	4	17	6	3	2	2	6	3	1	0	0	45.00	55.00	12	8	\N	\N	\N	18	12	2025-12-02 00:05:05.16099	0.70	1.96	1	2	a-win	yes
+1737	1386682	2025-10-22	England	Championship	Wrexham	Oxford United	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.716231	\N	\N	1	0	h-win	yes
+1570	1386172	2025-11-08	England	League Two	Harrogate Town	Oldham	a-win	0	1	9	2	14	1	8	6	3	3	2	3	0	1	53.00	47.00	8	11	\N	\N	\N	23	16	2025-12-02 00:05:05.244171	0.34	1.64	0	1	a-win	yes
+1571	1386173	2025-11-08	England	League Two	Salford City	Cambridge United	draw	0	0	6	0	9	1	4	4	2	6	4	2	0	0	53.00	47.00	13	13	\N	\N	\N	7	6	2025-12-02 00:05:05.336666	0.37	0.46	0	0	draw	yes
+1572	1386167	2025-11-10	England	League Two	Cheltenham	Notts County	a-win	1	2	7	2	18	4	5	7	0	3	0	3	0	0	46.00	54.00	12	11	\N	\N	\N	22	4	2025-12-02 00:05:05.437362	\N	\N	0	2	a-win	yes
+1573	1386179	2025-11-15	England	League Two	Fleetwood Town	Swindon Town	draw	1	1	12	2	15	6	9	6	1	1	0	3	0	0	42.00	58.00	11	18	\N	\N	\N	13	2	2025-12-02 00:05:05.526085	0.97	1.43	1	1	draw	yes
+1574	1386186	2025-11-15	England	League Two	Walsall	Colchester	a-win	0	2	13	3	3	2	5	1	0	0	2	4	0	0	63.00	37.00	9	18	\N	\N	\N	1	10	2025-12-02 00:05:05.620947	0.93	1.40	0	2	a-win	yes
+1575	1386182	2025-11-15	England	League Two	Milton Keynes Dons	Salford City	h-win	2	0	6	4	11	4	3	4	3	1	2	2	0	0	46.00	54.00	8	12	\N	\N	\N	3	7	2025-12-02 00:05:05.710853	1.33	1.83	1	0	h-win	yes
+1576	1386184	2025-11-15	England	League Two	Oldham	Crewe	draw	0	0	16	2	15	2	5	6	1	5	2	1	0	0	46.00	54.00	19	7	\N	\N	\N	16	11	2025-12-02 00:05:05.803497	1.68	2.27	0	0	draw	yes
+1577	1386187	2025-11-15	England	League Two	Shrewsbury	Newport County	h-win	1	0	19	6	10	2	8	4	4	2	4	2	0	0	48.00	52.00	14	15	\N	\N	\N	20	24	2025-12-02 00:05:05.883632	1.83	0.86	0	0	draw	yes
+1578	1386176	2025-11-15	England	League Two	Accrington ST	Bristol Rovers	h-win	3	1	9	5	10	2	2	5	1	1	3	3	0	0	40.00	60.00	13	12	\N	\N	\N	17	21	2025-12-02 00:05:05.97348	1.87	0.93	1	0	h-win	yes
+1579	1386181	2025-11-15	England	League Two	Grimsby	Chesterfield	a-win	0	1	12	4	8	1	11	5	1	3	2	3	1	0	48.00	52.00	14	11	\N	\N	\N	12	9	2025-12-02 00:05:06.063424	1.36	0.92	0	0	draw	yes
+1580	1386178	2025-11-15	England	League Two	Cambridge United	Barnet	draw	0	0	9	1	11	4	3	7	2	5	2	0	0	0	48.00	52.00	17	7	\N	\N	\N	6	14	2025-12-02 00:05:06.151745	0.41	1.01	0	0	draw	yes
+1581	1386183	2025-11-15	England	League Two	Notts County	Harrogate Town	draw	1	1	13	3	3	1	11	1	2	1	0	2	0	0	73.00	27.00	4	15	\N	\N	\N	4	23	2025-12-02 00:05:06.239652	2.46	0.49	0	1	a-win	yes
+1582	1386185	2025-11-15	England	League Two	Tranmere	Cheltenham	h-win	3	2	13	4	14	4	2	7	1	2	2	1	0	0	45.00	55.00	5	7	\N	\N	\N	15	22	2025-12-02 00:05:06.324487	1.58	1.50	2	1	h-win	yes
+1583	1386177	2025-11-15	England	League Two	Bromley	Barrow	h-win	2	1	15	6	7	2	4	1	3	4	1	2	0	0	51.00	49.00	8	9	\N	\N	\N	5	18	2025-12-02 00:05:06.423287	2.78	0.26	1	0	h-win	yes
+1584	1386180	2025-11-15	England	League Two	Gillingham	Crawley Town	draw	2	2	17	9	20	8	8	7	6	3	1	2	0	0	37.00	63.00	9	10	\N	\N	\N	8	19	2025-12-02 00:05:06.515752	2.66	2.20	1	0	h-win	yes
+1585	1386194	2025-11-22	England	League Two	Gillingham	Barnet	draw	1	1	11	5	15	4	2	7	2	2	4	3	0	0	48.00	52.00	18	9	\N	\N	\N	8	14	2025-12-02 00:05:06.607684	0.57	2.42	1	1	draw	yes
+1586	1386195	2025-11-22	England	League Two	Harrogate Town	Walsall	a-win	0	2	8	1	18	6	2	7	2	1	1	2	0	0	55.00	45.00	16	14	\N	\N	\N	23	1	2025-12-02 00:05:06.727153	0.40	2.07	0	1	a-win	yes
+1587	1386193	2025-11-22	England	League Two	Fleetwood Town	Shrewsbury	h-win	3	1	13	6	13	3	3	2	2	4	2	1	1	0	45.00	55.00	8	6	\N	\N	\N	13	20	2025-12-02 00:05:06.817014	1.87	1.15	1	0	h-win	yes
+1588	1386199	2025-11-22	England	League Two	Oldham	Newport County	h-win	3	0	19	7	10	3	9	6	5	0	2	1	0	0	58.00	42.00	11	8	\N	\N	\N	16	24	2025-12-02 00:05:06.91951	2.99	0.58	0	0	draw	yes
+1589	1386197	2025-11-22	England	League Two	Swindon Town	Grimsby	draw	2	2	14	6	15	6	6	8	3	0	2	2	0	0	42.00	58.00	17	7	\N	\N	\N	2	12	2025-12-02 00:05:07.005459	2.18	3.54	2	2	draw	yes
+1590	1386191	2025-11-22	England	League Two	Crawley Town	Accrington ST	draw	1	1	12	4	8	4	7	4	0	4	3	2	0	0	67.00	33.00	10	11	\N	\N	\N	19	17	2025-12-02 00:05:07.103084	1.00	1.03	0	1	a-win	yes
+1591	1386192	2025-11-22	England	League Two	Crewe	Chesterfield	draw	3	3	22	9	12	7	5	2	1	0	2	1	0	0	40.00	60.00	16	13	\N	\N	\N	11	9	2025-12-02 00:05:07.196145	3.59	1.74	1	2	a-win	yes
+1592	1386190	2025-11-22	England	League Two	Cheltenham	Bristol Rovers	h-win	1	0	4	1	17	3	6	7	2	1	4	1	0	0	45.00	55.00	13	11	\N	\N	\N	22	21	2025-12-02 00:05:07.289353	0.11	0.79	0	0	draw	yes
+1593	1386196	2025-11-22	England	League Two	Notts County	Colchester	a-win	1	3	15	4	8	4	4	3	1	3	1	3	0	0	69.00	31.00	14	14	\N	\N	\N	4	10	2025-12-02 00:05:07.388627	2.94	0.97	1	1	draw	yes
+1594	1386198	2025-11-22	England	League Two	Tranmere	Milton Keynes Dons	draw	2	2	10	4	15	3	1	8	2	2	2	3	0	1	46.00	54.00	11	10	\N	\N	\N	15	3	2025-12-02 00:05:07.484752	0.60	1.00	2	0	h-win	yes
+1595	1386188	2025-11-22	England	League Two	Barrow	Cambridge United	a-win	0	2	9	3	11	7	4	3	2	0	1	2	0	0	59.00	41.00	12	10	\N	\N	\N	18	6	2025-12-02 00:05:07.578812	0.80	1.46	0	0	draw	yes
+1596	1386189	2025-11-22	England	League Two	Bromley	Salford City	h-win	2	0	10	3	15	5	4	7	2	2	0	2	0	0	34.00	66.00	11	16	\N	\N	\N	5	7	2025-12-02 00:05:07.664995	0.80	1.56	2	0	h-win	yes
+1597	1386207	2025-11-29	England	League Two	Milton Keynes Dons	Fleetwood Town	h-win	2	1	19	5	8	4	6	2	2	0	2	0	0	0	52.00	48.00	13	14	\N	\N	\N	3	13	2025-12-02 00:05:07.756871	2.45	0.35	1	0	h-win	yes
+1598	1386200	2025-11-29	England	League Two	Accrington ST	Oldham	h-win	1	0	7	1	16	5	2	6	1	1	4	2	0	0	50.00	50.00	9	15	\N	\N	\N	17	16	2025-12-02 00:05:07.867643	0.69	0.65	1	0	h-win	yes
+1599	1386202	2025-11-29	England	League Two	Bristol Rovers	Notts County	a-win	0	1	17	4	5	1	8	2	1	2	2	5	0	1	68.00	32.00	8	8	\N	\N	\N	21	4	2025-12-02 00:05:07.959104	2.56	0.16	0	0	draw	yes
+1600	1386210	2025-11-29	England	League Two	Walsall	Bromley	h-win	3	1	11	6	13	4	4	9	3	3	1	3	0	0	51.00	49.00	14	11	\N	\N	\N	1	5	2025-12-02 00:05:08.044333	2.64	1.15	0	1	a-win	yes
+1601	1386204	2025-11-29	England	League Two	Chesterfield	Swindon Town	a-win	1	2	13	2	11	5	7	3	1	2	1	5	0	1	57.00	43.00	9	9	\N	\N	\N	9	2	2025-12-02 00:05:08.130968	1.35	1.96	1	1	draw	yes
+1602	1386209	2025-11-29	England	League Two	Shrewsbury	Gillingham	draw	3	3	17	5	16	3	1	9	2	4	2	2	0	0	32.00	68.00	10	11	\N	\N	\N	20	8	2025-12-02 00:05:08.220523	1.26	1.94	3	1	h-win	yes
+1603	1386205	2025-11-29	England	League Two	Colchester	Cheltenham	h-win	2	0	9	5	9	2	1	1	0	1	1	2	0	0	43.00	57.00	5	11	\N	\N	\N	10	22	2025-12-02 00:05:08.321072	2.39	0.84	1	0	h-win	yes
+1604	1386211	2025-11-29	England	League Two	Newport County	Barrow	draw	2	2	10	5	13	4	2	2	0	2	0	1	0	0	51.00	49.00	5	13	\N	\N	\N	24	18	2025-12-02 00:05:08.415511	0.89	1.11	1	1	draw	yes
+1605	1386201	2025-11-29	England	League Two	Barnet	Harrogate Town	draw	1	1	18	5	9	2	7	3	2	3	0	2	0	0	52.00	48.00	17	14	\N	\N	\N	14	23	2025-12-02 00:05:08.501659	2.10	1.07	1	0	h-win	yes
+1606	1386203	2025-11-29	England	League Two	Cambridge United	Crewe	h-win	2	1	16	6	5	4	10	1	1	2	1	2	0	0	60.00	40.00	10	11	\N	\N	\N	6	11	2025-12-02 00:05:08.589648	3.01	0.54	0	0	draw	yes
+1607	1386208	2025-11-29	England	League Two	Salford City	Crawley Town	h-win	4	3	17	8	15	5	12	4	3	2	1	2	0	0	46.00	54.00	14	8	\N	\N	\N	7	19	2025-12-02 00:05:08.678796	2.50	1.97	1	1	draw	yes
+1608	1386551	2025-08-08	England	Championship	Birmingham	Ipswich	draw	1	1	11	3	7	1	1	4	1	0	2	3	0	0	51.00	49.00	16	22	\N	\N	\N	\N	\N	2025-12-02 00:05:10.006603	1.38	1.31	0	0	draw	yes
+1609	1386553	2025-08-09	England	Championship	Southampton	Wrexham	h-win	2	1	27	10	10	2	7	3	1	2	2	2	0	0	75.00	25.00	12	13	\N	\N	\N	\N	\N	2025-12-02 00:05:10.101001	4.14	1.88	0	1	a-win	yes
+1610	1386554	2025-08-09	England	Championship	Charlton	Watford	h-win	1	0	12	5	10	1	3	2	0	0	1	2	0	0	42.00	58.00	6	16	\N	\N	\N	\N	\N	2025-12-02 00:05:10.247633	1.16	0.72	0	0	draw	yes
+1611	1386552	2025-08-09	England	Championship	Coventry	Hull City	draw	0	0	18	3	7	3	8	2	1	2	3	3	0	0	58.00	42.00	7	11	\N	\N	\N	\N	\N	2025-12-02 00:05:10.383209	1.43	0.43	0	0	draw	yes
+1612	1386555	2025-08-09	England	Championship	West Brom	Blackburn	h-win	1	0	13	5	10	1	3	7	0	0	4	0	1	0	44.00	56.00	13	13	\N	\N	\N	\N	\N	2025-12-02 00:05:10.493594	1.19	1.25	1	0	h-win	yes
+1613	1386557	2025-08-09	England	Championship	Middlesbrough	Swansea	h-win	1	0	6	3	3	1	7	2	0	6	2	5	0	0	54.00	46.00	15	15	\N	\N	\N	\N	\N	2025-12-02 00:05:10.600607	0.35	0.10	0	0	draw	yes
+1614	1386560	2025-08-09	England	Championship	Norwich	Millwall	a-win	1	2	15	3	15	3	6	5	1	1	1	4	0	0	59.00	41.00	5	15	\N	\N	\N	\N	\N	2025-12-02 00:05:10.711698	1.04	2.09	0	0	draw	yes
+1615	1386558	2025-08-09	England	Championship	QPR	Preston	draw	1	1	13	3	11	3	5	4	4	4	0	3	0	0	58.00	42.00	7	9	\N	\N	\N	\N	\N	2025-12-02 00:05:10.795728	0.94	0.84	1	0	h-win	yes
+1616	1386556	2025-08-09	England	Championship	Stoke City	Derby	h-win	3	1	12	7	3	2	7	3	2	2	1	2	0	0	68.00	32.00	12	14	\N	\N	\N	\N	\N	2025-12-02 00:05:10.888586	1.09	0.39	0	0	draw	yes
+1617	1386559	2025-08-09	England	Championship	Oxford United	Portsmouth	a-win	0	1	18	4	9	4	8	4	3	2	1	2	0	0	49.00	51.00	15	10	\N	\N	\N	\N	\N	2025-12-02 00:05:10.998476	1.37	1.21	0	1	a-win	yes
+1618	1386561	2025-08-09	England	Championship	Sheffield Utd	Bristol City	a-win	1	4	20	6	9	5	14	3	2	2	0	0	0	0	74.00	26.00	10	10	\N	\N	\N	\N	\N	2025-12-02 00:05:11.116547	2.30	1.30	1	2	a-win	yes
+1619	1386562	2025-08-10	England	Championship	Leicester	Sheffield Wednesday	h-win	2	1	27	13	7	3	13	3	0	1	0	2	0	1	75.00	25.00	6	13	\N	\N	\N	\N	\N	2025-12-02 00:05:11.211093	2.54	0.62	0	1	a-win	yes
+1620	1386568	2025-08-16	England	Championship	Derby	Coventry	a-win	3	5	13	4	20	10	6	5	2	1	2	5	0	0	48.00	52.00	14	11	\N	\N	\N	\N	\N	2025-12-02 00:05:11.311138	1.43	3.24	2	2	draw	yes
+1621	1386565	2025-08-16	England	Championship	Portsmouth	Norwich	a-win	1	2	19	3	11	5	9	0	3	1	3	3	0	0	58.00	42.00	8	13	\N	\N	\N	\N	\N	2025-12-02 00:05:11.400785	1.76	1.96	0	2	a-win	yes
+1622	1386564	2025-08-16	England	Championship	Wrexham	West Brom	a-win	2	3	15	3	17	5	5	5	2	1	2	0	0	0	51.00	49.00	5	7	\N	\N	\N	\N	\N	2025-12-02 00:05:11.494166	2.01	2.37	1	1	draw	yes
+1623	1386571	2025-08-16	England	Championship	Watford	QPR	h-win	2	1	17	4	13	3	2	4	4	2	1	2	1	0	46.00	54.00	9	9	\N	\N	\N	\N	\N	2025-12-02 00:05:11.586164	2.06	0.50	2	1	h-win	yes
+1624	1386566	2025-08-16	England	Championship	Bristol City	Charlton	draw	0	0	14	1	8	2	4	6	1	1	0	1	0	0	58.00	42.00	9	13	\N	\N	\N	\N	\N	2025-12-02 00:05:11.681059	0.73	0.96	0	0	draw	yes
+1625	1386563	2025-08-16	England	Championship	Millwall	Middlesbrough	a-win	0	3	11	1	12	5	5	10	4	2	4	5	0	0	45.00	55.00	16	11	\N	\N	\N	\N	\N	2025-12-02 00:05:11.76591	0.60	0.99	0	0	draw	yes
+1626	1386567	2025-08-16	England	Championship	Preston	Leicester	h-win	2	1	14	4	14	2	6	4	2	0	2	0	0	0	40.00	60.00	11	7	\N	\N	\N	\N	\N	2025-12-02 00:05:11.858614	2.48	0.92	1	0	h-win	yes
+1627	1386569	2025-08-16	England	Championship	Blackburn	Birmingham	a-win	1	2	5	2	8	4	3	5	3	0	1	2	0	0	41.00	59.00	14	13	\N	\N	\N	\N	\N	2025-12-02 00:05:11.952712	0.43	2.00	0	0	draw	yes
+1628	1386573	2025-08-16	England	Championship	Sheffield Wednesday	Stoke City	a-win	0	3	15	5	12	6	6	7	1	6	0	3	0	0	54.00	46.00	12	10	\N	\N	\N	\N	\N	2025-12-02 00:05:12.050349	1.50	2.06	0	1	a-win	yes
+1629	1386574	2025-08-16	England	Championship	Swansea	Sheffield Utd	h-win	1	0	13	4	8	0	4	8	3	0	1	3	0	0	56.00	44.00	13	14	\N	\N	\N	\N	\N	2025-12-02 00:05:12.142172	1.34	0.58	0	0	draw	yes
+1630	1386572	2025-08-17	England	Championship	Ipswich	Southampton	draw	1	1	14	1	11	3	4	5	3	0	2	2	0	0	50.00	50.00	7	20	\N	\N	\N	\N	\N	2025-12-02 00:05:12.218871	1.64	0.75	1	1	draw	yes
+1631	1386570	2025-08-17	England	Championship	Hull City	Oxford United	h-win	3	2	19	7	11	6	10	4	2	2	1	1	0	0	75.00	25.00	7	8	\N	\N	\N	\N	\N	2025-12-02 00:05:12.300611	1.91	1.02	2	2	draw	yes
+1632	1386580	2025-08-22	England	Championship	Derby	Bristol City	draw	1	1	5	2	11	3	4	5	2	1	3	0	0	0	52.00	48.00	15	5	\N	\N	\N	\N	\N	2025-12-02 00:05:12.387886	0.47	0.76	0	1	a-win	yes
+1633	1386579	2025-08-23	England	Championship	Hull City	Blackburn	a-win	0	3	8	2	14	6	2	1	1	2	3	3	0	0	50.00	50.00	18	19	\N	\N	\N	\N	\N	2025-12-02 00:05:12.468143	0.52	3.03	0	1	a-win	yes
+1634	1386575	2025-08-23	England	Championship	Swansea	Watford	draw	1	1	11	2	9	4	7	2	6	1	3	5	0	0	58.00	42.00	11	17	\N	\N	\N	\N	\N	2025-12-02 00:05:12.556248	0.68	0.41	0	1	a-win	yes
+1635	1386577	2025-08-23	England	Championship	Charlton	Leicester	a-win	0	1	20	7	6	2	13	4	2	0	2	1	0	0	45.00	55.00	18	9	\N	\N	\N	\N	\N	2025-12-02 00:05:12.638551	1.63	0.49	0	0	draw	yes
+1636	1386578	2025-08-23	England	Championship	Southampton	Stoke City	a-win	1	2	18	2	12	4	7	3	2	1	1	5	0	1	65.00	35.00	6	12	\N	\N	\N	\N	\N	2025-12-02 00:05:12.725847	2.59	1.50	0	0	draw	yes
+1637	1386584	2025-08-23	England	Championship	Birmingham	Oxford United	h-win	1	0	16	1	6	1	4	1	2	5	0	0	0	0	66.00	34.00	11	17	\N	\N	\N	\N	\N	2025-12-02 00:05:12.807771	1.65	0.38	1	0	h-win	yes
+1638	1386581	2025-08-23	England	Championship	Preston	Ipswich	h-win	1	0	2	1	15	2	3	6	2	5	6	2	0	0	28.00	72.00	14	5	\N	\N	\N	\N	\N	2025-12-02 00:05:12.894981	0.84	1.39	1	0	h-win	yes
+1639	1386576	2025-08-23	England	Championship	West Brom	Portsmouth	draw	1	1	13	3	8	4	2	3	3	2	2	5	0	0	64.00	36.00	10	16	\N	\N	\N	\N	\N	2025-12-02 00:05:13.018757	0.59	0.94	1	0	h-win	yes
+1640	1386582	2025-08-23	England	Championship	Sheffield Utd	Millwall	a-win	0	1	14	4	17	6	8	7	0	5	3	2	0	0	62.00	38.00	11	16	\N	\N	\N	\N	\N	2025-12-02 00:05:13.093948	1.30	1.40	0	1	a-win	yes
+1641	1386583	2025-08-23	England	Championship	Norwich	Middlesbrough	a-win	1	2	14	3	11	4	5	3	6	3	0	3	1	0	59.00	41.00	11	14	\N	\N	\N	\N	\N	2025-12-02 00:05:13.183642	1.18	1.51	0	2	a-win	yes
+1642	1386586	2025-08-23	England	Championship	Coventry	QPR	h-win	7	1	19	8	10	1	9	4	2	4	1	2	0	0	53.00	47.00	15	8	\N	\N	\N	\N	\N	2025-12-02 00:05:13.270011	1.27	0.61	5	0	h-win	yes
+1738	1386680	2025-10-22	England	Championship	Sheffield Wednesday	Middlesbrough	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.724715	\N	\N	0	1	a-win	yes
+1643	1386585	2025-08-23	England	Championship	Wrexham	Sheffield Wednesday	draw	2	2	11	4	21	7	3	9	4	0	0	0	0	0	47.00	53.00	7	8	\N	\N	\N	\N	\N	2025-12-02 00:05:13.361161	1.30	2.67	2	0	h-win	yes
+1644	1386587	2025-08-29	England	Championship	Leicester	Birmingham	h-win	2	0	5	2	11	1	1	7	0	1	3	3	0	0	45.00	55.00	11	16	\N	\N	\N	\N	\N	2025-12-02 00:05:13.439499	0.56	0.83	1	0	h-win	yes
+1645	1386595	2025-08-30	England	Championship	Middlesbrough	Sheffield Utd	h-win	1	0	15	6	8	0	5	8	0	1	0	3	0	0	47.00	53.00	5	13	\N	\N	\N	\N	\N	2025-12-02 00:05:13.536196	1.09	0.44	0	0	draw	yes
+1646	1386592	2025-08-30	England	Championship	QPR	Charlton	h-win	3	1	13	6	13	3	1	2	2	2	2	2	0	0	45.00	55.00	16	7	\N	\N	\N	\N	\N	2025-12-02 00:05:13.619609	1.43	0.84	1	0	h-win	yes
+1647	1386594	2025-08-30	England	Championship	Stoke City	West Brom	a-win	0	1	13	3	12	3	5	5	3	0	1	2	0	0	52.00	48.00	7	11	\N	\N	\N	\N	\N	2025-12-02 00:05:13.698979	0.95	0.66	0	1	a-win	yes
+1648	1386596	2025-08-30	England	Championship	Watford	Southampton	draw	2	2	10	4	12	7	4	5	1	5	2	5	0	0	55.00	45.00	14	12	\N	\N	\N	\N	\N	2025-12-02 00:05:13.77826	0.55	1.81	0	1	a-win	yes
+1649	1386591	2025-08-30	England	Championship	Bristol City	Hull City	h-win	4	2	29	5	20	9	8	5	1	3	1	1	0	0	56.00	44.00	7	8	\N	\N	\N	\N	\N	2025-12-02 00:05:13.871941	3.49	2.60	3	1	h-win	yes
+1650	1386597	2025-08-30	England	Championship	Ipswich	Derby	draw	2	2	18	5	10	2	6	3	0	0	2	7	0	0	69.00	31.00	14	14	\N	\N	\N	\N	\N	2025-12-02 00:05:13.94946	2.91	1.48	1	0	h-win	yes
+1651	1386588	2025-08-30	England	Championship	Millwall	Wrexham	a-win	0	2	21	2	6	3	5	2	0	0	1	3	0	0	60.00	40.00	10	13	\N	\N	\N	\N	\N	2025-12-02 00:05:14.033393	1.76	0.55	0	0	draw	yes
+1652	1386593	2025-08-30	England	Championship	Blackburn	Norwich	a-win	0	2	12	3	15	4	3	9	6	1	2	0	1	0	46.00	54.00	9	7	\N	\N	\N	\N	\N	2025-12-02 00:05:14.110393	1.92	2.09	0	1	a-win	yes
+1653	1386598	2025-08-30	England	Championship	Sheffield Wednesday	Swansea	a-win	0	2	9	1	17	8	2	7	1	1	0	2	0	0	36.00	64.00	14	10	\N	\N	\N	\N	\N	2025-12-02 00:05:14.219018	0.45	1.31	0	0	draw	yes
+1654	1386589	2025-08-30	England	Championship	Oxford United	Coventry	draw	2	2	14	3	15	6	0	5	5	4	1	2	0	0	37.00	63.00	13	10	\N	\N	\N	\N	\N	2025-12-02 00:05:14.304719	1.04	1.74	1	2	a-win	yes
+1655	1386590	2025-08-30	England	Championship	Portsmouth	Preston	h-win	1	0	10	2	13	2	6	4	5	3	1	2	0	0	39.00	61.00	11	7	\N	\N	\N	\N	\N	2025-12-02 00:05:14.389064	1.58	1.01	1	0	h-win	yes
+1656	1386603	2025-09-12	England	Championship	Ipswich	Sheffield Utd	h-win	5	0	21	11	10	2	3	5	1	0	0	2	0	0	47.00	53.00	11	15	\N	\N	\N	\N	\N	2025-12-02 00:05:14.476038	2.33	0.42	1	0	h-win	yes
+1657	1386607	2025-09-13	England	Championship	Preston	Middlesbrough	draw	2	2	7	2	14	3	3	4	0	2	1	3	0	0	39.00	61.00	13	7	\N	\N	\N	\N	\N	2025-12-02 00:05:14.560135	0.75	1.52	1	0	h-win	yes
+1658	1386601	2025-09-13	England	Championship	Charlton	Millwall	draw	1	1	14	3	15	3	3	4	1	0	3	1	1	0	36.00	64.00	12	18	\N	\N	\N	\N	\N	2025-12-02 00:05:14.644004	0.73	1.03	1	0	h-win	yes
+1659	1386609	2025-09-13	England	Championship	Oxford United	Leicester	draw	2	2	19	2	8	5	4	4	2	4	1	2	0	1	55.00	45.00	10	11	\N	\N	\N	\N	\N	2025-12-02 00:05:14.731127	2.10	0.84	2	1	h-win	yes
+1660	1386606	2025-09-13	England	Championship	Watford	Blackburn	a-win	0	1	14	1	14	5	5	7	4	0	1	2	0	0	51.00	49.00	12	14	\N	\N	\N	\N	\N	2025-12-02 00:05:14.815535	0.75	1.45	0	0	draw	yes
+1661	1386602	2025-09-13	England	Championship	West Brom	Derby	a-win	0	1	18	4	4	1	11	0	2	0	1	2	0	0	68.00	32.00	8	10	\N	\N	\N	\N	\N	2025-12-02 00:05:14.907582	1.15	0.32	0	0	draw	yes
+1662	1386599	2025-09-13	England	Championship	Sheffield Wednesday	Bristol City	a-win	0	3	6	0	9	4	4	1	1	3	2	0	0	0	50.00	50.00	19	9	\N	\N	\N	\N	\N	2025-12-02 00:05:15.007229	0.83	1.39	0	3	a-win	yes
+1663	1386605	2025-09-13	England	Championship	Stoke City	Birmingham	h-win	1	0	8	3	7	0	5	3	6	1	3	1	0	0	42.00	58.00	11	11	\N	\N	\N	\N	\N	2025-12-02 00:05:15.10149	0.49	0.52	1	0	h-win	yes
+1664	1386600	2025-09-13	England	Championship	Swansea	Hull City	draw	2	2	9	2	15	6	5	2	2	1	1	1	0	0	65.00	35.00	8	5	\N	\N	\N	\N	\N	2025-12-02 00:05:15.209319	1.00	1.61	1	1	draw	yes
+1665	1386608	2025-09-13	England	Championship	Coventry	Norwich	draw	1	1	28	4	4	1	11	2	3	4	2	6	0	0	64.00	36.00	12	7	\N	\N	\N	\N	\N	2025-12-02 00:05:15.310974	3.68	0.18	0	1	a-win	yes
+1666	1386610	2025-09-13	England	Championship	Wrexham	QPR	a-win	1	3	21	8	15	6	12	9	3	2	1	0	0	0	61.00	39.00	5	10	\N	\N	\N	\N	\N	2025-12-02 00:05:15.404195	2.02	1.43	0	2	a-win	yes
+1667	1386604	2025-09-14	England	Championship	Southampton	Portsmouth	draw	0	0	9	1	10	1	7	5	1	1	4	2	0	0	60.00	40.00	16	14	\N	\N	\N	\N	\N	2025-12-02 00:05:15.494481	1.18	0.94	0	0	draw	yes
+1668	1386618	2025-09-19	England	Championship	Middlesbrough	West Brom	h-win	2	1	9	4	15	3	2	3	1	5	0	0	0	0	41.00	59.00	3	7	\N	\N	\N	\N	\N	2025-12-02 00:05:15.59043	0.96	0.89	1	0	h-win	yes
+1669	1386611	2025-09-20	England	Championship	Leicester	Coventry	draw	0	0	17	9	11	3	10	3	2	1	0	3	0	0	59.00	41.00	8	11	\N	\N	\N	\N	\N	2025-12-02 00:05:15.674726	1.22	0.41	0	0	draw	yes
+1670	1386616	2025-09-20	England	Championship	Birmingham	Swansea	h-win	1	0	23	7	9	2	7	2	3	3	5	4	0	0	50.00	50.00	13	11	\N	\N	\N	\N	\N	2025-12-02 00:05:15.759505	2.41	1.43	0	0	draw	yes
+1671	1386621	2025-09-20	England	Championship	QPR	Stoke City	h-win	1	0	14	7	7	1	3	6	1	1	5	3	0	0	35.00	65.00	8	13	\N	\N	\N	\N	\N	2025-12-02 00:05:15.843769	1.33	1.09	0	0	draw	yes
+1672	1386614	2025-09-20	England	Championship	Sheffield Utd	Charlton	a-win	0	1	13	1	13	4	6	1	1	2	1	3	0	0	63.00	37.00	14	18	\N	\N	\N	\N	\N	2025-12-02 00:05:15.929474	0.60	0.77	0	0	draw	yes
+1673	1386619	2025-09-20	England	Championship	Hull City	Southampton	h-win	3	1	11	4	14	4	1	6	1	2	5	3	0	0	29.00	71.00	15	10	\N	\N	\N	\N	\N	2025-12-02 00:05:16.015772	2.13	1.07	1	0	h-win	yes
+1674	1386622	2025-09-20	England	Championship	Derby	Preston	a-win	0	1	7	2	10	6	3	4	4	1	2	2	0	0	48.00	52.00	10	7	\N	\N	\N	\N	\N	2025-12-02 00:05:16.10365	0.34	0.90	0	1	a-win	yes
+1675	1386617	2025-09-20	England	Championship	Norwich	Wrexham	a-win	2	3	14	5	11	8	2	3	1	2	1	3	0	0	62.00	38.00	6	9	\N	\N	\N	\N	\N	2025-12-02 00:05:16.193985	2.34	1.30	1	0	h-win	yes
+1676	1386615	2025-09-20	England	Championship	Portsmouth	Sheffield Wednesday	a-win	0	2	25	5	13	8	11	5	3	1	1	5	0	0	70.00	30.00	5	10	\N	\N	\N	\N	\N	2025-12-02 00:05:16.28356	1.74	1.07	0	1	a-win	yes
+1677	1386613	2025-09-21	England	Championship	Bristol City	Oxford United	a-win	1	3	12	2	18	6	8	5	5	3	4	1	0	0	59.00	41.00	15	14	\N	\N	\N	\N	\N	2025-12-02 00:05:16.375797	1.18	1.72	0	2	a-win	yes
+1678	1386612	2025-09-22	England	Championship	Millwall	Watford	h-win	1	0	9	2	11	4	7	4	1	1	1	0	0	0	39.00	61.00	11	9	\N	\N	\N	\N	\N	2025-12-02 00:05:16.466781	0.70	0.76	1	0	h-win	yes
+1679	1386627	2025-09-26	England	Championship	West Brom	Leicester	draw	1	1	11	5	13	1	3	3	4	1	2	5	0	0	41.00	59.00	13	16	\N	\N	\N	\N	\N	2025-12-02 00:05:16.550919	1.64	0.94	1	0	h-win	yes
+1735	1386681	2025-10-22	England	Championship	Watford	West Brom	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.691235	\N	\N	1	1	draw	yes
+1680	1386629	2025-09-27	England	Championship	Swansea	Millwall	draw	1	1	13	2	11	4	6	4	0	2	1	2	0	0	64.00	36.00	7	20	\N	\N	\N	\N	\N	2025-12-02 00:05:16.64024	1.34	0.88	1	1	draw	yes
+1681	1386632	2025-09-27	England	Championship	Coventry	Birmingham	h-win	3	0	14	5	5	0	3	4	4	2	1	4	0	1	63.00	37.00	11	12	\N	\N	\N	\N	\N	2025-12-02 00:05:16.733258	2.13	0.19	1	0	h-win	yes
+1682	1386633	2025-09-27	England	Championship	Wrexham	Derby	draw	1	1	10	5	5	3	4	3	2	1	1	5	0	0	55.00	45.00	9	16	\N	\N	\N	\N	\N	2025-12-02 00:05:16.81867	0.89	0.64	0	0	draw	yes
+1683	1386624	2025-09-27	England	Championship	Watford	Hull City	h-win	2	1	21	8	11	4	6	6	2	3	1	5	0	0	55.00	45.00	7	16	\N	\N	\N	\N	\N	2025-12-02 00:05:16.900294	2.82	0.86	0	1	a-win	yes
+1684	1386625	2025-09-27	England	Championship	Southampton	Middlesbrough	draw	1	1	14	2	7	1	6	3	1	2	1	6	0	0	55.00	45.00	11	17	\N	\N	\N	\N	\N	2025-12-02 00:05:16.989186	0.85	0.29	0	0	draw	yes
+1685	1386626	2025-09-27	England	Championship	Ipswich	Portsmouth	h-win	2	1	14	5	7	3	5	4	4	1	1	2	0	0	50.00	50.00	15	11	\N	\N	\N	\N	\N	2025-12-02 00:05:17.074797	1.53	0.89	2	0	h-win	yes
+1686	1386631	2025-09-27	England	Championship	Preston	Bristol City	draw	0	0	7	2	19	7	2	8	1	3	4	1	0	0	47.00	53.00	9	10	\N	\N	\N	\N	\N	2025-12-02 00:05:17.167833	0.42	2.32	0	0	draw	yes
+1687	1386630	2025-09-27	England	Championship	Sheffield Wednesday	QPR	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.185092	\N	\N	1	0	h-win	yes
+1688	1386623	2025-09-27	England	Championship	Stoke City	Norwich	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.192693	\N	\N	0	1	a-win	yes
+1689	1386628	2025-09-27	England	Championship	Charlton	Blackburn	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.205462	\N	\N	1	0	h-win	yes
+1690	1386634	2025-09-27	England	Championship	Oxford United	Sheffield Utd	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.218539	\N	\N	0	0	draw	yes
+1691	1386635	2025-09-30	England	Championship	Leicester	Wrexham	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.22596	\N	\N	1	0	h-win	yes
+1692	1386637	2025-09-30	England	Championship	Birmingham	Sheffield Wednesday	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.236794	\N	\N	1	1	draw	yes
+1693	1386638	2025-09-30	England	Championship	Bristol City	Ipswich	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.248628	\N	\N	1	0	h-win	yes
+1694	1386636	2025-09-30	England	Championship	Sheffield Utd	Southampton	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.256535	\N	\N	1	0	h-win	yes
+1695	1386639	2025-09-30	England	Championship	Hull City	Preston	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.268593	\N	\N	0	2	a-win	yes
+1696	1386641	2025-09-30	England	Championship	Blackburn	Swansea	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.281575	\N	\N	1	1	draw	yes
+1697	1386640	2025-09-30	England	Championship	Middlesbrough	Stoke City	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.294716	\N	\N	0	0	draw	yes
+1698	1386642	2025-09-30	England	Championship	Derby	Charlton	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.301912	\N	\N	0	1	a-win	yes
+1699	1386646	2025-10-01	England	Championship	Millwall	Coventry	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.314918	\N	\N	0	1	a-win	yes
+1700	1386644	2025-10-01	England	Championship	Norwich	West Brom	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.326267	\N	\N	0	1	a-win	yes
+1701	1386645	2025-10-01	England	Championship	Portsmouth	Watford	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.334226	\N	\N	1	0	h-win	yes
+1702	1386643	2025-10-01	England	Championship	QPR	Oxford United	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.347528	\N	\N	0	0	draw	yes
+1703	1386648	2025-10-03	England	Championship	Wrexham	Birmingham	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.360651	\N	\N	1	0	h-win	yes
+1704	1386654	2025-10-04	England	Championship	Hull City	Sheffield Utd	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.37315	\N	\N	1	0	h-win	yes
+1705	1386653	2025-10-04	England	Championship	Blackburn	Stoke City	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.379661	\N	\N	0	0	draw	yes
+1706	1386656	2025-10-04	England	Championship	Sheffield Wednesday	Coventry	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.392001	\N	\N	0	3	a-win	yes
+1707	1386655	2025-10-04	England	Championship	Watford	Oxford United	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.404541	\N	\N	2	1	h-win	yes
+1708	1386651	2025-10-04	England	Championship	Bristol City	QPR	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.411442	\N	\N	1	0	h-win	yes
+1709	1386647	2025-10-04	England	Championship	Millwall	West Brom	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.424752	\N	\N	1	0	h-win	yes
+1710	1386650	2025-10-04	England	Championship	Preston	Charlton	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.433331	\N	\N	0	0	draw	yes
+1711	1386652	2025-10-04	England	Championship	Derby	Southampton	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.440422	\N	\N	1	1	draw	yes
+1712	1386657	2025-10-04	England	Championship	Swansea	Leicester	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.452966	\N	\N	0	1	a-win	yes
+1713	1386649	2025-10-04	England	Championship	Portsmouth	Middlesbrough	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.45977	\N	\N	1	0	h-win	yes
+1714	1386658	2025-10-05	England	Championship	Ipswich	Norwich	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.473382	\N	\N	2	1	h-win	yes
+1715	1386662	2025-10-17	England	Championship	Middlesbrough	Ipswich	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.480677	\N	\N	1	0	h-win	yes
+1716	1386659	2025-10-18	England	Championship	Southampton	Swansea	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.488575	\N	\N	0	0	draw	yes
+1717	1386664	2025-10-18	England	Championship	QPR	Millwall	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.502458	\N	\N	0	2	a-win	yes
+1718	1386668	2025-10-18	England	Championship	Oxford United	Derby	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.509563	\N	\N	1	0	h-win	yes
+1719	1386666	2025-10-18	England	Championship	Birmingham	Hull City	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.520472	\N	\N	1	2	a-win	yes
+1720	1386661	2025-10-18	England	Championship	West Brom	Preston	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.534091	\N	\N	1	0	h-win	yes
+1721	1386667	2025-10-18	England	Championship	Sheffield Utd	Watford	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.547384	\N	\N	0	0	draw	yes
+1722	1386665	2025-10-18	England	Championship	Norwich	Bristol City	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.555179	\N	\N	0	0	draw	yes
+1723	1386663	2025-10-18	England	Championship	Stoke City	Wrexham	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.571113	\N	\N	1	0	h-win	yes
+1724	1386660	2025-10-18	England	Championship	Charlton	Sheffield Wednesday	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.585753	\N	\N	2	0	h-win	yes
+1725	1386670	2025-10-18	England	Championship	Coventry	Blackburn	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.59306	\N	\N	0	0	draw	yes
+1726	1386669	2025-10-18	England	Championship	Leicester	Portsmouth	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.599992	\N	\N	1	0	h-win	yes
+1727	1386678	2025-10-21	England	Championship	Ipswich	Charlton	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.611904	\N	\N	0	0	draw	yes
+1728	1386671	2025-10-21	England	Championship	Millwall	Stoke City	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.620274	\N	\N	2	0	h-win	yes
+1729	1386673	2025-10-21	England	Championship	Preston	Birmingham	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.626866	\N	\N	0	1	a-win	yes
+1730	1386677	2025-10-21	England	Championship	Hull City	Leicester	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.640767	\N	\N	2	0	h-win	yes
+1731	1386676	2025-10-21	England	Championship	Blackburn	Sheffield Utd	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.654075	\N	\N	1	0	h-win	yes
+1732	1386675	2025-10-21	England	Championship	Derby	Norwich	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.661268	\N	\N	0	0	draw	yes
+1733	1386672	2025-10-21	England	Championship	Portsmouth	Coventry	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.67456	\N	\N	0	1	a-win	yes
+1734	1386674	2025-10-21	England	Championship	Bristol City	Southampton	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.682761	\N	\N	1	1	draw	yes
+1739	1386686	2025-10-24	England	Championship	Preston	Sheffield Utd	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.737738	\N	\N	1	2	a-win	yes
+1740	1386694	2025-10-25	England	Championship	Ipswich	West Brom	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.746514	\N	\N	0	0	draw	yes
+1741	1386684	2025-10-25	England	Championship	Coventry	Watford	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.755566	\N	\N	3	0	h-win	yes
+1742	1386687	2025-10-25	England	Championship	Portsmouth	Stoke City	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.772555	\N	\N	0	0	draw	yes
+1743	1386685	2025-10-25	England	Championship	Bristol City	Birmingham	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.780895	\N	\N	1	0	h-win	yes
+1744	1386683	2025-10-25	England	Championship	Millwall	Leicester	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.788639	\N	\N	1	0	h-win	yes
+1745	1386688	2025-10-25	England	Championship	Hull City	Charlton	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.803969	\N	\N	0	0	draw	yes
+1746	1386690	2025-10-25	England	Championship	Blackburn	Southampton	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.813022	\N	\N	0	1	a-win	yes
+1747	1386691	2025-10-25	England	Championship	Derby	QPR	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.828183	\N	\N	1	0	h-win	yes
+1748	1386689	2025-10-25	England	Championship	Middlesbrough	Wrexham	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.836911	\N	\N	0	1	a-win	yes
+1749	1386692	2025-10-25	England	Championship	Sheffield Wednesday	Oxford United	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.851123	\N	\N	0	2	a-win	yes
+1750	1386693	2025-10-25	England	Championship	Swansea	Norwich	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.866023	\N	\N	1	1	draw	yes
+1751	1386706	2025-10-31	England	Championship	Wrexham	Coventry	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.873002	\N	\N	0	1	a-win	yes
+1752	1386705	2025-11-01	England	Championship	Leicester	Blackburn	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.882766	\N	\N	0	1	a-win	yes
+1753	1386696	2025-11-01	England	Championship	West Brom	Sheffield Wednesday	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.900428	\N	\N	0	0	draw	yes
+1754	1386703	2025-11-01	England	Championship	Norwich	Hull City	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.909434	\N	\N	0	0	draw	yes
+1755	1386700	2025-11-01	England	Championship	Watford	Middlesbrough	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.924538	\N	\N	2	0	h-win	yes
+1756	1386695	2025-11-01	England	Championship	Southampton	Preston	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.940628	\N	\N	0	1	a-win	yes
+1757	1386702	2025-11-01	England	Championship	Birmingham	Portsmouth	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.958123	\N	\N	1	0	h-win	yes
+1758	1386701	2025-11-01	England	Championship	Sheffield Utd	Derby	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.972771	\N	\N	0	1	a-win	yes
+1759	1386698	2025-11-01	England	Championship	QPR	Ipswich	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:17.988674	\N	\N	1	1	draw	yes
+1760	1386699	2025-11-01	England	Championship	Stoke City	Bristol City	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.005261	\N	\N	3	0	h-win	yes
+1761	1386697	2025-11-01	England	Championship	Charlton	Swansea	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.015947	\N	\N	0	0	draw	yes
+1762	1386704	2025-11-01	England	Championship	Oxford United	Millwall	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.032927	\N	\N	1	1	draw	yes
+1763	1386707	2025-11-04	England	Championship	Leicester	Middlesbrough	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.051151	\N	\N	1	0	h-win	yes
+1764	1386710	2025-11-04	England	Championship	Birmingham	Millwall	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.06105	\N	\N	2	0	h-win	yes
+1765	1386711	2025-11-04	England	Championship	Bristol City	Blackburn	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.071017	\N	\N	0	1	a-win	yes
+1766	1386714	2025-11-04	England	Championship	Ipswich	Watford	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.08721	\N	\N	1	1	draw	yes
+1767	1386712	2025-11-04	England	Championship	Derby	Hull City	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.108504	\N	\N	1	0	h-win	yes
+1768	1386713	2025-11-04	England	Championship	Charlton	West Brom	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.117489	\N	\N	0	0	draw	yes
+1769	1386708	2025-11-04	England	Championship	Oxford United	Stoke City	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.133513	\N	\N	0	2	a-win	yes
+1770	1386709	2025-11-04	England	Championship	Coventry	Sheffield Utd	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.147803	\N	\N	0	1	a-win	yes
+1771	1386718	2025-11-05	England	Championship	Preston	Swansea	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.162143	\N	\N	1	0	h-win	yes
+1772	1386716	2025-11-05	England	Championship	QPR	Southampton	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.171143	\N	\N	0	0	draw	yes
+1773	1386715	2025-11-05	England	Championship	Sheffield Wednesday	Norwich	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.17925	\N	\N	1	0	h-win	yes
+1774	1386717	2025-11-05	England	Championship	Portsmouth	Wrexham	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.192591	\N	\N	0	0	draw	yes
+1775	1386725	2025-11-07	England	Championship	Watford	Bristol City	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.207429	\N	\N	1	1	draw	yes
+1776	1386721	2025-11-08	England	Championship	Millwall	Preston	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.221217	\N	\N	1	1	draw	yes
+1777	1386727	2025-11-08	England	Championship	Hull City	Portsmouth	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.230561	\N	\N	2	2	draw	yes
+1778	1386724	2025-11-08	England	Championship	Blackburn	Derby	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.245003	\N	\N	0	2	a-win	yes
+1779	1386730	2025-11-08	England	Championship	Southampton	Sheffield Wednesday	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.256024	\N	\N	2	1	h-win	yes
+1780	1386729	2025-11-08	England	Championship	West Brom	Oxford United	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.269842	\N	\N	0	0	draw	yes
+1781	1386719	2025-11-08	England	Championship	Sheffield Utd	QPR	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.284312	\N	\N	0	0	draw	yes
+1782	1386726	2025-11-08	England	Championship	Middlesbrough	Birmingham	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.299128	\N	\N	2	1	h-win	yes
+1783	1386720	2025-11-08	England	Championship	Norwich	Leicester	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.307463	\N	\N	0	0	draw	yes
+1784	1386723	2025-11-08	England	Championship	Stoke City	Coventry	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.321555	\N	\N	0	0	draw	yes
+1785	1386728	2025-11-08	England	Championship	Swansea	Ipswich	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.335917	\N	\N	0	1	a-win	yes
+1786	1386722	2025-11-08	England	Championship	Wrexham	Charlton	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.34495	\N	\N	0	0	draw	yes
+1787	1386742	2025-11-21	England	Championship	Preston	Blackburn	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.354699	\N	\N	1	1	draw	yes
+1788	1386740	2025-11-22	England	Championship	Bristol City	Swansea	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.368956	\N	\N	2	0	h-win	yes
+1789	1386732	2025-11-22	England	Championship	Charlton	Southampton	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.384971	\N	\N	1	5	a-win	yes
+1790	1386737	2025-11-22	England	Championship	Coventry	West Brom	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.393873	\N	\N	1	2	a-win	yes
+1791	1386736	2025-11-22	England	Championship	Leicester	Stoke City	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.404001	\N	\N	2	0	h-win	yes
+1792	1386739	2025-11-22	England	Championship	Birmingham	Norwich	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.419997	\N	\N	3	1	h-win	yes
+1793	1386731	2025-11-22	England	Championship	Ipswich	Wrexham	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.435927	\N	\N	0	0	draw	yes
+1794	1386735	2025-11-22	England	Championship	Derby	Watford	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.443791	\N	\N	1	0	h-win	yes
+1795	1386734	2025-11-22	England	Championship	QPR	Hull City	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.45766	\N	\N	1	1	draw	yes
+1796	1386738	2025-11-22	England	Championship	Oxford United	Middlesbrough	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.473066	\N	\N	1	0	h-win	yes
+1797	1386741	2025-11-22	England	Championship	Portsmouth	Millwall	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.482509	\N	\N	1	0	h-win	yes
+1798	1386733	2025-11-23	England	Championship	Sheffield Wednesday	Sheffield Utd	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.495191	\N	\N	0	1	a-win	yes
+1799	1386761	2025-11-28	England	Championship	Oxford United	Ipswich	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.53659	\N	\N	1	0	h-win	yes
+1800	1386760	2025-11-29	England	Championship	Leicester	Sheffield Utd	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.551477	\N	\N	0	3	a-win	yes
+1801	1386763	2025-11-29	England	Championship	Stoke City	Hull City	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.569932	\N	\N	1	0	h-win	yes
+1802	1386757	2025-11-29	England	Championship	Portsmouth	Bristol City	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.579134	\N	\N	0	1	a-win	yes
+1803	1386759	2025-11-29	England	Championship	Millwall	Southampton	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.587539	\N	\N	0	0	draw	yes
+1804	1386765	2025-11-29	England	Championship	West Brom	Swansea	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.601589	\N	\N	0	2	a-win	yes
+1805	1386764	2025-11-29	England	Championship	Middlesbrough	Derby	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.616373	\N	\N	0	1	a-win	yes
+1806	1386755	2025-11-29	England	Championship	Norwich	QPR	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.624284	\N	\N	3	1	h-win	yes
+1807	1386766	2025-11-29	England	Championship	Sheffield Wednesday	Preston	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.637473	\N	\N	2	1	h-win	yes
+1808	1386762	2025-11-29	England	Championship	Coventry	Charlton	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.651161	\N	\N	2	1	h-win	yes
+1809	1386758	2025-11-29	England	Championship	Wrexham	Blackburn	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.659712	\N	\N	0	1	a-win	yes
+1810	1386756	2025-12-01	England	Championship	Birmingham	Watford	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 00:05:18.669481	\N	\N	2	0	h-win	yes
+1811	1387103	2025-08-01	England	League One	Luton	AFC Wimbledon	h-win	1	0	6	1	2	0	5	2	3	6	1	1	0	0	65.00	35.00	10	11	\N	\N	\N	\N	\N	2025-12-02 01:19:33.017859	\N	\N	0	0	draw	yes
+1812	1387104	2025-08-02	England	League One	Cardiff	Peterborough	h-win	2	1	17	6	7	3	4	2	1	1	3	1	0	0	57.00	43.00	18	10	\N	\N	\N	\N	\N	2025-12-02 01:19:33.106018	\N	\N	0	1	a-win	yes
+1813	1387109	2025-08-02	England	League One	Huddersfield	Leyton Orient	h-win	3	0	14	8	14	3	6	3	4	1	3	0	0	0	44.00	56.00	11	14	\N	\N	\N	\N	\N	2025-12-02 01:19:33.184423	\N	\N	1	0	h-win	yes
+1814	1387113	2025-08-02	England	League One	Wigan	Northampton	h-win	3	1	20	8	8	4	9	3	1	2	0	2	0	0	50.00	50.00	11	11	\N	\N	\N	\N	\N	2025-12-02 01:19:33.265538	\N	\N	2	0	h-win	yes
+1815	1387112	2025-08-02	England	League One	Rotherham	Port Vale	h-win	2	1	11	4	18	4	6	3	1	2	3	1	1	1	47.00	53.00	9	8	\N	\N	\N	\N	\N	2025-12-02 01:19:33.34687	\N	\N	2	0	h-win	yes
+1816	1387107	2025-08-02	England	League One	Burton Albion	Mansfield Town	h-win	2	1	13	5	13	3	1	7	0	1	2	2	0	0	39.00	61.00	13	15	\N	\N	\N	\N	\N	2025-12-02 01:19:33.430658	\N	\N	1	0	h-win	yes
+1817	1387106	2025-08-02	England	League One	Bradford	Wycombe	h-win	2	1	12	6	11	3	2	6	2	2	3	4	0	0	31.00	69.00	23	13	\N	\N	\N	\N	\N	2025-12-02 01:19:33.504946	\N	\N	2	0	h-win	yes
+1818	1387108	2025-08-02	England	League One	Doncaster	Exeter City	h-win	1	0	14	3	2	0	7	1	2	2	0	0	0	0	65.00	35.00	11	10	\N	\N	\N	\N	\N	2025-12-02 01:19:33.584225	\N	\N	0	0	draw	yes
+1819	1387105	2025-08-02	England	League One	Blackpool	Stevenage	a-win	2	3	8	2	7	4	2	2	2	3	1	4	0	0	66.00	34.00	15	19	\N	\N	\N	\N	\N	2025-12-02 01:19:33.664167	\N	\N	1	2	a-win	yes
+1820	1387111	2025-08-02	England	League One	Plymouth	Barnsley	a-win	1	3	15	3	12	7	9	5	2	0	2	5	0	1	53.00	47.00	9	18	\N	\N	\N	\N	\N	2025-12-02 01:19:33.744212	\N	\N	0	2	a-win	yes
+1821	1387110	2025-08-02	England	League One	Lincoln	Reading	h-win	2	0	6	2	9	3	3	9	3	1	1	0	0	0	34.00	66.00	14	4	\N	\N	\N	\N	\N	2025-12-02 01:19:33.824386	\N	\N	1	0	h-win	yes
+1822	1387114	2025-08-03	England	League One	Stockport County	Bolton	h-win	2	0	5	2	15	2	9	7	2	2	2	1	0	0	45.00	55.00	13	13	\N	\N	\N	\N	\N	2025-12-02 01:19:33.903888	\N	\N	1	0	h-win	yes
+1823	1387126	2025-08-07	England	League One	Port Vale	Cardiff	draw	0	0	16	1	8	1	5	4	3	1	3	1	0	0	39.00	61.00	13	6	\N	\N	\N	\N	\N	2025-12-02 01:19:33.984277	\N	\N	0	0	draw	yes
+1824	1387123	2025-08-09	England	League One	Reading	Huddersfield	a-win	0	2	8	2	12	6	4	10	0	1	4	2	0	0	49.00	51.00	15	12	\N	\N	\N	\N	\N	2025-12-02 01:19:34.06411	\N	\N	0	0	draw	yes
+1825	1387122	2025-08-09	England	League One	Peterborough	Luton	a-win	0	2	6	2	8	3	3	6	2	5	2	2	0	0	49.00	51.00	15	12	\N	\N	\N	\N	\N	2025-12-02 01:19:34.144163	\N	\N	0	0	draw	yes
+1826	1387117	2025-08-09	England	League One	Bolton	Plymouth	h-win	2	0	13	2	3	0	8	3	4	8	2	4	0	0	39.00	61.00	16	9	\N	\N	\N	\N	\N	2025-12-02 01:19:34.225376	\N	\N	1	0	h-win	yes
+1827	1387116	2025-08-09	England	League One	Barnsley	Burton Albion	h-win	3	2	13	7	8	3	7	4	2	2	3	1	0	0	68.00	32.00	16	14	\N	\N	\N	\N	\N	2025-12-02 01:19:34.304043	\N	\N	0	2	a-win	yes
+1828	1387115	2025-08-09	England	League One	AFC Wimbledon	Lincoln	h-win	2	0	16	3	2	0	6	3	1	2	0	0	0	1	55.00	45.00	11	15	\N	\N	\N	\N	\N	2025-12-02 01:19:34.383961	\N	\N	1	0	h-win	yes
+1829	1387121	2025-08-09	England	League One	Northampton	Bradford	draw	0	0	4	1	14	2	6	3	1	1	2	5	0	0	53.00	47.00	10	14	\N	\N	\N	\N	\N	2025-12-02 01:19:34.464519	\N	\N	0	0	draw	yes
+1830	1387125	2025-08-09	England	League One	Wycombe	Stockport County	a-win	1	2	14	6	9	3	8	4	5	1	3	1	0	0	58.00	42.00	8	11	\N	\N	\N	\N	\N	2025-12-02 01:19:34.54982	\N	\N	0	1	a-win	yes
+1831	1387118	2025-08-09	England	League One	Exeter City	Blackpool	h-win	4	1	17	7	10	3	6	5	0	0	1	1	0	0	44.00	56.00	16	8	\N	\N	\N	\N	\N	2025-12-02 01:19:34.6238	\N	\N	2	1	h-win	yes
+1832	1387124	2025-08-09	England	League One	Stevenage	Rotherham	h-win	1	0	12	2	5	0	5	5	1	0	3	2	0	0	44.00	56.00	10	16	\N	\N	\N	\N	\N	2025-12-02 01:19:34.704211	\N	\N	1	0	h-win	yes
+1833	1387119	2025-08-09	England	League One	Leyton Orient	Wigan	h-win	2	0	14	5	4	0	2	3	3	1	0	1	0	1	52.00	48.00	15	8	\N	\N	\N	\N	\N	2025-12-02 01:19:34.803777	\N	\N	1	0	h-win	yes
+1834	1387120	2025-08-09	England	League One	Mansfield Town	Doncaster	a-win	1	2	7	3	13	2	2	5	0	0	2	1	0	0	41.00	59.00	14	10	\N	\N	\N	\N	\N	2025-12-02 01:19:34.883756	\N	\N	0	0	draw	yes
+1835	1387130	2025-08-16	England	League One	Burton Albion	Port Vale	draw	0	0	14	4	13	0	9	3	1	1	4	1	0	1	62.00	38.00	14	10	\N	\N	\N	\N	\N	2025-12-02 01:19:34.963861	\N	\N	0	0	draw	yes
+1836	1387132	2025-08-16	England	League One	Exeter City	Mansfield Town	a-win	1	2	5	4	7	3	3	4	5	0	2	1	0	0	60.00	40.00	11	9	\N	\N	\N	\N	\N	2025-12-02 01:19:35.044325	\N	\N	0	1	a-win	yes
+1837	1387138	2025-08-16	England	League One	Cardiff	Rotherham	h-win	3	0	13	6	1	1	7	0	1	2	2	3	0	0	76.00	24.00	16	15	\N	\N	\N	\N	\N	2025-12-02 01:19:35.123779	\N	\N	1	0	h-win	yes
+1838	1387135	2025-08-16	England	League One	Reading	AFC Wimbledon	a-win	1	2	14	3	8	2	3	5	1	2	1	1	0	0	60.00	40.00	6	6	\N	\N	\N	\N	\N	2025-12-02 01:19:35.199587	\N	\N	0	1	a-win	yes
+1839	1387137	2025-08-16	England	League One	Wigan	Peterborough	h-win	2	0	10	4	15	2	3	10	4	1	1	2	0	0	30.00	70.00	12	18	\N	\N	\N	\N	\N	2025-12-02 01:19:35.272828	\N	\N	2	0	h-win	yes
+1840	1387127	2025-08-16	England	League One	Barnsley	Bolton	draw	1	1	5	2	17	7	3	2	7	4	4	2	1	0	44.00	56.00	14	15	\N	\N	\N	\N	\N	2025-12-02 01:19:35.349682	\N	\N	0	0	draw	yes
+1841	1387129	2025-08-16	England	League One	Bradford	Luton	h-win	2	1	13	7	9	3	2	9	4	0	2	2	0	0	38.00	62.00	12	15	\N	\N	\N	\N	\N	2025-12-02 01:19:35.43016	\N	\N	1	0	h-win	yes
+1842	1387131	2025-08-16	England	League One	Doncaster	Wycombe	draw	1	1	10	1	8	3	6	3	1	7	3	2	0	0	46.00	54.00	13	14	\N	\N	\N	\N	\N	2025-12-02 01:19:35.54395	\N	\N	0	0	draw	yes
+1843	1387128	2025-08-16	England	League One	Blackpool	Huddersfield	h-win	3	2	8	4	17	3	1	7	1	2	0	2	1	0	23.00	77.00	10	17	\N	\N	\N	\N	\N	2025-12-02 01:19:35.624579	\N	\N	3	2	h-win	yes
+1844	1387136	2025-08-16	England	League One	Stevenage	Northampton	h-win	2	0	10	3	9	0	2	6	2	3	2	0	0	0	48.00	52.00	13	16	\N	\N	\N	\N	\N	2025-12-02 01:19:35.713783	\N	\N	0	0	draw	yes
+1845	1387133	2025-08-16	England	League One	Leyton Orient	Stockport County	draw	2	2	13	2	8	4	6	4	0	1	2	2	0	0	71.00	29.00	9	11	\N	\N	\N	\N	\N	2025-12-02 01:19:35.803748	\N	\N	0	2	a-win	yes
+1846	1387134	2025-08-16	England	League One	Lincoln	Plymouth	h-win	3	2	14	8	15	4	4	5	2	1	6	5	0	1	35.00	65.00	15	11	\N	\N	\N	\N	\N	2025-12-02 01:19:35.889178	\N	\N	1	0	h-win	yes
+1847	1387140	2025-08-19	England	League One	Huddersfield	Doncaster	h-win	2	0	11	7	12	3	7	6	5	1	3	3	0	0	50.00	50.00	14	19	\N	\N	\N	\N	\N	2025-12-02 01:19:35.975604	\N	\N	0	0	draw	yes
+1848	1387150	2025-08-19	England	League One	AFC Wimbledon	Cardiff	a-win	0	1	16	2	16	1	5	2	1	0	2	2	0	0	33.00	67.00	10	11	\N	\N	\N	\N	\N	2025-12-02 01:19:36.05417	\N	\N	0	0	draw	yes
+1849	1387143	2025-08-19	England	League One	Northampton	Lincoln	a-win	0	1	10	3	3	1	6	1	1	2	3	4	0	0	61.00	39.00	9	13	\N	\N	\N	\N	\N	2025-12-02 01:19:36.129891	\N	\N	0	1	a-win	yes
+1850	1387144	2025-08-19	England	League One	Peterborough	Barnsley	a-win	0	1	7	1	15	5	2	5	0	1	1	3	0	0	44.00	56.00	13	11	\N	\N	\N	\N	\N	2025-12-02 01:19:36.20537	\N	\N	0	1	a-win	yes
+1851	1387146	2025-08-19	England	League One	Port Vale	Stevenage	a-win	1	2	15	6	11	3	4	2	1	1	1	2	0	0	50.00	50.00	11	13	\N	\N	\N	\N	\N	2025-12-02 01:19:36.278827	\N	\N	1	0	h-win	yes
+1852	1387145	2025-08-19	England	League One	Plymouth	Leyton Orient	a-win	0	1	12	5	10	5	4	2	2	3	1	2	0	0	52.00	48.00	7	12	\N	\N	\N	\N	\N	2025-12-02 01:19:36.35433	\N	\N	0	0	draw	yes
+1853	1387149	2025-08-19	England	League One	Wycombe	Exeter City	a-win	0	1	19	8	6	1	6	7	3	1	4	3	0	0	63.00	37.00	10	8	\N	\N	\N	\N	\N	2025-12-02 01:19:36.434316	\N	\N	0	0	draw	yes
+1854	1387141	2025-08-19	England	League One	Luton	Wigan	h-win	1	0	13	4	9	3	8	4	3	5	1	2	0	0	66.00	34.00	7	12	\N	\N	\N	\N	\N	2025-12-02 01:19:36.51012	\N	\N	1	0	h-win	yes
+1855	1387142	2025-08-19	England	League One	Mansfield Town	Blackpool	h-win	2	0	15	6	6	1	4	0	1	2	0	0	0	0	50.00	50.00	13	13	\N	\N	\N	\N	\N	2025-12-02 01:19:36.583737	\N	\N	0	0	draw	yes
+1856	1387148	2025-08-19	England	League One	Stockport County	Bradford	a-win	1	2	19	8	10	3	8	8	1	5	1	2	0	0	66.00	34.00	9	10	\N	\N	\N	\N	\N	2025-12-02 01:19:36.663954	\N	\N	1	0	h-win	yes
+1857	1387139	2025-08-20	England	League One	Bolton	Reading	draw	1	1	21	4	5	2	3	1	2	3	0	5	0	0	64.00	36.00	9	21	\N	\N	\N	\N	\N	2025-12-02 01:19:36.743923	\N	\N	0	0	draw	yes
+1858	1387159	2025-08-23	England	League One	Rotherham	Wigan	draw	2	2	12	5	13	5	4	6	0	0	1	3	0	0	47.00	53.00	13	13	\N	\N	\N	\N	\N	2025-12-02 01:19:36.823691	\N	\N	0	1	a-win	yes
+1859	1387162	2025-08-23	England	League One	Luton	Cardiff	a-win	0	1	23	7	16	3	5	8	1	2	2	1	0	0	38.00	62.00	11	10	\N	\N	\N	\N	\N	2025-12-02 01:19:36.906898	\N	\N	0	0	draw	yes
+1860	1387153	2025-08-23	England	League One	Huddersfield	Stevenage	h-win	1	0	12	6	11	4	7	4	0	1	2	1	0	0	61.00	39.00	8	16	\N	\N	\N	\N	\N	2025-12-02 01:19:36.984501	\N	\N	0	0	draw	yes
+1861	1387152	2025-08-23	England	League One	Bolton	Lincoln	draw	1	1	18	6	5	3	13	2	2	5	2	2	0	0	74.00	26.00	11	13	\N	\N	\N	\N	\N	2025-12-02 01:19:37.063767	\N	\N	0	1	a-win	yes
+1862	1387151	2025-08-23	England	League One	AFC Wimbledon	Barnsley	h-win	2	0	16	5	16	3	3	3	1	2	2	1	0	0	40.00	60.00	11	9	\N	\N	\N	\N	\N	2025-12-02 01:19:37.143714	\N	\N	1	0	h-win	yes
+1863	1387155	2025-08-23	England	League One	Northampton	Exeter City	h-win	2	0	10	3	6	1	1	4	1	5	0	4	0	0	36.00	64.00	9	15	\N	\N	\N	\N	\N	2025-12-02 01:19:37.224298	\N	\N	2	0	h-win	yes
+1864	1387156	2025-08-23	England	League One	Peterborough	Bradford	draw	1	1	12	4	15	4	8	6	1	1	1	1	0	0	61.00	39.00	10	20	\N	\N	\N	\N	\N	2025-12-02 01:19:37.3037	\N	\N	0	0	draw	yes
+1865	1387158	2025-08-23	England	League One	Port Vale	Doncaster	a-win	0	1	13	3	6	1	7	6	2	3	1	2	0	0	45.00	55.00	10	7	\N	\N	\N	\N	\N	2025-12-02 01:19:37.383807	\N	\N	0	0	draw	yes
+1866	1387157	2025-08-23	England	League One	Plymouth	Blackpool	h-win	1	0	14	3	9	2	4	4	0	1	1	3	0	0	59.00	41.00	13	9	\N	\N	\N	\N	\N	2025-12-02 01:19:37.463705	\N	\N	0	0	draw	yes
+1867	1387161	2025-08-23	England	League One	Wycombe	Reading	draw	2	2	14	6	16	6	5	8	0	2	1	3	0	0	54.00	46.00	10	12	\N	\N	\N	\N	\N	2025-12-02 01:19:37.543562	\N	\N	1	2	a-win	yes
+1868	1387154	2025-08-23	England	League One	Mansfield Town	Leyton Orient	h-win	4	1	18	5	8	3	7	7	0	1	2	2	0	1	45.00	55.00	7	15	\N	\N	\N	\N	\N	2025-12-02 01:19:37.623859	\N	\N	2	1	h-win	yes
+1869	1387160	2025-08-23	England	League One	Stockport County	Burton Albion	h-win	2	1	14	5	20	3	4	8	3	1	3	0	1	0	46.00	54.00	9	8	\N	\N	\N	\N	\N	2025-12-02 01:19:37.703637	\N	\N	0	1	a-win	yes
+1870	1387174	2025-08-30	England	League One	Cardiff	Plymouth	h-win	4	0	16	10	8	3	5	5	1	1	3	1	0	0	55.00	45.00	14	6	\N	\N	\N	\N	\N	2025-12-02 01:19:37.783605	\N	\N	2	0	h-win	yes
+1871	1387167	2025-08-30	England	League One	Doncaster	Rotherham	h-win	1	0	13	3	14	3	2	6	3	2	3	1	0	0	58.00	42.00	12	13	\N	\N	\N	\N	\N	2025-12-02 01:19:37.863598	\N	\N	1	0	h-win	yes
+1872	1387171	2025-08-30	England	League One	Reading	Port Vale	h-win	1	0	11	5	14	3	2	6	1	4	2	2	0	0	48.00	52.00	12	12	\N	\N	\N	\N	\N	2025-12-02 01:19:37.944249	\N	\N	0	0	draw	yes
+1873	1387173	2025-08-30	England	League One	Wigan	Stockport County	draw	1	1	13	3	8	3	2	3	3	0	1	2	0	0	57.00	43.00	7	10	\N	\N	\N	\N	\N	2025-12-02 01:19:38.023712	\N	\N	0	1	a-win	yes
+1874	1387163	2025-08-30	England	League One	Barnsley	Huddersfield	h-win	3	1	7	5	9	1	3	6	4	4	1	2	0	1	62.00	38.00	8	13	\N	\N	\N	\N	\N	2025-12-02 01:19:38.099071	\N	\N	2	0	h-win	yes
+1875	1387166	2025-08-30	England	League One	Burton Albion	Luton	a-win	0	3	8	3	12	6	6	4	0	1	0	1	0	0	49.00	51.00	9	10	\N	\N	\N	\N	\N	2025-12-02 01:19:38.176187	\N	\N	0	2	a-win	yes
+1876	1387165	2025-08-30	England	League One	Bradford	AFC Wimbledon	h-win	3	2	16	6	13	4	7	2	2	1	0	1	0	0	45.00	55.00	9	13	\N	\N	\N	\N	\N	2025-12-02 01:19:38.255063	\N	\N	1	1	draw	yes
+1877	1387164	2025-08-30	England	League One	Blackpool	Bolton	draw	1	1	6	1	17	4	0	5	2	1	1	2	0	0	28.00	72.00	15	11	\N	\N	\N	\N	\N	2025-12-02 01:19:38.334663	\N	\N	1	0	h-win	yes
+1878	1387168	2025-08-30	England	League One	Exeter City	Peterborough	h-win	3	0	12	5	6	1	5	5	5	1	3	2	0	0	46.00	54.00	23	9	\N	\N	\N	\N	\N	2025-12-02 01:19:38.408749	\N	\N	1	0	h-win	yes
+1879	1387172	2025-08-30	England	League One	Stevenage	Wycombe	h-win	1	0	9	5	10	0	5	2	0	3	2	2	0	0	39.00	61.00	14	11	\N	\N	\N	\N	\N	2025-12-02 01:19:38.48389	\N	\N	1	0	h-win	yes
+1880	1387169	2025-08-30	England	League One	Leyton Orient	Northampton	a-win	0	1	7	4	8	4	6	6	2	0	5	0	0	0	66.00	34.00	17	9	\N	\N	\N	\N	\N	2025-12-02 01:19:38.56888	\N	\N	0	0	draw	yes
+1881	1387170	2025-08-30	England	League One	Lincoln	Mansfield Town	draw	1	1	7	2	14	4	3	11	4	0	6	2	1	0	35.00	65.00	14	16	\N	\N	\N	\N	\N	2025-12-02 01:19:38.644641	\N	\N	1	0	h-win	yes
+1882	1387178	2025-09-06	England	League One	Huddersfield	Peterborough	h-win	3	2	11	5	5	3	1	3	3	3	1	1	0	0	50.00	50.00	16	10	\N	\N	\N	\N	\N	2025-12-02 01:19:38.723695	\N	\N	0	0	draw	yes
+1883	1387176	2025-09-06	England	League One	Bolton	AFC Wimbledon	h-win	3	0	24	8	9	2	8	2	3	3	2	3	0	2	62.00	38.00	14	18	\N	\N	\N	\N	\N	2025-12-02 01:19:38.803684	\N	\N	1	0	h-win	yes
+1884	1387183	2025-09-06	England	League One	Rotherham	Exeter City	h-win	1	0	14	5	5	1	9	5	1	5	1	0	0	0	39.00	61.00	13	9	\N	\N	\N	\N	\N	2025-12-02 01:19:38.883726	\N	\N	1	0	h-win	yes
+1885	1387181	2025-09-06	England	League One	Port Vale	Leyton Orient	a-win	2	3	15	8	10	4	5	2	1	2	1	3	0	0	43.00	57.00	7	6	\N	\N	\N	\N	\N	2025-12-02 01:19:38.96488	\N	\N	1	2	a-win	yes
+1886	1387177	2025-09-06	England	League One	Doncaster	Bradford	h-win	3	1	15	5	7	1	3	7	2	2	0	2	0	0	41.00	59.00	9	12	\N	\N	\N	\N	\N	2025-12-02 01:19:39.043638	\N	\N	3	1	h-win	yes
+1887	1387180	2025-09-06	England	League One	Plymouth	Stockport County	h-win	4	2	8	5	9	3	8	7	2	0	2	1	0	0	38.00	62.00	7	14	\N	\N	\N	\N	\N	2025-12-02 01:19:39.123787	\N	\N	2	1	h-win	yes
+1888	1387185	2025-09-06	England	League One	Wycombe	Mansfield Town	h-win	2	0	10	3	11	2	7	5	1	2	3	3	0	0	42.00	58.00	13	12	\N	\N	\N	\N	\N	2025-12-02 01:19:39.203849	\N	\N	1	0	h-win	yes
+1889	1387179	2025-09-06	England	League One	Lincoln	Wigan	draw	2	2	11	6	14	7	6	11	2	1	5	0	1	1	42.00	58.00	13	11	\N	\N	\N	\N	\N	2025-12-02 01:19:39.283836	\N	\N	2	1	h-win	yes
+1890	1387195	2025-09-13	England	League One	Northampton	Blackpool	h-win	1	0	9	4	14	4	5	5	1	4	1	1	0	0	45.00	55.00	9	9	\N	\N	\N	\N	\N	2025-12-02 01:19:39.365227	\N	\N	0	0	draw	yes
+1891	1387189	2025-09-13	England	League One	Bradford	Huddersfield	h-win	3	1	13	4	8	2	5	11	0	0	1	5	0	0	46.00	54.00	12	13	\N	\N	\N	\N	\N	2025-12-02 01:19:39.448316	\N	\N	3	0	h-win	yes
+1892	1387197	2025-09-13	England	League One	Wigan	Doncaster	h-win	3	0	13	8	9	3	10	10	1	0	2	1	0	0	43.00	57.00	15	10	\N	\N	\N	\N	\N	2025-12-02 01:19:39.532707	\N	\N	2	0	h-win	yes
+1893	1387188	2025-09-13	England	League One	Barnsley	Reading	h-win	3	2	15	5	14	5	5	4	1	0	3	5	0	0	54.00	46.00	19	15	\N	\N	\N	\N	\N	2025-12-02 01:19:39.614854	\N	\N	1	1	draw	yes
+1894	1387190	2025-09-13	England	League One	Burton Albion	Lincoln	a-win	0	1	16	2	10	3	6	3	1	4	2	3	0	0	65.00	35.00	11	15	\N	\N	\N	\N	\N	2025-12-02 01:19:39.692857	\N	\N	0	1	a-win	yes
+1895	1387187	2025-09-13	England	League One	AFC Wimbledon	Rotherham	h-win	2	1	10	5	7	3	5	5	3	1	2	3	0	0	47.00	53.00	16	10	\N	\N	\N	\N	\N	2025-12-02 01:19:39.774996	\N	\N	0	1	a-win	yes
+1896	1387196	2025-09-13	England	League One	Peterborough	Wycombe	h-win	2	1	16	6	12	5	3	4	1	2	3	1	0	0	46.00	54.00	12	14	\N	\N	\N	\N	\N	2025-12-02 01:19:39.853219	\N	\N	2	0	h-win	yes
+1897	1387193	2025-09-13	England	League One	Luton	Plymouth	a-win	2	3	22	7	6	3	16	3	1	1	2	3	0	1	66.00	34.00	12	10	\N	\N	\N	\N	\N	2025-12-02 01:19:39.943632	\N	\N	1	2	a-win	yes
+1898	1387191	2025-09-13	England	League One	Exeter City	Port Vale	a-win	0	2	11	4	5	2	8	2	2	3	1	2	0	0	70.00	30.00	6	14	\N	\N	\N	\N	\N	2025-12-02 01:19:40.024534	\N	\N	0	2	a-win	yes
+1899	1387192	2025-09-13	England	League One	Leyton Orient	Bolton	draw	1	1	6	1	11	4	3	8	0	4	3	2	0	0	38.00	62.00	13	9	\N	\N	\N	\N	\N	2025-12-02 01:19:40.103521	\N	\N	0	0	draw	yes
+1900	1387194	2025-09-13	England	League One	Mansfield Town	Stevenage	draw	1	1	7	2	9	4	3	9	3	2	2	4	0	0	50.00	50.00	8	8	\N	\N	\N	\N	\N	2025-12-02 01:19:40.183773	\N	\N	0	0	draw	yes
+1901	1387198	2025-09-13	England	League One	Stockport County	Cardiff	draw	1	1	14	3	4	2	7	2	1	4	0	1	0	0	47.00	53.00	14	11	\N	\N	\N	\N	\N	2025-12-02 01:19:40.263816	\N	\N	1	0	h-win	yes
+1902	1387200	2025-09-20	England	League One	Bolton	Wigan	h-win	4	1	13	7	9	1	3	16	1	0	0	1	0	0	52.00	48.00	9	10	\N	\N	\N	\N	\N	2025-12-02 01:19:40.343723	\N	\N	3	0	h-win	yes
+1903	1387199	2025-09-20	England	League One	Blackpool	Barnsley	h-win	1	0	10	3	10	1	7	3	4	1	2	1	0	0	37.00	63.00	12	9	\N	\N	\N	\N	\N	2025-12-02 01:19:40.423199	\N	\N	0	0	draw	yes
+1904	1387203	2025-09-20	England	League One	Lincoln	Luton	h-win	3	1	15	6	13	2	2	7	1	2	1	5	0	0	43.00	57.00	12	14	\N	\N	\N	\N	\N	2025-12-02 01:19:40.503732	\N	\N	1	0	h-win	yes
+1905	1387202	2025-09-20	England	League One	Huddersfield	Burton Albion	draw	0	0	13	4	9	3	15	5	3	0	0	1	0	0	70.00	30.00	11	18	\N	\N	\N	\N	\N	2025-12-02 01:19:40.584124	\N	\N	0	0	draw	yes
+1906	1387210	2025-09-20	England	League One	Cardiff	Bradford	a-win	1	3	15	5	16	6	4	7	1	2	4	4	0	0	61.00	39.00	15	13	\N	\N	\N	\N	\N	2025-12-02 01:19:40.663952	\N	\N	0	2	a-win	yes
+1907	1387206	2025-09-20	England	League One	Reading	Leyton Orient	h-win	2	1	12	6	17	6	2	6	0	2	5	3	0	0	30.00	70.00	13	11	\N	\N	\N	\N	\N	2025-12-02 01:19:40.74431	\N	\N	1	0	h-win	yes
+1908	1387207	2025-09-20	England	League One	Rotherham	Stockport County	a-win	0	1	7	1	11	5	1	4	3	2	3	2	0	0	46.00	54.00	12	17	\N	\N	\N	\N	\N	2025-12-02 01:19:40.824223	\N	\N	0	0	draw	yes
+1909	1387205	2025-09-20	England	League One	Port Vale	Mansfield Town	h-win	2	1	19	8	2	1	7	0	3	1	2	1	0	1	75.00	25.00	14	7	\N	\N	\N	\N	\N	2025-12-02 01:19:40.904125	\N	\N	0	0	draw	yes
+1910	1387201	2025-09-20	England	League One	Doncaster	AFC Wimbledon	a-win	1	2	12	1	9	4	2	6	2	2	1	2	0	0	57.00	43.00	7	12	\N	\N	\N	\N	\N	2025-12-02 01:19:40.984335	\N	\N	0	0	draw	yes
+1911	1387204	2025-09-20	England	League One	Plymouth	Peterborough	a-win	0	1	19	4	8	4	7	1	0	4	3	2	0	0	66.00	34.00	8	11	\N	\N	\N	\N	\N	2025-12-02 01:19:41.06491	\N	\N	0	1	a-win	yes
+1912	1387209	2025-09-20	England	League One	Wycombe	Northampton	h-win	2	0	20	6	7	1	6	3	6	1	1	1	0	0	54.00	46.00	9	12	\N	\N	\N	\N	\N	2025-12-02 01:19:41.143618	\N	\N	1	0	h-win	yes
+1913	1387208	2025-09-20	England	League One	Stevenage	Exeter City	h-win	2	1	17	5	12	6	6	3	3	1	1	1	0	0	54.00	46.00	11	13	\N	\N	\N	\N	\N	2025-12-02 01:19:41.225419	\N	\N	1	1	draw	yes
+1914	1387211	2025-09-27	England	League One	AFC Wimbledon	Wycombe	h-win	2	1	6	2	12	1	0	7	4	3	0	0	0	0	32.00	68.00	13	11	\N	\N	\N	\N	\N	2025-12-02 01:19:41.303621	\N	\N	2	0	h-win	yes
+1915	1387216	2025-09-27	England	League One	Leyton Orient	Stevenage	a-win	2	3	5	2	11	8	6	7	0	5	0	1	0	0	62.00	38.00	9	10	\N	\N	\N	\N	\N	2025-12-02 01:19:41.384293	\N	\N	1	1	draw	yes
+1916	1387222	2025-09-27	England	League One	Wigan	Cardiff	a-win	0	2	6	1	15	5	7	5	1	2	1	1	1	0	27.00	73.00	9	6	\N	\N	\N	\N	\N	2025-12-02 01:19:41.463733	\N	\N	0	1	a-win	yes
+1917	1387212	2025-09-27	England	League One	Barnsley	Port Vale	a-win	0	2	13	0	14	8	4	3	3	3	1	2	0	0	69.00	31.00	6	11	\N	\N	\N	\N	\N	2025-12-02 01:19:41.543681	\N	\N	0	0	draw	yes
+1918	1387214	2025-09-27	England	League One	Burton Albion	Plymouth	a-win	0	4	12	3	15	9	6	5	4	1	0	1	0	0	63.00	37.00	10	8	\N	\N	\N	\N	\N	2025-12-02 01:19:41.623844	\N	\N	0	2	a-win	yes
+1919	1387219	2025-09-27	England	League One	Northampton	Bolton	h-win	2	0	10	3	19	6	4	10	0	1	2	1	0	0	37.00	63.00	11	8	\N	\N	\N	\N	\N	2025-12-02 01:19:41.703906	\N	\N	0	0	draw	yes
+1920	1387213	2025-09-27	England	League One	Bradford	Blackpool	h-win	1	0	15	3	10	3	3	5	1	1	3	0	0	0	52.00	48.00	11	13	\N	\N	\N	\N	\N	2025-12-02 01:19:41.791091	\N	\N	0	0	draw	yes
+1921	1387220	2025-09-27	England	League One	Peterborough	Lincoln	a-win	0	3	9	0	7	5	1	0	2	2	0	2	0	0	64.00	36.00	10	16	\N	\N	\N	\N	\N	2025-12-02 01:19:41.873906	\N	\N	0	1	a-win	yes
+1922	1387217	2025-09-27	England	League One	Luton	Doncaster	h-win	1	0	8	3	10	1	6	3	2	2	2	1	0	0	50.00	50.00	14	8	\N	\N	\N	\N	\N	2025-12-02 01:19:41.964255	\N	\N	1	0	h-win	yes
+1923	1387215	2025-09-27	England	League One	Exeter City	Huddersfield	a-win	0	1	13	3	23	1	5	8	3	1	3	1	0	0	50.00	50.00	15	8	\N	\N	\N	\N	\N	2025-12-02 01:19:42.044974	\N	\N	0	1	a-win	yes
+1924	1387218	2025-09-27	England	League One	Mansfield Town	Rotherham	h-win	2	1	15	7	8	3	4	2	3	0	3	4	0	0	58.00	42.00	8	21	\N	\N	\N	\N	\N	2025-12-02 01:19:42.123589	\N	\N	0	1	a-win	yes
+1925	1387221	2025-09-27	England	League One	Stockport County	Reading	draw	1	1	16	5	8	4	5	3	4	3	1	1	0	0	48.00	52.00	9	7	\N	\N	\N	\N	\N	2025-12-02 01:19:42.203949	\N	\N	1	0	h-win	yes
+1926	1387186	2025-09-30	England	League One	Cardiff	Burton Albion	a-win	0	1	20	8	9	2	8	3	2	0	2	4	0	0	77.00	23.00	13	12	\N	\N	\N	\N	\N	2025-12-02 01:19:42.284111	\N	\N	0	0	draw	yes
+1927	1387175	2025-09-30	England	League One	Blackpool	Luton	draw	2	2	11	3	15	3	3	8	2	2	2	1	0	0	39.00	61.00	8	9	\N	\N	\N	\N	\N	2025-12-02 01:19:42.369657	\N	\N	1	0	h-win	yes
+1928	1387231	2025-10-02	England	League One	Rotherham	Bradford	draw	2	2	13	5	10	5	5	4	3	4	4	4	0	0	43.00	57.00	17	9	\N	\N	\N	\N	\N	2025-12-02 01:19:42.443604	\N	\N	1	0	h-win	yes
+1929	1387225	2025-10-04	England	League One	Doncaster	Burton Albion	draw	1	1	16	3	14	5	5	10	2	2	1	1	0	0	64.00	36.00	7	11	\N	\N	\N	\N	\N	2025-12-02 01:19:42.523703	\N	\N	1	0	h-win	yes
+1930	1387233	2025-10-04	England	League One	Wycombe	Barnsley	draw	2	2	12	2	8	4	11	4	4	0	1	2	0	0	48.00	52.00	9	9	\N	\N	\N	\N	\N	2025-12-02 01:19:42.604067	\N	\N	0	1	a-win	yes
+1931	1387226	2025-10-04	England	League One	Huddersfield	Stockport County	a-win	1	2	16	5	13	7	10	2	3	1	2	3	0	1	54.00	46.00	16	12	\N	\N	\N	\N	\N	2025-12-02 01:19:42.683774	\N	\N	0	1	a-win	yes
+1932	1387234	2025-10-04	England	League One	Cardiff	Leyton Orient	h-win	4	3	16	7	26	11	6	8	1	1	2	2	0	0	46.00	54.00	4	15	\N	\N	\N	\N	\N	2025-12-02 01:19:42.764626	\N	\N	1	1	draw	yes
+1933	1387230	2025-10-04	England	League One	Reading	Mansfield Town	draw	1	1	16	3	14	2	4	5	0	2	2	1	0	0	61.00	39.00	13	13	\N	\N	\N	\N	\N	2025-12-02 01:19:42.844043	\N	\N	0	1	a-win	yes
+1934	1387224	2025-10-04	England	League One	Bolton	Peterborough	h-win	2	1	19	6	9	2	7	1	0	5	2	3	0	0	51.00	49.00	9	7	\N	\N	\N	\N	\N	2025-12-02 01:19:43.009981	\N	\N	2	1	h-win	yes
+1935	1387229	2025-10-04	England	League One	Port Vale	Northampton	draw	0	0	8	2	6	2	3	4	4	1	2	1	0	0	56.00	44.00	12	11	\N	\N	\N	\N	\N	2025-12-02 01:19:43.099417	\N	\N	0	0	draw	yes
+1936	1387223	2025-10-04	England	League One	Blackpool	AFC Wimbledon	a-win	0	2	3	2	8	4	1	2	3	3	3	1	0	0	55.00	45.00	14	13	\N	\N	\N	\N	\N	2025-12-02 01:19:43.183756	\N	\N	0	1	a-win	yes
+1937	1387228	2025-10-04	England	League One	Plymouth	Wigan	draw	1	1	10	2	9	4	7	5	0	0	2	5	0	0	60.00	40.00	15	13	\N	\N	\N	\N	\N	2025-12-02 01:19:43.263884	\N	\N	0	0	draw	yes
+1938	1387232	2025-10-04	England	League One	Stevenage	Luton	h-win	2	0	6	5	9	3	1	5	2	1	3	1	0	0	44.00	56.00	10	15	\N	\N	\N	\N	\N	2025-12-02 01:19:43.338979	\N	\N	0	0	draw	yes
+1939	1387227	2025-10-04	England	League One	Lincoln	Exeter City	a-win	0	1	16	3	7	2	7	2	0	1	0	2	0	0	53.00	47.00	10	10	\N	\N	\N	\N	\N	2025-12-02 01:19:43.414802	\N	\N	0	0	draw	yes
+1940	1387242	2025-10-11	England	League One	Northampton	Rotherham	a-win	1	2	3	1	11	2	4	4	1	1	3	2	0	0	42.00	58.00	8	17	\N	\N	\N	\N	\N	2025-12-02 01:19:43.490222	\N	\N	1	0	h-win	yes
+1941	1387245	2025-10-11	England	League One	Wigan	Wycombe	a-win	0	1	12	2	5	3	3	1	2	1	1	2	0	0	60.00	40.00	6	10	\N	\N	\N	\N	\N	2025-12-02 01:19:43.564166	\N	\N	0	1	a-win	yes
+1942	1387237	2025-10-11	England	League One	Burton Albion	Bolton	h-win	3	0	12	6	18	7	3	5	1	2	1	2	0	0	35.00	65.00	11	13	\N	\N	\N	\N	\N	2025-12-02 01:19:43.643825	\N	\N	1	0	h-win	yes
+1943	1387235	2025-10-11	England	League One	AFC Wimbledon	Port Vale	draw	1	1	6	4	16	3	5	11	0	2	2	2	0	0	45.00	55.00	10	13	\N	\N	\N	\N	\N	2025-12-02 01:19:43.734493	\N	\N	0	0	draw	yes
+1944	1387238	2025-10-11	England	League One	Exeter City	Reading	draw	1	1	5	2	8	1	5	5	6	5	1	1	0	0	53.00	47.00	14	13	\N	\N	\N	\N	\N	2025-12-02 01:19:43.815231	\N	\N	1	1	draw	yes
+1945	1387239	2025-10-11	England	League One	Leyton Orient	Doncaster	h-win	4	0	13	6	15	4	4	6	2	0	1	1	0	0	36.00	64.00	11	7	\N	\N	\N	\N	\N	2025-12-02 01:19:43.895349	\N	\N	2	0	h-win	yes
+1946	1387244	2025-10-11	England	League One	Stockport County	Blackpool	h-win	1	0	16	5	9	2	4	4	2	3	0	2	0	0	56.00	44.00	9	9	\N	\N	\N	\N	\N	2025-12-02 01:19:43.993029	\N	\N	0	0	draw	yes
+1947	1387251	2025-10-16	England	League One	Huddersfield	Bolton	a-win	1	2	7	2	14	7	6	8	5	0	1	4	0	0	41.00	59.00	11	14	\N	\N	\N	\N	\N	2025-12-02 01:19:44.072676	\N	\N	1	0	h-win	yes
+1948	1387249	2025-10-18	England	League One	Burton Albion	Peterborough	a-win	0	1	15	4	7	4	5	3	0	2	2	4	0	1	59.00	41.00	10	9	\N	\N	\N	\N	\N	2025-12-02 01:19:44.163608	\N	\N	0	0	draw	yes
+1949	1387252	2025-10-18	England	League One	Lincoln	Stevenage	h-win	1	0	18	4	4	1	1	2	0	2	1	1	0	0	46.00	54.00	18	4	\N	\N	\N	\N	\N	2025-12-02 01:19:44.254942	\N	\N	0	0	draw	yes
+1950	1387258	2025-10-18	England	League One	Cardiff	Reading	h-win	2	1	11	3	26	10	4	10	2	2	1	0	0	0	56.00	44.00	11	26	\N	\N	\N	\N	\N	2025-12-02 01:19:44.343571	\N	\N	0	1	a-win	yes
+1951	1387257	2025-10-18	England	League One	Wigan	Port Vale	h-win	1	0	10	4	13	2	4	7	4	0	1	2	1	0	40.00	60.00	11	19	\N	\N	\N	\N	\N	2025-12-02 01:19:44.423804	\N	\N	0	0	draw	yes
+1952	1387255	2025-10-18	England	League One	Rotherham	Leyton Orient	h-win	1	0	4	2	12	3	2	12	2	1	3	3	0	0	38.00	62.00	4	12	\N	\N	\N	\N	\N	2025-12-02 01:19:44.512542	\N	\N	0	0	draw	yes
+1953	1387248	2025-10-18	England	League One	Bradford	Barnsley	draw	2	2	25	7	9	4	11	11	1	1	0	1	0	0	46.00	54.00	7	10	\N	\N	\N	\N	\N	2025-12-02 01:19:44.593472	\N	\N	2	1	h-win	yes
+1954	1387250	2025-10-18	England	League One	Doncaster	Northampton	a-win	1	2	10	4	13	5	2	7	3	1	1	1	0	0	60.00	40.00	11	7	\N	\N	\N	\N	\N	2025-12-02 01:19:44.676891	\N	\N	1	0	h-win	yes
+1955	1387247	2025-10-18	England	League One	Blackpool	Wycombe	draw	1	1	6	1	14	6	2	2	4	1	3	0	0	0	41.00	59.00	9	12	\N	\N	\N	\N	\N	2025-12-02 01:19:44.752534	\N	\N	1	0	h-win	yes
+1956	1387254	2025-10-18	England	League One	Plymouth	AFC Wimbledon	a-win	1	2	9	4	8	2	10	2	1	3	0	3	0	0	64.00	36.00	13	19	\N	\N	\N	\N	\N	2025-12-02 01:19:44.823829	\N	\N	1	1	draw	yes
+1957	1387253	2025-10-18	England	League One	Luton	Mansfield Town	a-win	0	2	16	4	10	4	5	1	0	0	0	0	0	0	66.00	34.00	12	12	\N	\N	\N	\N	\N	2025-12-02 01:19:44.904102	\N	\N	0	1	a-win	yes
+1958	1387256	2025-10-18	England	League One	Stockport County	Exeter City	h-win	1	0	12	5	9	2	4	3	2	3	1	1	0	0	48.00	52.00	9	14	\N	\N	\N	\N	\N	2025-12-02 01:19:44.983645	\N	\N	1	0	h-win	yes
+1959	1387182	2025-10-21	England	League One	Reading	Northampton	h-win	1	0	14	5	5	1	8	4	0	3	3	0	0	0	57.00	43.00	9	9	\N	\N	\N	\N	\N	2025-12-02 01:19:45.068553	\N	\N	0	0	draw	yes
+1960	1387261	2025-10-23	England	League One	Exeter City	Plymouth	h-win	2	0	13	5	9	2	4	4	7	2	3	2	0	0	40.00	60.00	20	12	\N	\N	\N	\N	\N	2025-12-02 01:19:45.152583	\N	\N	1	0	h-win	yes
+1961	1387270	2025-10-25	England	League One	Bolton	Cardiff	h-win	1	0	17	1	4	0	7	3	2	2	2	1	0	0	38.00	62.00	13	11	\N	\N	\N	\N	\N	2025-12-02 01:19:45.228606	\N	\N	0	0	draw	yes
+1962	1387263	2025-10-25	England	League One	Mansfield Town	Wigan	draw	1	1	16	1	7	1	10	3	0	1	1	3	0	0	64.00	36.00	13	12	\N	\N	\N	\N	\N	2025-12-02 01:19:45.313016	\N	\N	1	0	h-win	yes
+1963	1387267	2025-10-25	England	League One	Reading	Doncaster	draw	1	1	15	4	13	8	1	6	0	1	1	1	0	0	57.00	43.00	9	9	\N	\N	\N	\N	\N	2025-12-02 01:19:45.403551	\N	\N	0	0	draw	yes
+1964	1387260	2025-10-25	England	League One	Barnsley	Rotherham	a-win	0	1	19	5	4	2	11	3	0	0	4	0	0	0	68.00	32.00	15	11	\N	\N	\N	\N	\N	2025-12-02 01:19:45.494169	\N	\N	0	0	draw	yes
+1965	1387259	2025-10-25	England	League One	AFC Wimbledon	Burton Albion	a-win	0	1	13	3	9	2	9	2	2	2	2	3	0	0	60.00	40.00	10	13	\N	\N	\N	\N	\N	2025-12-02 01:19:45.58375	\N	\N	0	0	draw	yes
+1966	1387264	2025-10-25	England	League One	Northampton	Luton	a-win	0	1	10	5	15	4	6	10	0	1	2	2	0	0	46.00	54.00	10	12	\N	\N	\N	\N	\N	2025-12-02 01:19:45.664117	\N	\N	0	0	draw	yes
+1967	1387265	2025-10-25	England	League One	Peterborough	Blackpool	a-win	1	2	27	6	9	2	9	1	1	0	3	4	0	0	55.00	45.00	15	17	\N	\N	\N	\N	\N	2025-12-02 01:19:45.743553	\N	\N	1	1	draw	yes
+1968	1387269	2025-10-25	England	League One	Wycombe	Huddersfield	h-win	3	0	22	10	5	1	8	1	3	3	1	0	0	1	69.00	31.00	6	9	\N	\N	\N	\N	\N	2025-12-02 01:19:45.823985	\N	\N	1	0	h-win	yes
+1969	1387268	2025-10-25	England	League One	Stevenage	Bradford	draw	1	1	11	2	6	2	4	1	3	2	3	3	0	0	44.00	56.00	12	17	\N	\N	\N	\N	\N	2025-12-02 01:19:45.903778	\N	\N	1	1	draw	yes
+1970	1387262	2025-10-25	England	League One	Leyton Orient	Lincoln	h-win	1	0	12	4	9	0	5	3	1	6	0	2	0	0	67.00	33.00	14	17	\N	\N	\N	\N	\N	2025-12-02 01:19:45.983586	\N	\N	0	0	draw	yes
+1971	1387266	2025-10-27	England	League One	Port Vale	Stockport County	a-win	0	3	9	1	17	6	4	5	2	1	0	1	0	0	48.00	52.00	8	8	\N	\N	\N	\N	\N	2025-12-02 01:19:46.098855	\N	\N	0	3	a-win	yes
+1972	1387236	2025-10-28	England	League One	Bradford	Lincoln	draw	0	0	16	3	15	4	2	2	0	0	2	0	0	0	51.00	49.00	14	15	\N	\N	\N	\N	\N	2025-12-02 01:19:46.183438	\N	\N	0	0	draw	yes
+1973	1387241	2025-10-28	England	League One	Mansfield Town	Plymouth	h-win	2	0	12	4	14	4	7	4	1	1	1	2	0	0	48.00	52.00	13	5	\N	\N	\N	\N	\N	2025-12-02 01:19:46.263859	2.42	1.28	1	0	h-win	yes
+1974	1387147	2025-11-04	England	League One	Rotherham	Burton Albion	draw	2	2	11	3	15	6	5	3	3	1	0	3	0	0	62.00	38.00	12	4	\N	\N	\N	13	19	2025-12-02 01:19:46.425931	\N	\N	0	0	draw	yes
+1975	1387278	2025-11-06	England	League One	Reading	Stevenage	h-win	1	0	11	4	10	2	4	7	1	1	3	4	0	0	49.00	51.00	12	16	\N	\N	\N	16	2	2025-12-02 01:19:46.509465	0.40	0.94	1	0	h-win	yes
+1976	1387276	2025-11-08	England	League One	Northampton	Mansfield Town	h-win	2	1	11	4	12	2	5	4	2	2	1	0	0	0	47.00	53.00	10	11	\N	\N	\N	14	15	2025-12-02 01:19:46.593298	1.60	0.49	0	1	a-win	yes
+1977	1387281	2025-11-08	England	League One	Wycombe	Leyton Orient	h-win	4	1	14	10	13	4	5	5	1	4	3	3	0	0	49.00	51.00	7	13	\N	\N	\N	11	12	2025-12-02 01:19:46.685726	1.86	2.01	3	1	h-win	yes
+1978	1387275	2025-11-08	England	League One	Huddersfield	Plymouth	h-win	3	1	20	9	8	2	11	3	5	1	2	6	0	0	48.00	52.00	13	18	\N	\N	\N	8	23	2025-12-02 01:19:46.763515	2.08	0.51	1	0	h-win	yes
+1979	1387271	2025-11-08	England	League One	Bolton	Port Vale	h-win	4	0	15	10	8	4	7	5	1	1	1	2	0	0	66.00	34.00	6	11	\N	\N	\N	6	24	2025-12-02 01:19:46.844292	1.00	1.11	2	0	h-win	yes
+1980	1387279	2025-11-08	England	League One	Rotherham	Lincoln	h-win	3	0	13	5	10	4	4	6	0	2	1	1	0	0	40.00	60.00	9	10	\N	\N	\N	13	4	2025-12-02 01:19:46.923734	0.62	1.18	2	0	h-win	yes
+1981	1387272	2025-11-08	England	League One	Bradford	Burton Albion	a-win	1	2	17	3	13	6	7	2	4	1	2	4	0	0	64.00	36.00	9	20	\N	\N	\N	3	19	2025-12-02 01:19:47.00631	1.87	2.31	0	2	a-win	yes
+1982	1387277	2025-11-08	England	League One	Peterborough	AFC Wimbledon	h-win	5	0	13	5	12	4	3	5	2	2	2	1	0	0	49.00	51.00	9	16	\N	\N	\N	21	9	2025-12-02 01:19:47.093668	3.29	0.74	3	0	h-win	yes
+1983	1387273	2025-11-08	England	League One	Doncaster	Barnsley	a-win	1	2	18	5	10	4	5	8	2	1	1	3	0	0	53.00	47.00	5	11	\N	\N	\N	18	10	2025-12-02 01:19:47.169496	1.27	0.68	1	1	draw	yes
+1984	1387282	2025-11-08	England	League One	Blackpool	Cardiff	h-win	3	1	19	9	28	11	5	7	2	2	2	2	0	0	34.00	66.00	10	11	\N	\N	\N	22	1	2025-12-02 01:19:47.244097	2.75	3.05	0	0	draw	yes
+1985	1387274	2025-11-08	England	League One	Exeter City	Wigan	draw	1	1	14	4	13	7	8	4	2	0	1	1	0	0	72.00	28.00	15	7	\N	\N	\N	20	17	2025-12-02 01:19:47.323806	1.36	2.67	0	1	a-win	yes
+1986	1387280	2025-11-08	England	League One	Stockport County	Luton	a-win	0	3	13	3	8	6	5	3	0	4	2	4	1	0	53.00	47.00	12	9	\N	\N	\N	5	7	2025-12-02 01:19:47.403505	2.04	1.13	0	2	a-win	yes
+1987	1387285	2025-11-15	England	League One	Burton Albion	Blackpool	h-win	1	0	9	1	11	3	7	5	2	2	3	4	0	0	44.00	56.00	7	14	\N	\N	\N	19	22	2025-12-02 01:19:47.484163	0.28	1.00	0	0	draw	yes
+1988	1387291	2025-11-15	England	League One	Port Vale	Wycombe	draw	0	0	15	2	18	3	7	6	2	0	6	1	0	0	34.00	66.00	10	10	\N	\N	\N	24	11	2025-12-02 01:19:47.563768	1.17	2.29	0	0	draw	yes
+1989	1387288	2025-11-15	England	League One	Luton	Rotherham	draw	0	0	12	3	2	1	3	4	3	3	1	1	0	0	69.00	31.00	8	9	\N	\N	\N	7	13	2025-12-02 01:19:47.645528	0.32	0.13	0	0	draw	yes
+1990	1387286	2025-11-15	England	League One	Leyton Orient	Exeter City	h-win	2	1	12	3	6	2	10	3	1	7	3	2	0	0	63.00	37.00	15	7	\N	\N	\N	12	20	2025-12-02 01:19:47.723458	1.46	1.86	0	1	a-win	yes
+1991	1387287	2025-11-15	England	League One	Lincoln	Doncaster	h-win	2	1	7	3	15	5	3	1	1	1	2	3	0	0	49.00	51.00	12	11	\N	\N	\N	4	18	2025-12-02 01:19:47.803406	0.54	3.05	1	0	h-win	yes
+1992	1387301	2025-11-20	England	League One	Peterborough	Stockport County	h-win	3	0	11	5	11	5	3	6	1	3	1	1	0	0	46.00	54.00	7	18	\N	\N	\N	21	5	2025-12-02 01:19:47.883691	1.33	0.62	2	0	h-win	yes
+1993	1387302	2025-11-22	England	League One	Port Vale	Plymouth	a-win	0	1	13	3	5	2	8	2	3	1	1	3	0	0	57.00	43.00	7	15	\N	\N	\N	24	23	2025-12-02 01:19:47.964597	1.43	0.61	0	0	draw	yes
+1994	1387303	2025-11-22	England	League One	Reading	Rotherham	draw	1	1	11	6	8	1	4	3	1	4	2	3	0	0	67.00	33.00	6	9	\N	\N	\N	16	13	2025-12-02 01:19:48.043791	1.01	0.84	0	1	a-win	yes
+1995	1387297	2025-11-22	England	League One	Bolton	Bradford	draw	0	0	19	3	9	3	4	4	1	3	3	3	0	0	58.00	42.00	15	14	\N	\N	\N	6	3	2025-12-02 01:19:48.123574	1.98	0.78	0	0	draw	yes
+1996	1387296	2025-11-22	England	League One	Barnsley	Luton	h-win	5	0	14	5	7	2	2	4	1	1	2	2	0	0	31.00	69.00	13	9	\N	\N	\N	10	7	2025-12-02 01:19:48.204202	2.91	0.29	3	0	h-win	yes
+1997	1387295	2025-11-22	England	League One	AFC Wimbledon	Wigan	a-win	1	2	8	2	13	3	3	4	2	2	2	1	0	0	54.00	46.00	18	17	\N	\N	\N	9	17	2025-12-02 01:19:48.283583	0.79	2.37	0	0	draw	yes
+1998	1387306	2025-11-22	England	League One	Northampton	Cardiff	a-win	1	3	16	4	10	4	6	2	3	0	0	2	0	0	52.00	48.00	10	10	\N	\N	\N	14	1	2025-12-02 01:19:48.373553	1.54	0.65	0	1	a-win	yes
+2048	1419330	2025-08-02	England	FA Cup	Northwood	Egham Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.805592	\N	\N	0	0	draw	yes
+1999	1387305	2025-11-22	England	League One	Wycombe	Lincoln	h-win	3	2	11	7	12	4	1	7	1	0	2	1	0	0	44.00	56.00	8	12	\N	\N	\N	11	4	2025-12-02 01:19:48.449709	1.74	1.04	2	0	h-win	yes
+2000	1387304	2025-11-22	England	League One	Stevenage	Doncaster	draw	0	0	5	1	8	2	4	4	8	3	1	2	0	0	44.00	56.00	10	16	\N	\N	\N	2	18	2025-12-02 01:19:48.543685	0.22	1.08	0	0	draw	yes
+2001	1387299	2025-11-22	England	League One	Leyton Orient	Blackpool	draw	1	1	12	6	10	6	3	9	0	1	5	3	1	0	32.00	68.00	19	8	\N	\N	\N	12	22	2025-12-02 01:19:48.629559	1.27	1.40	1	0	h-win	yes
+2002	1387300	2025-11-22	England	League One	Mansfield Town	Huddersfield	a-win	1	3	10	1	20	11	4	4	3	2	1	1	0	0	54.00	46.00	14	13	\N	\N	\N	15	8	2025-12-02 01:19:48.713016	0.47	2.30	0	3	a-win	yes
+2003	1387307	2025-11-29	England	League One	Blackpool	Reading	a-win	0	3	14	5	15	6	2	5	5	2	1	0	0	0	63.00	37.00	9	14	\N	\N	\N	22	16	2025-12-02 01:19:48.803513	1.11	3.98	0	1	a-win	yes
+2004	1387316	2025-11-29	England	League One	Stockport County	Barnsley	draw	1	1	10	2	11	5	4	6	0	5	0	1	0	0	56.00	44.00	11	8	\N	\N	\N	5	10	2025-12-02 01:19:48.883486	\N	\N	0	1	a-win	yes
+2005	1387311	2025-11-29	England	League One	Huddersfield	AFC Wimbledon	draw	3	3	25	10	7	4	11	2	4	2	2	2	0	0	66.00	34.00	10	9	\N	\N	\N	8	9	2025-12-02 01:19:48.963572	2.93	1.98	0	1	a-win	yes
+2006	1387318	2025-11-29	England	League One	Cardiff	Mansfield Town	h-win	3	0	19	9	7	1	6	4	1	2	1	1	0	0	56.00	44.00	4	12	\N	\N	\N	1	15	2025-12-02 01:19:49.04509	3.90	0.18	1	0	h-win	yes
+2007	1387317	2025-11-29	England	League One	Wigan	Stevenage	draw	0	0	11	3	6	4	3	7	1	2	0	1	0	0	59.00	41.00	4	14	\N	\N	\N	17	2	2025-12-02 01:19:49.123526	1.04	0.71	0	0	draw	yes
+2008	1387315	2025-11-29	England	League One	Rotherham	Wycombe	draw	1	1	14	6	10	4	6	5	4	0	3	2	0	0	49.00	51.00	10	10	\N	\N	\N	13	11	2025-12-02 01:19:49.203969	1.38	2.20	0	1	a-win	yes
+2009	1387309	2025-11-29	England	League One	Burton Albion	Leyton Orient	a-win	0	4	5	0	14	6	2	6	3	4	3	0	0	0	54.00	46.00	9	11	\N	\N	\N	19	12	2025-12-02 01:19:49.283874	0.35	0.90	0	2	a-win	yes
+2010	1387308	2025-11-29	England	League One	Bradford	Exeter City	h-win	1	0	11	4	19	4	7	7	1	3	3	2	0	0	41.00	59.00	15	12	\N	\N	\N	3	20	2025-12-02 01:19:49.363376	1.58	1.61	1	0	h-win	yes
+2011	1387310	2025-11-29	England	League One	Doncaster	Peterborough	h-win	2	1	11	4	10	5	3	4	2	4	5	2	0	0	36.00	64.00	16	13	\N	\N	\N	18	21	2025-12-02 01:19:49.444166	0.52	0.81	2	0	h-win	yes
+2012	1387314	2025-11-29	England	League One	Plymouth	Northampton	a-win	0	3	14	1	12	5	4	8	2	1	1	5	1	0	57.00	43.00	11	18	\N	\N	\N	23	14	2025-12-02 01:19:49.523686	1.17	1.81	0	0	draw	yes
+2013	1387313	2025-11-29	England	League One	Luton	Bolton	draw	1	1	19	4	8	1	13	2	1	1	1	3	0	1	55.00	45.00	8	7	\N	\N	\N	7	6	2025-12-02 01:19:49.612713	1.08	1.27	0	1	a-win	yes
+2014	1387312	2025-11-29	England	League One	Lincoln	Port Vale	h-win	1	0	8	3	5	1	3	5	1	1	3	2	0	0	52.00	48.00	14	13	\N	\N	\N	4	24	2025-12-02 01:19:49.695	0.96	0.68	1	0	h-win	yes
+2015	1387184	2025-09-06	England	League One	Stevenage	Barnsley	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:49.784024	\N	\N	0	0	draw	no
+2016	1387246	2025-10-11	England	League One	Barnsley	Cardiff	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:49.863688	\N	\N	0	0	draw	no
+2017	1387293	2025-11-15	England	League One	Wigan	Reading	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	16	2025-12-02 01:19:49.943737	\N	\N	0	0	draw	no
+2018	1387284	2025-11-15	England	League One	Barnsley	Northampton	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	14	2025-12-02 01:19:50.023894	\N	\N	0	0	draw	no
+2019	1387283	2025-11-15	England	League One	AFC Wimbledon	Stockport County	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	5	2025-12-02 01:19:50.103424	\N	\N	0	0	draw	no
+2020	1387289	2025-11-15	England	League One	Mansfield Town	Peterborough	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	21	2025-12-02 01:19:50.183479	\N	\N	0	0	draw	no
+2021	1387298	2025-11-22	England	League One	Exeter City	Burton Albion	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	19	2025-12-02 01:19:50.269334	\N	\N	0	0	draw	no
+2022	1423487	2025-08-05	England	FA Cup	Bedfont Sports	Guernsey	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:51.591769	\N	\N	0	0	draw	no
+2023	1423511	2025-08-05	England	FA Cup	Welwyn	Ware	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:51.683434	\N	\N	0	0	draw	no
+2024	1449968	2025-08-30	England	FA Cup	Widnes	Congleton Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:51.76352	\N	\N	0	0	draw	no
+2025	1419291	2025-08-01	England	FA Cup	Pickering Town	Penrith AFC	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:51.843415	\N	\N	0	0	draw	yes
+2026	1419290	2025-08-01	England	FA Cup	Bootle	1874 Northwich	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:51.9241	\N	\N	0	0	draw	yes
+2027	1419292	2025-08-01	England	FA Cup	Enfield 1893	Wormley Rovers	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.0034	\N	\N	0	0	draw	yes
+2028	1419293	2025-08-01	England	FA Cup	Roman Glass St George	Nailsea & Tickenham	h-win	7	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.103513	\N	\N	0	0	draw	yes
+2029	1419480	2025-08-01	England	FA Cup	Stone Old Alleynians	Sutton Coldfield Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.183377	\N	\N	0	0	draw	yes
+2030	1419363	2025-08-01	England	FA Cup	Belper United	Uttoxeter Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.269443	\N	\N	0	0	draw	yes
+2031	1419445	2025-08-01	England	FA Cup	Wokingham Town	Brislington	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.349903	\N	\N	0	0	draw	yes
+2032	1419294	2025-08-02	England	FA Cup	Hamworthy Recreation	Hartley Wintney	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.453679	\N	\N	0	0	draw	yes
+2033	1419295	2025-08-02	England	FA Cup	Guernsey	Bedfont Sports	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.543527	\N	\N	0	0	draw	yes
+2034	1419407	2025-08-02	England	FA Cup	Bury	South Liverpool	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.629565	\N	\N	0	0	draw	yes
+2035	1419357	2025-08-02	England	FA Cup	Haringey Borough	Halstead Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.723984	\N	\N	0	0	draw	yes
+2036	1419497	2025-08-02	England	FA Cup	Leatherhead	Phoenix Sports	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.812716	\N	\N	0	0	draw	yes
+2037	1419440	2025-08-02	England	FA Cup	Westfields	Atherstone Town	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.893974	\N	\N	0	0	draw	yes
+2038	1419313	2025-08-02	England	FA Cup	Barking	Grays Athletic	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:52.983218	\N	\N	0	0	draw	yes
+2039	1419366	2025-08-02	England	FA Cup	Bedworth United	Brocton	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.071407	\N	\N	0	0	draw	yes
+2040	1419398	2025-08-02	England	FA Cup	Bideford	Wellington AFC	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.151614	\N	\N	0	0	draw	yes
+2041	1419492	2025-08-02	England	FA Cup	Cinderford Town	Amersham Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.23174	\N	\N	0	0	draw	yes
+2042	1419312	2025-08-02	England	FA Cup	East Grinstead Town	Eastbourne United	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.309935	\N	\N	0	0	draw	yes
+2043	1419306	2025-08-02	England	FA Cup	Glossop North End	St Helens	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.388982	\N	\N	0	0	draw	yes
+2044	1419351	2025-08-02	England	FA Cup	Histon	Thetford Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.465084	\N	\N	0	0	draw	yes
+2045	1419349	2025-08-02	England	FA Cup	Hythe Town	Littlehampton Town	a-win	2	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.561618	\N	\N	0	0	draw	yes
+2046	1419387	2025-08-02	England	FA Cup	Melksham Town	AFC Portchester	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.643078	\N	\N	0	0	draw	yes
+2047	1419308	2025-08-02	England	FA Cup	Newcastle Town	Stourport Swifts	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.724374	\N	\N	0	0	draw	yes
+2049	1419486	2025-08-02	England	FA Cup	Paulton Rovers	Hamble Club	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.883337	\N	\N	0	0	draw	yes
+2050	1419296	2025-08-02	England	FA Cup	South Park	Newhaven	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:53.963545	\N	\N	0	0	draw	yes
+2051	1419386	2025-08-02	England	FA Cup	Thatcham Town	Petersfield Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.043639	\N	\N	0	0	draw	yes
+2052	1419309	2025-08-02	England	FA Cup	Willand Rovers	Barnstaple Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.134353	\N	\N	0	0	draw	yes
+2053	1419432	2025-08-02	England	FA Cup	Witham Town	Frenford	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.213327	\N	\N	0	0	draw	yes
+2054	1419392	2025-08-02	England	FA Cup	AFC Kempston Rovers	Arlesey Town	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.309414	\N	\N	0	0	draw	yes
+2055	1419469	2025-08-02	England	FA Cup	Biggleswade	Welwyn Garden City	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.389522	\N	\N	0	0	draw	yes
+2056	1419503	2025-08-02	England	FA Cup	Brighouse Town	Frickley Athletic	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.485055	\N	\N	0	0	draw	yes
+2057	1419350	2025-08-02	England	FA Cup	Cirencester Town	Reading City	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.572847	\N	\N	0	0	draw	yes
+2058	1419452	2025-08-02	England	FA Cup	City of Liverpool	Euxton Villa	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.663837	\N	\N	0	0	draw	yes
+2059	1419447	2025-08-02	England	FA Cup	Coleshill Town	Nuneaton Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.743395	\N	\N	0	0	draw	yes
+2060	1419331	2025-08-02	England	FA Cup	Daventry Town	Leicester Nirvana	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.823945	\N	\N	0	0	draw	yes
+2061	1419320	2025-08-02	England	FA Cup	Haywards Heath Town	Ashford United	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:54.909531	\N	\N	0	0	draw	yes
+2062	1419352	2025-08-02	England	FA Cup	Hertford Town	London Lions	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.003576	\N	\N	0	0	draw	yes
+2063	1419377	2025-08-02	England	FA Cup	Hullbridge Sports	Basildon United	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.0837	\N	\N	0	0	draw	yes
+2064	1419498	2025-08-02	England	FA Cup	Kidlington	Clevedon Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.170397	\N	\N	0	0	draw	yes
+2065	1419364	2025-08-02	England	FA Cup	Kidsgrove Athletic	Rugby Borough	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.256004	\N	\N	0	0	draw	yes
+2066	1419348	2025-08-02	England	FA Cup	Lincoln United	Northampton ON Chenecks	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.333516	\N	\N	0	0	draw	yes
+2067	1419422	2025-08-02	England	FA Cup	Maldon & Tiptree	Buckhurst Hill	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.413508	\N	\N	0	0	draw	yes
+2068	1419499	2025-08-02	England	FA Cup	Mangotsfield United	Bristol Manor Farm	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.493569	\N	\N	0	0	draw	yes
+2069	1419467	2025-08-02	England	FA Cup	Marske United	Carlisle City	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.663638	\N	\N	0	0	draw	yes
+2070	1419399	2025-08-02	England	FA Cup	Moneyfields	Brockenhurst	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.74363	\N	\N	0	0	draw	yes
+2071	1419382	2025-08-02	England	FA Cup	North Leigh	Risborough Rangers	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.824469	\N	\N	0	0	draw	yes
+2072	1419389	2025-08-02	England	FA Cup	Runcorn Linnets	Clitheroe	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.904009	\N	\N	0	0	draw	yes
+2073	1419329	2025-08-02	England	FA Cup	Sheffield	Albion Sports	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:55.98345	\N	\N	0	0	draw	yes
+2074	1419464	2025-08-02	England	FA Cup	St Neots Town	Great Yarmouth Town	h-win	7	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.063517	\N	\N	0	0	draw	yes
+2075	1419450	2025-08-02	England	FA Cup	Three Bridges	Shoreham	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.151702	\N	\N	0	0	draw	yes
+2076	1419322	2025-08-02	England	FA Cup	Trafford	Barnoldswick Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.231772	\N	\N	0	0	draw	yes
+2077	1419443	2025-08-02	England	FA Cup	Ware	Welwyn	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.310136	\N	\N	0	0	draw	yes
+2078	1419362	2025-08-02	England	FA Cup	AFC Rushden & Diamonds	Grimsby Borough	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.413661	\N	\N	0	0	draw	yes
+2079	1419493	2025-08-02	England	FA Cup	Beaconsfield Town	Larkhall Athletic	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.503708	\N	\N	0	0	draw	yes
+2080	1419370	2025-08-02	England	FA Cup	Grantham Town	Newark Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.593574	\N	\N	0	0	draw	yes
+2081	1419434	2025-08-02	England	FA Cup	Stafford Rangers	Lutterworth Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.673349	\N	\N	0	0	draw	yes
+2082	1419302	2025-08-02	England	FA Cup	Witton Albion	Cheadle Town	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.763724	\N	\N	0	0	draw	yes
+2083	1419423	2025-08-02	England	FA Cup	Bradford (Park Avenue)	Mossley	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.843613	\N	\N	0	0	draw	yes
+2084	1419337	2025-08-02	England	FA Cup	AFC Croydon Athletic	Roffey	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:56.933323	\N	\N	0	0	draw	yes
+2085	1419466	2025-08-02	England	FA Cup	AFC Stoneham	Fleet Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.023521	\N	\N	0	0	draw	yes
+2086	1419451	2025-08-02	England	FA Cup	AFC Wulfrunians	Shepshed Dynamo	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.122557	\N	\N	0	0	draw	yes
+2087	1419441	2025-08-02	England	FA Cup	Abbey Hey	AFC Liverpool	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.203551	\N	\N	0	0	draw	yes
+2088	1419416	2025-08-02	England	FA Cup	Abbey Rangers	Corinthian-Casuals	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.283968	\N	\N	0	0	draw	yes
+2089	1419437	2025-08-02	England	FA Cup	Andover New Street	New Milton Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.368536	\N	\N	0	0	draw	yes
+2090	1419375	2025-08-02	England	FA Cup	Ardley United	Aylesbury United	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.463393	\N	\N	0	0	draw	yes
+2091	1419485	2025-08-02	England	FA Cup	Aylesbury Vale Dynamos	Abingdon United	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.544568	\N	\N	0	0	draw	yes
+2092	1419401	2025-08-02	England	FA Cup	Badshot Lea	Steyning Town	a-win	3	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.623407	\N	\N	0	0	draw	yes
+2093	1419489	2025-08-02	England	FA Cup	Baffins Milton Rovers	Shaftesbury Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.714988	\N	\N	0	0	draw	yes
+2094	1419411	2025-08-02	England	FA Cup	Baldock Town	Little Oakley	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.803906	\N	\N	0	0	draw	yes
+2095	1419391	2025-08-02	England	FA Cup	Balham	Faversham Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.894807	\N	\N	0	0	draw	yes
+2096	1419460	2025-08-02	England	FA Cup	Bashley	East Cowes Victoria	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:57.983787	\N	\N	0	0	draw	yes
+2097	1419381	2025-08-02	England	FA Cup	Bearsted	Hackney Wick	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.071837	\N	\N	0	0	draw	yes
+2098	1419491	2025-08-02	England	FA Cup	Bexhill United	Sheerwater	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.163318	\N	\N	0	0	draw	yes
+2099	1419410	2025-08-02	England	FA Cup	Biggleswade United	Newport Pagnell Town	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.242997	\N	\N	0	0	draw	yes
+2100	1419424	2025-08-02	England	FA Cup	Binfield	Winslow United	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.325432	\N	\N	0	0	draw	yes
+2101	1419328	2025-08-02	England	FA Cup	Bishop Auckland	Whickham	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.428214	\N	\N	0	0	draw	yes
+2102	1419482	2025-08-02	England	FA Cup	Boldmere St. Michaels	Abbey Hulton	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.513248	\N	\N	0	0	draw	yes
+2103	1419449	2025-08-02	England	FA Cup	Bottesford Town	Melton Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.593663	\N	\N	0	0	draw	yes
+2104	1419435	2025-08-02	England	FA Cup	Bradford Town	Bournemouth FC	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.68683	\N	\N	0	0	draw	yes
+3250	1391294	2025-09-13	Spain	Segunda División	Valladolid	Almeria	h-win	3	1	11	8	14	3	8	3	0	2	5	5	0	0	40.00	60.00	28	13	\N	\N	\N	\N	\N	2025-12-02 06:19:31.870383	\N	\N	1	0	h-win	yes
+2107	1419365	2025-08-02	England	FA Cup	Charnock Richard	Burscough	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:31.90757	\N	\N	0	0	draw	yes
+2108	1419444	2025-08-02	England	FA Cup	Christchurch	Bemerton Heath Harleq.	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:31.987459	\N	\N	0	0	draw	yes
+2109	1419347	2025-08-02	England	FA Cup	Cockfosters	Kings Langley	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.078585	\N	\N	0	0	draw	yes
+2110	1419307	2025-08-02	England	FA Cup	Colney Heath	Woodford Town	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.156938	\N	\N	0	0	draw	yes
+2111	1419488	2025-08-02	England	FA Cup	Cowes Sports	Laverstock & Ford	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.238577	\N	\N	0	0	draw	yes
+2112	1419323	2025-08-02	England	FA Cup	Cribbs	Easington Sports	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.316736	\N	\N	0	0	draw	yes
+2113	1419359	2025-08-02	England	FA Cup	Deeping Rangers	Wellingborough Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.388012	\N	\N	0	0	draw	yes
+2114	1419315	2025-08-02	England	FA Cup	Dunstable Town	Great Wakering Rovers	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.467911	\N	\N	0	0	draw	yes
+2115	1419301	2025-08-02	England	FA Cup	Eastbourne Town	Ashford Town (Middlesex)	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.547432	\N	\N	0	0	draw	yes
+2116	1419298	2025-08-02	England	FA Cup	Edgware Town	British Airways	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.615612	\N	\N	0	0	draw	yes
+2117	1419342	2025-08-02	England	FA Cup	Erith Town	Sporting Bengal United	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.688988	\N	\N	0	0	draw	yes
+2118	1419318	2025-08-02	England	FA Cup	Eynesbury Rovers	Potton United	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.767774	\N	\N	0	0	draw	yes
+2119	1419374	2025-08-02	England	FA Cup	Fakenham Town	Wroxham	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.847464	\N	\N	0	0	draw	yes
+2120	1419500	2025-08-02	England	FA Cup	Fisher	Camberley Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.936073	\N	\N	0	0	draw	yes
+2121	1419361	2025-08-02	England	FA Cup	Garforth Town	West Auckland Town	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.027524	\N	\N	0	0	draw	yes
+2122	1419487	2025-08-02	England	FA Cup	Gorleston	Hadleigh United	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.107759	\N	\N	0	0	draw	yes
+2123	1419335	2025-08-02	England	FA Cup	Guildford City	Sutton Common Rovers	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.188092	\N	\N	0	0	draw	yes
+2124	1419425	2025-08-02	England	FA Cup	Guisborough Town	Consett	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.268019	\N	\N	0	0	draw	yes
+2125	1419346	2025-08-02	England	FA Cup	Hallen	Highworth Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.347736	\N	\N	0	0	draw	yes
+2126	1419456	2025-08-02	England	FA Cup	Handsworth Parramore	Silsden	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.41765	\N	\N	0	0	draw	yes
+2127	1419419	2025-08-02	England	FA Cup	Hanley Town	Lichfield City	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.487591	\N	\N	0	0	draw	yes
+2128	1419439	2025-08-02	England	FA Cup	Harpenden Town	Concord Rangers	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.558444	\N	\N	0	0	draw	yes
+2129	1419442	2025-08-02	England	FA Cup	Harwich & Parkeston	AFC Dunstable	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.638654	\N	\N	0	0	draw	yes
+2130	1419436	2025-08-02	England	FA Cup	Hassocks	Rayners Lane	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.713489	\N	\N	0	0	draw	yes
+2131	1419316	2025-08-02	England	FA Cup	Haverhill Rovers	Wisbech Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.796325	\N	\N	0	0	draw	yes
+2132	1419417	2025-08-02	England	FA Cup	Heanor Town	Dudley Town	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.868044	\N	\N	0	0	draw	yes
+2133	1419324	2025-08-02	England	FA Cup	Hollands & Blair	Herne Bay	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:33.947439	\N	\N	0	0	draw	yes
+2134	1419384	2025-08-02	England	FA Cup	Horley Town	Corinthian	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.033765	\N	\N	0	0	draw	yes
+2135	1419372	2025-08-02	England	FA Cup	Hythe & Dibden	Portland United	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.118423	\N	\N	0	0	draw	yes
+2136	1419461	2025-08-02	England	FA Cup	Irlam	Thackley	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.198714	\N	\N	0	0	draw	yes
+2137	1419319	2025-08-02	England	FA Cup	Kirkley & Pakefield	Cambridge City	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.278526	\N	\N	0	0	draw	yes
+2138	1419314	2025-08-02	England	FA Cup	Knaresborough Town	Bridlington Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.359448	\N	\N	0	0	draw	yes
+2139	1419475	2025-08-02	England	FA Cup	Lancing	Crawley Down Gatwick	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.433404	\N	\N	0	0	draw	yes
+2140	1419353	2025-08-02	England	FA Cup	Leighton Town	Benfleet	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.513933	\N	\N	0	0	draw	yes
+2141	1419380	2025-08-02	England	FA Cup	Leverstock Green	Ilford	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.588212	\N	\N	0	0	draw	yes
+2142	1419317	2025-08-02	England	FA Cup	Lingfield	Whitstable Town	a-win	2	7	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.669021	\N	\N	0	0	draw	yes
+2143	1419462	2025-08-02	England	FA Cup	Liversedge	Wythenshawe Amateurs	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.758687	\N	\N	0	0	draw	yes
+2144	1419344	2025-08-02	England	FA Cup	Longlevens	Fairford Town	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.833637	\N	\N	0	0	draw	yes
+2145	1419304	2025-08-02	England	FA Cup	Loughborough University	Barton Town Old Boys	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.908116	\N	\N	0	0	draw	yes
+2146	1419299	2025-08-02	England	FA Cup	Lydney Town	Royal Wootton	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:34.994594	\N	\N	0	0	draw	yes
+2147	1419448	2025-08-02	England	FA Cup	March Town United	Soham Town Rangers	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.068392	\N	\N	0	0	draw	yes
+2148	1419415	2025-08-02	England	FA Cup	Mildenhall Town	Downham Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.148001	\N	\N	0	0	draw	yes
+2149	1419325	2025-08-02	England	FA Cup	Mulbarton Wanderers	Dereham Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.227512	\N	\N	0	0	draw	yes
+2150	1419472	2025-08-02	England	FA Cup	Newcastle Benfield	Pontefract Collieries	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.30816	\N	\N	0	0	draw	yes
+2151	1419341	2025-08-02	England	FA Cup	North Shields	Newcastle Blue Star	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.387423	\N	\N	0	0	draw	yes
+2152	1419409	2025-08-02	England	FA Cup	Oadby Town	Newark Flowserve	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.467883	\N	\N	0	0	draw	yes
+2153	1419420	2025-08-02	England	FA Cup	Pagham	Horsham YMCA	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.552805	\N	\N	0	0	draw	yes
+2154	1419321	2025-08-02	England	FA Cup	Peacehaven & Telscombe	Harefield United	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.628231	\N	\N	0	0	draw	yes
+2155	1419404	2025-08-02	England	FA Cup	Penistone Church	Padiham	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.707565	\N	\N	0	0	draw	yes
+2156	1419383	2025-08-02	England	FA Cup	Punjab United	Crowborough Athletic	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.787446	\N	\N	0	0	draw	yes
+2157	1419405	2025-08-02	England	FA Cup	Racing Club Warwick	Droitwich Spa	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.85754	\N	\N	0	0	draw	yes
+2158	1419494	2025-08-02	England	FA Cup	Raynes Park Vale	Forest Row	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:35.937716	\N	\N	0	0	draw	yes
+2159	1419369	2025-08-02	England	FA Cup	Redhill	North Greenford United	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.022549	\N	\N	0	0	draw	yes
+2160	1419400	2025-08-02	England	FA Cup	Romulus	Coventry Sphinx	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.113774	\N	\N	0	0	draw	yes
+2161	1419360	2025-08-02	England	FA Cup	Rusthall	Westfield (Surrey)	a-win	2	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.198038	\N	\N	0	0	draw	yes
+2162	1419490	2025-08-02	England	FA Cup	Saffron Walden Town	Harlow Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.282472	\N	\N	0	0	draw	yes
+2163	1419428	2025-08-02	England	FA Cup	Saltash United	Torpoint Athletic	a-win	1	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.356868	\N	\N	0	0	draw	yes
+2164	1419333	2025-08-02	England	FA Cup	Sheppey United	Metropolitan Police	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.427492	\N	\N	0	0	draw	yes
+2165	1419403	2025-08-02	England	FA Cup	Sherwood Colliery	Bugbrooke St Michaels	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.507534	\N	\N	0	0	draw	yes
+2166	1419426	2025-08-02	England	FA Cup	Shildon AFC	Ashington AFC	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.612686	\N	\N	0	0	draw	yes
+2167	1419311	2025-08-02	England	FA Cup	Stanway Rovers	Romford	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.727807	\N	\N	0	0	draw	yes
+2168	1419408	2025-08-02	England	FA Cup	Stotfold	Redbridge	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.817904	\N	\N	0	0	draw	yes
+2169	1419373	2025-08-02	England	FA Cup	Stowmarket Town	Ely City	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.907408	\N	\N	0	0	draw	yes
+2170	1419334	2025-08-02	England	FA Cup	Street	Brixham	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:36.998879	\N	\N	0	0	draw	yes
+2171	1419355	2025-08-02	England	FA Cup	Tadley Calleva	Millbrook FC	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.097074	\N	\N	0	0	draw	yes
+2172	1419406	2025-08-02	England	FA Cup	Takeley	Crawley Green	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.187351	\N	\N	0	0	draw	yes
+2173	1419354	2025-08-02	England	FA Cup	Tavistock	St Austell	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.26736	\N	\N	0	0	draw	yes
+2174	1419479	2025-08-02	England	FA Cup	Thornaby	Tadcaster Albion	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.367521	\N	\N	0	0	draw	yes
+2175	1419378	2025-08-02	England	FA Cup	Thornbury Town	Virginia Water	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.462614	\N	\N	0	0	draw	yes
+2176	1419390	2025-08-02	England	FA Cup	Tividale	Clay Cross	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.547589	\N	\N	0	0	draw	yes
+2177	1419421	2025-08-02	England	FA Cup	Tring Athletic	West Essex	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.627482	\N	\N	0	0	draw	yes
+2178	1419431	2025-08-02	England	FA Cup	Tunbridge Wells	Holmesdale	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.7353	\N	\N	0	0	draw	yes
+2179	1419473	2025-08-02	England	FA Cup	Varndeanians	Tooting & Mitcham United	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.818473	\N	\N	0	0	draw	yes
+2180	1419326	2025-08-02	England	FA Cup	Walthamstow	Brantham Athletic	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.895311	\N	\N	0	0	draw	yes
+2181	1419358	2025-08-02	England	FA Cup	Westbury United	Sherborne Town	h-win	7	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:37.972406	\N	\N	0	0	draw	yes
+2182	1419395	2025-08-02	England	FA Cup	Whitchurch Alport	Litherland Remyca	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.055431	\N	\N	0	0	draw	yes
+2183	1419477	2025-08-02	England	FA Cup	White Ensign	Sawbridgeworth Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.127305	\N	\N	0	0	draw	yes
+2184	1419338	2025-08-02	England	FA Cup	Whitley Bay	Heaton Stannington	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.199508	\N	\N	0	0	draw	yes
+2185	1419478	2025-08-02	England	FA Cup	Winsford United	West Didsbury & Chorlton	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.273966	\N	\N	0	0	draw	yes
+2186	1419433	2025-08-02	England	FA Cup	Chadderton	Stockport Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.364622	\N	\N	0	0	draw	yes
+2187	1419476	2025-08-02	England	FA Cup	Crook Town AFC	Kendal Town	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.448227	\N	\N	0	0	draw	yes
+2188	1419310	2025-08-02	England	FA Cup	Harrowby United	Bourne Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.52738	\N	\N	0	0	draw	yes
+2189	1419305	2025-08-02	England	FA Cup	Hinckley AFC	Highgate United	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.600566	\N	\N	0	0	draw	yes
+2190	1419297	2025-08-02	England	FA Cup	Ipswich Wanderers	Lakenheath	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.678506	\N	\N	0	0	draw	yes
+2191	1419414	2025-08-02	England	FA Cup	Milton United	Didcot Town	a-win	0	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.767503	\N	\N	0	0	draw	yes
+2192	1419340	2025-08-02	England	FA Cup	Parkgate	Eccleshill United	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.855369	\N	\N	0	0	draw	yes
+2193	1419393	2025-08-02	England	FA Cup	West Allotment Celtic	Northallerton Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:38.957382	\N	\N	0	0	draw	yes
+2194	1419468	2025-08-02	England	FA Cup	Alton Town	Wincanton Town	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.068357	\N	\N	0	0	draw	yes
+2195	1419418	2025-08-02	England	FA Cup	Corsham Town	Slimbridge	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.153344	\N	\N	0	0	draw	yes
+2196	1419455	2025-08-02	England	FA Cup	Downton	Fareham Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.238888	\N	\N	0	0	draw	yes
+2197	1419368	2025-08-02	England	FA Cup	Blackstones	AFC Mansfield	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.33759	\N	\N	0	0	draw	yes
+2198	1419394	2025-08-02	England	FA Cup	Hucknall Town	Yaxley	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.417717	\N	\N	0	0	draw	yes
+2199	1419446	2025-08-02	England	FA Cup	Oldland Abbotonians	Wallingford & Crowmarsh	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.507992	\N	\N	0	0	draw	yes
+2200	1419303	2025-08-02	England	FA Cup	St Blazey	Buckland Athletic	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.61848	\N	\N	0	0	draw	yes
+2201	1419343	2025-08-02	England	FA Cup	Atherton Laburnum Rovers	Ossett United	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.719027	\N	\N	0	0	draw	yes
+2202	1419438	2025-08-02	England	FA Cup	Birtley Town	Beverley Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.807818	\N	\N	0	0	draw	yes
+2203	1419483	2025-08-02	England	FA Cup	Rossington Main	Moulton	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.888832	\N	\N	0	0	draw	yes
+2204	1419465	2025-08-02	England	FA Cup	Shifnal Town FC	Coventry United	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:39.975809	\N	\N	0	0	draw	yes
+2205	1419501	2025-08-02	England	FA Cup	Kennington	Tower Hamlets	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.053108	\N	\N	0	0	draw	yes
+2206	1419504	2025-08-02	England	FA Cup	Athletic Newham	Sevenoaks Town	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.147558	\N	\N	0	0	draw	yes
+2207	1419458	2025-08-02	England	FA Cup	Eastwood Community	Gresley	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.227405	\N	\N	0	0	draw	yes
+2208	1419463	2025-08-02	England	FA Cup	Milton Keynes Irish	Heybridge Swifts	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.317203	\N	\N	0	0	draw	yes
+2209	1419412	2025-08-02	England	FA Cup	Mousehole	Bridgwater Town	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.426277	\N	\N	0	0	draw	yes
+2210	1419402	2025-08-02	England	FA Cup	Redcar Athletic	North Ferriby	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.513651	\N	\N	0	0	draw	yes
+2211	1419376	2025-08-02	England	FA Cup	Skegness Town	Godmanchester Rovers	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.593397	\N	\N	0	0	draw	yes
+2212	1419430	2025-08-02	England	FA Cup	Wythenshawe Town	Prestwich Heys	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.677935	\N	\N	0	0	draw	yes
+2213	1419474	2025-08-02	England	FA Cup	Golcar United	Ramsbottom United	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.753407	\N	\N	0	0	draw	yes
+2214	1419379	2025-08-02	England	FA Cup	Falmouth Town	Helston Athletic	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.832909	\N	\N	0	0	draw	yes
+2215	1419397	2025-08-02	England	FA Cup	Hereford Pegasus	Lye Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.908066	\N	\N	0	0	draw	yes
+2216	1419345	2025-08-02	England	FA Cup	Midhurst & Easebourne	Knaphill	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:40.997366	\N	\N	0	0	draw	yes
+2217	1419300	2025-08-02	England	FA Cup	Worcester Raiders	Ashby Ivanhoe	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.073438	\N	\N	0	0	draw	yes
+2218	1419367	2025-08-02	England	FA Cup	Aylestone Park	Sileby Rangers	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.15853	\N	\N	0	0	draw	yes
+2219	1419470	2025-08-02	England	FA Cup	Harleston Town	Walsham Le Willows	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.252987	\N	\N	0	0	draw	yes
+2220	1419396	2025-08-02	England	FA Cup	Hartpury University	Tuffley Rovers	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.333782	\N	\N	0	0	draw	yes
+2221	1419413	2025-08-02	England	FA Cup	Heacham	Newmarket Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.425635	\N	\N	0	0	draw	yes
+2222	1419429	2025-08-02	England	FA Cup	Pilkington	Longridge Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.507524	\N	\N	0	0	draw	yes
+2223	1419484	2025-08-02	England	FA Cup	Snodland Town	Broadfields United	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.582129	\N	\N	0	0	draw	yes
+2224	1419427	2025-08-02	England	FA Cup	Blyth Town	Horden CW	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.657905	\N	\N	0	0	draw	yes
+2225	1419454	2025-08-02	England	FA Cup	Cornard United	Woodbridge Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.73276	\N	\N	0	0	draw	yes
+2226	1419356	2025-08-02	England	FA Cup	Easington Colliery	Boro Rangers	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.808546	\N	\N	0	0	draw	yes
+2227	1419388	2025-08-02	England	FA Cup	Larkfield & New Hythe	Epsom & Ewell FC	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.887633	\N	\N	0	0	draw	yes
+2228	1419336	2025-08-02	England	FA Cup	Pershore Town	Darlaston Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:41.967884	\N	\N	0	0	draw	yes
+2229	1419537	2025-08-02	England	FA Cup	Portishead Town	Windsor & Eton	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.047499	\N	\N	0	0	draw	yes
+2230	1419495	2025-08-02	England	FA Cup	Sporting Club Inkberrow	Studley	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.118614	\N	\N	0	0	draw	yes
+2231	1419385	2025-08-02	England	FA Cup	Wick	VCD Athletic	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.198616	\N	\N	0	0	draw	yes
+2232	1419471	2025-08-02	England	FA Cup	AFC Whyteleafe	Chipstead	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.27856	\N	\N	0	0	draw	yes
+2233	1419327	2025-08-02	England	FA Cup	Boston Town	Kimberley Miners Welfare	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.353593	\N	\N	0	0	draw	yes
+2234	1419502	2025-08-02	England	FA Cup	Coton Green	Rugby Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.427548	\N	\N	0	0	draw	yes
+2235	1419453	2025-08-02	England	FA Cup	Eversley & Cal	Horndean	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.507982	\N	\N	0	0	draw	yes
+2236	1419339	2025-08-02	England	FA Cup	Faversham SF	Glebe	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.588234	\N	\N	0	0	draw	yes
+2237	1419457	2025-08-02	England	FA Cup	Horbury Town	Wombwell Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.66899	\N	\N	0	0	draw	yes
+2238	1419371	2025-08-02	England	FA Cup	Newquay	Shepton Mallet	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.747712	\N	\N	0	0	draw	yes
+2239	1419459	2025-08-02	England	FA Cup	Seaford Town	Sutton Athletic	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.833403	\N	\N	0	0	draw	yes
+2240	1419481	2025-08-02	England	FA Cup	Sidmouth Town	Ivybridge Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:42.921672	\N	\N	0	0	draw	yes
+2241	1419505	2025-08-02	England	FA Cup	Jersey Bulls	Erith & Belvedere	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.007336	\N	\N	0	0	draw	yes
+2242	1419506	2025-08-03	England	FA Cup	Stansfeld	Harrow Borough	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.07835	\N	\N	0	0	draw	yes
+2243	1419508	2025-08-03	England	FA Cup	Hallam	Lower Breck	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.153495	\N	\N	0	0	draw	yes
+2244	1419507	2025-08-03	England	FA Cup	Little Common	Southall	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.227377	\N	\N	0	0	draw	yes
+2245	1419509	2025-08-03	England	FA Cup	Hilltop	Deal Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.297672	\N	\N	0	0	draw	yes
+2246	1419510	2025-08-03	England	FA Cup	Northwich Victoria	Campion	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.371119	\N	\N	0	0	draw	yes
+2247	1423480	2025-08-04	England	FA Cup	Phoenix Sports	Leatherhead	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.447475	\N	\N	0	0	draw	yes
+2248	1423479	2025-08-04	England	FA Cup	Sutton Common Rovers	Guildford City	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.516574	\N	\N	0	0	draw	yes
+2249	1423761	2025-08-04	England	FA Cup	Studley	Sporting Club Inkberrow	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.587545	\N	\N	0	0	draw	yes
+2250	1423491	2025-08-05	England	FA Cup	Harefield United	Peacehaven & Telscombe	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.667352	\N	\N	0	0	draw	yes
+2251	1423500	2025-08-05	England	FA Cup	Shepton Mallet	Newquay	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.747642	\N	\N	0	0	draw	yes
+2252	1423504	2025-08-05	England	FA Cup	Brixham	Street	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.815926	\N	\N	0	0	draw	yes
+2253	1423762	2025-08-05	England	FA Cup	Laverstock & Ford	Cowes Sports	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.887547	\N	\N	0	0	draw	yes
+2254	1423489	2025-08-05	England	FA Cup	Ashford Town (Middlesex)	Eastbourne Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:43.967312	\N	\N	0	0	draw	yes
+2255	1423503	2025-08-05	England	FA Cup	Bristol Manor Farm	Mangotsfield United	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.047691	\N	\N	0	0	draw	yes
+2256	1423497	2025-08-05	England	FA Cup	Faversham Town	Balham	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.137358	\N	\N	0	0	draw	yes
+2257	1423508	2025-08-05	England	FA Cup	Harlow Town	Saffron Walden Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.217333	\N	\N	0	0	draw	yes
+2258	1423493	2025-08-05	England	FA Cup	Soham Town Rangers	March Town United	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.29541	\N	\N	0	0	draw	yes
+2259	1423494	2025-08-05	England	FA Cup	Welwyn Garden City	Biggleswade	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.367194	\N	\N	0	0	draw	yes
+2260	1423495	2025-08-05	England	FA Cup	Kings Langley	Cockfosters	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.447491	\N	\N	0	0	draw	yes
+2261	1423507	2025-08-05	England	FA Cup	Concord Rangers	Harpenden Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.5273	\N	\N	0	0	draw	yes
+2262	1423499	2025-08-05	England	FA Cup	AFC Portchester	Melksham Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.607492	\N	\N	0	0	draw	yes
+2263	1423509	2025-08-05	England	FA Cup	Abingdon United	Aylesbury Vale Dynamos	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.697534	\N	\N	0	0	draw	yes
+2264	1423501	2025-08-05	England	FA Cup	Albion Sports	Sheffield	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.797467	\N	\N	0	0	draw	yes
+2265	1423498	2025-08-05	England	FA Cup	Barton Town Old Boys	Loughborough University	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.887792	\N	\N	0	0	draw	yes
+2266	1423490	2025-08-05	England	FA Cup	Brantham Athletic	Walthamstow	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:44.967516	\N	\N	0	0	draw	yes
+2267	1423765	2025-08-05	England	FA Cup	Bridlington Town	Knaresborough Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.047483	\N	\N	0	0	draw	yes
+2268	1423484	2025-08-05	England	FA Cup	Consett	Guisborough Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.118492	\N	\N	0	0	draw	yes
+2269	1423488	2025-08-05	England	FA Cup	Corinthian	Horley Town	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.19835	\N	\N	0	0	draw	yes
+2270	1423496	2025-08-05	England	FA Cup	Crowborough Athletic	Punjab United	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.276854	\N	\N	0	0	draw	yes
+2271	1423763	2025-08-05	England	FA Cup	Deal Town	Hilltop	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.358559	\N	\N	0	0	draw	yes
+2272	1423506	2025-08-05	England	FA Cup	Gresley	Eastwood Community	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.43642	\N	\N	0	0	draw	yes
+2273	1423481	2025-08-05	England	FA Cup	Longridge Town	Pilkington	h-win	8	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.518625	\N	\N	0	0	draw	yes
+2274	1424895	2025-08-05	England	FA Cup	Northallerton Town	West Allotment Celtic	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.600015	\N	\N	0	0	draw	yes
+2275	1423485	2025-08-05	England	FA Cup	Reading City	Cirencester Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.681071	\N	\N	0	0	draw	yes
+2276	1423492	2025-08-05	England	FA Cup	Shaftesbury Town	Baffins Milton Rovers	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.756326	\N	\N	0	0	draw	yes
+2277	1423516	2025-08-05	England	FA Cup	Thetford Town	Histon	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.827194	\N	\N	0	0	draw	yes
+2278	1423483	2025-08-05	England	FA Cup	Virginia Water	Thornbury Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.907373	\N	\N	0	0	draw	yes
+2279	1423764	2025-08-05	England	FA Cup	Woodbridge Town	Cornard United	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:45.987377	\N	\N	0	0	draw	yes
+2280	1423766	2025-08-05	England	FA Cup	Wroxham	Fakenham Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.055472	\N	\N	0	0	draw	yes
+2282	1423505	2025-08-05	England	FA Cup	Little Oakley	Baldock Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.207537	\N	\N	0	0	draw	yes
+2283	1423482	2025-08-05	England	FA Cup	Downham Town	Mildenhall Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.28743	\N	\N	0	0	draw	yes
+2284	1423767	2025-08-05	England	FA Cup	Frenford	Witham Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.358532	\N	\N	0	0	draw	yes
+2285	1423486	2025-08-05	England	FA Cup	St Helens	Glossop North End	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.438244	\N	\N	0	0	draw	yes
+2286	1421946	2025-08-05	England	FA Cup	Wormley Rovers	Enfield 1893	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.513817	\N	\N	0	0	draw	yes
+2287	1423510	2025-08-05	England	FA Cup	Wombwell Town	Horbury Town	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.587391	\N	\N	0	0	draw	yes
+2288	1423515	2025-08-06	England	FA Cup	Clevedon Town	Kidlington	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.667301	\N	\N	0	0	draw	yes
+2289	1429770	2025-08-06	England	FA Cup	AFC Liverpool	Abbey Hey	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.74784	\N	\N	0	0	draw	yes
+2290	1423513	2025-08-06	England	FA Cup	Royal Wootton	Lydney Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.833432	\N	\N	0	0	draw	yes
+2291	1424303	2025-08-06	England	FA Cup	Southall	Little Common	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.907365	\N	\N	0	0	draw	yes
+2292	1423512	2025-08-06	England	FA Cup	Sporting Bengal United	Erith Town	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:46.987262	\N	\N	0	0	draw	yes
+2293	1423768	2025-08-06	England	FA Cup	West Didsbury & Chorlton	Winsford United	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.067454	\N	\N	0	0	draw	yes
+2294	1423514	2025-08-06	England	FA Cup	Whickham	Bishop Auckland	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.136828	\N	\N	0	0	draw	yes
+2295	1423769	2025-08-06	England	FA Cup	Holmesdale	Tunbridge Wells	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.207372	\N	\N	0	0	draw	yes
+2296	1423537	2025-08-15	England	FA Cup	Pickering Town	Easington Colliery	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.287639	\N	\N	0	0	draw	yes
+2297	1423811	2025-08-15	England	FA Cup	Atherton Collieries	Prestwich Heys	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.367449	\N	\N	0	0	draw	yes
+2298	1423785	2025-08-15	England	FA Cup	Christchurch	Tadley Calleva	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.456422	\N	\N	0	0	draw	yes
+2299	1424310	2025-08-15	England	FA Cup	Lye Town	Racing Club Warwick	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.527632	\N	\N	0	0	draw	yes
+2300	1423799	2025-08-15	England	FA Cup	Epsom & Ewell FC	South Park	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.60312	\N	\N	0	0	draw	yes
+2301	1423543	2025-08-16	England	FA Cup	Jersey Bulls	Fisher	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.682586	\N	\N	0	0	draw	yes
+2302	1423783	2025-08-16	England	FA Cup	Haringey Borough	Stanway Rovers	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.753441	\N	\N	0	0	draw	yes
+2303	1423814	2025-08-16	England	FA Cup	Hitchin Town	Grays Athletic	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.827428	\N	\N	0	0	draw	yes
+2304	1424897	2025-08-16	England	FA Cup	Leatherhead	Westfield (Surrey)	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:47.918602	\N	\N	0	0	draw	yes
+2305	1423541	2025-08-16	England	FA Cup	Nantwich Town	Charnock Richard	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.00295	\N	\N	0	0	draw	yes
+2306	1429722	2025-08-16	England	FA Cup	Merstham	Faversham Town	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.087498	\N	\N	0	0	draw	yes
+2307	1429758	2025-08-16	England	FA Cup	Ashford United	Holmesdale	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.167825	\N	\N	0	0	draw	yes
+2308	1423809	2025-08-16	England	FA Cup	Barnstaple Town	Tavistock	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.268013	\N	\N	0	0	draw	yes
+2309	1429744	2025-08-16	England	FA Cup	Bedfont Sports	Kingstonian	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.358235	\N	\N	0	0	draw	yes
+2310	1424314	2025-08-16	England	FA Cup	Bedworth United	Atherstone Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.433203	\N	\N	0	0	draw	yes
+2311	1429741	2025-08-16	England	FA Cup	Frome Town	Newquay	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.507538	\N	\N	0	0	draw	yes
+2312	1423772	2025-08-16	England	FA Cup	Great Wakering Rovers	Redbridge	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.576397	\N	\N	0	0	draw	yes
+2313	1423815	2025-08-16	England	FA Cup	Hastings United	Harrow Borough	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.657948	\N	\N	0	0	draw	yes
+2314	1429757	2025-08-16	England	FA Cup	Histon	Woodbridge Town	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.732731	\N	\N	0	0	draw	yes
+2315	1423528	2025-08-16	England	FA Cup	Pontefract Collieries	Blyth Spartans	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.816832	\N	\N	0	0	draw	yes
+2316	1424311	2025-08-16	England	FA Cup	Sutton Coldfield Town	Newcastle Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.89295	\N	\N	0	0	draw	yes
+2317	1423773	2025-08-16	England	FA Cup	Tilbury	AFC Dunstable	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:48.976199	\N	\N	0	0	draw	yes
+2318	1423533	2025-08-16	England	FA Cup	Tooting & Mitcham United	AFC Croydon Athletic	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.067687	\N	\N	0	0	draw	yes
+2319	1423525	2025-08-16	England	FA Cup	VCD Athletic	Sittingbourne	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.158509	\N	\N	0	0	draw	yes
+2320	1429730	2025-08-16	England	FA Cup	Witham Town	Tring Athletic	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.247498	\N	\N	0	0	draw	yes
+2321	1429719	2025-08-16	England	FA Cup	Ashford Town (Middlesex)	Snodland Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.330212	\N	\N	0	0	draw	yes
+2322	1429751	2025-08-16	England	FA Cup	Barton Rovers	Brantham Athletic	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.415325	\N	\N	0	0	draw	yes
+2323	1424307	2025-08-16	England	FA Cup	Belper Town	Kidsgrove Athletic	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.496918	\N	\N	0	0	draw	yes
+2324	1423812	2025-08-16	England	FA Cup	Daventry Town	Bottesford Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.587648	\N	\N	0	0	draw	yes
+2325	1429726	2025-08-16	England	FA Cup	Harlow Town	Woodford Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.678705	\N	\N	0	0	draw	yes
+2326	1429723	2025-08-16	England	FA Cup	Hertford Town	Harpenden Town	h-win	5	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.764199	\N	\N	0	0	draw	yes
+2327	1429721	2025-08-16	England	FA Cup	Mangotsfield United	Cribbs	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.83839	\N	\N	0	0	draw	yes
+2328	1423531	2025-08-16	England	FA Cup	Marlow	Binfield	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.92256	\N	\N	0	0	draw	yes
+2329	1429740	2025-08-16	England	FA Cup	Moneyfields	AFC Portchester	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:49.998999	\N	\N	0	0	draw	yes
+2330	1429746	2025-08-16	England	FA Cup	Sheffield	Bootle	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.082431	\N	\N	0	0	draw	yes
+2331	1423526	2025-08-16	England	FA Cup	Three Bridges	Horsham YMCA	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.167477	\N	\N	0	0	draw	yes
+2332	1423807	2025-08-16	England	FA Cup	Trafford	Campion	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.247197	\N	\N	0	0	draw	yes
+2333	1423802	2025-08-16	England	FA Cup	Ware	Ilford	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.327321	\N	\N	0	0	draw	yes
+2334	1429724	2025-08-16	England	FA Cup	Welwyn Garden City	Waltham Abbey	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.398866	\N	\N	0	0	draw	yes
+2335	1423779	2025-08-16	England	FA Cup	Winchester City	Bashley	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.478919	\N	\N	0	0	draw	yes
+2336	1423780	2025-08-16	England	FA Cup	Basford United	Hucknall Town	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.556324	\N	\N	0	0	draw	yes
+2337	1423770	2025-08-16	England	FA Cup	Brightlingsea Regent	Hullbridge Sports	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.647344	\N	\N	0	0	draw	yes
+2338	1423517	2025-08-16	England	FA Cup	Corinthian-Casuals	Sevenoaks Town	a-win	3	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.727442	\N	\N	0	0	draw	yes
+2339	1424898	2025-08-16	England	FA Cup	Hayes & Yeading United	Sutton Common Rovers	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.807355	\N	\N	0	0	draw	yes
+2340	1423797	2025-08-16	England	FA Cup	Lowestoft Town	St Neots Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.878648	\N	\N	0	0	draw	yes
+2341	1419511	2025-08-16	England	FA Cup	Mickleover Sports	Matlock Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:50.958261	\N	\N	0	0	draw	yes
+2342	1423801	2025-08-16	England	FA Cup	Stalybridge Celtic	Bury	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.032479	\N	\N	0	0	draw	yes
+2343	1429736	2025-08-16	England	FA Cup	Witton Albion	AFC Liverpool	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.118409	\N	\N	0	0	draw	yes
+2344	1423542	2025-08-16	England	FA Cup	Bradford (Park Avenue)	Avro	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.20248	\N	\N	0	0	draw	yes
+2345	1423781	2025-08-16	England	FA Cup	AFC Stoneham	Paulton Rovers	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.281861	\N	\N	0	0	draw	yes
+2346	1423535	2025-08-16	England	FA Cup	Ardley United	Burnham	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.357072	\N	\N	0	0	draw	yes
+2347	1423524	2025-08-16	England	FA Cup	Ascot United	Glebe	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.438431	\N	\N	0	0	draw	yes
+2348	1429742	2025-08-16	England	FA Cup	Aylesbury Vale Dynamos	Oldland Abbotonians	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.519319	\N	\N	0	0	draw	yes
+2349	1429754	2025-08-16	England	FA Cup	Barton Town Old Boys	Carlton Town	a-win	1	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.599418	\N	\N	0	0	draw	yes
+2350	1423520	2025-08-16	England	FA Cup	Bexhill United	Raynes Park Vale	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.682365	\N	\N	0	0	draw	yes
+2351	1429739	2025-08-16	England	FA Cup	Bishop Auckland	Horden CW	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.759104	\N	\N	0	0	draw	yes
+2352	1423805	2025-08-16	England	FA Cup	Bradford Town	Westbury United	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.83637	\N	\N	0	0	draw	yes
+2353	1429733	2025-08-16	England	FA Cup	Clevedon Town	Thame United	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.907275	\N	\N	0	0	draw	yes
+2354	1423798	2025-08-16	England	FA Cup	Cobham	Margate	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:51.977827	\N	\N	0	0	draw	yes
+2355	1429729	2025-08-16	England	FA Cup	Cockfosters	Little Oakley	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.067597	\N	\N	0	0	draw	yes
+2356	1424312	2025-08-16	England	FA Cup	Congleton Town	Padiham	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.14751	\N	\N	0	0	draw	yes
+2357	1429749	2025-08-16	England	FA Cup	Corinthian	Egham Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.216511	\N	\N	0	0	draw	yes
+2358	1424306	2025-08-16	England	FA Cup	Coventry Sphinx	Dudley Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.288876	\N	\N	0	0	draw	yes
+2359	1429745	2025-08-16	England	FA Cup	Crowborough Athletic	Deal Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.367317	\N	\N	0	0	draw	yes
+2360	1423788	2025-08-16	England	FA Cup	Edgware Town	Whitstable Town	a-win	0	9	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.438825	\N	\N	0	0	draw	yes
+2361	1423816	2025-08-16	England	FA Cup	Ely City	Haverhill Rovers	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.518345	\N	\N	0	0	draw	yes
+2362	1429735	2025-08-16	England	FA Cup	Erith Town	Southall	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.59351	\N	\N	0	0	draw	yes
+2363	1423775	2025-08-16	England	FA Cup	Exmouth	Buckland Athletic	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.673095	\N	\N	0	0	draw	yes
+2364	1423804	2025-08-16	England	FA Cup	Fairford Town	Roman Glass St George	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.775293	\N	\N	0	0	draw	yes
+2365	1423787	2025-08-16	England	FA Cup	Fareham Town	Hartley Wintney	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.856231	\N	\N	0	0	draw	yes
+2366	1423794	2025-08-16	England	FA Cup	Flackwell Heath	Tuffley Rovers	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:52.927799	\N	\N	0	0	draw	yes
+2367	1423793	2025-08-16	England	FA Cup	Gorleston	Walsham Le Willows	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.007374	\N	\N	0	0	draw	yes
+2368	1429760	2025-08-16	England	FA Cup	Guisborough Town	Redcar Athletic	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.087255	\N	\N	0	0	draw	yes
+2369	1423789	2025-08-16	England	FA Cup	Hadley	Maldon & Tiptree	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.158269	\N	\N	0	0	draw	yes
+2370	1423534	2025-08-16	England	FA Cup	Hallen	Bishop's Cleeve	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.233346	\N	\N	0	0	draw	yes
+2371	1423519	2025-08-16	England	FA Cup	Hassocks	Beckenham Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.342614	\N	\N	0	0	draw	yes
+2372	1429738	2025-08-16	England	FA Cup	Horndean	Laverstock & Ford	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.427673	\N	\N	0	0	draw	yes
+2373	1423806	2025-08-16	England	FA Cup	Hythe & Dibden	New Milton Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.507253	\N	\N	0	0	draw	yes
+2374	1423527	2025-08-16	England	FA Cup	Irlam	Chadderton	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.575109	\N	\N	0	0	draw	yes
+2375	1423522	2025-08-16	England	FA Cup	Knaphill	Hollands & Blair	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.647684	\N	\N	0	0	draw	yes
+2376	1429720	2025-08-16	England	FA Cup	Lancing	Harefield United	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.727429	\N	\N	0	0	draw	yes
+2377	1429756	2025-08-16	England	FA Cup	Leighton Town	Biggleswade United	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.798358	\N	\N	0	0	draw	yes
+2378	1429748	2025-08-16	England	FA Cup	Longridge Town	AFC Emley	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.874237	\N	\N	0	0	draw	yes
+2379	1424317	2025-08-16	England	FA Cup	Lutterworth Town	Chasetown	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:53.948565	\N	\N	0	0	draw	yes
+2380	1424309	2025-08-16	England	FA Cup	Malvern Town	Worcester Raiders	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.02774	\N	\N	0	0	draw	yes
+2381	1429753	2025-08-16	England	FA Cup	March Town United	Ipswich Wanderers	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.096319	\N	\N	0	0	draw	yes
+2382	1429734	2025-08-16	England	FA Cup	Mildenhall Town	Wroxham	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.17262	\N	\N	0	0	draw	yes
+2383	1423803	2025-08-16	England	FA Cup	Mulbarton Wanderers	Cambridge City	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.25657	\N	\N	0	0	draw	yes
+2384	1423536	2025-08-16	England	FA Cup	Newmarket Town	Felixstowe & Walton Utd	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.332993	\N	\N	0	0	draw	yes
+2385	1423523	2025-08-16	England	FA Cup	Newton Aycliffe	Newcastle Blue Star	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.428984	\N	\N	0	0	draw	yes
+2386	1429725	2025-08-16	England	FA Cup	Northallerton Town	Kendal Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.507821	\N	\N	0	0	draw	yes
+2387	1429752	2025-08-16	England	FA Cup	Reading City	Didcot Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.587365	\N	\N	0	0	draw	yes
+2388	1429728	2025-08-16	England	FA Cup	Royal Wootton	Amersham Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.667925	\N	\N	0	0	draw	yes
+2389	1423778	2025-08-16	England	FA Cup	Sawbridgeworth Town	Eynesbury Rovers	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.747352	\N	\N	0	0	draw	yes
+2390	1429732	2025-08-16	England	FA Cup	Shaftesbury Town	Thatcham Town	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.827636	\N	\N	0	0	draw	yes
+2391	1423518	2025-08-16	England	FA Cup	Sheppey United	Eastbourne United	h-win	9	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.897342	\N	\N	0	0	draw	yes
+2392	1424304	2025-08-16	England	FA Cup	Shepshed Dynamo	Clay Cross	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:54.972317	\N	\N	0	0	draw	yes
+2393	1423786	2025-08-16	England	FA Cup	Sherwood Colliery	Anstey Nomads	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.056363	\N	\N	0	0	draw	yes
+2394	1424318	2025-08-16	England	FA Cup	Silsden	Ramsbottom United	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.132211	\N	\N	0	0	draw	yes
+2395	1424896	2025-08-16	England	FA Cup	Sporting Khalsa	Sporting Club Inkberrow	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.207365	\N	\N	0	0	draw	yes
+2396	1423532	2025-08-16	England	FA Cup	Steyning Town	Hendon	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.287626	\N	\N	0	0	draw	yes
+2397	1424308	2025-08-16	England	FA Cup	Takeley	Bowers & Pitsea	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.36726	\N	\N	0	0	draw	yes
+2398	1423540	2025-08-16	England	FA Cup	Thornaby	Dunston UTS	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.447306	\N	\N	0	0	draw	yes
+2399	1423529	2025-08-16	England	FA Cup	Tower Hamlets	Hanworth Villa	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.527318	\N	\N	0	0	draw	yes
+2400	1423782	2025-08-16	England	FA Cup	Wellingborough Town	Bourne Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.608961	\N	\N	0	0	draw	yes
+2401	1429727	2025-08-16	England	FA Cup	West Auckland Town	Bridlington Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.688382	\N	\N	0	0	draw	yes
+2402	1429747	2025-08-16	England	FA Cup	West Didsbury & Chorlton	Brighouse Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:55.76759	\N	\N	0	0	draw	yes
+2403	1423774	2025-08-16	England	FA Cup	Whitchurch Alport	Runcorn Linnets	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.27305	\N	\N	0	0	draw	yes
+2404	1423800	2025-08-16	England	FA Cup	Heaton Stannington	Marske United	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.352291	\N	\N	0	0	draw	yes
+2405	1424305	2025-08-16	England	FA Cup	Hinckley AFC	Long Eaton United	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.432034	\N	\N	0	0	draw	yes
+2406	1429750	2025-08-16	England	FA Cup	Risborough Rangers	Virginia Water	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.523156	\N	\N	0	0	draw	yes
+2407	1423808	2025-08-16	England	FA Cup	Sileby Rangers	Corby Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.61383	\N	\N	0	0	draw	yes
+2408	1423795	2025-08-16	England	FA Cup	Alton Town	Swindon Supermarine	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.692008	\N	\N	0	0	draw	yes
+2409	1423776	2025-08-16	England	FA Cup	Blackstones	Grimsby Borough	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.772024	\N	\N	0	0	draw	yes
+2410	1423539	2025-08-16	England	FA Cup	Birtley Town	Shildon AFC	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.852022	\N	\N	0	0	draw	yes
+2411	1423790	2025-08-16	England	FA Cup	Rossington Main	Newark Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:32.932174	\N	\N	0	0	draw	yes
+2412	1423817	2025-08-16	England	FA Cup	Newark Flowserve	Boston Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.011902	\N	\N	0	0	draw	yes
+2413	1429755	2025-08-16	England	FA Cup	Brixham	Mousehole	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.101103	\N	\N	0	0	draw	yes
+2414	1423796	2025-08-16	England	FA Cup	Milton Keynes Irish	Arlesey Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.192079	\N	\N	0	0	draw	yes
+2415	1423792	2025-08-16	England	FA Cup	Skegness Town	Lincoln United	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.292158	\N	\N	0	0	draw	yes
+2416	1423784	2025-08-16	England	FA Cup	Belper United	Hanley Town	a-win	2	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.372109	\N	\N	0	0	draw	yes
+2417	1423771	2025-08-16	England	FA Cup	Falmouth Town	Bideford	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.452269	\N	\N	0	0	draw	yes
+2418	1424316	2025-08-16	England	FA Cup	Pershore Town	Coleshill Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.533312	\N	\N	0	0	draw	yes
+2419	1423813	2025-08-16	England	FA Cup	Portishead Town	Slimbridge	a-win	2	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.623635	\N	\N	0	0	draw	yes
+2420	1429759	2025-08-16	England	FA Cup	St Helens	Atherton Laburnum Rovers	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.713326	\N	\N	0	0	draw	yes
+2421	1424315	2025-08-16	England	FA Cup	Abbey Hulton	Coventry United	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.791596	\N	\N	0	0	draw	yes
+2422	1429743	2025-08-16	England	FA Cup	Coton Green	Eastwood Community	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.871844	\N	\N	0	0	draw	yes
+2423	1423538	2025-08-16	England	FA Cup	Seaford Town	AFC Whyteleafe	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:33.951892	\N	\N	0	0	draw	yes
+2424	1423791	2025-08-16	England	FA Cup	Sidmouth Town	Torpoint Athletic	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.035428	\N	\N	0	0	draw	yes
+2425	1429737	2025-08-16	England	FA Cup	Wombwell Town	Parkgate	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.12331	\N	\N	0	0	draw	yes
+2426	1423530	2025-08-17	England	FA Cup	Hackney Wick	Bognor Regis Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.212097	\N	\N	0	0	draw	yes
+2427	1424313	2025-08-17	England	FA Cup	Hallam	City of Liverpool	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.292061	\N	\N	0	0	draw	yes
+2428	1429731	2025-08-17	England	FA Cup	Enfield 1893	Biggleswade Town	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.372163	\N	\N	0	0	draw	yes
+2429	1423810	2025-08-17	England	FA Cup	Littlehampton Town	North Greenford United	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.452538	\N	\N	0	0	draw	yes
+2430	1423777	2025-08-17	England	FA Cup	Wokingham Town	Larkhall Athletic	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.532307	\N	\N	0	0	draw	yes
+2431	1440131	2025-08-18	England	FA Cup	Swindon Supermarine	Alton Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.612068	\N	\N	0	0	draw	yes
+2432	1440135	2025-08-19	England	FA Cup	Shildon AFC	Birtley Town	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.693358	\N	\N	0	0	draw	yes
+2433	1440140	2025-08-19	England	FA Cup	Bury	Stalybridge Celtic	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.772132	\N	\N	0	0	draw	yes
+2434	1440137	2025-08-19	England	FA Cup	Kendal Town	Northallerton Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.861007	\N	\N	0	0	draw	yes
+2435	1438768	2025-08-19	England	FA Cup	South Park	Epsom & Ewell FC	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:34.933376	\N	\N	0	0	draw	yes
+2436	1440427	2025-08-19	England	FA Cup	Waltham Abbey	Welwyn Garden City	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.012153	\N	\N	0	0	draw	yes
+2437	1440133	2025-08-19	England	FA Cup	Felixstowe & Walton Utd	Newmarket Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.091999	\N	\N	0	0	draw	yes
+2438	1440143	2025-08-19	England	FA Cup	Lincoln United	Skegness Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.172185	\N	\N	0	0	draw	yes
+2439	1440141	2025-08-19	England	FA Cup	Ramsbottom United	Silsden	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.251925	\N	\N	0	0	draw	yes
+2440	1440139	2025-08-19	England	FA Cup	Margate	Cobham	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.331843	\N	\N	0	0	draw	yes
+2441	1440134	2025-08-19	England	FA Cup	Bowers & Pitsea	Takeley	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.412051	\N	\N	0	0	draw	yes
+2442	1440132	2025-08-19	England	FA Cup	Bashley	Winchester City	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.492005	\N	\N	0	0	draw	yes
+2443	1440426	2025-08-19	England	FA Cup	Redbridge	Great Wakering Rovers	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.563073	\N	\N	0	0	draw	yes
+2444	1440142	2025-08-19	England	FA Cup	Walsham Le Willows	Gorleston	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.640808	\N	\N	0	0	draw	yes
+2445	1423521	2025-08-19	England	FA Cup	Wythenshawe Amateurs	Vauxhall Motors	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.733414	\N	\N	0	0	draw	yes
+2446	1440136	2025-08-19	England	FA Cup	Boston Town	Newark Flowserve	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.812066	\N	\N	0	0	draw	yes
+2447	1440144	2025-08-19	England	FA Cup	Bridlington Town	West Auckland Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.911834	\N	\N	0	0	draw	yes
+2448	1440145	2025-08-20	England	FA Cup	Redcar Athletic	Guisborough Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:35.993047	\N	\N	0	0	draw	yes
+2449	1440147	2025-08-20	England	FA Cup	Grays Athletic	Hitchin Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.072202	\N	\N	0	0	draw	yes
+2450	1440146	2025-08-20	England	FA Cup	Hollands & Blair	Knaphill	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.162485	\N	\N	0	0	draw	yes
+2451	1440148	2025-08-20	England	FA Cup	Ilford	Ware	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.243518	\N	\N	0	0	draw	yes
+2452	1445788	2025-08-20	England	FA Cup	Southall	Erith Town	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.332511	\N	\N	0	0	draw	yes
+2453	1440149	2025-08-20	England	FA Cup	Woodford Town	Harlow Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.41357	\N	\N	0	0	draw	yes
+2454	1438769	2025-08-20	England	FA Cup	Easington Colliery	Pickering Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.492543	\N	\N	0	0	draw	yes
+2455	1440138	2025-08-26	England	FA Cup	Egham Town	Corinthian	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.572876	\N	\N	0	0	draw	yes
+2456	1440347	2025-08-29	England	FA Cup	Aveley	Hashtag United	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.663696	\N	\N	3	0	h-win	yes
+2457	1440401	2025-08-29	England	FA Cup	Faversham Town	Hastings United	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.752162	\N	\N	0	1	a-win	yes
+2458	1445787	2025-08-29	England	FA Cup	Pickering Town	Redcar Athletic	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.845565	\N	\N	2	1	h-win	yes
+2459	1440369	2025-08-30	England	FA Cup	Tadley Calleva	Weymouth	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:36.931954	\N	\N	2	1	h-win	yes
+2460	1440346	2025-08-30	England	FA Cup	Burnham	Jersey Bulls	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.03225	\N	\N	0	1	a-win	yes
+2461	1440404	2025-08-30	England	FA Cup	Havant & Wville	Chichester City	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.122095	\N	\N	0	0	draw	yes
+2462	1440368	2025-08-30	England	FA Cup	Billericay Town	Barton Rovers	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.211869	\N	\N	1	1	draw	yes
+2463	1440422	2025-08-30	England	FA Cup	Hyde United	Prescot Cables	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.302996	\N	\N	1	0	h-win	yes
+2464	1440403	2025-08-30	England	FA Cup	Stamford	Coventry Sphinx	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.391984	\N	\N	1	0	h-win	yes
+2465	1440395	2025-08-30	England	FA Cup	AFC Sudbury	Mildenhall Town	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.48313	\N	\N	1	0	h-win	yes
+2466	1440348	2025-08-30	England	FA Cup	Bedfont Sports	Littlehampton Town	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.572231	\N	\N	2	1	h-win	yes
+2467	1440339	2025-08-30	England	FA Cup	Berkhamsted	St Ives Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.672228	\N	\N	1	0	h-win	yes
+2468	1440370	2025-08-30	England	FA Cup	Brentwood Town	Leighton Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.761892	\N	\N	1	1	draw	yes
+2469	1440330	2025-08-30	England	FA Cup	Corby Town	Gainsborough Trinity	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.852215	\N	\N	1	1	draw	yes
+2470	1440381	2025-08-30	England	FA Cup	Didcot Town	Poole Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:37.943194	\N	\N	1	1	draw	yes
+2471	1440425	2025-08-30	England	FA Cup	Histon	Mulbarton Wanderers	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.031865	\N	\N	0	1	a-win	yes
+2472	1440354	2025-08-30	England	FA Cup	Ilkeston Town	Spalding United	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.11201	\N	\N	1	1	draw	yes
+2473	1440341	2025-08-30	England	FA Cup	Kendal Town	Dunston UTS	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.199959	\N	\N	0	1	a-win	yes
+2474	1440362	2025-08-30	England	FA Cup	Sittingbourne	AFC Croydon Athletic	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.291883	\N	\N	0	0	draw	yes
+2475	1440402	2025-08-30	England	FA Cup	Sutton Coldfield Town	Abbey Hulton	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.372964	\N	\N	1	0	h-win	yes
+2476	1440340	2025-08-30	England	FA Cup	Uxbridge	Welling United	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.472696	\N	\N	0	1	a-win	yes
+2477	1440396	2025-08-30	England	FA Cup	Westfield (Surrey)	Sheppey United	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.562277	\N	\N	1	0	h-win	yes
+2478	1440413	2025-08-30	England	FA Cup	Witham Town	Lowestoft Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.651961	\N	\N	2	0	h-win	yes
+2479	1440387	2025-08-30	England	FA Cup	Workington	Stalybridge Celtic	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.743754	\N	\N	0	2	a-win	yes
+2480	1440386	2025-08-30	England	FA Cup	Ashford Town (Middlesex)	AFC Whyteleafe	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.83207	\N	\N	3	1	h-win	yes
+2481	1440380	2025-08-30	England	FA Cup	Carlton Town	Cleethorpes Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:38.922864	\N	\N	2	0	h-win	yes
+2482	1440327	2025-08-30	England	FA Cup	Chertsey Town	Thame United	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.000117	\N	\N	1	0	h-win	yes
+2483	1440325	2025-08-30	England	FA Cup	Coleshill Town	Worcester Raiders	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.08319	\N	\N	0	0	draw	yes
+2484	1440417	2025-08-30	England	FA Cup	Evesham United	Bromsgrove Sporting	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.160353	\N	\N	2	1	h-win	yes
+2485	1440408	2025-08-30	England	FA Cup	Halesowen Town	Stratford Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.242952	\N	\N	1	1	draw	yes
+2486	1440357	2025-08-30	England	FA Cup	Kidsgrove Athletic	Racing Club Warwick	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.320991	\N	\N	1	1	draw	yes
+2487	1440351	2025-08-30	England	FA Cup	Maldon & Tiptree	Canvey Island	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.392957	\N	\N	1	0	h-win	yes
+2488	1440365	2025-08-30	England	FA Cup	Mangotsfield United	Banbury United	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.472799	\N	\N	0	1	a-win	yes
+2489	1440343	2025-08-30	England	FA Cup	Ramsgate	Cray Valley PM	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.564462	\N	\N	0	1	a-win	yes
+2490	1440360	2025-08-30	England	FA Cup	Slimbridge	Dorchester Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.639979	\N	\N	0	0	draw	yes
+2491	1440394	2025-08-30	England	FA Cup	Three Bridges	Walton & Hersham	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.733397	\N	\N	0	0	draw	yes
+2492	1440393	2025-08-30	England	FA Cup	Trafford	Stockton Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.821248	\N	\N	1	0	h-win	yes
+2493	1440355	2025-08-30	England	FA Cup	Winchester City	Fareham Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:39.912285	\N	\N	0	0	draw	yes
+2494	1440367	2025-08-30	England	FA Cup	Alvechurch	Barwell	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.002477	\N	\N	2	0	h-win	yes
+2495	1440377	2025-08-30	England	FA Cup	Brightlingsea Regent	Bury Town	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.084033	\N	\N	2	2	draw	yes
+2496	1440412	2025-08-30	England	FA Cup	Carshalton Athletic	Wingate & Finchley	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.161993	\N	\N	0	0	draw	yes
+2497	1440350	2025-08-30	England	FA Cup	Cheshunt	Leiston	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.242827	\N	\N	1	1	draw	yes
+2498	1440416	2025-08-30	England	FA Cup	Cray Wanderers	Hanwell Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.321936	\N	\N	1	0	h-win	yes
+2499	1440353	2025-08-30	England	FA Cup	Folkestone Invicta	Sevenoaks Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.393236	\N	\N	2	0	h-win	yes
+2500	1440421	2025-08-30	England	FA Cup	Gosport Borough	Basingstoke Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.495905	\N	\N	1	0	h-win	yes
+2501	1440373	2025-08-30	England	FA Cup	Hayes & Yeading United	Whitehawk	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.574238	\N	\N	0	1	a-win	yes
+2502	1440410	2025-08-30	England	FA Cup	Hednesford Town	Basford United	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.686984	\N	\N	1	0	h-win	yes
+2503	1440375	2025-08-30	England	FA Cup	Lancaster City	Whitby Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.762961	\N	\N	0	1	a-win	yes
+2504	1440399	2025-08-30	England	FA Cup	Matlock Town	Bottesford Town	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.843527	\N	\N	1	1	draw	yes
+2505	1440336	2025-08-30	England	FA Cup	Morpeth Town	Pontefract Collieries	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:40.923364	\N	\N	1	1	draw	yes
+2506	1440414	2025-08-30	England	FA Cup	Needham Market	Tilbury	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.002813	\N	\N	2	0	h-win	yes
+2507	1445786	2025-08-30	England	FA Cup	Potters Bar Town	Hitchin Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.092183	\N	\N	2	0	h-win	yes
+2508	1440407	2025-08-30	England	FA Cup	Redditch United	Skegness Town	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.192065	\N	\N	3	0	h-win	yes
+2509	1440388	2025-08-30	England	FA Cup	Rushall Olympic	Atherstone Town	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.272187	\N	\N	4	1	h-win	yes
+2510	1440326	2025-08-30	England	FA Cup	Tiverton Town	Taunton Town	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.352402	\N	\N	1	1	draw	yes
+2511	1440345	2025-08-30	England	FA Cup	Warrington Town	Bamber Bridge	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.431848	\N	\N	0	0	draw	yes
+2512	1440405	2025-08-30	England	FA Cup	Witton Albion	Shildon AFC	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.512959	\N	\N	2	1	h-win	yes
+2513	1440378	2025-08-30	England	FA Cup	Bowers & Pitsea	Hertford Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.592137	\N	\N	0	0	draw	yes
+2514	1440329	2025-08-30	England	FA Cup	Dulwich Hamlet	Whitstable Town	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.676994	\N	\N	0	2	a-win	yes
+2515	1440352	2025-08-30	England	FA Cup	Gloucester City	AFC Portchester	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.762071	\N	\N	0	0	draw	yes
+2516	1440415	2025-08-30	England	FA Cup	Hungerford Town	AFC Stoneham	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.852173	\N	\N	0	0	draw	yes
+2517	1440372	2025-08-30	England	FA Cup	Avro	Nantwich Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:41.943145	\N	\N	0	1	a-win	yes
+2518	1440384	2025-08-30	England	FA Cup	Aylesbury Vale Dynamos	St Albans City	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.018297	\N	\N	0	2	a-win	yes
+2519	1449278	2025-08-30	England	FA Cup	Beckenham Town	Egham Town	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.093373	\N	\N	0	0	draw	yes
+2520	1440397	2025-08-30	England	FA Cup	Bishop Auckland	Chadderton	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.171922	\N	\N	0	1	a-win	yes
+2521	1440349	2025-08-30	England	FA Cup	Bishop's Cleeve	Wimborne Town	a-win	2	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.252161	\N	\N	0	2	a-win	yes
+2522	1440400	2025-08-30	England	FA Cup	Chatham Town	Marlow	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.351928	\N	\N	0	0	draw	yes
+2523	1440374	2025-08-30	England	FA Cup	Deal Town	Cobham	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.443043	\N	\N	0	0	draw	yes
+2524	1442551	2025-08-30	England	FA Cup	Enfield 1893	Ilford	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.522961	\N	\N	1	1	draw	yes
+2525	1445784	2025-08-30	England	FA Cup	Erith Town	Farnham Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.603789	\N	\N	0	2	a-win	yes
+2526	1440383	2025-08-30	England	FA Cup	Eynesbury Rovers	Arlesey Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.691921	\N	\N	1	0	h-win	yes
+2527	1440390	2025-08-30	England	FA Cup	Fairford Town	Sholing	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.77407	\N	\N	0	1	a-win	yes
+2528	1440324	2025-08-30	England	FA Cup	Flackwell Heath	Lewes	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.86197	\N	\N	0	0	draw	yes
+2529	1440419	2025-08-30	England	FA Cup	Hanley Town	Stourbridge	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:42.951964	\N	\N	0	1	a-win	yes
+2530	1440411	2025-08-30	England	FA Cup	Harborough Town	Leek Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.045412	\N	\N	0	0	draw	yes
+2531	1449969	2025-08-30	England	FA Cup	Haverhill Rovers	Waltham Abbey	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.132495	\N	\N	0	1	a-win	yes
+2532	1440328	2025-08-30	England	FA Cup	Hebburn Town	Longridge Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.22309	\N	\N	1	0	h-win	yes
+2533	1440420	2025-08-30	England	FA Cup	Hythe & Dibden	Laverstock & Ford	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.312345	\N	\N	0	0	draw	yes
+2534	1445785	2025-08-30	England	FA Cup	Knaphill	Hackney Wick	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.406085	\N	\N	0	0	draw	yes
+2535	1440342	2025-08-30	England	FA Cup	Long Eaton United	Kettering Town	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.491893	\N	\N	1	1	draw	yes
+2536	1440391	2025-08-30	England	FA Cup	March Town United	Gorleston	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.573133	\N	\N	0	0	draw	yes
+2537	1442552	2025-08-30	England	FA Cup	Newmarket Town	Woodford Town	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.661084	\N	\N	1	2	a-win	yes
+2538	1440356	2025-08-30	England	FA Cup	Plymouth Parkway	Frome Town	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.752171	\N	\N	0	3	a-win	yes
+2539	1440389	2025-08-30	England	FA Cup	Quorn	Sherwood Colliery	h-win	8	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.842208	\N	\N	3	0	h-win	yes
+2540	1440424	2025-08-30	England	FA Cup	Raynes Park Vale	Ashford United	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:43.928295	\N	\N	0	1	a-win	yes
+2541	1440335	2025-08-30	England	FA Cup	Redbridge	Royston Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.022936	\N	\N	1	1	draw	yes
+2542	1440337	2025-08-30	England	FA Cup	Royal Wootton	Torpoint Athletic	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.111896	\N	\N	1	0	h-win	yes
+2543	1440366	2025-08-30	England	FA Cup	Rylands	Guiseley AFC	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.192109	\N	\N	1	2	a-win	yes
+2544	1440323	2025-08-30	England	FA Cup	Shaftesbury Town	Exmouth	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.271938	\N	\N	0	1	a-win	yes
+2545	1440358	2025-08-30	England	FA Cup	Silsden	Bootle	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.352772	\N	\N	0	0	draw	yes
+2546	1440406	2025-08-30	England	FA Cup	Stanway Rovers	Cockfosters	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.431842	\N	\N	1	0	h-win	yes
+2547	1440382	2025-08-30	England	FA Cup	Steyning Town	Lancing	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.512123	\N	\N	4	0	h-win	yes
+2548	1440376	2025-08-30	England	FA Cup	Tavistock	Swindon Supermarine	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.600128	\N	\N	1	1	draw	yes
+2549	1440331	2025-08-30	England	FA Cup	Tower Hamlets	Ascot United	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.673575	\N	\N	3	0	h-win	yes
+2550	1440398	2025-08-30	England	FA Cup	West Auckland Town	Wythenshawe Amateurs	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.752348	\N	\N	1	0	h-win	yes
+2551	1440409	2025-08-30	England	FA Cup	West Didsbury & Chorlton	Runcorn Linnets	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.83206	\N	\N	0	1	a-win	yes
+2552	1440392	2025-08-30	England	FA Cup	Westbury United	Yate Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.911887	\N	\N	2	1	h-win	yes
+2553	1440371	2025-08-30	England	FA Cup	Worcester City	Chasetown	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:44.984492	\N	\N	1	0	h-win	yes
+2554	1440333	2025-08-30	England	FA Cup	Epsom & Ewell FC	Risborough Rangers	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.057869	\N	\N	0	0	draw	yes
+2555	1440385	2025-08-30	England	FA Cup	Atherton Laburnum Rovers	Atherton Collieries	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.14052	\N	\N	3	0	h-win	yes
+2556	1440363	2025-08-30	England	FA Cup	Rossington Main	United of Manchester	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.213624	\N	\N	0	2	a-win	yes
+2557	1440338	2025-08-30	England	FA Cup	Eastwood Community	Grimsby Borough	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.30319	\N	\N	0	1	a-win	yes
+2558	1440332	2025-08-30	England	FA Cup	Falmouth Town	Brixham	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.378367	\N	\N	0	1	a-win	yes
+2559	1440418	2025-08-30	England	FA Cup	Real Bedford	Bishop's Stortford	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.472238	\N	\N	1	0	h-win	yes
+2560	1440364	2025-08-30	England	FA Cup	Bourne Town	Shepshed Dynamo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.553464	\N	\N	0	0	draw	yes
+2561	1440423	2025-08-30	England	FA Cup	Newcastle Blue Star	Heaton Stannington	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.63202	\N	\N	0	0	draw	yes
+2562	1440344	2025-08-30	England	FA Cup	Boston Town	Sporting Khalsa	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.720056	\N	\N	0	0	draw	yes
+2563	1440361	2025-08-30	England	FA Cup	Wombwell Town	Stocksbridge Park Steels	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.801649	\N	\N	0	1	a-win	yes
+2564	1440359	2025-08-30	England	FA Cup	Bracknell Town	Dartford	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.883713	\N	\N	2	0	h-win	yes
+2565	1440334	2025-08-31	England	FA Cup	Hallam	Ashton United	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:45.963836	\N	\N	1	2	a-win	yes
+2566	1440379	2025-08-31	England	FA Cup	Wokingham Town	Burgess Hill Town	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.040912	\N	\N	0	4	a-win	yes
+2567	1451305	2025-09-01	England	FA Cup	Abbey Hulton	Sutton Coldfield Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.123657	\N	\N	1	2	a-win	yes
+2568	1451310	2025-09-02	England	FA Cup	Hitchin Town	Potters Bar Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.201364	\N	\N	0	0	draw	yes
+2569	1451307	2025-09-02	England	FA Cup	Dartford	Bracknell Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.27277	\N	\N	0	1	a-win	yes
+2570	1451314	2025-09-02	England	FA Cup	Nantwich Town	Avro	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.352147	\N	\N	0	0	draw	yes
+2571	1450819	2025-09-02	England	FA Cup	Hastings United	Faversham Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.432582	\N	\N	0	0	draw	yes
+2572	1451315	2025-09-02	England	FA Cup	Leek Town	Harborough Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.512014	\N	\N	0	1	a-win	yes
+2573	1451313	2025-09-02	England	FA Cup	Chasetown	Worcester City	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.593971	\N	\N	1	0	h-win	yes
+2574	1451687	2025-09-02	England	FA Cup	Hanwell Town	Cray Wanderers	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.67186	\N	\N	0	0	draw	yes
+2575	1451318	2025-09-02	England	FA Cup	Prescot Cables	Hyde United	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.751752	\N	\N	0	0	draw	yes
+2576	1451311	2025-09-02	England	FA Cup	Bishop's Stortford	Real Bedford	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.831909	\N	\N	0	0	draw	yes
+2577	1451689	2025-09-02	England	FA Cup	Poole Town	Didcot Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.911932	\N	\N	1	1	draw	yes
+2578	1451688	2025-09-02	England	FA Cup	Stratford Town	Halesowen Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:46.991942	\N	\N	0	1	a-win	yes
+2579	1451312	2025-09-02	England	FA Cup	Wingate & Finchley	Carshalton Athletic	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.07192	\N	\N	2	0	h-win	yes
+2580	1451690	2025-09-02	England	FA Cup	Yate Town	Westbury United	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.152123	\N	\N	1	1	draw	yes
+2581	1451308	2025-09-02	England	FA Cup	AFC Portchester	Gloucester City	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.232464	\N	\N	0	2	a-win	yes
+2582	1451317	2025-09-02	England	FA Cup	Bootle	Silsden	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.311968	\N	\N	1	1	draw	yes
+2583	1451320	2025-09-02	England	FA Cup	Fareham Town	Winchester City	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.391943	\N	\N	1	0	h-win	yes
+2584	1451306	2025-09-02	England	FA Cup	Shepshed Dynamo	Bourne Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.472114	\N	\N	1	0	h-win	yes
+2585	1451319	2025-09-02	England	FA Cup	Shildon AFC	Witton Albion	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.552669	\N	\N	0	2	a-win	yes
+2586	1451309	2025-09-02	England	FA Cup	Sporting Khalsa	Boston Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.632034	\N	\N	0	0	draw	yes
+2587	1451316	2025-09-03	England	FA Cup	Whitehawk	Hayes & Yeading United	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.713186	\N	\N	2	1	h-win	yes
+2588	1451692	2025-09-03	England	FA Cup	Ashton United	Hallam	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.791944	\N	\N	1	0	h-win	yes
+2589	1451691	2025-09-03	England	FA Cup	Exmouth	Shaftesbury Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.872105	\N	\N	0	0	draw	yes
+2590	1457569	2025-09-12	England	FA Cup	Folkestone Invicta	Maidstone Utd	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:47.951905	\N	\N	1	0	h-win	yes
+2591	1457535	2025-09-13	England	FA Cup	Pickering Town	Runcorn Linnets	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.032187	\N	\N	0	1	a-win	yes
+2592	1457592	2025-09-13	England	FA Cup	Macclesfield	Atherton Laburnum Rovers	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.123533	\N	\N	0	0	draw	yes
+2593	1457581	2025-09-13	England	FA Cup	Maidenhead	Faversham Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.212084	\N	\N	0	1	a-win	yes
+2594	1457554	2025-09-13	England	FA Cup	AFC Fylde	Bamber Bridge	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.292947	\N	\N	2	0	h-win	yes
+2595	1457585	2025-09-13	England	FA Cup	Ebbsfleet United	Ashford Town (Middlesex)	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.372938	\N	\N	1	0	h-win	yes
+2596	1457583	2025-09-13	England	FA Cup	Billericay Town	Berkhamsted	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.451966	\N	\N	1	0	h-win	yes
+2597	1457526	2025-09-13	England	FA Cup	Hampton & Richmond	AFC Croydon Athletic	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.532304	\N	\N	2	1	h-win	yes
+2598	1457523	2025-09-13	England	FA Cup	Hitchin Town	St Albans City	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.613569	\N	\N	0	0	draw	yes
+2599	1457582	2025-09-13	England	FA Cup	AFC Telford United	Kidderminster Harriers	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.691828	\N	\N	1	0	h-win	yes
+2600	1457518	2025-09-13	England	FA Cup	Chelmsford City	Hertford Town	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.772472	\N	\N	2	0	h-win	yes
+2601	1457530	2025-09-13	England	FA Cup	Gainsborough Trinity	Rushall Olympic	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.854705	\N	\N	1	0	h-win	yes
+2602	1457527	2025-09-13	England	FA Cup	Hyde United	Whitby Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:48.932364	\N	\N	1	0	h-win	yes
+2603	1457544	2025-09-13	England	FA Cup	Nantwich Town	Trafford	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.013539	\N	\N	2	1	h-win	yes
+2604	1457524	2025-09-13	England	FA Cup	Chesham United	King's Lynn Town	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.09244	\N	\N	1	2	a-win	yes
+2605	1457537	2025-09-13	England	FA Cup	Curzon Ashton	Hebburn Town	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.17248	\N	\N	3	1	h-win	yes
+2606	1457586	2025-09-13	England	FA Cup	Eastbourne Borough	Epsom & Ewell FC	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.251951	\N	\N	2	0	h-win	yes
+2607	1457590	2025-09-13	England	FA Cup	Taunton Town	Weston-super-Mare	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.331949	\N	\N	1	1	draw	yes
+2608	1457528	2025-09-13	England	FA Cup	Whitehawk	Walton & Hersham	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.411812	\N	\N	0	2	a-win	yes
+2609	1457594	2025-09-13	England	FA Cup	AFC Sudbury	Aveley	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.492099	\N	\N	0	1	a-win	yes
+2610	1457555	2025-09-13	England	FA Cup	Ashford United	Chatham Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.572272	\N	\N	0	2	a-win	yes
+2611	1457564	2025-09-13	England	FA Cup	Burgess Hill Town	Farnham Town	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.651909	\N	\N	1	1	draw	yes
+2612	1457553	2025-09-13	England	FA Cup	Sutton Coldfield Town	Stourbridge	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.741295	\N	\N	1	0	h-win	yes
+2613	1468208	2025-09-13	England	FA Cup	Waltham Abbey	Gorleston	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.822995	\N	\N	2	0	h-win	yes
+2614	1457531	2025-09-13	England	FA Cup	Westfield (Surrey)	Horsham	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.911813	\N	\N	0	1	a-win	yes
+2615	1457573	2025-09-13	England	FA Cup	AFC Totton	Torquay	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:49.992009	\N	\N	1	0	h-win	yes
+2616	1457574	2025-09-13	England	FA Cup	Bedford Town	Dagenham & Redbridge	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.071874	\N	\N	0	1	a-win	yes
+2617	1457521	2025-09-13	England	FA Cup	Bracknell Town	Tadley Calleva	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.143306	\N	\N	0	0	draw	yes
+2618	1457542	2025-09-13	England	FA Cup	Bury Town	Woodford Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.222956	\N	\N	0	0	draw	yes
+2619	1457577	2025-09-13	England	FA Cup	Chasetown	Banbury United	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.302806	\N	\N	0	0	draw	yes
+2620	1457584	2025-09-13	England	FA Cup	Chertsey Town	Cray Valley PM	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.380915	\N	\N	1	2	a-win	yes
+2621	1457566	2025-09-13	England	FA Cup	Coleshill Town	Hednesford Town	a-win	0	7	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.453959	\N	\N	0	5	a-win	yes
+2622	1457572	2025-09-13	England	FA Cup	Dunston UTS	Stocksbridge Park Steels	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.541511	\N	\N	0	0	draw	yes
+2623	1457543	2025-09-13	England	FA Cup	Hanwell Town	Bedfont Sports	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.631976	\N	\N	0	1	a-win	yes
+2624	1457534	2025-09-13	England	FA Cup	Maldon & Tiptree	Stanway Rovers	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.718107	\N	\N	2	0	h-win	yes
+2625	1457563	2025-09-13	England	FA Cup	Spalding United	Alfreton Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.8317	\N	\N	2	0	h-win	yes
+2626	1457549	2025-09-13	England	FA Cup	Whitstable Town	Chichester City	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:50.917236	\N	\N	1	0	h-win	yes
+2627	1457540	2025-09-13	England	FA Cup	Alvechurch	Leamington	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.011965	\N	\N	0	0	draw	yes
+2628	1457520	2025-09-13	England	FA Cup	Ashton United	Scarborough Athletic	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.098373	\N	\N	0	0	draw	yes
+2629	1457576	2025-09-13	England	FA Cup	Buxton	Redditch United	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.183412	\N	\N	0	0	draw	yes
+2630	1457562	2025-09-13	England	FA Cup	Farnborough	Dover	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.271964	\N	\N	2	1	h-win	yes
+2631	1457547	2025-09-13	England	FA Cup	Gosport Borough	Poole Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.363337	\N	\N	0	1	a-win	yes
+2632	1457548	2025-09-13	England	FA Cup	Leiston	Hackney Wick	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.452137	\N	\N	4	0	h-win	yes
+2633	1457532	2025-09-13	England	FA Cup	Matlock Town	Carlton Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.543995	\N	\N	1	0	h-win	yes
+2634	1457593	2025-09-13	England	FA Cup	Merthyr Town	Torpoint Athletic	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.632486	\N	\N	1	0	h-win	yes
+2635	1457519	2025-09-13	England	FA Cup	Morpeth Town	Witton Albion	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.722085	\N	\N	1	1	draw	yes
+2636	1457529	2025-09-13	England	FA Cup	Needham Market	Eynesbury Rovers	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.81194	\N	\N	3	0	h-win	yes
+2637	1457575	2025-09-13	England	FA Cup	Peterborough Sports	AFC Hornchurch	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.90303	\N	\N	1	0	h-win	yes
+2638	1468207	2025-09-13	England	FA Cup	Radcliffe	Southport	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:51.992016	\N	\N	0	0	draw	yes
+2639	1457545	2025-09-13	England	FA Cup	Royston Town	Brentwood Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.081852	\N	\N	0	0	draw	yes
+2640	1457538	2025-09-13	England	FA Cup	Salisbury	Laverstock & Ford	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.161986	\N	\N	4	0	h-win	yes
+2641	1457559	2025-09-13	England	FA Cup	South Shields	Guiseley AFC	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.241993	\N	\N	1	0	h-win	yes
+2642	1457522	2025-09-13	England	FA Cup	Stalybridge Celtic	Chester	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.332847	\N	\N	0	0	draw	yes
+2643	1457587	2025-09-13	England	FA Cup	United of Manchester	Chadderton	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.418112	\N	\N	0	0	draw	yes
+2644	1457580	2025-09-13	England	FA Cup	Wimborne Town	Bath City	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.505015	\N	\N	2	0	h-win	yes
+2645	1457558	2025-09-13	England	FA Cup	Gloucester City	Chippenham Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.592208	\N	\N	0	1	a-win	yes
+2646	1457560	2025-09-13	England	FA Cup	Dorking Wanderers	Wingate & Finchley	h-win	7	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.672245	\N	\N	3	1	h-win	yes
+2647	1457525	2025-09-13	England	FA Cup	Hemel Hempstead Town	Bishop's Stortford	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.752025	\N	\N	2	0	h-win	yes
+2648	1457550	2025-09-13	England	FA Cup	Hungerford Town	Swindon Supermarine	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.831983	\N	\N	1	0	h-win	yes
+2649	1457552	2025-09-13	England	FA Cup	Welling United	Slough Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.902974	\N	\N	0	1	a-win	yes
+2650	1457570	2025-09-13	England	FA Cup	Bootle	Darlington 1883	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:52.983084	\N	\N	0	1	a-win	yes
+2651	1457557	2025-09-13	England	FA Cup	Congleton Town	Chorley	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.072017	\N	\N	0	0	draw	yes
+2652	1457565	2025-09-13	England	FA Cup	Deal Town	Egham Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.152024	\N	\N	1	1	draw	yes
+2653	1457541	2025-09-13	England	FA Cup	Enfield 1893	Enfield Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.231831	\N	\N	0	2	a-win	yes
+2654	1457579	2025-09-13	England	FA Cup	Fareham Town	Sholing	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.312081	\N	\N	0	0	draw	yes
+2655	1457568	2025-09-13	England	FA Cup	Grimsby Borough	Halesowen Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.391827	\N	\N	1	1	draw	yes
+2656	1457567	2025-09-13	England	FA Cup	Harborough Town	Worksop Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.472174	\N	\N	2	1	h-win	yes
+2657	1468206	2025-09-13	England	FA Cup	Mulbarton Wanderers	Witham Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.65218	\N	\N	0	0	draw	yes
+2658	1457588	2025-09-13	England	FA Cup	Quorn	Kettering Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.732243	\N	\N	1	0	h-win	yes
+2659	1457561	2025-09-13	England	FA Cup	Racing Club Warwick	Evesham United	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.811961	\N	\N	3	1	h-win	yes
+2660	1457589	2025-09-13	England	FA Cup	Shaftesbury Town	Frome Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.892041	\N	\N	1	0	h-win	yes
+2661	1457536	2025-09-13	England	FA Cup	Shepshed Dynamo	Stamford	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:53.982901	\N	\N	0	0	draw	yes
+2662	1457551	2025-09-13	England	FA Cup	Steyning Town	Tonbridge Angels	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.06151	\N	\N	0	1	a-win	yes
+2663	1457578	2025-09-13	England	FA Cup	Tower Hamlets	Flackwell Heath	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.142851	\N	\N	0	0	draw	yes
+2664	1457533	2025-09-13	England	FA Cup	West Auckland Town	Spennymoor Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.220895	\N	\N	0	1	a-win	yes
+2665	1457591	2025-09-13	England	FA Cup	Westbury United	Oxford City	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.29246	\N	\N	2	1	h-win	yes
+2666	1457571	2025-09-13	England	FA Cup	Brixham	Dorchester Town	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.38086	\N	\N	1	2	a-win	yes
+2667	1457556	2025-09-13	England	FA Cup	Jersey Bulls	Worthing	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.463086	\N	\N	1	0	h-win	yes
+2668	1457546	2025-09-13	England	FA Cup	Newcastle Blue Star	Marine	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.540885	\N	\N	0	0	draw	yes
+2669	1469174	2025-09-16	England	FA Cup	Dagenham & Redbridge	Bedford Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.612433	\N	\N	1	0	h-win	yes
+2670	1469173	2025-09-16	England	FA Cup	Southport	Radcliffe	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.70134	\N	\N	1	1	draw	yes
+2671	1469177	2025-09-16	England	FA Cup	Slough Town	Welling United	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.783078	\N	\N	0	0	draw	yes
+2672	1469175	2025-09-16	England	FA Cup	Weston-super-Mare	Taunton Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.861305	\N	\N	1	0	h-win	yes
+2673	1469184	2025-09-16	England	FA Cup	Witham Town	Mulbarton Wanderers	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:54.951801	\N	\N	1	0	h-win	yes
+2674	1469182	2025-09-16	England	FA Cup	Chichester City	Whitstable Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.032272	\N	\N	0	0	draw	yes
+2675	1469183	2025-09-16	England	FA Cup	Evesham United	Racing Club Warwick	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.116945	\N	\N	0	0	draw	yes
+2676	1469181	2025-09-16	England	FA Cup	Halesowen Town	Grimsby Borough	h-win	6	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.193444	\N	\N	3	1	h-win	yes
+2677	1469180	2025-09-16	England	FA Cup	Banbury United	Chasetown	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.282609	\N	\N	1	1	draw	yes
+2678	1469178	2025-09-16	England	FA Cup	Horsham	Westfield (Surrey)	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.360037	\N	\N	2	0	h-win	yes
+2679	1469176	2025-09-16	England	FA Cup	Worthing	Jersey Bulls	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.433408	\N	\N	1	0	h-win	yes
+2680	1469179	2025-09-16	England	FA Cup	Tonbridge Angels	Steyning Town	h-win	6	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.511981	\N	\N	3	0	h-win	yes
+2681	1469185	2025-09-17	England	FA Cup	Frome Town	Shaftesbury Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.591904	\N	\N	1	1	draw	yes
+2682	1469186	2025-09-17	England	FA Cup	Woodford Town	Bury Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.672449	\N	\N	0	0	draw	yes
+2683	1470095	2025-09-23	England	FA Cup	Sporting Khalsa	Hereford	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.751999	\N	\N	0	0	draw	yes
+2684	1470072	2025-09-27	England	FA Cup	Westbury United	Farnborough	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.83192	\N	\N	0	0	draw	yes
+2685	1470085	2025-09-27	England	FA Cup	Macclesfield	Nantwich Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.911937	\N	\N	0	0	draw	yes
+2686	1470076	2025-09-27	England	FA Cup	Chester	Curzon Ashton	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:55.994144	\N	\N	2	0	h-win	yes
+2687	1470094	2025-09-27	England	FA Cup	AFC Fylde	Darlington 1883	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.072068	\N	\N	0	0	draw	yes
+2688	1470079	2025-09-27	England	FA Cup	Ebbsfleet United	Faversham Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.151793	\N	\N	2	1	h-win	yes
+2689	1471200	2025-09-27	England	FA Cup	AFC Telford United	Evesham United	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.231839	\N	\N	1	1	draw	yes
+2690	1470084	2025-09-27	England	FA Cup	Hyde United	Matlock Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.322105	\N	\N	0	0	draw	yes
+2691	1470087	2025-09-27	England	FA Cup	Spennymoor Town	Chadderton	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.401871	\N	\N	0	0	draw	yes
+2692	1471203	2025-09-27	England	FA Cup	Bedfont Sports	Slough Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.482339	\N	\N	1	1	draw	yes
+2693	1470088	2025-09-27	England	FA Cup	Sutton Coldfield Town	Stamford	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.572025	\N	\N	0	0	draw	yes
+2694	1470074	2025-09-27	England	FA Cup	Waltham Abbey	Maldon & Tiptree	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.652072	\N	\N	0	2	a-win	yes
+2695	1471201	2025-09-27	England	FA Cup	AFC Totton	Frome Town	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.731776	\N	\N	2	0	h-win	yes
+2696	1471206	2025-09-27	England	FA Cup	Cray Valley PM	Tonbridge Angels	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.811869	\N	\N	0	0	draw	yes
+2697	1470075	2025-09-27	England	FA Cup	Dunston UTS	Gainsborough Trinity	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.891778	\N	\N	0	1	a-win	yes
+2698	1471207	2025-09-27	England	FA Cup	Halesowen Town	Aveley	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:56.9839	\N	\N	0	0	draw	yes
+2699	1470086	2025-09-27	England	FA Cup	Marine	Buxton	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:57.063027	\N	\N	0	1	a-win	yes
+2700	1470093	2025-09-27	England	FA Cup	Runcorn Linnets	Ashton United	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 03:19:57.142885	\N	\N	1	0	h-win	yes
+2701	1470082	2025-09-27	England	FA Cup	Sholing	Eastbourne Borough	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:32.639009	\N	\N	1	1	draw	yes
+2702	1471198	2025-09-27	England	FA Cup	Spalding United	Dagenham & Redbridge	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:32.71713	\N	\N	2	1	h-win	yes
+2703	1471208	2025-09-27	England	FA Cup	Whitstable Town	Hungerford Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:32.816988	\N	\N	1	0	h-win	yes
+2704	1470080	2025-09-27	England	FA Cup	Alvechurch	Chelmsford City	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:32.897177	\N	\N	1	2	a-win	yes
+2705	1470077	2025-09-27	England	FA Cup	Enfield Town	Quorn	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:32.99776	\N	\N	2	0	h-win	yes
+2706	1470089	2025-09-27	England	FA Cup	Hednesford Town	Billericay Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.096875	\N	\N	0	0	draw	yes
+2707	1471202	2025-09-27	England	FA Cup	Horsham	Folkestone Invicta	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.182091	\N	\N	2	1	h-win	yes
+2708	1471209	2025-09-27	England	FA Cup	Leiston	Banbury United	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.266749	\N	\N	0	2	a-win	yes
+2709	1469915	2025-09-27	England	FA Cup	Merthyr Town	Hampton & Richmond	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.35685	\N	\N	0	0	draw	yes
+2710	1471205	2025-09-27	England	FA Cup	Morpeth Town	Southport	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.436875	\N	\N	0	2	a-win	yes
+2711	1471197	2025-09-27	England	FA Cup	Needham Market	Witham Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.523028	\N	\N	1	1	draw	yes
+2712	1471196	2025-09-27	England	FA Cup	Poole Town	Weston-super-Mare	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.602137	\N	\N	0	2	a-win	yes
+2713	1470078	2025-09-27	England	FA Cup	Royston Town	King's Lynn Town	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.756926	\N	\N	0	3	a-win	yes
+2714	1470090	2025-09-27	England	FA Cup	Salisbury	Dorking Wanderers	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.84349	\N	\N	0	1	a-win	yes
+2715	1469916	2025-09-27	England	FA Cup	South Shields	Chorley	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:33.936787	\N	\N	2	0	h-win	yes
+2716	1471199	2025-09-27	England	FA Cup	Wimborne Town	Worthing	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.016965	\N	\N	0	1	a-win	yes
+2717	1477513	2025-09-27	England	FA Cup	Hemel Hempstead Town	Hereford	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.116938	\N	\N	1	0	h-win	yes
+2718	1470091	2025-09-27	England	FA Cup	Chatham Town	Deal Town	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.19673	\N	\N	3	1	h-win	yes
+2719	1470092	2025-09-27	England	FA Cup	Farnham Town	Dorchester Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.277097	\N	\N	0	0	draw	yes
+2720	1470073	2025-09-27	England	FA Cup	Flackwell Heath	Bracknell Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.357156	\N	\N	0	0	draw	yes
+2721	1470083	2025-09-27	England	FA Cup	Harborough Town	Peterborough Sports	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.437039	\N	\N	1	0	h-win	yes
+2722	1470081	2025-09-27	England	FA Cup	Walton & Hersham	Chippenham Town	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.517115	\N	\N	0	1	a-win	yes
+2723	1471204	2025-09-27	England	FA Cup	Woodford Town	St Albans City	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.617156	\N	\N	0	1	a-win	yes
+2724	1477637	2025-09-29	England	FA Cup	Aveley	Halesowen Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.707023	\N	\N	1	0	h-win	yes
+2725	1477641	2025-09-30	England	FA Cup	Billericay Town	Hednesford Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.797245	\N	\N	1	0	h-win	yes
+2726	1477640	2025-09-30	England	FA Cup	Hereford	Hemel Hempstead Town	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.877033	\N	\N	0	0	draw	yes
+2727	1477644	2025-09-30	England	FA Cup	Bracknell Town	Flackwell Heath	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:34.977264	\N	\N	0	0	draw	yes
+2728	1477643	2025-09-30	England	FA Cup	Ashton United	Runcorn Linnets	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.077137	\N	\N	1	2	a-win	yes
+2729	1477639	2025-09-30	England	FA Cup	Dorking Wanderers	Salisbury	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.166176	\N	\N	2	0	h-win	yes
+2730	1477642	2025-09-30	England	FA Cup	Tonbridge Angels	Cray Valley PM	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.257165	\N	\N	4	0	h-win	yes
+2731	1477638	2025-09-30	England	FA Cup	Darlington 1883	AFC Fylde	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.33714	\N	\N	2	0	h-win	yes
+2732	1478188	2025-10-11	England	FA Cup	Farnham Town	Sutton Utd	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.436725	\N	\N	1	1	draw	yes
+2733	1478193	2025-10-11	England	FA Cup	Rochdale	York	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.516858	\N	\N	0	0	draw	yes
+2734	1478194	2025-10-11	England	FA Cup	Scunthorpe	King's Lynn Town	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.60332	\N	\N	0	2	a-win	yes
+2735	1478196	2025-10-11	England	FA Cup	Southend	Folkestone Invicta	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.68781	\N	\N	3	0	h-win	yes
+2736	1478184	2025-10-11	England	FA Cup	Carlisle	Boston United	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.785108	\N	\N	3	0	h-win	yes
+2737	1478192	2025-10-11	England	FA Cup	Morecambe	Chester	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.876935	\N	\N	1	0	h-win	yes
+2738	1478191	2025-10-11	England	FA Cup	Macclesfield	Stamford	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:35.956773	\N	\N	1	0	h-win	yes
+2739	1478197	2025-10-11	England	FA Cup	Southport	FC Halifax Town	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.056813	\N	\N	1	2	a-win	yes
+2740	1478183	2025-10-11	England	FA Cup	Braintree	Farnborough	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.136792	\N	\N	2	0	h-win	yes
+2741	1478202	2025-10-11	England	FA Cup	Woking	Brackley Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.216579	\N	\N	0	1	a-win	yes
+2742	1478187	2025-10-11	England	FA Cup	Ebbsfleet United	Solihull Moors	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.298302	\N	\N	1	0	h-win	yes
+2743	1478190	2025-10-11	England	FA Cup	Hampton & Richmond	Eastleigh	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.377041	\N	\N	0	2	a-win	yes
+2744	1478195	2025-10-11	England	FA Cup	Slough Town	Enfield Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.467169	\N	\N	1	2	a-win	yes
+2745	1478201	2025-10-11	England	FA Cup	Weston-super-Mare	Needham Market	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.556793	\N	\N	0	0	draw	yes
+2746	1478185	2025-10-11	England	FA Cup	Chelmsford City	Chippenham Town	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.63687	\N	\N	3	1	h-win	yes
+2747	1478189	2025-10-11	England	FA Cup	Gainsborough Trinity	Hartlepool	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.717022	\N	\N	1	0	h-win	yes
+2748	1478180	2025-10-11	England	FA Cup	Altrincham	Harborough Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.803055	\N	\N	1	0	h-win	yes
+2749	1478186	2025-10-11	England	FA Cup	Eastbourne Borough	Boreham Wood	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.882183	\N	\N	0	0	draw	yes
+2750	1479217	2025-10-11	England	FA Cup	Spennymoor Town	Billericay Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:36.96788	\N	\N	0	0	draw	yes
+2751	1478181	2025-10-11	England	FA Cup	Aveley	Gateshead	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.056755	\N	\N	0	1	a-win	yes
+2752	1478179	2025-10-11	England	FA Cup	AFC Totton	Truro City	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.136929	\N	\N	1	0	h-win	yes
+2753	1479215	2025-10-11	England	FA Cup	Maldon & Tiptree	Flackwell Heath	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.216796	\N	\N	1	0	h-win	yes
+2754	1479216	2025-10-11	England	FA Cup	Runcorn Linnets	Buxton	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.297159	\N	\N	0	0	draw	yes
+2755	1478182	2025-10-11	England	FA Cup	Banbury United	St Albans City	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.376983	\N	\N	1	1	draw	yes
+2756	1478198	2025-10-11	England	FA Cup	South Shields	Spalding United	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.467657	\N	\N	3	0	h-win	yes
+2757	1478199	2025-10-11	England	FA Cup	Tamworth	Hyde United	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.544887	\N	\N	0	0	draw	yes
+2758	1479213	2025-10-11	England	FA Cup	Dorking Wanderers	Aldershot Town	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.626905	\N	\N	1	2	a-win	yes
+2759	1479214	2025-10-11	England	FA Cup	Hemel Hempstead Town	Yeovil Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.70484	\N	\N	1	0	h-win	yes
+2760	1479218	2025-10-11	England	FA Cup	Tonbridge Angels	Chatham Town	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.786787	\N	\N	1	0	h-win	yes
+2761	1478200	2025-10-11	England	FA Cup	Wealdstone	Whitstable Town	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.886046	\N	\N	5	0	h-win	yes
+2762	1479212	2025-10-11	England	FA Cup	Darlington 1883	AFC Telford United	a-win	0	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:37.986743	\N	\N	0	4	a-win	yes
+2763	1478203	2025-10-13	England	FA Cup	Worthing	Forest Green	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:38.066741	\N	\N	1	2	a-win	yes
+2764	1481505	2025-10-14	England	FA Cup	Hartlepool	Gainsborough Trinity	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:38.141654	\N	\N	0	2	a-win	yes
+2765	1481503	2025-10-14	England	FA Cup	Chester	Morecambe	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:38.226574	\N	\N	0	0	draw	yes
+2766	1481507	2025-10-14	England	FA Cup	Sutton Utd	Farnham Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:38.306881	\N	\N	0	1	a-win	yes
+2767	1481508	2025-10-14	England	FA Cup	Truro City	AFC Totton	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:38.396938	\N	\N	0	1	a-win	yes
+2768	1481502	2025-10-14	England	FA Cup	Brackley Town	Woking	h-win	6	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:38.476771	\N	\N	2	2	draw	yes
+2769	1481506	2025-10-14	England	FA Cup	St Albans City	Banbury United	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:38.557158	\N	\N	0	0	draw	yes
+2770	1481504	2025-10-14	England	FA Cup	Harborough Town	Altrincham	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:38.642789	\N	\N	0	0	draw	yes
+2771	1481721	2025-10-31	England	FA Cup	Luton	Forest Green	h-win	4	3	9	5	16	5	2	6	3	1	2	1	0	0	53.00	47.00	7	10	\N	\N	\N	\N	\N	2025-12-02 04:19:38.728637	\N	\N	2	0	h-win	yes
+2772	1481713	2025-11-01	England	FA Cup	Chelmsford City	Braintree	h-win	4	1	14	6	10	3	3	4	3	0	1	0	0	1	47.00	53.00	19	18	\N	\N	\N	\N	\N	2025-12-02 04:19:38.878002	\N	\N	3	1	h-win	yes
+2773	1481727	2025-11-01	England	FA Cup	Reading	Carlisle	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:39.037081	\N	\N	1	0	h-win	yes
+2774	1481737	2025-11-01	England	FA Cup	Wigan	Hemel Hempstead Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:39.187544	\N	\N	1	0	h-win	yes
+2775	1481709	2025-11-01	England	FA Cup	Bolton	Huddersfield	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:39.338336	\N	\N	1	0	h-win	yes
+2776	1481728	2025-11-01	England	FA Cup	Rotherham	Swindon Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:39.496953	\N	\N	1	0	h-win	yes
+2777	1481707	2025-11-01	England	FA Cup	Barnsley	York	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:39.657056	\N	\N	1	1	draw	yes
+2778	1481794	2025-11-01	England	FA Cup	Burton Albion	St Albans City	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:39.817198	\N	\N	1	0	h-win	yes
+2779	1481706	2025-11-01	England	FA Cup	AFC Wimbledon	Gateshead	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:39.977641	\N	\N	0	1	a-win	yes
+2780	1481719	2025-11-01	England	FA Cup	Fleetwood Town	Barnet	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:40.137086	\N	\N	1	0	h-win	yes
+2781	1481724	2025-11-01	England	FA Cup	Oldham	Northampton	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:40.297129	\N	\N	2	0	h-win	yes
+2782	1481725	2025-11-01	England	FA Cup	Peterborough	Cardiff	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:40.457062	\N	\N	1	0	h-win	yes
+2783	1481708	2025-11-01	England	FA Cup	Blackpool	Scunthorpe	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:40.627215	\N	\N	1	0	h-win	yes
+2784	1481738	2025-11-01	England	FA Cup	Wycombe	Plymouth	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:40.787106	\N	\N	0	0	draw	yes
+2785	1481715	2025-11-01	England	FA Cup	Colchester	Milton Keynes Dons	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:40.947058	\N	\N	1	1	draw	yes
+2786	1481716	2025-11-01	England	FA Cup	Crewe	Doncaster	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:41.157273	\N	\N	1	0	h-win	yes
+2787	1481720	2025-11-01	England	FA Cup	Grimsby	Ebbsfleet United	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:41.437178	\N	\N	0	1	a-win	yes
+2788	1481723	2025-11-01	England	FA Cup	Newport County	Gillingham	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:41.726591	\N	\N	1	1	draw	yes
+2789	1481732	2025-11-01	England	FA Cup	Stevenage	Chesterfield	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:41.897382	\N	\N	0	0	draw	yes
+2790	1481795	2025-11-01	England	FA Cup	Cambridge United	Chester	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:42.062697	\N	\N	3	0	h-win	yes
+2791	1481714	2025-11-01	England	FA Cup	Cheltenham	Bradford	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:42.296893	\N	\N	1	0	h-win	yes
+2792	1481722	2025-11-01	England	FA Cup	Mansfield Town	Harrogate Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:42.456984	\N	\N	1	0	h-win	yes
+2793	1481797	2025-11-01	England	FA Cup	Macclesfield	AFC Totton	h-win	6	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:42.637027	\N	\N	3	3	draw	yes
+2794	1481734	2025-11-01	England	FA Cup	Tranmere	Stockport County	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:42.787468	\N	\N	0	0	draw	yes
+2795	1481710	2025-11-01	England	FA Cup	Boreham Wood	Crawley Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:42.942204	\N	\N	2	0	h-win	yes
+2796	1481711	2025-11-01	England	FA Cup	Bromley	Bristol Rovers	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:43.097333	\N	\N	0	0	draw	yes
+2797	1481799	2025-11-01	England	FA Cup	Sutton Utd	AFC Telford United	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:43.277194	\N	\N	1	0	h-win	yes
+2798	1481718	2025-11-01	England	FA Cup	FC Halifax Town	Exeter City	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:43.437158	\N	\N	0	2	a-win	yes
+2799	1481729	2025-11-01	England	FA Cup	Salford City	Lincoln	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:43.582353	\N	\N	0	1	a-win	yes
+2800	1481798	2025-11-01	England	FA Cup	Slough Town	Altrincham	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:43.737192	\N	\N	2	0	h-win	yes
+2801	1481736	2025-11-01	England	FA Cup	Weston-super-Mare	Aldershot Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:43.897501	\N	\N	0	1	a-win	yes
+2802	1481731	2025-11-01	England	FA Cup	Spennymoor Town	Barrow	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:44.067296	\N	\N	0	1	a-win	yes
+2803	1481712	2025-11-01	England	FA Cup	Buxton	Chatham Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:44.218382	\N	\N	0	0	draw	yes
+2804	1481735	2025-11-01	England	FA Cup	Wealdstone	Southend	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:44.381886	\N	\N	1	0	h-win	yes
+2805	1481793	2025-11-01	England	FA Cup	Brackley Town	Notts County	draw	2	2	16	5	7	4	8	6	3	2	2	2	0	0	40.00	60.00	15	16	\N	\N	\N	\N	\N	2025-12-02 04:19:44.535517	\N	\N	1	1	draw	yes
+2806	1481730	2025-11-02	England	FA Cup	South Shields	Shrewsbury	a-win	1	3	7	1	21	8	0	2	1	5	2	2	0	0	71.00	29.00	14	16	\N	\N	\N	\N	\N	2025-12-02 04:19:44.698077	\N	\N	0	3	a-win	yes
+2807	1481717	2025-11-02	England	FA Cup	Eastleigh	Walsall	a-win	0	3	11	5	13	3	7	4	0	2	1	1	0	0	64.00	36.00	9	12	\N	\N	\N	\N	\N	2025-12-02 04:19:44.857129	\N	\N	0	1	a-win	yes
+2808	1481726	2025-11-02	England	FA Cup	Port Vale	Maldon & Tiptree	h-win	5	1	26	9	4	1	8	0	1	0	2	1	0	0	67.00	33.00	11	12	\N	\N	\N	\N	\N	2025-12-02 04:19:45.017287	\N	\N	4	1	h-win	yes
+2809	1481796	2025-11-02	England	FA Cup	Gainsborough Trinity	Accrington ST	a-win	1	2	13	2	20	6	3	8	1	3	3	1	0	0	37.00	63.00	13	9	\N	\N	\N	\N	\N	2025-12-02 04:19:45.177029	\N	\N	0	1	a-win	yes
+2810	1481733	2025-11-03	England	FA Cup	Tamworth	Leyton Orient	a-win	0	1	14	2	12	3	5	2	4	0	0	2	0	0	28.00	72.00	8	14	\N	\N	\N	\N	\N	2025-12-02 04:19:45.337301	\N	\N	0	0	draw	yes
+2811	1399404	2025-08-09	England	National League	Yeovil Town	Hartlepool	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:46.637422	\N	\N	0	0	draw	yes
+2812	1399407	2025-08-09	England	National League	Gateshead	Southend	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:46.716921	\N	\N	0	1	a-win	yes
+2813	1399409	2025-08-09	England	National League	York	Sutton Utd	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:46.797514	\N	\N	1	1	draw	yes
+2814	1399405	2025-08-09	England	National League	Boreham Wood	Rochdale	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:46.88774	\N	\N	0	0	draw	yes
+2815	1399406	2025-08-09	England	National League	Braintree	FC Halifax Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:46.979265	\N	\N	2	0	h-win	yes
+2816	1399401	2025-08-09	England	National League	Solihull Moors	Forest Green	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.056804	\N	\N	1	0	h-win	yes
+2817	1399403	2025-08-09	England	National League	Woking	Carlisle	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.136784	\N	\N	0	0	draw	yes
+2818	1399398	2025-08-09	England	National League	Altrincham	Aldershot Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.217367	\N	\N	2	0	h-win	yes
+2819	1399400	2025-08-09	England	National League	Brackley Town	Eastleigh	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.296827	\N	\N	1	0	h-win	yes
+2820	1399402	2025-08-09	England	National League	Tamworth	Scunthorpe	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.386939	\N	\N	1	2	a-win	yes
+2821	1399408	2025-08-09	England	National League	Wealdstone	Truro City	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.477291	\N	\N	1	0	h-win	yes
+2822	1399417	2025-08-16	England	National League	Rochdale	Altrincham	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.556866	\N	\N	1	1	draw	yes
+2823	1399418	2025-08-16	England	National League	Scunthorpe	Woking	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.633548	\N	\N	2	0	h-win	yes
+2824	1399419	2025-08-16	England	National League	Southend	Tamworth	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.716828	\N	\N	1	0	h-win	yes
+2825	1399415	2025-08-16	England	National League	Hartlepool	Braintree	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.796714	\N	\N	1	0	h-win	yes
+2826	1399411	2025-08-16	England	National League	Carlisle	Boreham Wood	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.877075	\N	\N	0	1	a-win	yes
+2827	1399414	2025-08-16	England	National League	Forest Green	Yeovil Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:47.966012	\N	\N	0	0	draw	yes
+2828	1399410	2025-08-16	England	National League	Aldershot Town	Boston United	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.056987	\N	\N	0	1	a-win	yes
+2829	1399412	2025-08-16	England	National League	Eastleigh	Gateshead	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.136837	\N	\N	0	2	a-win	yes
+2830	1399420	2025-08-16	England	National League	Sutton Utd	Solihull Moors	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.221788	\N	\N	0	0	draw	yes
+2831	1399413	2025-08-16	England	National League	Wealdstone	FC Halifax Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.307047	\N	\N	1	1	draw	yes
+2832	1399421	2025-08-16	England	National League	Truro City	York	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.396691	\N	\N	0	0	draw	yes
+2833	1399424	2025-08-19	England	National League	Carlisle	Solihull Moors	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.476908	\N	\N	0	0	draw	yes
+2834	1399427	2025-08-19	England	National League	Woking	Wealdstone	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.556744	\N	\N	0	1	a-win	yes
+2835	1399422	2025-08-19	England	National League	Altrincham	Hartlepool	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.636686	\N	\N	0	2	a-win	yes
+2836	1399426	2025-08-19	England	National League	Tamworth	Truro City	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.736947	\N	\N	2	0	h-win	yes
+2837	1399423	2025-08-19	England	National League	Boston United	FC Halifax Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.826841	\N	\N	0	1	a-win	yes
+2838	1399431	2025-08-20	England	National League	Rochdale	Gateshead	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.905167	\N	\N	2	0	h-win	yes
+2839	1399432	2025-08-20	England	National League	Southend	York	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:48.97835	\N	\N	0	0	draw	yes
+2840	1399433	2025-08-20	England	National League	Yeovil Town	Brackley Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.065097	\N	\N	1	0	h-win	yes
+2841	1399430	2025-08-20	England	National League	Forest Green	Sutton Utd	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.146815	\N	\N	2	0	h-win	yes
+2842	1399428	2025-08-20	England	National League	Aldershot Town	Eastleigh	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.237484	\N	\N	0	1	a-win	yes
+2843	1399429	2025-08-20	England	National League	Boreham Wood	Braintree	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.327043	\N	\N	1	1	draw	yes
+2844	1399440	2025-08-23	England	National League	Morecambe	Altrincham	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.416878	\N	\N	1	1	draw	yes
+2845	1399439	2025-08-23	England	National League	Hartlepool	Woking	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.496788	\N	\N	2	0	h-win	yes
+2846	1399436	2025-08-23	England	National League	Eastleigh	Boston United	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.576792	\N	\N	0	0	draw	yes
+2847	1399438	2025-08-23	England	National League	Gateshead	Tamworth	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.657212	\N	\N	1	0	h-win	yes
+2848	1399435	2025-08-23	England	National League	Braintree	Yeovil Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.737617	\N	\N	0	0	draw	yes
+2849	1399441	2025-08-23	England	National League	Solihull Moors	Aldershot Town	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.816964	\N	\N	0	2	a-win	yes
+2850	1399442	2025-08-23	England	National League	Sutton Utd	Scunthorpe	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.918025	\N	\N	1	1	draw	yes
+2851	1399437	2025-08-23	England	National League	FC Halifax Town	Forest Green	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:49.996897	\N	\N	1	1	draw	yes
+2852	1399443	2025-08-23	England	National League	Truro City	Southend	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.076903	\N	\N	0	0	draw	yes
+2853	1399434	2025-08-23	England	National League	Brackley Town	Rochdale	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.157479	\N	\N	1	0	h-win	yes
+2854	1399444	2025-08-23	England	National League	Wealdstone	Carlisle	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.236923	\N	\N	0	1	a-win	yes
+2855	1399451	2025-08-25	England	National League	Rochdale	Sutton Utd	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.328603	\N	\N	0	0	draw	yes
+2856	1399452	2025-08-25	England	National League	Scunthorpe	FC Halifax Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.416743	\N	\N	0	0	draw	yes
+2857	1399453	2025-08-25	England	National League	Southend	Hartlepool	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.496784	\N	\N	1	0	h-win	yes
+2858	1399449	2025-08-25	England	National League	Carlisle	Braintree	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.58676	\N	\N	2	0	h-win	yes
+2859	1399456	2025-08-25	England	National League	Yeovil Town	Gateshead	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.67688	\N	\N	3	0	h-win	yes
+2860	1399450	2025-08-25	England	National League	Forest Green	Eastleigh	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.756711	\N	\N	0	0	draw	yes
+2861	1399445	2025-08-25	England	National League	Aldershot Town	Morecambe	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.836788	\N	\N	0	0	draw	yes
+2862	1399447	2025-08-25	England	National League	Boreham Wood	Truro City	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:50.92794	\N	\N	1	1	draw	yes
+2863	1399455	2025-08-25	England	National League	Woking	York	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.01688	\N	\N	1	0	h-win	yes
+2864	1399446	2025-08-25	England	National League	Altrincham	Solihull Moors	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.097133	\N	\N	1	0	h-win	yes
+2865	1399454	2025-08-25	England	National League	Tamworth	Brackley Town	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.186918	\N	\N	1	0	h-win	yes
+2866	1399448	2025-08-25	England	National League	Boston United	Wealdstone	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.266854	\N	\N	0	0	draw	yes
+2867	1399464	2025-08-30	England	National League	Solihull Moors	Southend	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.356961	\N	\N	0	1	a-win	yes
+2868	1399462	2025-08-30	England	National League	Hartlepool	Boreham Wood	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.436723	\N	\N	0	0	draw	yes
+2869	1399463	2025-08-30	England	National League	Morecambe	Woking	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.516785	\N	\N	0	0	draw	yes
+2870	1399459	2025-08-30	England	National League	Eastleigh	Altrincham	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.596943	\N	\N	0	1	a-win	yes
+2871	1399461	2025-08-30	England	National League	Gateshead	Aldershot Town	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.680156	\N	\N	1	2	a-win	yes
+2872	1399458	2025-08-30	England	National League	Braintree	Forest Green	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.75687	\N	\N	0	0	draw	yes
+2873	1399465	2025-08-30	England	National League	Sutton Utd	Carlisle	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.836728	\N	\N	0	0	draw	yes
+2874	1399460	2025-08-30	England	National League	FC Halifax Town	Yeovil Town	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:51.927675	\N	\N	1	0	h-win	yes
+2875	1399466	2025-08-30	England	National League	Truro City	Boston United	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.00819	\N	\N	1	0	h-win	yes
+2876	1399467	2025-08-30	England	National League	Wealdstone	Rochdale	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.087815	\N	\N	0	2	a-win	yes
+2877	1399457	2025-08-30	England	National League	Brackley Town	Scunthorpe	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.167891	\N	\N	0	0	draw	yes
+2878	1399470	2025-09-02	England	National League	Morecambe	Forest Green	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.247798	\N	\N	1	2	a-win	yes
+2879	1399468	2025-09-02	England	National League	Braintree	Tamworth	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.32812	\N	\N	0	1	a-win	yes
+2880	1399471	2025-09-02	England	National League	Solihull Moors	Yeovil Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.407727	\N	\N	0	1	a-win	yes
+2881	1399472	2025-09-02	England	National League	Wealdstone	Southend	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.488321	\N	\N	1	1	draw	yes
+2882	1399477	2025-09-03	England	National League	Hartlepool	Boston United	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.568039	\N	\N	1	0	h-win	yes
+2883	1399476	2025-09-03	England	National League	Gateshead	Altrincham	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.656831	\N	\N	0	2	a-win	yes
+2884	1399478	2025-09-03	England	National League	Sutton Utd	Boreham Wood	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.744695	\N	\N	2	1	h-win	yes
+2885	1399475	2025-09-03	England	National League	FC Halifax Town	Woking	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.85698	\N	\N	0	0	draw	yes
+2886	1399479	2025-09-03	England	National League	Truro City	Aldershot Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:52.936854	\N	\N	0	1	a-win	yes
+2887	1399474	2025-09-03	England	National League	Brackley Town	Carlisle	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.016787	\N	\N	0	0	draw	yes
+2888	1399481	2025-09-06	England	National League	Altrincham	Sutton Utd	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.096679	\N	\N	0	1	a-win	yes
+2889	1399486	2025-09-06	England	National League	Rochdale	Braintree	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.176797	\N	\N	2	0	h-win	yes
+2890	1399488	2025-09-06	England	National League	Southend	FC Halifax Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.266789	\N	\N	1	0	h-win	yes
+2891	1399484	2025-09-06	England	National League	Carlisle	Truro City	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.346903	\N	\N	2	0	h-win	yes
+2892	1399491	2025-09-06	England	National League	Yeovil Town	York	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.427061	\N	\N	0	2	a-win	yes
+2893	1399485	2025-09-06	England	National League	Forest Green	Hartlepool	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.507154	\N	\N	1	0	h-win	yes
+2894	1399482	2025-09-06	England	National League	Boreham Wood	Morecambe	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.591849	\N	\N	2	0	h-win	yes
+2895	1399490	2025-09-06	England	National League	Woking	Gateshead	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.677393	\N	\N	2	0	h-win	yes
+2896	1399489	2025-09-06	England	National League	Tamworth	Eastleigh	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.76778	\N	\N	0	0	draw	yes
+2897	1399483	2025-09-06	England	National League	Boston United	Solihull Moors	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.847831	\N	\N	1	1	draw	yes
+2898	1399480	2025-09-06	England	National League	Aldershot Town	Brackley Town	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:53.928056	\N	\N	1	0	h-win	yes
+2899	1399492	2025-09-09	England	National League	York	Tamworth	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.00784	\N	\N	0	0	draw	yes
+2900	1399504	2025-09-13	England	National League	Yeovil Town	Woking	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.088432	\N	\N	0	0	draw	yes
+2901	1399500	2025-09-13	England	National League	Southend	Boston United	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.165224	\N	\N	0	0	draw	yes
+2902	1399498	2025-09-13	England	National League	Hartlepool	Brackley Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.247797	\N	\N	0	0	draw	yes
+2903	1399495	2025-09-13	England	National League	Carlisle	Aldershot Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.337087	\N	\N	0	0	draw	yes
+2904	1399497	2025-09-13	England	National League	Forest Green	Scunthorpe	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.417009	\N	\N	0	1	a-win	yes
+2905	1399493	2025-09-13	England	National League	Boreham Wood	Altrincham	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.497211	\N	\N	3	0	h-win	yes
+2906	1399494	2025-09-13	England	National League	Braintree	York	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.57708	\N	\N	1	0	h-win	yes
+2907	1399499	2025-09-13	England	National League	Solihull Moors	Morecambe	draw	4	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.656988	\N	\N	2	1	h-win	yes
+2908	1399501	2025-09-13	England	National League	Sutton Utd	Tamworth	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.752176	\N	\N	2	3	a-win	yes
+2909	1399502	2025-09-13	England	National League	Truro City	Rochdale	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.83758	\N	\N	0	1	a-win	yes
+2910	1399503	2025-09-13	England	National League	Wealdstone	Gateshead	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:54.92756	\N	\N	1	1	draw	yes
+2911	1399496	2025-09-13	England	National League	FC Halifax Town	Eastleigh	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.005743	\N	\N	0	2	a-win	yes
+2912	1399508	2025-09-20	England	National League	Brackley Town	Sutton Utd	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.087625	\N	\N	0	0	draw	yes
+2913	1399513	2025-09-20	England	National League	Scunthorpe	Truro City	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.165827	\N	\N	1	0	h-win	yes
+2914	1399511	2025-09-20	England	National League	Morecambe	Wealdstone	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.256802	\N	\N	3	1	h-win	yes
+2915	1399505	2025-09-20	England	National League	Aldershot Town	Hartlepool	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.337529	\N	\N	1	0	h-win	yes
+2916	1399509	2025-09-20	England	National League	Eastleigh	Braintree	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.417001	\N	\N	1	1	draw	yes
+2917	1399510	2025-09-20	England	National League	Gateshead	FC Halifax Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.498517	\N	\N	1	1	draw	yes
+2918	1399516	2025-09-20	England	National League	York	Solihull Moors	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.581861	\N	\N	0	0	draw	yes
+2919	1399515	2025-09-20	England	National League	Woking	Forest Green	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.666721	\N	\N	0	1	a-win	yes
+2920	1399506	2025-09-20	England	National League	Altrincham	Carlisle	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.756756	\N	\N	1	2	a-win	yes
+2921	1399514	2025-09-20	England	National League	Tamworth	Yeovil Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.836856	\N	\N	0	0	draw	yes
+2922	1399507	2025-09-20	England	National League	Boston United	Boreham Wood	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:55.916811	\N	\N	0	0	draw	yes
+2923	1399520	2025-09-23	England	National League	Rochdale	Solihull Moors	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.018534	\N	\N	3	0	h-win	yes
+2924	1399519	2025-09-23	England	National League	Gateshead	Hartlepool	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.104785	\N	\N	0	0	draw	yes
+2925	1399522	2025-09-23	England	National League	York	Carlisle	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.186865	\N	\N	3	0	h-win	yes
+2926	1399521	2025-09-23	England	National League	Woking	Sutton Utd	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.264732	\N	\N	1	0	h-win	yes
+2927	1399517	2025-09-23	England	National League	Altrincham	Forest Green	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.347007	\N	\N	1	1	draw	yes
+2928	1399518	2025-09-23	England	National League	Brackley Town	Truro City	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.444837	\N	\N	1	0	h-win	yes
+2929	1399527	2025-09-24	England	National League	Scunthorpe	Boreham Wood	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.527821	\N	\N	0	1	a-win	yes
+2930	1399526	2025-09-24	England	National League	Morecambe	FC Halifax Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.616826	\N	\N	1	0	h-win	yes
+2931	1399523	2025-09-24	England	National League	Aldershot Town	Yeovil Town	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.69703	\N	\N	0	3	a-win	yes
+2932	1399525	2025-09-24	England	National League	Eastleigh	Southend	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.790055	\N	\N	0	0	draw	yes
+2933	1399528	2025-09-24	England	National League	Tamworth	Wealdstone	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.896458	\N	\N	0	0	draw	yes
+2934	1399524	2025-09-24	England	National League	Boston United	Braintree	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:56.976691	\N	\N	0	0	draw	yes
+2935	1399529	2025-09-27	England	National League	Boreham Wood	Woking	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.06467	\N	\N	1	0	h-win	yes
+2936	1399536	2025-09-27	England	National League	Southend	Scunthorpe	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.15671	\N	\N	0	0	draw	yes
+2937	1399534	2025-09-27	England	National League	Hartlepool	Tamworth	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.245913	\N	\N	0	0	draw	yes
+2938	1399531	2025-09-27	England	National League	Carlisle	Rochdale	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.33667	\N	\N	0	1	a-win	yes
+2939	1399540	2025-09-27	England	National League	Yeovil Town	Altrincham	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.427027	\N	\N	1	0	h-win	yes
+2940	1399530	2025-09-27	England	National League	Braintree	Gateshead	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.516643	\N	\N	0	2	a-win	yes
+2941	1399535	2025-09-27	England	National League	Solihull Moors	Brackley Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.597336	\N	\N	0	0	draw	yes
+2942	1399537	2025-09-27	England	National League	Sutton Utd	Boston United	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.696675	\N	\N	0	1	a-win	yes
+2943	1399532	2025-09-27	England	National League	FC Halifax Town	Aldershot Town	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.778852	\N	\N	2	1	h-win	yes
+2944	1399538	2025-09-27	England	National League	Truro City	Morecambe	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.876971	\N	\N	1	0	h-win	yes
+2945	1399539	2025-09-27	England	National League	Wealdstone	Eastleigh	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:57.976959	\N	\N	0	0	draw	yes
+2946	1399533	2025-09-27	England	National League	Forest Green	York	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.066801	\N	\N	1	1	draw	yes
+2947	1399543	2025-09-30	England	National League	Morecambe	Gateshead	a-win	2	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.156783	\N	\N	1	4	a-win	yes
+2948	1399541	2025-09-30	England	National League	Aldershot Town	Braintree	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.248028	\N	\N	0	0	draw	yes
+2949	1399542	2025-09-30	England	National League	Boreham Wood	Southend	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.326999	\N	\N	0	0	draw	yes
+2950	1399544	2025-09-30	England	National League	Solihull Moors	Woking	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.408062	\N	\N	0	0	draw	yes
+2951	1399545	2025-09-30	England	National League	Sutton Utd	Yeovil Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.496828	\N	\N	0	0	draw	yes
+2952	1399546	2025-09-30	England	National League	Truro City	Eastleigh	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.586487	\N	\N	0	2	a-win	yes
+2953	1399551	2025-10-01	England	National League	Rochdale	FC Halifax Town	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.67745	\N	\N	0	1	a-win	yes
+2954	1399550	2025-10-01	England	National League	Carlisle	Hartlepool	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.756899	\N	\N	1	0	h-win	yes
+2955	1399552	2025-10-01	England	National League	York	Scunthorpe	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.836976	\N	\N	0	1	a-win	yes
+2956	1399547	2025-10-01	England	National League	Altrincham	Tamworth	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.916927	\N	\N	0	0	draw	yes
+2957	1399549	2025-10-01	England	National League	Brackley Town	Wealdstone	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:58.996612	\N	\N	0	1	a-win	yes
+2958	1399548	2025-10-01	England	National League	Boston United	Forest Green	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:31.963048	\N	\N	0	0	draw	yes
+2959	1399558	2025-10-04	England	National League	Hartlepool	York	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.044879	\N	\N	0	1	a-win	yes
+2960	1399557	2025-10-04	England	National League	Gateshead	Boston United	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.123196	\N	\N	1	1	draw	yes
+2961	1399560	2025-10-04	England	National League	Southend	Aldershot Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.202559	\N	\N	1	0	h-win	yes
+2962	1399564	2025-10-04	England	National League	Yeovil Town	Boreham Wood	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.282052	\N	\N	0	2	a-win	yes
+2963	1399556	2025-10-04	England	National League	Forest Green	Rochdale	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.361831	\N	\N	0	1	a-win	yes
+2964	1399554	2025-10-04	England	National League	Eastleigh	Solihull Moors	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.442332	\N	\N	0	0	draw	yes
+2965	1399553	2025-10-04	England	National League	Braintree	Sutton Utd	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.521949	\N	\N	0	0	draw	yes
+2966	1399563	2025-10-04	England	National League	Woking	Truro City	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.602086	\N	\N	1	0	h-win	yes
+2967	1399555	2025-10-04	England	National League	FC Halifax Town	Brackley Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.681947	\N	\N	0	0	draw	yes
+2968	1399561	2025-10-04	England	National League	Tamworth	Morecambe	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.762013	\N	\N	0	0	draw	yes
+2969	1399562	2025-10-04	England	National League	Wealdstone	Altrincham	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.842076	\N	\N	1	1	draw	yes
+2970	1399559	2025-10-04	England	National League	Scunthorpe	Carlisle	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:32.92215	\N	\N	0	1	a-win	yes
+2971	1399425	2025-10-07	England	National League	Scunthorpe	Morecambe	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.002497	\N	\N	2	0	h-win	yes
+2972	1399573	2025-10-18	England	National League	Solihull Moors	Braintree	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.082022	\N	\N	1	0	h-win	yes
+2973	1399572	2025-10-18	England	National League	Rochdale	Yeovil Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.162076	\N	\N	3	0	h-win	yes
+2974	1399571	2025-10-18	England	National League	Morecambe	Southend	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.251869	\N	\N	0	2	a-win	yes
+2975	1399565	2025-10-18	England	National League	Aldershot Town	Tamworth	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.33305	\N	\N	1	1	draw	yes
+2976	1399576	2025-10-18	England	National League	York	Wealdstone	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.42206	\N	\N	2	0	h-win	yes
+2977	1399567	2025-10-18	England	National League	Boreham Wood	Eastleigh	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.502523	\N	\N	0	0	draw	yes
+2978	1399575	2025-10-18	England	National League	Truro City	FC Halifax Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.582695	\N	\N	0	0	draw	yes
+2979	1399566	2025-10-18	England	National League	Altrincham	Woking	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.661825	\N	\N	1	2	a-win	yes
+2980	1399569	2025-10-18	England	National League	Brackley Town	Gateshead	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.741899	\N	\N	0	0	draw	yes
+2981	1399568	2025-10-18	England	National League	Boston United	Scunthorpe	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.822467	\N	\N	0	0	draw	yes
+2982	1399570	2025-10-18	England	National League	Carlisle	Forest Green	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.901788	\N	\N	2	1	h-win	yes
+2983	1399574	2025-10-18	England	National League	Sutton Utd	Hartlepool	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:33.981839	\N	\N	1	0	h-win	yes
+2984	1399469	2025-10-21	England	National League	Eastleigh	Scunthorpe	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.06189	\N	\N	0	0	draw	yes
+2985	1399577	2025-10-21	England	National League	York	Boreham Wood	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.14284	\N	\N	1	1	draw	yes
+2986	1399399	2025-10-21	England	National League	Boston United	Morecambe	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.222287	\N	\N	0	2	a-win	yes
+2987	1399580	2025-10-25	England	National League	FC Halifax Town	York	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.302379	\N	\N	1	0	h-win	yes
+2988	1399584	2025-10-25	England	National League	Scunthorpe	Aldershot Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.381853	\N	\N	2	1	h-win	yes
+2989	1399585	2025-10-25	England	National League	Southend	Brackley Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.461905	\N	\N	0	0	draw	yes
+2990	1399583	2025-10-25	England	National League	Hartlepool	Solihull Moors	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.542081	\N	\N	1	0	h-win	yes
+2991	1399589	2025-10-25	England	National League	Yeovil Town	Carlisle	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.627841	\N	\N	1	0	h-win	yes
+2992	1399581	2025-10-25	England	National League	Forest Green	Boreham Wood	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.712997	\N	\N	1	0	h-win	yes
+2993	1399579	2025-10-25	England	National League	Eastleigh	Morecambe	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.801958	\N	\N	0	0	draw	yes
+2994	1399582	2025-10-25	England	National League	Gateshead	Truro City	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.88188	\N	\N	0	2	a-win	yes
+2995	1399578	2025-10-25	England	National League	Braintree	Altrincham	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:34.969643	\N	\N	0	0	draw	yes
+2996	1399588	2025-10-25	England	National League	Woking	Rochdale	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:35.043511	\N	\N	0	0	draw	yes
+2997	1399587	2025-10-25	England	National League	Wealdstone	Sutton Utd	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:35.127127	\N	\N	1	2	a-win	yes
+2998	1399586	2025-10-25	England	National League	Tamworth	Boston United	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:35.202473	\N	\N	0	1	a-win	yes
+2999	1399593	2025-11-04	England	National League	Hartlepool	Morecambe	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	22	2025-12-02 05:19:35.354124	\N	\N	1	0	h-win	yes
+3000	1399591	2025-11-04	England	National League	Carlisle	FC Halifax Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	11	2025-12-02 05:19:35.427812	\N	\N	1	0	h-win	yes
+3001	1399595	2025-11-04	England	National League	Yeovil Town	Wealdstone	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	9	2025-12-02 05:19:35.512977	\N	\N	0	0	draw	yes
+3002	1399590	2025-11-04	England	National League	Boreham Wood	Aldershot Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	23	2025-12-02 05:19:35.602435	\N	\N	1	0	h-win	yes
+3003	1399601	2025-11-05	England	National League	York	Gateshead	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	21	2025-12-02 05:19:35.687029	\N	\N	3	0	h-win	yes
+3004	1399597	2025-11-05	England	National League	Braintree	Brackley Town	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	20	2025-12-02 05:19:35.769946	\N	\N	0	0	draw	yes
+3005	1399598	2025-11-05	England	National League	Solihull Moors	Truro City	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	24	2025-12-02 05:19:35.841973	\N	\N	2	0	h-win	yes
+3006	1399599	2025-11-05	England	National League	Sutton Utd	Eastleigh	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	16	2025-12-02 05:19:35.921821	\N	\N	2	0	h-win	yes
+3007	1399600	2025-11-05	England	National League	Woking	Southend	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	7	2025-12-02 05:19:36.001866	\N	\N	0	0	draw	yes
+3008	1399596	2025-11-05	England	National League	Altrincham	Boston United	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	18	2025-12-02 05:19:36.082009	\N	\N	1	0	h-win	yes
+3009	1399602	2025-11-08	England	National League	Aldershot Town	Forest Green	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	23	4	2025-12-02 05:19:36.161816	\N	\N	0	2	a-win	yes
+3010	1399609	2025-11-08	England	National League	Scunthorpe	Yeovil Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	15	2025-12-02 05:19:36.243451	\N	\N	1	0	h-win	yes
+3011	1399608	2025-11-08	England	National League	Morecambe	Sutton Utd	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	22	17	2025-12-02 05:19:36.32198	\N	\N	1	0	h-win	yes
+3012	1399605	2025-11-08	England	National League	Eastleigh	York	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	3	2025-12-02 05:19:36.401978	\N	\N	2	1	h-win	yes
+3013	1399607	2025-11-08	England	National League	Gateshead	Solihull Moors	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	21	13	2025-12-02 05:19:36.481766	\N	\N	0	0	draw	yes
+3014	1399606	2025-11-08	England	National League	FC Halifax Town	Hartlepool	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	8	2025-12-02 05:19:36.562114	\N	\N	0	0	draw	yes
+3015	1399612	2025-11-08	England	National League	Truro City	Altrincham	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	24	14	2025-12-02 05:19:36.641855	\N	\N	0	0	draw	yes
+3016	1399604	2025-11-08	England	National League	Brackley Town	Boreham Wood	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	5	2025-12-02 05:19:36.722118	\N	\N	0	1	a-win	yes
+3017	1399611	2025-11-08	England	National League	Tamworth	Woking	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	10	2025-12-02 05:19:36.801981	\N	\N	0	1	a-win	yes
+3018	1399603	2025-11-08	England	National League	Boston United	Rochdale	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	1	2025-12-02 05:19:36.881762	\N	\N	0	1	a-win	yes
+3019	1399613	2025-11-08	England	National League	Wealdstone	Braintree	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	19	2025-12-02 05:19:36.961971	\N	\N	0	0	draw	yes
+3020	1399610	2025-11-08	England	National League	Southend	Carlisle	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	2	2025-12-02 05:19:37.042366	\N	\N	1	2	a-win	yes
+3021	1399592	2025-11-11	England	National League	Forest Green	Tamworth	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	12	2025-12-02 05:19:37.121871	\N	\N	2	1	h-win	yes
+3022	1399473	2025-11-11	England	National League	York	Rochdale	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	1	2025-12-02 05:19:37.213002	\N	\N	1	1	draw	yes
+3023	1399620	2025-11-15	England	National League	Rochdale	Aldershot Town	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	23	2025-12-02 05:19:37.301631	\N	\N	0	0	draw	yes
+3024	1399619	2025-11-15	England	National League	Hartlepool	Wealdstone	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	9	2025-12-02 05:19:37.377378	\N	\N	1	1	draw	yes
+3025	1399617	2025-11-15	England	National League	Carlisle	Eastleigh	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	16	2025-12-02 05:19:37.453022	\N	\N	0	0	draw	yes
+3026	1399624	2025-11-15	England	National League	Yeovil Town	Southend	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	7	2025-12-02 05:19:37.530519	\N	\N	0	0	draw	yes
+3027	1399618	2025-11-15	England	National League	Forest Green	Gateshead	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	21	2025-12-02 05:19:37.602432	\N	\N	3	0	h-win	yes
+3028	1399625	2025-11-15	England	National League	York	Morecambe	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	22	2025-12-02 05:19:37.681909	\N	\N	1	1	draw	yes
+3029	1399615	2025-11-15	England	National League	Boreham Wood	Tamworth	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	12	2025-12-02 05:19:37.773053	\N	\N	1	1	draw	yes
+3030	1399616	2025-11-15	England	National League	Braintree	Truro City	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	24	2025-12-02 05:19:37.862515	\N	\N	0	0	draw	yes
+3031	1399621	2025-11-15	England	National League	Solihull Moors	Scunthorpe	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	6	2025-12-02 05:19:37.942076	\N	\N	2	0	h-win	yes
+3032	1399622	2025-11-15	England	National League	Sutton Utd	FC Halifax Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	11	2025-12-02 05:19:38.021869	\N	\N	2	0	h-win	yes
+3033	1399623	2025-11-15	England	National League	Woking	Boston United	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	18	2025-12-02 05:19:38.102014	\N	\N	1	0	h-win	yes
+3034	1399614	2025-11-15	England	National League	Altrincham	Brackley Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	20	2025-12-02 05:19:38.181937	\N	\N	1	0	h-win	yes
+3035	1399416	2025-11-18	England	National League	Morecambe	Brackley Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	22	20	2025-12-02 05:19:38.282293	\N	\N	1	0	h-win	yes
+3036	1399626	2025-11-22	England	National League	Aldershot Town	Woking	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	23	10	2025-12-02 05:19:38.361981	\N	\N	1	1	draw	yes
+3037	1399635	2025-11-22	England	National League	Tamworth	Rochdale	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	1	2025-12-02 05:19:38.441773	\N	\N	0	1	a-win	yes
+3038	1399633	2025-11-22	England	National League	Scunthorpe	Braintree	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	19	2025-12-02 05:19:38.532266	\N	\N	1	0	h-win	yes
+3039	1399634	2025-11-22	England	National League	Southend	Altrincham	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	14	2025-12-02 05:19:38.641923	\N	\N	2	0	h-win	yes
+3040	1399632	2025-11-22	England	National League	Morecambe	Yeovil Town	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	22	15	2025-12-02 05:19:38.721999	\N	\N	0	0	draw	yes
+3041	1399629	2025-11-22	England	National League	Eastleigh	Hartlepool	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	8	2025-12-02 05:19:38.801945	\N	\N	0	0	draw	yes
+3042	1399631	2025-11-22	England	National League	Gateshead	Boreham Wood	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	21	5	2025-12-02 05:19:38.882253	\N	\N	0	1	a-win	yes
+3043	1399630	2025-11-22	England	National League	FC Halifax Town	Solihull Moors	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	13	2025-12-02 05:19:38.961825	\N	\N	1	0	h-win	yes
+3044	1399636	2025-11-22	England	National League	Truro City	Sutton Utd	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	24	17	2025-12-02 05:19:39.042225	\N	\N	0	1	a-win	yes
+3045	1399628	2025-11-22	England	National League	Brackley Town	York	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	3	2025-12-02 05:19:39.121851	\N	\N	2	2	draw	yes
+3046	1399637	2025-11-22	England	National League	Wealdstone	Forest Green	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	4	2025-12-02 05:19:39.192838	\N	\N	0	1	a-win	yes
+3047	1399627	2025-11-22	England	National League	Boston United	Carlisle	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	2	2025-12-02 05:19:39.268333	\N	\N	0	0	draw	yes
+3048	1399645	2025-11-29	England	National League	Solihull Moors	Wealdstone	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	9	2025-12-02 05:19:39.34402	\N	\N	1	1	draw	yes
+3049	1399644	2025-11-29	England	National League	Rochdale	Eastleigh	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	16	2025-12-02 05:19:39.422153	\N	\N	0	0	draw	yes
+3050	1399643	2025-11-29	England	National League	Hartlepool	Truro City	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	24	2025-12-02 05:19:39.522064	\N	\N	1	0	h-win	yes
+3051	1399641	2025-11-29	England	National League	Carlisle	Tamworth	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	12	2025-12-02 05:19:39.602662	\N	\N	1	1	draw	yes
+3052	1399648	2025-11-29	England	National League	Yeovil Town	Boston United	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	18	2025-12-02 05:19:39.6817	\N	\N	0	0	draw	yes
+3053	1399642	2025-11-29	England	National League	Forest Green	Southend	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	7	2025-12-02 05:19:39.769747	\N	\N	0	0	draw	yes
+3054	1399649	2025-11-29	England	National League	York	Aldershot Town	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	23	2025-12-02 05:19:39.852919	\N	\N	1	1	draw	yes
+3055	1399640	2025-11-29	England	National League	Braintree	Morecambe	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	22	2025-12-02 05:19:39.942115	\N	\N	1	0	h-win	yes
+3056	1399646	2025-11-29	England	National League	Sutton Utd	Gateshead	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	21	2025-12-02 05:19:40.022027	\N	\N	1	1	draw	yes
+3057	1399647	2025-11-29	England	National League	Woking	Brackley Town	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	20	2025-12-02 05:19:40.110906	\N	\N	1	0	h-win	yes
+3058	1399638	2025-11-29	England	National League	Altrincham	Scunthorpe	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	6	2025-12-02 05:19:40.202078	\N	\N	1	1	draw	yes
+3059	1399639	2025-11-29	England	National League	Boreham Wood	FC Halifax Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	11	2025-12-02 05:19:40.291935	\N	\N	1	0	h-win	yes
+3060	1399594	2025-11-04	England	National League	Rochdale	Scunthorpe	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	6	2025-12-02 05:19:40.381964	\N	\N	0	0	draw	no
+3061	1399487	2025-09-06	England	National League	Scunthorpe	Wealdstone	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 05:19:40.462315	\N	\N	2	1	h-win	no
+3062	1390824	2025-08-15	Spain	La Liga	Girona	Rayo Vallecano	a-win	1	3	7	2	16	5	2	4	1	1	0	1	1	0	44.00	56.00	8	17	\N	\N	\N	\N	\N	2025-12-02 05:19:41.732824	0.56	3.43	0	3	a-win	yes
+3063	1390828	2025-08-15	Spain	La Liga	Villarreal	Oviedo	h-win	2	0	25	10	5	4	10	1	0	1	1	2	0	1	68.00	32.00	10	8	\N	\N	\N	\N	\N	2025-12-02 05:19:41.802294	2.54	0.94	2	0	h-win	yes
+3064	1390825	2025-08-16	Spain	La Liga	Mallorca	Barcelona	a-win	0	3	4	1	24	8	3	6	2	3	4	1	2	0	29.00	71.00	8	17	\N	\N	\N	\N	\N	2025-12-02 05:19:41.882451	0.21	2.14	0	2	a-win	yes
+3065	1390827	2025-08-16	Spain	La Liga	Valencia	Real Sociedad	draw	1	1	18	2	13	3	8	7	1	2	1	2	0	0	54.00	46.00	5	11	\N	\N	\N	\N	\N	2025-12-02 05:19:41.962014	2.04	0.81	0	0	draw	yes
+3066	1390819	2025-08-16	Spain	La Liga	Alaves	Levante	h-win	2	1	15	4	7	3	10	1	1	3	0	1	0	0	62.00	38.00	15	13	\N	\N	\N	\N	\N	2025-12-02 05:19:42.042088	1.29	0.87	1	0	h-win	yes
+3067	1390821	2025-08-17	Spain	La Liga	Celta Vigo	Getafe	a-win	0	2	11	3	10	3	9	3	2	0	3	2	0	0	69.00	31.00	15	17	\N	\N	\N	\N	\N	2025-12-02 05:19:42.121811	0.73	1.43	0	0	draw	yes
+3068	1390820	2025-08-17	Spain	La Liga	Athletic Club	Sevilla	h-win	3	2	14	3	12	6	10	1	0	8	0	2	0	0	46.00	54.00	8	12	\N	\N	\N	\N	\N	2025-12-02 05:19:42.203033	2.89	1.01	2	0	h-win	yes
+3069	1390823	2025-08-17	Spain	La Liga	Espanyol	Atletico Madrid	h-win	2	1	9	5	15	4	1	3	0	1	3	3	0	0	40.00	60.00	14	11	\N	\N	\N	\N	\N	2025-12-02 05:19:42.287444	1.26	1.10	0	1	a-win	yes
+3070	1390822	2025-08-18	Spain	La Liga	Elche	Real Betis	draw	1	1	6	2	12	4	1	3	4	0	0	1	0	0	68.00	32.00	14	13	\N	\N	\N	\N	\N	2025-12-02 05:19:42.372292	0.73	1.86	0	1	a-win	yes
+3071	1390826	2025-08-19	Spain	La Liga	Real Madrid	Osasuna	h-win	1	0	18	5	2	0	7	0	0	0	1	0	0	1	71.00	29.00	10	12	\N	\N	\N	\N	\N	2025-12-02 05:19:42.447266	1.64	0.36	0	0	draw	yes
+3072	1390831	2025-08-22	Spain	La Liga	Real Betis	Alaves	h-win	1	0	16	5	11	5	5	2	2	3	2	3	0	0	49.00	51.00	10	17	\N	\N	\N	\N	\N	2025-12-02 05:19:42.532107	1.95	1.12	1	0	h-win	yes
+3073	1390833	2025-08-23	Spain	La Liga	Mallorca	Celta Vigo	draw	1	1	12	4	8	2	3	4	1	1	3	3	0	0	50.00	50.00	12	12	\N	\N	\N	\N	\N	2025-12-02 05:19:42.622094	0.68	0.74	0	1	a-win	yes
+3074	1390830	2025-08-23	Spain	La Liga	Atletico Madrid	Elche	draw	1	1	13	6	6	2	10	2	3	0	0	3	0	0	58.00	42.00	14	7	\N	\N	\N	\N	\N	2025-12-02 05:19:42.701945	1.74	0.57	1	1	draw	yes
+3075	1390832	2025-08-23	Spain	La Liga	Levante	Barcelona	a-win	2	3	8	5	26	10	0	11	6	0	3	1	0	0	18.00	82.00	10	8	\N	\N	\N	\N	\N	2025-12-02 05:19:42.773495	2.14	1.93	2	0	h-win	yes
+3076	1390834	2025-08-24	Spain	La Liga	Osasuna	Valencia	h-win	1	0	16	4	4	1	3	4	2	1	2	1	0	1	56.00	44.00	14	13	\N	\N	\N	\N	\N	2025-12-02 05:19:42.86237	0.83	0.41	1	0	h-win	yes
+3077	1390838	2025-08-24	Spain	La Liga	Villarreal	Girona	h-win	5	0	19	7	5	2	8	1	3	0	1	2	0	0	53.00	47.00	8	9	\N	\N	\N	\N	\N	2025-12-02 05:19:42.94315	2.30	0.14	4	0	h-win	yes
+3078	1390835	2025-08-24	Spain	La Liga	Real Sociedad	Espanyol	draw	2	2	15	7	14	3	5	2	1	1	2	2	0	0	62.00	38.00	16	18	\N	\N	\N	\N	\N	2025-12-02 05:19:43.022296	1.10	1.84	0	2	a-win	yes
+3079	1390836	2025-08-24	Spain	La Liga	Oviedo	Real Madrid	a-win	0	3	6	3	26	10	1	9	2	2	2	1	0	0	35.00	65.00	8	7	\N	\N	\N	\N	\N	2025-12-02 05:19:43.10225	0.50	2.67	0	1	a-win	yes
+3080	1390829	2025-08-25	Spain	La Liga	Athletic Club	Rayo Vallecano	h-win	1	0	11	4	6	1	3	6	0	7	0	4	0	0	41.00	59.00	13	13	\N	\N	\N	\N	\N	2025-12-02 05:19:43.17699	1.51	0.29	0	0	draw	yes
+3081	1390837	2025-08-25	Spain	La Liga	Sevilla	Getafe	a-win	1	2	12	3	9	6	5	3	4	1	2	2	0	0	71.00	29.00	10	24	\N	\N	\N	\N	\N	2025-12-02 05:19:43.253189	0.51	0.71	1	1	draw	yes
+3082	1390871	2025-08-27	Spain	La Liga	Celta Vigo	Real Betis	draw	1	1	14	5	7	2	10	4	5	2	1	2	0	0	47.00	53.00	13	11	\N	\N	\N	\N	\N	2025-12-02 05:19:43.342035	0.76	0.32	0	1	a-win	yes
+3083	1390842	2025-08-29	Spain	La Liga	Elche	Levante	h-win	2	0	16	5	11	1	4	2	1	1	1	2	0	0	67.00	33.00	14	17	\N	\N	\N	\N	\N	2025-12-02 05:19:43.421982	1.11	1.01	0	0	draw	yes
+3084	1390848	2025-08-29	Spain	La Liga	Valencia	Getafe	h-win	3	0	7	4	11	1	8	6	0	5	2	0	0	0	57.00	43.00	18	7	\N	\N	\N	\N	\N	2025-12-02 05:19:43.502111	1.13	0.66	1	0	h-win	yes
+3085	1390839	2025-08-30	Spain	La Liga	Alaves	Atletico Madrid	draw	1	1	5	2	15	6	1	6	0	1	2	3	0	0	40.00	60.00	10	17	\N	\N	\N	\N	\N	2025-12-02 05:19:43.582107	0.92	1.09	1	1	draw	yes
+3086	1390847	2025-08-30	Spain	La Liga	Oviedo	Real Sociedad	h-win	1	0	8	1	18	6	1	10	2	1	2	1	0	0	43.00	57.00	7	18	\N	\N	\N	\N	\N	2025-12-02 05:19:43.661944	0.45	1.10	1	0	h-win	yes
+3087	1390844	2025-08-30	Spain	La Liga	Girona	Sevilla	a-win	0	2	20	5	13	4	11	3	2	0	0	1	0	0	59.00	41.00	5	14	\N	\N	\N	\N	\N	2025-12-02 05:19:43.741948	2.12	1.26	0	1	a-win	yes
+3088	1390846	2025-08-30	Spain	La Liga	Real Madrid	Mallorca	h-win	2	1	17	7	9	5	4	5	3	1	2	0	0	0	58.00	42.00	12	7	\N	\N	\N	\N	\N	2025-12-02 05:19:43.821966	1.82	0.72	2	1	h-win	yes
+3089	1390841	2025-08-31	Spain	La Liga	Celta Vigo	Villarreal	draw	1	1	10	2	8	3	1	5	0	0	1	1	0	0	65.00	35.00	11	8	\N	\N	\N	\N	\N	2025-12-02 05:19:43.90232	0.68	1.15	0	0	draw	yes
+3090	1390840	2025-08-31	Spain	La Liga	Real Betis	Athletic Club	a-win	1	2	9	2	15	6	4	10	3	2	1	4	0	1	50.00	50.00	9	16	\N	\N	\N	\N	\N	2025-12-02 05:19:43.982294	0.62	1.11	0	0	draw	yes
+3091	1390843	2025-08-31	Spain	La Liga	Espanyol	Osasuna	h-win	1	0	10	4	10	3	2	3	2	1	2	3	0	0	45.00	55.00	13	14	\N	\N	\N	\N	\N	2025-12-02 05:19:44.062058	1.21	1.37	0	0	draw	yes
+3092	1390845	2025-08-31	Spain	La Liga	Rayo Vallecano	Barcelona	draw	1	1	12	6	12	3	9	4	7	2	4	1	0	0	43.00	57.00	16	8	\N	\N	\N	\N	\N	2025-12-02 05:19:44.142134	1.85	1.83	0	1	a-win	yes
+3093	1390858	2025-09-12	Spain	La Liga	Sevilla	Elche	draw	2	2	7	3	5	2	2	2	1	0	4	3	0	0	53.00	47.00	23	19	\N	\N	\N	\N	\N	2025-12-02 05:19:44.222127	0.40	0.95	1	0	h-win	yes
+3094	1390854	2025-09-13	Spain	La Liga	Getafe	Oviedo	h-win	2	0	10	3	5	1	4	3	1	1	2	5	0	1	48.00	52.00	12	18	\N	\N	\N	\N	\N	2025-12-02 05:19:44.313134	0.75	0.46	2	0	h-win	yes
+3095	1390857	2025-09-13	Spain	La Liga	Real Sociedad	Real Madrid	a-win	1	2	23	4	16	6	12	4	0	2	2	1	0	1	64.00	36.00	17	7	\N	\N	\N	\N	\N	2025-12-02 05:19:44.410253	2.23	2.42	0	2	a-win	yes
+3096	1390849	2025-09-13	Spain	La Liga	Athletic Club	Alaves	a-win	0	1	12	3	4	2	6	6	2	1	4	3	0	0	58.00	42.00	17	21	\N	\N	\N	\N	\N	2025-12-02 05:19:44.493165	1.08	0.09	0	0	draw	yes
+3097	1390850	2025-09-13	Spain	La Liga	Atletico Madrid	Villarreal	h-win	2	0	8	3	8	1	8	3	1	0	2	4	0	0	61.00	39.00	12	15	\N	\N	\N	\N	\N	2025-12-02 05:19:44.582055	1.17	0.97	1	0	h-win	yes
+3098	1390852	2025-09-14	Spain	La Liga	Celta Vigo	Girona	draw	1	1	21	7	13	8	10	3	0	3	0	3	0	0	60.00	40.00	7	9	\N	\N	\N	\N	\N	2025-12-02 05:19:44.689472	2.50	0.64	0	1	a-win	yes
+3099	1390855	2025-09-14	Spain	La Liga	Levante	Real Betis	draw	2	2	5	2	28	9	4	12	2	1	4	2	0	0	33.00	67.00	16	11	\N	\N	\N	\N	\N	2025-12-02 05:19:44.762502	0.73	2.12	2	1	h-win	yes
+3100	1390856	2025-09-14	Spain	La Liga	Osasuna	Rayo Vallecano	h-win	2	0	9	7	19	6	3	6	0	1	3	2	0	0	36.00	64.00	13	7	\N	\N	\N	\N	\N	2025-12-02 05:19:44.847357	1.77	1.04	1	0	h-win	yes
+3101	1390851	2025-09-14	Spain	La Liga	Barcelona	Valencia	h-win	6	0	24	10	2	1	5	4	4	4	0	1	0	0	72.00	28.00	9	8	\N	\N	\N	\N	\N	2025-12-02 05:19:44.932118	3.35	0.18	1	0	h-win	yes
+3102	1390853	2025-09-15	Spain	La Liga	Espanyol	Mallorca	h-win	3	2	9	3	24	10	3	9	0	2	2	1	1	0	38.00	62.00	9	16	\N	\N	\N	\N	\N	2025-12-02 05:19:45.022225	2.51	2.17	2	1	h-win	yes
+3103	1390861	2025-09-19	Spain	La Liga	Real Betis	Real Sociedad	h-win	3	1	21	6	11	5	3	5	0	3	3	7	0	0	50.00	50.00	7	20	\N	\N	\N	\N	\N	2025-12-02 05:19:45.102309	2.09	0.67	1	1	draw	yes
+3104	1390863	2025-09-20	Spain	La Liga	Girona	Levante	a-win	0	4	7	1	14	7	5	4	0	1	4	3	2	0	35.00	65.00	11	17	\N	\N	\N	\N	\N	2025-12-02 05:19:45.182002	0.50	2.88	0	1	a-win	yes
+3105	1390866	2025-09-20	Spain	La Liga	Real Madrid	Espanyol	h-win	2	0	16	5	8	1	5	3	2	0	2	0	0	0	72.00	28.00	10	20	\N	\N	\N	\N	\N	2025-12-02 05:19:45.262081	1.18	0.96	1	0	h-win	yes
+3106	1390868	2025-09-20	Spain	La Liga	Villarreal	Osasuna	h-win	2	1	26	8	6	3	7	0	2	1	2	3	0	1	66.00	34.00	10	11	\N	\N	\N	\N	\N	2025-12-02 05:19:45.342192	2.55	1.80	0	1	a-win	yes
+3107	1390859	2025-09-20	Spain	La Liga	Alaves	Sevilla	a-win	1	2	8	5	9	3	4	4	3	4	1	7	0	0	48.00	52.00	20	19	\N	\N	\N	\N	\N	2025-12-02 05:19:45.422139	0.95	0.48	1	1	draw	yes
+3108	1390867	2025-09-20	Spain	La Liga	Valencia	Athletic Club	h-win	2	0	13	5	11	5	5	6	0	1	1	1	0	1	44.00	56.00	13	6	\N	\N	\N	\N	\N	2025-12-02 05:19:45.50215	1.88	0.49	0	0	draw	yes
+3109	1390865	2025-09-21	Spain	La Liga	Rayo Vallecano	Celta Vigo	draw	1	1	15	5	9	5	5	7	1	0	1	1	0	0	59.00	41.00	8	10	\N	\N	\N	\N	\N	2025-12-02 05:19:45.582131	0.99	0.81	0	0	draw	yes
+3110	1390864	2025-09-21	Spain	La Liga	Mallorca	Atletico Madrid	draw	1	1	8	3	12	7	3	6	0	1	0	0	0	1	43.00	57.00	14	6	\N	\N	\N	\N	\N	2025-12-02 05:19:45.662089	0.60	2.26	0	0	draw	yes
+3111	1390862	2025-09-21	Spain	La Liga	Elche	Oviedo	h-win	1	0	15	5	12	4	3	3	1	1	2	2	0	0	61.00	39.00	9	18	\N	\N	\N	\N	\N	2025-12-02 05:19:45.742118	1.55	1.09	1	0	h-win	yes
+3112	1390860	2025-09-21	Spain	La Liga	Barcelona	Getafe	h-win	3	0	16	7	3	2	3	2	3	1	2	4	0	0	71.00	29.00	9	16	\N	\N	\N	\N	\N	2025-12-02 05:19:45.822245	1.97	0.27	2	0	h-win	yes
+3113	1390869	2025-09-23	Spain	La Liga	Athletic Club	Girona	draw	1	1	17	5	6	3	8	1	0	5	0	2	0	0	67.00	33.00	19	15	\N	\N	\N	\N	\N	2025-12-02 05:19:45.901999	1.46	0.78	0	1	a-win	yes
+3114	1390872	2025-09-23	Spain	La Liga	Espanyol	Valencia	draw	2	2	21	10	5	2	8	3	5	2	1	4	0	0	56.00	44.00	9	9	\N	\N	\N	\N	\N	2025-12-02 05:19:45.98813	2.50	0.74	0	1	a-win	yes
+3115	1390878	2025-09-23	Spain	La Liga	Sevilla	Villarreal	a-win	1	2	16	2	12	5	3	3	0	3	2	3	0	0	65.00	35.00	17	14	\N	\N	\N	\N	\N	2025-12-02 05:19:46.073064	0.97	1.95	0	1	a-win	yes
+3116	1390874	2025-09-23	Spain	La Liga	Levante	Real Madrid	a-win	1	4	11	2	24	10	1	7	0	1	1	1	0	0	37.00	63.00	17	9	\N	\N	\N	\N	\N	2025-12-02 05:19:46.156909	1.60	3.94	0	2	a-win	yes
+3117	1390873	2025-09-24	Spain	La Liga	Getafe	Alaves	draw	1	1	7	1	10	4	2	7	5	6	2	3	0	0	46.00	54.00	14	20	\N	\N	\N	\N	\N	2025-12-02 05:19:46.233244	0.24	0.57	0	0	draw	yes
+3118	1390870	2025-09-24	Spain	La Liga	Atletico Madrid	Rayo Vallecano	h-win	3	2	20	8	9	3	8	6	3	2	3	5	0	0	61.00	39.00	6	12	\N	\N	\N	\N	\N	2025-12-02 05:19:46.308283	3.61	1.60	1	1	draw	yes
+3119	1390876	2025-09-24	Spain	La Liga	Real Sociedad	Mallorca	h-win	1	0	17	4	7	3	11	2	2	0	2	2	0	0	64.00	36.00	13	15	\N	\N	\N	\N	\N	2025-12-02 05:19:46.402128	2.76	0.76	0	0	draw	yes
+3120	1390875	2025-09-25	Spain	La Liga	Osasuna	Elche	draw	1	1	9	2	12	4	2	3	0	0	2	2	0	0	39.00	61.00	19	13	\N	\N	\N	\N	\N	2025-12-02 05:19:46.482002	1.10	0.78	1	0	h-win	yes
+3121	1390877	2025-09-25	Spain	La Liga	Oviedo	Barcelona	a-win	1	3	7	3	22	10	6	9	7	1	1	0	0	0	21.00	79.00	10	6	\N	\N	\N	\N	\N	2025-12-02 05:19:46.562111	0.99	2.14	1	0	h-win	yes
+3122	1390884	2025-09-26	Spain	La Liga	Girona	Espanyol	draw	0	0	12	3	20	5	8	4	1	1	0	1	0	0	60.00	40.00	9	11	\N	\N	\N	\N	\N	2025-12-02 05:19:46.650146	1.08	1.08	0	0	draw	yes
+3123	1390883	2025-09-27	Spain	La Liga	Getafe	Levante	draw	1	1	11	4	11	3	6	2	2	2	4	3	0	0	54.00	46.00	15	16	\N	\N	\N	\N	\N	2025-12-02 05:19:46.733219	0.55	1.24	0	1	a-win	yes
+3124	1390879	2025-09-27	Spain	La Liga	Atletico Madrid	Real Madrid	h-win	5	2	13	7	6	2	7	2	1	1	5	4	0	0	37.00	63.00	17	14	\N	\N	\N	\N	\N	2025-12-02 05:19:46.810505	2.34	0.66	2	2	draw	yes
+3125	1390885	2025-09-27	Spain	La Liga	Mallorca	Alaves	h-win	1	0	12	3	12	3	4	8	0	2	2	3	0	0	39.00	61.00	14	18	\N	\N	\N	\N	\N	2025-12-02 05:19:46.901958	0.74	0.78	1	0	h-win	yes
+3126	1390888	2025-09-27	Spain	La Liga	Villarreal	Athletic Club	h-win	1	0	14	5	16	4	6	5	7	0	2	0	0	0	42.00	58.00	13	11	\N	\N	\N	\N	\N	2025-12-02 05:19:46.982464	1.22	1.44	0	0	draw	yes
+3127	1390886	2025-09-28	Spain	La Liga	Rayo Vallecano	Sevilla	a-win	0	1	18	6	4	1	12	4	0	1	3	2	1	0	64.00	36.00	11	15	\N	\N	\N	\N	\N	2025-12-02 05:19:47.081957	1.89	0.63	0	0	draw	yes
+3128	1390882	2025-09-28	Spain	La Liga	Elche	Celta Vigo	h-win	2	1	17	8	8	2	7	2	3	3	3	3	0	0	62.00	38.00	12	20	\N	\N	\N	\N	\N	2025-12-02 05:19:47.162115	3.58	0.77	1	1	draw	yes
+3129	1390880	2025-09-28	Spain	La Liga	Barcelona	Real Sociedad	h-win	2	1	22	12	7	2	12	1	3	5	1	2	0	0	75.00	25.00	6	12	\N	\N	\N	\N	\N	2025-12-02 05:19:47.246923	2.21	0.97	1	1	draw	yes
+3130	1390881	2025-09-28	Spain	La Liga	Real Betis	Osasuna	h-win	2	0	12	6	12	1	5	5	2	2	0	1	0	0	51.00	49.00	6	7	\N	\N	\N	\N	\N	2025-12-02 05:19:47.332248	0.76	0.70	2	0	h-win	yes
+3131	1390887	2025-09-30	Spain	La Liga	Valencia	Oviedo	a-win	1	2	16	5	10	4	5	4	1	4	1	4	0	1	57.00	43.00	14	12	\N	\N	\N	\N	\N	2025-12-02 05:19:47.4219	1.51	0.77	1	0	h-win	yes
+3132	1390894	2025-10-03	Spain	La Liga	Osasuna	Getafe	h-win	2	1	7	3	6	2	1	6	3	6	1	4	0	0	58.00	42.00	11	14	\N	\N	\N	\N	\N	2025-12-02 05:19:47.502247	0.43	0.85	1	1	draw	yes
+3133	1390897	2025-10-04	Spain	La Liga	Oviedo	Levante	a-win	0	2	13	2	14	5	9	3	1	2	2	2	0	0	57.00	43.00	10	10	\N	\N	\N	\N	\N	2025-12-02 05:19:47.587961	1.31	1.94	0	1	a-win	yes
+3134	1390893	2025-10-04	Spain	La Liga	Girona	Valencia	h-win	2	1	4	4	19	6	0	7	5	1	5	1	2	0	45.00	55.00	13	12	\N	\N	\N	\N	\N	2025-12-02 05:19:47.661872	1.02	1.21	1	0	h-win	yes
+3135	1390890	2025-10-04	Spain	La Liga	Athletic Club	Mallorca	h-win	2	1	18	5	6	2	7	2	0	5	4	6	0	1	52.00	48.00	16	13	\N	\N	\N	\N	\N	2025-12-02 05:19:47.742023	2.05	0.32	1	0	h-win	yes
+3136	1390895	2025-10-04	Spain	La Liga	Real Madrid	Villarreal	h-win	3	1	26	7	9	2	4	0	0	0	2	4	0	1	70.00	30.00	9	14	\N	\N	\N	\N	\N	2025-12-02 05:19:47.822436	3.52	1.00	0	0	draw	yes
+3137	1390889	2025-10-05	Spain	La Liga	Alaves	Elche	h-win	3	1	25	5	6	3	14	4	2	1	3	1	0	1	47.00	53.00	13	9	\N	\N	\N	\N	\N	2025-12-02 05:19:47.908018	2.42	0.38	0	0	draw	yes
+3138	1390898	2025-10-05	Spain	La Liga	Sevilla	Barcelona	h-win	4	1	13	5	17	8	7	6	10	0	7	5	0	0	39.00	61.00	18	9	\N	\N	\N	\N	\N	2025-12-02 05:19:47.982061	2.80	2.25	2	1	h-win	yes
+3139	1390892	2025-10-05	Spain	La Liga	Espanyol	Real Betis	a-win	1	2	14	5	12	3	10	5	2	1	2	6	0	0	50.00	50.00	16	4	\N	\N	\N	\N	\N	2025-12-02 05:19:48.062122	2.24	1.33	1	0	h-win	yes
+3140	1390896	2025-10-05	Spain	La Liga	Real Sociedad	Rayo Vallecano	a-win	0	1	10	3	7	2	7	5	0	1	1	2	0	0	51.00	49.00	13	21	\N	\N	\N	\N	\N	2025-12-02 05:19:48.141999	0.79	0.80	0	0	draw	yes
+3141	1390891	2025-10-05	Spain	La Liga	Celta Vigo	Atletico Madrid	draw	1	1	18	4	6	1	6	3	2	0	1	3	0	1	59.00	41.00	7	10	\N	\N	\N	\N	\N	2025-12-02 05:19:48.222451	1.92	0.30	0	1	a-win	yes
+3142	1390906	2025-10-17	Spain	La Liga	Oviedo	Espanyol	a-win	0	2	13	4	19	10	3	5	0	2	2	1	0	0	61.00	39.00	13	19	\N	\N	\N	\N	\N	2025-12-02 05:19:48.302037	0.77	3.74	0	0	draw	yes
+3143	1390907	2025-10-18	Spain	La Liga	Sevilla	Mallorca	a-win	1	3	13	4	7	6	9	2	3	0	2	1	0	0	58.00	42.00	16	13	\N	\N	\N	\N	\N	2025-12-02 05:19:48.382279	1.26	1.85	1	0	h-win	yes
+3144	1390901	2025-10-18	Spain	La Liga	Barcelona	Girona	h-win	2	1	27	9	11	4	11	5	1	2	1	2	0	0	68.00	32.00	27	11	\N	\N	\N	\N	\N	2025-12-02 05:19:48.48224	1.61	1.55	1	1	draw	yes
+3145	1390908	2025-10-18	Spain	La Liga	Villarreal	Real Betis	draw	2	2	7	3	16	3	5	6	3	1	1	1	0	0	40.00	60.00	13	10	\N	\N	\N	\N	\N	2025-12-02 05:19:48.569979	0.66	1.18	1	0	h-win	yes
+3146	1390900	2025-10-18	Spain	La Liga	Atletico Madrid	Osasuna	h-win	1	0	18	9	9	2	4	2	6	1	1	3	0	0	59.00	41.00	10	11	\N	\N	\N	\N	\N	2025-12-02 05:19:48.662158	2.58	1.14	0	0	draw	yes
+3147	1390903	2025-10-19	Spain	La Liga	Elche	Athletic Club	draw	0	0	15	5	4	1	6	2	3	3	2	3	0	0	69.00	31.00	15	4	\N	\N	\N	\N	\N	2025-12-02 05:19:48.743394	1.08	0.25	0	0	draw	yes
+3148	1390902	2025-10-19	Spain	La Liga	Celta Vigo	Real Sociedad	draw	1	1	4	1	17	7	1	10	1	8	4	3	1	0	41.00	59.00	4	17	\N	\N	\N	\N	\N	2025-12-02 05:19:48.82196	0.95	1.55	1	0	h-win	yes
+3149	1390905	2025-10-19	Spain	La Liga	Levante	Rayo Vallecano	a-win	0	3	17	4	10	5	11	4	1	0	0	1	0	0	54.00	46.00	17	10	\N	\N	\N	\N	\N	2025-12-02 05:19:48.902061	0.91	1.55	0	2	a-win	yes
+3150	1390904	2025-10-19	Spain	La Liga	Getafe	Real Madrid	a-win	0	1	7	1	23	10	1	4	2	3	4	1	2	0	24.00	76.00	27	11	\N	\N	\N	\N	\N	2025-12-02 05:19:48.981946	0.48	1.96	0	0	draw	yes
+3151	1390899	2025-10-20	Spain	La Liga	Alaves	Valencia	draw	0	0	13	3	5	2	7	0	3	0	1	2	0	0	63.00	37.00	13	20	\N	\N	\N	\N	\N	2025-12-02 05:19:49.063909	0.81	0.45	0	0	draw	yes
+3152	1390917	2025-10-24	Spain	La Liga	Real Sociedad	Sevilla	h-win	2	1	5	3	6	1	1	9	2	1	1	3	0	0	40.00	60.00	19	14	\N	\N	\N	\N	\N	2025-12-02 05:19:49.141978	1.61	0.23	2	1	h-win	yes
+3153	1390912	2025-10-25	Spain	La Liga	Girona	Oviedo	draw	3	3	8	6	10	5	11	4	2	2	4	3	0	0	65.00	35.00	13	16	\N	\N	\N	\N	\N	2025-12-02 05:19:49.221661	2.03	1.79	0	1	a-win	yes
+3154	1390911	2025-10-25	Spain	La Liga	Espanyol	Elche	h-win	1	0	16	7	13	4	4	2	0	1	4	2	0	0	32.00	68.00	14	15	\N	\N	\N	\N	\N	2025-12-02 05:19:49.296733	1.93	0.86	0	0	draw	yes
+3155	1390909	2025-10-25	Spain	La Liga	Athletic Club	Getafe	a-win	0	1	7	4	8	3	1	5	3	4	1	3	0	0	57.00	43.00	15	14	\N	\N	\N	\N	\N	2025-12-02 05:19:49.370445	0.39	0.93	0	0	draw	yes
+3156	1390918	2025-10-25	Spain	La Liga	Valencia	Villarreal	a-win	0	2	15	3	12	5	7	5	2	3	2	4	0	0	57.00	43.00	13	14	\N	\N	\N	\N	\N	2025-12-02 05:19:49.445134	0.78	2.08	0	1	a-win	yes
+3157	1390913	2025-10-26	Spain	La Liga	Mallorca	Levante	draw	1	1	20	4	13	5	5	4	3	3	3	2	0	0	63.00	37.00	8	13	\N	\N	\N	\N	\N	2025-12-02 05:19:49.521904	1.58	2.08	0	1	a-win	yes
+3158	1390916	2025-10-26	Spain	La Liga	Real Madrid	Barcelona	h-win	2	1	23	10	15	6	12	4	5	2	5	5	1	1	32.00	68.00	12	9	\N	\N	\N	\N	\N	2025-12-02 05:19:49.602048	3.63	1.03	2	1	h-win	yes
+3159	1390914	2025-10-26	Spain	La Liga	Osasuna	Celta Vigo	a-win	2	3	17	7	11	5	6	2	0	5	3	4	0	0	61.00	39.00	10	13	\N	\N	\N	\N	\N	2025-12-02 05:19:49.681835	2.31	1.96	2	1	h-win	yes
+3160	1390915	2025-10-26	Spain	La Liga	Rayo Vallecano	Alaves	h-win	1	0	15	5	12	2	7	5	2	0	1	3	0	0	54.00	46.00	13	11	\N	\N	\N	\N	\N	2025-12-02 05:19:49.762045	1.18	0.84	0	0	draw	yes
+3161	1390910	2025-10-27	Spain	La Liga	Real Betis	Atletico Madrid	a-win	0	2	17	5	9	4	2	5	4	4	2	1	0	0	57.00	43.00	9	18	\N	\N	\N	\N	\N	2025-12-02 05:19:49.842069	1.07	0.60	0	2	a-win	yes
+3162	1390923	2025-10-31	Spain	La Liga	Getafe	Girona	h-win	2	1	12	4	8	4	8	3	3	0	1	2	0	0	40.00	60.00	17	15	\N	\N	\N	\N	\N	2025-12-02 05:19:49.92155	0.88	1.43	0	0	draw	yes
+3163	1390928	2025-11-01	Spain	La Liga	Villarreal	Rayo Vallecano	h-win	4	0	16	7	13	3	3	5	1	0	1	1	0	0	47.00	53.00	7	11	\N	\N	\N	3	9	2025-12-02 05:19:50.086898	3.02	1.02	1	0	h-win	yes
+3164	1390920	2025-11-01	Spain	La Liga	Atletico Madrid	Sevilla	h-win	3	0	15	6	10	2	9	4	0	0	0	3	0	0	47.00	53.00	9	12	\N	\N	\N	4	13	2025-12-02 05:19:50.162228	3.53	0.46	0	0	draw	yes
+3165	1390926	2025-11-01	Spain	La Liga	Real Sociedad	Athletic Club	h-win	3	2	9	5	11	4	6	2	3	1	2	3	0	0	51.00	49.00	20	8	\N	\N	\N	10	8	2025-12-02 05:19:50.242151	1.52	0.83	1	1	draw	yes
+3166	1390925	2025-11-01	Spain	La Liga	Real Madrid	Valencia	h-win	4	0	21	11	4	1	7	1	2	0	1	1	0	0	65.00	35.00	14	7	\N	\N	\N	2	15	2025-12-02 05:19:50.322276	2.71	0.49	3	0	h-win	yes
+3167	1390924	2025-11-02	Spain	La Liga	Levante	Celta Vigo	a-win	1	2	9	3	20	6	4	4	0	0	2	3	1	0	36.00	64.00	10	12	\N	\N	\N	19	12	2025-12-02 05:19:50.402357	1.20	2.00	0	1	a-win	yes
+3168	1390919	2025-11-02	Spain	La Liga	Alaves	Espanyol	h-win	2	1	13	4	18	2	1	6	0	0	4	2	1	0	54.00	46.00	14	12	\N	\N	\N	14	6	2025-12-02 05:19:50.482135	1.22	1.06	2	0	h-win	yes
+3169	1390921	2025-11-02	Spain	La Liga	Barcelona	Elche	h-win	3	1	17	5	9	3	6	3	5	5	0	1	0	0	49.00	51.00	12	16	\N	\N	\N	1	11	2025-12-02 05:19:50.562447	1.88	0.66	2	1	h-win	yes
+3170	1390922	2025-11-02	Spain	La Liga	Real Betis	Mallorca	h-win	3	0	15	8	14	1	4	5	1	4	0	3	0	0	52.00	48.00	9	8	\N	\N	\N	5	16	2025-12-02 05:19:50.642065	2.36	0.62	3	0	h-win	yes
+3171	1390927	2025-11-03	Spain	La Liga	Oviedo	Osasuna	draw	0	0	8	2	11	5	4	2	3	0	3	1	0	0	53.00	47.00	17	17	\N	\N	\N	20	17	2025-12-02 05:19:50.742135	0.96	0.82	0	0	draw	yes
+3172	1390932	2025-11-07	Spain	La Liga	Elche	Real Sociedad	draw	1	1	12	3	13	5	1	3	1	2	1	3	0	0	63.00	37.00	14	15	\N	\N	\N	11	10	2025-12-02 05:19:50.845797	0.80	1.36	0	0	draw	yes
+3173	1390934	2025-11-08	Spain	La Liga	Girona	Alaves	h-win	1	0	10	2	14	5	6	1	1	3	0	3	0	0	52.00	48.00	9	15	\N	\N	\N	18	14	2025-12-02 05:19:50.922634	0.85	1.84	1	0	h-win	yes
+3174	1390937	2025-11-08	Spain	La Liga	Sevilla	Osasuna	h-win	1	0	10	4	9	3	5	6	6	0	5	3	0	0	47.00	53.00	21	13	\N	\N	\N	13	17	2025-12-02 05:19:51.012046	1.70	1.29	0	0	draw	yes
+3175	1390930	2025-11-08	Spain	La Liga	Atletico Madrid	Levante	h-win	3	1	25	10	6	3	21	4	1	4	3	1	0	0	74.00	26.00	5	6	\N	\N	\N	4	19	2025-12-02 05:19:51.108077	2.92	1.19	1	1	draw	yes
+3176	1390933	2025-11-08	Spain	La Liga	Espanyol	Villarreal	a-win	0	2	14	3	9	3	4	2	2	3	0	2	0	0	55.00	45.00	9	9	\N	\N	\N	6	3	2025-12-02 05:19:51.193009	0.50	1.61	0	1	a-win	yes
+3177	1390929	2025-11-09	Spain	La Liga	Athletic Club	Oviedo	h-win	1	0	21	7	4	2	7	4	0	4	1	1	0	0	48.00	52.00	12	8	\N	\N	\N	8	20	2025-12-02 05:19:51.282529	1.70	0.22	1	0	h-win	yes
+3178	1390936	2025-11-09	Spain	La Liga	Rayo Vallecano	Real Madrid	draw	0	0	13	2	21	5	5	8	1	1	3	2	0	0	46.00	54.00	17	7	\N	\N	\N	9	2	2025-12-02 05:19:51.387875	1.20	0.98	0	0	draw	yes
+3179	1390938	2025-11-09	Spain	La Liga	Valencia	Real Betis	draw	1	1	17	4	9	2	7	2	4	1	3	3	0	0	43.00	57.00	13	10	\N	\N	\N	15	5	2025-12-02 05:19:51.471162	1.94	1.60	0	0	draw	yes
+3180	1390935	2025-11-09	Spain	La Liga	Mallorca	Getafe	h-win	1	0	6	4	14	3	1	14	0	1	0	2	0	0	39.00	61.00	15	8	\N	\N	\N	16	7	2025-12-02 05:19:51.559839	1.17	0.85	1	0	h-win	yes
+3181	1390931	2025-11-09	Spain	La Liga	Celta Vigo	Barcelona	a-win	2	4	5	3	21	9	2	5	5	2	1	5	0	1	39.00	61.00	13	10	\N	\N	\N	12	1	2025-12-02 05:19:51.631235	0.58	3.31	2	3	a-win	yes
+3182	1390947	2025-11-21	Spain	La Liga	Valencia	Levante	h-win	1	0	14	3	7	0	7	0	2	0	4	3	0	0	59.00	41.00	16	15	\N	\N	\N	15	19	2025-12-02 05:19:51.702116	1.49	0.72	0	0	draw	yes
+3183	1390939	2025-11-22	Spain	La Liga	Alaves	Celta Vigo	a-win	0	1	5	2	7	4	4	2	4	2	2	2	0	0	52.00	48.00	21	15	\N	\N	\N	14	12	2025-12-02 05:19:51.78201	0.67	1.37	0	0	draw	yes
+3184	1390940	2025-11-22	Spain	La Liga	Barcelona	Athletic Club	h-win	4	0	19	7	13	2	5	7	7	3	0	2	0	1	68.00	32.00	9	9	\N	\N	\N	1	8	2025-12-02 05:19:51.862353	2.00	0.80	2	0	h-win	yes
+3185	1390945	2025-11-22	Spain	La Liga	Osasuna	Real Sociedad	a-win	1	3	14	4	19	9	3	3	1	3	3	2	1	0	46.00	54.00	13	7	\N	\N	\N	17	10	2025-12-02 05:19:51.942304	1.34	1.63	1	0	h-win	yes
+3186	1390948	2025-11-22	Spain	La Liga	Villarreal	Mallorca	h-win	2	1	14	7	9	3	3	1	3	1	2	2	0	0	58.00	42.00	17	8	\N	\N	\N	3	16	2025-12-02 05:19:52.02217	2.23	1.02	1	1	draw	yes
+3187	1390946	2025-11-23	Spain	La Liga	Oviedo	Rayo Vallecano	draw	0	0	8	3	11	3	5	6	2	1	1	2	1	1	39.00	61.00	11	13	\N	\N	\N	20	9	2025-12-02 05:19:52.107119	0.43	0.95	0	0	draw	yes
+3188	1390941	2025-11-23	Spain	La Liga	Real Betis	Girona	draw	1	1	23	7	11	4	8	0	1	4	3	4	1	0	54.00	46.00	10	16	\N	\N	\N	5	18	2025-12-02 05:19:52.202084	1.42	1.46	0	1	a-win	yes
+3189	1390944	2025-11-23	Spain	La Liga	Getafe	Atletico Madrid	a-win	0	1	9	1	13	6	6	7	2	5	2	3	0	0	41.00	59.00	9	17	\N	\N	\N	7	4	2025-12-02 05:19:52.282071	0.70	0.99	0	0	draw	yes
+3190	1390942	2025-11-23	Spain	La Liga	Elche	Real Madrid	draw	2	2	15	6	20	7	2	8	1	2	4	1	1	0	49.00	51.00	10	8	\N	\N	\N	11	2	2025-12-02 05:19:52.361579	1.44	3.49	0	0	draw	yes
+3191	1390943	2025-11-24	Spain	La Liga	Espanyol	Sevilla	h-win	2	1	8	5	22	6	4	13	0	1	4	1	0	0	33.00	67.00	18	7	\N	\N	\N	6	13	2025-12-02 05:19:52.442531	1.09	1.79	0	0	draw	yes
+3192	1390952	2025-11-28	Spain	La Liga	Getafe	Elche	h-win	1	0	15	6	9	4	3	5	2	3	2	2	0	0	34.00	66.00	18	11	\N	\N	\N	7	11	2025-12-02 05:19:52.521925	1.06	0.51	0	0	draw	yes
+3193	1390955	2025-11-29	Spain	La Liga	Mallorca	Osasuna	draw	2	2	7	4	14	2	2	8	0	0	3	4	0	0	52.00	48.00	10	15	\N	\N	\N	16	17	2025-12-02 05:19:52.602012	1.49	1.09	0	0	draw	yes
+3194	1390950	2025-11-29	Spain	La Liga	Barcelona	Alaves	h-win	3	1	18	6	9	2	5	4	0	8	2	3	0	0	69.00	31.00	10	17	\N	\N	\N	1	14	2025-12-02 05:19:52.682216	2.24	1.59	2	1	h-win	yes
+3195	1390954	2025-11-29	Spain	La Liga	Levante	Athletic Club	a-win	0	2	11	4	14	4	4	2	4	2	3	2	0	0	56.00	44.00	11	19	\N	\N	\N	19	8	2025-12-02 05:19:52.762065	1.30	2.90	0	2	a-win	yes
+3196	1390949	2025-11-29	Spain	La Liga	Atletico Madrid	Oviedo	h-win	2	0	14	8	12	1	7	2	2	1	0	1	0	0	52.00	48.00	5	8	\N	\N	\N	4	20	2025-12-02 05:19:52.842197	1.93	0.93	2	0	h-win	yes
+3197	1390957	2025-11-30	Spain	La Liga	Real Sociedad	Villarreal	a-win	2	3	17	7	10	5	8	2	1	0	3	7	0	0	60.00	40.00	15	18	\N	\N	\N	10	3	2025-12-02 05:19:52.922038	1.07	1.58	0	1	a-win	yes
+3198	1390958	2025-11-30	Spain	La Liga	Sevilla	Real Betis	a-win	0	2	9	3	9	4	6	4	2	0	2	3	1	0	65.00	35.00	14	22	\N	\N	\N	13	5	2025-12-02 05:19:53.002069	0.39	1.17	0	0	draw	yes
+3199	1390951	2025-11-30	Spain	La Liga	Celta Vigo	Espanyol	a-win	0	1	11	4	9	2	4	3	1	3	1	2	0	0	60.00	40.00	12	15	\N	\N	\N	12	6	2025-12-02 05:19:53.082439	0.63	0.38	0	0	draw	yes
+3200	1390953	2025-11-30	Spain	La Liga	Girona	Real Madrid	draw	1	1	10	4	25	4	2	5	1	2	3	0	0	0	40.00	60.00	9	13	\N	\N	\N	18	2	2025-12-02 05:19:53.162495	0.79	2.53	1	0	h-win	yes
+3201	1390956	2025-12-01	Spain	La Liga	Rayo Vallecano	Valencia	draw	1	1	19	7	10	2	10	5	1	0	1	1	0	0	56.00	44.00	11	9	\N	\N	\N	9	15	2025-12-02 05:19:53.242539	1.30	0.71	1	0	h-win	yes
+3202	1396944	2025-08-15	Spain	Segunda División	Valladolid	AD Ceuta FC	h-win	3	0	16	9	5	0	6	4	7	2	3	2	0	0	42.00	58.00	18	11	\N	\N	\N	\N	\N	2025-12-02 05:19:54.511742	\N	\N	2	0	h-win	yes
+3203	1391254	2025-08-15	Spain	Segunda División	Burgos	Cultural Leonesa	h-win	5	1	15	7	8	1	3	3	3	0	1	1	0	1	65.00	35.00	13	10	\N	\N	\N	\N	\N	2025-12-02 05:19:54.582065	\N	\N	3	0	h-win	yes
+3204	1391256	2025-08-16	Spain	Segunda División	Racing Santander	Castellón	h-win	3	1	10	5	17	8	3	12	2	5	3	0	0	1	37.00	63.00	16	14	\N	\N	\N	\N	\N	2025-12-02 05:19:54.656515	\N	\N	2	1	h-win	yes
+3205	1391259	2025-08-16	Spain	Segunda División	Malaga	Eibar	draw	1	1	11	4	7	3	8	3	1	3	2	2	0	0	54.00	46.00	10	7	\N	\N	\N	\N	\N	2025-12-02 05:19:54.741992	\N	\N	0	0	draw	yes
+3206	1391253	2025-08-16	Spain	Segunda División	Granada CF	Deportivo La Coruna	a-win	1	3	14	2	15	7	7	1	1	3	3	2	1	0	46.00	54.00	9	11	\N	\N	\N	\N	\N	2025-12-02 05:19:54.822518	\N	\N	0	1	a-win	yes
+3207	1391257	2025-08-17	Spain	Segunda División	Real Sociedad II	Zaragoza	h-win	1	0	3	2	18	5	2	9	0	1	4	2	0	0	40.00	60.00	24	12	\N	\N	\N	\N	\N	2025-12-02 05:19:54.92397	\N	\N	1	0	h-win	yes
+3208	1391255	2025-08-17	Spain	Segunda División	Cadiz	Mirandes	h-win	1	0	24	3	1	0	7	0	2	0	3	2	0	1	72.00	28.00	14	9	\N	\N	\N	\N	\N	2025-12-02 05:19:55.012213	\N	\N	1	0	h-win	yes
+3209	1396943	2025-08-17	Spain	Segunda División	Las Palmas	FC Andorra	draw	1	1	10	2	7	2	1	2	4	1	2	3	1	0	43.00	57.00	16	17	\N	\N	\N	\N	\N	2025-12-02 05:19:55.086833	\N	\N	1	0	h-win	yes
+3210	1391258	2025-08-17	Spain	Segunda División	Huesca	Leganes	draw	1	1	14	3	7	3	5	3	1	3	2	2	0	0	56.00	44.00	11	12	\N	\N	\N	\N	\N	2025-12-02 05:19:55.1622	\N	\N	0	0	draw	yes
+3211	1396942	2025-08-18	Spain	Segunda División	Sporting Gijon	Cordoba	h-win	2	1	9	4	15	5	2	4	7	1	2	2	0	0	35.00	65.00	13	7	\N	\N	\N	\N	\N	2025-12-02 05:19:55.242	\N	\N	1	1	draw	yes
+3212	1396941	2025-08-18	Spain	Segunda División	Almeria	Albacete	draw	4	4	31	11	17	5	17	5	1	2	3	2	0	0	67.00	33.00	9	9	\N	\N	\N	\N	\N	2025-12-02 05:19:55.322005	\N	\N	1	1	draw	yes
+3213	1391266	2025-08-22	Spain	Segunda División	Eibar	Granada CF	h-win	3	0	16	6	3	0	6	3	5	0	2	4	0	1	47.00	53.00	23	16	\N	\N	\N	\N	\N	2025-12-02 05:19:55.401932	\N	\N	1	0	h-win	yes
+3214	1391262	2025-08-22	Spain	Segunda División	Leganes	Cadiz	draw	1	1	9	4	10	3	7	5	2	2	2	1	0	0	51.00	49.00	13	17	\N	\N	\N	\N	\N	2025-12-02 05:19:55.482087	\N	\N	1	0	h-win	yes
+3215	1391264	2025-08-22	Spain	Segunda División	Castellón	Valladolid	a-win	0	1	11	4	10	4	8	9	2	3	3	3	0	0	63.00	37.00	14	19	\N	\N	\N	\N	\N	2025-12-02 05:19:55.56199	\N	\N	0	1	a-win	yes
+3216	1391261	2025-08-23	Spain	Segunda División	Mirandes	Huesca	a-win	0	1	5	2	6	2	1	4	4	2	5	2	0	0	52.00	48.00	16	13	\N	\N	\N	\N	\N	2025-12-02 05:19:55.642135	\N	\N	0	1	a-win	yes
+3217	1391265	2025-08-23	Spain	Segunda División	AD Ceuta FC	Sporting Gijon	a-win	0	1	12	7	7	4	3	3	0	4	1	2	0	0	63.00	37.00	11	15	\N	\N	\N	\N	\N	2025-12-02 05:19:55.721955	\N	\N	0	1	a-win	yes
+3218	1396945	2025-08-23	Spain	Segunda División	Zaragoza	FC Andorra	a-win	1	3	13	6	17	10	6	5	2	0	1	2	1	0	45.00	55.00	14	17	\N	\N	\N	\N	\N	2025-12-02 05:19:55.802201	\N	\N	0	1	a-win	yes
+3219	1391268	2025-08-24	Spain	Segunda División	Deportivo La Coruna	Burgos	draw	0	0	10	2	11	1	2	6	2	2	2	1	0	0	56.00	44.00	12	14	\N	\N	\N	\N	\N	2025-12-02 05:19:55.881934	\N	\N	0	0	draw	yes
+3220	1391269	2025-08-24	Spain	Segunda División	Cultural Leonesa	Almeria	a-win	0	1	10	6	13	3	3	5	0	1	1	2	0	0	41.00	59.00	9	15	\N	\N	\N	\N	\N	2025-12-02 05:19:55.962048	\N	\N	0	0	draw	yes
+3221	1391263	2025-08-24	Spain	Segunda División	Malaga	Real Sociedad II	h-win	1	0	21	5	10	4	6	2	0	1	2	2	0	0	59.00	41.00	12	15	\N	\N	\N	\N	\N	2025-12-02 05:19:56.042674	\N	\N	0	0	draw	yes
+3222	1391267	2025-08-25	Spain	Segunda División	Albacete	Racing Santander	a-win	2	3	8	2	13	6	2	10	9	1	1	3	0	0	46.00	54.00	13	7	\N	\N	\N	\N	\N	2025-12-02 05:19:56.122121	\N	\N	0	0	draw	yes
+3223	1391260	2025-08-25	Spain	Segunda División	Cordoba	Las Palmas	a-win	1	3	13	5	13	5	3	2	2	3	4	1	0	0	58.00	42.00	20	16	\N	\N	\N	\N	\N	2025-12-02 05:19:56.202526	\N	\N	0	1	a-win	yes
+3224	1391274	2025-08-29	Spain	Segunda División	Real Sociedad II	Almeria	draw	2	2	9	3	16	5	2	8	0	0	3	4	0	0	43.00	57.00	19	14	\N	\N	\N	\N	\N	2025-12-02 05:19:56.282009	\N	\N	1	1	draw	yes
+3225	1391278	2025-08-29	Spain	Segunda División	Sporting Gijon	Cultural Leonesa	h-win	1	0	17	6	9	2	10	3	0	0	4	1	0	0	58.00	42.00	12	12	\N	\N	\N	\N	\N	2025-12-02 05:19:56.362085	\N	\N	0	0	draw	yes
+3226	1391277	2025-08-30	Spain	Segunda División	Racing Santander	AD Ceuta FC	h-win	4	1	17	9	11	1	5	1	3	1	0	1	0	1	64.00	36.00	19	7	\N	\N	\N	\N	\N	2025-12-02 05:19:56.442104	\N	\N	2	1	h-win	yes
+3227	1391279	2025-08-30	Spain	Segunda División	Valladolid	Cordoba	draw	0	0	12	6	5	1	7	0	4	3	2	2	0	0	54.00	46.00	17	16	\N	\N	\N	\N	\N	2025-12-02 05:19:56.522045	\N	\N	0	0	draw	yes
+3228	1391275	2025-08-30	Spain	Segunda División	Castellón	Zaragoza	draw	1	1	14	5	12	2	7	3	7	2	2	3	0	0	58.00	42.00	14	16	\N	\N	\N	\N	\N	2025-12-02 05:19:56.602021	\N	\N	0	0	draw	yes
+3229	1396947	2025-08-31	Spain	Segunda División	Cadiz	Albacete	h-win	2	1	6	2	12	4	7	4	2	3	4	3	0	1	52.00	48.00	15	13	\N	\N	\N	\N	\N	2025-12-02 05:19:56.682226	\N	\N	1	0	h-win	yes
+3230	1396946	2025-08-31	Spain	Segunda División	FC Andorra	Burgos	h-win	2	1	14	5	12	4	5	4	0	4	1	2	0	0	52.00	48.00	11	11	\N	\N	\N	\N	\N	2025-12-02 05:19:56.762018	\N	\N	1	0	h-win	yes
+3231	1391280	2025-08-31	Spain	Segunda División	Las Palmas	Malaga	a-win	0	1	14	6	9	1	7	3	2	2	2	4	0	0	68.00	32.00	8	17	\N	\N	\N	\N	\N	2025-12-02 05:19:56.842158	\N	\N	0	1	a-win	yes
+3232	1391271	2025-08-31	Spain	Segunda División	Granada CF	Mirandes	a-win	1	2	15	4	11	4	6	1	1	1	2	2	1	0	61.00	39.00	15	20	\N	\N	\N	\N	\N	2025-12-02 05:19:56.922251	\N	\N	0	0	draw	yes
+3388	1431144	2025-09-05	Spain	Primera División RFEF - Group 2	FC Cartagena	Atlético Madrid II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.226573	\N	\N	1	1	draw	yes
+3233	1391276	2025-09-01	Spain	Segunda División	Huesca	Eibar	h-win	2	1	11	4	13	3	5	6	1	2	2	1	0	1	46.00	54.00	14	15	\N	\N	\N	\N	\N	2025-12-02 05:19:57.02215	\N	\N	1	1	draw	yes
+3234	1391272	2025-09-01	Spain	Segunda División	Leganes	Deportivo La Coruna	draw	2	2	18	7	13	6	4	3	2	1	4	3	0	0	50.00	50.00	8	21	\N	\N	\N	\N	\N	2025-12-02 05:19:57.113181	\N	\N	2	0	h-win	yes
+3235	1391285	2025-09-05	Spain	Segunda División	Albacete	Mirandes	a-win	1	4	18	5	13	6	5	2	0	1	2	1	1	0	62.00	38.00	10	7	\N	\N	\N	\N	\N	2025-12-02 05:19:57.18803	\N	\N	0	1	a-win	yes
+3236	1391287	2025-09-05	Spain	Segunda División	Cordoba	Castellón	h-win	2	1	10	5	6	2	4	4	1	3	2	0	0	0	51.00	49.00	15	17	\N	\N	\N	\N	\N	2025-12-02 05:19:57.262116	\N	\N	0	1	a-win	yes
+3237	1391290	2025-09-06	Spain	Segunda División	Deportivo La Coruna	Sporting Gijon	h-win	1	0	14	6	7	3	6	3	0	0	3	1	0	0	61.00	39.00	9	14	\N	\N	\N	\N	\N	2025-12-02 05:19:57.337258	\N	\N	0	0	draw	yes
+3238	1391283	2025-09-06	Spain	Segunda División	Zaragoza	Valladolid	draw	1	1	8	2	10	4	1	7	0	1	5	4	0	0	46.00	54.00	16	21	\N	\N	\N	\N	\N	2025-12-02 05:19:57.412291	\N	\N	0	0	draw	yes
+3239	1391281	2025-09-06	Spain	Segunda División	Malaga	Granada CF	draw	2	2	8	3	18	7	2	1	0	4	2	1	0	0	54.00	46.00	16	13	\N	\N	\N	\N	\N	2025-12-02 05:19:57.492836	\N	\N	2	1	h-win	yes
+3240	1391288	2025-09-07	Spain	Segunda División	AD Ceuta FC	Huesca	h-win	2	1	14	4	6	1	8	0	4	1	1	2	0	1	53.00	47.00	13	11	\N	\N	\N	\N	\N	2025-12-02 05:19:57.572331	\N	\N	1	0	h-win	yes
+3241	1391289	2025-09-07	Spain	Segunda División	Burgos	Las Palmas	draw	0	0	6	2	15	7	2	6	0	1	2	2	0	0	39.00	61.00	16	13	\N	\N	\N	\N	\N	2025-12-02 05:19:57.655894	\N	\N	0	0	draw	yes
+3242	1391284	2025-09-07	Spain	Segunda División	Real Sociedad II	Cadiz	draw	3	3	17	5	9	2	1	5	0	2	4	3	0	0	52.00	48.00	20	13	\N	\N	\N	\N	\N	2025-12-02 05:19:57.725253	\N	\N	1	1	draw	yes
+3243	1391286	2025-09-07	Spain	Segunda División	Almeria	Racing Santander	a-win	2	3	15	5	11	7	5	3	4	4	3	3	1	0	42.00	58.00	15	18	\N	\N	\N	\N	\N	2025-12-02 05:19:57.802293	\N	\N	2	0	h-win	yes
+3244	1396948	2025-09-07	Spain	Segunda División	Cultural Leonesa	Leganes	draw	0	0	8	1	11	5	9	3	5	2	0	3	0	0	52.00	48.00	17	9	\N	\N	\N	\N	\N	2025-12-02 05:19:57.882958	\N	\N	0	0	draw	yes
+3245	1396949	2025-09-08	Spain	Segunda División	Eibar	FC Andorra	h-win	2	0	16	6	11	5	10	5	2	1	3	4	0	0	47.00	53.00	20	11	\N	\N	\N	\N	\N	2025-12-02 05:19:57.962045	\N	\N	0	0	draw	yes
+3246	1396951	2025-09-12	Spain	Segunda División	Las Palmas	Real Sociedad II	h-win	2	1	16	5	3	1	4	2	2	0	1	6	0	0	63.00	37.00	14	20	\N	\N	\N	\N	\N	2025-12-02 05:19:58.05209	\N	\N	1	0	h-win	yes
+3247	1391296	2025-09-13	Spain	Segunda División	Cadiz	Eibar	h-win	1	0	12	4	17	4	5	4	0	0	2	3	0	0	42.00	58.00	15	12	\N	\N	\N	\N	\N	2025-12-02 05:19:58.141967	\N	\N	0	0	draw	yes
+3248	1391298	2025-09-13	Spain	Segunda División	Mirandes	Deportivo La Coruna	a-win	1	5	9	6	20	9	1	6	3	1	2	3	0	0	49.00	51.00	13	10	\N	\N	\N	\N	\N	2025-12-02 05:19:58.221959	\N	\N	0	2	a-win	yes
+3249	1391299	2025-09-13	Spain	Segunda División	Huesca	Malaga	h-win	1	0	12	3	7	3	4	3	3	1	4	2	0	0	48.00	52.00	17	11	\N	\N	\N	\N	\N	2025-12-02 05:19:58.307521	\N	\N	0	0	draw	yes
+3251	1396950	2025-09-14	Spain	Segunda División	FC Andorra	Cordoba	h-win	3	1	14	8	19	5	3	7	5	3	2	4	0	0	41.00	59.00	16	23	\N	\N	\N	\N	\N	2025-12-02 06:19:31.947448	\N	\N	2	1	h-win	yes
+3252	1391295	2025-09-14	Spain	Segunda División	Racing Santander	Cultural Leonesa	a-win	2	4	20	8	11	5	11	1	1	2	0	2	0	0	59.00	41.00	8	15	\N	\N	\N	\N	\N	2025-12-02 06:19:32.027921	\N	\N	0	3	a-win	yes
+3253	1391293	2025-09-14	Spain	Segunda División	Sporting Gijon	Burgos	a-win	2	3	29	9	10	5	8	4	0	1	1	2	0	0	53.00	47.00	8	10	\N	\N	\N	\N	\N	2025-12-02 06:19:32.102058	\N	\N	0	2	a-win	yes
+3254	1391297	2025-09-14	Spain	Segunda División	Castellón	AD Ceuta FC	draw	3	3	15	7	10	5	10	6	1	3	3	5	0	1	61.00	39.00	11	12	\N	\N	\N	\N	\N	2025-12-02 06:19:32.18743	\N	\N	2	1	h-win	yes
+3255	1391292	2025-09-14	Spain	Segunda División	Granada CF	Leganes	a-win	0	2	13	4	5	3	5	1	1	2	2	3	0	0	53.00	47.00	12	18	\N	\N	\N	\N	\N	2025-12-02 06:19:32.258793	\N	\N	0	1	a-win	yes
+3256	1391291	2025-09-15	Spain	Segunda División	Zaragoza	Albacete	draw	0	0	10	1	6	1	3	6	4	1	1	3	0	0	61.00	39.00	7	16	\N	\N	\N	\N	\N	2025-12-02 06:19:32.347254	\N	\N	0	0	draw	yes
+3257	1391307	2025-09-19	Spain	Segunda División	Deportivo La Coruna	Huesca	h-win	4	0	16	6	6	0	6	3	5	0	1	2	0	0	44.00	56.00	14	9	\N	\N	\N	\N	\N	2025-12-02 06:19:32.427144	\N	\N	3	0	h-win	yes
+3258	1391301	2025-09-20	Spain	Segunda División	Cultural Leonesa	Castellón	a-win	1	3	10	2	13	8	1	4	0	2	2	5	1	0	53.00	47.00	15	11	\N	\N	\N	\N	\N	2025-12-02 06:19:32.508612	\N	\N	0	2	a-win	yes
+3259	1391302	2025-09-20	Spain	Segunda División	Leganes	Las Palmas	a-win	0	1	8	3	3	1	2	4	4	6	7	5	1	0	43.00	57.00	23	16	\N	\N	\N	\N	\N	2025-12-02 06:19:32.591952	\N	\N	0	0	draw	yes
+3260	1396952	2025-09-20	Spain	Segunda División	FC Andorra	Mirandes	draw	1	1	18	6	7	2	8	4	0	0	2	5	0	0	77.00	23.00	15	22	\N	\N	\N	\N	\N	2025-12-02 06:19:32.687499	\N	\N	1	1	draw	yes
+3261	1391300	2025-09-20	Spain	Segunda División	Almeria	Sporting Gijon	h-win	2	1	24	9	9	5	6	1	1	4	4	8	0	2	68.00	32.00	15	7	\N	\N	\N	\N	\N	2025-12-02 06:19:32.767216	\N	\N	0	1	a-win	yes
+3262	1391306	2025-09-21	Spain	Segunda División	AD Ceuta FC	Zaragoza	h-win	1	0	7	3	12	3	6	5	2	4	5	2	0	0	54.00	46.00	18	10	\N	\N	\N	\N	\N	2025-12-02 06:19:32.847134	\N	\N	0	0	draw	yes
+3263	1391309	2025-09-21	Spain	Segunda División	Albacete	Valladolid	h-win	2	0	19	8	15	5	2	6	2	1	3	3	0	0	36.00	64.00	8	12	\N	\N	\N	\N	\N	2025-12-02 06:19:32.922071	\N	\N	0	0	draw	yes
+3264	1391308	2025-09-21	Spain	Segunda División	Malaga	Cadiz	a-win	0	1	17	5	7	3	5	2	5	0	1	2	0	0	62.00	38.00	10	11	\N	\N	\N	\N	\N	2025-12-02 06:19:33.007196	\N	\N	0	1	a-win	yes
+3265	1391310	2025-09-21	Spain	Segunda División	Eibar	Real Sociedad II	h-win	2	1	12	5	16	4	2	3	1	2	2	2	0	0	51.00	49.00	14	18	\N	\N	\N	\N	\N	2025-12-02 06:19:33.087036	\N	\N	1	0	h-win	yes
+3266	1391303	2025-09-21	Spain	Segunda División	Cordoba	Racing Santander	draw	2	2	24	5	9	6	12	1	9	4	2	3	1	0	67.00	33.00	8	15	\N	\N	\N	\N	\N	2025-12-02 06:19:33.161652	\N	\N	0	0	draw	yes
+3267	1391305	2025-09-22	Spain	Segunda División	Burgos	Granada CF	draw	1	1	16	3	7	2	6	1	0	0	1	3	0	0	54.00	46.00	9	13	\N	\N	\N	\N	\N	2025-12-02 06:19:33.247156	\N	\N	0	0	draw	yes
+3268	1391312	2025-09-26	Spain	Segunda División	Mirandes	Zaragoza	a-win	0	1	14	2	10	2	4	2	2	0	3	4	0	0	50.00	50.00	19	18	\N	\N	\N	\N	\N	2025-12-02 06:19:33.327202	\N	\N	0	1	a-win	yes
+3269	1391317	2025-09-27	Spain	Segunda División	Eibar	Deportivo La Coruna	draw	1	1	23	10	9	3	6	2	0	1	4	5	0	0	66.00	34.00	13	13	\N	\N	\N	\N	\N	2025-12-02 06:19:33.407285	\N	\N	0	1	a-win	yes
+3270	1396953	2025-09-27	Spain	Segunda División	Racing Santander	FC Andorra	a-win	1	2	18	6	14	4	15	3	3	9	3	3	0	0	58.00	42.00	11	17	\N	\N	\N	\N	\N	2025-12-02 06:19:33.487605	\N	\N	0	0	draw	yes
+3271	1391316	2025-09-27	Spain	Segunda División	Las Palmas	Almeria	a-win	0	1	9	3	13	2	5	1	6	0	2	4	1	1	63.00	37.00	12	17	\N	\N	\N	\N	\N	2025-12-02 06:19:33.562111	\N	\N	0	1	a-win	yes
+3272	1391315	2025-09-28	Spain	Segunda División	Real Sociedad II	Cordoba	draw	1	1	10	5	13	3	8	5	2	3	4	5	0	0	43.00	57.00	23	19	\N	\N	\N	\N	\N	2025-12-02 06:19:33.632822	\N	\N	1	0	h-win	yes
+3273	1391318	2025-09-28	Spain	Segunda División	Cadiz	AD Ceuta FC	draw	0	0	8	3	11	3	1	1	4	1	2	2	0	0	42.00	58.00	10	16	\N	\N	\N	\N	\N	2025-12-02 06:19:33.707362	\N	\N	0	0	draw	yes
+3274	1391314	2025-09-28	Spain	Segunda División	Burgos	Malaga	h-win	2	1	7	3	6	2	0	3	1	0	5	4	0	1	49.00	51.00	13	17	\N	\N	\N	\N	\N	2025-12-02 06:19:33.787156	\N	\N	1	1	draw	yes
+3275	1391319	2025-09-28	Spain	Segunda División	Valladolid	Cultural Leonesa	a-win	0	1	18	1	9	4	2	2	0	0	3	3	0	0	69.00	31.00	14	21	\N	\N	\N	\N	\N	2025-12-02 06:19:33.867094	\N	\N	0	1	a-win	yes
+3276	1391320	2025-09-28	Spain	Segunda División	Sporting Gijon	Albacete	a-win	3	4	11	6	11	7	2	8	5	0	1	2	0	0	48.00	52.00	12	9	\N	\N	\N	\N	\N	2025-12-02 06:19:33.947043	\N	\N	3	1	h-win	yes
+3277	1391321	2025-09-28	Spain	Segunda División	Huesca	Granada CF	a-win	0	1	15	2	9	3	13	2	6	3	1	1	0	0	61.00	39.00	12	12	\N	\N	\N	\N	\N	2025-12-02 06:19:34.047653	\N	\N	0	1	a-win	yes
+3278	1391311	2025-09-29	Spain	Segunda División	Leganes	Castellón	a-win	0	1	7	0	10	1	6	2	1	0	4	2	0	0	58.00	42.00	18	20	\N	\N	\N	\N	\N	2025-12-02 06:19:34.127328	\N	\N	0	1	a-win	yes
+3279	1391328	2025-10-03	Spain	Segunda División	AD Ceuta FC	Eibar	h-win	1	0	12	3	5	1	7	3	2	0	4	1	0	1	62.00	38.00	13	10	\N	\N	\N	\N	\N	2025-12-02 06:19:34.207194	\N	\N	1	0	h-win	yes
+3280	1391322	2025-10-04	Spain	Segunda División	Deportivo La Coruna	Almeria	draw	1	1	15	4	10	3	4	2	8	1	3	3	0	0	47.00	53.00	11	13	\N	\N	\N	\N	\N	2025-12-02 06:19:34.29771	\N	\N	0	1	a-win	yes
+3281	1391330	2025-10-04	Spain	Segunda División	Huesca	Burgos	h-win	2	1	9	4	4	2	1	1	2	2	2	3	0	0	45.00	55.00	14	13	\N	\N	\N	\N	\N	2025-12-02 06:19:34.376852	\N	\N	1	0	h-win	yes
+3282	1396954	2025-10-04	Spain	Segunda División	FC Andorra	Leganes	a-win	1	2	8	4	11	5	7	1	5	1	2	3	1	0	61.00	39.00	9	9	\N	\N	\N	\N	\N	2025-12-02 06:19:34.466969	\N	\N	0	0	draw	yes
+3283	1391323	2025-10-04	Spain	Segunda División	Granada CF	Real Sociedad II	h-win	5	2	13	5	14	8	2	5	1	2	2	4	0	0	44.00	56.00	18	18	\N	\N	\N	\N	\N	2025-12-02 06:19:34.547128	\N	\N	5	1	h-win	yes
+3284	1391325	2025-10-05	Spain	Segunda División	Zaragoza	Cordoba	a-win	0	1	10	4	11	2	7	4	4	1	6	5	1	0	52.00	48.00	12	18	\N	\N	\N	\N	\N	2025-12-02 06:19:34.627097	\N	\N	0	0	draw	yes
+3285	1391327	2025-10-05	Spain	Segunda División	Castellón	Sporting Gijon	h-win	3	1	12	5	5	4	3	1	0	0	3	6	0	0	63.00	37.00	13	18	\N	\N	\N	\N	\N	2025-12-02 06:19:34.697695	\N	\N	2	1	h-win	yes
+3286	1391331	2025-10-05	Spain	Segunda División	Valladolid	Mirandes	draw	1	1	22	5	10	2	14	2	4	2	0	2	0	0	70.00	30.00	9	11	\N	\N	\N	\N	\N	2025-12-02 06:19:34.775768	\N	\N	0	1	a-win	yes
+3287	1391324	2025-10-05	Spain	Segunda División	Racing Santander	Malaga	h-win	3	0	16	8	10	5	11	3	4	2	2	0	0	1	57.00	43.00	16	15	\N	\N	\N	\N	\N	2025-12-02 06:19:34.847125	\N	\N	0	0	draw	yes
+3288	1391332	2025-10-05	Spain	Segunda División	Las Palmas	Cadiz	h-win	1	0	14	1	8	3	6	5	2	2	1	4	0	0	61.00	39.00	11	18	\N	\N	\N	\N	\N	2025-12-02 06:19:34.926811	\N	\N	0	0	draw	yes
+3289	1391329	2025-10-06	Spain	Segunda División	Cultural Leonesa	Albacete	draw	0	0	6	1	9	3	6	1	3	1	1	1	0	1	52.00	48.00	19	11	\N	\N	\N	\N	\N	2025-12-02 06:19:35.006667	\N	\N	0	0	draw	yes
+3290	1391337	2025-10-10	Spain	Segunda División	Granada CF	Las Palmas	draw	0	0	11	1	9	1	7	7	1	1	1	1	0	0	40.00	60.00	18	10	\N	\N	\N	\N	\N	2025-12-02 06:19:35.086897	\N	\N	0	0	draw	yes
+3291	1391335	2025-10-11	Spain	Segunda División	Mirandes	Leganes	draw	0	0	13	4	17	7	3	10	2	1	6	1	0	0	31.00	69.00	16	7	\N	\N	\N	\N	\N	2025-12-02 06:19:35.166749	\N	\N	0	0	draw	yes
+3292	1391341	2025-10-11	Spain	Segunda División	Almeria	Zaragoza	h-win	4	2	22	14	14	5	7	5	0	2	2	2	0	0	58.00	42.00	18	12	\N	\N	\N	\N	\N	2025-12-02 06:19:35.246808	\N	\N	0	0	draw	yes
+3293	1396955	2025-10-11	Spain	Segunda División	Real Sociedad II	FC Andorra	h-win	3	0	9	5	10	3	2	4	5	1	4	2	0	1	37.00	63.00	18	13	\N	\N	\N	\N	\N	2025-12-02 06:19:35.319787	\N	\N	1	0	h-win	yes
+3294	1391336	2025-10-12	Spain	Segunda División	Albacete	AD Ceuta FC	draw	0	0	13	4	3	1	6	3	3	2	1	3	0	0	40.00	60.00	8	17	\N	\N	\N	\N	\N	2025-12-02 06:19:35.39178	\N	\N	0	0	draw	yes
+3295	1391343	2025-10-12	Spain	Segunda División	Eibar	Castellón	draw	0	0	7	0	16	5	1	7	4	3	1	4	0	0	50.00	50.00	7	16	\N	\N	\N	\N	\N	2025-12-02 06:19:35.466646	\N	\N	0	0	draw	yes
+3296	1391333	2025-10-12	Spain	Segunda División	Sporting Gijon	Racing Santander	h-win	2	1	9	4	13	3	4	6	4	1	1	6	1	2	41.00	59.00	9	13	\N	\N	\N	\N	\N	2025-12-02 06:19:35.538037	\N	\N	1	0	h-win	yes
+3297	1391334	2025-10-12	Spain	Segunda División	Cadiz	Huesca	h-win	1	0	11	2	10	1	13	2	1	3	2	3	0	0	59.00	41.00	12	12	\N	\N	\N	\N	\N	2025-12-02 06:19:35.608335	\N	\N	0	0	draw	yes
+3298	1391342	2025-10-12	Spain	Segunda División	Burgos	Valladolid	a-win	0	1	7	1	11	3	2	2	4	2	8	7	0	0	48.00	52.00	16	28	\N	\N	\N	\N	\N	2025-12-02 06:19:35.686715	\N	\N	0	0	draw	yes
+3299	1391339	2025-10-12	Spain	Segunda División	Malaga	Deportivo La Coruna	h-win	3	0	15	6	10	5	1	9	3	4	1	3	0	0	43.00	57.00	15	11	\N	\N	\N	\N	\N	2025-12-02 06:19:35.762958	\N	\N	2	0	h-win	yes
+3300	1391340	2025-10-13	Spain	Segunda División	Cordoba	Cultural Leonesa	h-win	1	0	19	5	15	5	4	6	2	4	4	2	0	0	55.00	45.00	19	15	\N	\N	\N	\N	\N	2025-12-02 06:19:35.835664	\N	\N	1	0	h-win	yes
+3301	1396956	2025-10-17	Spain	Segunda División	FC Andorra	Granada CF	draw	0	0	13	3	13	4	5	3	0	2	4	2	0	0	61.00	39.00	13	13	\N	\N	\N	\N	\N	2025-12-02 06:19:35.906801	\N	\N	0	0	draw	yes
+3302	1391350	2025-10-18	Spain	Segunda División	AD Ceuta FC	Mirandes	h-win	2	0	12	5	6	0	5	5	2	1	2	1	0	0	54.00	46.00	12	6	\N	\N	\N	\N	\N	2025-12-02 06:19:35.986594	\N	\N	2	0	h-win	yes
+3303	1391344	2025-10-18	Spain	Segunda División	Zaragoza	Cultural Leonesa	a-win	0	5	9	2	19	13	3	5	1	1	5	2	2	0	42.00	58.00	10	10	\N	\N	\N	\N	\N	2025-12-02 06:19:36.0616	\N	\N	0	2	a-win	yes
+3304	1391345	2025-10-19	Spain	Segunda División	Leganes	Malaga	h-win	2	0	15	8	14	5	7	5	2	3	1	0	0	0	41.00	59.00	9	7	\N	\N	\N	\N	\N	2025-12-02 06:19:36.146737	\N	\N	1	0	h-win	yes
+3305	1391346	2025-10-19	Spain	Segunda División	Valladolid	Sporting Gijon	a-win	2	3	17	5	7	5	5	1	0	0	0	3	0	0	64.00	36.00	12	9	\N	\N	\N	\N	\N	2025-12-02 06:19:36.235854	\N	\N	1	1	draw	yes
+3306	1391351	2025-10-19	Spain	Segunda División	Castellón	Albacete	a-win	0	1	22	5	11	8	9	3	0	2	5	3	2	1	64.00	36.00	14	18	\N	\N	\N	\N	\N	2025-12-02 06:19:36.311612	\N	\N	0	1	a-win	yes
+3307	1391353	2025-10-19	Spain	Segunda División	Cordoba	Almeria	draw	1	1	14	5	13	4	3	2	2	5	2	2	0	0	47.00	53.00	17	11	\N	\N	\N	\N	\N	2025-12-02 06:19:36.406735	\N	\N	1	1	draw	yes
+3308	1391352	2025-10-19	Spain	Segunda División	Racing Santander	Deportivo La Coruna	h-win	2	1	21	6	11	5	6	6	0	1	3	1	0	0	54.00	46.00	9	11	\N	\N	\N	\N	\N	2025-12-02 06:19:36.50202	\N	\N	1	1	draw	yes
+3309	1391349	2025-10-19	Spain	Segunda División	Las Palmas	Eibar	h-win	3	1	11	9	9	2	1	5	0	3	2	1	0	0	40.00	60.00	16	17	\N	\N	\N	\N	\N	2025-12-02 06:19:36.586941	\N	\N	1	0	h-win	yes
+3310	1396957	2025-10-20	Spain	Segunda División	Cadiz	Burgos	a-win	1	3	9	3	13	4	1	4	3	1	3	4	0	0	60.00	40.00	14	19	\N	\N	\N	\N	\N	2025-12-02 06:19:36.666581	\N	\N	1	2	a-win	yes
+3311	1391355	2025-10-24	Spain	Segunda División	Huesca	Las Palmas	draw	1	1	13	3	12	1	5	4	1	2	3	1	0	0	30.00	70.00	19	7	\N	\N	\N	\N	\N	2025-12-02 06:19:36.746956	\N	\N	1	0	h-win	yes
+3312	1396958	2025-10-25	Spain	Segunda División	Cultural Leonesa	AD Ceuta FC	a-win	0	1	15	2	5	1	8	2	1	3	3	1	0	0	67.00	33.00	15	11	\N	\N	\N	\N	\N	2025-12-02 06:19:36.826544	\N	\N	0	1	a-win	yes
+3313	1391358	2025-10-25	Spain	Segunda División	Eibar	Leganes	draw	0	0	12	3	9	3	7	2	3	1	2	5	0	0	52.00	48.00	13	10	\N	\N	\N	\N	\N	2025-12-02 06:19:36.90673	\N	\N	0	0	draw	yes
+3314	1391360	2025-10-25	Spain	Segunda División	Albacete	Cordoba	a-win	1	3	21	4	13	9	9	4	1	0	0	0	0	0	49.00	51.00	8	10	\N	\N	\N	\N	\N	2025-12-02 06:19:36.988738	\N	\N	0	2	a-win	yes
+3315	1391356	2025-10-25	Spain	Segunda División	Granada CF	Cadiz	draw	0	0	18	1	11	1	8	4	3	0	1	2	0	0	58.00	42.00	7	17	\N	\N	\N	\N	\N	2025-12-02 06:19:37.061687	\N	\N	0	0	draw	yes
+3316	1391362	2025-10-25	Spain	Segunda División	Burgos	Real Sociedad II	h-win	1	0	14	3	5	1	6	3	0	0	4	3	0	0	49.00	51.00	13	13	\N	\N	\N	\N	\N	2025-12-02 06:19:37.142119	\N	\N	0	0	draw	yes
+3317	1391361	2025-10-25	Spain	Segunda División	Mirandes	Racing Santander	a-win	1	3	14	3	16	7	5	4	2	0	5	2	0	0	51.00	49.00	28	15	\N	\N	\N	\N	\N	2025-12-02 06:19:37.227989	\N	\N	1	1	draw	yes
+3318	1396959	2025-10-26	Spain	Segunda División	Malaga	FC Andorra	h-win	4	1	16	7	23	5	2	7	1	2	2	3	1	0	47.00	53.00	12	13	\N	\N	\N	\N	\N	2025-12-02 06:19:37.302135	\N	\N	1	0	h-win	yes
+3319	1391357	2025-10-26	Spain	Segunda División	Almeria	Castellón	h-win	1	0	15	4	9	4	6	3	4	2	1	2	0	0	48.00	52.00	11	11	\N	\N	\N	\N	\N	2025-12-02 06:19:37.376819	\N	\N	0	0	draw	yes
+3320	1391354	2025-10-26	Spain	Segunda División	Sporting Gijon	Zaragoza	h-win	1	0	4	3	22	3	2	16	2	1	1	1	1	0	33.00	67.00	12	18	\N	\N	\N	\N	\N	2025-12-02 06:19:37.448285	\N	\N	1	0	h-win	yes
+3321	1391359	2025-10-26	Spain	Segunda División	Deportivo La Coruna	Valladolid	draw	1	1	10	4	15	5	4	5	0	0	3	3	0	1	57.00	43.00	18	17	\N	\N	\N	\N	\N	2025-12-02 06:19:37.526757	\N	\N	0	1	a-win	yes
+3322	1391887	2025-10-31	Spain	Segunda División	Racing Santander	Real Sociedad II	h-win	1	0	13	1	12	4	5	8	1	4	5	1	0	0	61.00	39.00	14	19	\N	\N	\N	\N	\N	2025-12-02 06:19:37.607452	0.93	1.36	1	0	h-win	yes
+3323	1391890	2025-11-01	Spain	Segunda División	Cultural Leonesa	Mirandes	h-win	3	2	18	7	11	6	6	2	2	1	0	3	0	0	59.00	41.00	11	13	\N	\N	\N	12	21	2025-12-02 06:19:37.767908	1.11	0.66	1	1	draw	yes
+3324	1391891	2025-11-01	Spain	Segunda División	Leganes	Burgos	a-win	1	2	13	3	6	2	9	4	0	3	3	3	0	0	62.00	38.00	17	17	\N	\N	\N	18	5	2025-12-02 06:19:37.847223	1.29	0.90	1	2	a-win	yes
+3325	1391888	2025-11-01	Spain	Segunda División	Albacete	Huesca	h-win	2	1	14	6	21	4	7	7	1	1	3	0	0	0	40.00	60.00	13	6	\N	\N	\N	15	16	2025-12-02 06:19:37.926806	1.11	2.40	0	1	a-win	yes
+3326	1391895	2025-11-01	Spain	Segunda División	Almeria	Eibar	h-win	3	1	11	5	12	5	3	7	0	1	2	3	0	0	42.00	58.00	15	7	\N	\N	\N	3	20	2025-12-02 06:19:38.00841	1.85	0.85	3	0	h-win	yes
+3327	1396960	2025-11-02	Spain	Segunda División	FC Andorra	Cadiz	draw	0	0	15	4	5	1	9	3	2	1	3	2	0	0	56.00	44.00	19	14	\N	\N	\N	19	7	2025-12-02 06:19:38.086965	1.31	0.26	0	0	draw	yes
+3328	1391896	2025-11-02	Spain	Segunda División	Cordoba	AD Ceuta FC	h-win	2	0	12	4	12	2	4	5	5	2	2	4	0	0	53.00	47.00	18	17	\N	\N	\N	10	8	2025-12-02 06:19:38.167161	1.50	2.20	2	0	h-win	yes
+3329	1391892	2025-11-02	Spain	Segunda División	Sporting Gijon	Las Palmas	draw	0	0	5	1	8	2	2	3	3	3	2	2	0	0	32.00	68.00	21	12	\N	\N	\N	11	4	2025-12-02 06:19:38.247297	0.25	0.92	0	0	draw	yes
+3330	1391893	2025-11-02	Spain	Segunda División	Castellón	Malaga	h-win	2	1	19	6	9	1	7	4	4	3	6	3	1	0	51.00	49.00	16	14	\N	\N	\N	6	13	2025-12-02 06:19:38.32693	1.41	1.28	0	0	draw	yes
+3331	1391889	2025-11-02	Spain	Segunda División	Zaragoza	Deportivo La Coruna	a-win	0	2	13	3	14	6	2	8	2	1	1	1	0	0	48.00	52.00	21	10	\N	\N	\N	22	1	2025-12-02 06:19:38.407351	0.78	1.15	0	0	draw	yes
+3332	1391894	2025-11-03	Spain	Segunda División	Valladolid	Granada CF	h-win	2	1	17	6	8	3	3	2	1	3	3	4	0	1	51.00	49.00	21	13	\N	\N	\N	9	14	2025-12-02 06:19:38.487875	2.26	0.72	0	1	a-win	yes
+3333	1391348	2025-11-05	Spain	Segunda División	Real Sociedad II	Huesca	h-win	2	0	13	5	10	1	3	6	2	1	2	3	0	0	55.00	45.00	19	16	\N	\N	\N	17	16	2025-12-02 06:19:38.567206	\N	\N	1	0	h-win	yes
+3334	1391905	2025-11-07	Spain	Segunda División	Mirandes	Sporting Gijon	h-win	2	1	20	9	7	2	4	4	2	2	4	2	0	0	45.00	55.00	11	10	\N	\N	\N	21	11	2025-12-02 06:19:38.646701	\N	\N	0	1	a-win	yes
+3335	1391904	2025-11-08	Spain	Segunda División	Real Sociedad II	Leganes	h-win	2	1	12	2	9	3	2	6	3	1	4	6	0	1	37.00	63.00	18	13	\N	\N	\N	17	18	2025-12-02 06:19:38.72712	1.70	1.30	1	1	draw	yes
+3336	1391902	2025-11-08	Spain	Segunda División	Eibar	Albacete	h-win	3	2	22	8	17	9	4	3	2	0	1	3	0	0	58.00	42.00	15	11	\N	\N	\N	20	15	2025-12-02 06:19:38.806815	3.45	2.99	0	1	a-win	yes
+3337	1396961	2025-11-08	Spain	Segunda División	Huesca	FC Andorra	draw	2	2	10	5	20	3	1	3	1	1	1	5	0	0	46.00	54.00	23	21	\N	\N	\N	16	19	2025-12-02 06:19:38.886626	1.34	1.72	0	2	a-win	yes
+3338	1391903	2025-11-08	Spain	Segunda División	Deportivo La Coruna	Cultural Leonesa	h-win	3	0	9	3	11	5	1	1	2	1	1	0	0	0	55.00	45.00	12	11	\N	\N	\N	1	12	2025-12-02 06:19:38.967162	1.87	0.70	2	0	h-win	yes
+3339	1391900	2025-11-08	Spain	Segunda División	Malaga	Cordoba	draw	2	2	11	7	15	6	2	2	3	2	3	3	0	1	60.00	40.00	17	22	\N	\N	\N	13	10	2025-12-02 06:19:39.047349	0.87	2.01	0	0	draw	yes
+3340	1391906	2025-11-09	Spain	Segunda División	Las Palmas	Racing Santander	h-win	3	1	16	7	9	2	5	5	2	3	5	1	1	0	50.00	50.00	18	14	\N	\N	\N	4	2	2025-12-02 06:19:39.141962	1.21	0.67	3	1	h-win	yes
+3341	1391899	2025-11-09	Spain	Segunda División	Granada CF	Zaragoza	h-win	3	1	16	7	11	3	6	5	3	0	0	4	0	0	59.00	41.00	10	16	\N	\N	\N	14	22	2025-12-02 06:19:39.21691	2.51	0.78	1	1	draw	yes
+3342	1391907	2025-11-09	Spain	Segunda División	Cadiz	Valladolid	draw	0	0	7	2	11	1	2	4	2	3	6	1	0	0	49.00	51.00	16	17	\N	\N	\N	7	9	2025-12-02 06:19:39.296569	0.74	0.82	0	0	draw	yes
+3343	1391898	2025-11-10	Spain	Segunda División	Burgos	Castellón	draw	0	0	9	3	11	2	5	6	2	3	2	2	0	0	39.00	61.00	14	11	\N	\N	\N	5	6	2025-12-02 06:19:39.376721	\N	\N	0	0	draw	yes
+3344	1391911	2025-11-14	Spain	Segunda División	Valladolid	Las Palmas	a-win	0	1	22	4	11	4	10	1	2	2	3	2	0	0	57.00	43.00	23	12	\N	\N	\N	9	4	2025-12-02 06:19:39.456743	\N	\N	0	1	a-win	yes
+3345	1396962	2025-11-15	Spain	Segunda División	Albacete	FC Andorra	h-win	1	0	17	6	17	6	4	2	3	1	1	1	0	0	33.00	67.00	9	8	\N	\N	\N	15	19	2025-12-02 06:19:39.532787	1.90	0.82	0	0	draw	yes
+3346	1391910	2025-11-15	Spain	Segunda División	Castellón	Real Sociedad II	h-win	5	4	23	8	19	9	14	1	4	2	3	1	0	0	65.00	35.00	9	13	\N	\N	\N	6	17	2025-12-02 06:19:39.60732	3.26	2.67	1	1	draw	yes
+3347	1391908	2025-11-15	Spain	Segunda División	Racing Santander	Granada CF	draw	2	2	13	5	13	5	7	4	3	5	5	5	0	0	50.00	50.00	8	17	\N	\N	\N	2	14	2025-12-02 06:19:39.681319	\N	\N	2	0	h-win	yes
+3387	1431141	2025-09-05	Spain	Primera División RFEF - Group 2	Real Betis II	Gimnastic	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.146788	\N	\N	2	2	draw	yes
+3348	1391915	2025-11-16	Spain	Segunda División	AD Ceuta FC	Leganes	a-win	1	2	14	1	12	5	6	3	2	0	2	2	0	0	62.00	38.00	15	17	\N	\N	\N	8	18	2025-12-02 06:19:39.767015	0.54	1.15	0	1	a-win	yes
+3349	1391913	2025-11-16	Spain	Segunda División	Almeria	Cadiz	h-win	3	0	16	9	7	3	13	5	0	3	3	1	0	0	59.00	41.00	13	11	\N	\N	\N	3	7	2025-12-02 06:19:39.847345	2.07	0.54	1	0	h-win	yes
+3350	1391912	2025-11-16	Spain	Segunda División	Sporting Gijon	Eibar	draw	1	1	13	6	6	3	10	3	0	0	3	5	0	0	61.00	39.00	13	12	\N	\N	\N	11	20	2025-12-02 06:19:39.926984	1.48	0.35	0	1	a-win	yes
+3351	1391914	2025-11-16	Spain	Segunda División	Cordoba	Deportivo La Coruna	a-win	1	3	22	6	9	3	6	5	0	1	5	5	1	0	62.00	38.00	13	10	\N	\N	\N	10	1	2025-12-02 06:19:40.007364	\N	\N	0	0	draw	yes
+3352	1391909	2025-11-16	Spain	Segunda División	Mirandes	Burgos	a-win	0	2	12	2	6	4	7	4	1	0	4	1	0	0	49.00	51.00	21	12	\N	\N	\N	21	5	2025-12-02 06:19:40.086761	\N	\N	0	0	draw	yes
+3353	1391918	2025-11-16	Spain	Segunda División	Zaragoza	Huesca	h-win	1	0	6	2	8	2	5	3	3	3	4	1	1	0	53.00	47.00	9	9	\N	\N	\N	22	16	2025-12-02 06:19:40.167072	\N	\N	1	0	h-win	yes
+3354	1391917	2025-11-17	Spain	Segunda División	Cultural Leonesa	Malaga	h-win	1	0	6	1	16	3	1	9	3	2	0	2	0	1	34.00	66.00	6	14	\N	\N	\N	12	13	2025-12-02 06:19:40.257168	\N	\N	1	0	h-win	yes
+3355	1391922	2025-11-21	Spain	Segunda División	Las Palmas	Albacete	h-win	2	1	10	3	10	3	5	3	3	3	1	5	0	0	60.00	40.00	16	16	\N	\N	\N	4	15	2025-12-02 06:19:40.337295	\N	\N	2	0	h-win	yes
+3356	1396963	2025-11-22	Spain	Segunda División	FC Andorra	Castellón	a-win	1	3	10	4	16	6	2	4	2	0	2	2	0	0	57.00	43.00	14	13	\N	\N	\N	19	6	2025-12-02 06:19:40.416948	1.08	2.75	0	1	a-win	yes
+3357	1391928	2025-11-22	Spain	Segunda División	Leganes	Almeria	a-win	0	3	22	10	7	4	5	0	4	3	1	4	0	0	58.00	42.00	8	17	\N	\N	\N	18	3	2025-12-02 06:19:40.497227	2.70	0.61	0	1	a-win	yes
+3358	1391919	2025-11-22	Spain	Segunda División	Eibar	Zaragoza	a-win	1	2	23	8	3	2	7	0	4	2	6	4	0	1	67.00	33.00	18	10	\N	\N	\N	20	22	2025-12-02 06:19:40.568238	2.86	1.50	1	1	draw	yes
+3359	1391923	2025-11-22	Spain	Segunda División	Granada CF	Cordoba	draw	1	1	18	7	11	5	7	8	1	4	3	5	0	0	49.00	51.00	11	20	\N	\N	\N	14	10	2025-12-02 06:19:40.65567	1.76	1.15	0	0	draw	yes
+3360	1391925	2025-11-23	Spain	Segunda División	Deportivo La Coruna	AD Ceuta FC	h-win	2	1	16	7	13	4	4	4	2	0	3	0	0	0	48.00	52.00	13	10	\N	\N	\N	1	8	2025-12-02 06:19:40.736508	2.64	1.41	1	0	h-win	yes
+3361	1391920	2025-11-23	Spain	Segunda División	Cadiz	Cultural Leonesa	a-win	1	2	16	7	14	7	11	6	1	0	1	1	0	0	51.00	49.00	11	12	\N	\N	\N	7	12	2025-12-02 06:19:40.810126	2.17	1.50	1	2	a-win	yes
+3362	1391927	2025-11-23	Spain	Segunda División	Huesca	Sporting Gijon	h-win	2	0	13	5	12	2	7	5	1	3	0	1	0	0	37.00	63.00	8	14	\N	\N	\N	16	11	2025-12-02 06:19:40.887431	2.60	2.18	1	0	h-win	yes
+3363	1391924	2025-11-23	Spain	Segunda División	Burgos	Racing Santander	a-win	0	2	9	1	15	4	6	3	6	1	5	5	0	0	52.00	48.00	17	16	\N	\N	\N	5	2	2025-12-02 06:19:40.967126	0.15	1.22	0	1	a-win	yes
+3364	1391929	2025-11-23	Spain	Segunda División	Malaga	Mirandes	h-win	3	2	18	11	14	6	2	1	0	2	1	3	0	1	61.00	39.00	19	17	\N	\N	\N	13	21	2025-12-02 06:19:41.047113	\N	\N	2	0	h-win	yes
+3365	1391921	2025-11-24	Spain	Segunda División	Real Sociedad II	Valladolid	h-win	1	0	13	4	20	3	4	9	0	3	3	3	0	0	43.00	57.00	13	11	\N	\N	\N	17	9	2025-12-02 06:19:41.136756	\N	\N	1	0	h-win	yes
+3366	1396964	2025-11-28	Spain	Segunda División	Sporting Gijon	FC Andorra	draw	1	1	23	10	10	2	8	5	1	6	3	3	0	0	44.00	56.00	11	8	\N	\N	\N	11	19	2025-12-02 06:19:41.227484	\N	\N	0	0	draw	yes
+3367	1391931	2025-11-29	Spain	Segunda División	AD Ceuta FC	Burgos	h-win	1	0	14	5	9	1	10	7	1	5	5	3	0	0	53.00	47.00	21	12	\N	\N	\N	8	5	2025-12-02 06:19:41.307095	1.92	1.75	1	0	h-win	yes
+3368	1391935	2025-11-29	Spain	Segunda División	Cultural Leonesa	Granada CF	a-win	0	1	10	4	8	3	4	4	2	1	2	3	0	0	54.00	46.00	11	22	\N	\N	\N	12	14	2025-12-02 06:19:41.387219	0.67	0.79	0	1	a-win	yes
+3369	1391939	2025-11-29	Spain	Segunda División	Albacete	Deportivo La Coruna	a-win	0	2	14	3	8	3	9	5	1	3	1	1	0	0	42.00	58.00	10	5	\N	\N	\N	15	1	2025-12-02 06:19:41.486692	\N	\N	0	1	a-win	yes
+3370	1391937	2025-11-29	Spain	Segunda División	Almeria	Huesca	draw	0	0	24	6	4	1	13	1	2	2	1	0	0	0	69.00	31.00	11	6	\N	\N	\N	3	16	2025-12-02 06:19:41.567227	\N	\N	0	0	draw	yes
+3371	1391932	2025-11-29	Spain	Segunda División	Valladolid	Malaga	draw	1	1	21	6	5	3	7	2	1	1	4	2	1	0	48.00	52.00	19	12	\N	\N	\N	9	13	2025-12-02 06:19:41.646633	\N	\N	1	0	h-win	yes
+3372	1391936	2025-11-30	Spain	Segunda División	Zaragoza	Leganes	h-win	3	2	20	11	4	2	5	3	3	3	2	4	0	2	63.00	37.00	15	18	\N	\N	\N	22	18	2025-12-02 06:19:41.726734	\N	\N	1	1	draw	yes
+3373	1391940	2025-11-30	Spain	Segunda División	Racing Santander	Eibar	h-win	4	0	11	8	13	6	3	5	2	5	0	3	0	0	53.00	47.00	13	19	\N	\N	\N	2	20	2025-12-02 06:19:41.806547	\N	\N	2	0	h-win	yes
+3374	1391933	2025-11-30	Spain	Segunda División	Cordoba	Cadiz	a-win	1	2	20	6	7	4	5	4	3	1	2	4	0	0	69.00	31.00	15	22	\N	\N	\N	10	7	2025-12-02 06:19:41.886757	\N	\N	0	0	draw	yes
+3375	1391934	2025-11-30	Spain	Segunda División	Mirandes	Real Sociedad II	h-win	1	0	16	5	16	6	2	3	3	1	3	2	0	1	56.00	44.00	15	15	\N	\N	\N	21	17	2025-12-02 06:19:41.967261	\N	\N	0	0	draw	yes
+3376	1391930	2025-11-30	Spain	Segunda División	Castellón	Las Palmas	h-win	1	0	18	5	10	1	3	3	4	2	3	2	0	0	45.00	55.00	14	9	\N	\N	\N	6	4	2025-12-02 06:19:42.046598	1.29	0.49	0	0	draw	yes
+3377	1431131	2025-08-29	Spain	Primera División RFEF - Group 2	Gimnastic	Algeciras	h-win	2	1	4	1	8	3	3	5	0	0	3	2	0	0	52.00	48.00	0	0	\N	\N	\N	\N	\N	2025-12-02 06:19:43.336997	\N	\N	1	0	h-win	yes
+3378	1431134	2025-08-30	Spain	Primera División RFEF - Group 2	Sabadell	Eldense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:43.416541	\N	\N	0	0	draw	yes
+3379	1431137	2025-08-30	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Europa Fc	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:43.490832	\N	\N	0	0	draw	yes
+3380	1431135	2025-08-30	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Ibiza	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:43.566751	\N	\N	0	1	a-win	yes
+3381	1431132	2025-08-30	Spain	Primera División RFEF - Group 2	Hércules	Tarazona	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:43.647275	\N	\N	0	0	draw	yes
+3382	1431136	2025-08-31	Spain	Primera División RFEF - Group 2	Teruel	Real Betis II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:43.726225	\N	\N	0	0	draw	yes
+3383	1431129	2025-08-31	Spain	Primera División RFEF - Group 2	Antequera	FC Cartagena	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:43.816631	\N	\N	0	0	draw	yes
+3384	1431130	2025-09-01	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Sanluqueño	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:43.895348	\N	\N	0	0	draw	yes
+3385	1431138	2025-09-01	Spain	Primera División RFEF - Group 2	Villarreal II	Alcorcon	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:43.966492	\N	\N	0	0	draw	yes
+3386	1431133	2025-09-01	Spain	Primera División RFEF - Group 2	Marbella	Real Murcia	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.046802	\N	\N	1	1	draw	yes
+3389	1431143	2025-09-06	Spain	Primera División RFEF - Group 2	Eldense	Villarreal II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.30662	\N	\N	0	0	draw	yes
+3390	1431139	2025-09-06	Spain	Primera División RFEF - Group 2	Alcorcon	Teruel	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.38717	\N	\N	1	1	draw	yes
+3391	1431142	2025-09-06	Spain	Primera División RFEF - Group 2	Europa Fc	Sevilla Atletico	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.464966	\N	\N	0	1	a-win	yes
+3392	1431148	2025-09-06	Spain	Primera División RFEF - Group 2	Ibiza	Hércules	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.546558	\N	\N	2	1	h-win	yes
+3393	1431147	2025-09-07	Spain	Primera División RFEF - Group 2	Tarazona	Antequera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.626406	\N	\N	0	0	draw	yes
+3394	1431140	2025-09-07	Spain	Primera División RFEF - Group 2	Algeciras	Marbella	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.706484	\N	\N	0	0	draw	yes
+3395	1431145	2025-09-07	Spain	Primera División RFEF - Group 2	Real Murcia	Juventud Torremolinos	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.786491	\N	\N	1	0	h-win	yes
+3396	1431146	2025-09-07	Spain	Primera División RFEF - Group 2	Sanluqueño	Sabadell	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.866435	\N	\N	0	1	a-win	yes
+3397	1431152	2025-09-12	Spain	Primera División RFEF - Group 2	Hércules	Algeciras	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:44.946559	\N	\N	0	0	draw	yes
+3398	1431153	2025-09-13	Spain	Primera División RFEF - Group 2	Marbella	Ibiza	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.026368	\N	\N	1	0	h-win	yes
+3399	1431156	2025-09-13	Spain	Primera División RFEF - Group 2	Teruel	Eldense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.106583	\N	\N	0	0	draw	yes
+3400	1431158	2025-09-13	Spain	Primera División RFEF - Group 2	Villarreal II	Europa Fc	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.186582	\N	\N	0	2	a-win	yes
+3401	1431151	2025-09-13	Spain	Primera División RFEF - Group 2	Gimnastic	Sanluqueño	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.266496	\N	\N	0	2	a-win	yes
+3402	1431155	2025-09-13	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Real Betis II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.346569	\N	\N	1	0	h-win	yes
+3403	1431149	2025-09-13	Spain	Primera División RFEF - Group 2	Antequera	Alcorcon	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.431706	\N	\N	0	1	a-win	yes
+3404	1431150	2025-09-14	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Real Murcia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.505573	\N	\N	0	0	draw	yes
+3405	1431157	2025-09-14	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Tarazona	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.57641	\N	\N	1	1	draw	yes
+3406	1431165	2025-09-19	Spain	Primera División RFEF - Group 2	Real Murcia	Villarreal II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.65538	\N	\N	0	1	a-win	yes
+3407	1431161	2025-09-20	Spain	Primera División RFEF - Group 2	Real Betis II	Atlético Madrid II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.726509	\N	\N	0	1	a-win	yes
+3408	1431160	2025-09-20	Spain	Primera División RFEF - Group 2	Algeciras	Sabadell	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.806437	\N	\N	0	2	a-win	yes
+3409	1431159	2025-09-20	Spain	Primera División RFEF - Group 2	Alcorcon	Juventud Torremolinos	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.886563	\N	\N	1	0	h-win	yes
+3410	1431162	2025-09-20	Spain	Primera División RFEF - Group 2	Europa Fc	Gimnastic	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:45.966651	\N	\N	0	0	draw	yes
+3411	1431167	2025-09-21	Spain	Primera División RFEF - Group 2	Tarazona	Marbella	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.056507	\N	\N	0	0	draw	yes
+3412	1431163	2025-09-21	Spain	Primera División RFEF - Group 2	Eldense	Sevilla Atletico	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.135447	\N	\N	1	0	h-win	yes
+3413	1431164	2025-09-21	Spain	Primera División RFEF - Group 2	FC Cartagena	Hércules	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.212037	\N	\N	1	1	draw	yes
+3414	1431166	2025-09-21	Spain	Primera División RFEF - Group 2	Sanluqueño	Teruel	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.287427	\N	\N	0	1	a-win	yes
+3415	1431168	2025-09-21	Spain	Primera División RFEF - Group 2	Ibiza	Antequera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.366919	\N	\N	1	1	draw	yes
+3416	1431154	2025-09-24	Spain	Primera División RFEF - Group 2	Sabadell	FC Cartagena	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.4464	\N	\N	0	0	draw	yes
+3417	1431178	2025-09-27	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Antequera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.526425	\N	\N	0	0	draw	yes
+3418	1431174	2025-09-27	Spain	Primera División RFEF - Group 2	Sabadell	Villarreal II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.606486	\N	\N	1	0	h-win	yes
+3419	1431171	2025-09-27	Spain	Primera División RFEF - Group 2	Gimnastic	Eldense	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.687499	\N	\N	0	0	draw	yes
+3420	1431173	2025-09-27	Spain	Primera División RFEF - Group 2	Marbella	Real Betis II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.766355	\N	\N	0	1	a-win	yes
+3421	1431176	2025-09-28	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Tarazona	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.846423	\N	\N	0	0	draw	yes
+3422	1431177	2025-09-28	Spain	Primera División RFEF - Group 2	Teruel	Europa Fc	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:46.929359	\N	\N	1	0	h-win	yes
+3423	1431175	2025-09-28	Spain	Primera División RFEF - Group 2	Sanluqueño	FC Cartagena	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.0065	\N	\N	3	0	h-win	yes
+3424	1431172	2025-09-28	Spain	Primera División RFEF - Group 2	Hércules	Alcorcon	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.092586	\N	\N	0	0	draw	yes
+3425	1431169	2025-09-28	Spain	Primera División RFEF - Group 2	Algeciras	Real Murcia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.166664	\N	\N	1	0	h-win	yes
+3426	1431170	2025-09-28	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Ibiza	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.248057	\N	\N	2	0	h-win	yes
+3427	1431188	2025-10-03	Spain	Primera División RFEF - Group 2	Villarreal II	Atlético Madrid II	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.326574	\N	\N	1	3	a-win	yes
+3428	1431185	2025-10-03	Spain	Primera División RFEF - Group 2	Real Murcia	Sevilla Atletico	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.406661	\N	\N	0	1	a-win	yes
+3429	1431181	2025-10-04	Spain	Primera División RFEF - Group 2	Real Betis II	Algeciras	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.486619	\N	\N	0	1	a-win	yes
+3430	1431182	2025-10-04	Spain	Primera División RFEF - Group 2	Europa Fc	Marbella	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.575417	\N	\N	1	0	h-win	yes
+3431	1431179	2025-10-04	Spain	Primera División RFEF - Group 2	Alcorcon	Sanluqueño	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.726299	\N	\N	0	0	draw	yes
+3432	1431183	2025-10-04	Spain	Primera División RFEF - Group 2	Eldense	Juventud Torremolinos	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.806465	\N	\N	1	2	a-win	yes
+3433	1431187	2025-10-04	Spain	Primera División RFEF - Group 2	Ibiza	Gimnastic	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.884736	\N	\N	0	2	a-win	yes
+3434	1431180	2025-10-05	Spain	Primera División RFEF - Group 2	Antequera	Sabadell	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:47.966558	\N	\N	0	0	draw	yes
+3435	1431186	2025-10-05	Spain	Primera División RFEF - Group 2	Teruel	Hércules	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.052492	\N	\N	2	0	h-win	yes
+3436	1431184	2025-10-05	Spain	Primera División RFEF - Group 2	FC Cartagena	Tarazona	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.135568	\N	\N	2	0	h-win	yes
+3437	1431198	2025-10-11	Spain	Primera División RFEF - Group 2	Villarreal II	Real Betis II	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.231572	\N	\N	2	0	h-win	yes
+3438	1431192	2025-10-11	Spain	Primera División RFEF - Group 2	Marbella	Eldense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.306435	\N	\N	1	0	h-win	yes
+3439	1431196	2025-10-11	Spain	Primera División RFEF - Group 2	Tarazona	Real Murcia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.386462	\N	\N	0	0	draw	yes
+3440	1431189	2025-10-11	Spain	Primera División RFEF - Group 2	Algeciras	Europa Fc	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.466583	\N	\N	1	1	draw	yes
+3441	1431193	2025-10-12	Spain	Primera División RFEF - Group 2	Sabadell	Teruel	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.546391	\N	\N	0	0	draw	yes
+3442	1431197	2025-10-12	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Ibiza	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.626607	\N	\N	3	0	h-win	yes
+3443	1431195	2025-10-12	Spain	Primera División RFEF - Group 2	Sevilla Atletico	FC Cartagena	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.701477	\N	\N	0	0	draw	yes
+3444	1431194	2025-10-12	Spain	Primera División RFEF - Group 2	Sanluqueño	Antequera	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.775417	\N	\N	0	1	a-win	yes
+3445	1431190	2025-10-12	Spain	Primera División RFEF - Group 2	Gimnastic	Alcorcon	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.847419	\N	\N	0	1	a-win	yes
+3446	1431199	2025-10-17	Spain	Primera División RFEF - Group 2	Alcorcon	Sabadell	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.926688	\N	\N	0	1	a-win	yes
+3447	1431204	2025-10-17	Spain	Primera División RFEF - Group 2	FC Cartagena	Algeciras	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.006561	\N	\N	1	0	h-win	yes
+3448	1431206	2025-10-18	Spain	Primera División RFEF - Group 2	Hércules	Villarreal II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.086992	\N	\N	1	1	draw	yes
+3449	1431203	2025-10-18	Spain	Primera División RFEF - Group 2	Europa Fc	Eldense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.166972	\N	\N	0	0	draw	yes
+3450	1431205	2025-10-19	Spain	Primera División RFEF - Group 2	Gimnastic	Tarazona	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.246773	\N	\N	2	1	h-win	yes
+3451	1431201	2025-10-19	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Juventud Torremolinos	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.32645	\N	\N	2	0	h-win	yes
+3452	1431208	2025-10-19	Spain	Primera División RFEF - Group 2	Teruel	Sevilla Atletico	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.406679	\N	\N	0	0	draw	yes
+3453	1431207	2025-10-19	Spain	Primera División RFEF - Group 2	Real Murcia	Ibiza	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.486607	\N	\N	0	1	a-win	yes
+3454	1431200	2025-10-19	Spain	Primera División RFEF - Group 2	Antequera	Marbella	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.567671	\N	\N	1	0	h-win	yes
+3455	1431202	2025-10-19	Spain	Primera División RFEF - Group 2	Real Betis II	Sanluqueño	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.652401	\N	\N	1	0	h-win	yes
+3456	1431191	2025-10-22	Spain	Primera División RFEF - Group 2	Hércules	Atlético Madrid II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.756376	\N	\N	0	0	draw	yes
+3457	1431209	2025-10-25	Spain	Primera División RFEF - Group 2	Algeciras	Alcorcon	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.827432	\N	\N	1	0	h-win	yes
+3458	1431216	2025-10-25	Spain	Primera División RFEF - Group 2	Tarazona	Real Betis II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.906432	\N	\N	0	0	draw	yes
+3459	1431213	2025-10-25	Spain	Primera División RFEF - Group 2	Sabadell	Gimnastic	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:49.986353	\N	\N	0	0	draw	yes
+3460	1431214	2025-10-25	Spain	Primera División RFEF - Group 2	Sanluqueño	Juventud Torremolinos	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:50.066425	\N	\N	0	0	draw	yes
+3461	1431212	2025-10-26	Spain	Primera División RFEF - Group 2	Marbella	FC Cartagena	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:50.14655	\N	\N	0	0	draw	yes
+3462	1431217	2025-10-26	Spain	Primera División RFEF - Group 2	Ibiza	Teruel	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:50.226624	\N	\N	0	0	draw	yes
+3463	1431218	2025-10-26	Spain	Primera División RFEF - Group 2	Villarreal II	Antequera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:50.304471	\N	\N	0	1	a-win	yes
+3464	1431211	2025-10-26	Spain	Primera División RFEF - Group 2	Eldense	Real Murcia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:50.391541	\N	\N	0	0	draw	yes
+3465	1431215	2025-10-26	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Hércules	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:50.466636	\N	\N	0	0	draw	yes
+3466	1431210	2025-10-26	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Europa Fc	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:50.54654	\N	\N	1	0	h-win	yes
+3467	1431219	2025-10-31	Spain	Primera División RFEF - Group 2	Alcorcon	Sevilla Atletico	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:50.626566	\N	\N	0	0	draw	yes
+3468	1431228	2025-11-01	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Sabadell	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	3	2025-12-02 06:19:50.794225	\N	\N	0	1	a-win	yes
+3469	1431223	2025-11-01	Spain	Primera División RFEF - Group 2	Eldense	Algeciras	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	13	2025-12-02 06:19:50.872324	\N	\N	1	0	h-win	yes
+3470	1431224	2025-11-01	Spain	Primera División RFEF - Group 2	FC Cartagena	Villarreal II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	8	2025-12-02 06:19:50.951993	\N	\N	0	0	draw	yes
+3471	1431222	2025-11-01	Spain	Primera División RFEF - Group 2	Europa Fc	Sanluqueño	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	18	2025-12-02 06:19:51.032058	\N	\N	1	0	h-win	yes
+3472	1431227	2025-11-02	Spain	Primera División RFEF - Group 2	Teruel	Marbella	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	19	2025-12-02 06:19:51.112016	\N	\N	1	0	h-win	yes
+3473	1431226	2025-11-02	Spain	Primera División RFEF - Group 2	Tarazona	Ibiza	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	12	2025-12-02 06:19:51.206718	\N	\N	0	0	draw	yes
+3474	1431221	2025-11-02	Spain	Primera División RFEF - Group 2	Real Betis II	Real Murcia	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	5	2025-12-02 06:19:51.295511	\N	\N	0	1	a-win	yes
+3475	1431220	2025-11-02	Spain	Primera División RFEF - Group 2	Antequera	Hércules	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	14	2025-12-02 06:19:51.375493	\N	\N	0	0	draw	yes
+3476	1431225	2025-11-02	Spain	Primera División RFEF - Group 2	Gimnastic	Atlético Madrid II	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	1	2025-12-02 06:19:51.455718	\N	\N	0	1	a-win	yes
+3477	1431234	2025-11-07	Spain	Primera División RFEF - Group 2	Sabadell	Tarazona	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	15	2025-12-02 06:19:51.5464	\N	\N	0	0	draw	yes
+3478	1431230	2025-11-07	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Eldense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	10	2025-12-02 06:19:51.626902	\N	\N	1	1	draw	yes
+3479	1431236	2025-11-08	Spain	Primera División RFEF - Group 2	Teruel	FC Cartagena	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	4	2025-12-02 06:19:51.706422	\N	\N	1	1	draw	yes
+3480	1431231	2025-11-08	Spain	Primera División RFEF - Group 2	Hércules	Europa Fc	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	2	2025-12-02 06:19:51.786456	\N	\N	0	0	draw	yes
+3481	1431229	2025-11-08	Spain	Primera División RFEF - Group 2	Algeciras	Antequera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	16	2025-12-02 06:19:51.866833	\N	\N	1	0	h-win	yes
+3482	1431233	2025-11-08	Spain	Primera División RFEF - Group 2	Real Murcia	Gimnastic	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	7	2025-12-02 06:19:51.947018	\N	\N	2	1	h-win	yes
+3483	1431235	2025-11-09	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Juventud Torremolinos	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	11	2025-12-02 06:19:52.026853	\N	\N	0	1	a-win	yes
+3484	1431232	2025-11-09	Spain	Primera División RFEF - Group 2	Marbella	Alcorcon	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	9	2025-12-02 06:19:52.106874	\N	\N	1	1	draw	yes
+3485	1431237	2025-11-09	Spain	Primera División RFEF - Group 2	Ibiza	Real Betis II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	20	2025-12-02 06:19:52.186545	\N	\N	0	0	draw	yes
+3486	1431238	2025-11-09	Spain	Primera División RFEF - Group 2	Villarreal II	Sanluqueño	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	18	2025-12-02 06:19:52.28686	\N	\N	2	0	h-win	yes
+3487	1431241	2025-11-14	Spain	Primera División RFEF - Group 2	Real Betis II	Sabadell	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	3	2025-12-02 06:19:52.367164	\N	\N	0	1	a-win	yes
+3488	1431247	2025-11-15	Spain	Primera División RFEF - Group 2	Tarazona	Villarreal II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	8	2025-12-02 06:19:52.447129	\N	\N	0	1	a-win	yes
+3489	1431246	2025-11-15	Spain	Primera División RFEF - Group 2	Sanluqueño	Ibiza	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	12	2025-12-02 06:19:52.526407	\N	\N	0	0	draw	yes
+3490	1431239	2025-11-16	Spain	Primera División RFEF - Group 2	Alcorcon	Atlético Madrid II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	1	2025-12-02 06:19:52.606921	\N	\N	0	1	a-win	yes
+3491	1431245	2025-11-16	Spain	Primera División RFEF - Group 2	Real Murcia	Teruel	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	6	2025-12-02 06:19:52.681269	\N	\N	0	0	draw	yes
+3492	1431240	2025-11-16	Spain	Primera División RFEF - Group 2	Antequera	Sevilla Atletico	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	17	2025-12-02 06:19:52.755054	\N	\N	0	0	draw	yes
+3493	1431248	2025-11-16	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Algeciras	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	13	2025-12-02 06:19:52.827284	\N	\N	1	1	draw	yes
+3494	1431244	2025-11-16	Spain	Primera División RFEF - Group 2	Gimnastic	Marbella	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	19	2025-12-02 06:19:52.906604	\N	\N	1	0	h-win	yes
+3495	1431243	2025-11-16	Spain	Primera División RFEF - Group 2	Eldense	Hércules	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	14	2025-12-02 06:19:52.995542	\N	\N	1	0	h-win	yes
+3496	1431242	2025-11-16	Spain	Primera División RFEF - Group 2	Europa Fc	FC Cartagena	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	4	2025-12-02 06:19:53.066505	\N	\N	0	0	draw	yes
+3497	1431258	2025-11-21	Spain	Primera División RFEF - Group 2	Villarreal II	Gimnastic	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	7	2025-12-02 06:19:53.146547	\N	\N	0	0	draw	yes
+3498	1431251	2025-11-22	Spain	Primera División RFEF - Group 2	Antequera	Real Murcia	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	5	2025-12-02 06:19:53.226409	\N	\N	0	1	a-win	yes
+3499	1431256	2025-11-22	Spain	Primera División RFEF - Group 2	Teruel	Juventud Torremolinos	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	11	2025-12-02 06:19:53.30664	\N	\N	0	0	draw	yes
+3500	1431253	2025-11-22	Spain	Primera División RFEF - Group 2	Hércules	Real Betis II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	20	2025-12-02 06:19:53.394531	\N	\N	1	0	h-win	yes
+3501	1431249	2025-11-23	Spain	Primera División RFEF - Group 2	Alcorcon	Tarazona	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	15	2025-12-02 06:19:53.486855	\N	\N	1	0	h-win	yes
+3502	1431250	2025-11-23	Spain	Primera División RFEF - Group 2	Algeciras	Sanluqueño	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	18	2025-12-02 06:19:53.566553	\N	\N	0	0	draw	yes
+3503	1431252	2025-11-23	Spain	Primera División RFEF - Group 2	FC Cartagena	Eldense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	10	2025-12-02 06:19:53.646567	\N	\N	0	0	draw	yes
+3504	1431257	2025-11-23	Spain	Primera División RFEF - Group 2	Ibiza	Europa Fc	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	2	2025-12-02 06:19:53.732501	\N	\N	0	1	a-win	yes
+3505	1431255	2025-11-23	Spain	Primera División RFEF - Group 2	Sabadell	Sevilla Atletico	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	17	2025-12-02 06:19:53.815577	\N	\N	1	0	h-win	yes
+3506	1431260	2025-11-28	Spain	Primera División RFEF - Group 2	Real Betis II	FC Cartagena	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	4	2025-12-02 06:19:53.886221	\N	\N	0	0	draw	yes
+3507	1431261	2025-11-28	Spain	Primera División RFEF - Group 2	Europa Fc	Sabadell	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	3	2025-12-02 06:19:53.971292	\N	\N	0	0	draw	yes
+3508	1431265	2025-11-29	Spain	Primera División RFEF - Group 2	Sanluqueño	Tarazona	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	15	2025-12-02 06:19:54.046624	\N	\N	1	0	h-win	yes
+3509	1431266	2025-11-29	Spain	Primera División RFEF - Group 2	Sevilla Atletico	Marbella	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	19	2025-12-02 06:19:54.126514	\N	\N	0	0	draw	yes
+3510	1431262	2025-11-29	Spain	Primera División RFEF - Group 2	Eldense	Antequera	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	16	2025-12-02 06:19:54.206957	\N	\N	1	1	draw	yes
+3511	1431268	2025-11-30	Spain	Primera División RFEF - Group 2	Ibiza	Algeciras	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	13	2025-12-02 06:19:54.286539	\N	\N	2	0	h-win	yes
+3512	1431267	2025-11-30	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Villarreal II	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	8	2025-12-02 06:19:54.366745	\N	\N	0	2	a-win	yes
+3513	1431263	2025-11-30	Spain	Primera División RFEF - Group 2	Gimnastic	Hércules	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	14	2025-12-02 06:19:54.441214	\N	\N	2	1	h-win	yes
+3514	1431264	2025-11-30	Spain	Primera División RFEF - Group 2	Real Murcia	Alcorcon	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	9	2025-12-02 06:19:54.515448	\N	\N	1	0	h-win	yes
+3515	1431259	2025-11-30	Spain	Primera División RFEF - Group 2	Atlético Madrid II	Teruel	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	6	2025-12-02 06:19:54.586501	\N	\N	0	0	draw	yes
+3516	1431516	2025-08-29	Spain	Primera División RFEF - Group 1	Real Madrid II	Lugo	h-win	2	1	8	3	9	3	4	3	0	0	3	2	0	0	43.00	57.00	0	0	\N	\N	\N	\N	\N	2025-12-02 06:19:55.902139	\N	\N	0	0	draw	yes
+3517	1431513	2025-08-30	Spain	Primera División RFEF - Group 1	Pontevedra	Cacereño	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.015818	\N	\N	0	1	a-win	yes
+3518	1431517	2025-08-30	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Osasuna II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.106542	\N	\N	0	0	draw	yes
+3519	1431518	2025-08-30	Spain	Primera División RFEF - Group 1	Zamora	Celta de Vigo II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.194972	\N	\N	0	0	draw	yes
+3520	1431511	2025-08-30	Spain	Primera División RFEF - Group 1	Mérida AD	Barakaldo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.296122	\N	\N	0	0	draw	yes
+3521	1431514	2025-08-31	Spain	Primera División RFEF - Group 1	Racing Ferrol	CF Talavera	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.386626	\N	\N	1	1	draw	yes
+3522	1431509	2025-08-31	Spain	Primera División RFEF - Group 1	Arenas Getxo	Arenteiro	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.466415	\N	\N	1	0	h-win	yes
+3523	1431510	2025-08-31	Spain	Primera División RFEF - Group 1	Guadalajara	Tenerife	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.546402	\N	\N	0	1	a-win	yes
+3524	1431512	2025-08-31	Spain	Primera División RFEF - Group 1	Ourense CF	Athletic Club II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.628402	\N	\N	0	0	draw	yes
+3525	1431515	2025-08-31	Spain	Primera División RFEF - Group 1	Real Avilés	Ponferradina	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.706608	\N	\N	0	3	a-win	yes
+3526	1431524	2025-09-06	Spain	Primera División RFEF - Group 1	Lugo	Real Avilés	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.786786	\N	\N	0	0	draw	yes
+3527	1431521	2025-09-06	Spain	Primera División RFEF - Group 1	Barakaldo	Zamora	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.861878	\N	\N	0	0	draw	yes
+3528	1431519	2025-09-06	Spain	Primera División RFEF - Group 1	Arenas Getxo	Cacereño	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:56.936944	\N	\N	2	1	h-win	yes
+3529	1431526	2025-09-06	Spain	Primera División RFEF - Group 1	Ponferradina	Pontevedra	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.01619	\N	\N	0	0	draw	yes
+3530	1431528	2025-09-06	Spain	Primera División RFEF - Group 1	Tenerife	Mérida AD	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.096529	\N	\N	1	0	h-win	yes
+3531	1431523	2025-09-07	Spain	Primera División RFEF - Group 1	CF Talavera	Athletic Club II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.174448	\N	\N	1	1	draw	yes
+3532	1431522	2025-09-07	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Guadalajara	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.246377	\N	\N	0	0	draw	yes
+3533	1431525	2025-09-07	Spain	Primera División RFEF - Group 1	Osasuna II	Ourense CF	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.326435	\N	\N	0	1	a-win	yes
+3534	1431520	2025-09-07	Spain	Primera División RFEF - Group 1	Arenteiro	Unionistas de Salamanca	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.406299	\N	\N	0	0	draw	yes
+3535	1431530	2025-09-12	Spain	Primera División RFEF - Group 1	Barakaldo	Arenas Getxo	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.486589	\N	\N	0	0	draw	yes
+3536	1431533	2025-09-13	Spain	Primera División RFEF - Group 1	Mérida AD	Celta de Vigo II	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.566383	\N	\N	0	1	a-win	yes
+3537	1431534	2025-09-14	Spain	Primera División RFEF - Group 1	Ourense CF	CF Talavera	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.645889	\N	\N	1	1	draw	yes
+3538	1431537	2025-09-14	Spain	Primera División RFEF - Group 1	Real Avilés	Osasuna II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.715457	\N	\N	1	0	h-win	yes
+3539	1431531	2025-09-14	Spain	Primera División RFEF - Group 1	Cacereño	Arenteiro	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.791346	\N	\N	0	1	a-win	yes
+3540	1431529	2025-09-14	Spain	Primera División RFEF - Group 1	Athletic Club II	Real Madrid II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.867327	\N	\N	1	0	h-win	yes
+3541	1431535	2025-09-14	Spain	Primera División RFEF - Group 1	Pontevedra	Tenerife	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:57.946515	\N	\N	0	1	a-win	yes
+3542	1431538	2025-09-14	Spain	Primera División RFEF - Group 1	Zamora	Lugo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:31.893078	\N	\N	0	0	draw	yes
+3543	1431532	2025-09-14	Spain	Primera División RFEF - Group 1	Guadalajara	Unionistas de Salamanca	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:31.971732	\N	\N	1	0	h-win	yes
+3544	1431536	2025-09-14	Spain	Primera División RFEF - Group 1	Racing Ferrol	Ponferradina	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.066184	\N	\N	0	0	draw	yes
+3545	1431527	2025-09-17	Spain	Primera División RFEF - Group 1	Real Madrid II	Racing Ferrol	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.146583	\N	\N	0	1	a-win	yes
+3546	1431546	2025-09-19	Spain	Primera División RFEF - Group 1	Ponferradina	Guadalajara	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.23675	\N	\N	0	1	a-win	yes
+3547	1431539	2025-09-20	Spain	Primera División RFEF - Group 1	Arenteiro	Zamora	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.322042	\N	\N	0	0	draw	yes
+3548	1431541	2025-09-20	Spain	Primera División RFEF - Group 1	Cacereño	Mérida AD	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.400504	\N	\N	0	0	draw	yes
+3549	1431540	2025-09-20	Spain	Primera División RFEF - Group 1	Athletic Club II	Pontevedra	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.48294	\N	\N	1	0	h-win	yes
+3550	1431547	2025-09-21	Spain	Primera División RFEF - Group 1	Tenerife	Ourense CF	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.560574	\N	\N	1	0	h-win	yes
+3551	1431543	2025-09-21	Spain	Primera División RFEF - Group 1	CF Talavera	Barakaldo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.651468	\N	\N	1	0	h-win	yes
+3552	1431545	2025-09-21	Spain	Primera División RFEF - Group 1	Osasuna II	Real Madrid II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.731256	\N	\N	1	0	h-win	yes
+3553	1431544	2025-09-21	Spain	Primera División RFEF - Group 1	Lugo	Racing Ferrol	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.811457	\N	\N	0	1	a-win	yes
+3554	1431542	2025-09-21	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Arenas Getxo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.89636	\N	\N	1	0	h-win	yes
+3555	1431548	2025-09-21	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Real Avilés	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:32.971511	\N	\N	0	0	draw	yes
+3556	1431552	2025-09-26	Spain	Primera División RFEF - Group 1	CF Talavera	Lugo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.051336	\N	\N	0	0	draw	yes
+3557	1431555	2025-09-26	Spain	Primera División RFEF - Group 1	Racing Ferrol	Guadalajara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.136321	\N	\N	0	0	draw	yes
+3558	1431550	2025-09-27	Spain	Primera División RFEF - Group 1	Barakaldo	Cacereño	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.216083	\N	\N	0	1	a-win	yes
+3559	1431551	2025-09-27	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Arenteiro	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.296633	\N	\N	1	0	h-win	yes
+3560	1431554	2025-09-27	Spain	Primera División RFEF - Group 1	Ourense CF	Pontevedra	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.371655	\N	\N	0	2	a-win	yes
+3561	1431549	2025-09-27	Spain	Primera División RFEF - Group 1	Arenas Getxo	Unionistas de Salamanca	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.452155	\N	\N	1	0	h-win	yes
+3562	1431557	2025-09-27	Spain	Primera División RFEF - Group 1	Real Madrid II	Tenerife	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.532156	\N	\N	0	3	a-win	yes
+3563	1431556	2025-09-28	Spain	Primera División RFEF - Group 1	Real Avilés	Athletic Club II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.611315	\N	\N	0	1	a-win	yes
+3564	1431558	2025-09-28	Spain	Primera División RFEF - Group 1	Zamora	Mérida AD	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.692333	\N	\N	1	0	h-win	yes
+3565	1431553	2025-09-28	Spain	Primera División RFEF - Group 1	Osasuna II	Ponferradina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.776489	\N	\N	0	0	draw	yes
+3566	1431562	2025-10-04	Spain	Primera División RFEF - Group 1	Lugo	Cacereño	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.872161	\N	\N	0	0	draw	yes
+3567	1431568	2025-10-04	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Celta de Vigo II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:33.955946	\N	\N	0	0	draw	yes
+3568	1431566	2025-10-04	Spain	Primera División RFEF - Group 1	Racing Ferrol	Ourense CF	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.040837	\N	\N	0	1	a-win	yes
+3569	1431567	2025-10-04	Spain	Primera División RFEF - Group 1	Tenerife	Zamora	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.130897	\N	\N	1	0	h-win	yes
+3570	1431565	2025-10-05	Spain	Primera División RFEF - Group 1	Pontevedra	CF Talavera	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.218586	\N	\N	1	0	h-win	yes
+3571	1431563	2025-10-05	Spain	Primera División RFEF - Group 1	Mérida AD	Arenas Getxo	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.306415	\N	\N	3	0	h-win	yes
+3572	1431559	2025-10-05	Spain	Primera División RFEF - Group 1	Arenteiro	Barakaldo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.397123	\N	\N	0	0	draw	yes
+3573	1431564	2025-10-05	Spain	Primera División RFEF - Group 1	Ponferradina	Real Madrid II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.505998	\N	\N	1	1	draw	yes
+3574	1431561	2025-10-05	Spain	Primera División RFEF - Group 1	Guadalajara	Real Avilés	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.601717	\N	\N	0	2	a-win	yes
+3575	1431560	2025-10-05	Spain	Primera División RFEF - Group 1	Athletic Club II	Osasuna II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.682472	\N	\N	0	0	draw	yes
+3576	1431571	2025-10-10	Spain	Primera División RFEF - Group 1	Barakaldo	Athletic Club II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.760913	\N	\N	0	0	draw	yes
+3577	1431573	2025-10-11	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Ourense CF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.842319	\N	\N	0	0	draw	yes
+3578	1431577	2025-10-11	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Mérida AD	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:34.92257	\N	\N	0	0	draw	yes
+3579	1431574	2025-10-11	Spain	Primera División RFEF - Group 1	CF Talavera	Ponferradina	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.000373	\N	\N	0	0	draw	yes
+3580	1431569	2025-10-11	Spain	Primera División RFEF - Group 1	Arenas Getxo	Lugo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.082931	\N	\N	0	0	draw	yes
+3581	1431576	2025-10-12	Spain	Primera División RFEF - Group 1	Real Madrid II	Pontevedra	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.161811	\N	\N	1	0	h-win	yes
+3582	1431575	2025-10-12	Spain	Primera División RFEF - Group 1	Osasuna II	Racing Ferrol	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.240126	\N	\N	1	0	h-win	yes
+3583	1431578	2025-10-12	Spain	Primera División RFEF - Group 1	Zamora	Real Avilés	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.321418	\N	\N	1	1	draw	yes
+3584	1431570	2025-10-12	Spain	Primera División RFEF - Group 1	Arenteiro	CD Guadalajara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.41157	\N	\N	0	0	draw	yes
+3585	1431572	2025-10-12	Spain	Primera División RFEF - Group 1	Cacereño	Tenerife	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.485767	\N	\N	0	0	draw	yes
+3586	1431586	2025-10-18	Spain	Primera División RFEF - Group 1	Racing Ferrol	Arenas Getxo	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.560401	\N	\N	3	0	h-win	yes
+3587	1431585	2025-10-18	Spain	Primera División RFEF - Group 1	Pontevedra	Osasuna II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.649735	\N	\N	0	0	draw	yes
+3588	1431582	2025-10-18	Spain	Primera División RFEF - Group 1	Mérida AD	Arenteiro	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.720109	\N	\N	1	0	h-win	yes
+3589	1431580	2025-10-18	Spain	Primera División RFEF - Group 1	CD Guadalajara	Barakaldo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.800203	\N	\N	0	0	draw	yes
+3590	1431581	2025-10-18	Spain	Primera División RFEF - Group 1	Lugo	Celta de Vigo II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.880021	\N	\N	1	0	h-win	yes
+3591	1431588	2025-10-18	Spain	Primera División RFEF - Group 1	Tenerife	Unionistas de Salamanca	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:35.960188	\N	\N	0	1	a-win	yes
+3592	1431584	2025-10-19	Spain	Primera División RFEF - Group 1	Ponferradina	Zamora	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.039955	\N	\N	1	0	h-win	yes
+3593	1431583	2025-10-19	Spain	Primera División RFEF - Group 1	Ourense CF	Real Madrid II	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.126179	\N	\N	0	0	draw	yes
+3594	1431587	2025-10-19	Spain	Primera División RFEF - Group 1	Real Avilés	CF Talavera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.218965	\N	\N	0	0	draw	yes
+3595	1431579	2025-10-19	Spain	Primera División RFEF - Group 1	Athletic Club II	Cacereño	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.304445	\N	\N	0	2	a-win	yes
+3596	1431595	2025-10-24	Spain	Primera División RFEF - Group 1	Mérida AD	Ponferradina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.391779	\N	\N	0	0	draw	yes
+3597	1431591	2025-10-24	Spain	Primera División RFEF - Group 1	Barakaldo	Tenerife	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.480634	\N	\N	0	0	draw	yes
+3598	1431592	2025-10-25	Spain	Primera División RFEF - Group 1	Cacereño	Ourense CF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.570085	\N	\N	0	0	draw	yes
+3599	1431593	2025-10-25	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Racing Ferrol	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.651872	\N	\N	0	0	draw	yes
+3600	1431589	2025-10-25	Spain	Primera División RFEF - Group 1	Arenas Getxo	Guadalajara	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.731379	\N	\N	2	0	h-win	yes
+3601	1431594	2025-10-25	Spain	Primera División RFEF - Group 1	CF Talavera	Osasuna II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.816182	\N	\N	2	0	h-win	yes
+3602	1431596	2025-10-25	Spain	Primera División RFEF - Group 1	Real Madrid II	Real Avilés	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.902604	\N	\N	2	0	h-win	yes
+3603	1431590	2025-10-26	Spain	Primera División RFEF - Group 1	Arenteiro	Pontevedra	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:36.976172	\N	\N	0	0	draw	yes
+3604	1431597	2025-10-26	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Lugo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:37.05096	\N	\N	0	0	draw	yes
+3605	1431598	2025-10-26	Spain	Primera División RFEF - Group 1	Zamora	Athletic Club II	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:37.131227	\N	\N	2	0	h-win	yes
+3606	1431601	2025-10-31	Spain	Primera División RFEF - Group 1	Lugo	Barakaldo	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:37.211097	\N	\N	1	2	a-win	yes
+3607	1431605	2025-11-01	Spain	Primera División RFEF - Group 1	Pontevedra	Zamora	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	8	2025-12-02 07:19:37.360916	\N	\N	1	1	draw	yes
+3608	1431599	2025-11-01	Spain	Primera División RFEF - Group 1	Athletic Club II	Unionistas de Salamanca	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	14	2025-12-02 07:19:37.440151	\N	\N	0	0	draw	yes
+3609	1431600	2025-11-01	Spain	Primera División RFEF - Group 1	Guadalajara	Mérida AD	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	6	2025-12-02 07:19:37.520126	\N	\N	0	2	a-win	yes
+3610	1431602	2025-11-01	Spain	Primera División RFEF - Group 1	Osasuna II	Celta de Vigo II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	2	2025-12-02 07:19:37.600348	\N	\N	0	0	draw	yes
+3611	1431606	2025-11-01	Spain	Primera División RFEF - Group 1	Racing Ferrol	Tenerife	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	1	2025-12-02 07:19:37.681564	\N	\N	0	1	a-win	yes
+3612	1431603	2025-11-02	Spain	Primera División RFEF - Group 1	Ourense CF	Arenas Getxo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	13	2025-12-02 07:19:37.760569	\N	\N	1	0	h-win	yes
+3613	1431604	2025-11-02	Spain	Primera División RFEF - Group 1	Ponferradina	Cacereño	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	18	2025-12-02 07:19:37.840023	\N	\N	0	0	draw	yes
+3614	1431608	2025-11-02	Spain	Primera División RFEF - Group 1	Real Madrid II	CF Talavera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	19	2025-12-02 07:19:37.921385	\N	\N	0	0	draw	yes
+3615	1431607	2025-11-02	Spain	Primera División RFEF - Group 1	Real Avilés	Arenteiro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	20	2025-12-02 07:19:38.000027	\N	\N	1	0	h-win	yes
+3616	1431613	2025-11-08	Spain	Primera División RFEF - Group 1	Celta de Vigo II	CF Talavera	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	19	2025-12-02 07:19:38.080582	\N	\N	0	3	a-win	yes
+3617	1431610	2025-11-08	Spain	Primera División RFEF - Group 1	Arenteiro	Racing Ferrol	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	3	2025-12-02 07:19:38.160566	\N	\N	0	1	a-win	yes
+3618	1431617	2025-11-08	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Pontevedra	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	12	2025-12-02 07:19:38.240358	\N	\N	0	1	a-win	yes
+3619	1431616	2025-11-08	Spain	Primera División RFEF - Group 1	Tenerife	Athletic Club II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	5	2025-12-02 07:19:38.320021	\N	\N	0	0	draw	yes
+3620	1431609	2025-11-08	Spain	Primera División RFEF - Group 1	Arenas Getxo	Osasuna II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	15	2025-12-02 07:19:38.400592	\N	\N	1	0	h-win	yes
+3621	1431615	2025-11-09	Spain	Primera División RFEF - Group 1	Mérida AD	Real Madrid II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	4	2025-12-02 07:19:38.499017	\N	\N	2	0	h-win	yes
+3622	1431612	2025-11-09	Spain	Primera División RFEF - Group 1	Cacereño	Real Avilés	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	7	2025-12-02 07:19:38.571363	\N	\N	0	2	a-win	yes
+3623	1431611	2025-11-09	Spain	Primera División RFEF - Group 1	Barakaldo	Ponferradina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	16	2025-12-02 07:19:38.68042	\N	\N	0	0	draw	yes
+3624	1431614	2025-11-09	Spain	Primera División RFEF - Group 1	Guadalajara	Lugo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	11	2025-12-02 07:19:38.7602	\N	\N	0	0	draw	yes
+3625	1431618	2025-11-12	Spain	Primera División RFEF - Group 1	Zamora	Ourense CF	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	10	2025-12-02 07:19:38.840402	\N	\N	0	0	draw	yes
+3626	1431626	2025-11-14	Spain	Primera División RFEF - Group 1	Real Avilés	Arenas Getxo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	13	2025-12-02 07:19:38.920771	\N	\N	0	0	draw	yes
+3627	1431627	2025-11-15	Spain	Primera División RFEF - Group 1	Real Madrid II	Cacereño	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	18	2025-12-02 07:19:38.997038	\N	\N	0	0	draw	yes
+3628	1431621	2025-11-15	Spain	Primera División RFEF - Group 1	Osasuna II	Barakaldo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	9	2025-12-02 07:19:39.080434	\N	\N	1	0	h-win	yes
+3629	1431624	2025-11-15	Spain	Primera División RFEF - Group 1	Pontevedra	Mérida AD	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	6	2025-12-02 07:19:39.160308	\N	\N	1	0	h-win	yes
+3630	1431623	2025-11-15	Spain	Primera División RFEF - Group 1	Ponferradina	Lugo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	11	2025-12-02 07:19:39.240644	\N	\N	1	1	draw	yes
+3631	1431628	2025-11-15	Spain	Primera División RFEF - Group 1	Tenerife	Celta de Vigo II	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	2	2025-12-02 07:19:39.320063	\N	\N	2	0	h-win	yes
+3632	1431622	2025-11-16	Spain	Primera División RFEF - Group 1	Ourense CF	Guadalajara	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	17	2025-12-02 07:19:39.400273	\N	\N	1	0	h-win	yes
+3633	1431620	2025-11-16	Spain	Primera División RFEF - Group 1	CF Talavera	Unionistas de Salamanca	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	14	2025-12-02 07:19:39.490912	\N	\N	0	1	a-win	yes
+3634	1431619	2025-11-16	Spain	Primera División RFEF - Group 1	Athletic Club II	Arenteiro	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	20	2025-12-02 07:19:39.57117	\N	\N	1	0	h-win	yes
+3635	1431625	2025-11-16	Spain	Primera División RFEF - Group 1	Racing Ferrol	Zamora	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	8	2025-12-02 07:19:39.651726	\N	\N	1	0	h-win	yes
+3636	1431637	2025-11-21	Spain	Primera División RFEF - Group 1	Unionistas de Salamanca	Real Madrid II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	4	2025-12-02 07:19:39.738077	\N	\N	1	0	h-win	yes
+3637	1431635	2025-11-22	Spain	Primera División RFEF - Group 1	Lugo	Pontevedra	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	12	2025-12-02 07:19:39.811027	\N	\N	0	0	draw	yes
+3638	1431636	2025-11-22	Spain	Primera División RFEF - Group 1	Mérida AD	Real Avilés	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	7	2025-12-02 07:19:39.891492	\N	\N	1	0	h-win	yes
+3639	1431629	2025-11-22	Spain	Primera División RFEF - Group 1	Arenas Getxo	Tenerife	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	1	2025-12-02 07:19:39.979389	\N	\N	0	3	a-win	yes
+3640	1431630	2025-11-22	Spain	Primera División RFEF - Group 1	Arenteiro	Ourense CF	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	10	2025-12-02 07:19:40.05722	\N	\N	0	0	draw	yes
+3641	1431634	2025-11-22	Spain	Primera División RFEF - Group 1	Guadalajara	Athletic Club II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	5	2025-12-02 07:19:40.131466	\N	\N	1	1	draw	yes
+3642	1431633	2025-11-23	Spain	Primera División RFEF - Group 1	Celta de Vigo II	Ponferradina	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	16	2025-12-02 07:19:40.211422	\N	\N	0	0	draw	yes
+3643	1431631	2025-11-23	Spain	Primera División RFEF - Group 1	Barakaldo	Racing Ferrol	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	3	2025-12-02 07:19:40.291184	\N	\N	1	1	draw	yes
+3644	1431638	2025-11-23	Spain	Primera División RFEF - Group 1	Zamora	CF Talavera	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	19	2025-12-02 07:19:40.371427	\N	\N	2	1	h-win	yes
+3645	1431632	2025-11-23	Spain	Primera División RFEF - Group 1	Cacereño	Osasuna II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	15	2025-12-02 07:19:40.451259	\N	\N	1	2	a-win	yes
+3646	1431647	2025-11-29	Spain	Primera División RFEF - Group 1	Real Madrid II	Barakaldo	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	9	2025-12-02 07:19:40.531437	\N	\N	1	0	h-win	yes
+3647	1431639	2025-11-29	Spain	Primera División RFEF - Group 1	Athletic Club II	Lugo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	11	2025-12-02 07:19:40.619138	\N	\N	0	0	draw	yes
+3648	1431642	2025-11-29	Spain	Primera División RFEF - Group 1	Ourense CF	Unionistas de Salamanca	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	14	2025-12-02 07:19:40.691204	\N	\N	0	0	draw	yes
+3649	1431648	2025-11-29	Spain	Primera División RFEF - Group 1	Tenerife	Arenteiro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	20	2025-12-02 07:19:40.776095	\N	\N	1	0	h-win	yes
+3650	1431644	2025-11-29	Spain	Primera División RFEF - Group 1	Pontevedra	Guadalajara	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	17	2025-12-02 07:19:40.850992	\N	\N	1	1	draw	yes
+3651	1431643	2025-11-29	Spain	Primera División RFEF - Group 1	Ponferradina	Arenas Getxo	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	13	2025-12-02 07:19:40.931066	\N	\N	1	1	draw	yes
+3652	1431645	2025-11-29	Spain	Primera División RFEF - Group 1	Racing Ferrol	Mérida AD	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	6	2025-12-02 07:19:41.006619	\N	\N	0	0	draw	yes
+3653	1431640	2025-11-30	Spain	Primera División RFEF - Group 1	CF Talavera	Cacereño	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	18	2025-12-02 07:19:41.091519	\N	\N	0	1	a-win	yes
+3654	1431641	2025-11-30	Spain	Primera División RFEF - Group 1	Osasuna II	Zamora	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	8	2025-12-02 07:19:41.172399	\N	\N	0	2	a-win	yes
+3655	1431646	2025-11-30	Spain	Primera División RFEF - Group 1	Real Avilés	Celta de Vigo II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	2	2025-12-02 07:19:41.251298	\N	\N	1	1	draw	yes
+3656	1431896	2025-09-06	Spain	Segunda División RFEF - Group 1	Real Oviedo II	Sarriana	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:42.520305	\N	\N	2	0	h-win	yes
+3657	1431894	2025-09-06	Spain	Segunda División RFEF - Group 1	Lealtad	Numancia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:42.6005	\N	\N	1	1	draw	yes
+3658	1431889	2025-09-06	Spain	Segunda División RFEF - Group 1	Atlético Astorga	Real Ávila	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:42.671724	\N	\N	0	0	draw	yes
+3659	1431891	2025-09-07	Spain	Segunda División RFEF - Group 1	Deportivo La Coruña II	Burgos Promesas	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:42.751347	\N	\N	2	0	h-win	yes
+3660	1431895	2025-09-07	Spain	Segunda División RFEF - Group 1	Racing Santander II	Marino de Luanco	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:42.831595	\N	\N	0	0	draw	yes
+3661	1431890	2025-09-07	Spain	Segunda División RFEF - Group 1	Bergantiños	Salamanca UDS	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:42.928678	\N	\N	1	1	draw	yes
+3662	1431897	2025-09-07	Spain	Segunda División RFEF - Group 1	UD Ourense	Real Valladolid II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.022135	\N	\N	0	0	draw	yes
+3663	1431893	2025-09-07	Spain	Segunda División RFEF - Group 1	Langreo	Coruxo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.09627	\N	\N	0	0	draw	yes
+3664	1431892	2025-09-07	Spain	Segunda División RFEF - Group 1	Gimnástica Segoviana	Sámano	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.170469	\N	\N	0	0	draw	yes
+3665	1431902	2025-09-13	Spain	Segunda División RFEF - Group 1	Sámano	Real Oviedo II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.252209	\N	\N	0	1	a-win	yes
+3666	1431906	2025-09-13	Spain	Segunda División RFEF - Group 1	Marino de Luanco	Langreo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.330858	\N	\N	1	0	h-win	yes
+3667	1431903	2025-09-14	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Gimnástica Segoviana	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.426934	\N	\N	2	2	draw	yes
+3668	1431900	2025-09-14	Spain	Segunda División RFEF - Group 1	Salamanca UDS	Atlético Astorga	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.510799	\N	\N	0	0	draw	yes
+3669	1431904	2025-09-14	Spain	Segunda División RFEF - Group 1	Burgos Promesas	UD Ourense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.590683	\N	\N	0	1	a-win	yes
+3670	1431898	2025-09-14	Spain	Segunda División RFEF - Group 1	Numancia	Racing Santander II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.671331	\N	\N	1	1	draw	yes
+3671	1431905	2025-09-14	Spain	Segunda División RFEF - Group 1	Coruxo	Deportivo La Coruña II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.751857	\N	\N	0	2	a-win	yes
+3672	1431901	2025-09-14	Spain	Segunda División RFEF - Group 1	Sarriana	Lealtad	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.831652	\N	\N	1	0	h-win	yes
+3673	1431899	2025-09-14	Spain	Segunda División RFEF - Group 1	Real Ávila	Bergantiños	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:43.919929	\N	\N	1	1	draw	yes
+3674	1431914	2025-09-20	Spain	Segunda División RFEF - Group 1	Real Oviedo II	Real Valladolid II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.001598	\N	\N	0	1	a-win	yes
+3675	1431911	2025-09-20	Spain	Segunda División RFEF - Group 1	Langreo	Real Ávila	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.080099	\N	\N	1	1	draw	yes
+3676	1431907	2025-09-20	Spain	Segunda División RFEF - Group 1	Atlético Astorga	Coruxo	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.168177	\N	\N	0	1	a-win	yes
+3677	1431913	2025-09-21	Spain	Segunda División RFEF - Group 1	Racing Santander II	Burgos Promesas	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.281031	\N	\N	0	0	draw	yes
+3678	1431908	2025-09-21	Spain	Segunda División RFEF - Group 1	Bergantiños	Numancia	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.360953	\N	\N	1	0	h-win	yes
+3679	1431909	2025-09-21	Spain	Segunda División RFEF - Group 1	Deportivo La Coruña II	Salamanca UDS	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.455995	\N	\N	1	1	draw	yes
+3680	1431915	2025-09-21	Spain	Segunda División RFEF - Group 1	UD Ourense	Marino de Luanco	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.537197	\N	\N	0	0	draw	yes
+3681	1431910	2025-09-21	Spain	Segunda División RFEF - Group 1	Gimnástica Segoviana	Sarriana	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.639678	\N	\N	0	0	draw	yes
+3682	1431912	2025-09-21	Spain	Segunda División RFEF - Group 1	Lealtad	Sámano	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.710702	\N	\N	0	1	a-win	yes
+3683	1431917	2025-09-27	Spain	Segunda División RFEF - Group 1	Burgos Promesas	Langreo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.798849	\N	\N	0	0	draw	yes
+3684	1431919	2025-09-27	Spain	Segunda División RFEF - Group 1	Marino de Luanco	Bergantiños	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.879819	\N	\N	1	0	h-win	yes
+3685	1431923	2025-09-27	Spain	Segunda División RFEF - Group 1	Sámano	Sarriana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.950669	\N	\N	1	0	h-win	yes
+3686	1431920	2025-09-28	Spain	Segunda División RFEF - Group 1	Racing Santander II	Deportivo La Coruña II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.030672	\N	\N	1	1	draw	yes
+3687	1431924	2025-09-28	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Atlético Astorga	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.11083	\N	\N	0	2	a-win	yes
+3688	1431916	2025-09-28	Spain	Segunda División RFEF - Group 1	Numancia	Gimnástica Segoviana	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.190974	\N	\N	0	0	draw	yes
+3689	1431922	2025-09-28	Spain	Segunda División RFEF - Group 1	Salamanca UDS	UD Ourense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.271486	\N	\N	0	0	draw	yes
+3690	1431921	2025-09-28	Spain	Segunda División RFEF - Group 1	Real Ávila	Lealtad	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.350767	\N	\N	1	0	h-win	yes
+3691	1431918	2025-09-28	Spain	Segunda División RFEF - Group 1	Coruxo	Real Oviedo II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.430679	\N	\N	1	0	h-win	yes
+3692	1431925	2025-10-04	Spain	Segunda División RFEF - Group 1	Atlético Astorga	Deportivo La Coruña II	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.511834	\N	\N	0	2	a-win	yes
+3693	1431928	2025-10-04	Spain	Segunda División RFEF - Group 1	Langreo	Racing Santander II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.599785	\N	\N	0	0	draw	yes
+3694	1431930	2025-10-05	Spain	Segunda División RFEF - Group 1	Real Oviedo II	Burgos Promesas	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.671611	\N	\N	4	0	h-win	yes
+3695	1431926	2025-10-05	Spain	Segunda División RFEF - Group 1	Bergantiños	Real Valladolid II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.759727	\N	\N	0	0	draw	yes
+3696	1431932	2025-10-05	Spain	Segunda División RFEF - Group 1	UD Ourense	Real Ávila	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.855605	\N	\N	0	0	draw	yes
+3697	1431933	2025-10-05	Spain	Segunda División RFEF - Group 1	Sámano	Salamanca UDS	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.93981	\N	\N	0	0	draw	yes
+3698	1431931	2025-10-05	Spain	Segunda División RFEF - Group 1	Sarriana	Numancia	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.018657	\N	\N	1	1	draw	yes
+3699	1431929	2025-10-05	Spain	Segunda División RFEF - Group 1	Lealtad	Marino de Luanco	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.095972	\N	\N	0	0	draw	yes
+3700	1431927	2025-10-05	Spain	Segunda División RFEF - Group 1	Gimnástica Segoviana	Coruxo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.179029	\N	\N	0	0	draw	yes
+3701	1431937	2025-10-11	Spain	Segunda División RFEF - Group 1	Deportivo La Coruña II	Langreo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.27967	\N	\N	1	0	h-win	yes
+3702	1431939	2025-10-11	Spain	Segunda División RFEF - Group 1	Racing Santander II	UD Ourense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.371135	\N	\N	0	0	draw	yes
+3703	1431938	2025-10-11	Spain	Segunda División RFEF - Group 1	Marino de Luanco	Gimnástica Segoviana	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.471295	\N	\N	0	0	draw	yes
+3704	1431941	2025-10-11	Spain	Segunda División RFEF - Group 1	Salamanca UDS	Sarriana	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.571159	\N	\N	0	1	a-win	yes
+3705	1431942	2025-10-12	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Lealtad	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.670762	\N	\N	0	0	draw	yes
+3706	1431935	2025-10-12	Spain	Segunda División RFEF - Group 1	Burgos Promesas	Atlético Astorga	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.761523	\N	\N	1	0	h-win	yes
+3707	1431934	2025-10-12	Spain	Segunda División RFEF - Group 1	Numancia	Sámano	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.850604	\N	\N	0	0	draw	yes
+3708	1431936	2025-10-12	Spain	Segunda División RFEF - Group 1	Coruxo	Bergantiños	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.920533	\N	\N	0	0	draw	yes
+3709	1431940	2025-10-12	Spain	Segunda División RFEF - Group 1	Real Ávila	Real Oviedo II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:46.991441	\N	\N	1	0	h-win	yes
+3710	1431947	2025-10-18	Spain	Segunda División RFEF - Group 1	Real Oviedo II	Marino de Luanco	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.079913	\N	\N	1	0	h-win	yes
+3711	1431950	2025-10-18	Spain	Segunda División RFEF - Group 1	Sámano	Real Valladolid II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.170583	\N	\N	0	0	draw	yes
+3712	1431943	2025-10-18	Spain	Segunda División RFEF - Group 1	Atlético Astorga	Racing Santander II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.270688	\N	\N	0	0	draw	yes
+3713	1431949	2025-10-18	Spain	Segunda División RFEF - Group 1	UD Ourense	Langreo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.351211	\N	\N	1	0	h-win	yes
+3714	1431946	2025-10-19	Spain	Segunda División RFEF - Group 1	Lealtad	Deportivo La Coruña II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.442413	\N	\N	0	0	draw	yes
+3715	1431951	2025-10-19	Spain	Segunda División RFEF - Group 1	Numancia	Salamanca UDS	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.530811	\N	\N	1	0	h-win	yes
+3716	1431944	2025-10-19	Spain	Segunda División RFEF - Group 1	Bergantiños	Burgos Promesas	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.609442	\N	\N	2	2	draw	yes
+3717	1431948	2025-10-19	Spain	Segunda División RFEF - Group 1	Sarriana	Coruxo	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.69574	\N	\N	1	2	a-win	yes
+3718	1431945	2025-10-19	Spain	Segunda División RFEF - Group 1	Gimnástica Segoviana	Real Ávila	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.789579	\N	\N	0	0	draw	yes
+3719	1431953	2025-10-25	Spain	Segunda División RFEF - Group 1	Coruxo	UD Ourense	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.871074	\N	\N	0	1	a-win	yes
+3720	1431954	2025-10-25	Spain	Segunda División RFEF - Group 1	Deportivo La Coruña II	Real Oviedo II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:47.960131	\N	\N	0	0	draw	yes
+3721	1431956	2025-10-25	Spain	Segunda División RFEF - Group 1	Marino de Luanco	Numancia	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:48.051468	\N	\N	0	2	a-win	yes
+3722	1431955	2025-10-25	Spain	Segunda División RFEF - Group 1	Langreo	Atlético Astorga	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:48.150803	\N	\N	0	0	draw	yes
+3723	1431958	2025-10-25	Spain	Segunda División RFEF - Group 1	Real Ávila	Sámano	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:48.23629	\N	\N	2	0	h-win	yes
+3724	1431960	2025-10-26	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Sarriana	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:48.315512	\N	\N	1	0	h-win	yes
+3725	1431959	2025-10-26	Spain	Segunda División RFEF - Group 1	Salamanca UDS	Gimnástica Segoviana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:48.390807	\N	\N	0	1	a-win	yes
+3726	1431957	2025-10-26	Spain	Segunda División RFEF - Group 1	Racing Santander II	Bergantiños	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:48.480806	\N	\N	1	1	draw	yes
+3727	1431952	2025-10-26	Spain	Segunda División RFEF - Group 1	Burgos Promesas	Lealtad	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:48.571136	\N	\N	1	1	draw	yes
+3728	1431967	2025-11-01	Spain	Segunda División RFEF - Group 1	UD Ourense	Deportivo La Coruña II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	3	2025-12-02 07:19:48.751664	\N	\N	0	1	a-win	yes
+3729	1431963	2025-11-02	Spain	Segunda División RFEF - Group 1	Lealtad	Atlético Astorga	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	14	2025-12-02 07:19:48.836006	\N	\N	1	1	draw	yes
+3730	1431964	2025-11-02	Spain	Segunda División RFEF - Group 1	Real Oviedo II	Racing Santander II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	12	2025-12-02 07:19:48.931151	\N	\N	0	0	draw	yes
+3731	1431969	2025-11-02	Spain	Segunda División RFEF - Group 1	Numancia	Real Valladolid II	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	13	2025-12-02 07:19:49.029731	\N	\N	0	1	a-win	yes
+3732	1431961	2025-11-02	Spain	Segunda División RFEF - Group 1	Bergantiños	Langreo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	15	2025-12-02 07:19:49.119688	\N	\N	0	0	draw	yes
+3733	1431962	2025-11-02	Spain	Segunda División RFEF - Group 1	Gimnástica Segoviana	Burgos Promesas	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	16	2025-12-02 07:19:49.211583	\N	\N	0	0	draw	yes
+3734	1431965	2025-11-02	Spain	Segunda División RFEF - Group 1	Salamanca UDS	Coruxo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	9	2025-12-02 07:19:49.291582	\N	\N	0	0	draw	yes
+3735	1431968	2025-11-02	Spain	Segunda División RFEF - Group 1	Sámano	Marino de Luanco	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	10	2025-12-02 07:19:49.376624	\N	\N	0	0	draw	yes
+3736	1431966	2025-11-02	Spain	Segunda División RFEF - Group 1	Sarriana	Real Ávila	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	6	2025-12-02 07:19:49.470823	\N	\N	0	0	draw	yes
+3737	1431976	2025-11-08	Spain	Segunda División RFEF - Group 1	Racing Santander II	Gimnástica Segoviana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	1	2025-12-02 07:19:49.55979	\N	\N	1	1	draw	yes
+3738	1431970	2025-11-08	Spain	Segunda División RFEF - Group 1	Atlético Astorga	UD Ourense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	7	2025-12-02 07:19:49.650842	\N	\N	1	0	h-win	yes
+3739	1431978	2025-11-09	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Salamanca UDS	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	5	2025-12-02 07:19:49.74644	\N	\N	0	0	draw	yes
+3740	1431973	2025-11-09	Spain	Segunda División RFEF - Group 1	Deportivo La Coruña II	Bergantiños	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	8	2025-12-02 07:19:49.831018	\N	\N	0	0	draw	yes
+3741	1431971	2025-11-09	Spain	Segunda División RFEF - Group 1	Burgos Promesas	Sámano	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	17	2025-12-02 07:19:49.919958	\N	\N	0	0	draw	yes
+3742	1431974	2025-11-09	Spain	Segunda División RFEF - Group 1	Langreo	Real Oviedo II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	2	2025-12-02 07:19:49.999851	\N	\N	0	0	draw	yes
+3743	1431972	2025-11-09	Spain	Segunda División RFEF - Group 1	Coruxo	Lealtad	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	18	2025-12-02 07:19:50.091171	\N	\N	0	0	draw	yes
+3744	1431975	2025-11-09	Spain	Segunda División RFEF - Group 1	Marino de Luanco	Sarriana	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	11	2025-12-02 07:19:50.17095	\N	\N	1	0	h-win	yes
+3745	1431977	2025-11-09	Spain	Segunda División RFEF - Group 1	Real Ávila	Numancia	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	4	2025-12-02 07:19:50.271015	\N	\N	0	0	draw	yes
+3746	1431982	2025-11-15	Spain	Segunda División RFEF - Group 1	Real Oviedo II	UD Ourense	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	7	2025-12-02 07:19:50.359803	\N	\N	0	1	a-win	yes
+3747	1431979	2025-11-15	Spain	Segunda División RFEF - Group 1	Bergantiños	Atlético Astorga	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	14	2025-12-02 07:19:50.451032	\N	\N	0	0	draw	yes
+3748	1431985	2025-11-15	Spain	Segunda División RFEF - Group 1	Sámano	Deportivo La Coruña II	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	3	2025-12-02 07:19:50.550717	\N	\N	0	3	a-win	yes
+3749	1431986	2025-11-16	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Marino de Luanco	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	10	2025-12-02 07:19:50.631024	\N	\N	0	1	a-win	yes
+3750	1431981	2025-11-16	Spain	Segunda División RFEF - Group 1	Lealtad	Racing Santander II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	12	2025-12-02 07:19:50.720162	\N	\N	1	0	h-win	yes
+3751	1431987	2025-11-16	Spain	Segunda División RFEF - Group 1	Numancia	Coruxo	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	9	2025-12-02 07:19:50.812335	\N	\N	0	0	draw	yes
+3752	1431980	2025-11-16	Spain	Segunda División RFEF - Group 1	Gimnástica Segoviana	Langreo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	15	2025-12-02 07:19:50.910981	\N	\N	0	0	draw	yes
+3753	1431983	2025-11-16	Spain	Segunda División RFEF - Group 1	Salamanca UDS	Real Ávila	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	6	2025-12-02 07:19:50.999991	\N	\N	1	1	draw	yes
+3754	1431984	2025-11-16	Spain	Segunda División RFEF - Group 1	Sarriana	Burgos Promesas	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	16	2025-12-02 07:19:51.080979	\N	\N	0	1	a-win	yes
+3755	1431994	2025-11-22	Spain	Segunda División RFEF - Group 1	Racing Santander II	Sarriana	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	11	2025-12-02 07:19:51.161591	\N	\N	0	0	draw	yes
+3756	1431989	2025-11-22	Spain	Segunda División RFEF - Group 1	Burgos Promesas	Numancia	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	4	2025-12-02 07:19:51.255762	\N	\N	0	0	draw	yes
+3757	1431988	2025-11-22	Spain	Segunda División RFEF - Group 1	Atlético Astorga	Real Oviedo II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	2	2025-12-02 07:19:51.351087	\N	\N	1	0	h-win	yes
+3758	1431990	2025-11-23	Spain	Segunda División RFEF - Group 1	Coruxo	Sámano	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	17	2025-12-02 07:19:51.440175	\N	\N	2	0	h-win	yes
+3759	1431993	2025-11-23	Spain	Segunda División RFEF - Group 1	Marino de Luanco	Salamanca UDS	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	5	2025-12-02 07:19:51.519703	\N	\N	0	2	a-win	yes
+3760	1431996	2025-11-23	Spain	Segunda División RFEF - Group 1	UD Ourense	Bergantiños	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	8	2025-12-02 07:19:51.599707	\N	\N	1	0	h-win	yes
+3761	1431995	2025-11-23	Spain	Segunda División RFEF - Group 1	Real Ávila	Real Valladolid II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	13	2025-12-02 07:19:51.679764	\N	\N	1	0	h-win	yes
+3762	1431992	2025-11-23	Spain	Segunda División RFEF - Group 1	Langreo	Lealtad	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	18	2025-12-02 07:19:51.760529	\N	\N	3	0	h-win	yes
+3763	1431991	2025-11-23	Spain	Segunda División RFEF - Group 1	Deportivo La Coruña II	Gimnástica Segoviana	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	1	2025-12-02 07:19:51.839668	\N	\N	0	1	a-win	yes
+3764	1431999	2025-11-29	Spain	Segunda División RFEF - Group 1	Lealtad	UD Ourense	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	7	2025-12-02 07:19:51.931231	\N	\N	0	1	a-win	yes
+3765	1432005	2025-11-29	Spain	Segunda División RFEF - Group 1	Numancia	Langreo	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	15	2025-12-02 07:19:52.037561	\N	\N	1	1	draw	yes
+3766	1432003	2025-11-29	Spain	Segunda División RFEF - Group 1	Sámano	Racing Santander II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	12	2025-12-02 07:19:52.154367	\N	\N	0	1	a-win	yes
+3767	1432004	2025-11-30	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Coruxo	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	9	2025-12-02 07:19:52.235638	\N	\N	0	1	a-win	yes
+3768	1431997	2025-11-30	Spain	Segunda División RFEF - Group 1	Bergantiños	Real Oviedo II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	2	2025-12-02 07:19:52.319784	\N	\N	1	0	h-win	yes
+3769	1431998	2025-11-30	Spain	Segunda División RFEF - Group 1	Gimnástica Segoviana	Atlético Astorga	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	14	2025-12-02 07:19:52.410894	\N	\N	0	0	draw	yes
+3770	1432000	2025-11-30	Spain	Segunda División RFEF - Group 1	Marino de Luanco	Real Ávila	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	6	2025-12-02 07:19:52.501212	\N	\N	0	0	draw	yes
+3771	1432001	2025-11-30	Spain	Segunda División RFEF - Group 1	Salamanca UDS	Burgos Promesas	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	16	2025-12-02 07:19:52.596368	\N	\N	2	0	h-win	yes
+3772	1432002	2025-11-30	Spain	Segunda División RFEF - Group 1	Sarriana	Deportivo La Coruña II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	3	2025-12-02 07:19:52.679875	\N	\N	1	0	h-win	yes
+3773	1432195	2025-09-06	Spain	Segunda División RFEF - Group 2	Deportivo Alavés II	UD Logroñés	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:53.961162	\N	\N	0	0	draw	yes
+3774	1432198	2025-09-06	Spain	Segunda División RFEF - Group 2	Ejea	Mutilvera	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.042138	\N	\N	2	2	draw	yes
+3775	1432203	2025-09-07	Spain	Segunda División RFEF - Group 2	Real Zaragoza II	Gernika	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.119781	\N	\N	1	0	h-win	yes
+3776	1432197	2025-09-07	Spain	Segunda División RFEF - Group 2	Amorebieta	Real Unión	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.199703	\N	\N	0	1	a-win	yes
+3777	1432196	2025-09-07	Spain	Segunda División RFEF - Group 2	Alfaro	Sestao River	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.295545	\N	\N	1	2	a-win	yes
+3778	1432200	2025-09-07	Spain	Segunda División RFEF - Group 2	SD Logroñés	Eibar II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.375543	\N	\N	1	0	h-win	yes
+3779	1432199	2025-09-07	Spain	Segunda División RFEF - Group 2	Náxara	Ebro	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.456233	\N	\N	0	1	a-win	yes
+3780	1432201	2025-09-07	Spain	Segunda División RFEF - Group 2	Tudelano	Beasain	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.550796	\N	\N	0	1	a-win	yes
+3781	1432202	2025-09-07	Spain	Segunda División RFEF - Group 2	Utebo	Basconia	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.635913	\N	\N	0	0	draw	yes
+3782	1432204	2025-09-13	Spain	Segunda División RFEF - Group 2	Basconia	SD Logroñés	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.719945	\N	\N	0	0	draw	yes
+3783	1432208	2025-09-13	Spain	Segunda División RFEF - Group 2	Mutilvera	Deportivo Alavés II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.799957	\N	\N	1	0	h-win	yes
+3784	1432212	2025-09-13	Spain	Segunda División RFEF - Group 2	Utebo	Gernika	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.875631	\N	\N	2	0	h-win	yes
+3785	1432205	2025-09-14	Spain	Segunda División RFEF - Group 2	Beasain	Ejea	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:54.956298	\N	\N	0	2	a-win	yes
+3786	1432206	2025-09-14	Spain	Segunda División RFEF - Group 2	Ebro	Amorebieta	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.039724	\N	\N	0	0	draw	yes
+3787	1432207	2025-09-14	Spain	Segunda División RFEF - Group 2	Eibar II	Alfaro	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.12668	\N	\N	1	0	h-win	yes
+3788	1432211	2025-09-14	Spain	Segunda División RFEF - Group 2	UD Logroñés	Náxara	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.211705	\N	\N	0	1	a-win	yes
+3789	1432209	2025-09-14	Spain	Segunda División RFEF - Group 2	Real Unión	Tudelano	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.310881	\N	\N	0	0	draw	yes
+3790	1432210	2025-09-14	Spain	Segunda División RFEF - Group 2	Sestao River	Real Zaragoza II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.408654	\N	\N	1	0	h-win	yes
+3791	1432214	2025-09-20	Spain	Segunda División RFEF - Group 2	Alfaro	Basconia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.490698	\N	\N	0	0	draw	yes
+3792	1432217	2025-09-20	Spain	Segunda División RFEF - Group 2	Náxara	Gernika	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.575638	\N	\N	1	2	a-win	yes
+3793	1432218	2025-09-20	Spain	Segunda División RFEF - Group 2	Real Unión	Mutilvera	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.670984	\N	\N	1	0	h-win	yes
+3794	1432220	2025-09-21	Spain	Segunda División RFEF - Group 2	UD Logroñés	Ebro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.77059	\N	\N	0	0	draw	yes
+3795	1432215	2025-09-21	Spain	Segunda División RFEF - Group 2	Amorebieta	Beasain	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.85691	\N	\N	2	0	h-win	yes
+3796	1432213	2025-09-21	Spain	Segunda División RFEF - Group 2	Deportivo Alavés II	SD Logroñés	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:55.935854	\N	\N	0	0	draw	yes
+3797	1432216	2025-09-21	Spain	Segunda División RFEF - Group 2	Ejea	Sestao River	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.030937	\N	\N	0	1	a-win	yes
+3798	1432221	2025-09-21	Spain	Segunda División RFEF - Group 2	Real Zaragoza II	Utebo	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.119737	\N	\N	0	1	a-win	yes
+3799	1432219	2025-09-21	Spain	Segunda División RFEF - Group 2	Tudelano	Eibar II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.210779	\N	\N	1	0	h-win	yes
+3800	1432227	2025-09-27	Spain	Segunda División RFEF - Group 2	Mutilvera	UD Logroñés	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.292147	\N	\N	0	3	a-win	yes
+3801	1432222	2025-09-27	Spain	Segunda División RFEF - Group 2	Basconia	Real Zaragoza II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.391154	\N	\N	0	1	a-win	yes
+3802	1432223	2025-09-27	Spain	Segunda División RFEF - Group 2	Beasain	Real Unión	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.480109	\N	\N	0	0	draw	yes
+3803	1432224	2025-09-27	Spain	Segunda División RFEF - Group 2	Ebro	Ejea	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.571002	\N	\N	2	1	h-win	yes
+3804	1432225	2025-09-28	Spain	Segunda División RFEF - Group 2	Eibar II	Deportivo Alavés II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.656001	\N	\N	0	1	a-win	yes
+3805	1432226	2025-09-28	Spain	Segunda División RFEF - Group 2	Gernika	Alfaro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.766434	\N	\N	1	0	h-win	yes
+3806	1432228	2025-09-28	Spain	Segunda División RFEF - Group 2	SD Logroñés	Amorebieta	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.855689	\N	\N	1	0	h-win	yes
+3807	1432229	2025-09-28	Spain	Segunda División RFEF - Group 2	Sestao River	Náxara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:56.954181	\N	\N	0	0	draw	yes
+3808	1432230	2025-09-28	Spain	Segunda División RFEF - Group 2	Utebo	Tudelano	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.039692	\N	\N	1	0	h-win	yes
+3809	1432231	2025-10-04	Spain	Segunda División RFEF - Group 2	Deportivo Alavés II	Sestao River	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.130763	\N	\N	0	1	a-win	yes
+3810	1432234	2025-10-04	Spain	Segunda División RFEF - Group 2	Beasain	Ebro	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.220488	\N	\N	1	0	h-win	yes
+3811	1432237	2025-10-04	Spain	Segunda División RFEF - Group 2	Real Unión	UD Logroñés	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.320209	\N	\N	0	0	draw	yes
+3812	1432238	2025-10-04	Spain	Segunda División RFEF - Group 2	SD Logroñés	Gernika	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.409023	\N	\N	0	1	a-win	yes
+3813	1432233	2025-10-05	Spain	Segunda División RFEF - Group 2	Amorebieta	Basconia	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.495973	\N	\N	0	0	draw	yes
+3814	1432235	2025-10-05	Spain	Segunda División RFEF - Group 2	Ejea	Real Zaragoza II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.578955	\N	\N	0	0	draw	yes
+3815	1432232	2025-10-05	Spain	Segunda División RFEF - Group 2	Alfaro	Utebo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.670813	\N	\N	1	0	h-win	yes
+3816	1432236	2025-10-05	Spain	Segunda División RFEF - Group 2	Náxara	Eibar II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.751003	\N	\N	1	0	h-win	yes
+3817	1432239	2025-10-05	Spain	Segunda División RFEF - Group 2	Tudelano	Mutilvera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.840028	\N	\N	1	0	h-win	yes
+3818	1432248	2025-10-11	Spain	Segunda División RFEF - Group 2	Real Zaragoza II	Alfaro	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.919648	\N	\N	2	1	h-win	yes
+3819	1432244	2025-10-11	Spain	Segunda División RFEF - Group 2	Mutilvera	Náxara	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:57.991783	\N	\N	0	1	a-win	yes
+3820	1432242	2025-10-11	Spain	Segunda División RFEF - Group 2	Eibar II	Ejea	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.080255	\N	\N	1	1	draw	yes
+3821	1432241	2025-10-11	Spain	Segunda División RFEF - Group 2	Ebro	Real Unión	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.160148	\N	\N	0	0	draw	yes
+3822	1432247	2025-10-11	Spain	Segunda División RFEF - Group 2	Utebo	SD Logroñés	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.250977	\N	\N	1	1	draw	yes
+3823	1432243	2025-10-11	Spain	Segunda División RFEF - Group 2	Gernika	Amorebieta	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.351343	\N	\N	0	0	draw	yes
+3824	1432240	2025-10-12	Spain	Segunda División RFEF - Group 2	Basconia	Deportivo Alavés II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.439806	\N	\N	0	0	draw	yes
+3825	1432245	2025-10-12	Spain	Segunda División RFEF - Group 2	Sestao River	Tudelano	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.530769	\N	\N	0	1	a-win	yes
+3826	1432246	2025-10-12	Spain	Segunda División RFEF - Group 2	UD Logroñés	Beasain	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.636016	\N	\N	0	1	a-win	yes
+3827	1432251	2025-10-18	Spain	Segunda División RFEF - Group 2	Beasain	Eibar II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.71605	\N	\N	0	2	a-win	yes
+3828	1432252	2025-10-18	Spain	Segunda División RFEF - Group 2	Ebro	Mutilvera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.810609	\N	\N	1	0	h-win	yes
+3829	1432257	2025-10-18	Spain	Segunda División RFEF - Group 2	Tudelano	Real Zaragoza II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:58.900779	\N	\N	0	1	a-win	yes
+3830	1432250	2025-10-18	Spain	Segunda División RFEF - Group 2	Amorebieta	UD Logroñés	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:59.011454	\N	\N	1	0	h-win	yes
+3831	1432255	2025-10-18	Spain	Segunda División RFEF - Group 2	Real Unión	Sestao River	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:59.11132	\N	\N	0	1	a-win	yes
+3832	1432253	2025-10-18	Spain	Segunda División RFEF - Group 2	Ejea	Basconia	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:59.199753	\N	\N	1	0	h-win	yes
+3833	1432249	2025-10-19	Spain	Segunda División RFEF - Group 2	Deportivo Alavés II	Gernika	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:59.296767	\N	\N	0	1	a-win	yes
+3834	1432256	2025-10-19	Spain	Segunda División RFEF - Group 2	SD Logroñés	Alfaro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.086644	\N	\N	1	0	h-win	yes
+3835	1432254	2025-10-19	Spain	Segunda División RFEF - Group 2	Náxara	Utebo	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.174705	\N	\N	0	0	draw	yes
+3836	1432262	2025-10-25	Spain	Segunda División RFEF - Group 2	Mutilvera	Beasain	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.260555	\N	\N	0	0	draw	yes
+3837	1432266	2025-10-25	Spain	Segunda División RFEF - Group 2	Real Zaragoza II	SD Logroñés	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.356024	\N	\N	0	0	draw	yes
+3838	1432261	2025-10-25	Spain	Segunda División RFEF - Group 2	Gernika	Ejea	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.445508	\N	\N	0	0	draw	yes
+3839	1432265	2025-10-25	Spain	Segunda División RFEF - Group 2	Utebo	Amorebieta	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.545871	\N	\N	3	1	h-win	yes
+3840	1432260	2025-10-25	Spain	Segunda División RFEF - Group 2	Eibar II	Real Unión	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.629084	\N	\N	0	0	draw	yes
+3841	1432264	2025-10-25	Spain	Segunda División RFEF - Group 2	UD Logroñés	Tudelano	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.711762	\N	\N	0	1	a-win	yes
+3842	1432259	2025-10-26	Spain	Segunda División RFEF - Group 2	Basconia	Náxara	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.803939	\N	\N	0	0	draw	yes
+3843	1432258	2025-10-26	Spain	Segunda División RFEF - Group 2	Alfaro	Deportivo Alavés II	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.90387	\N	\N	0	3	a-win	yes
+3844	1432263	2025-10-26	Spain	Segunda División RFEF - Group 2	Sestao River	Ebro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:32.9939	\N	\N	0	0	draw	yes
+3845	1432268	2025-11-01	Spain	Segunda División RFEF - Group 2	Beasain	Basconia	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	18	2025-12-02 08:19:33.162326	\N	\N	0	0	draw	yes
+3846	1432274	2025-11-01	Spain	Segunda División RFEF - Group 2	Tudelano	SD Logroñés	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	7	2025-12-02 08:19:33.25287	\N	\N	0	0	draw	yes
+3847	1432267	2025-11-01	Spain	Segunda División RFEF - Group 2	Amorebieta	Alfaro	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	17	2025-12-02 08:19:33.34175	\N	\N	2	0	h-win	yes
+3848	1432270	2025-11-02	Spain	Segunda División RFEF - Group 2	Ejea	Deportivo Alavés II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	8	2025-12-02 08:19:33.429845	\N	\N	0	0	draw	yes
+3849	1432269	2025-11-02	Spain	Segunda División RFEF - Group 2	Ebro	Eibar II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	11	2025-12-02 08:19:33.51588	\N	\N	1	1	draw	yes
+3850	1432271	2025-11-02	Spain	Segunda División RFEF - Group 2	Mutilvera	Sestao River	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	2	2025-12-02 08:19:33.5967	\N	\N	0	2	a-win	yes
+3851	1432275	2025-11-02	Spain	Segunda División RFEF - Group 2	UD Logroñés	Utebo	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	1	2025-12-02 08:19:33.680044	\N	\N	3	0	h-win	yes
+3852	1432273	2025-11-02	Spain	Segunda División RFEF - Group 2	Real Unión	Gernika	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	5	2025-12-02 08:19:33.768983	\N	\N	0	0	draw	yes
+3853	1432272	2025-11-02	Spain	Segunda División RFEF - Group 2	Náxara	Real Zaragoza II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	15	2025-12-02 08:19:33.85987	\N	\N	3	0	h-win	yes
+3854	1432281	2025-11-08	Spain	Segunda División RFEF - Group 2	SD Logroñés	Náxara	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	14	2025-12-02 08:19:33.95437	\N	\N	1	0	h-win	yes
+3855	1432279	2025-11-08	Spain	Segunda División RFEF - Group 2	Eibar II	Mutilvera	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	12	2025-12-02 08:19:34.049018	\N	\N	0	1	a-win	yes
+3856	1432276	2025-11-09	Spain	Segunda División RFEF - Group 2	Deportivo Alavés II	Tudelano	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	3	2025-12-02 08:19:34.128718	\N	\N	2	1	h-win	yes
+3857	1432284	2025-11-09	Spain	Segunda División RFEF - Group 2	Real Zaragoza II	Amorebieta	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	9	2025-12-02 08:19:34.20893	\N	\N	0	0	draw	yes
+3858	1432280	2025-11-09	Spain	Segunda División RFEF - Group 2	Gernika	Ebro	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	13	2025-12-02 08:19:34.299381	\N	\N	1	0	h-win	yes
+3859	1432278	2025-11-09	Spain	Segunda División RFEF - Group 2	Basconia	Real Unión	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	4	2025-12-02 08:19:34.399244	\N	\N	0	0	draw	yes
+3860	1432277	2025-11-09	Spain	Segunda División RFEF - Group 2	Alfaro	Ejea	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	10	2025-12-02 08:19:34.489226	\N	\N	0	1	a-win	yes
+3861	1432283	2025-11-09	Spain	Segunda División RFEF - Group 2	Utebo	Beasain	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	16	2025-12-02 08:19:34.58399	\N	\N	0	0	draw	yes
+3862	1432282	2025-11-09	Spain	Segunda División RFEF - Group 2	Sestao River	UD Logroñés	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	6	2025-12-02 08:19:34.678936	\N	\N	0	0	draw	yes
+3863	1432287	2025-11-15	Spain	Segunda División RFEF - Group 2	Ebro	Basconia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	18	2025-12-02 08:19:34.76348	\N	\N	1	0	h-win	yes
+3864	1432286	2025-11-15	Spain	Segunda División RFEF - Group 2	Beasain	Sestao River	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	2	2025-12-02 08:19:34.849658	\N	\N	1	1	draw	yes
+3865	1432285	2025-11-15	Spain	Segunda División RFEF - Group 2	Amorebieta	Deportivo Alavés II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	8	2025-12-02 08:19:34.944071	\N	\N	0	0	draw	yes
+3866	1432288	2025-11-16	Spain	Segunda División RFEF - Group 2	Ejea	Utebo	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	1	2025-12-02 08:19:35.02917	\N	\N	0	1	a-win	yes
+3867	1432289	2025-11-16	Spain	Segunda División RFEF - Group 2	Mutilvera	Real Zaragoza II	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	15	2025-12-02 08:19:35.119439	\N	\N	1	0	h-win	yes
+3868	1432292	2025-11-16	Spain	Segunda División RFEF - Group 2	Tudelano	Gernika	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	5	2025-12-02 08:19:35.206339	\N	\N	0	0	draw	yes
+3869	1432293	2025-11-16	Spain	Segunda División RFEF - Group 2	UD Logroñés	Eibar II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	11	2025-12-02 08:19:35.303597	\N	\N	0	1	a-win	yes
+3870	1432291	2025-11-16	Spain	Segunda División RFEF - Group 2	Real Unión	SD Logroñés	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	7	2025-12-02 08:19:35.38902	\N	\N	1	1	draw	yes
+3871	1432290	2025-11-16	Spain	Segunda División RFEF - Group 2	Náxara	Alfaro	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	17	2025-12-02 08:19:35.478608	\N	\N	2	1	h-win	yes
+3872	1432297	2025-11-22	Spain	Segunda División RFEF - Group 2	Basconia	UD Logroñés	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	6	2025-12-02 08:19:35.574786	\N	\N	3	1	h-win	yes
+3873	1432301	2025-11-22	Spain	Segunda División RFEF - Group 2	Utebo	Mutilvera	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	12	2025-12-02 08:19:35.661241	\N	\N	0	0	draw	yes
+3874	1432300	2025-11-22	Spain	Segunda División RFEF - Group 2	Sestao River	Eibar II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	11	2025-12-02 08:19:35.748738	\N	\N	0	0	draw	yes
+3875	1432296	2025-11-22	Spain	Segunda División RFEF - Group 2	Amorebieta	Náxara	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	14	2025-12-02 08:19:35.830578	\N	\N	0	0	draw	yes
+3876	1432294	2025-11-23	Spain	Segunda División RFEF - Group 2	Deportivo Alavés II	Real Unión	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	4	2025-12-02 08:19:35.915243	\N	\N	0	0	draw	yes
+3877	1432302	2025-11-23	Spain	Segunda División RFEF - Group 2	Real Zaragoza II	Ebro	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	13	2025-12-02 08:19:36.003559	\N	\N	0	0	draw	yes
+3878	1432298	2025-11-23	Spain	Segunda División RFEF - Group 2	Gernika	Beasain	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	16	2025-12-02 08:19:36.094761	\N	\N	0	0	draw	yes
+3879	1432299	2025-11-23	Spain	Segunda División RFEF - Group 2	SD Logroñés	Ejea	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	10	2025-12-02 08:19:36.179089	\N	\N	0	0	draw	yes
+3880	1432295	2025-11-23	Spain	Segunda División RFEF - Group 2	Alfaro	Tudelano	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	3	2025-12-02 08:19:36.278673	\N	\N	0	0	draw	yes
+3881	1432304	2025-11-29	Spain	Segunda División RFEF - Group 2	Ebro	Deportivo Alavés II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	8	2025-12-02 08:19:36.364289	\N	\N	1	0	h-win	yes
+3882	1432307	2025-11-29	Spain	Segunda División RFEF - Group 2	Mutilvera	Basconia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	18	2025-12-02 08:19:36.4593	\N	\N	0	0	draw	yes
+3883	1432303	2025-11-29	Spain	Segunda División RFEF - Group 2	Beasain	Alfaro	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	17	2025-12-02 08:19:36.564018	\N	\N	0	1	a-win	yes
+3884	1432310	2025-11-29	Spain	Segunda División RFEF - Group 2	Tudelano	Náxara	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	14	2025-12-02 08:19:36.648912	\N	\N	0	1	a-win	yes
+3885	1432308	2025-11-29	Spain	Segunda División RFEF - Group 2	Real Unión	Utebo	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	1	2025-12-02 08:19:36.739144	\N	\N	3	0	h-win	yes
+3886	1432305	2025-11-30	Spain	Segunda División RFEF - Group 2	Eibar II	Real Zaragoza II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	15	2025-12-02 08:19:36.833949	\N	\N	1	0	h-win	yes
+3887	1432306	2025-11-30	Spain	Segunda División RFEF - Group 2	Ejea	Amorebieta	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	9	2025-12-02 08:19:36.929483	\N	\N	0	1	a-win	yes
+3888	1432311	2025-11-30	Spain	Segunda División RFEF - Group 2	UD Logroñés	Gernika	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	5	2025-12-02 08:19:37.020297	\N	\N	2	0	h-win	yes
+3889	1432309	2025-11-30	Spain	Segunda División RFEF - Group 2	Sestao River	SD Logroñés	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	7	2025-12-02 08:19:37.10896	\N	\N	0	1	a-win	yes
+3890	1452506	2025-09-06	Spain	Segunda División RFEF - Group 3	Poblense	Espanyol II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:38.387881	\N	\N	0	0	draw	yes
+3891	1452507	2025-09-06	Spain	Segunda División RFEF - Group 3	Andratx	Sant Andreu	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:38.469714	\N	\N	0	0	draw	yes
+3892	1452508	2025-09-06	Spain	Segunda División RFEF - Group 3	Barbastro	Olot	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:38.559778	\N	\N	1	0	h-win	yes
+3893	1452509	2025-09-06	Spain	Segunda División RFEF - Group 3	Atlético Baleares	Castellón II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:38.649901	\N	\N	3	0	h-win	yes
+3894	1452510	2025-09-07	Spain	Segunda División RFEF - Group 3	Barcelona B	Porreres	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:38.743277	\N	\N	0	0	draw	yes
+3895	1452511	2025-09-07	Spain	Segunda División RFEF - Group 3	Ibiza Islas Pitiusas	Terrassa	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:38.819997	\N	\N	1	0	h-win	yes
+3896	1452512	2025-09-07	Spain	Segunda División RFEF - Group 3	Atlètic Lleida	Torrent	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:38.899285	\N	\N	1	1	draw	yes
+3897	1452513	2025-09-07	Spain	Segunda División RFEF - Group 3	Reddis	Girona II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:38.997868	\N	\N	0	0	draw	yes
+3898	1452514	2025-09-07	Spain	Segunda División RFEF - Group 3	Alcoyano	Valencia II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.091846	\N	\N	0	1	a-win	yes
+3899	1452515	2025-09-13	Spain	Segunda División RFEF - Group 3	Castellón II	Reddis	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.184148	\N	\N	1	0	h-win	yes
+3900	1452516	2025-09-13	Spain	Segunda División RFEF - Group 3	Andratx	Barcelona B	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.26976	\N	\N	2	1	h-win	yes
+3901	1452518	2025-09-14	Spain	Segunda División RFEF - Group 3	Olot	Ibiza Islas Pitiusas	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.359698	\N	\N	1	0	h-win	yes
+3902	1479975	2025-09-14	Spain	Segunda División RFEF - Group 3	Valencia II	Atlético Baleares	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.439724	\N	\N	0	2	a-win	yes
+3903	1452517	2025-09-14	Spain	Segunda División RFEF - Group 3	Girona II	Poblense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.528416	\N	\N	0	0	draw	yes
+3904	1452519	2025-09-14	Spain	Segunda División RFEF - Group 3	Porreres	Atlètic Lleida	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.62852	\N	\N	0	0	draw	yes
+3905	1452522	2025-09-14	Spain	Segunda División RFEF - Group 3	Sant Andreu	Alcoyano	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.709666	\N	\N	0	0	draw	yes
+3906	1452521	2025-09-14	Spain	Segunda División RFEF - Group 3	Espanyol II	Barbastro	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.794983	\N	\N	0	0	draw	yes
+3907	1452523	2025-09-14	Spain	Segunda División RFEF - Group 3	Terrassa	Torrent	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.8885	\N	\N	0	0	draw	yes
+3908	1452524	2025-09-20	Spain	Segunda División RFEF - Group 3	Atlético Baleares	Sant Andreu	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:39.974014	\N	\N	1	2	a-win	yes
+3909	1479976	2025-09-20	Spain	Segunda División RFEF - Group 3	Barbastro	Valencia II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.055773	\N	\N	1	1	draw	yes
+3910	1452526	2025-09-21	Spain	Segunda División RFEF - Group 3	Poblense	Olot	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.141839	\N	\N	0	0	draw	yes
+3911	1452528	2025-09-21	Spain	Segunda División RFEF - Group 3	Alcoyano	Andratx	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.233301	\N	\N	0	0	draw	yes
+3912	1452527	2025-09-21	Spain	Segunda División RFEF - Group 3	Ibiza Islas Pitiusas	Porreres	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.316583	\N	\N	0	1	a-win	yes
+3913	1452531	2025-09-21	Spain	Segunda División RFEF - Group 3	Torrent	Girona II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.417015	\N	\N	1	0	h-win	yes
+3914	1452529	2025-09-21	Spain	Segunda División RFEF - Group 3	Atlètic Lleida	Terrassa	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.49905	\N	\N	1	1	draw	yes
+3915	1452530	2025-09-21	Spain	Segunda División RFEF - Group 3	Reddis	Espanyol II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.595129	\N	\N	0	0	draw	yes
+3916	1452532	2025-09-22	Spain	Segunda División RFEF - Group 3	Barcelona B	Castellón II	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.694797	\N	\N	2	0	h-win	yes
+3917	1452536	2025-09-28	Spain	Segunda División RFEF - Group 3	Andratx	Poblense	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.789139	\N	\N	1	2	a-win	yes
+3918	1452538	2025-09-28	Spain	Segunda División RFEF - Group 3	Espanyol II	Ibiza Islas Pitiusas	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:40.900675	\N	\N	2	1	h-win	yes
+3919	1479977	2025-09-28	Spain	Segunda División RFEF - Group 3	Valencia II	Reddis	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.000302	\N	\N	0	2	a-win	yes
+3920	1452539	2025-09-28	Spain	Segunda División RFEF - Group 3	Girona II	Terrassa	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.090909	\N	\N	1	1	draw	yes
+3921	1452533	2025-09-28	Spain	Segunda División RFEF - Group 3	Castellón II	Alcoyano	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.173548	\N	\N	1	1	draw	yes
+3922	1452534	2025-09-28	Spain	Segunda División RFEF - Group 3	Porreres	Torrent	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.265132	\N	\N	0	0	draw	yes
+3923	1452537	2025-09-28	Spain	Segunda División RFEF - Group 3	Barbastro	Atlético Baleares	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.355082	\N	\N	0	0	draw	yes
+3924	1452535	2025-09-28	Spain	Segunda División RFEF - Group 3	Olot	Atlètic Lleida	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.449012	\N	\N	0	0	draw	yes
+3925	1452540	2025-09-28	Spain	Segunda División RFEF - Group 3	Sant Andreu	Barcelona B	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.535143	\N	\N	0	0	draw	yes
+3926	1452548	2025-10-04	Spain	Segunda División RFEF - Group 3	Torrent	Espanyol II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.626485	\N	\N	0	0	draw	yes
+3927	1452546	2025-10-04	Spain	Segunda División RFEF - Group 3	Reddis	Andratx	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.719967	\N	\N	1	0	h-win	yes
+3928	1452550	2025-10-05	Spain	Segunda División RFEF - Group 3	Barcelona B	Olot	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.816052	\N	\N	1	0	h-win	yes
+3929	1452542	2025-10-05	Spain	Segunda División RFEF - Group 3	Poblense	Sant Andreu	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.909832	\N	\N	0	0	draw	yes
+3930	1479978	2025-10-05	Spain	Segunda División RFEF - Group 3	Valencia II	Castellón II	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:41.993744	\N	\N	1	2	a-win	yes
+3931	1452547	2025-10-05	Spain	Segunda División RFEF - Group 3	Terrassa	Porreres	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.076586	\N	\N	1	0	h-win	yes
+3932	1452543	2025-10-05	Spain	Segunda División RFEF - Group 3	Alcoyano	Barbastro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.17903	\N	\N	1	0	h-win	yes
+3933	1452545	2025-10-05	Spain	Segunda División RFEF - Group 3	Atlètic Lleida	Girona II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.270777	\N	\N	0	0	draw	yes
+3934	1452544	2025-10-05	Spain	Segunda División RFEF - Group 3	Atlético Baleares	Ibiza Islas Pitiusas	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.364702	\N	\N	0	0	draw	yes
+3935	1452555	2025-10-11	Spain	Segunda División RFEF - Group 3	Barbastro	Torrent	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.449888	\N	\N	0	1	a-win	yes
+3936	1452559	2025-10-11	Spain	Segunda División RFEF - Group 3	Barcelona B	Reddis	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.544586	\N	\N	2	0	h-win	yes
+3937	1452553	2025-10-12	Spain	Segunda División RFEF - Group 3	Alcoyano	Poblense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.628928	\N	\N	0	0	draw	yes
+3938	1452554	2025-10-12	Spain	Segunda División RFEF - Group 3	Andratx	Atlético Baleares	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.722631	\N	\N	0	0	draw	yes
+3939	1452557	2025-10-12	Spain	Segunda División RFEF - Group 3	Girona II	Porreres	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.813549	\N	\N	0	0	draw	yes
+3940	1452551	2025-10-12	Spain	Segunda División RFEF - Group 3	Castellón II	Ibiza Islas Pitiusas	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.91065	\N	\N	2	1	h-win	yes
+3941	1479979	2025-10-12	Spain	Segunda División RFEF - Group 3	Sant Andreu	Valencia II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.004424	\N	\N	2	1	h-win	yes
+3942	1452552	2025-10-12	Spain	Segunda División RFEF - Group 3	Olot	Terrassa	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.104788	\N	\N	1	0	h-win	yes
+3943	1452556	2025-10-12	Spain	Segunda División RFEF - Group 3	Espanyol II	Atlètic Lleida	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.189003	\N	\N	0	0	draw	yes
+3944	1452560	2025-10-19	Spain	Segunda División RFEF - Group 3	Poblense	Castellón II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.269605	\N	\N	3	1	h-win	yes
+3945	1452562	2025-10-19	Spain	Segunda División RFEF - Group 3	Atlético Baleares	Alcoyano	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.353919	\N	\N	0	1	a-win	yes
+3946	1479980	2025-10-19	Spain	Segunda División RFEF - Group 3	Ibiza Islas Pitiusas	Valencia II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.437048	\N	\N	1	0	h-win	yes
+3947	1452563	2025-10-19	Spain	Segunda División RFEF - Group 3	Girona II	Andratx	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.524751	\N	\N	1	0	h-win	yes
+3948	1452568	2025-10-19	Spain	Segunda División RFEF - Group 3	Torrent	Olot	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.614238	\N	\N	1	0	h-win	yes
+3949	1452561	2025-10-19	Spain	Segunda División RFEF - Group 3	Porreres	Barbastro	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.708016	\N	\N	0	0	draw	yes
+3950	1452565	2025-10-19	Spain	Segunda División RFEF - Group 3	Reddis	Sant Andreu	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.796652	\N	\N	0	0	draw	yes
+3951	1452564	2025-10-19	Spain	Segunda División RFEF - Group 3	Atlètic Lleida	Barcelona B	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.886737	\N	\N	1	1	draw	yes
+3952	1452567	2025-10-19	Spain	Segunda División RFEF - Group 3	Terrassa	Espanyol II	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.971094	\N	\N	1	2	a-win	yes
+3953	1452569	2025-10-25	Spain	Segunda División RFEF - Group 3	Castellón II	Terrassa	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.060424	\N	\N	0	2	a-win	yes
+3954	1452575	2025-10-25	Spain	Segunda División RFEF - Group 3	Sant Andreu	Torrent	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.144484	\N	\N	2	1	h-win	yes
+3955	1452577	2025-10-26	Spain	Segunda División RFEF - Group 3	Barcelona B	Poblense	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.228517	\N	\N	1	2	a-win	yes
+3956	1452572	2025-10-26	Spain	Segunda División RFEF - Group 3	Andratx	Ibiza Islas Pitiusas	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.309116	\N	\N	1	0	h-win	yes
+3957	1452573	2025-10-26	Spain	Segunda División RFEF - Group 3	Atlético Baleares	Espanyol II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.394644	\N	\N	1	0	h-win	yes
+3958	1452570	2025-10-26	Spain	Segunda División RFEF - Group 3	Olot	Girona II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.494038	\N	\N	0	0	draw	yes
+3959	1479981	2025-10-26	Spain	Segunda División RFEF - Group 3	Valencia II	Porreres	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.579598	\N	\N	0	1	a-win	yes
+3960	1452571	2025-10-26	Spain	Segunda División RFEF - Group 3	Alcoyano	Reddis	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.679214	\N	\N	0	0	draw	yes
+3961	1452574	2025-10-26	Spain	Segunda División RFEF - Group 3	Barbastro	Atlètic Lleida	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:44.76349	\N	\N	0	0	draw	yes
+3962	1452578	2025-11-02	Spain	Segunda División RFEF - Group 3	Poblense	Barbastro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	14	2025-12-02 08:19:44.949148	\N	\N	1	0	h-win	yes
+3963	1452585	2025-11-02	Spain	Segunda División RFEF - Group 3	Terrassa	Andratx	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	12	2025-12-02 08:19:45.045685	\N	\N	1	1	draw	yes
+3964	1452584	2025-11-02	Spain	Segunda División RFEF - Group 3	Ibiza Islas Pitiusas	Alcoyano	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	11	2025-12-02 08:19:45.141506	\N	\N	1	0	h-win	yes
+3965	1452581	2025-11-02	Spain	Segunda División RFEF - Group 3	Girona II	Barcelona B	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	2	2025-12-02 08:19:45.244549	\N	\N	0	0	draw	yes
+3966	1479982	2025-11-02	Spain	Segunda División RFEF - Group 3	Torrent	Valencia II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	15	2025-12-02 08:19:45.341314	\N	\N	1	2	a-win	yes
+3967	1452583	2025-11-02	Spain	Segunda División RFEF - Group 3	Reddis	Atlético Baleares	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	3	2025-12-02 08:19:45.43056	\N	\N	1	0	h-win	yes
+3968	1452579	2025-11-02	Spain	Segunda División RFEF - Group 3	Porreres	Sant Andreu	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	10	2025-12-02 08:19:45.515068	\N	\N	1	0	h-win	yes
+3969	1452580	2025-11-02	Spain	Segunda División RFEF - Group 3	Espanyol II	Olot	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	7	2025-12-02 08:19:45.604548	\N	\N	0	0	draw	yes
+3970	1452582	2025-11-02	Spain	Segunda División RFEF - Group 3	Atlètic Lleida	Castellón II	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	8	2025-12-02 08:19:45.689416	\N	\N	1	2	a-win	yes
+3971	1452587	2025-11-08	Spain	Segunda División RFEF - Group 3	Castellón II	Espanyol II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	6	2025-12-02 08:19:45.789078	\N	\N	0	1	a-win	yes
+3972	1452593	2025-11-09	Spain	Segunda División RFEF - Group 3	Reddis	Poblense	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	1	2025-12-02 08:19:45.87859	\N	\N	0	1	a-win	yes
+3973	1452589	2025-11-09	Spain	Segunda División RFEF - Group 3	Sant Andreu	Ibiza Islas Pitiusas	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	13	2025-12-02 08:19:45.966912	\N	\N	0	1	a-win	yes
+3974	1452591	2025-11-09	Spain	Segunda División RFEF - Group 3	Atlético Baleares	Girona II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	5	2025-12-02 08:19:46.054605	\N	\N	2	1	h-win	yes
+3975	1452588	2025-11-09	Spain	Segunda División RFEF - Group 3	Olot	Porreres	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	18	2025-12-02 08:19:46.145896	\N	\N	0	0	draw	yes
+3976	1479983	2025-11-09	Spain	Segunda División RFEF - Group 3	Valencia II	Andratx	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	12	2025-12-02 08:19:46.229423	\N	\N	2	0	h-win	yes
+3977	1452592	2025-11-09	Spain	Segunda División RFEF - Group 3	Barbastro	Terrassa	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	9	2025-12-02 08:19:46.320017	\N	\N	0	0	draw	yes
+3978	1452590	2025-11-09	Spain	Segunda División RFEF - Group 3	Alcoyano	Atlètic Lleida	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	16	2025-12-02 08:19:46.404532	\N	\N	1	1	draw	yes
+3979	1452595	2025-11-09	Spain	Segunda División RFEF - Group 3	Barcelona B	Torrent	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	17	2025-12-02 08:19:46.494096	\N	\N	1	0	h-win	yes
+3980	1452600	2025-11-15	Spain	Segunda División RFEF - Group 3	Atlètic Lleida	Andratx	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	12	2025-12-02 08:19:46.588466	\N	\N	1	2	a-win	yes
+3981	1452602	2025-11-16	Spain	Segunda División RFEF - Group 3	Ibiza Islas Pitiusas	Reddis	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	4	2025-12-02 08:19:46.669197	\N	\N	0	0	draw	yes
+3982	1479984	2025-11-16	Spain	Segunda División RFEF - Group 3	Poblense	Valencia II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	15	2025-12-02 08:19:46.77384	\N	\N	0	0	draw	yes
+3983	1452599	2025-11-16	Spain	Segunda División RFEF - Group 3	Girona II	Barbastro	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	14	2025-12-02 08:19:46.858951	\N	\N	0	0	draw	yes
+3984	1452604	2025-11-16	Spain	Segunda División RFEF - Group 3	Torrent	Atlético Baleares	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	3	2025-12-02 08:19:46.949021	\N	\N	0	1	a-win	yes
+3985	1452596	2025-11-16	Spain	Segunda División RFEF - Group 3	Porreres	Castellón II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	8	2025-12-02 08:19:47.033773	\N	\N	0	1	a-win	yes
+3986	1452597	2025-11-16	Spain	Segunda División RFEF - Group 3	Olot	Alcoyano	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	11	2025-12-02 08:19:47.11842	\N	\N	0	0	draw	yes
+3987	1452598	2025-11-16	Spain	Segunda División RFEF - Group 3	Espanyol II	Barcelona B	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	2	2025-12-02 08:19:47.208943	\N	\N	0	0	draw	yes
+3988	1452603	2025-11-16	Spain	Segunda División RFEF - Group 3	Terrassa	Sant Andreu	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	10	2025-12-02 08:19:47.309495	\N	\N	0	0	draw	yes
+3989	1479985	2025-11-22	Spain	Segunda División RFEF - Group 3	Valencia II	Atlètic Lleida	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	16	2025-12-02 08:19:47.417877	\N	\N	1	0	h-win	yes
+3990	1452613	2025-11-22	Spain	Segunda División RFEF - Group 3	Barcelona B	Terrassa	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	9	2025-12-02 08:19:47.50314	\N	\N	1	0	h-win	yes
+3991	1452607	2025-11-23	Spain	Segunda División RFEF - Group 3	Andratx	Espanyol II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	6	2025-12-02 08:19:47.58492	\N	\N	0	0	draw	yes
+3992	1452608	2025-11-23	Spain	Segunda División RFEF - Group 3	Atlético Baleares	Poblense	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	1	2025-12-02 08:19:47.664917	\N	\N	1	0	h-win	yes
+3993	1452606	2025-11-23	Spain	Segunda División RFEF - Group 3	Alcoyano	Porreres	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	18	2025-12-02 08:19:47.75023	\N	\N	1	0	h-win	yes
+3994	1452611	2025-11-23	Spain	Segunda División RFEF - Group 3	Ibiza Islas Pitiusas	Girona II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	5	2025-12-02 08:19:47.833837	\N	\N	0	0	draw	yes
+3995	1452609	2025-11-23	Spain	Segunda División RFEF - Group 3	Castellón II	Torrent	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	17	2025-12-02 08:19:47.924616	\N	\N	0	2	a-win	yes
+3996	1452610	2025-11-23	Spain	Segunda División RFEF - Group 3	Reddis	Barbastro	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	14	2025-12-02 08:19:48.017061	\N	\N	0	0	draw	yes
+3997	1452605	2025-11-23	Spain	Segunda División RFEF - Group 3	Sant Andreu	Olot	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	7	2025-12-02 08:19:48.104512	\N	\N	0	1	a-win	yes
+3998	1452617	2025-11-29	Spain	Segunda División RFEF - Group 3	Atlètic Lleida	Atlético Baleares	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	3	2025-12-02 08:19:48.188993	\N	\N	0	0	draw	yes
+3999	1452619	2025-11-30	Spain	Segunda División RFEF - Group 3	Poblense	Ibiza Islas Pitiusas	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	13	2025-12-02 08:19:48.277118	\N	\N	0	0	draw	yes
+4000	1479986	2025-11-30	Spain	Segunda División RFEF - Group 3	Espanyol II	Valencia II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	15	2025-12-02 08:19:48.35888	\N	\N	0	1	a-win	yes
+4001	1452614	2025-11-30	Spain	Segunda División RFEF - Group 3	Barbastro	Barcelona B	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	2	2025-12-02 08:19:48.448575	\N	\N	0	0	draw	yes
+4002	1452616	2025-11-30	Spain	Segunda División RFEF - Group 3	Girona II	Sant Andreu	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	10	2025-12-02 08:19:48.540329	\N	\N	2	0	h-win	yes
+4003	1452622	2025-11-30	Spain	Segunda División RFEF - Group 3	Torrent	Andratx	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	12	2025-12-02 08:19:48.624076	\N	\N	0	0	draw	yes
+4004	1452620	2025-11-30	Spain	Segunda División RFEF - Group 3	Porreres	Reddis	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	4	2025-12-02 08:19:48.709154	\N	\N	0	0	draw	yes
+4005	1452618	2025-11-30	Spain	Segunda División RFEF - Group 3	Olot	Castellón II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	8	2025-12-02 08:19:48.799974	\N	\N	2	0	h-win	yes
+4006	1452621	2025-11-30	Spain	Segunda División RFEF - Group 3	Terrassa	Alcoyano	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	11	2025-12-02 08:19:48.885163	\N	\N	0	0	draw	yes
+4007	1432813	2025-09-06	Spain	Segunda División RFEF - Group 4	Puente Genil	Xerez	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.189734	\N	\N	1	1	draw	yes
+4008	1432810	2025-09-06	Spain	Segunda División RFEF - Group 4	Estepona	Linares Deportivo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.273496	\N	\N	1	0	h-win	yes
+4009	1432812	2025-09-07	Spain	Segunda División RFEF - Group 4	Melilla	Ucam Murcia	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.369268	\N	\N	1	0	h-win	yes
+4010	1432808	2025-09-07	Spain	Segunda División RFEF - Group 4	Almería II	Recreativo Huelva	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.456401	\N	\N	0	1	a-win	yes
+4011	1432811	2025-09-07	Spain	Segunda División RFEF - Group 4	Lorca Deportiva	Real Jaén	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.550213	\N	\N	0	0	draw	yes
+4012	1432807	2025-09-07	Spain	Segunda División RFEF - Group 4	Águilas	Yeclano	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.646705	\N	\N	2	0	h-win	yes
+4013	1432815	2025-09-07	Spain	Segunda División RFEF - Group 4	Extremadura 1924	Málaga II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.744055	\N	\N	0	2	a-win	yes
+4014	1432809	2025-09-07	Spain	Segunda División RFEF - Group 4	Antoniano	La Unión Atlético	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.824511	\N	\N	0	0	draw	yes
+4015	1432814	2025-09-07	Spain	Segunda División RFEF - Group 4	Xerez Deportivo	Deportiva Minera	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:50.917496	\N	\N	1	2	a-win	yes
+4016	1432817	2025-09-14	Spain	Segunda División RFEF - Group 4	Deportiva Minera	Estepona	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.014187	\N	\N	0	0	draw	yes
+4017	1432824	2025-09-14	Spain	Segunda División RFEF - Group 4	Yeclano	Melilla	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.104051	\N	\N	1	0	h-win	yes
+4018	1432819	2025-09-14	Spain	Segunda División RFEF - Group 4	La Unión Atlético	Xerez Deportivo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.199038	\N	\N	0	1	a-win	yes
+4019	1432820	2025-09-14	Spain	Segunda División RFEF - Group 4	Linares Deportivo	Águilas	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.286002	\N	\N	0	0	draw	yes
+4020	1432816	2025-09-14	Spain	Segunda División RFEF - Group 4	Recreativo Huelva	Puente Genil	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.373929	\N	\N	0	0	draw	yes
+4021	1432818	2025-09-14	Spain	Segunda División RFEF - Group 4	Real Jaén	Extremadura 1924	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.45615	\N	\N	0	0	draw	yes
+4022	1432823	2025-09-14	Spain	Segunda División RFEF - Group 4	Xerez	Antoniano	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.544634	\N	\N	1	0	h-win	yes
+4023	1432822	2025-09-14	Spain	Segunda División RFEF - Group 4	Ucam Murcia	Lorca Deportiva	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.629635	\N	\N	2	0	h-win	yes
+4024	1432821	2025-09-14	Spain	Segunda División RFEF - Group 4	Málaga II	Almería II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.71571	\N	\N	0	0	draw	yes
+4025	1432830	2025-09-20	Spain	Segunda División RFEF - Group 4	Lorca Deportiva	La Unión Atlético	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.793779	\N	\N	0	1	a-win	yes
+4026	1432828	2025-09-20	Spain	Segunda División RFEF - Group 4	Estepona	Recreativo Huelva	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.874274	\N	\N	0	0	draw	yes
+4027	1432831	2025-09-21	Spain	Segunda División RFEF - Group 4	Melilla	Deportiva Minera	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:51.958471	\N	\N	2	0	h-win	yes
+4028	1432827	2025-09-21	Spain	Segunda División RFEF - Group 4	Antoniano	Real Jaén	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.049696	\N	\N	1	1	draw	yes
+4029	1432826	2025-09-21	Spain	Segunda División RFEF - Group 4	Almería II	Linares Deportivo	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.150365	\N	\N	0	1	a-win	yes
+4030	1432832	2025-09-21	Spain	Segunda División RFEF - Group 4	Puente Genil	Ucam Murcia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.240619	\N	\N	0	1	a-win	yes
+4031	1432829	2025-09-21	Spain	Segunda División RFEF - Group 4	Extremadura 1924	Yeclano	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.324002	\N	\N	0	0	draw	yes
+4032	1432825	2025-09-21	Spain	Segunda División RFEF - Group 4	Águilas	Xerez	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.423999	\N	\N	0	0	draw	yes
+4033	1432833	2025-09-21	Spain	Segunda División RFEF - Group 4	Xerez Deportivo	Málaga II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.508901	\N	\N	0	1	a-win	yes
+4034	1432834	2025-09-27	Spain	Segunda División RFEF - Group 4	Recreativo Huelva	Linares Deportivo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.589786	\N	\N	1	1	draw	yes
+4035	1432841	2025-09-28	Spain	Segunda División RFEF - Group 4	La Unión Atlético	Melilla	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.669989	\N	\N	0	0	draw	yes
+4036	1432835	2025-09-28	Spain	Segunda División RFEF - Group 4	Ucam Murcia	Antoniano	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.754516	\N	\N	0	0	draw	yes
+4037	1432839	2025-09-28	Spain	Segunda División RFEF - Group 4	Deportiva Minera	Almería II	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.840326	\N	\N	3	0	h-win	yes
+4038	1432837	2025-09-28	Spain	Segunda División RFEF - Group 4	Yeclano	Lorca Deportiva	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:52.931482	\N	\N	0	0	draw	yes
+4039	1432836	2025-09-28	Spain	Segunda División RFEF - Group 4	Xerez	Estepona	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.010406	\N	\N	0	0	draw	yes
+4040	1432838	2025-09-28	Spain	Segunda División RFEF - Group 4	Águilas	Extremadura 1924	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.099751	\N	\N	1	1	draw	yes
+4041	1432840	2025-09-28	Spain	Segunda División RFEF - Group 4	Real Jaén	Xerez Deportivo	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.189429	\N	\N	1	1	draw	yes
+4042	1432842	2025-09-28	Spain	Segunda División RFEF - Group 4	Málaga II	Puente Genil	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.279359	\N	\N	0	0	draw	yes
+4043	1432849	2025-10-05	Spain	Segunda División RFEF - Group 4	Melilla	Xerez	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.365093	\N	\N	0	0	draw	yes
+4044	1432845	2025-10-05	Spain	Segunda División RFEF - Group 4	Antoniano	Málaga II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.455816	\N	\N	1	0	h-win	yes
+4045	1432848	2025-10-05	Spain	Segunda División RFEF - Group 4	Linares Deportivo	Deportiva Minera	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.540446	\N	\N	3	0	h-win	yes
+4046	1432851	2025-10-05	Spain	Segunda División RFEF - Group 4	Recreativo Huelva	Lorca Deportiva	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.62398	\N	\N	1	0	h-win	yes
+4047	1432844	2025-10-05	Spain	Segunda División RFEF - Group 4	Almería II	Águilas	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.703726	\N	\N	0	1	a-win	yes
+4048	1432850	2025-10-05	Spain	Segunda División RFEF - Group 4	Puente Genil	La Unión Atlético	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.78929	\N	\N	0	0	draw	yes
+4049	1432847	2025-10-05	Spain	Segunda División RFEF - Group 4	Extremadura 1924	Ucam Murcia	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.874631	\N	\N	1	1	draw	yes
+4050	1432843	2025-10-05	Spain	Segunda División RFEF - Group 4	Xerez Deportivo	Yeclano	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:53.96449	\N	\N	2	0	h-win	yes
+4051	1432846	2025-10-05	Spain	Segunda División RFEF - Group 4	Estepona	Real Jaén	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.059535	\N	\N	0	0	draw	yes
+4052	1432860	2025-10-11	Spain	Segunda División RFEF - Group 4	Yeclano	Puente Genil	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.149107	\N	\N	0	0	draw	yes
+4053	1432852	2025-10-11	Spain	Segunda División RFEF - Group 4	Águilas	Antoniano	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.238528	\N	\N	0	0	draw	yes
+4054	1432855	2025-10-12	Spain	Segunda División RFEF - Group 4	La Unión Atlético	Linares Deportivo	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.330054	\N	\N	1	0	h-win	yes
+4055	1432858	2025-10-12	Spain	Segunda División RFEF - Group 4	Ucam Murcia	Xerez Deportivo	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.413976	\N	\N	1	1	draw	yes
+4056	1432854	2025-10-12	Spain	Segunda División RFEF - Group 4	Real Jaén	Melilla	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.503278	\N	\N	1	0	h-win	yes
+4057	1432857	2025-10-12	Spain	Segunda División RFEF - Group 4	Málaga II	Estepona	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.595624	\N	\N	0	2	a-win	yes
+4058	1432853	2025-10-12	Spain	Segunda División RFEF - Group 4	Deportiva Minera	Recreativo Huelva	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.698412	\N	\N	0	0	draw	yes
+4059	1432856	2025-10-12	Spain	Segunda División RFEF - Group 4	Lorca Deportiva	Extremadura 1924	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.783492	\N	\N	0	0	draw	yes
+4060	1432859	2025-10-12	Spain	Segunda División RFEF - Group 4	Xerez	Almería II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.874489	\N	\N	1	0	h-win	yes
+4061	1432863	2025-10-18	Spain	Segunda División RFEF - Group 4	Estepona	Yeclano	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:54.963951	\N	\N	0	2	a-win	yes
+4062	1432865	2025-10-19	Spain	Segunda División RFEF - Group 4	Linares Deportivo	Lorca Deportiva	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.048527	\N	\N	0	1	a-win	yes
+4063	1432869	2025-10-19	Spain	Segunda División RFEF - Group 4	Recreativo Huelva	Xerez	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.133982	\N	\N	0	1	a-win	yes
+4064	1432861	2025-10-19	Spain	Segunda División RFEF - Group 4	Almería II	Ucam Murcia	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.223891	\N	\N	1	1	draw	yes
+4065	1432867	2025-10-19	Spain	Segunda División RFEF - Group 4	Puente Genil	Real Jaén	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.313937	\N	\N	1	0	h-win	yes
+4066	1432864	2025-10-19	Spain	Segunda División RFEF - Group 4	Deportiva Minera	La Unión Atlético	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.397622	\N	\N	0	0	draw	yes
+4067	1432866	2025-10-19	Spain	Segunda División RFEF - Group 4	Melilla	Málaga II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.48385	\N	\N	1	1	draw	yes
+4068	1432862	2025-10-19	Spain	Segunda División RFEF - Group 4	Antoniano	Extremadura 1924	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.581648	\N	\N	1	0	h-win	yes
+4069	1432868	2025-10-19	Spain	Segunda División RFEF - Group 4	Xerez Deportivo	Águilas	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.670758	\N	\N	1	0	h-win	yes
+4070	1432876	2025-10-25	Spain	Segunda División RFEF - Group 4	Ucam Murcia	Estepona	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.759288	\N	\N	1	0	h-win	yes
+4071	1432878	2025-10-25	Spain	Segunda División RFEF - Group 4	Yeclano	Linares Deportivo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.855345	\N	\N	0	0	draw	yes
+4072	1432871	2025-10-25	Spain	Segunda División RFEF - Group 4	Extremadura 1924	Xerez Deportivo	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:55.94891	\N	\N	1	1	draw	yes
+4073	1432872	2025-10-25	Spain	Segunda División RFEF - Group 4	Real Jaén	Almería II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:56.033527	\N	\N	1	0	h-win	yes
+4074	1432870	2025-10-26	Spain	Segunda División RFEF - Group 4	Antoniano	Melilla	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:56.123941	\N	\N	1	1	draw	yes
+4075	1432873	2025-10-26	Spain	Segunda División RFEF - Group 4	La Unión Atlético	Recreativo Huelva	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:56.208674	\N	\N	0	0	draw	yes
+4076	1432877	2025-10-26	Spain	Segunda División RFEF - Group 4	Xerez	Deportiva Minera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:56.294324	\N	\N	0	0	draw	yes
+4077	1432875	2025-10-26	Spain	Segunda División RFEF - Group 4	Málaga II	Águilas	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:56.382431	\N	\N	0	1	a-win	yes
+4078	1432885	2025-11-02	Spain	Segunda División RFEF - Group 4	Ucam Murcia	Yeclano	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	13	2025-12-02 08:19:56.545716	\N	\N	0	1	a-win	yes
+4079	1432883	2025-11-02	Spain	Segunda División RFEF - Group 4	Melilla	Extremadura 1924	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	5	2025-12-02 08:19:56.638435	\N	\N	0	0	draw	yes
+4080	1432882	2025-11-02	Spain	Segunda División RFEF - Group 4	Linares Deportivo	Xerez	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	4	2025-12-02 08:19:56.724631	\N	\N	0	1	a-win	yes
+4081	1432879	2025-11-02	Spain	Segunda División RFEF - Group 4	Almería II	La Unión Atlético	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	2	2025-12-02 08:19:56.8135	\N	\N	0	1	a-win	yes
+4082	1432881	2025-11-02	Spain	Segunda División RFEF - Group 4	Deportiva Minera	Real Jaén	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	8	2025-12-02 08:19:56.893463	\N	\N	0	0	draw	yes
+4083	1432887	2025-11-02	Spain	Segunda División RFEF - Group 4	Recreativo Huelva	Málaga II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	18	2025-12-02 08:19:56.984339	\N	\N	1	0	h-win	yes
+4084	1432884	2025-11-02	Spain	Segunda División RFEF - Group 4	Puente Genil	Águilas	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	1	2025-12-02 08:19:57.068539	\N	\N	0	0	draw	yes
+4085	1432886	2025-11-02	Spain	Segunda División RFEF - Group 4	Xerez Deportivo	Antoniano	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	11	2025-12-02 08:19:57.161776	\N	\N	2	0	h-win	yes
+4086	1432880	2025-11-02	Spain	Segunda División RFEF - Group 4	Estepona	Lorca Deportiva	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	3	2025-12-02 08:19:57.260355	\N	\N	1	0	h-win	yes
+4087	1432893	2025-11-08	Spain	Segunda División RFEF - Group 4	Lorca Deportiva	Deportiva Minera	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	9	2025-12-02 08:19:57.344088	\N	\N	0	0	draw	yes
+4088	1432892	2025-11-09	Spain	Segunda División RFEF - Group 4	La Unión Atlético	Xerez	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	4	2025-12-02 08:19:57.433397	\N	\N	0	1	a-win	yes
+4089	1432889	2025-11-09	Spain	Segunda División RFEF - Group 4	Antoniano	Puente Genil	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	14	2025-12-02 08:19:57.514661	\N	\N	0	0	draw	yes
+4090	1432888	2025-11-09	Spain	Segunda División RFEF - Group 4	Águilas	Melilla	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	15	2025-12-02 08:19:57.598631	\N	\N	1	0	h-win	yes
+4091	1432890	2025-11-09	Spain	Segunda División RFEF - Group 4	Extremadura 1924	Estepona	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	17	2025-12-02 08:19:57.683748	\N	\N	1	0	h-win	yes
+4092	1432891	2025-11-09	Spain	Segunda División RFEF - Group 4	Real Jaén	Linares Deportivo	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	6	2025-12-02 08:19:57.778597	\N	\N	0	0	draw	yes
+4093	1432896	2025-11-09	Spain	Segunda División RFEF - Group 4	Yeclano	Recreativo Huelva	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	10	2025-12-02 08:19:57.858715	\N	\N	1	0	h-win	yes
+4094	1432895	2025-11-09	Spain	Segunda División RFEF - Group 4	Xerez Deportivo	Almería II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	16	2025-12-02 08:19:57.948656	\N	\N	0	1	a-win	yes
+4095	1432894	2025-11-09	Spain	Segunda División RFEF - Group 4	Málaga II	Ucam Murcia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	7	2025-12-02 08:19:58.034056	\N	\N	0	0	draw	yes
+4096	1432874	2025-11-12	Spain	Segunda División RFEF - Group 4	Lorca Deportiva	Puente Genil	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	14	2025-12-02 08:19:58.114764	\N	\N	1	0	h-win	yes
+4097	1432900	2025-11-16	Spain	Segunda División RFEF - Group 4	La Unión Atlético	Real Jaén	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	8	2025-12-02 08:19:58.203757	\N	\N	0	0	draw	yes
+4098	1432902	2025-11-16	Spain	Segunda División RFEF - Group 4	Melilla	Xerez Deportivo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	12	2025-12-02 08:19:58.294031	\N	\N	0	0	draw	yes
+4099	1432901	2025-11-16	Spain	Segunda División RFEF - Group 4	Linares Deportivo	Málaga II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	18	2025-12-02 08:19:58.383947	\N	\N	0	1	a-win	yes
+4100	1432897	2025-11-16	Spain	Segunda División RFEF - Group 4	Almería II	Yeclano	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	13	2025-12-02 08:19:58.469067	\N	\N	1	0	h-win	yes
+4101	1432899	2025-11-16	Spain	Segunda División RFEF - Group 4	Deportiva Minera	Águilas	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	1	2025-12-02 08:19:58.550147	\N	\N	0	1	a-win	yes
+4102	1432898	2025-11-16	Spain	Segunda División RFEF - Group 4	Estepona	Antoniano	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	11	2025-12-02 08:19:58.6364	\N	\N	0	1	a-win	yes
+4103	1432903	2025-11-16	Spain	Segunda División RFEF - Group 4	Puente Genil	Extremadura 1924	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	5	2025-12-02 08:19:58.718943	\N	\N	1	0	h-win	yes
+4104	1432904	2025-11-16	Spain	Segunda División RFEF - Group 4	Xerez	Lorca Deportiva	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	3	2025-12-02 08:19:58.814645	\N	\N	0	1	a-win	yes
+4105	1432911	2025-11-22	Spain	Segunda División RFEF - Group 4	Málaga II	La Unión Atlético	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	2	2025-12-02 08:19:58.900014	\N	\N	0	2	a-win	yes
+4106	1432912	2025-11-23	Spain	Segunda División RFEF - Group 4	Ucam Murcia	Deportiva Minera	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	9	2025-12-02 08:19:58.984806	\N	\N	1	1	draw	yes
+4107	1432910	2025-11-23	Spain	Segunda División RFEF - Group 4	Lorca Deportiva	Melilla	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	15	2025-12-02 08:19:59.077395	\N	\N	1	0	h-win	yes
+4108	1432908	2025-11-23	Spain	Segunda División RFEF - Group 4	Extremadura 1924	Almería II	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	16	2025-12-02 08:19:59.161142	\N	\N	0	0	draw	yes
+4109	1432907	2025-11-23	Spain	Segunda División RFEF - Group 4	Antoniano	Linares Deportivo	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	6	2025-12-02 08:19:59.254678	\N	\N	1	0	h-win	yes
+4110	1432909	2025-11-23	Spain	Segunda División RFEF - Group 4	Real Jaén	Recreativo Huelva	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	10	2025-12-02 08:19:59.339395	\N	\N	0	0	draw	yes
+4111	1432914	2025-11-23	Spain	Segunda División RFEF - Group 4	Yeclano	Xerez	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	4	2025-12-02 08:19:59.42498	\N	\N	0	2	a-win	yes
+4112	1432913	2025-11-23	Spain	Segunda División RFEF - Group 4	Xerez Deportivo	Puente Genil	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	14	2025-12-02 08:19:59.508799	\N	\N	1	0	h-win	yes
+4113	1432906	2025-11-23	Spain	Segunda División RFEF - Group 4	Águilas	Estepona	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	17	2025-12-02 08:19:59.589267	\N	\N	1	0	h-win	yes
+4114	1432918	2025-11-30	Spain	Segunda División RFEF - Group 4	La Unión Atlético	Extremadura 1924	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	5	2025-12-02 08:19:59.695381	\N	\N	0	1	a-win	yes
+4115	1432919	2025-11-30	Spain	Segunda División RFEF - Group 4	Linares Deportivo	Ucam Murcia	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	7	2025-12-02 08:19:59.790133	\N	\N	2	0	h-win	yes
+4116	1432920	2025-11-30	Spain	Segunda División RFEF - Group 4	Lorca Deportiva	Málaga II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	18	2025-12-02 08:19:59.879069	\N	\N	1	0	h-win	yes
+4117	1432923	2025-11-30	Spain	Segunda División RFEF - Group 4	Recreativo Huelva	Águilas	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	1	2025-12-02 08:19:59.973459	\N	\N	0	0	draw	yes
+4118	1432915	2025-11-30	Spain	Segunda División RFEF - Group 4	Almería II	Antoniano	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	11	2025-12-02 08:20:00.062775	\N	\N	0	0	draw	yes
+4119	1432921	2025-11-30	Spain	Segunda División RFEF - Group 4	Puente Genil	Melilla	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	15	2025-12-02 08:20:00.152873	\N	\N	0	0	draw	yes
+4120	1432917	2025-11-30	Spain	Segunda División RFEF - Group 4	Deportiva Minera	Yeclano	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	13	2025-12-02 08:20:00.234964	\N	\N	0	0	draw	yes
+4121	1432916	2025-11-30	Spain	Segunda División RFEF - Group 4	Estepona	Xerez Deportivo	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	12	2025-12-02 08:20:00.324788	\N	\N	0	0	draw	yes
+4122	1432922	2025-11-30	Spain	Segunda División RFEF - Group 4	Xerez	Real Jaén	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	8	2025-12-02 08:20:00.41133	\N	\N	1	0	h-win	yes
+4123	1433121	2025-09-06	Spain	Segunda División RFEF - Group 5	SS Reyes	RSD Alcalá	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:33.390622	\N	\N	1	0	h-win	yes
+4124	1433113	2025-09-06	Spain	Segunda División RFEF - Group 5	Colonia Moscardó	Real Madrid III	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:33.474194	\N	\N	0	1	a-win	yes
+4125	1433115	2025-09-07	Spain	Segunda División RFEF - Group 5	Getafe II	Navalcarnero	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:33.557781	\N	\N	1	0	h-win	yes
+4126	1433114	2025-09-07	Spain	Segunda División RFEF - Group 5	Conquense	Rayo Majadahonda	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:33.639637	\N	\N	0	0	draw	yes
+4127	1433116	2025-09-07	Spain	Segunda División RFEF - Group 5	Elche II	Socuéllamos	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:33.720909	\N	\N	0	1	a-win	yes
+4128	1433120	2025-09-07	Spain	Segunda División RFEF - Group 5	Rayo Vallecano II	CD Coria	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:33.808362	\N	\N	1	0	h-win	yes
+4129	1433117	2025-09-07	Spain	Segunda División RFEF - Group 5	Las Palmas II	Tenerife II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:33.889542	\N	\N	0	1	a-win	yes
+4130	1433119	2025-09-07	Spain	Segunda División RFEF - Group 5	Quintanar del Rey	Intercity	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:33.974514	\N	\N	0	0	draw	yes
+4131	1433118	2025-09-07	Spain	Segunda División RFEF - Group 5	Orihuela	Fuenlabrada	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.057344	\N	\N	1	0	h-win	yes
+4132	1433127	2025-09-14	Spain	Segunda División RFEF - Group 5	Real Madrid III	Las Palmas II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.13965	\N	\N	1	0	h-win	yes
+4133	1433126	2025-09-14	Spain	Segunda División RFEF - Group 5	Rayo Majadahonda	Orihuela	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.224244	\N	\N	0	0	draw	yes
+4134	1433122	2025-09-14	Spain	Segunda División RFEF - Group 5	Fuenlabrada	SS Reyes	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.310996	\N	\N	0	1	a-win	yes
+4135	1433128	2025-09-14	Spain	Segunda División RFEF - Group 5	RSD Alcalá	Conquense	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.409923	\N	\N	2	0	h-win	yes
+4136	1433130	2025-09-14	Spain	Segunda División RFEF - Group 5	Tenerife II	Quintanar del Rey	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.493812	\N	\N	0	0	draw	yes
+4137	1433125	2025-09-14	Spain	Segunda División RFEF - Group 5	Navalcarnero	Rayo Vallecano II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.578648	\N	\N	2	1	h-win	yes
+4138	1433129	2025-09-14	Spain	Segunda División RFEF - Group 5	Socuéllamos	Colonia Moscardó	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.663754	\N	\N	0	0	draw	yes
+4139	1433123	2025-09-14	Spain	Segunda División RFEF - Group 5	CD Coria	Getafe II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.744783	\N	\N	1	0	h-win	yes
+4140	1433124	2025-09-14	Spain	Segunda División RFEF - Group 5	Intercity	Elche II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.828393	\N	\N	0	1	a-win	yes
+4141	1433138	2025-09-20	Spain	Segunda División RFEF - Group 5	Rayo Vallecano II	Real Madrid III	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:34.915265	\N	\N	3	1	h-win	yes
+4142	1433131	2025-09-20	Spain	Segunda División RFEF - Group 5	Colonia Moscardó	RSD Alcalá	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.000528	\N	\N	0	1	a-win	yes
+4143	1433133	2025-09-21	Spain	Segunda División RFEF - Group 5	Getafe II	Fuenlabrada	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.085326	\N	\N	1	1	draw	yes
+4144	1433132	2025-09-21	Spain	Segunda División RFEF - Group 5	Conquense	CD Coria	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.172733	\N	\N	0	0	draw	yes
+4145	1433139	2025-09-21	Spain	Segunda División RFEF - Group 5	SS Reyes	Navalcarnero	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.273708	\N	\N	2	0	h-win	yes
+4146	1433134	2025-09-21	Spain	Segunda División RFEF - Group 5	Elche II	Tenerife II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.374688	\N	\N	0	0	draw	yes
+4147	1433135	2025-09-21	Spain	Segunda División RFEF - Group 5	Las Palmas II	Rayo Majadahonda	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.455573	\N	\N	0	0	draw	yes
+4148	1433137	2025-09-21	Spain	Segunda División RFEF - Group 5	Quintanar del Rey	Socuéllamos	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.53859	\N	\N	0	0	draw	yes
+4149	1433136	2025-09-21	Spain	Segunda División RFEF - Group 5	Orihuela	Intercity	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.623202	\N	\N	0	3	a-win	yes
+4150	1433145	2025-09-27	Spain	Segunda División RFEF - Group 5	Real Madrid III	Elche II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.705276	\N	\N	0	0	draw	yes
+4151	1433140	2025-09-28	Spain	Segunda División RFEF - Group 5	Fuenlabrada	Rayo Vallecano II	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.789684	\N	\N	1	0	h-win	yes
+4152	1433142	2025-09-28	Spain	Segunda División RFEF - Group 5	Intercity	Las Palmas II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.873945	\N	\N	2	0	h-win	yes
+4153	1433147	2025-09-28	Spain	Segunda División RFEF - Group 5	Socuéllamos	Orihuela	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:35.953832	\N	\N	0	1	a-win	yes
+4154	1433146	2025-09-28	Spain	Segunda División RFEF - Group 5	RSD Alcalá	Getafe II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.03537	\N	\N	1	1	draw	yes
+4155	1433148	2025-09-28	Spain	Segunda División RFEF - Group 5	Tenerife II	Conquense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.118793	\N	\N	0	0	draw	yes
+4156	1433143	2025-09-28	Spain	Segunda División RFEF - Group 5	Navalcarnero	Quintanar del Rey	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.220133	\N	\N	0	0	draw	yes
+4157	1433141	2025-09-28	Spain	Segunda División RFEF - Group 5	CD Coria	Colonia Moscardó	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.299672	\N	\N	1	0	h-win	yes
+4158	1433144	2025-09-28	Spain	Segunda División RFEF - Group 5	Rayo Majadahonda	SS Reyes	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.380435	\N	\N	0	1	a-win	yes
+4159	1433150	2025-10-04	Spain	Segunda División RFEF - Group 5	Colonia Moscardó	SS Reyes	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.466966	\N	\N	0	0	draw	yes
+4160	1433153	2025-10-04	Spain	Segunda División RFEF - Group 5	Elche II	Navalcarnero	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.549211	\N	\N	0	0	draw	yes
+4161	1433155	2025-10-05	Spain	Segunda División RFEF - Group 5	Orihuela	Tenerife II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.633777	\N	\N	0	2	a-win	yes
+4162	1433152	2025-10-05	Spain	Segunda División RFEF - Group 5	Getafe II	Rayo Majadahonda	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.713312	\N	\N	2	0	h-win	yes
+4163	1433149	2025-10-05	Spain	Segunda División RFEF - Group 5	Intercity	Socuéllamos	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.79727	\N	\N	1	1	draw	yes
+4164	1433154	2025-10-05	Spain	Segunda División RFEF - Group 5	Las Palmas II	Fuenlabrada	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.877744	\N	\N	1	1	draw	yes
+4165	1433151	2025-10-05	Spain	Segunda División RFEF - Group 5	Conquense	Real Madrid III	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:36.959781	\N	\N	1	0	h-win	yes
+4166	1433156	2025-10-05	Spain	Segunda División RFEF - Group 5	Quintanar del Rey	CD Coria	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.044675	\N	\N	0	1	a-win	yes
+4167	1433163	2025-10-11	Spain	Segunda División RFEF - Group 5	Real Madrid III	Getafe II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.12579	\N	\N	1	0	h-win	yes
+4168	1433158	2025-10-12	Spain	Segunda División RFEF - Group 5	Fuenlabrada	Intercity	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.208889	\N	\N	1	1	draw	yes
+4169	1433165	2025-10-12	Spain	Segunda División RFEF - Group 5	SS Reyes	Rayo Vallecano II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.293018	\N	\N	0	0	draw	yes
+4170	1433160	2025-10-12	Spain	Segunda División RFEF - Group 5	Elche II	Las Palmas II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.375292	\N	\N	0	0	draw	yes
+4171	1433164	2025-10-12	Spain	Segunda División RFEF - Group 5	RSD Alcalá	Quintanar del Rey	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.461198	\N	\N	1	0	h-win	yes
+4172	1433166	2025-10-12	Spain	Segunda División RFEF - Group 5	Tenerife II	Socuéllamos	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.54428	\N	\N	0	0	draw	yes
+4173	1433159	2025-10-12	Spain	Segunda División RFEF - Group 5	Colonia Moscardó	Conquense	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.634832	\N	\N	2	0	h-win	yes
+4174	1433161	2025-10-12	Spain	Segunda División RFEF - Group 5	Navalcarnero	Orihuela	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.717257	\N	\N	0	0	draw	yes
+4175	1433162	2025-10-12	Spain	Segunda División RFEF - Group 5	Rayo Majadahonda	CD Coria	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.805801	\N	\N	0	0	draw	yes
+4176	1433170	2025-10-19	Spain	Segunda División RFEF - Group 5	Getafe II	SS Reyes	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.8974	\N	\N	3	0	h-win	yes
+4177	1433169	2025-10-19	Spain	Segunda División RFEF - Group 5	Conquense	Navalcarnero	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:37.979851	\N	\N	1	1	draw	yes
+4178	1433168	2025-10-19	Spain	Segunda División RFEF - Group 5	Intercity	Tenerife II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.062355	\N	\N	1	1	draw	yes
+4179	1433175	2025-10-19	Spain	Segunda División RFEF - Group 5	Socuéllamos	Rayo Majadahonda	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.14584	\N	\N	0	1	a-win	yes
+4180	1433171	2025-10-19	Spain	Segunda División RFEF - Group 5	Las Palmas II	RSD Alcalá	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.233378	\N	\N	0	0	draw	yes
+4181	1433174	2025-10-19	Spain	Segunda División RFEF - Group 5	Rayo Vallecano II	Colonia Moscardó	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.315675	\N	\N	0	0	draw	yes
+4182	1433173	2025-10-19	Spain	Segunda División RFEF - Group 5	Quintanar del Rey	Elche II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.400445	\N	\N	0	0	draw	yes
+4183	1433167	2025-10-19	Spain	Segunda División RFEF - Group 5	CD Coria	Fuenlabrada	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.482502	\N	\N	1	0	h-win	yes
+4184	1433172	2025-10-19	Spain	Segunda División RFEF - Group 5	Orihuela	Real Madrid III	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.565295	\N	\N	1	1	draw	yes
+4185	1433184	2025-10-25	Spain	Segunda División RFEF - Group 5	SS Reyes	CD Coria	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.650439	\N	\N	1	0	h-win	yes
+4186	1433183	2025-10-25	Spain	Segunda División RFEF - Group 5	RSD Alcalá	Tenerife II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.732266	\N	\N	1	0	h-win	yes
+4187	1433180	2025-10-25	Spain	Segunda División RFEF - Group 5	Rayo Majadahonda	Elche II	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.81797	\N	\N	3	1	h-win	yes
+4188	1433182	2025-10-26	Spain	Segunda División RFEF - Group 5	Real Madrid III	Intercity	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.898599	\N	\N	0	1	a-win	yes
+4189	1433178	2025-10-26	Spain	Segunda División RFEF - Group 5	Navalcarnero	Las Palmas II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.984083	\N	\N	0	0	draw	yes
+4190	1433176	2025-10-26	Spain	Segunda División RFEF - Group 5	Fuenlabrada	Socuéllamos	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:39.067802	\N	\N	0	0	draw	yes
+4191	1433177	2025-10-26	Spain	Segunda División RFEF - Group 5	Colonia Moscardó	Getafe II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:39.152164	\N	\N	0	0	draw	yes
+4192	1433181	2025-10-26	Spain	Segunda División RFEF - Group 5	Rayo Vallecano II	Conquense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:39.234117	\N	\N	0	0	draw	yes
+4193	1433179	2025-10-26	Spain	Segunda División RFEF - Group 5	Orihuela	Quintanar del Rey	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:39.317865	\N	\N	0	1	a-win	yes
+4194	1433185	2025-11-01	Spain	Segunda División RFEF - Group 5	CD Coria	Real Madrid III	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	14	2025-12-02 09:19:39.480995	\N	\N	0	1	a-win	yes
+4195	1433189	2025-11-02	Spain	Segunda División RFEF - Group 5	Elche II	Orihuela	a-win	2	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	9	2025-12-02 09:19:39.56348	\N	\N	1	2	a-win	yes
+4196	1433188	2025-11-02	Spain	Segunda División RFEF - Group 5	Getafe II	Rayo Vallecano II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	13	2025-12-02 09:19:39.645216	\N	\N	2	0	h-win	yes
+4197	1433186	2025-11-02	Spain	Segunda División RFEF - Group 5	Intercity	Navalcarnero	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	12	2025-12-02 09:19:39.72825	\N	\N	1	0	h-win	yes
+4198	1433193	2025-11-02	Spain	Segunda División RFEF - Group 5	Tenerife II	Fuenlabrada	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	11	2025-12-02 09:19:39.813154	\N	\N	0	2	a-win	yes
+4199	1433192	2025-11-02	Spain	Segunda División RFEF - Group 5	Socuéllamos	RSD Alcalá	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	8	2025-12-02 09:19:39.894838	\N	\N	2	0	h-win	yes
+4200	1433190	2025-11-02	Spain	Segunda División RFEF - Group 5	Las Palmas II	Colonia Moscardó	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	17	2025-12-02 09:19:39.974663	\N	\N	1	0	h-win	yes
+4201	1433187	2025-11-02	Spain	Segunda División RFEF - Group 5	Conquense	SS Reyes	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	2	2025-12-02 09:19:40.055026	\N	\N	0	0	draw	yes
+4202	1433191	2025-11-02	Spain	Segunda División RFEF - Group 5	Quintanar del Rey	Rayo Majadahonda	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	1	2025-12-02 09:19:40.138818	\N	\N	0	0	draw	yes
+4203	1433195	2025-11-08	Spain	Segunda División RFEF - Group 5	Colonia Moscardó	Elche II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	16	2025-12-02 09:19:40.219	\N	\N	2	0	h-win	yes
+4204	1433200	2025-11-08	Spain	Segunda División RFEF - Group 5	Real Madrid III	Fuenlabrada	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	11	2025-12-02 09:19:40.303342	\N	\N	1	0	h-win	yes
+4205	1433201	2025-11-08	Spain	Segunda División RFEF - Group 5	RSD Alcalá	Intercity	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	5	2025-12-02 09:19:40.404951	\N	\N	0	0	draw	yes
+4206	1433202	2025-11-09	Spain	Segunda División RFEF - Group 5	SS Reyes	Las Palmas II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	10	2025-12-02 09:19:40.487811	\N	\N	1	1	draw	yes
+4207	1433197	2025-11-09	Spain	Segunda División RFEF - Group 5	Navalcarnero	Socuéllamos	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	18	2025-12-02 09:19:40.567196	\N	\N	1	0	h-win	yes
+4208	1433198	2025-11-09	Spain	Segunda División RFEF - Group 5	Rayo Majadahonda	Tenerife II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	6	2025-12-02 09:19:40.654245	\N	\N	1	1	draw	yes
+4209	1433199	2025-11-09	Spain	Segunda División RFEF - Group 5	Rayo Vallecano II	Quintanar del Rey	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	15	2025-12-02 09:19:40.737957	\N	\N	2	1	h-win	yes
+4210	1433196	2025-11-09	Spain	Segunda División RFEF - Group 5	Conquense	Getafe II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	3	2025-12-02 09:19:40.817598	\N	\N	0	0	draw	yes
+4211	1433157	2025-11-12	Spain	Segunda División RFEF - Group 5	Rayo Vallecano II	RSD Alcalá	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	8	2025-12-02 09:19:40.903794	\N	\N	2	0	h-win	yes
+4212	1433203	2025-11-15	Spain	Segunda División RFEF - Group 5	Intercity	CD Coria	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	4	2025-12-02 09:19:40.985492	\N	\N	0	1	a-win	yes
+4213	1433206	2025-11-15	Spain	Segunda División RFEF - Group 5	Orihuela	Rayo Vallecano II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	13	2025-12-02 09:19:41.082203	\N	\N	1	0	h-win	yes
+4214	1433208	2025-11-16	Spain	Segunda División RFEF - Group 5	Rayo Majadahonda	Real Madrid III	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	14	2025-12-02 09:19:41.196982	\N	\N	1	0	h-win	yes
+4215	1433211	2025-11-16	Spain	Segunda División RFEF - Group 5	Fuenlabrada	Navalcarnero	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	12	2025-12-02 09:19:41.284302	\N	\N	1	0	h-win	yes
+4216	1433209	2025-11-16	Spain	Segunda División RFEF - Group 5	Socuéllamos	SS Reyes	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	2	2025-12-02 09:19:41.365004	\N	\N	0	0	draw	yes
+4217	1433205	2025-11-16	Spain	Segunda División RFEF - Group 5	Las Palmas II	Getafe II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	3	2025-12-02 09:19:41.449017	\N	\N	1	1	draw	yes
+4218	1433210	2025-11-16	Spain	Segunda División RFEF - Group 5	Tenerife II	Colonia Moscardó	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	17	2025-12-02 09:19:41.532187	\N	\N	0	1	a-win	yes
+4219	1433207	2025-11-16	Spain	Segunda División RFEF - Group 5	Quintanar del Rey	Conquense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	7	2025-12-02 09:19:41.614336	\N	\N	0	0	draw	yes
+4220	1433204	2025-11-16	Spain	Segunda División RFEF - Group 5	Elche II	RSD Alcalá	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	8	2025-12-02 09:19:41.698234	\N	\N	1	2	a-win	yes
+4221	1433194	2025-11-19	Spain	Segunda División RFEF - Group 5	CD Coria	Orihuela	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	9	2025-12-02 09:19:41.779088	\N	\N	0	0	draw	yes
+4222	1433213	2025-11-22	Spain	Segunda División RFEF - Group 5	Colonia Moscardó	Intercity	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	5	2025-12-02 09:19:41.860909	\N	\N	0	2	a-win	yes
+4223	1433220	2025-11-22	Spain	Segunda División RFEF - Group 5	SS Reyes	Orihuela	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	9	2025-12-02 09:19:41.945288	\N	\N	1	1	draw	yes
+4224	1433216	2025-11-23	Spain	Segunda División RFEF - Group 5	Navalcarnero	Tenerife II	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	6	2025-12-02 09:19:42.024653	\N	\N	3	0	h-win	yes
+4225	1433215	2025-11-23	Spain	Segunda División RFEF - Group 5	Getafe II	Socuéllamos	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	18	2025-12-02 09:19:42.110345	\N	\N	0	0	draw	yes
+4226	1433219	2025-11-23	Spain	Segunda División RFEF - Group 5	RSD Alcalá	Rayo Majadahonda	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	1	2025-12-02 09:19:42.193543	\N	\N	0	1	a-win	yes
+4227	1433212	2025-11-23	Spain	Segunda División RFEF - Group 5	CD Coria	Las Palmas II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	10	2025-12-02 09:19:42.275407	\N	\N	1	0	h-win	yes
+4228	1433214	2025-11-23	Spain	Segunda División RFEF - Group 5	Conquense	Fuenlabrada	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	11	2025-12-02 09:19:42.359039	\N	\N	0	0	draw	yes
+4229	1433217	2025-11-23	Spain	Segunda División RFEF - Group 5	Rayo Vallecano II	Elche II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	16	2025-12-02 09:19:42.4428	\N	\N	0	1	a-win	yes
+4230	1433218	2025-11-23	Spain	Segunda División RFEF - Group 5	Real Madrid III	Quintanar del Rey	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	15	2025-12-02 09:19:42.528766	\N	\N	0	0	draw	yes
+4231	1433223	2025-11-29	Spain	Segunda División RFEF - Group 5	Elche II	SS Reyes	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	2	2025-12-02 09:19:42.617037	\N	\N	0	0	draw	yes
+4232	1433226	2025-11-29	Spain	Segunda División RFEF - Group 5	Quintanar del Rey	Getafe II	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	3	2025-12-02 09:19:42.702265	\N	\N	0	1	a-win	yes
+4233	1433227	2025-11-29	Spain	Segunda División RFEF - Group 5	Rayo Majadahonda	Navalcarnero	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	12	2025-12-02 09:19:42.784312	\N	\N	0	0	draw	yes
+4234	1433222	2025-11-30	Spain	Segunda División RFEF - Group 5	Fuenlabrada	Colonia Moscardó	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	17	2025-12-02 09:19:42.864786	\N	\N	2	0	h-win	yes
+4235	1433221	2025-11-30	Spain	Segunda División RFEF - Group 5	Intercity	Rayo Vallecano II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	13	2025-12-02 09:19:42.948892	\N	\N	1	0	h-win	yes
+4236	1433228	2025-11-30	Spain	Segunda División RFEF - Group 5	Socuéllamos	CD Coria	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	4	2025-12-02 09:19:43.031069	\N	\N	2	0	h-win	yes
+4237	1433229	2025-11-30	Spain	Segunda División RFEF - Group 5	Tenerife II	Real Madrid III	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	14	2025-12-02 09:19:43.117335	\N	\N	0	1	a-win	yes
+4238	1433224	2025-11-30	Spain	Segunda División RFEF - Group 5	Las Palmas II	Conquense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	7	2025-12-02 09:19:43.200229	\N	\N	0	0	draw	yes
+4239	1433225	2025-11-30	Spain	Segunda División RFEF - Group 5	Orihuela	RSD Alcalá	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	8	2025-12-02 09:19:43.288768	\N	\N	0	1	a-win	yes
+4240	1477538	2025-09-27	Spain	Copa del Rey	Sant Just	Atletico Calatayud	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:44.545063	\N	\N	2	0	h-win	yes
+4241	1477539	2025-09-27	Spain	Copa del Rey	Deportivo Getxo	Betis Valladolid	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:44.624344	\N	\N	0	0	draw	yes
+4242	1477540	2025-09-27	Spain	Copa del Rey	Puerto de Vega	Alberite	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:44.707339	\N	\N	3	0	h-win	yes
+4243	1477542	2025-09-27	Spain	Copa del Rey	Textil Escudo	SD Negreira	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:44.837516	\N	\N	2	1	h-win	yes
+4244	1477536	2025-09-27	Spain	Copa del Rey	Manises	Los Garres	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:44.918708	\N	\N	1	0	h-win	yes
+4245	1477541	2025-09-27	Spain	Copa del Rey	Sporting Ceuta	Maracena	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.003113	\N	\N	1	1	draw	yes
+4246	1477543	2025-09-27	Spain	Copa del Rey	Campanario	CD Yuncos	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.087316	\N	\N	0	0	draw	yes
+4247	1477544	2025-09-27	Spain	Copa del Rey	Atlético Melilla	Palma del Rio	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.167163	\N	\N	0	4	a-win	yes
+4248	1477545	2025-09-27	Spain	Copa del Rey	CD Sant Jordi	Lourdes	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.254216	\N	\N	0	0	draw	yes
+4249	1477546	2025-09-27	Spain	Copa del Rey	Inter de Valdemoro	Universitario FC	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.338984	\N	\N	1	0	h-win	yes
+4250	1477548	2025-10-04	Spain	Copa del Rey	Alberite	Puerto de Vega	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.418603	\N	\N	0	1	a-win	yes
+4251	1477549	2025-10-04	Spain	Copa del Rey	Betis Valladolid	Deportivo Getxo	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.507397	\N	\N	0	0	draw	yes
+4252	1477547	2025-10-04	Spain	Copa del Rey	Lourdes	CD Sant Jordi	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.589656	\N	\N	0	2	a-win	yes
+4253	1477550	2025-10-04	Spain	Copa del Rey	Atletico Calatayud	Sant Just	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.676696	\N	\N	1	2	a-win	yes
+4254	1477551	2025-10-04	Spain	Copa del Rey	SD Negreira	Textil Escudo	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.762366	\N	\N	2	0	h-win	yes
+4255	1477537	2025-10-04	Spain	Copa del Rey	Los Garres	Manises	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.846815	\N	\N	1	0	h-win	yes
+4256	1477552	2025-10-04	Spain	Copa del Rey	CD Yuncos	Campanario	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:45.928087	\N	\N	1	0	h-win	yes
+4257	1477553	2025-10-04	Spain	Copa del Rey	Palma del Rio	Atlético Melilla	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.012143	\N	\N	2	0	h-win	yes
+4258	1477554	2025-10-04	Spain	Copa del Rey	Maracena	Sporting Ceuta	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.096585	\N	\N	1	0	h-win	yes
+4259	1477555	2025-10-04	Spain	Copa del Rey	Universitario FC	Inter de Valdemoro	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.178635	\N	\N	1	1	draw	yes
+4260	1480750	2025-10-28	Spain	Copa del Rey	Ourense CF	Oviedo	h-win	4	2	24	9	14	5	8	5	5	2	5	3	0	0	45.00	55.00	17	18	\N	\N	\N	\N	\N	2025-12-02 09:19:46.260465	\N	\N	0	1	a-win	yes
+4261	1480724	2025-10-28	Spain	Copa del Rey	Atlético Tordesillas	Burgos	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.341541	\N	\N	0	0	draw	yes
+4262	1480734	2025-10-28	Spain	Copa del Rey	Constància	Girona	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.422674	\N	\N	0	1	a-win	yes
+4263	1480770	2025-10-28	Spain	Copa del Rey	Ucam Murcia	Cadiz	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.50302	\N	\N	1	1	draw	yes
+4264	1480740	2025-10-28	Spain	Copa del Rey	Langreo	Racing Ferrol	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.587718	\N	\N	0	0	draw	yes
+4265	1480765	2025-10-28	Spain	Copa del Rey	SD Logroñés	Racing Santander	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.667699	\N	\N	0	1	a-win	yes
+4266	1480757	2025-10-28	Spain	Copa del Rey	Rayo Majadahonda	CF Talavera	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.749092	\N	\N	0	2	a-win	yes
+4267	1480762	2025-10-28	Spain	Copa del Rey	San Fernando CD	Albacete	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.831621	\N	\N	0	0	draw	yes
+4268	1480769	2025-10-28	Spain	Copa del Rey	Tropezón	Cultural Leonesa	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.91463	\N	\N	0	1	a-win	yes
+4269	1480760	2025-10-28	Spain	Copa del Rey	Roda	Granada CF	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:46.999991	\N	\N	0	2	a-win	yes
+4270	1480743	2025-10-28	Spain	Copa del Rey	Maracena	Valencia	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.082439	\N	\N	0	0	draw	yes
+4271	1480737	2025-10-28	Spain	Copa del Rey	CD Guadalajara	Cacereño	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.166421	\N	\N	1	0	h-win	yes
+4272	1480738	2025-10-28	Spain	Copa del Rey	Inter de Valdemoro	Getafe	a-win	0	11	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.25349	\N	\N	0	4	a-win	yes
+4273	1480761	2025-10-28	Spain	Copa del Rey	RSD Alcalá	Tenerife	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.336591	\N	\N	0	1	a-win	yes
+4274	1480775	2025-10-28	Spain	Copa del Rey	Utebo	Huesca	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.419606	\N	\N	0	1	a-win	yes
+4275	1480767	2025-10-28	Spain	Copa del Rey	Toledo	Sevilla	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.50305	\N	\N	1	2	a-win	yes
+4276	1480729	2025-10-28	Spain	Copa del Rey	Extremadura 1924	Las Palmas	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.581429	\N	\N	1	0	h-win	yes
+4277	1480766	2025-10-28	Spain	Copa del Rey	SD Negreira	Real Sociedad	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.667608	\N	\N	0	1	a-win	yes
+4278	1480752	2025-10-29	Spain	Copa del Rey	Poblense	Sabadell	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.756866	\N	\N	1	1	draw	yes
+4279	1480736	2025-10-29	Spain	Copa del Rey	Ebro	Tarazona	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.841574	\N	\N	0	1	a-win	yes
+4280	1480745	2025-10-29	Spain	Copa del Rey	Mutilvera	Zaragoza	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:47.926434	\N	\N	0	2	a-win	yes
+4281	1480772	2025-10-29	Spain	Copa del Rey	Los Garres	Elche	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.005359	\N	\N	0	3	a-win	yes
+4282	1480730	2025-10-29	Spain	Copa del Rey	CD Sant Jordi	Osasuna	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.089386	\N	\N	0	2	a-win	yes
+4283	1480741	2025-10-29	Spain	Copa del Rey	La Unión Atlético	AD Ceuta FC	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.172787	\N	\N	0	2	a-win	yes
+4284	1480748	2025-10-29	Spain	Copa del Rey	Numancia	Arenas Getxo	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.25315	\N	\N	0	0	draw	yes
+4285	1480746	2025-10-29	Spain	Copa del Rey	Navalcarnero	Mérida AD	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.338504	\N	\N	1	1	draw	yes
+4286	1480763	2025-10-29	Spain	Copa del Rey	Sant Andreu	Teruel	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.419107	\N	\N	1	0	h-win	yes
+4287	1480742	2025-10-29	Spain	Copa del Rey	Lorca Deportiva	Almeria	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.502538	\N	\N	0	1	a-win	yes
+4288	1480753	2025-10-29	Spain	Copa del Rey	Portugalete	Valladolid	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.586688	\N	\N	0	0	draw	yes
+4289	1480727	2025-10-29	Spain	Copa del Rey	Caudal	Sporting Gijon	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.669514	\N	\N	0	0	draw	yes
+4290	1480722	2025-10-29	Spain	Copa del Rey	Atlético Astorga	Mirandes	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.752487	\N	\N	0	0	draw	yes
+4291	1480725	2025-10-29	Spain	Copa del Rey	Azuaga	Leganes	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.834268	\N	\N	1	1	draw	yes
+4292	1480747	2025-10-29	Spain	Copa del Rey	Náxara	Eibar	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:48.92107	\N	\N	1	2	a-win	yes
+4293	1480768	2025-10-29	Spain	Copa del Rey	Torrent	Juventud Torremolinos	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.002644	\N	\N	2	0	h-win	yes
+4294	1480732	2025-10-29	Spain	Copa del Rey	Cieza	Cordoba	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.082581	\N	\N	0	0	draw	yes
+4295	1480764	2025-10-29	Spain	Copa del Rey	Sant Just	Mallorca	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.167446	\N	\N	0	0	draw	yes
+4296	1480773	2025-10-29	Spain	Copa del Rey	UD Ourense	Pontevedra	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.253983	\N	\N	1	0	h-win	yes
+4297	1480754	2025-10-29	Spain	Copa del Rey	Puente Genil	FC Cartagena	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.335893	\N	\N	0	0	draw	yes
+4298	1480759	2025-10-29	Spain	Copa del Rey	Reddis	Europa Fc	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.416952	\N	\N	1	0	h-win	yes
+4299	1480739	2025-10-29	Spain	Copa del Rey	Real Jaén	Eldense	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.497523	\N	\N	1	3	a-win	yes
+4300	1480733	2025-10-29	Spain	Copa del Rey	Ciudad de Lucena	Villarreal	a-win	0	6	10	2	20	12	3	4	0	6	1	0	0	0	39.00	61.00	11	9	\N	\N	\N	\N	\N	2025-12-02 09:19:49.577223	\N	\N	0	2	a-win	yes
+4301	1480756	2025-10-29	Spain	Copa del Rey	Quintanar del Rey	Ibiza	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.657116	\N	\N	1	1	draw	yes
+4302	1480731	2025-10-29	Spain	Copa del Rey	CD Yuncos	Rayo Vallecano	a-win	1	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.742529	\N	\N	1	3	a-win	yes
+4303	1480749	2025-10-30	Spain	Copa del Rey	Orihuela	Levante	a-win	3	4	19	8	21	8	5	6	0	2	3	3	0	0	59.00	41.00	12	20	\N	\N	\N	\N	\N	2025-12-02 09:19:49.821955	\N	\N	1	2	a-win	yes
+4304	1480755	2025-10-30	Spain	Copa del Rey	Puerto de Vega	Celta Vigo	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.901871	\N	\N	0	0	draw	yes
+4305	1480776	2025-10-30	Spain	Copa del Rey	Valle Egüés	FC Andorra	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:49.984577	\N	\N	0	2	a-win	yes
+4306	1480771	2025-10-30	Spain	Copa del Rey	UD Logroñés	Ponferradina	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.068539	\N	\N	0	1	a-win	yes
+4307	1480726	2025-10-30	Spain	Copa del Rey	Atlético Baleares	Gimnastic	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.156648	\N	\N	1	0	h-win	yes
+4308	1480758	2025-10-30	Spain	Copa del Rey	Real Ávila	Real Avilés	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.239574	\N	\N	0	0	draw	yes
+4309	1480735	2025-10-30	Spain	Copa del Rey	Deportivo Getxo	Alaves	a-win	0	7	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.31489	\N	\N	0	4	a-win	yes
+4310	1480744	2025-10-30	Spain	Copa del Rey	Real Murcia	Antequera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.401575	\N	\N	1	0	h-win	yes
+4311	1480721	2025-10-30	Spain	Copa del Rey	Antoniano	Castellón	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.483455	\N	\N	0	0	draw	yes
+4312	1480774	2025-10-30	Spain	Copa del Rey	Sámano	Deportivo La Coruna	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.564265	\N	\N	1	2	a-win	yes
+4313	1480728	2025-10-30	Spain	Copa del Rey	Estepona	Malaga	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.650356	\N	\N	0	1	a-win	yes
+4314	1480723	2025-10-30	Spain	Copa del Rey	Atlètic Lleida	Espanyol	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.73683	\N	\N	1	1	draw	yes
+4315	1480751	2025-10-30	Spain	Copa del Rey	Palma del Rio	Real Betis	a-win	1	7	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:50.821785	\N	\N	0	3	a-win	yes
+4316	1377872	2025-08-23	Italy	Serie A	Sassuolo	Napoli	a-win	0	2	7	2	13	4	1	2	0	0	3	1	1	0	38.00	62.00	17	17	\N	\N	\N	\N	\N	2025-12-02 09:19:56.049465	0.38	1.19	0	1	a-win	yes
+4317	1377867	2025-08-23	Italy	Serie A	Genoa	Lecce	draw	0	0	5	2	7	0	3	7	0	2	2	3	0	0	59.00	41.00	16	13	\N	\N	\N	\N	\N	2025-12-02 09:19:56.128001	0.50	0.37	0	0	draw	yes
+4318	1377870	2025-08-23	Italy	Serie A	AC Milan	Cremonese	a-win	1	2	24	6	4	3	9	2	1	1	1	4	0	0	64.00	36.00	10	14	\N	\N	\N	\N	\N	2025-12-02 09:19:56.210034	1.88	0.21	1	1	draw	yes
+4319	1377871	2025-08-23	Italy	Serie A	AS Roma	Bologna	h-win	1	0	14	4	10	2	2	4	1	1	1	1	0	0	51.00	49.00	15	13	\N	\N	\N	\N	\N	2025-12-02 09:19:56.292034	1.56	0.58	0	0	draw	yes
+4320	1377865	2025-08-24	Italy	Serie A	Cagliari	Fiorentina	draw	1	1	14	6	4	1	3	2	1	4	4	2	0	0	45.00	55.00	18	14	\N	\N	\N	\N	\N	2025-12-02 09:19:56.372706	1.13	0.98	0	0	draw	yes
+4321	1377866	2025-08-24	Italy	Serie A	Como	Lazio	h-win	2	0	19	6	5	1	6	0	0	1	2	3	0	0	63.00	37.00	15	12	\N	\N	\N	\N	\N	2025-12-02 09:19:56.452713	1.54	0.21	0	0	draw	yes
+4322	1377869	2025-08-24	Italy	Serie A	Juventus	Parma	h-win	2	0	25	8	8	2	6	6	0	0	1	2	1	0	64.00	36.00	9	13	\N	\N	\N	\N	\N	2025-12-02 09:19:56.53405	2.35	0.62	0	0	draw	yes
+4323	1377864	2025-08-24	Italy	Serie A	Atalanta	Pisa	draw	1	1	21	6	11	2	10	4	0	2	2	0	0	0	66.00	34.00	9	10	\N	\N	\N	\N	\N	2025-12-02 09:19:56.612428	1.92	0.63	0	1	a-win	yes
+4324	1377873	2025-08-25	Italy	Serie A	Udinese	Verona	draw	1	1	14	4	9	3	5	1	2	2	3	2	0	0	63.00	37.00	10	14	\N	\N	\N	\N	\N	2025-12-02 09:19:56.691786	0.72	0.56	0	0	draw	yes
+4325	1377868	2025-08-25	Italy	Serie A	Inter	Torino	h-win	5	0	20	9	12	4	6	5	4	1	0	0	0	0	60.00	40.00	14	6	\N	\N	\N	\N	\N	2025-12-02 09:19:56.774852	1.59	0.94	2	0	h-win	yes
+4326	1377875	2025-08-29	Italy	Serie A	Cremonese	Sassuolo	h-win	3	2	11	6	9	6	5	4	0	2	2	2	0	0	42.00	58.00	12	17	\N	\N	\N	\N	\N	2025-12-02 09:19:56.857313	3.32	1.32	2	0	h-win	yes
+4327	1377879	2025-08-29	Italy	Serie A	Lecce	AC Milan	a-win	0	2	7	2	14	6	4	5	1	4	1	0	0	0	45.00	55.00	10	8	\N	\N	\N	\N	\N	2025-12-02 09:19:56.937758	0.30	1.85	0	0	draw	yes
+4328	1377874	2025-08-30	Italy	Serie A	Bologna	Como	h-win	1	0	15	2	13	2	7	4	3	0	4	3	0	0	36.00	64.00	13	19	\N	\N	\N	\N	\N	2025-12-02 09:19:57.019246	1.10	0.69	0	0	draw	yes
+4329	1377881	2025-08-30	Italy	Serie A	Parma	Atalanta	draw	1	1	7	3	11	3	1	2	1	4	2	2	0	0	46.00	54.00	8	15	\N	\N	\N	\N	\N	2025-12-02 09:19:57.108839	0.68	0.81	0	0	draw	yes
+4330	1377880	2025-08-30	Italy	Serie A	Napoli	Cagliari	h-win	1	0	20	6	10	1	13	0	3	1	2	1	0	0	67.00	33.00	16	12	\N	\N	\N	\N	\N	2025-12-02 09:19:57.190085	1.58	0.53	0	0	draw	yes
+4331	1377882	2025-08-30	Italy	Serie A	Pisa	AS Roma	a-win	0	1	7	3	10	5	1	7	2	1	2	1	0	0	31.00	69.00	14	10	\N	\N	\N	\N	\N	2025-12-02 09:19:57.273574	0.56	0.78	0	0	draw	yes
+4332	1377876	2025-08-31	Italy	Serie A	Genoa	Juventus	a-win	0	1	10	1	13	3	3	4	0	2	1	2	0	0	44.00	56.00	14	15	\N	\N	\N	\N	\N	2025-12-02 09:19:57.362812	0.55	1.03	0	0	draw	yes
+4333	1377883	2025-08-31	Italy	Serie A	Torino	Fiorentina	draw	0	0	7	4	16	4	7	3	2	1	2	2	0	0	45.00	55.00	21	13	\N	\N	\N	\N	\N	2025-12-02 09:19:57.447872	1.02	1.74	0	0	draw	yes
+4334	1377878	2025-08-31	Italy	Serie A	Lazio	Verona	h-win	4	0	22	6	12	4	8	1	1	1	0	0	0	0	70.00	30.00	8	19	\N	\N	\N	\N	\N	2025-12-02 09:19:57.536342	3.85	0.77	3	0	h-win	yes
+4335	1377877	2025-08-31	Italy	Serie A	Inter	Udinese	a-win	1	2	16	4	10	5	13	2	2	0	1	3	0	0	68.00	32.00	17	5	\N	\N	\N	\N	\N	2025-12-02 09:19:57.619816	1.97	1.21	1	2	a-win	yes
+4336	1377885	2025-09-13	Italy	Serie A	Cagliari	Parma	h-win	2	0	12	5	17	5	4	5	3	0	3	1	0	0	51.00	49.00	15	18	\N	\N	\N	\N	\N	2025-12-02 09:19:57.711513	1.13	1.96	1	0	h-win	yes
+4337	1377888	2025-09-13	Italy	Serie A	Juventus	Inter	h-win	4	3	12	4	18	4	5	9	1	1	2	1	0	0	41.00	59.00	14	10	\N	\N	\N	\N	\N	2025-12-02 09:19:57.789315	0.68	0.96	2	1	h-win	yes
+4338	1377887	2025-09-13	Italy	Serie A	Fiorentina	Napoli	a-win	1	3	19	3	14	9	8	5	0	0	0	0	0	0	53.00	47.00	14	14	\N	\N	\N	\N	\N	2025-12-02 09:19:57.87337	1.65	3.29	0	2	a-win	yes
+4622	1438987	2025-08-25	Italy	Serie C - Girone A	Novara	Inter U23	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.568991	\N	\N	0	1	a-win	yes
+4339	1377891	2025-09-14	Italy	Serie A	AS Roma	Torino	a-win	0	1	22	5	8	4	7	4	1	4	2	3	0	0	73.00	27.00	11	17	\N	\N	\N	\N	\N	2025-12-02 09:19:57.95677	1.14	0.65	0	0	draw	yes
+4340	1377884	2025-09-14	Italy	Serie A	Atalanta	Lecce	h-win	4	1	19	8	12	3	8	2	3	1	0	0	0	0	57.00	43.00	12	7	\N	\N	\N	\N	\N	2025-12-02 09:19:58.035886	2.12	0.46	1	0	h-win	yes
+4341	1377890	2025-09-14	Italy	Serie A	Pisa	Udinese	a-win	0	1	12	2	13	3	8	6	1	1	1	2	0	0	51.00	49.00	13	15	\N	\N	\N	\N	\N	2025-12-02 09:19:58.122386	0.53	1.00	0	1	a-win	yes
+4342	1377892	2025-09-14	Italy	Serie A	Sassuolo	Lazio	h-win	1	0	10	3	13	3	3	7	0	1	6	3	0	0	41.00	59.00	15	11	\N	\N	\N	\N	\N	2025-12-02 09:19:58.204945	1.16	0.76	0	0	draw	yes
+4343	1377889	2025-09-14	Italy	Serie A	AC Milan	Bologna	h-win	1	0	14	3	5	0	7	4	2	1	3	2	0	0	39.00	61.00	17	16	\N	\N	\N	\N	\N	2025-12-02 09:19:58.289373	1.00	0.17	0	0	draw	yes
+4344	1377893	2025-09-15	Italy	Serie A	Verona	Cremonese	draw	0	0	20	9	6	2	10	1	4	1	2	1	0	0	46.00	54.00	18	3	\N	\N	\N	\N	\N	2025-12-02 09:19:58.367863	1.52	0.24	0	0	draw	yes
+4345	1377886	2025-09-15	Italy	Serie A	Como	Genoa	draw	1	1	13	4	12	6	0	8	0	0	2	2	1	0	53.00	47.00	13	17	\N	\N	\N	\N	\N	2025-12-02 09:19:58.44502	1.83	2.34	1	0	h-win	yes
+4346	1377899	2025-09-19	Italy	Serie A	Lecce	Cagliari	a-win	1	2	11	5	15	6	4	7	0	2	2	3	0	0	52.00	48.00	10	19	\N	\N	\N	\N	\N	2025-12-02 09:19:58.523955	0.99	2.24	1	1	draw	yes
+4347	1377894	2025-09-20	Italy	Serie A	Bologna	Genoa	h-win	2	1	14	6	7	4	8	2	4	1	1	5	0	0	59.00	41.00	12	15	\N	\N	\N	\N	\N	2025-12-02 09:19:58.606796	1.59	0.53	0	0	draw	yes
+4348	1377903	2025-09-20	Italy	Serie A	Verona	Juventus	draw	1	1	14	4	10	4	5	3	1	1	3	3	0	0	28.00	72.00	18	10	\N	\N	\N	\N	\N	2025-12-02 09:19:58.686927	1.53	0.47	1	1	draw	yes
+4349	1377902	2025-09-20	Italy	Serie A	Udinese	AC Milan	a-win	0	3	10	4	13	6	1	4	3	2	2	0	0	0	40.00	60.00	9	7	\N	\N	\N	\N	\N	2025-12-02 09:19:58.776115	0.34	1.44	0	1	a-win	yes
+4350	1377898	2025-09-21	Italy	Serie A	Lazio	AS Roma	a-win	0	1	10	2	13	6	3	6	0	4	1	1	2	0	49.00	51.00	14	22	\N	\N	\N	\N	\N	2025-12-02 09:19:58.864392	1.04	1.16	0	1	a-win	yes
+4351	1377901	2025-09-21	Italy	Serie A	Torino	Atalanta	a-win	0	3	11	5	9	5	1	0	1	0	0	0	0	0	39.00	61.00	11	9	\N	\N	\N	\N	\N	2025-12-02 09:19:58.950441	1.20	1.64	0	3	a-win	yes
+4352	1377895	2025-09-21	Italy	Serie A	Cremonese	Parma	draw	0	0	3	1	15	3	3	3	6	0	1	0	0	0	52.00	48.00	16	8	\N	\N	\N	\N	\N	2025-12-02 09:19:59.032437	0.12	0.84	0	0	draw	yes
+4353	1377896	2025-09-21	Italy	Serie A	Fiorentina	Como	a-win	1	2	8	1	19	7	2	6	2	2	4	3	0	0	39.00	61.00	16	19	\N	\N	\N	\N	\N	2025-12-02 09:19:59.111711	0.49	1.25	1	0	h-win	yes
+4354	1377897	2025-09-21	Italy	Serie A	Inter	Sassuolo	h-win	2	1	20	6	9	5	7	3	2	3	2	1	0	0	61.00	39.00	15	8	\N	\N	\N	\N	\N	2025-12-02 09:19:59.197408	1.89	0.89	1	0	h-win	yes
+4355	1377900	2025-09-22	Italy	Serie A	Napoli	Pisa	h-win	3	2	18	6	15	6	5	3	1	0	1	2	0	0	64.00	36.00	10	18	\N	\N	\N	\N	\N	2025-12-02 09:19:59.277289	1.08	2.61	1	0	h-win	yes
+4356	1377905	2025-09-27	Italy	Serie A	Como	Cremonese	draw	1	1	14	6	9	2	4	3	0	4	3	4	1	0	58.00	42.00	16	17	\N	\N	\N	\N	\N	2025-12-02 09:19:59.358158	1.30	0.45	1	0	h-win	yes
+4357	1377907	2025-09-27	Italy	Serie A	Juventus	Atalanta	draw	1	1	24	10	12	2	14	5	1	0	0	3	0	1	67.00	33.00	6	7	\N	\N	\N	\N	\N	2025-12-02 09:19:59.435173	1.59	0.73	0	1	a-win	yes
+4358	1377904	2025-09-27	Italy	Serie A	Cagliari	Inter	a-win	0	2	6	0	20	5	4	4	1	2	0	2	0	0	42.00	58.00	13	14	\N	\N	\N	\N	\N	2025-12-02 09:19:59.514698	0.18	2.82	0	1	a-win	yes
+4359	1377913	2025-09-28	Italy	Serie A	Sassuolo	Udinese	h-win	3	1	11	5	12	5	1	5	5	1	0	3	0	0	44.00	56.00	5	22	\N	\N	\N	\N	\N	2025-12-02 09:19:59.59812	1.24	1.32	2	0	h-win	yes
+4360	1377912	2025-09-28	Italy	Serie A	AS Roma	Verona	h-win	2	0	10	5	12	3	8	1	0	2	0	4	0	0	57.00	43.00	11	19	\N	\N	\N	\N	\N	2025-12-02 09:19:59.676773	0.95	1.38	1	0	h-win	yes
+4361	1377911	2025-09-28	Italy	Serie A	Pisa	Fiorentina	draw	0	0	11	1	14	2	4	6	1	5	0	1	0	0	39.00	61.00	15	15	\N	\N	\N	\N	\N	2025-12-02 09:19:59.758425	0.80	0.89	0	0	draw	yes
+4362	1377908	2025-09-28	Italy	Serie A	Lecce	Bologna	draw	2	2	12	4	14	5	3	9	1	4	4	2	0	0	33.00	67.00	13	13	\N	\N	\N	\N	\N	2025-12-02 09:19:59.839727	1.80	1.37	1	1	draw	yes
+4363	1377909	2025-09-28	Italy	Serie A	AC Milan	Napoli	h-win	2	1	6	3	19	7	1	7	1	0	1	0	1	0	37.00	63.00	7	7	\N	\N	\N	\N	\N	2025-12-02 09:19:59.93732	0.75	2.96	2	0	h-win	yes
+4364	1377910	2025-09-29	Italy	Serie A	Parma	Torino	h-win	2	1	13	2	15	4	4	3	1	1	3	3	0	0	37.00	63.00	10	12	\N	\N	\N	\N	\N	2025-12-02 09:20:00.017392	1.34	0.76	1	0	h-win	yes
+4365	1377906	2025-09-29	Italy	Serie A	Genoa	Lazio	a-win	0	3	17	5	9	6	6	0	1	2	5	1	0	0	65.00	35.00	18	16	\N	\N	\N	\N	\N	2025-12-02 09:20:00.099558	1.63	1.07	0	2	a-win	yes
+4366	1377923	2025-10-03	Italy	Serie A	Verona	Sassuolo	a-win	0	1	17	9	11	3	4	2	0	1	2	3	0	0	58.00	42.00	14	12	\N	\N	\N	\N	\N	2025-12-02 09:20:00.179977	0.80	1.67	0	0	draw	yes
+4367	1377919	2025-10-04	Italy	Serie A	Lazio	Torino	draw	3	3	9	4	16	8	3	5	1	1	3	3	0	0	49.00	51.00	13	22	\N	\N	\N	\N	\N	2025-12-02 09:20:00.264901	1.35	1.76	2	1	h-win	yes
+4368	1377921	2025-10-04	Italy	Serie A	Parma	Lecce	a-win	0	1	10	2	7	3	4	9	2	2	1	2	0	0	63.00	37.00	16	16	\N	\N	\N	\N	\N	2025-12-02 09:20:00.347821	0.59	0.50	0	1	a-win	yes
+4369	1377917	2025-10-04	Italy	Serie A	Inter	Cremonese	h-win	4	1	27	9	3	2	13	1	4	2	1	1	0	0	66.00	34.00	9	8	\N	\N	\N	\N	\N	2025-12-02 09:20:00.433191	3.57	0.64	2	0	h-win	yes
+4370	1377914	2025-10-04	Italy	Serie A	Atalanta	Como	draw	1	1	16	4	12	4	8	3	2	1	1	3	0	0	51.00	49.00	10	19	\N	\N	\N	\N	\N	2025-12-02 09:20:00.513333	1.40	1.32	1	1	draw	yes
+4371	1377922	2025-10-05	Italy	Serie A	Udinese	Cagliari	draw	1	1	23	4	8	2	7	2	0	0	1	2	0	0	60.00	40.00	14	16	\N	\N	\N	\N	\N	2025-12-02 09:20:00.594987	2.68	0.97	0	1	a-win	yes
+4372	1377915	2025-10-05	Italy	Serie A	Bologna	Pisa	h-win	4	0	24	7	2	0	2	2	1	2	0	1	0	1	71.00	29.00	16	12	\N	\N	\N	\N	\N	2025-12-02 09:20:00.823964	3.62	0.04	3	0	h-win	yes
+4373	1377916	2025-10-05	Italy	Serie A	Fiorentina	AS Roma	a-win	1	2	11	3	8	3	3	4	2	0	2	3	0	0	45.00	55.00	19	21	\N	\N	\N	\N	\N	2025-12-02 09:20:00.902382	1.10	1.35	1	2	a-win	yes
+4374	1377920	2025-10-05	Italy	Serie A	Napoli	Genoa	h-win	2	1	12	5	6	1	7	5	2	2	1	3	0	0	69.00	31.00	16	15	\N	\N	\N	\N	\N	2025-12-02 09:20:00.97973	1.31	0.44	0	1	a-win	yes
+4375	1377918	2025-10-05	Italy	Serie A	Juventus	AC Milan	draw	0	0	12	3	13	4	6	0	0	1	2	2	0	0	51.00	49.00	15	8	\N	\N	\N	\N	\N	2025-12-02 09:20:01.061708	1.13	1.74	0	0	draw	yes
+4376	1377931	2025-10-18	Italy	Serie A	Pisa	Verona	draw	0	0	7	0	15	3	3	8	0	2	4	2	0	0	60.00	40.00	7	15	\N	\N	\N	\N	\N	2025-12-02 09:20:01.134364	0.65	1.54	0	0	draw	yes
+4377	1377929	2025-10-18	Italy	Serie A	Lecce	Sassuolo	draw	0	0	11	2	9	2	6	4	1	1	2	2	0	0	52.00	48.00	11	9	\N	\N	\N	\N	\N	2025-12-02 09:20:01.22498	0.70	0.39	0	0	draw	yes
+4378	1377933	2025-10-18	Italy	Serie A	Torino	Napoli	h-win	1	0	12	2	22	5	3	11	2	2	1	2	0	0	31.00	69.00	12	22	\N	\N	\N	\N	\N	2025-12-02 09:20:01.309779	2.00	2.06	1	0	h-win	yes
+4379	1377932	2025-10-18	Italy	Serie A	AS Roma	Inter	a-win	0	1	15	5	12	3	4	5	3	0	4	3	0	0	57.00	43.00	15	12	\N	\N	\N	\N	\N	2025-12-02 09:20:01.397349	1.35	0.63	0	1	a-win	yes
+4380	1377926	2025-10-19	Italy	Serie A	Como	Juventus	h-win	2	0	12	6	15	3	4	1	1	2	3	1	0	0	45.00	55.00	12	15	\N	\N	\N	\N	\N	2025-12-02 09:20:01.477889	1.46	0.88	1	0	h-win	yes
+4381	1377925	2025-10-19	Italy	Serie A	Cagliari	Bologna	a-win	0	2	4	3	10	7	2	7	5	1	1	3	0	0	42.00	58.00	15	22	\N	\N	\N	\N	\N	2025-12-02 09:20:01.56283	0.22	1.11	0	1	a-win	yes
+4382	1377928	2025-10-19	Italy	Serie A	Genoa	Parma	draw	0	0	23	7	1	0	3	0	2	1	2	5	0	1	69.00	31.00	23	1	\N	\N	\N	\N	\N	2025-12-02 09:20:01.643185	2.20	0.05	0	0	draw	yes
+4383	1377924	2025-10-19	Italy	Serie A	Atalanta	Lazio	draw	0	0	16	6	4	1	7	1	3	0	4	0	0	0	58.00	42.00	16	4	\N	\N	\N	\N	\N	2025-12-02 09:20:01.737728	2.18	0.25	0	0	draw	yes
+4384	1377930	2025-10-19	Italy	Serie A	AC Milan	Fiorentina	h-win	2	1	14	4	5	1	1	3	0	2	3	3	0	0	56.00	44.00	14	5	\N	\N	\N	\N	\N	2025-12-02 09:20:01.824641	1.98	1.08	0	0	draw	yes
+4385	1377927	2025-10-20	Italy	Serie A	Cremonese	Udinese	draw	1	1	11	4	8	1	5	4	1	2	4	2	0	0	52.00	48.00	15	14	\N	\N	\N	\N	\N	2025-12-02 09:20:01.913724	1.07	0.55	1	0	h-win	yes
+4386	1377937	2025-10-24	Italy	Serie A	AC Milan	Pisa	draw	2	2	20	7	8	2	6	2	2	1	1	3	0	0	68.00	32.00	8	21	\N	\N	\N	\N	\N	2025-12-02 09:20:02.011879	1.54	1.42	1	0	h-win	yes
+4387	1377942	2025-10-25	Italy	Serie A	Udinese	Lecce	h-win	3	2	8	4	13	3	4	9	1	0	2	2	0	0	44.00	56.00	12	12	\N	\N	\N	\N	\N	2025-12-02 09:20:02.096793	1.03	0.38	2	0	h-win	yes
+4388	1377939	2025-10-25	Italy	Serie A	Parma	Como	draw	0	0	10	3	6	2	3	3	3	3	0	1	0	0	29.00	71.00	7	14	\N	\N	\N	\N	\N	2025-12-02 09:20:02.189797	0.57	0.43	0	0	draw	yes
+4389	1377938	2025-10-25	Italy	Serie A	Napoli	Inter	h-win	3	1	7	3	15	3	1	4	1	1	2	1	0	0	43.00	57.00	15	10	\N	\N	\N	\N	\N	2025-12-02 09:20:02.294902	1.25	1.89	1	0	h-win	yes
+4390	1377934	2025-10-25	Italy	Serie A	Cremonese	Atalanta	draw	1	1	9	5	20	6	2	10	3	2	3	1	0	0	35.00	65.00	6	8	\N	\N	\N	\N	\N	2025-12-02 09:20:02.384527	1.12	1.15	0	0	draw	yes
+4391	1377941	2025-10-26	Italy	Serie A	Torino	Genoa	h-win	2	1	13	6	11	3	9	1	1	0	2	2	0	0	59.00	41.00	14	9	\N	\N	\N	\N	\N	2025-12-02 09:20:02.467423	1.35	1.90	0	1	a-win	yes
+4392	1377940	2025-10-26	Italy	Serie A	Sassuolo	AS Roma	a-win	0	1	11	1	15	8	6	6	1	1	3	2	0	0	41.00	59.00	18	16	\N	\N	\N	\N	\N	2025-12-02 09:20:02.547353	1.06	1.74	0	1	a-win	yes
+4393	1377943	2025-10-26	Italy	Serie A	Verona	Cagliari	draw	2	2	10	6	7	3	3	2	1	3	3	4	0	0	37.00	63.00	16	12	\N	\N	\N	\N	\N	2025-12-02 09:20:02.628243	2.02	0.44	1	0	h-win	yes
+4394	1377935	2025-10-26	Italy	Serie A	Fiorentina	Bologna	draw	2	2	19	7	6	3	5	6	5	3	3	5	0	1	50.00	50.00	13	20	\N	\N	\N	\N	\N	2025-12-02 09:20:02.722893	3.72	0.55	0	1	a-win	yes
+4395	1377936	2025-10-26	Italy	Serie A	Lazio	Juventus	h-win	1	0	13	3	14	5	2	5	0	2	2	4	0	0	40.00	60.00	11	18	\N	\N	\N	\N	\N	2025-12-02 09:20:02.806824	0.78	1.49	1	0	h-win	yes
+4396	1377951	2025-10-28	Italy	Serie A	Lecce	Napoli	a-win	0	1	7	2	14	3	3	5	1	0	2	1	0	0	41.00	59.00	10	14	\N	\N	\N	\N	\N	2025-12-02 09:20:02.887689	1.16	0.83	0	0	draw	yes
+4397	1377944	2025-10-28	Italy	Serie A	Atalanta	AC Milan	draw	1	1	17	3	6	1	9	4	0	1	1	3	0	0	56.00	44.00	9	8	\N	\N	\N	\N	\N	2025-12-02 09:20:02.974189	1.34	0.36	1	1	draw	yes
+4398	1377950	2025-10-29	Italy	Serie A	Juventus	Udinese	h-win	3	1	25	11	8	2	8	4	2	0	1	4	0	0	57.00	43.00	12	13	\N	\N	\N	\N	\N	2025-12-02 09:20:03.068232	3.17	0.54	1	1	draw	yes
+4399	1377953	2025-10-29	Italy	Serie A	AS Roma	Parma	h-win	2	1	18	6	8	5	9	2	3	2	0	3	0	0	60.00	40.00	8	9	\N	\N	\N	\N	\N	2025-12-02 09:20:03.150328	1.01	1.21	0	0	draw	yes
+4400	1377947	2025-10-29	Italy	Serie A	Como	Verona	h-win	3	1	15	5	13	9	1	3	1	1	1	4	0	0	71.00	29.00	11	21	\N	\N	\N	\N	\N	2025-12-02 09:20:03.243272	1.50	1.52	1	1	draw	yes
+4401	1377948	2025-10-29	Italy	Serie A	Genoa	Cremonese	a-win	0	2	16	1	11	4	7	3	3	0	3	1	0	0	54.00	46.00	16	13	\N	\N	\N	\N	\N	2025-12-02 09:20:03.328039	1.31	1.39	0	1	a-win	yes
+4402	1377945	2025-10-29	Italy	Serie A	Bologna	Torino	draw	0	0	11	2	8	2	3	3	0	2	2	3	0	0	71.00	29.00	11	20	\N	\N	\N	\N	\N	2025-12-02 09:20:03.434529	0.43	0.54	0	0	draw	yes
+4403	1377949	2025-10-29	Italy	Serie A	Inter	Fiorentina	h-win	3	0	22	8	10	2	8	5	0	1	1	2	0	1	64.00	36.00	11	16	\N	\N	\N	\N	\N	2025-12-02 09:20:03.517109	2.63	0.72	0	0	draw	yes
+4404	1377946	2025-10-30	Italy	Serie A	Cagliari	Sassuolo	a-win	1	2	8	1	12	4	3	7	2	3	4	4	0	0	46.00	54.00	20	21	\N	\N	\N	\N	\N	2025-12-02 09:20:03.599229	0.72	0.56	0	0	draw	yes
+4405	1377952	2025-10-30	Italy	Serie A	Pisa	Lazio	draw	0	0	10	2	11	6	3	1	1	0	2	2	0	0	39.00	61.00	16	12	\N	\N	\N	\N	\N	2025-12-02 09:20:03.683742	0.93	0.48	0	0	draw	yes
+4406	1377962	2025-11-01	Italy	Serie A	Udinese	Atalanta	h-win	1	0	11	5	5	0	5	4	0	3	1	3	0	0	40.00	60.00	14	11	\N	\N	\N	9	12	2025-12-02 09:20:03.85248	0.53	0.37	1	0	h-win	yes
+4407	1377958	2025-11-01	Italy	Serie A	Napoli	Como	draw	0	0	13	8	13	2	4	2	0	0	3	2	0	0	45.00	55.00	15	16	\N	\N	\N	2	5	2025-12-02 09:20:03.939829	0.78	1.07	0	0	draw	yes
+4408	1377954	2025-11-01	Italy	Serie A	Cremonese	Juventus	a-win	1	2	9	2	15	5	2	3	0	2	1	0	0	0	51.00	49.00	10	14	\N	\N	\N	11	7	2025-12-02 09:20:04.0228	0.54	2.03	0	1	a-win	yes
+4409	1377963	2025-11-02	Italy	Serie A	Verona	Inter	a-win	1	2	8	2	21	6	4	8	1	1	2	1	0	0	27.00	73.00	16	4	\N	\N	\N	20	3	2025-12-02 09:20:04.106798	0.38	1.11	1	1	draw	yes
+4410	1377955	2025-11-02	Italy	Serie A	Fiorentina	Lecce	a-win	0	1	15	4	11	4	4	4	3	0	4	1	0	0	63.00	37.00	14	21	\N	\N	\N	19	14	2025-12-02 09:20:04.184623	1.46	1.15	0	1	a-win	yes
+4411	1377961	2025-11-02	Italy	Serie A	Torino	Pisa	draw	2	2	15	3	11	3	4	2	1	1	2	1	0	0	64.00	36.00	14	8	\N	\N	\N	13	18	2025-12-02 09:20:04.265382	0.91	1.53	2	2	draw	yes
+4412	1377959	2025-11-02	Italy	Serie A	Parma	Bologna	a-win	1	3	7	1	22	6	1	5	1	6	3	2	1	0	35.00	65.00	16	15	\N	\N	\N	17	6	2025-12-02 09:20:04.347162	0.51	2.72	1	1	draw	yes
+4413	1377957	2025-11-02	Italy	Serie A	AC Milan	AS Roma	h-win	1	0	17	8	20	6	7	8	2	1	1	5	0	0	37.00	63.00	12	13	\N	\N	\N	1	4	2025-12-02 09:20:04.432081	3.32	1.95	1	0	h-win	yes
+4414	1377960	2025-11-03	Italy	Serie A	Sassuolo	Genoa	a-win	1	2	13	4	16	5	3	7	3	2	1	3	0	0	61.00	39.00	13	13	\N	\N	\N	10	16	2025-12-02 10:16:51.827381	1.15	1.76	0	1	a-win	yes
+4415	1377956	2025-11-03	Italy	Serie A	Lazio	Cagliari	h-win	2	0	8	3	17	5	7	5	0	0	0	2	0	0	51.00	49.00	8	18	\N	\N	\N	8	15	2025-12-02 10:16:51.920382	0.69	1.51	0	0	draw	yes
+4416	1377972	2025-11-07	Italy	Serie A	Pisa	Cremonese	h-win	1	0	13	6	13	3	4	5	2	1	4	2	0	0	38.00	62.00	11	17	\N	\N	\N	18	11	2025-12-02 10:16:52.008978	0.81	0.80	0	0	draw	yes
+4417	1377970	2025-11-08	Italy	Serie A	Lecce	Verona	draw	0	0	11	6	5	2	7	2	2	2	1	4	0	0	59.00	41.00	10	18	\N	\N	\N	14	20	2025-12-02 10:16:52.095679	0.49	0.65	0	0	draw	yes
+4418	1377966	2025-11-08	Italy	Serie A	Como	Cagliari	draw	0	0	10	6	4	2	10	0	1	2	3	1	0	0	75.00	25.00	21	15	\N	\N	\N	5	15	2025-12-02 10:16:52.182856	1.06	0.64	0	0	draw	yes
+4419	1377969	2025-11-08	Italy	Serie A	Juventus	Torino	draw	0	0	22	6	8	3	6	2	1	2	0	1	0	0	72.00	28.00	9	4	\N	\N	\N	7	13	2025-12-02 10:16:52.272061	1.21	0.54	0	0	draw	yes
+4420	1377971	2025-11-08	Italy	Serie A	Parma	AC Milan	draw	2	2	14	4	9	5	4	3	2	3	1	1	0	0	43.00	57.00	14	10	\N	\N	\N	17	1	2025-12-02 10:16:52.364379	1.88	1.95	1	2	a-win	yes
+4421	1377964	2025-11-09	Italy	Serie A	Atalanta	Sassuolo	a-win	0	3	14	2	8	4	4	1	2	2	0	2	0	0	68.00	32.00	9	8	\N	\N	\N	12	10	2025-12-02 10:16:52.450067	0.91	1.81	0	1	a-win	yes
+4422	1377967	2025-11-09	Italy	Serie A	Genoa	Fiorentina	draw	2	2	10	6	7	3	3	7	0	0	2	3	0	0	41.00	59.00	20	15	\N	\N	\N	16	19	2025-12-02 10:16:52.539976	1.58	1.56	1	1	draw	yes
+4423	1377965	2025-11-09	Italy	Serie A	Bologna	Napoli	h-win	2	0	11	4	4	1	5	4	0	0	1	3	0	0	41.00	59.00	14	15	\N	\N	\N	6	2	2025-12-02 10:16:52.625183	0.92	0.24	0	0	draw	yes
+4424	1377973	2025-11-09	Italy	Serie A	AS Roma	Udinese	h-win	2	0	13	4	10	4	3	4	2	0	2	1	0	0	58.00	42.00	13	14	\N	\N	\N	4	9	2025-12-02 10:16:52.710156	1.53	1.08	1	0	h-win	yes
+4425	1377968	2025-11-09	Italy	Serie A	Inter	Lazio	h-win	2	0	8	3	8	5	3	1	2	0	3	1	0	0	54.00	46.00	26	11	\N	\N	\N	3	8	2025-12-02 10:16:52.795602	1.91	0.63	1	0	h-win	yes
+4426	1377974	2025-11-22	Italy	Serie A	Cagliari	Genoa	draw	3	3	11	5	13	8	6	2	0	4	4	3	0	1	50.00	50.00	22	16	\N	\N	\N	15	16	2025-12-02 10:16:52.882803	0.90	1.42	2	2	draw	yes
+4427	1377982	2025-11-22	Italy	Serie A	Udinese	Bologna	a-win	0	3	12	3	10	5	7	2	2	3	0	1	0	0	47.00	53.00	19	16	\N	\N	\N	9	6	2025-12-02 10:16:52.972714	1.46	2.22	0	0	draw	yes
+4428	1377976	2025-11-22	Italy	Serie A	Fiorentina	Juventus	draw	1	1	11	2	17	4	7	3	0	0	3	3	0	0	41.00	59.00	11	18	\N	\N	\N	19	7	2025-12-02 10:16:53.06387	0.58	1.50	0	1	a-win	yes
+4429	1377979	2025-11-22	Italy	Serie A	Napoli	Atalanta	h-win	3	1	11	6	14	3	5	3	3	1	1	2	0	0	45.00	55.00	11	12	\N	\N	\N	2	12	2025-12-02 10:16:53.155094	1.58	0.78	3	0	h-win	yes
+4430	1377983	2025-11-23	Italy	Serie A	Verona	Parma	a-win	1	2	10	2	15	7	4	4	5	1	4	3	0	0	59.00	41.00	24	6	\N	\N	\N	20	17	2025-12-02 10:16:53.238553	0.63	1.44	0	1	a-win	yes
+4431	1377975	2025-11-23	Italy	Serie A	Cremonese	AS Roma	a-win	1	3	9	4	12	6	3	5	3	2	2	2	0	0	50.00	50.00	12	16	\N	\N	\N	11	4	2025-12-02 10:16:53.323209	0.89	1.90	0	1	a-win	yes
+4432	1377978	2025-11-23	Italy	Serie A	Lazio	Lecce	h-win	2	0	19	9	5	1	8	2	0	2	1	1	0	0	67.00	33.00	8	13	\N	\N	\N	8	14	2025-12-02 10:16:53.407651	1.89	0.62	1	0	h-win	yes
+4433	1377977	2025-11-23	Italy	Serie A	Inter	AC Milan	a-win	0	1	20	6	7	3	9	1	2	3	1	2	0	0	64.00	36.00	7	9	\N	\N	\N	3	1	2025-12-02 10:16:53.491513	1.92	1.01	0	0	draw	yes
+4434	1377981	2025-11-24	Italy	Serie A	Torino	Como	a-win	1	5	10	2	15	7	3	4	3	0	0	1	0	0	35.00	65.00	6	9	\N	\N	\N	13	5	2025-12-02 10:16:53.574808	1.34	2.81	1	1	draw	yes
+4435	1377980	2025-11-24	Italy	Serie A	Sassuolo	Pisa	draw	2	2	22	7	10	3	5	2	1	2	2	1	0	0	63.00	37.00	10	10	\N	\N	\N	10	18	2025-12-02 10:16:53.665041	1.76	1.54	1	1	draw	yes
+4436	1377986	2025-11-28	Italy	Serie A	Como	Sassuolo	h-win	2	0	18	13	12	5	4	4	2	3	2	1	0	0	63.00	37.00	11	7	\N	\N	\N	5	10	2025-12-02 10:16:53.751759	1.80	0.78	1	0	h-win	yes
+4437	1377987	2025-11-29	Italy	Serie A	Genoa	Verona	h-win	2	1	15	4	13	5	2	3	4	5	1	3	0	0	60.00	40.00	9	19	\N	\N	\N	16	20	2025-12-02 10:16:53.837901	1.75	2.28	1	1	draw	yes
+4438	1377991	2025-11-29	Italy	Serie A	Parma	Udinese	a-win	0	2	17	2	14	5	5	9	2	1	1	2	1	0	51.00	49.00	6	19	\N	\N	\N	17	9	2025-12-02 10:16:53.925042	0.96	1.74	0	1	a-win	yes
+4439	1377988	2025-11-29	Italy	Serie A	Juventus	Cagliari	h-win	2	1	14	6	5	3	1	6	1	0	1	5	0	0	57.00	43.00	16	16	\N	\N	\N	7	15	2025-12-02 10:16:54.009026	1.71	0.54	2	1	h-win	yes
+4440	1377990	2025-11-29	Italy	Serie A	AC Milan	Lazio	h-win	1	0	16	4	9	4	1	4	1	2	3	3	0	0	46.00	54.00	10	12	\N	\N	\N	1	8	2025-12-02 10:16:54.093783	1.47	0.68	0	0	draw	yes
+4441	1377989	2025-11-30	Italy	Serie A	Lecce	Torino	h-win	2	1	10	2	15	6	6	6	1	2	2	3	0	0	48.00	52.00	16	22	\N	\N	\N	14	13	2025-12-02 10:16:54.181951	1.00	1.74	2	0	h-win	yes
+4442	1377992	2025-11-30	Italy	Serie A	Pisa	Inter	a-win	0	2	10	2	14	3	4	6	3	2	2	1	0	0	40.00	60.00	13	15	\N	\N	\N	18	3	2025-12-02 10:16:54.273954	1.03	2.00	0	0	draw	yes
+4443	1377984	2025-11-30	Italy	Serie A	Atalanta	Fiorentina	h-win	2	0	21	9	15	3	4	5	2	1	1	3	0	0	48.00	52.00	15	10	\N	\N	\N	12	19	2025-12-02 10:16:54.359893	1.60	1.58	1	0	h-win	yes
+4444	1377993	2025-11-30	Italy	Serie A	AS Roma	Napoli	a-win	0	1	8	2	7	5	4	2	0	4	4	3	0	0	56.00	44.00	14	13	\N	\N	\N	4	2	2025-12-02 10:16:54.444009	0.52	1.17	0	1	a-win	yes
+4445	1377985	2025-12-01	Italy	Serie A	Bologna	Cremonese	a-win	1	3	29	7	10	5	13	8	4	3	0	2	0	0	65.00	35.00	13	12	\N	\N	\N	6	11	2025-12-02 10:16:54.529279	2.77	2.25	1	2	a-win	yes
+4446	1419594	2025-08-22	Italy	Serie B	Pescara	Cesena	a-win	1	3	12	4	19	9	3	5	0	4	1	1	0	0	54.00	46.00	16	7	\N	\N	\N	\N	\N	2025-12-02 10:16:55.843051	\N	\N	1	1	draw	yes
+4447	1419598	2025-08-23	Italy	Serie B	Empoli	Padova	h-win	3	1	15	5	9	4	6	4	1	1	2	4	0	0	51.00	49.00	19	19	\N	\N	\N	\N	\N	2025-12-02 10:16:55.92772	\N	\N	2	1	h-win	yes
+4448	1419595	2025-08-23	Italy	Serie B	Virtus Entella	Juve Stabia	draw	1	1	10	2	10	2	5	7	1	2	2	2	0	0	46.00	54.00	14	14	\N	\N	\N	\N	\N	2025-12-02 10:16:56.013586	\N	\N	0	0	draw	yes
+4449	1419600	2025-08-23	Italy	Serie B	Palermo	Reggiana	h-win	2	1	25	14	10	3	9	6	1	1	1	1	0	0	50.00	50.00	11	16	\N	\N	\N	\N	\N	2025-12-02 10:16:56.09834	\N	\N	1	0	h-win	yes
+4450	1419596	2025-08-23	Italy	Serie B	Monza	Mantova	h-win	1	0	16	2	8	2	9	1	2	0	3	3	0	0	44.00	56.00	21	19	\N	\N	\N	\N	\N	2025-12-02 10:16:56.181803	\N	\N	0	0	draw	yes
+4451	1419592	2025-08-24	Italy	Serie B	Spezia	Carrarese	a-win	0	2	7	2	10	6	7	3	1	0	5	2	1	0	57.00	43.00	12	19	\N	\N	\N	\N	\N	2025-12-02 10:16:56.269674	\N	\N	0	1	a-win	yes
+4452	1419601	2025-08-24	Italy	Serie B	Venezia	Bari	h-win	2	1	20	8	11	3	6	4	2	3	1	1	0	0	59.00	41.00	13	15	\N	\N	\N	\N	\N	2025-12-02 10:16:56.356555	\N	\N	2	1	h-win	yes
+4453	1419599	2025-08-24	Italy	Serie B	Frosinone	Avellino	h-win	2	0	15	4	13	3	6	1	0	2	3	2	1	0	39.00	61.00	19	16	\N	\N	\N	\N	\N	2025-12-02 10:16:56.442061	\N	\N	2	0	h-win	yes
+4454	1419593	2025-08-24	Italy	Serie B	Catanzaro	Sudtirol	draw	1	1	7	2	12	4	1	5	0	2	0	2	0	0	73.00	27.00	8	20	\N	\N	\N	\N	\N	2025-12-02 10:16:56.527764	\N	\N	0	1	a-win	yes
+4455	1419597	2025-08-25	Italy	Serie B	Sampdoria	Modena	a-win	0	2	11	3	10	4	4	0	2	1	1	4	0	0	55.00	45.00	17	15	\N	\N	\N	\N	\N	2025-12-02 10:16:56.613974	\N	\N	0	0	draw	yes
+4456	1419605	2025-08-29	Italy	Serie B	Reggiana	Empoli	h-win	3	1	16	6	2	2	8	2	1	0	0	1	0	2	62.00	38.00	14	18	\N	\N	\N	\N	\N	2025-12-02 10:16:56.697349	\N	\N	1	1	draw	yes
+4457	1419603	2025-08-30	Italy	Serie B	Juve Stabia	Venezia	draw	0	0	17	4	3	1	6	1	2	1	3	1	0	1	64.00	36.00	13	12	\N	\N	\N	\N	\N	2025-12-02 10:16:56.778874	\N	\N	0	0	draw	yes
+4458	1419602	2025-08-30	Italy	Serie B	Mantova	Pescara	h-win	2	1	15	7	9	0	4	5	2	0	4	2	0	0	54.00	46.00	15	24	\N	\N	\N	\N	\N	2025-12-02 10:16:56.864958	\N	\N	1	0	h-win	yes
+4459	1419611	2025-08-30	Italy	Serie B	Cesena	Virtus Entella	draw	1	1	13	2	9	1	8	2	1	0	2	3	0	0	50.00	50.00	15	9	\N	\N	\N	\N	\N	2025-12-02 10:16:56.951994	\N	\N	0	0	draw	yes
+4460	1419604	2025-08-30	Italy	Serie B	Spezia	Catanzaro	draw	0	0	7	1	5	1	1	5	2	1	3	3	0	0	45.00	55.00	23	14	\N	\N	\N	\N	\N	2025-12-02 10:16:57.03721	\N	\N	0	0	draw	yes
+4461	1419606	2025-08-30	Italy	Serie B	Palermo	Frosinone	draw	0	0	13	2	10	4	6	3	1	2	1	3	0	0	52.00	48.00	18	13	\N	\N	\N	\N	\N	2025-12-02 10:16:57.120003	\N	\N	0	0	draw	yes
+4462	1419609	2025-08-31	Italy	Serie B	Sudtirol	Sampdoria	h-win	3	1	11	3	19	5	2	5	1	0	1	2	0	0	34.00	66.00	17	18	\N	\N	\N	\N	\N	2025-12-02 10:16:57.20292	\N	\N	3	0	h-win	yes
+4463	1419608	2025-08-31	Italy	Serie B	Carrarese	Padova	draw	0	0	16	2	10	0	4	2	0	2	3	3	0	1	58.00	42.00	17	15	\N	\N	\N	\N	\N	2025-12-02 10:16:57.287156	\N	\N	0	0	draw	yes
+4464	1419610	2025-08-31	Italy	Serie B	Bari	Monza	draw	1	1	20	4	13	2	3	6	2	1	2	4	0	0	44.00	56.00	11	19	\N	\N	\N	\N	\N	2025-12-02 10:16:57.373593	\N	\N	1	1	draw	yes
+4465	1419607	2025-08-31	Italy	Serie B	Modena	Avellino	draw	1	1	22	5	3	1	7	2	2	0	2	5	0	1	66.00	34.00	14	15	\N	\N	\N	\N	\N	2025-12-02 10:16:57.456834	\N	\N	0	0	draw	yes
+4466	1419620	2025-09-12	Italy	Serie B	Avellino	Monza	h-win	2	1	12	2	9	2	2	3	3	3	2	0	0	0	43.00	57.00	22	16	\N	\N	\N	\N	\N	2025-12-02 10:16:57.548123	\N	\N	1	0	h-win	yes
+4467	1419613	2025-09-13	Italy	Serie B	Pescara	Venezia	draw	2	2	16	5	12	5	7	5	2	1	1	1	0	0	44.00	56.00	18	20	\N	\N	\N	\N	\N	2025-12-02 10:16:57.634542	\N	\N	0	1	a-win	yes
+4468	1419617	2025-09-13	Italy	Serie B	Juve Stabia	Reggiana	draw	0	0	17	6	4	1	8	1	0	3	4	0	0	0	72.00	28.00	22	12	\N	\N	\N	\N	\N	2025-12-02 10:16:57.719694	\N	\N	0	0	draw	yes
+4469	1419618	2025-09-13	Italy	Serie B	Padova	Frosinone	a-win	0	1	10	5	13	4	6	4	2	2	1	2	0	0	55.00	45.00	11	16	\N	\N	\N	\N	\N	2025-12-02 10:16:57.804278	\N	\N	0	1	a-win	yes
+4470	1419614	2025-09-13	Italy	Serie B	Modena	Bari	h-win	3	0	16	9	6	2	2	2	1	0	1	2	0	0	42.00	58.00	22	12	\N	\N	\N	\N	\N	2025-12-02 10:16:57.888861	\N	\N	1	0	h-win	yes
+4471	1419616	2025-09-13	Italy	Serie B	Catanzaro	Carrarese	draw	1	1	18	3	11	2	6	8	1	0	4	3	0	0	59.00	41.00	17	16	\N	\N	\N	\N	\N	2025-12-02 10:16:57.974578	\N	\N	0	0	draw	yes
+4472	1419621	2025-09-13	Italy	Serie B	Sampdoria	Cesena	a-win	1	2	11	1	8	3	1	2	0	0	4	2	0	0	54.00	46.00	19	17	\N	\N	\N	\N	\N	2025-12-02 10:16:58.060064	\N	\N	0	1	a-win	yes
+4473	1419615	2025-09-14	Italy	Serie B	Virtus Entella	Mantova	h-win	1	0	15	9	15	4	7	4	0	1	3	0	0	0	28.00	72.00	21	5	\N	\N	\N	\N	\N	2025-12-02 10:16:58.146939	\N	\N	1	0	h-win	yes
+4474	1419619	2025-09-14	Italy	Serie B	Sudtirol	Palermo	a-win	0	2	16	2	12	4	7	3	0	0	2	3	0	0	50.00	50.00	18	19	\N	\N	\N	\N	\N	2025-12-02 10:16:58.237052	\N	\N	0	1	a-win	yes
+4475	1419612	2025-09-14	Italy	Serie B	Empoli	Spezia	draw	1	1	12	4	13	6	2	7	0	0	3	2	0	0	52.00	48.00	21	20	\N	\N	\N	\N	\N	2025-12-02 10:16:58.321722	\N	\N	0	1	a-win	yes
+4476	1419627	2025-09-19	Italy	Serie B	Frosinone	Sudtirol	draw	2	2	20	5	14	5	5	4	2	2	2	2	0	0	62.00	38.00	18	18	\N	\N	\N	\N	\N	2025-12-02 10:16:58.404767	\N	\N	2	0	h-win	yes
+4477	1419630	2025-09-19	Italy	Serie B	Palermo	Bari	h-win	2	0	24	9	8	0	6	1	3	0	0	3	0	0	49.00	51.00	7	15	\N	\N	\N	\N	\N	2025-12-02 10:16:58.488093	\N	\N	0	0	draw	yes
+4478	1419622	2025-09-20	Italy	Serie B	Spezia	Juve Stabia	a-win	1	3	7	4	11	5	6	3	2	1	0	3	0	0	47.00	53.00	13	25	\N	\N	\N	\N	\N	2025-12-02 10:16:58.572678	\N	\N	0	2	a-win	yes
+4479	1419629	2025-09-20	Italy	Serie B	Venezia	Cesena	a-win	1	2	17	3	13	6	2	3	1	2	3	2	1	0	68.00	32.00	17	11	\N	\N	\N	\N	\N	2025-12-02 10:16:58.659451	\N	\N	0	0	draw	yes
+4480	1419625	2025-09-20	Italy	Serie B	Reggiana	Catanzaro	draw	2	2	12	4	18	4	3	3	3	0	1	2	0	0	37.00	63.00	14	9	\N	\N	\N	\N	\N	2025-12-02 10:16:58.744363	\N	\N	1	1	draw	yes
+4481	1419628	2025-09-20	Italy	Serie B	Monza	Sampdoria	h-win	1	0	7	2	11	3	2	1	2	1	1	2	1	1	64.00	36.00	14	14	\N	\N	\N	\N	\N	2025-12-02 10:16:58.843771	\N	\N	0	0	draw	yes
+4482	1419623	2025-09-20	Italy	Serie B	Mantova	Modena	a-win	1	3	12	5	22	5	4	10	1	4	3	3	0	0	57.00	43.00	11	16	\N	\N	\N	\N	\N	2025-12-02 10:16:58.93283	\N	\N	1	2	a-win	yes
+4483	1419626	2025-09-21	Italy	Serie B	Carrarese	Avellino	a-win	3	4	20	6	5	3	9	2	0	1	1	5	0	1	58.00	42.00	19	14	\N	\N	\N	\N	\N	2025-12-02 10:16:59.017627	\N	\N	2	2	draw	yes
+4484	1419624	2025-09-21	Italy	Serie B	Pescara	Empoli	h-win	4	0	18	10	8	4	6	5	2	1	1	2	0	0	45.00	55.00	14	20	\N	\N	\N	\N	\N	2025-12-02 10:16:59.103687	\N	\N	0	0	draw	yes
+4485	1419631	2025-09-21	Italy	Serie B	Padova	Virtus Entella	h-win	2	1	10	5	11	3	5	8	4	4	0	5	0	1	59.00	41.00	16	19	\N	\N	\N	\N	\N	2025-12-02 10:16:59.189532	\N	\N	0	1	a-win	yes
+4486	1438558	2025-09-26	Italy	Serie B	Catanzaro	Juve Stabia	draw	2	2	19	4	4	2	7	0	2	5	2	6	0	2	60.00	40.00	12	17	\N	\N	\N	\N	\N	2025-12-02 10:16:59.275229	\N	\N	0	2	a-win	yes
+4487	1419633	2025-09-27	Italy	Serie B	Cesena	Palermo	draw	1	1	13	2	10	2	2	1	1	1	2	1	0	0	50.00	50.00	14	14	\N	\N	\N	\N	\N	2025-12-02 10:16:59.357059	\N	\N	1	0	h-win	yes
+4488	1419639	2025-09-27	Italy	Serie B	Venezia	Spezia	h-win	2	0	11	3	5	2	7	2	1	3	1	2	0	1	74.00	26.00	19	20	\N	\N	\N	\N	\N	2025-12-02 10:16:59.44159	\N	\N	1	0	h-win	yes
+4489	1419636	2025-09-27	Italy	Serie B	Avellino	Virtus Entella	h-win	2	0	12	5	10	2	3	8	1	1	1	2	0	0	47.00	53.00	8	18	\N	\N	\N	\N	\N	2025-12-02 10:16:59.527897	\N	\N	1	0	h-win	yes
+4490	1419637	2025-09-27	Italy	Serie B	Sudtirol	Reggiana	h-win	3	1	29	9	12	2	10	4	0	3	1	0	0	0	38.00	62.00	14	10	\N	\N	\N	\N	\N	2025-12-02 10:16:59.614212	\N	\N	2	0	h-win	yes
+4491	1419634	2025-09-27	Italy	Serie B	Mantova	Frosinone	a-win	1	5	28	9	22	10	6	4	0	5	2	4	0	0	68.00	32.00	16	22	\N	\N	\N	\N	\N	2025-12-02 10:16:59.696721	\N	\N	0	4	a-win	yes
+4492	1419638	2025-09-27	Italy	Serie B	Monza	Padova	a-win	0	1	13	4	13	5	7	3	3	1	1	2	0	0	62.00	38.00	10	12	\N	\N	\N	\N	\N	2025-12-02 10:16:59.782136	\N	\N	0	0	draw	yes
+4493	1419635	2025-09-27	Italy	Serie B	Bari	Sampdoria	draw	1	1	13	3	14	3	3	2	1	3	2	4	0	0	63.00	37.00	18	15	\N	\N	\N	\N	\N	2025-12-02 10:16:59.872088	\N	\N	1	1	draw	yes
+4494	1419632	2025-09-28	Italy	Serie B	Modena	Pescara	h-win	2	1	15	3	6	2	4	0	3	2	3	3	0	0	49.00	51.00	15	15	\N	\N	\N	\N	\N	2025-12-02 10:16:59.97664	\N	\N	0	1	a-win	yes
+4495	1419640	2025-09-28	Italy	Serie B	Empoli	Carrarese	draw	2	2	13	4	9	5	2	3	0	2	2	3	0	0	52.00	48.00	20	15	\N	\N	\N	\N	\N	2025-12-02 10:17:00.062938	\N	\N	1	1	draw	yes
+4496	1419647	2025-09-30	Italy	Serie B	Frosinone	Cesena	h-win	3	1	17	7	11	2	7	3	0	0	1	1	1	0	43.00	57.00	13	20	\N	\N	\N	\N	\N	2025-12-02 10:17:00.154761	\N	\N	0	0	draw	yes
+4497	1419644	2025-09-30	Italy	Serie B	Palermo	Venezia	draw	0	0	3	1	11	3	4	3	1	5	5	2	1	0	36.00	64.00	20	14	\N	\N	\N	\N	\N	2025-12-02 10:17:00.245151	\N	\N	0	0	draw	yes
+4498	1419641	2025-09-30	Italy	Serie B	Virtus Entella	Bari	draw	2	2	18	4	9	4	4	2	6	0	6	1	0	0	50.00	50.00	22	11	\N	\N	\N	\N	\N	2025-12-02 10:17:00.332933	\N	\N	0	1	a-win	yes
+4499	1419643	2025-09-30	Italy	Serie B	Juve Stabia	Mantova	h-win	2	1	10	4	15	6	4	4	2	0	2	3	0	0	43.00	57.00	20	16	\N	\N	\N	\N	\N	2025-12-02 10:17:00.426396	\N	\N	2	0	h-win	yes
+4500	1419646	2025-09-30	Italy	Serie B	Padova	Avellino	draw	2	2	11	3	12	5	4	1	1	0	2	1	0	0	45.00	55.00	14	13	\N	\N	\N	\N	\N	2025-12-02 10:17:00.512654	\N	\N	2	2	draw	yes
+4501	1419645	2025-09-30	Italy	Serie B	Reggiana	Spezia	draw	1	1	14	4	3	2	2	5	1	0	5	1	0	1	54.00	46.00	16	9	\N	\N	\N	\N	\N	2025-12-02 10:17:00.596502	\N	\N	0	1	a-win	yes
+4502	1419642	2025-10-01	Italy	Serie B	Sampdoria	Catanzaro	draw	0	0	11	3	16	7	3	5	5	0	0	1	0	0	36.00	64.00	16	12	\N	\N	\N	\N	\N	2025-12-02 10:17:00.684543	\N	\N	0	0	draw	yes
+4503	1419648	2025-10-01	Italy	Serie B	Empoli	Monza	draw	1	1	12	5	16	3	4	4	1	0	2	2	0	0	50.00	50.00	12	15	\N	\N	\N	\N	\N	2025-12-02 10:17:00.77435	\N	\N	0	0	draw	yes
+4504	1419649	2025-10-01	Italy	Serie B	Pescara	Sudtirol	draw	1	1	9	2	13	6	5	2	0	6	2	3	0	0	56.00	44.00	10	20	\N	\N	\N	\N	\N	2025-12-02 10:17:00.859703	\N	\N	0	0	draw	yes
+4505	1419650	2025-10-01	Italy	Serie B	Carrarese	Modena	draw	0	0	14	3	10	0	4	6	0	4	2	4	0	0	51.00	49.00	14	21	\N	\N	\N	\N	\N	2025-12-02 10:17:00.944744	\N	\N	0	0	draw	yes
+4506	1419651	2025-10-04	Italy	Serie B	Bari	Padova	h-win	2	1	15	5	17	7	7	7	0	2	2	0	0	1	50.00	50.00	12	16	\N	\N	\N	\N	\N	2025-12-02 10:17:01.029779	\N	\N	0	0	draw	yes
+4507	1419655	2025-10-04	Italy	Serie B	Venezia	Frosinone	h-win	3	0	17	8	17	5	3	7	0	0	3	4	0	0	50.00	50.00	18	29	\N	\N	\N	\N	\N	2025-12-02 10:17:01.114156	\N	\N	2	0	h-win	yes
+4508	1419658	2025-10-04	Italy	Serie B	Avellino	Mantova	draw	0	0	12	6	19	11	8	7	1	1	2	3	0	0	41.00	59.00	13	13	\N	\N	\N	\N	\N	2025-12-02 10:17:01.196731	\N	\N	0	0	draw	yes
+4509	1419656	2025-10-04	Italy	Serie B	Monza	Catanzaro	h-win	2	1	13	3	10	4	5	3	3	2	2	1	0	0	41.00	59.00	17	9	\N	\N	\N	\N	\N	2025-12-02 10:17:01.284348	\N	\N	1	1	draw	yes
+4510	1419659	2025-10-04	Italy	Serie B	Spezia	Palermo	a-win	1	2	12	6	10	3	5	5	1	2	1	3	0	0	51.00	49.00	13	17	\N	\N	\N	\N	\N	2025-12-02 10:17:01.36927	\N	\N	0	1	a-win	yes
+4511	1419660	2025-10-04	Italy	Serie B	Cesena	Reggiana	a-win	1	2	16	2	6	2	4	0	2	1	2	3	1	0	61.00	39.00	17	12	\N	\N	\N	\N	\N	2025-12-02 10:17:01.457605	\N	\N	1	2	a-win	yes
+4512	1419653	2025-10-05	Italy	Serie B	Sudtirol	Empoli	a-win	1	2	13	5	21	6	2	7	0	1	2	2	1	0	32.00	68.00	19	14	\N	\N	\N	\N	\N	2025-12-02 10:17:01.546867	\N	\N	1	0	h-win	yes
+4513	1419657	2025-10-05	Italy	Serie B	Carrarese	Juve Stabia	h-win	3	0	10	6	15	2	5	3	1	4	2	4	0	0	35.00	65.00	13	19	\N	\N	\N	\N	\N	2025-12-02 10:17:01.637454	\N	\N	1	0	h-win	yes
+4514	1419654	2025-10-05	Italy	Serie B	Sampdoria	Pescara	h-win	4	1	28	12	6	1	8	1	3	0	2	1	0	1	47.00	53.00	19	11	\N	\N	\N	\N	\N	2025-12-02 10:17:01.731913	\N	\N	0	1	a-win	yes
+4515	1419652	2025-10-05	Italy	Serie B	Modena	Virtus Entella	h-win	2	0	18	7	15	3	5	3	0	1	1	0	0	0	56.00	44.00	11	17	\N	\N	\N	\N	\N	2025-12-02 10:17:01.819616	\N	\N	0	0	draw	yes
+4516	1419662	2025-10-17	Italy	Serie B	Virtus Entella	Sampdoria	h-win	3	1	17	6	14	4	12	5	3	4	3	1	0	0	41.00	59.00	17	14	\N	\N	\N	\N	\N	2025-12-02 10:17:01.902129	\N	\N	2	0	h-win	yes
+4517	1419661	2025-10-18	Italy	Serie B	Frosinone	Monza	a-win	0	1	15	2	20	9	5	2	1	1	1	3	0	0	57.00	43.00	11	22	\N	\N	\N	\N	\N	2025-12-02 10:17:01.987879	\N	\N	0	1	a-win	yes
+4518	1419669	2025-10-18	Italy	Serie B	Pescara	Carrarese	draw	2	2	16	8	11	3	10	4	3	0	2	2	0	0	53.00	47.00	11	14	\N	\N	\N	\N	\N	2025-12-02 10:17:02.078484	\N	\N	0	1	a-win	yes
+4519	1419665	2025-10-18	Italy	Serie B	Reggiana	Bari	h-win	3	1	14	8	11	2	3	1	1	0	3	1	0	1	51.00	49.00	14	11	\N	\N	\N	\N	\N	2025-12-02 10:17:02.164828	\N	\N	1	1	draw	yes
+4520	1419668	2025-10-18	Italy	Serie B	Mantova	Sudtirol	draw	1	1	25	8	7	1	5	2	3	1	1	3	0	0	83.00	17.00	25	7	\N	\N	\N	\N	\N	2025-12-02 10:17:02.249126	\N	\N	0	1	a-win	yes
+4521	1419663	2025-10-18	Italy	Serie B	Juve Stabia	Avellino	h-win	2	0	11	3	11	2	6	3	0	1	2	1	0	1	44.00	56.00	11	11	\N	\N	\N	\N	\N	2025-12-02 10:17:02.334064	\N	\N	2	0	h-win	yes
+4522	1419667	2025-10-18	Italy	Serie B	Spezia	Cesena	a-win	1	2	12	4	12	5	6	4	4	3	1	4	0	0	58.00	42.00	19	20	\N	\N	\N	\N	\N	2025-12-02 10:17:02.421154	\N	\N	1	2	a-win	yes
+4523	1419670	2025-10-19	Italy	Serie B	Palermo	Modena	draw	1	1	10	2	17	5	3	5	0	4	1	1	0	0	42.00	58.00	10	17	\N	\N	\N	\N	\N	2025-12-02 10:17:02.50321	\N	\N	1	0	h-win	yes
+4524	1419666	2025-10-19	Italy	Serie B	Empoli	Venezia	draw	1	1	9	7	16	4	5	6	1	1	3	1	0	0	31.00	69.00	9	16	\N	\N	\N	\N	\N	2025-12-02 10:17:02.586535	\N	\N	1	1	draw	yes
+4525	1419664	2025-10-19	Italy	Serie B	Catanzaro	Padova	a-win	0	1	19	3	10	5	8	4	2	2	3	4	0	0	57.00	43.00	19	10	\N	\N	\N	\N	\N	2025-12-02 10:17:02.671022	\N	\N	0	1	a-win	yes
+4526	1419671	2025-10-24	Italy	Serie B	Modena	Empoli	h-win	2	1	11	4	6	1	6	5	2	0	3	3	0	0	56.00	44.00	18	16	\N	\N	\N	\N	\N	2025-12-02 10:17:02.753986	\N	\N	1	1	draw	yes
+4527	1419675	2025-10-25	Italy	Serie B	Sampdoria	Frosinone	draw	1	1	13	3	16	5	5	8	0	0	0	3	0	0	53.00	47.00	11	19	\N	\N	\N	\N	\N	2025-12-02 10:17:02.836793	\N	\N	0	1	a-win	yes
+4528	1419680	2025-10-25	Italy	Serie B	Virtus Entella	Pescara	draw	1	1	20	3	11	3	11	5	1	2	2	1	0	0	51.00	49.00	12	8	\N	\N	\N	\N	\N	2025-12-02 10:17:02.92265	\N	\N	0	0	draw	yes
+4529	1419679	2025-10-25	Italy	Serie B	Avellino	Spezia	a-win	0	4	7	3	23	7	7	6	2	2	2	1	1	0	50.00	50.00	12	18	\N	\N	\N	\N	\N	2025-12-02 10:17:03.007181	\N	\N	0	0	draw	yes
+4530	1419673	2025-10-25	Italy	Serie B	Sudtirol	Cesena	a-win	0	1	14	2	5	1	8	4	1	1	2	2	0	0	45.00	55.00	16	18	\N	\N	\N	\N	\N	2025-12-02 10:17:03.092152	\N	\N	0	1	a-win	yes
+4531	1419677	2025-10-25	Italy	Serie B	Monza	Reggiana	h-win	3	1	18	9	3	2	7	2	0	3	2	3	0	0	57.00	43.00	15	13	\N	\N	\N	\N	\N	2025-12-02 10:17:03.184742	\N	\N	3	1	h-win	yes
+4532	1419674	2025-10-25	Italy	Serie B	Carrarese	Venezia	h-win	3	2	14	5	25	8	6	4	0	3	5	4	0	0	43.00	57.00	14	14	\N	\N	\N	\N	\N	2025-12-02 10:17:03.266545	\N	\N	1	1	draw	yes
+4533	1419678	2025-10-25	Italy	Serie B	Catanzaro	Palermo	h-win	1	0	10	3	15	5	2	8	2	0	3	3	0	0	43.00	57.00	8	25	\N	\N	\N	\N	\N	2025-12-02 10:17:03.348975	\N	\N	1	0	h-win	yes
+4534	1419676	2025-10-26	Italy	Serie B	Padova	Juve Stabia	draw	2	2	10	3	17	6	2	3	1	3	2	2	0	0	44.00	56.00	9	18	\N	\N	\N	\N	\N	2025-12-02 10:17:03.43364	\N	\N	1	1	draw	yes
+4535	1419672	2025-10-26	Italy	Serie B	Bari	Mantova	h-win	1	0	6	4	14	3	3	2	2	1	2	5	0	0	22.00	78.00	24	16	\N	\N	\N	\N	\N	2025-12-02 10:17:03.516849	\N	\N	0	0	draw	yes
+4536	1419688	2025-10-28	Italy	Serie B	Cesena	Carrarese	h-win	2	1	12	3	9	3	5	4	1	0	1	1	0	0	42.00	58.00	13	8	\N	\N	\N	\N	\N	2025-12-02 10:17:03.600229	1.66	0.87	1	0	h-win	yes
+4537	1419683	2025-10-28	Italy	Serie B	Empoli	Sampdoria	draw	1	1	7	1	14	2	4	5	0	4	3	1	1	1	39.00	61.00	10	11	\N	\N	\N	\N	\N	2025-12-02 10:17:03.685426	0.96	1.70	0	0	draw	yes
+4538	1419689	2025-10-28	Italy	Serie B	Frosinone	Virtus Entella	h-win	4	0	21	9	11	1	10	3	5	0	1	0	0	0	49.00	51.00	13	15	\N	\N	\N	\N	\N	2025-12-02 10:17:03.773788	3.27	0.68	1	0	h-win	yes
+4539	1419684	2025-10-28	Italy	Serie B	Palermo	Monza	a-win	0	3	17	2	12	5	6	6	0	2	1	4	0	0	53.00	47.00	5	19	\N	\N	\N	\N	\N	2025-12-02 10:17:03.869285	1.08	2.27	0	1	a-win	yes
+4540	1419682	2025-10-28	Italy	Serie B	Pescara	Avellino	draw	1	1	28	7	20	5	5	8	1	0	1	3	0	0	41.00	59.00	15	13	\N	\N	\N	\N	\N	2025-12-02 10:17:03.956675	1.94	2.16	1	1	draw	yes
+4541	1419687	2025-10-28	Italy	Serie B	Reggiana	Modena	h-win	1	0	8	2	22	1	1	9	1	0	2	3	0	0	30.00	70.00	16	19	\N	\N	\N	\N	\N	2025-12-02 10:17:04.042066	0.56	1.01	1	0	h-win	yes
+4542	1419685	2025-10-29	Italy	Serie B	Spezia	Padova	draw	1	1	9	5	4	2	3	3	3	1	1	6	0	0	45.00	55.00	17	16	\N	\N	\N	\N	\N	2025-12-02 10:17:04.123406	\N	\N	1	0	h-win	yes
+4543	1419690	2025-10-29	Italy	Serie B	Venezia	Sudtirol	h-win	3	0	17	4	4	2	1	4	3	2	1	2	0	0	74.00	26.00	9	18	\N	\N	\N	\N	\N	2025-12-02 10:17:04.216389	\N	\N	2	0	h-win	yes
+4544	1419686	2025-10-29	Italy	Serie B	Mantova	Catanzaro	a-win	1	3	16	5	19	7	9	5	3	2	1	2	0	0	58.00	42.00	14	18	\N	\N	\N	\N	\N	2025-12-02 10:17:04.341541	\N	\N	1	0	h-win	yes
+4545	1419696	2025-11-01	Italy	Serie B	Avellino	Reggiana	h-win	4	3	13	5	14	4	4	4	4	2	4	3	0	0	53.00	47.00	15	21	\N	\N	\N	9	11	2025-12-02 10:17:04.509767	\N	\N	1	1	draw	yes
+4546	1419699	2025-11-01	Italy	Serie B	Padova	Sudtirol	draw	1	1	11	2	14	5	1	8	1	2	4	3	0	0	58.00	42.00	12	18	\N	\N	\N	12	16	2025-12-02 10:17:04.599726	\N	\N	0	1	a-win	yes
+4547	1419691	2025-11-01	Italy	Serie B	Carrarese	Frosinone	a-win	0	2	16	4	15	4	5	2	2	3	5	3	0	1	57.00	43.00	14	11	\N	\N	\N	13	2	2025-12-02 10:17:04.686503	\N	\N	0	1	a-win	yes
+4548	1419693	2025-11-01	Italy	Serie B	Virtus Entella	Empoli	h-win	1	0	21	6	5	2	11	2	5	2	2	2	0	0	53.00	47.00	11	14	\N	\N	\N	14	7	2025-12-02 10:17:04.768345	\N	\N	0	0	draw	yes
+4549	1419695	2025-11-01	Italy	Serie B	Palermo	Pescara	h-win	5	0	17	10	10	3	6	5	1	4	3	2	0	0	55.00	45.00	12	9	\N	\N	\N	6	20	2025-12-02 10:17:04.850138	\N	\N	1	0	h-win	yes
+4550	1419697	2025-11-02	Italy	Serie B	Bari	Cesena	h-win	1	0	9	3	8	3	3	4	0	3	1	1	0	0	44.00	56.00	8	15	\N	\N	\N	17	3	2025-12-02 10:17:04.9492	\N	\N	0	0	draw	yes
+4551	1419692	2025-11-02	Italy	Serie B	Modena	Juve Stabia	h-win	3	0	8	6	7	4	3	7	0	4	1	3	0	0	44.00	56.00	11	20	\N	\N	\N	4	10	2025-12-02 10:17:05.033145	\N	\N	1	0	h-win	yes
+4552	1419698	2025-11-02	Italy	Serie B	Catanzaro	Venezia	h-win	2	1	7	5	21	2	2	5	3	1	1	4	0	0	27.00	73.00	13	18	\N	\N	\N	8	5	2025-12-02 10:17:05.134615	\N	\N	0	0	draw	yes
+4553	1419700	2025-11-02	Italy	Serie B	Monza	Spezia	h-win	1	0	16	4	4	0	8	1	2	1	3	2	1	0	69.00	31.00	18	18	\N	\N	\N	1	18	2025-12-02 10:17:05.229148	\N	\N	0	0	draw	yes
+4554	1419694	2025-11-02	Italy	Serie B	Sampdoria	Mantova	a-win	0	1	14	2	8	2	11	6	1	2	2	0	0	0	45.00	55.00	18	12	\N	\N	\N	19	15	2025-12-02 10:17:05.314229	\N	\N	0	0	draw	yes
+4555	1419702	2025-11-07	Italy	Serie B	Spezia	Bari	draw	1	1	10	5	19	1	4	12	1	3	4	2	1	0	37.00	63.00	15	11	\N	\N	\N	18	17	2025-12-02 10:17:05.414227	1.56	0.87	1	1	draw	yes
+4556	1419703	2025-11-08	Italy	Serie B	Empoli	Catanzaro	h-win	1	0	11	3	6	1	2	4	0	5	5	4	1	0	32.00	68.00	21	11	\N	\N	\N	7	8	2025-12-02 10:17:05.509625	1.57	0.23	0	0	draw	yes
+4557	1419704	2025-11-08	Italy	Serie B	Frosinone	Modena	draw	2	2	8	4	21	6	5	8	2	3	3	1	0	0	41.00	59.00	13	14	\N	\N	\N	2	4	2025-12-02 10:17:05.614682	0.77	1.52	1	0	h-win	yes
+4558	1419701	2025-11-08	Italy	Serie B	Reggiana	Virtus Entella	draw	0	0	7	2	17	3	4	13	1	1	2	1	0	0	48.00	52.00	15	15	\N	\N	\N	11	14	2025-12-02 10:17:05.697523	1.13	1.06	0	0	draw	yes
+4559	1419708	2025-11-08	Italy	Serie B	Sudtirol	Carrarese	draw	1	1	7	2	24	7	1	10	3	1	0	2	1	0	24.00	76.00	5	13	\N	\N	\N	16	13	2025-12-02 10:17:05.781507	0.34	2.16	0	0	draw	yes
+4560	1419706	2025-11-08	Italy	Serie B	Mantova	Padova	h-win	1	0	16	4	7	1	6	2	0	0	2	3	0	0	64.00	36.00	8	17	\N	\N	\N	15	12	2025-12-02 10:17:05.869611	1.63	0.33	0	0	draw	yes
+4561	1419707	2025-11-08	Italy	Serie B	Juve Stabia	Palermo	h-win	1	0	14	4	9	1	6	4	2	1	1	7	0	1	53.00	47.00	18	27	\N	\N	\N	10	6	2025-12-02 10:17:05.952709	0.78	0.23	1	0	h-win	yes
+4562	1419710	2025-11-08	Italy	Serie B	Venezia	Sampdoria	h-win	3	1	18	7	8	4	3	6	0	1	1	5	0	0	56.00	44.00	12	17	\N	\N	\N	5	19	2025-12-02 10:17:06.035074	1.56	0.65	2	0	h-win	yes
+4563	1419709	2025-11-09	Italy	Serie B	Cesena	Avellino	h-win	3	0	11	3	13	3	5	4	2	0	4	4	0	0	36.00	64.00	16	10	\N	\N	\N	3	9	2025-12-02 10:17:06.121843	1.25	0.47	2	0	h-win	yes
+4564	1419705	2025-11-09	Italy	Serie B	Pescara	Monza	a-win	0	2	7	1	19	5	2	7	0	0	1	1	0	0	35.00	65.00	14	10	\N	\N	\N	20	1	2025-12-02 10:17:06.207713	0.61	2.92	0	1	a-win	yes
+4565	1419718	2025-11-21	Italy	Serie B	Catanzaro	Pescara	draw	3	3	19	8	8	4	7	4	4	0	5	3	0	0	57.00	43.00	13	22	\N	\N	\N	8	20	2025-12-02 10:17:06.291925	\N	\N	1	2	a-win	yes
+4566	1419714	2025-11-22	Italy	Serie B	Virtus Entella	Palermo	draw	1	1	18	2	17	2	7	7	2	3	1	1	0	0	46.00	54.00	15	9	\N	\N	\N	14	6	2025-12-02 10:17:06.376458	2.94	1.79	1	0	h-win	yes
+4567	1419719	2025-11-22	Italy	Serie B	Avellino	Empoli	a-win	0	3	9	3	13	4	6	4	1	0	2	3	0	0	58.00	42.00	8	19	\N	\N	\N	9	7	2025-12-02 10:17:06.461859	1.10	1.47	0	2	a-win	yes
+4568	1419717	2025-11-22	Italy	Serie B	Carrarese	Reggiana	draw	0	0	10	0	16	5	5	5	1	1	1	5	0	0	56.00	44.00	11	21	\N	\N	\N	13	11	2025-12-02 10:17:06.541542	0.88	2.35	0	0	draw	yes
+4569	1419715	2025-11-22	Italy	Serie B	Padova	Venezia	a-win	0	2	12	7	16	7	8	6	2	2	4	3	0	0	43.00	57.00	15	16	\N	\N	\N	12	5	2025-12-02 10:17:06.629167	0.60	1.86	0	1	a-win	yes
+4570	1419720	2025-11-22	Italy	Serie B	Bari	Frosinone	a-win	2	3	10	4	28	8	4	9	1	0	2	3	0	0	51.00	49.00	13	19	\N	\N	\N	17	2	2025-12-02 10:17:06.714414	0.98	3.80	2	3	a-win	yes
+4571	1419711	2025-11-23	Italy	Serie B	Modena	Sudtirol	draw	0	0	23	5	7	3	5	3	0	3	0	0	0	0	68.00	32.00	13	24	\N	\N	\N	4	16	2025-12-02 10:17:06.796507	2.33	0.70	0	0	draw	yes
+4572	1419712	2025-11-23	Italy	Serie B	Mantova	Spezia	h-win	4	1	23	11	10	5	8	2	4	1	2	5	0	1	67.00	33.00	13	16	\N	\N	\N	15	18	2025-12-02 10:17:06.883574	3.18	2.62	1	1	draw	yes
+4573	1419713	2025-11-23	Italy	Serie B	Monza	Cesena	h-win	1	0	14	1	15	4	6	7	0	6	1	0	0	0	52.00	48.00	3	9	\N	\N	\N	1	3	2025-12-02 10:17:06.972103	1.16	0.63	1	0	h-win	yes
+4574	1419716	2025-11-24	Italy	Serie B	Sampdoria	Juve Stabia	h-win	1	0	16	2	10	3	4	4	1	3	1	5	0	1	57.00	43.00	14	18	\N	\N	\N	19	10	2025-12-02 10:17:07.056666	1.81	0.78	0	0	draw	yes
+4575	1419725	2025-11-28	Italy	Serie B	Cesena	Modena	h-win	1	0	14	2	18	6	7	8	1	1	1	1	0	0	42.00	58.00	15	8	\N	\N	\N	3	4	2025-12-02 10:17:07.142631	1.84	2.01	1	0	h-win	yes
+4576	1419722	2025-11-29	Italy	Serie B	Empoli	Bari	h-win	5	0	16	8	7	0	4	5	0	2	1	2	0	0	51.00	49.00	12	19	\N	\N	\N	7	17	2025-12-02 10:17:07.226719	1.59	0.26	1	0	h-win	yes
+4577	1419727	2025-11-29	Italy	Serie B	Venezia	Mantova	h-win	3	0	27	8	3	1	7	1	0	1	2	3	0	1	64.00	36.00	21	11	\N	\N	\N	5	15	2025-12-02 10:17:07.312863	3.27	0.40	1	0	h-win	yes
+4578	1419723	2025-11-29	Italy	Serie B	Pescara	Padova	a-win	0	1	25	5	12	5	12	5	4	3	0	5	0	0	56.00	44.00	15	21	\N	\N	\N	20	12	2025-12-02 10:17:07.397301	1.67	2.01	0	0	draw	yes
+4579	1419728	2025-11-29	Italy	Serie B	Reggiana	Frosinone	a-win	0	1	14	6	11	4	4	2	2	0	1	3	0	0	48.00	52.00	19	17	\N	\N	\N	11	2	2025-12-02 10:17:07.484864	1.11	1.15	0	0	draw	yes
+4580	1419726	2025-11-29	Italy	Serie B	Sudtirol	Avellino	a-win	0	1	20	3	6	1	10	2	1	0	4	1	0	0	61.00	39.00	22	12	\N	\N	\N	16	9	2025-12-02 10:17:07.568292	1.67	0.77	0	1	a-win	yes
+4581	1419721	2025-11-29	Italy	Serie B	Catanzaro	Virtus Entella	h-win	3	2	17	7	13	3	8	2	0	0	4	3	0	0	47.00	53.00	9	17	\N	\N	\N	8	14	2025-12-02 10:17:07.654094	2.20	2.02	2	2	draw	yes
+4582	1419729	2025-11-29	Italy	Serie B	Palermo	Carrarese	h-win	5	0	21	9	7	2	3	4	2	2	2	3	0	0	55.00	45.00	17	12	\N	\N	\N	6	13	2025-12-02 10:17:07.738639	4.25	0.31	2	0	h-win	yes
+4583	1419730	2025-11-30	Italy	Serie B	Juve Stabia	Monza	draw	2	2	9	4	11	5	3	5	2	0	2	5	0	0	62.00	38.00	13	15	\N	\N	\N	10	1	2025-12-02 10:17:07.822572	0.60	2.09	1	1	draw	yes
+4584	1419724	2025-11-30	Italy	Serie B	Spezia	Sampdoria	h-win	1	0	10	4	9	2	3	9	0	3	2	3	0	0	43.00	57.00	18	14	\N	\N	\N	18	19	2025-12-02 10:17:07.906127	1.46	0.29	0	0	draw	yes
+4585	1393795	2025-08-09	Italy	Coppa Italia	Virtus Entella	Ternana	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:09.193956	\N	\N	1	0	h-win	yes
+4586	1393796	2025-08-10	Italy	Coppa Italia	Padova	Vicenza Virtus	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:09.277096	\N	\N	0	1	a-win	yes
+4587	1393798	2025-08-10	Italy	Coppa Italia	Pescara	Rimini	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:09.371878	\N	\N	1	0	h-win	yes
+4588	1393797	2025-08-10	Italy	Coppa Italia	Audace Cerignola	Avellino	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:09.458446	\N	\N	0	0	draw	yes
+4589	1393799	2025-08-15	Italy	Coppa Italia	Empoli	Reggiana	draw	1	1	13	4	9	3	4	2	1	3	3	1	0	0	67.00	33.00	24	12	\N	\N	\N	\N	\N	2025-12-02 10:17:09.542534	\N	\N	0	1	a-win	yes
+4590	1393800	2025-08-15	Italy	Coppa Italia	Sassuolo	Catanzaro	h-win	1	0	21	6	5	1	8	3	4	0	0	0	0	0	47.00	53.00	13	14	\N	\N	\N	\N	\N	2025-12-02 10:17:09.623597	\N	\N	1	0	h-win	yes
+4591	1393801	2025-08-15	Italy	Coppa Italia	Lecce	Juve Stabia	h-win	2	0	7	3	14	4	3	10	1	5	0	0	1	0	35.00	65.00	7	11	\N	\N	\N	\N	\N	2025-12-02 10:17:09.707404	\N	\N	1	0	h-win	yes
+4592	1431102	2025-08-15	Italy	Coppa Italia	Genoa	Vicenza Virtus	h-win	3	0	14	6	5	2	5	2	0	1	0	1	0	0	71.00	29.00	10	15	\N	\N	\N	\N	\N	2025-12-02 10:17:09.801525	\N	\N	2	0	h-win	yes
+4593	1393802	2025-08-16	Italy	Coppa Italia	Venezia	Mantova	h-win	4	0	28	11	9	2	10	4	1	0	1	4	0	0	53.00	47.00	12	17	\N	\N	\N	\N	\N	2025-12-02 10:17:09.886501	\N	\N	2	0	h-win	yes
+4594	1393803	2025-08-16	Italy	Coppa Italia	Como	Sudtirol	h-win	3	1	16	9	5	3	5	0	0	4	1	2	0	1	79.00	21.00	11	14	\N	\N	\N	\N	\N	2025-12-02 10:17:09.969782	\N	\N	3	1	h-win	yes
+4595	1431006	2025-08-16	Italy	Coppa Italia	Cagliari	Virtus Entella	draw	1	1	11	3	5	2	3	3	0	1	0	4	0	0	59.00	41.00	17	17	\N	\N	\N	\N	\N	2025-12-02 10:17:10.052365	\N	\N	1	0	h-win	yes
+4596	1393804	2025-08-16	Italy	Coppa Italia	Cremonese	Palermo	draw	0	0	6	0	7	2	4	3	2	2	0	0	0	0	49.00	51.00	11	15	\N	\N	\N	\N	\N	2025-12-02 10:17:10.142416	\N	\N	0	0	draw	yes
+4597	1393805	2025-08-17	Italy	Coppa Italia	Monza	Frosinone	a-win	0	1	11	2	5	1	2	6	3	2	1	1	1	0	60.00	40.00	13	13	\N	\N	\N	\N	\N	2025-12-02 10:17:10.224008	\N	\N	0	0	draw	yes
+4598	1431103	2025-08-17	Italy	Coppa Italia	Parma	Pescara	h-win	2	0	19	7	6	0	7	1	2	2	2	0	0	0	55.00	45.00	11	9	\N	\N	\N	\N	\N	2025-12-02 10:17:10.314456	\N	\N	0	0	draw	yes
+4599	1393806	2025-08-17	Italy	Coppa Italia	Cesena	Pisa	draw	0	0	16	2	5	1	3	0	2	1	2	5	0	1	51.00	49.00	13	19	\N	\N	\N	\N	\N	2025-12-02 10:17:10.398846	\N	\N	0	0	draw	yes
+4600	1393807	2025-08-17	Italy	Coppa Italia	AC Milan	Bari	h-win	2	0	24	5	6	1	12	1	2	2	1	0	0	0	65.00	35.00	14	6	\N	\N	\N	\N	\N	2025-12-02 10:17:10.485031	\N	\N	1	0	h-win	yes
+4601	1431104	2025-08-18	Italy	Coppa Italia	Audace Cerignola	Verona	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:10.575055	\N	\N	0	0	draw	yes
+4602	1393808	2025-08-18	Italy	Coppa Italia	Spezia	Sampdoria	draw	1	1	12	5	4	2	6	1	1	5	0	3	0	0	50.00	50.00	18	21	\N	\N	\N	\N	\N	2025-12-02 10:17:10.656779	\N	\N	1	1	draw	yes
+4603	1393809	2025-08-18	Italy	Coppa Italia	Udinese	Carrarese	h-win	2	0	21	10	9	2	3	5	2	2	1	1	0	0	58.00	42.00	12	13	\N	\N	\N	\N	\N	2025-12-02 10:17:10.745881	\N	\N	1	0	h-win	yes
+4604	1393810	2025-08-18	Italy	Coppa Italia	Torino	Modena	h-win	1	0	7	3	11	4	4	7	0	2	3	0	0	0	58.00	42.00	16	9	\N	\N	\N	\N	\N	2025-12-02 10:17:10.829774	\N	\N	0	0	draw	yes
+4605	1446011	2025-09-23	Italy	Coppa Italia	Cagliari	Frosinone	h-win	4	1	16	8	13	3	5	4	0	2	0	2	0	0	48.00	52.00	12	11	\N	\N	\N	\N	\N	2025-12-02 10:17:10.914903	\N	\N	1	1	draw	yes
+4606	1457865	2025-09-23	Italy	Coppa Italia	Udinese	Palermo	h-win	2	1	13	10	13	4	3	9	0	3	1	0	0	0	51.00	49.00	14	12	\N	\N	\N	\N	\N	2025-12-02 10:17:11.002754	\N	\N	2	0	h-win	yes
+4607	1446012	2025-09-23	Italy	Coppa Italia	AC Milan	Lecce	h-win	3	0	24	10	2	1	12	2	1	1	2	1	0	1	77.00	23.00	11	8	\N	\N	\N	\N	\N	2025-12-02 10:17:11.087498	\N	\N	1	0	h-win	yes
+4608	1446010	2025-09-24	Italy	Coppa Italia	Parma	Spezia	draw	2	2	14	8	10	5	4	3	1	1	0	1	1	0	44.00	56.00	17	9	\N	\N	\N	\N	\N	2025-12-02 10:17:11.16905	\N	\N	2	1	h-win	yes
+4609	1446008	2025-09-24	Italy	Coppa Italia	Verona	Venezia	draw	0	0	11	1	8	2	5	6	1	1	2	3	0	0	38.00	62.00	29	8	\N	\N	\N	\N	\N	2025-12-02 10:17:11.257988	\N	\N	0	0	draw	yes
+4610	1446009	2025-09-24	Italy	Coppa Italia	Como	Sassuolo	h-win	3	0	14	7	8	2	6	5	1	3	1	2	0	0	71.00	29.00	6	20	\N	\N	\N	\N	\N	2025-12-02 10:17:11.336403	\N	\N	3	0	h-win	yes
+4611	1446007	2025-09-25	Italy	Coppa Italia	Genoa	Empoli	h-win	3	1	18	5	10	3	5	3	0	0	0	0	0	0	56.00	44.00	12	17	\N	\N	\N	\N	\N	2025-12-02 10:17:11.41801	\N	\N	1	1	draw	yes
+4612	1446006	2025-09-25	Italy	Coppa Italia	Torino	Pisa	h-win	1	0	22	4	4	1	12	3	3	4	2	2	0	1	52.00	48.00	18	13	\N	\N	\N	\N	\N	2025-12-02 10:17:11.50208	\N	\N	1	0	h-win	yes
+4613	1438979	2025-08-23	Italy	Serie C - Girone A	Giana Erminio	Trento	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:12.791644	\N	\N	0	0	draw	yes
+4614	1438978	2025-08-23	Italy	Serie C - Girone A	Alcione	Triestina	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:12.879419	\N	\N	1	0	h-win	yes
+4615	1438982	2025-08-23	Italy	Serie C - Girone A	Albinoleffe	Dolomiti Bellunesi	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:12.964622	\N	\N	1	2	a-win	yes
+4616	1438980	2025-08-23	Italy	Serie C - Girone A	Lecco	Ospitaletto	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.052843	\N	\N	2	0	h-win	yes
+4617	1438981	2025-08-23	Italy	Serie C - Girone A	Union Brescia	Arzignano Valchiampo	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.140592	\N	\N	1	0	h-win	yes
+4618	1438984	2025-08-24	Italy	Serie C - Girone A	Virtus Verona	Cittadella	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.228336	\N	\N	0	0	draw	yes
+4619	1438983	2025-08-24	Italy	Serie C - Girone A	Pergolettese	Renate	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.314515	\N	\N	0	1	a-win	yes
+4620	1438985	2025-08-24	Italy	Serie C - Girone A	Vicenza Virtus	Lumezzane	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.400849	\N	\N	2	0	h-win	yes
+4621	1438986	2025-08-24	Italy	Serie C - Girone A	Pro Patria	PRO Vercelli	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.482285	\N	\N	1	1	draw	yes
+4623	1438988	2025-08-29	Italy	Serie C - Girone A	Cittadella	Alcione	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.654474	\N	\N	0	0	draw	yes
+4624	1438989	2025-08-29	Italy	Serie C - Girone A	PRO Vercelli	Albinoleffe	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.74235	\N	\N	1	0	h-win	yes
+4625	1438991	2025-08-30	Italy	Serie C - Girone A	Renate	Giana Erminio	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.829679	\N	\N	0	0	draw	yes
+4626	1438990	2025-08-30	Italy	Serie C - Girone A	Triestina	Lecco	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:13.91836	\N	\N	0	0	draw	yes
+4627	1438994	2025-08-31	Italy	Serie C - Girone A	Lumezzane	Pergolettese	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.005814	\N	\N	1	2	a-win	yes
+4628	1438993	2025-08-31	Italy	Serie C - Girone A	Dolomiti Bellunesi	Novara	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.093854	\N	\N	1	1	draw	yes
+4629	1438992	2025-08-31	Italy	Serie C - Girone A	Inter U23	Pro Patria	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.182524	\N	\N	2	0	h-win	yes
+4630	1438996	2025-08-31	Italy	Serie C - Girone A	Arzignano Valchiampo	Virtus Verona	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.276594	\N	\N	3	2	h-win	yes
+4631	1438995	2025-08-31	Italy	Serie C - Girone A	Trento	Union Brescia	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.35956	\N	\N	0	1	a-win	yes
+4632	1438997	2025-08-31	Italy	Serie C - Girone A	Ospitaletto	Vicenza Virtus	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.444488	\N	\N	0	0	draw	yes
+4633	1438999	2025-09-06	Italy	Serie C - Girone A	Albinoleffe	Renate	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.529939	\N	\N	0	1	a-win	yes
+4634	1438998	2025-09-06	Italy	Serie C - Girone A	Alcione	Lumezzane	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.616459	\N	\N	1	0	h-win	yes
+4635	1439000	2025-09-06	Italy	Serie C - Girone A	Pergolettese	Cittadella	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.701567	\N	\N	2	1	h-win	yes
+4636	1439002	2025-09-06	Italy	Serie C - Girone A	Union Brescia	PRO Vercelli	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.785564	\N	\N	2	0	h-win	yes
+4637	1439004	2025-09-07	Italy	Serie C - Girone A	Novara	Trento	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.867885	\N	\N	1	1	draw	yes
+4638	1439005	2025-09-07	Italy	Serie C - Girone A	Triestina	Ospitaletto	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:14.952748	\N	\N	1	0	h-win	yes
+4639	1439003	2025-09-07	Italy	Serie C - Girone A	Lecco	Dolomiti Bellunesi	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.03458	\N	\N	2	0	h-win	yes
+4640	1439007	2025-09-07	Italy	Serie C - Girone A	Giana Erminio	Pro Patria	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.121391	\N	\N	1	0	h-win	yes
+4641	1439006	2025-09-07	Italy	Serie C - Girone A	Vicenza Virtus	Arzignano Valchiampo	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.206962	\N	\N	0	1	a-win	yes
+4642	1439009	2025-09-12	Italy	Serie C - Girone A	Arzignano Valchiampo	Giana Erminio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.294703	\N	\N	0	0	draw	yes
+4643	1439008	2025-09-12	Italy	Serie C - Girone A	Ospitaletto	Pergolettese	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.377277	\N	\N	1	1	draw	yes
+4644	1439013	2025-09-13	Italy	Serie C - Girone A	PRO Vercelli	Virtus Verona	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.46219	\N	\N	0	1	a-win	yes
+4645	1439010	2025-09-13	Italy	Serie C - Girone A	Renate	Union Brescia	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.546991	\N	\N	1	0	h-win	yes
+4646	1439012	2025-09-13	Italy	Serie C - Girone A	Lumezzane	Triestina	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.635616	\N	\N	1	0	h-win	yes
+4647	1439011	2025-09-13	Italy	Serie C - Girone A	Dolomiti Bellunesi	Alcione	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.72268	\N	\N	1	1	draw	yes
+4648	1439014	2025-09-14	Italy	Serie C - Girone A	Trento	Albinoleffe	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.806621	\N	\N	0	2	a-win	yes
+4649	1439015	2025-09-14	Italy	Serie C - Girone A	Inter U23	Lecco	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.889609	\N	\N	0	0	draw	yes
+4650	1439016	2025-09-14	Italy	Serie C - Girone A	Pro Patria	Novara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:15.973543	\N	\N	0	0	draw	yes
+4651	1439017	2025-09-15	Italy	Serie C - Girone A	Cittadella	Vicenza Virtus	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.056579	\N	\N	0	0	draw	yes
+4652	1439001	2025-09-17	Italy	Serie C - Girone A	Virtus Verona	Inter U23	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.141789	\N	\N	1	1	draw	yes
+4653	1439018	2025-09-21	Italy	Serie C - Girone A	Pergolettese	Inter U23	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.22672	\N	\N	0	2	a-win	yes
+4654	1439019	2025-09-21	Italy	Serie C - Girone A	Alcione	Renate	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.315474	\N	\N	0	1	a-win	yes
+4655	1439022	2025-09-21	Italy	Serie C - Girone A	Novara	PRO Vercelli	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.397327	\N	\N	0	1	a-win	yes
+4656	1439020	2025-09-21	Italy	Serie C - Girone A	Vicenza Virtus	Pro Patria	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.483686	\N	\N	0	0	draw	yes
+4657	1439021	2025-09-21	Italy	Serie C - Girone A	Lecco	Trento	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.568062	\N	\N	1	0	h-win	yes
+4658	1439024	2025-09-21	Italy	Serie C - Girone A	Triestina	Arzignano Valchiampo	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.653541	\N	\N	0	1	a-win	yes
+4659	1439023	2025-09-21	Italy	Serie C - Girone A	Lumezzane	Ospitaletto	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.748563	\N	\N	1	0	h-win	yes
+4660	1439025	2025-09-21	Italy	Serie C - Girone A	Virtus Verona	Dolomiti Bellunesi	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.834802	\N	\N	1	0	h-win	yes
+4661	1439026	2025-09-21	Italy	Serie C - Girone A	Albinoleffe	Cittadella	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:16.918817	\N	\N	1	0	h-win	yes
+4662	1439027	2025-09-21	Italy	Serie C - Girone A	Union Brescia	Giana Erminio	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.009578	\N	\N	2	0	h-win	yes
+4663	1439033	2025-09-25	Italy	Serie C - Girone A	Cittadella	Lumezzane	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.094685	\N	\N	0	1	a-win	yes
+4664	1439031	2025-09-25	Italy	Serie C - Girone A	Giana Erminio	Virtus Verona	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.179873	\N	\N	1	2	a-win	yes
+4665	1439028	2025-09-25	Italy	Serie C - Girone A	Renate	Ospitaletto	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.263548	\N	\N	1	1	draw	yes
+4666	1439029	2025-09-25	Italy	Serie C - Girone A	Pro Patria	Albinoleffe	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.357305	\N	\N	0	3	a-win	yes
+4667	1439030	2025-09-25	Italy	Serie C - Girone A	Arzignano Valchiampo	Alcione	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.446328	\N	\N	0	1	a-win	yes
+4668	1439032	2025-09-25	Italy	Serie C - Girone A	Trento	Pergolettese	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.5331	\N	\N	0	0	draw	yes
+4669	1439036	2025-09-25	Italy	Serie C - Girone A	PRO Vercelli	Lecco	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.617738	\N	\N	0	1	a-win	yes
+4670	1439035	2025-09-25	Italy	Serie C - Girone A	Dolomiti Bellunesi	Vicenza Virtus	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.703914	\N	\N	1	1	draw	yes
+4671	1439034	2025-09-25	Italy	Serie C - Girone A	Inter U23	Triestina	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.792493	\N	\N	1	0	h-win	yes
+4672	1439037	2025-09-25	Italy	Serie C - Girone A	Union Brescia	Novara	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.879103	\N	\N	0	1	a-win	yes
+4673	1439038	2025-09-28	Italy	Serie C - Girone A	Trento	Arzignano Valchiampo	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:17.964481	\N	\N	1	0	h-win	yes
+4674	1439039	2025-09-28	Italy	Serie C - Girone A	Triestina	Renate	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.064211	\N	\N	0	0	draw	yes
+4675	1439040	2025-09-28	Italy	Serie C - Girone A	Albinoleffe	Novara	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.151947	\N	\N	1	2	a-win	yes
+4676	1439041	2025-09-28	Italy	Serie C - Girone A	Virtus Verona	Union Brescia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.237195	\N	\N	0	0	draw	yes
+4677	1439042	2025-09-28	Italy	Serie C - Girone A	Pergolettese	Dolomiti Bellunesi	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.337043	\N	\N	1	1	draw	yes
+4678	1439044	2025-09-28	Italy	Serie C - Girone A	Lumezzane	Inter U23	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.424285	\N	\N	0	1	a-win	yes
+4679	1439043	2025-09-28	Italy	Serie C - Girone A	Lecco	Giana Erminio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.506404	\N	\N	0	0	draw	yes
+4680	1439046	2025-09-29	Italy	Serie C - Girone A	Cittadella	Pro Patria	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.593356	\N	\N	0	0	draw	yes
+4681	1439047	2025-09-29	Italy	Serie C - Girone A	Vicenza Virtus	PRO Vercelli	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.678997	\N	\N	1	0	h-win	yes
+4682	1439045	2025-09-29	Italy	Serie C - Girone A	Ospitaletto	Alcione	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.762397	\N	\N	0	0	draw	yes
+4683	1439052	2025-10-04	Italy	Serie C - Girone A	Giana Erminio	Lumezzane	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.847982	\N	\N	0	1	a-win	yes
+4684	1439054	2025-10-04	Italy	Serie C - Girone A	Union Brescia	Pergolettese	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:18.931442	\N	\N	0	0	draw	yes
+4685	1439050	2025-10-04	Italy	Serie C - Girone A	Renate	Cittadella	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.018796	\N	\N	0	0	draw	yes
+4686	1439053	2025-10-04	Italy	Serie C - Girone A	Virtus Verona	Lecco	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.102419	\N	\N	0	2	a-win	yes
+4687	1439055	2025-10-05	Italy	Serie C - Girone A	Novara	Triestina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.190135	\N	\N	0	0	draw	yes
+4688	1439056	2025-10-05	Italy	Serie C - Girone A	PRO Vercelli	Dolomiti Bellunesi	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.272099	\N	\N	2	0	h-win	yes
+4689	1439048	2025-10-05	Italy	Serie C - Girone A	Pro Patria	Trento	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.3535	\N	\N	1	0	h-win	yes
+4690	1439049	2025-10-05	Italy	Serie C - Girone A	Alcione	Vicenza Virtus	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.437851	\N	\N	0	1	a-win	yes
+4691	1439057	2025-10-05	Italy	Serie C - Girone A	Arzignano Valchiampo	Albinoleffe	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.522391	\N	\N	0	0	draw	yes
+4692	1439051	2025-10-05	Italy	Serie C - Girone A	Inter U23	Ospitaletto	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.618209	\N	\N	1	2	a-win	yes
+4693	1439063	2025-10-11	Italy	Serie C - Girone A	Giana Erminio	Novara	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.701638	\N	\N	0	0	draw	yes
+4694	1439066	2025-10-11	Italy	Serie C - Girone A	Vicenza Virtus	Virtus Verona	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.78742	\N	\N	1	1	draw	yes
+4695	1439067	2025-10-11	Italy	Serie C - Girone A	Pergolettese	Alcione	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.876956	\N	\N	0	1	a-win	yes
+4696	1439058	2025-10-12	Italy	Serie C - Girone A	Cittadella	Triestina	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:19.968406	\N	\N	0	0	draw	yes
+4697	1439059	2025-10-12	Italy	Serie C - Girone A	Albinoleffe	Lecco	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.052448	\N	\N	0	0	draw	yes
+4698	1439064	2025-10-12	Italy	Serie C - Girone A	Ospitaletto	Arzignano Valchiampo	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.13745	\N	\N	1	0	h-win	yes
+4699	1439061	2025-10-12	Italy	Serie C - Girone A	Pro Patria	Union Brescia	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.222331	\N	\N	0	0	draw	yes
+4700	1439060	2025-10-13	Italy	Serie C - Girone A	Trento	PRO Vercelli	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.309702	\N	\N	1	0	h-win	yes
+4701	1439062	2025-10-13	Italy	Serie C - Girone A	Dolomiti Bellunesi	Lumezzane	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.400416	\N	\N	1	0	h-win	yes
+4702	1439068	2025-10-17	Italy	Serie C - Girone A	Novara	Arzignano Valchiampo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.491353	\N	\N	0	0	draw	yes
+4703	1439077	2025-10-17	Italy	Serie C - Girone A	Alcione	Inter U23	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.575194	\N	\N	0	2	a-win	yes
 \.
 
 
@@ -421,14 +4990,14 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 -- Name: import_jobs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.import_jobs_id_seq', 8, true);
+SELECT pg_catalog.setval('public.import_jobs_id_seq', 17, true);
 
 
 --
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.matches_id_seq', 143, true);
+SELECT pg_catalog.setval('public.matches_id_seq', 4703, true);
 
 
 --
@@ -522,5 +5091,5 @@ CREATE UNIQUE INDEX matches_fixture_id_key ON public.matches USING btree (fixtur
 -- PostgreSQL database dump complete
 --
 
-\unrestrict VC8UA6JwLNA2m3PQIHq1KLOnR8pIBp4aClSGZUFvKQKPuOUfKculDcLlrOMyppw
+\unrestrict ah1cKaQHZb1P3wtD6HcG5GeQBQiSKPcbaKmeq4V4bAdjX7W3EfCxSBjfdtfbWty
 
