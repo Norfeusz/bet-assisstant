@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 7KNPiZqVcu8pg04QWiQrPnzGXCAGIXvXk35sHGH4WVgepRJuor0BbQCqc181Zxu
+\restrict N8EYFSE2qbux4bX39m0gnnm1sgMUMwkiORxsZeobPeNilPOc2rYekIVMi0QYJYn
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -262,16 +262,20 @@ aa33466f-72a7-4f3f-b395-308108b88f88	5bb42562aa1346bea0d552989daf8274e8dd0d62345
 --
 
 COPY public.import_jobs (id, leagues, date_from, date_to, status, progress, total_matches, imported_matches, failed_matches, rate_limit_remaining, rate_limit_reset_at, error_message, started_at, completed_at, created_at, updated_at, hidden, job_type) FROM stdin;
-8	["2"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [2]}	0	164	0	299	\N	\N	\N	2025-12-01 19:08:25.904195+01	2025-12-01 18:48:57.981997+01	2025-12-01 19:08:25.904195+01	f	new_matches
-9	["3", "15", "531", "848", "106", "107", "109"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [3, 15, 531, 848, 106, 107, 109]}	0	955	0	125	2025-12-01 23:04:46.462+01	\N	\N	2025-12-01 23:05:05.211003+01	2025-12-01 19:02:34.75213+01	2025-12-01 23:05:05.211003+01	f	new_matches
-10	["39", "42", "40", "41", "45", "43", "140", "141", "436", "435", "875", "876", "877", "878", "879", "143"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [39, 42, 40, 41, 45, 43, 140, 141, 436, 435, 875, 876, 877, 878, 879, 143]}	0	3053	1625	101	2025-12-02 09:14:33.01+01	\N	\N	2025-12-02 09:19:51.846519+01	2025-12-01 19:03:01.14205+01	2025-12-02 09:19:51.846519+01	f	new_matches
-15	["234", "274", "542", "291", "407", "98", "99", "305", "240", "239", "292", "293", "162", "361", "261"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-01 19:05:46.03362+01	2025-12-01 19:05:46.03362+01	f	new_matches
-16	["262", "263", "103", "104", "955", "304", "252", "281", "288", "283", "284", "286", "506", "332", "373"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-01 19:06:18.134007+01	2025-12-01 19:06:18.134007+01	f	new_matches
-17	["179", "183", "180", "207", "208", "114", "113", "296", "591", "585", "333", "269", "268", "270", "253", "369", "110", "271", "301"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-01 19:06:46.269704+01	2025-12-01 19:06:46.269704+01	f	new_matches
-12	["61", "62", "63", "66", "94", "95", "144", "145", "88", "89", "203", "204"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [61, 62, 63, 66, 94, 95, 144, 145, 88, 89, 203, 204]}	0	0	0	300	\N	\N	\N	2025-12-02 11:17:45.353291+01	2025-12-01 19:04:32.146282+01	2025-12-02 11:17:45.353291+01	f	new_matches
-13	["186", "307", "308", "128", "129", "342", "188", "1202", "218", "219", "419", "116", "117", "344", "72", "71", "172"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [186, 307, 308, 128, 129, 342, 188, 1202, 218, 219, 419, 116, 117, 344, 72, 71, 172]}	0	0	0	300	\N	\N	\N	2025-12-02 11:18:26.026874+01	2025-12-01 19:04:54.521857+01	2025-12-02 11:18:26.026874+01	f	new_matches
-11	["135", "136", "137", "138", "942", "943", "78", "79", "81", "80"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [135, 136, 137, 138, 942, 943, 78, 79, 81, 80]}	0	388	100	300	2025-12-02 11:11:52.061+01	\N	\N	2025-12-02 11:17:20.470752+01	2025-12-01 19:03:36.519277+01	2025-12-02 11:17:20.470752+01	f	new_matches
-14	["265", "169", "210", "211", "318", "346", "345", "119", "120", "233", "242", "329", "363", "197", "494", "339"]	2025-07-01	2025-12-01	pending	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-01 19:05:22.289881+01	2025-12-02 11:18:26.028454+01	f	new_matches
+24	["135", "136", "137", "138", "942", "943", "78", "79", "81", "80"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [135, 136, 137, 138, 942, 943, 78, 79, 81, 80]}	0	0	0	3	2025-12-02 14:11:56.964+01	\N	\N	2025-12-02 14:12:35.378407+01	2025-12-02 13:56:42.789456+01	2025-12-02 17:55:35.12066+01	t	new_matches
+37	["265", "169", "210", "211", "318", "346", "345", "119", "120", "233", "242", "329", "363", "197", "494", "339"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-02 14:21:50.437597+01	2025-12-02 14:21:50.437597+01	f	new_matches
+38	["234", "274", "542", "291", "407", "98", "99", "305", "240", "239", "292", "293", "162", "361", "261"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-02 14:21:56.079099+01	2025-12-02 14:21:56.079099+01	f	new_matches
+39	["262", "263", "103", "104", "955", "304", "252", "281", "288", "283", "284", "286", "506", "332", "373"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-02 14:22:04.779704+01	2025-12-02 14:22:04.779704+01	f	new_matches
+40	["179", "183", "180", "207", "208", "114", "113", "296", "591", "585", "333", "269", "268", "270", "253", "369", "110", "271", "301"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-02 14:22:10.374117+01	2025-12-02 14:22:10.374117+01	f	new_matches
+41	["135", "136", "137", "138", "942", "943", "78", "79", "81", "80"]	2025-07-01	2025-12-01	in_queue	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-02 14:22:15.355639+01	2025-12-02 14:22:15.355639+01	f	new_matches
+36	["186", "307", "308", "128", "129", "342", "188", "1202", "218", "219", "419", "116", "117", "344", "72", "71", "172"]	2025-07-01	2025-12-01	pending	{}	0	0	0	7500	\N	\N	\N	\N	2025-12-02 14:21:45.557186+01	2025-12-02 21:10:43.109706+01	f	new_matches
+35	["61", "62", "63", "66", "94", "95", "144", "145", "88", "89", "203", "204"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [61, 62, 63, 66, 94, 95, 144, 145, 88, 89, 203, 204]}	0	0	0	164	2025-12-02 21:05:29.364+01	\N	\N	2025-12-02 21:10:43.106445+01	2025-12-02 14:21:41.699626+01	2025-12-02 21:10:43.106445+01	f	new_matches
+12	["61", "62", "63", "66", "94", "95", "144", "145", "88", "89", "203", "204"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [61, 62, 63, 66, 94, 95, 144, 145, 88, 89, 203, 204]}	0	0	0	300	\N	\N	\N	2025-12-02 11:17:45.353291+01	2025-12-01 19:04:32.146282+01	2025-12-02 17:55:10.773574+01	t	new_matches
+13	["186", "307", "308", "128", "129", "342", "188", "1202", "218", "219", "419", "116", "117", "344", "72", "71", "172"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [186, 307, 308, 128, 129, 342, 188, 1202, 218, 219, 419, 116, 117, 344, 72, 71, 172]}	0	0	0	300	\N	\N	\N	2025-12-02 11:18:26.026874+01	2025-12-01 19:04:54.521857+01	2025-12-02 17:55:23.83408+01	t	new_matches
+14	["265", "169", "210", "211", "318", "346", "345", "119", "120", "233", "242", "329", "363", "197", "494", "339"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [265, 169, 210, 211, 318, 346, 345, 119, 120, 233, 242, 329, 363, 197, 494, 339]}	0	0	0	300	\N	\N	\N	2025-12-02 11:19:07.434532+01	2025-12-01 19:05:22.289881+01	2025-12-02 17:55:25.524895+01	t	new_matches
+15	["234", "274", "542", "291", "407", "98", "99", "305", "240", "239", "292", "293", "162", "361", "261"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [234, 274, 542, 291, 407, 98, 99, 305, 240, 239, 292, 293, 162, 361, 261]}	0	0	0	300	\N	\N	\N	2025-12-02 11:19:51.956709+01	2025-12-01 19:05:46.03362+01	2025-12-02 17:55:27.793017+01	t	new_matches
+16	["262", "263", "103", "104", "955", "304", "252", "281", "288", "283", "284", "286", "506", "332", "373"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [262, 263, 103, 104, 955, 304, 252, 281, 288, 283, 284, 286, 506, 332, 373]}	0	0	0	300	\N	\N	\N	2025-12-02 11:20:14.359599+01	2025-12-01 19:06:18.134007+01	2025-12-02 17:55:29.832638+01	t	new_matches
+17	["179", "183", "180", "207", "208", "114", "113", "296", "591", "585", "333", "269", "268", "270", "253", "369", "110", "271", "301"]	2025-07-01	2025-12-01	completed	{"completed_leagues": [179, 183, 180, 207, 208, 114, 113, 296, 591, 585, 333, 269, 268, 270, 253, 369, 110, 271, 301]}	0	0	0	300	\N	\N	\N	2025-12-02 11:20:54.757234+01	2025-12-01 19:06:46.269704+01	2025-12-02 17:55:32.00103+01	t	new_matches
 \.
 
 
@@ -2388,6 +2392,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 2103	1419449	2025-08-02	England	FA Cup	Bottesford Town	Melton Town	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.593663	\N	\N	0	0	draw	yes
 2104	1419435	2025-08-02	England	FA Cup	Bradford Town	Bournemouth FC	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 01:19:58.68683	\N	\N	0	0	draw	yes
 3250	1391294	2025-09-13	Spain	Segunda División	Valladolid	Almeria	h-win	3	1	11	8	14	3	8	3	0	2	5	5	0	0	40.00	60.00	28	13	\N	\N	\N	\N	\N	2025-12-02 06:19:31.870383	\N	\N	1	0	h-win	yes
+5798	1423957	2025-09-19	France	National 1	Ajaccio	Dijon	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.556957	\N	\N	0	0	draw	no
 2107	1419365	2025-08-02	England	FA Cup	Charnock Richard	Burscough	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:31.90757	\N	\N	0	0	draw	yes
 2108	1419444	2025-08-02	England	FA Cup	Christchurch	Bemerton Heath Harleq.	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:31.987459	\N	\N	0	0	draw	yes
 2109	1419347	2025-08-02	England	FA Cup	Cockfosters	Kings Langley	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 02:19:32.078585	\N	\N	0	0	draw	yes
@@ -3086,6 +3091,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 2803	1481712	2025-11-01	England	FA Cup	Buxton	Chatham Town	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:44.218382	\N	\N	0	0	draw	yes
 2804	1481735	2025-11-01	England	FA Cup	Wealdstone	Southend	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 04:19:44.381886	\N	\N	1	0	h-win	yes
 2805	1481793	2025-11-01	England	FA Cup	Brackley Town	Notts County	draw	2	2	16	5	7	4	8	6	3	2	2	2	0	0	40.00	60.00	15	16	\N	\N	\N	\N	\N	2025-12-02 04:19:44.535517	\N	\N	1	1	draw	yes
+5799	1423958	2025-09-26	France	National 1	Sochaux	Ajaccio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.64417	\N	\N	0	0	draw	no
 2806	1481730	2025-11-02	England	FA Cup	South Shields	Shrewsbury	a-win	1	3	7	1	21	8	0	2	1	5	2	2	0	0	71.00	29.00	14	16	\N	\N	\N	\N	\N	2025-12-02 04:19:44.698077	\N	\N	0	3	a-win	yes
 2807	1481717	2025-11-02	England	FA Cup	Eastleigh	Walsall	a-win	0	3	11	5	13	3	7	4	0	2	1	1	0	0	64.00	36.00	9	12	\N	\N	\N	\N	\N	2025-12-02 04:19:44.857129	\N	\N	0	1	a-win	yes
 2808	1481726	2025-11-02	England	FA Cup	Port Vale	Maldon & Tiptree	h-win	5	1	26	9	4	1	8	0	1	0	2	1	0	0	67.00	33.00	11	12	\N	\N	\N	\N	\N	2025-12-02 04:19:45.017287	\N	\N	4	1	h-win	yes
@@ -3719,6 +3725,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 3437	1431198	2025-10-11	Spain	Primera División RFEF - Group 2	Villarreal II	Real Betis II	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.231572	\N	\N	2	0	h-win	yes
 3438	1431192	2025-10-11	Spain	Primera División RFEF - Group 2	Marbella	Eldense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.306435	\N	\N	1	0	h-win	yes
 3439	1431196	2025-10-11	Spain	Primera División RFEF - Group 2	Tarazona	Real Murcia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.386462	\N	\N	0	0	draw	yes
+5800	1423959	2025-10-03	France	National 1	Ajaccio	Valenciennes	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.730654	\N	\N	0	0	draw	no
 3440	1431189	2025-10-11	Spain	Primera División RFEF - Group 2	Algeciras	Europa Fc	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.466583	\N	\N	1	1	draw	yes
 3441	1431193	2025-10-12	Spain	Primera División RFEF - Group 2	Sabadell	Teruel	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.546391	\N	\N	0	0	draw	yes
 3442	1431197	2025-10-12	Spain	Primera División RFEF - Group 2	Juventud Torremolinos	Ibiza	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 06:19:48.626607	\N	\N	3	0	h-win	yes
@@ -3967,6 +3974,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 3685	1431923	2025-09-27	Spain	Segunda División RFEF - Group 1	Sámano	Sarriana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:44.950669	\N	\N	1	0	h-win	yes
 3686	1431920	2025-09-28	Spain	Segunda División RFEF - Group 1	Racing Santander II	Deportivo La Coruña II	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.030672	\N	\N	1	1	draw	yes
 3687	1431924	2025-09-28	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Atlético Astorga	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.11083	\N	\N	0	2	a-win	yes
+5801	1423960	2025-10-17	France	National 1	Chateauroux	Ajaccio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.821988	\N	\N	0	0	draw	no
 3688	1431916	2025-09-28	Spain	Segunda División RFEF - Group 1	Numancia	Gimnástica Segoviana	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.190974	\N	\N	0	0	draw	yes
 3689	1431922	2025-09-28	Spain	Segunda División RFEF - Group 1	Salamanca UDS	UD Ourense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.271486	\N	\N	0	0	draw	yes
 3690	1431921	2025-09-28	Spain	Segunda División RFEF - Group 1	Real Ávila	Lealtad	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 07:19:45.350767	\N	\N	1	0	h-win	yes
@@ -4016,6 +4024,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 3734	1431965	2025-11-02	Spain	Segunda División RFEF - Group 1	Salamanca UDS	Coruxo	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	9	2025-12-02 07:19:49.291582	\N	\N	0	0	draw	yes
 3735	1431968	2025-11-02	Spain	Segunda División RFEF - Group 1	Sámano	Marino de Luanco	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	10	2025-12-02 07:19:49.376624	\N	\N	0	0	draw	yes
 3736	1431966	2025-11-02	Spain	Segunda División RFEF - Group 1	Sarriana	Real Ávila	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	6	2025-12-02 07:19:49.470823	\N	\N	0	0	draw	yes
+5802	1423961	2025-10-21	France	National 1	Ajaccio	Le Puy Foot	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.909096	\N	\N	0	0	draw	no
 3737	1431976	2025-11-08	Spain	Segunda División RFEF - Group 1	Racing Santander II	Gimnástica Segoviana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	1	2025-12-02 07:19:49.55979	\N	\N	1	1	draw	yes
 3738	1431970	2025-11-08	Spain	Segunda División RFEF - Group 1	Atlético Astorga	UD Ourense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	7	2025-12-02 07:19:49.650842	\N	\N	1	0	h-win	yes
 3739	1431978	2025-11-09	Spain	Segunda División RFEF - Group 1	Real Valladolid II	Salamanca UDS	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	5	2025-12-02 07:19:49.74644	\N	\N	0	0	draw	yes
@@ -4218,6 +4227,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 3936	1452559	2025-10-11	Spain	Segunda División RFEF - Group 3	Barcelona B	Reddis	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.544586	\N	\N	2	0	h-win	yes
 3937	1452553	2025-10-12	Spain	Segunda División RFEF - Group 3	Alcoyano	Poblense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.628928	\N	\N	0	0	draw	yes
 3938	1452554	2025-10-12	Spain	Segunda División RFEF - Group 3	Andratx	Atlético Baleares	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.722631	\N	\N	0	0	draw	yes
+5803	1423962	2025-10-31	France	National 1	Orleans	Ajaccio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.998939	\N	\N	0	0	draw	no
 3939	1452557	2025-10-12	Spain	Segunda División RFEF - Group 3	Girona II	Porreres	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.813549	\N	\N	0	0	draw	yes
 3940	1452551	2025-10-12	Spain	Segunda División RFEF - Group 3	Castellón II	Ibiza Islas Pitiusas	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:42.91065	\N	\N	2	1	h-win	yes
 3941	1479979	2025-10-12	Spain	Segunda División RFEF - Group 3	Sant Andreu	Valencia II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 08:19:43.004424	\N	\N	2	1	h-win	yes
@@ -4467,6 +4477,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 4185	1433184	2025-10-25	Spain	Segunda División RFEF - Group 5	SS Reyes	CD Coria	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.650439	\N	\N	1	0	h-win	yes
 4186	1433183	2025-10-25	Spain	Segunda División RFEF - Group 5	RSD Alcalá	Tenerife II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.732266	\N	\N	1	0	h-win	yes
 4187	1433180	2025-10-25	Spain	Segunda División RFEF - Group 5	Rayo Majadahonda	Elche II	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.81797	\N	\N	3	1	h-win	yes
+5804	1423963	2025-11-07	France	National 1	Ajaccio	Rouen	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	2025-12-02 16:17:53.163853	\N	\N	0	0	draw	no
 4188	1433182	2025-10-26	Spain	Segunda División RFEF - Group 5	Real Madrid III	Intercity	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.898599	\N	\N	0	1	a-win	yes
 4189	1433178	2025-10-26	Spain	Segunda División RFEF - Group 5	Navalcarnero	Las Palmas II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:38.984083	\N	\N	0	0	draw	yes
 4190	1433176	2025-10-26	Spain	Segunda División RFEF - Group 5	Fuenlabrada	Socuéllamos	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 09:19:39.067802	\N	\N	0	0	draw	yes
@@ -4698,6 +4709,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 4415	1377956	2025-11-03	Italy	Serie A	Lazio	Cagliari	h-win	2	0	8	3	17	5	7	5	0	0	0	2	0	0	51.00	49.00	8	18	\N	\N	\N	8	15	2025-12-02 10:16:51.920382	0.69	1.51	0	0	draw	yes
 4416	1377972	2025-11-07	Italy	Serie A	Pisa	Cremonese	h-win	1	0	13	6	13	3	4	5	2	1	4	2	0	0	38.00	62.00	11	17	\N	\N	\N	18	11	2025-12-02 10:16:52.008978	0.81	0.80	0	0	draw	yes
 4417	1377970	2025-11-08	Italy	Serie A	Lecce	Verona	draw	0	0	11	6	5	2	7	2	2	2	1	4	0	0	59.00	41.00	10	18	\N	\N	\N	14	20	2025-12-02 10:16:52.095679	0.49	0.65	0	0	draw	yes
+4790	1439373	2025-09-01	Italy	Serie C - Girone B	Forli	Ravenna	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.289938	\N	\N	0	0	draw	yes
 4418	1377966	2025-11-08	Italy	Serie A	Como	Cagliari	draw	0	0	10	6	4	2	10	0	1	2	3	1	0	0	75.00	25.00	21	15	\N	\N	\N	5	15	2025-12-02 10:16:52.182856	1.06	0.64	0	0	draw	yes
 4419	1377969	2025-11-08	Italy	Serie A	Juventus	Torino	draw	0	0	22	6	8	3	6	2	1	2	0	1	0	0	72.00	28.00	9	4	\N	\N	\N	7	13	2025-12-02 10:16:52.272061	1.21	0.54	0	0	draw	yes
 4420	1377971	2025-11-08	Italy	Serie A	Parma	AC Milan	draw	2	2	14	4	9	5	4	3	2	3	1	1	0	0	43.00	57.00	14	10	\N	\N	\N	17	1	2025-12-02 10:16:52.364379	1.88	1.95	1	2	a-win	yes
@@ -4778,6 +4790,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 4495	1419640	2025-09-28	Italy	Serie B	Empoli	Carrarese	draw	2	2	13	4	9	5	2	3	0	2	2	3	0	0	52.00	48.00	20	15	\N	\N	\N	\N	\N	2025-12-02 10:17:00.062938	\N	\N	1	1	draw	yes
 4496	1419647	2025-09-30	Italy	Serie B	Frosinone	Cesena	h-win	3	1	17	7	11	2	7	3	0	0	1	1	1	0	43.00	57.00	13	20	\N	\N	\N	\N	\N	2025-12-02 10:17:00.154761	\N	\N	0	0	draw	yes
 4497	1419644	2025-09-30	Italy	Serie B	Palermo	Venezia	draw	0	0	3	1	11	3	4	3	1	5	5	2	1	0	36.00	64.00	20	14	\N	\N	\N	\N	\N	2025-12-02 10:17:00.245151	\N	\N	0	0	draw	yes
+5805	1423964	2025-11-21	France	National 1	Stade Briochin	Ajaccio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	\N	2025-12-02 16:17:53.247783	\N	\N	0	0	draw	no
 4498	1419641	2025-09-30	Italy	Serie B	Virtus Entella	Bari	draw	2	2	18	4	9	4	4	2	6	0	6	1	0	0	50.00	50.00	22	11	\N	\N	\N	\N	\N	2025-12-02 10:17:00.332933	\N	\N	0	1	a-win	yes
 4499	1419643	2025-09-30	Italy	Serie B	Juve Stabia	Mantova	h-win	2	1	10	4	15	6	4	4	2	0	2	3	0	0	43.00	57.00	20	16	\N	\N	\N	\N	\N	2025-12-02 10:17:00.426396	\N	\N	2	0	h-win	yes
 4500	1419646	2025-09-30	Italy	Serie B	Padova	Avellino	draw	2	2	11	3	12	5	4	1	1	0	2	1	0	0	45.00	55.00	14	13	\N	\N	\N	\N	\N	2025-12-02 10:17:00.512654	\N	\N	2	2	draw	yes
@@ -4819,6 +4832,7 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 4536	1419688	2025-10-28	Italy	Serie B	Cesena	Carrarese	h-win	2	1	12	3	9	3	5	4	1	0	1	1	0	0	42.00	58.00	13	8	\N	\N	\N	\N	\N	2025-12-02 10:17:03.600229	1.66	0.87	1	0	h-win	yes
 4537	1419683	2025-10-28	Italy	Serie B	Empoli	Sampdoria	draw	1	1	7	1	14	2	4	5	0	4	3	1	1	1	39.00	61.00	10	11	\N	\N	\N	\N	\N	2025-12-02 10:17:03.685426	0.96	1.70	0	0	draw	yes
 4538	1419689	2025-10-28	Italy	Serie B	Frosinone	Virtus Entella	h-win	4	0	21	9	11	1	10	3	5	0	1	0	0	0	49.00	51.00	13	15	\N	\N	\N	\N	\N	2025-12-02 10:17:03.773788	3.27	0.68	1	0	h-win	yes
+5806	1422802	2025-08-08	France	National 1	Caen	Aubagne	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:53.334011	\N	\N	1	0	h-win	yes
 4539	1419684	2025-10-28	Italy	Serie B	Palermo	Monza	a-win	0	3	17	2	12	5	6	6	0	2	1	4	0	0	53.00	47.00	5	19	\N	\N	\N	\N	\N	2025-12-02 10:17:03.869285	1.08	2.27	0	1	a-win	yes
 4540	1419682	2025-10-28	Italy	Serie B	Pescara	Avellino	draw	1	1	28	7	20	5	5	8	1	0	1	3	0	0	41.00	59.00	15	13	\N	\N	\N	\N	\N	2025-12-02 10:17:03.956675	1.94	2.16	1	1	draw	yes
 4541	1419687	2025-10-28	Italy	Serie B	Reggiana	Modena	h-win	1	0	8	2	22	1	1	9	1	0	2	3	0	0	30.00	70.00	16	19	\N	\N	\N	\N	\N	2025-12-02 10:17:04.042066	0.56	1.01	1	0	h-win	yes
@@ -4983,6 +4997,2390 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 4701	1439062	2025-10-13	Italy	Serie C - Girone A	Dolomiti Bellunesi	Lumezzane	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.400416	\N	\N	1	0	h-win	yes
 4702	1439068	2025-10-17	Italy	Serie C - Girone A	Novara	Arzignano Valchiampo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.491353	\N	\N	0	0	draw	yes
 4703	1439077	2025-10-17	Italy	Serie C - Girone A	Alcione	Inter U23	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 10:17:20.575194	\N	\N	0	2	a-win	yes
+4704	1439071	2025-10-18	Italy	Serie C - Girone A	Renate	Dolomiti Bellunesi	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:11.340882	\N	\N	1	0	h-win	yes
+4705	1439073	2025-10-18	Italy	Serie C - Girone A	Triestina	Pergolettese	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:11.431325	\N	\N	1	1	draw	yes
+4706	1439069	2025-10-18	Italy	Serie C - Girone A	Ospitaletto	Cittadella	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:11.519346	\N	\N	0	1	a-win	yes
+4707	1439072	2025-10-19	Italy	Serie C - Girone A	Vicenza Virtus	Albinoleffe	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:11.60754	\N	\N	1	0	h-win	yes
+4708	1439075	2025-10-19	Italy	Serie C - Girone A	PRO Vercelli	Giana Erminio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:11.695602	\N	\N	0	0	draw	yes
+4709	1439070	2025-10-19	Italy	Serie C - Girone A	Lumezzane	Trento	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:11.781578	\N	\N	0	1	a-win	yes
+4710	1439074	2025-10-19	Italy	Serie C - Girone A	Virtus Verona	Pro Patria	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:11.8934	\N	\N	0	1	a-win	yes
+4711	1439076	2025-10-19	Italy	Serie C - Girone A	Lecco	Union Brescia	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:11.981211	\N	\N	0	0	draw	yes
+4712	1439065	2025-10-21	Italy	Serie C - Girone A	Inter U23	Renate	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.071811	\N	\N	1	1	draw	yes
+4713	1439084	2025-10-24	Italy	Serie C - Girone A	Novara	Virtus Verona	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.162143	\N	\N	1	1	draw	yes
+4714	1439086	2025-10-25	Italy	Serie C - Girone A	Union Brescia	Albinoleffe	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.252875	\N	\N	1	1	draw	yes
+4715	1439083	2025-10-25	Italy	Serie C - Girone A	Renate	Lecco	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.343602	\N	\N	0	1	a-win	yes
+4716	1439082	2025-10-25	Italy	Serie C - Girone A	Arzignano Valchiampo	Lumezzane	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.438225	\N	\N	2	1	h-win	yes
+4717	1439085	2025-10-26	Italy	Serie C - Girone A	PRO Vercelli	Pergolettese	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.528407	\N	\N	1	0	h-win	yes
+4718	1439079	2025-10-26	Italy	Serie C - Girone A	Trento	Vicenza Virtus	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.615196	\N	\N	1	1	draw	yes
+4719	1439078	2025-10-26	Italy	Serie C - Girone A	Giana Erminio	Alcione	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.722447	\N	\N	1	1	draw	yes
+4720	1439080	2025-10-26	Italy	Serie C - Girone A	Pro Patria	Ospitaletto	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.817676	\N	\N	0	0	draw	yes
+4721	1439081	2025-10-27	Italy	Serie C - Girone A	Dolomiti Bellunesi	Triestina	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.90288	\N	\N	0	0	draw	yes
+4722	1439087	2025-10-27	Italy	Serie C - Girone A	Inter U23	Cittadella	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:12.990918	\N	\N	0	0	draw	yes
+4723	1439089	2025-11-01	Italy	Serie C - Girone A	Pergolettese	Novara	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	11	2025-12-02 12:23:13.154662	\N	\N	0	1	a-win	yes
+4724	1439094	2025-11-01	Italy	Serie C - Girone A	Virtus Verona	Trento	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	8	2025-12-02 12:23:13.247927	\N	\N	0	2	a-win	yes
+4725	1439091	2025-11-02	Italy	Serie C - Girone A	Triestina	Union Brescia	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	2	2025-12-02 12:23:13.332834	\N	\N	0	0	draw	yes
+4726	1439093	2025-11-02	Italy	Serie C - Girone A	Cittadella	PRO Vercelli	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	7	2025-12-02 12:23:13.416331	\N	\N	1	1	draw	yes
+4727	1439090	2025-11-02	Italy	Serie C - Girone A	Vicenza Virtus	Giana Erminio	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	9	2025-12-02 12:23:13.499334	\N	\N	0	0	draw	yes
+4728	1439097	2025-11-02	Italy	Serie C - Girone A	Lumezzane	Renate	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	10	2025-12-02 12:23:13.584374	\N	\N	0	0	draw	yes
+4729	1439095	2025-11-02	Italy	Serie C - Girone A	Lecco	Arzignano Valchiampo	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	14	2025-12-02 12:23:13.682379	\N	\N	4	1	h-win	yes
+4730	1439096	2025-11-03	Italy	Serie C - Girone A	Albinoleffe	Inter U23	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	6	2025-12-02 12:23:13.780305	\N	\N	0	1	a-win	yes
+4731	1439088	2025-11-03	Italy	Serie C - Girone A	Alcione	Pro Patria	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	19	2025-12-02 12:23:13.872666	\N	\N	1	0	h-win	yes
+4732	1439092	2025-11-03	Italy	Serie C - Girone A	Ospitaletto	Dolomiti Bellunesi	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	16	2025-12-02 12:23:13.957535	\N	\N	0	0	draw	yes
+4733	1439103	2025-11-08	Italy	Serie C - Girone A	Renate	Virtus Verona	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	18	2025-12-02 12:23:14.038066	\N	\N	1	0	h-win	yes
+4734	1439106	2025-11-08	Italy	Serie C - Girone A	Arzignano Valchiampo	Pergolettese	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	17	2025-12-02 12:23:14.212013	\N	\N	1	0	h-win	yes
+4735	1439107	2025-11-08	Italy	Serie C - Girone A	Dolomiti Bellunesi	Cittadella	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	4	2025-12-02 12:23:14.301142	\N	\N	0	1	a-win	yes
+4736	1439100	2025-11-08	Italy	Serie C - Girone A	Pro Patria	Lumezzane	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	13	2025-12-02 12:23:14.395717	\N	\N	0	0	draw	yes
+4737	1439102	2025-11-09	Italy	Serie C - Girone A	Inter U23	Vicenza Virtus	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	1	2025-12-02 12:23:14.480797	\N	\N	0	1	a-win	yes
+4738	1439105	2025-11-09	Italy	Serie C - Girone A	PRO Vercelli	Triestina	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	20	2025-12-02 12:23:14.565848	\N	\N	1	1	draw	yes
+4739	1439101	2025-11-09	Italy	Serie C - Girone A	Trento	Ospitaletto	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	15	2025-12-02 12:23:14.6541	\N	\N	2	0	h-win	yes
+4740	1439104	2025-11-09	Italy	Serie C - Girone A	Union Brescia	Alcione	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	5	2025-12-02 12:23:14.743166	\N	\N	0	0	draw	yes
+4741	1439099	2025-11-09	Italy	Serie C - Girone A	Novara	Lecco	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	3	2025-12-02 12:23:14.838779	\N	\N	0	0	draw	yes
+4742	1439098	2025-11-09	Italy	Serie C - Girone A	Giana Erminio	Albinoleffe	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	12	2025-12-02 12:23:14.923288	\N	\N	0	0	draw	yes
+4743	1439112	2025-11-15	Italy	Serie C - Girone A	Cittadella	Arzignano Valchiampo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	14	2025-12-02 12:23:15.008423	\N	\N	1	0	h-win	yes
+4744	1439111	2025-11-15	Italy	Serie C - Girone A	Lumezzane	PRO Vercelli	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	7	2025-12-02 12:23:15.091437	\N	\N	1	1	draw	yes
+4745	1439116	2025-11-15	Italy	Serie C - Girone A	Triestina	Trento	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	8	2025-12-02 12:23:15.178924	\N	\N	1	0	h-win	yes
+4746	1439114	2025-11-16	Italy	Serie C - Girone A	Ospitaletto	Union Brescia	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	2	2025-12-02 12:23:15.27004	\N	\N	0	0	draw	yes
+4747	1439115	2025-11-16	Italy	Serie C - Girone A	Albinoleffe	Virtus Verona	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	18	2025-12-02 12:23:15.356679	\N	\N	2	0	h-win	yes
+4748	1439113	2025-11-16	Italy	Serie C - Girone A	Alcione	Novara	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	11	2025-12-02 12:23:15.442853	\N	\N	0	0	draw	yes
+4749	1439110	2025-11-16	Italy	Serie C - Girone A	Vicenza Virtus	Renate	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	10	2025-12-02 12:23:15.525034	\N	\N	1	0	h-win	yes
+4750	1439109	2025-11-16	Italy	Serie C - Girone A	Lecco	Pro Patria	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	19	2025-12-02 12:23:15.613573	\N	\N	1	0	h-win	yes
+4751	1439117	2025-11-17	Italy	Serie C - Girone A	Pergolettese	Giana Erminio	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	9	2025-12-02 12:23:15.699572	\N	\N	0	1	a-win	yes
+4752	1439119	2025-11-21	Italy	Serie C - Girone A	Pro Patria	Pergolettese	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	17	2025-12-02 12:23:15.785892	\N	\N	1	0	h-win	yes
+4753	1439120	2025-11-22	Italy	Serie C - Girone A	PRO Vercelli	Alcione	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	5	2025-12-02 12:23:15.874419	\N	\N	0	0	draw	yes
+4754	1439127	2025-11-22	Italy	Serie C - Girone A	Albinoleffe	Lumezzane	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	13	2025-12-02 12:23:15.960393	\N	\N	0	1	a-win	yes
+4755	1439121	2025-11-22	Italy	Serie C - Girone A	Virtus Verona	Triestina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	20	2025-12-02 12:23:16.051794	\N	\N	0	0	draw	yes
+4756	1439118	2025-11-22	Italy	Serie C - Girone A	Arzignano Valchiampo	Dolomiti Bellunesi	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	16	2025-12-02 12:23:16.138954	\N	\N	1	1	draw	yes
+4757	1439126	2025-11-23	Italy	Serie C - Girone A	Trento	Inter U23	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	6	2025-12-02 12:23:16.226975	\N	\N	0	0	draw	yes
+4758	1439123	2025-11-23	Italy	Serie C - Girone A	Novara	Renate	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	10	2025-12-02 12:23:16.314539	\N	\N	0	0	draw	yes
+4759	1439125	2025-11-23	Italy	Serie C - Girone A	Union Brescia	Vicenza Virtus	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	1	2025-12-02 12:23:16.403492	\N	\N	0	1	a-win	yes
+4760	1439124	2025-11-23	Italy	Serie C - Girone A	Giana Erminio	Ospitaletto	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	15	2025-12-02 12:23:16.489381	\N	\N	0	0	draw	yes
+4761	1439122	2025-11-23	Italy	Serie C - Girone A	Lecco	Cittadella	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	4	2025-12-02 12:23:16.575976	\N	\N	0	0	draw	yes
+4762	1439135	2025-11-28	Italy	Serie C - Girone A	Triestina	Pro Patria	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	19	2025-12-02 12:23:16.663625	\N	\N	0	0	draw	yes
+4763	1439130	2025-11-29	Italy	Serie C - Girone A	Renate	Arzignano Valchiampo	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	14	2025-12-02 12:23:16.75186	\N	\N	0	1	a-win	yes
+4764	1439128	2025-11-29	Italy	Serie C - Girone A	Lumezzane	Novara	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	11	2025-12-02 12:23:16.838134	\N	\N	0	1	a-win	yes
+4765	1439136	2025-11-29	Italy	Serie C - Girone A	Pergolettese	Albinoleffe	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	12	2025-12-02 12:23:16.92523	\N	\N	0	0	draw	yes
+4766	1439129	2025-11-29	Italy	Serie C - Girone A	Ospitaletto	Virtus Verona	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	18	2025-12-02 12:23:17.011043	\N	\N	0	0	draw	yes
+4767	1439133	2025-11-30	Italy	Serie C - Girone A	Vicenza Virtus	Lecco	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	3	2025-12-02 12:23:17.097156	\N	\N	1	0	h-win	yes
+4768	1439137	2025-11-30	Italy	Serie C - Girone A	Alcione	Trento	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	8	2025-12-02 12:23:17.183045	\N	\N	0	0	draw	yes
+4769	1439132	2025-11-30	Italy	Serie C - Girone A	Inter U23	PRO Vercelli	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	7	2025-12-02 12:23:17.267947	\N	\N	0	1	a-win	yes
+4770	1439134	2025-11-30	Italy	Serie C - Girone A	Dolomiti Bellunesi	Giana Erminio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	9	2025-12-02 12:23:17.354723	\N	\N	0	0	draw	yes
+4771	1439131	2025-12-01	Italy	Serie C - Girone A	Cittadella	Union Brescia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	2	2025-12-02 12:23:17.439976	\N	\N	0	0	draw	yes
+4772	1439361	2025-08-22	Italy	Serie C - Girone B	Perugia	Guidonia Montecelio 1937	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:18.72525	\N	\N	0	0	draw	yes
+4773	1439359	2025-08-22	Italy	Serie C - Girone B	Livorno	Ternana	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:18.812869	\N	\N	0	0	draw	yes
+4774	1439367	2025-08-22	Italy	Serie C - Girone B	Sambenedettese	Bra	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:18.904813	\N	\N	1	0	h-win	yes
+4775	1439358	2025-08-22	Italy	Serie C - Girone B	Arezzo	Forli	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:18.989951	\N	\N	0	0	draw	yes
+4776	1439360	2025-08-22	Italy	Serie C - Girone B	Pineto	Vis Pesaro	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.073409	\N	\N	1	1	draw	yes
+4777	1439362	2025-08-23	Italy	Serie C - Girone B	Torres	Pontedera	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.15792	\N	\N	1	0	h-win	yes
+4778	1439364	2025-08-23	Italy	Serie C - Girone B	Ascoli	Pianese	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.242971	\N	\N	0	0	draw	yes
+4779	1439363	2025-08-23	Italy	Serie C - Girone B	Athletic Carpi	Juventus U23	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.332484	\N	\N	0	0	draw	yes
+4780	1439366	2025-08-23	Italy	Serie C - Girone B	Ravenna	Campobasso FC	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.417548	\N	\N	3	1	h-win	yes
+4781	1439365	2025-08-23	Italy	Serie C - Girone B	Rimini	Gubbio	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.507482	\N	\N	0	0	draw	yes
+4782	1439374	2025-08-29	Italy	Serie C - Girone B	Pontedera	Arezzo	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.594104	\N	\N	0	2	a-win	yes
+4783	1439368	2025-08-29	Italy	Serie C - Girone B	Vis Pesaro	Rimini	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.677467	\N	\N	0	0	draw	yes
+4784	1439370	2025-08-30	Italy	Serie C - Girone B	Bra	Perugia	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.760012	\N	\N	1	0	h-win	yes
+4785	1439369	2025-08-30	Italy	Serie C - Girone B	Campobasso FC	Torres	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.847431	\N	\N	1	0	h-win	yes
+4786	1439372	2025-08-30	Italy	Serie C - Girone B	Gubbio	Sambenedettese	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:19.947984	\N	\N	1	1	draw	yes
+4787	1439371	2025-08-30	Italy	Serie C - Girone B	Juventus U23	Livorno	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.032951	\N	\N	0	0	draw	yes
+4788	1439375	2025-08-31	Italy	Serie C - Girone B	Pianese	Athletic Carpi	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.118086	\N	\N	0	1	a-win	yes
+4789	1439376	2025-08-31	Italy	Serie C - Girone B	Ternana	Ascoli	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.204932	\N	\N	0	2	a-win	yes
+4791	1439377	2025-09-01	Italy	Serie C - Girone B	Guidonia Montecelio 1937	Pineto	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.375436	\N	\N	0	1	a-win	yes
+4792	1439378	2025-09-06	Italy	Serie C - Girone B	Gubbio	Perugia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.462553	\N	\N	1	1	draw	yes
+4793	1439380	2025-09-06	Italy	Serie C - Girone B	Ascoli	Juventus U23	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.548478	\N	\N	0	0	draw	yes
+4794	1439379	2025-09-06	Italy	Serie C - Girone B	Arezzo	Vis Pesaro	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.635049	\N	\N	0	0	draw	yes
+4795	1439381	2025-09-06	Italy	Serie C - Girone B	Torres	Pianese	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.72081	\N	\N	0	0	draw	yes
+4796	1439382	2025-09-06	Italy	Serie C - Girone B	Athletic Carpi	Campobasso FC	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.81744	\N	\N	0	0	draw	yes
+4797	1439385	2025-09-07	Italy	Serie C - Girone B	Ravenna	Bra	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:20.912464	\N	\N	0	0	draw	yes
+4798	1439384	2025-09-07	Italy	Serie C - Girone B	Pineto	Pontedera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.002347	\N	\N	0	0	draw	yes
+4799	1439387	2025-09-07	Italy	Serie C - Girone B	Livorno	Guidonia Montecelio 1937	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.098196	\N	\N	0	0	draw	yes
+4800	1439383	2025-09-07	Italy	Serie C - Girone B	Sambenedettese	Forli	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.18783	\N	\N	0	0	draw	yes
+4801	1439386	2025-09-07	Italy	Serie C - Girone B	Rimini	Ternana	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.273986	\N	\N	1	3	a-win	yes
+4802	1439395	2025-09-13	Italy	Serie C - Girone B	Guidonia Montecelio 1937	Ravenna	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.357573	\N	\N	1	0	h-win	yes
+4803	1439394	2025-09-13	Italy	Serie C - Girone B	Pianese	Sambenedettese	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.442932	\N	\N	1	1	draw	yes
+4804	1439389	2025-09-13	Italy	Serie C - Girone B	Pontedera	Rimini	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.53222	\N	\N	0	0	draw	yes
+4805	1439388	2025-09-13	Italy	Serie C - Girone B	Forli	Gubbio	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.620041	\N	\N	0	0	draw	yes
+4806	1439390	2025-09-13	Italy	Serie C - Girone B	Campobasso FC	Pineto	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.712792	\N	\N	0	1	a-win	yes
+4807	1439391	2025-09-14	Italy	Serie C - Girone B	Juventus U23	Arezzo	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.799887	\N	\N	2	1	h-win	yes
+4808	1439392	2025-09-14	Italy	Serie C - Girone B	Perugia	Ascoli	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.880497	\N	\N	0	0	draw	yes
+4809	1439393	2025-09-14	Italy	Serie C - Girone B	Bra	Torres	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:21.965274	\N	\N	1	0	h-win	yes
+4810	1439396	2025-09-14	Italy	Serie C - Girone B	Vis Pesaro	Livorno	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.050746	\N	\N	2	0	h-win	yes
+4811	1439397	2025-09-14	Italy	Serie C - Girone B	Ternana	Athletic Carpi	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.135639	\N	\N	1	0	h-win	yes
+4812	1439399	2025-09-19	Italy	Serie C - Girone B	Arezzo	Guidonia Montecelio 1937	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.218632	\N	\N	0	1	a-win	yes
+4813	1439400	2025-09-19	Italy	Serie C - Girone B	Pontedera	Campobasso FC	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.302639	\N	\N	0	3	a-win	yes
+4814	1439401	2025-09-19	Italy	Serie C - Girone B	Ravenna	Perugia	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.385011	\N	\N	1	2	a-win	yes
+4815	1439398	2025-09-19	Italy	Serie C - Girone B	Rimini	Forli	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.469363	\N	\N	1	0	h-win	yes
+4816	1439407	2025-09-20	Italy	Serie C - Girone B	Gubbio	Bra	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.557471	\N	\N	0	0	draw	yes
+4817	1439404	2025-09-20	Italy	Serie C - Girone B	Livorno	Ascoli	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.644186	\N	\N	0	3	a-win	yes
+4818	1439406	2025-09-20	Italy	Serie C - Girone B	Sambenedettese	Athletic Carpi	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.725711	\N	\N	0	0	draw	yes
+4819	1439402	2025-09-20	Italy	Serie C - Girone B	Vis Pesaro	Pianese	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:22.945083	\N	\N	0	0	draw	yes
+4820	1439405	2025-09-20	Italy	Serie C - Girone B	Pineto	Juventus U23	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.029893	\N	\N	1	2	a-win	yes
+4821	1439403	2025-09-20	Italy	Serie C - Girone B	Torres	Ternana	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.115532	\N	\N	1	0	h-win	yes
+4822	1439409	2025-09-23	Italy	Serie C - Girone B	Ternana	Pontedera	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.199875	\N	\N	1	0	h-win	yes
+4823	1439408	2025-09-23	Italy	Serie C - Girone B	Guidonia Montecelio 1937	Rimini	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.287451	\N	\N	0	0	draw	yes
+4824	1439411	2025-09-23	Italy	Serie C - Girone B	Forli	Vis Pesaro	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.369968	\N	\N	0	0	draw	yes
+4825	1439413	2025-09-23	Italy	Serie C - Girone B	Juventus U23	Torres	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.453401	\N	\N	0	0	draw	yes
+4826	1439412	2025-09-23	Italy	Serie C - Girone B	Pianese	Arezzo	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.538017	\N	\N	2	0	h-win	yes
+4827	1439410	2025-09-23	Italy	Serie C - Girone B	Campobasso FC	Gubbio	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.619069	\N	\N	1	0	h-win	yes
+4828	1439417	2025-09-23	Italy	Serie C - Girone B	Ascoli	Pineto	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.704461	\N	\N	1	0	h-win	yes
+4829	1439415	2025-09-23	Italy	Serie C - Girone B	Perugia	Sambenedettese	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.785594	\N	\N	0	0	draw	yes
+4830	1439414	2025-09-23	Italy	Serie C - Girone B	Bra	Livorno	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.872253	\N	\N	0	1	a-win	yes
+4831	1439416	2025-09-23	Italy	Serie C - Girone B	Athletic Carpi	Ravenna	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:23.962508	\N	\N	0	1	a-win	yes
+4832	1439420	2025-09-27	Italy	Serie C - Girone B	Livorno	Campobasso FC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.049936	\N	\N	0	0	draw	yes
+4833	1439421	2025-09-27	Italy	Serie C - Girone B	Sambenedettese	Juventus U23	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.152542	\N	\N	2	1	h-win	yes
+4834	1439422	2025-09-27	Italy	Serie C - Girone B	Ravenna	Ternana	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.238337	\N	\N	0	0	draw	yes
+4835	1439419	2025-09-27	Italy	Serie C - Girone B	Bra	Guidonia Montecelio 1937	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.320361	\N	\N	0	0	draw	yes
+4836	1439418	2025-09-27	Italy	Serie C - Girone B	Torres	Ascoli	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.404508	\N	\N	0	0	draw	yes
+4837	1439426	2025-09-27	Italy	Serie C - Girone B	Perugia	Pianese	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.485656	\N	\N	0	0	draw	yes
+4838	1439424	2025-09-27	Italy	Serie C - Girone B	Arezzo	Athletic Carpi	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.569366	\N	\N	1	1	draw	yes
+4839	1439425	2025-09-27	Italy	Serie C - Girone B	Pontedera	Forli	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.655601	\N	\N	0	0	draw	yes
+4840	1439427	2025-09-27	Italy	Serie C - Girone B	Vis Pesaro	Gubbio	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.742376	\N	\N	1	0	h-win	yes
+4841	1439423	2025-09-27	Italy	Serie C - Girone B	Pineto	Rimini	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.823459	\N	\N	0	2	a-win	yes
+4842	1439437	2025-10-03	Italy	Serie C - Girone B	Rimini	Arezzo	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.908355	\N	\N	0	0	draw	yes
+4843	1439428	2025-10-03	Italy	Serie C - Girone B	Pianese	Livorno	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:24.989971	\N	\N	1	1	draw	yes
+4844	1439429	2025-10-04	Italy	Serie C - Girone B	Ascoli	Bra	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.07436	\N	\N	2	0	h-win	yes
+4845	1439430	2025-10-04	Italy	Serie C - Girone B	Ternana	Pineto	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.155357	\N	\N	1	1	draw	yes
+4846	1439436	2025-10-04	Italy	Serie C - Girone B	Torres	Sambenedettese	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.242941	\N	\N	0	2	a-win	yes
+4847	1439432	2025-10-04	Italy	Serie C - Girone B	Campobasso FC	Vis Pesaro	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.327489	\N	\N	2	1	h-win	yes
+4848	1439434	2025-10-05	Italy	Serie C - Girone B	Juventus U23	Ravenna	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.412106	\N	\N	0	1	a-win	yes
+4849	1439431	2025-10-05	Italy	Serie C - Girone B	Forli	Guidonia Montecelio 1937	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.514439	\N	\N	0	0	draw	yes
+4850	1439435	2025-10-05	Italy	Serie C - Girone B	Athletic Carpi	Perugia	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.597528	\N	\N	2	0	h-win	yes
+4851	1439433	2025-10-05	Italy	Serie C - Girone B	Gubbio	Pontedera	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.684413	\N	\N	0	1	a-win	yes
+4852	1439439	2025-10-10	Italy	Serie C - Girone B	Arezzo	Gubbio	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.770844	\N	\N	1	0	h-win	yes
+4853	1439443	2025-10-10	Italy	Serie C - Girone B	Bra	Athletic Carpi	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.859136	\N	\N	0	2	a-win	yes
+4854	1439446	2025-10-11	Italy	Serie C - Girone B	Perugia	Rimini	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:25.947381	\N	\N	0	1	a-win	yes
+4855	1439444	2025-10-11	Italy	Serie C - Girone B	Guidonia Montecelio 1937	Pianese	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.038917	\N	\N	0	0	draw	yes
+4856	1439441	2025-10-11	Italy	Serie C - Girone B	Forli	Ternana	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.122202	\N	\N	0	0	draw	yes
+4857	1439445	2025-10-11	Italy	Serie C - Girone B	Pineto	Livorno	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.204884	\N	\N	2	0	h-win	yes
+4858	1439442	2025-10-12	Italy	Serie C - Girone B	Vis Pesaro	Torres	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.287384	\N	\N	0	0	draw	yes
+4859	1439438	2025-10-12	Italy	Serie C - Girone B	Ascoli	Pontedera	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.372588	\N	\N	2	0	h-win	yes
+4860	1439447	2025-10-12	Italy	Serie C - Girone B	Sambenedettese	Ravenna	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.454467	\N	\N	0	1	a-win	yes
+4861	1439455	2025-10-17	Italy	Serie C - Girone B	Torres	Forli	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.5393	\N	\N	0	1	a-win	yes
+4862	1439454	2025-10-18	Italy	Serie C - Girone B	Livorno	Sambenedettese	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.625382	\N	\N	0	0	draw	yes
+4863	1439452	2025-10-18	Italy	Serie C - Girone B	Gubbio	Guidonia Montecelio 1937	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.715429	\N	\N	0	0	draw	yes
+4864	1439453	2025-10-18	Italy	Serie C - Girone B	Pianese	Bra	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.800348	\N	\N	2	2	draw	yes
+4865	1439456	2025-10-19	Italy	Serie C - Girone B	Campobasso FC	Ternana	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.884417	\N	\N	0	0	draw	yes
+4866	1439450	2025-10-19	Italy	Serie C - Girone B	Ravenna	Arezzo	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:26.970129	\N	\N	0	0	draw	yes
+4867	1439457	2025-10-19	Italy	Serie C - Girone B	Rimini	Juventus U23	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.055438	\N	\N	0	0	draw	yes
+4868	1439448	2025-10-19	Italy	Serie C - Girone B	Pineto	Perugia	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.140335	\N	\N	2	0	h-win	yes
+4869	1439451	2025-10-20	Italy	Serie C - Girone B	Pontedera	Vis Pesaro	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.22383	\N	\N	0	1	a-win	yes
+4870	1439449	2025-10-20	Italy	Serie C - Girone B	Athletic Carpi	Ascoli	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.317199	\N	\N	0	0	draw	yes
+4871	1439440	2025-10-22	Italy	Serie C - Girone B	Juventus U23	Campobasso FC	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.398544	\N	\N	0	0	draw	yes
+4872	1439463	2025-10-25	Italy	Serie C - Girone B	Ternana	Arezzo	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.483271	\N	\N	1	0	h-win	yes
+4873	1439464	2025-10-25	Italy	Serie C - Girone B	Guidonia Montecelio 1937	Torres	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.565398	\N	\N	0	0	draw	yes
+4874	1439459	2025-10-25	Italy	Serie C - Girone B	Juventus U23	Pontedera	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.647391	\N	\N	0	1	a-win	yes
+4875	1439458	2025-10-25	Italy	Serie C - Girone B	Campobasso FC	Rimini	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.728296	\N	\N	0	1	a-win	yes
+4876	1439460	2025-10-25	Italy	Serie C - Girone B	Athletic Carpi	Gubbio	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.814742	\N	\N	0	2	a-win	yes
+4877	1439467	2025-10-25	Italy	Serie C - Girone B	Forli	Pineto	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.905335	\N	\N	0	1	a-win	yes
+4878	1439462	2025-10-26	Italy	Serie C - Girone B	Ascoli	Sambenedettese	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:27.987547	\N	\N	1	0	h-win	yes
+4879	1439461	2025-10-26	Italy	Serie C - Girone B	Bra	Vis Pesaro	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:28.072958	\N	\N	0	0	draw	yes
+4880	1439465	2025-10-26	Italy	Serie C - Girone B	Pianese	Ravenna	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:28.162386	\N	\N	0	0	draw	yes
+4881	1439466	2025-10-27	Italy	Serie C - Girone B	Perugia	Livorno	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:28.250321	\N	\N	0	0	draw	yes
+4882	1439474	2025-11-01	Italy	Serie C - Girone B	Arezzo	Campobasso FC	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	10	2025-12-02 12:23:28.417951	\N	\N	1	0	h-win	yes
+4883	1439476	2025-11-01	Italy	Serie C - Girone B	Pineto	Pianese	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	12	2025-12-02 12:23:28.507376	\N	\N	1	1	draw	yes
+4884	1439477	2025-11-01	Italy	Serie C - Girone B	Rimini	Bra	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	2025-12-02 12:23:28.590732	\N	\N	0	2	a-win	yes
+4885	1439471	2025-11-02	Italy	Serie C - Girone B	Livorno	Forli	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	7	2025-12-02 12:23:28.675457	\N	\N	0	2	a-win	yes
+4886	1439472	2025-11-02	Italy	Serie C - Girone B	Gubbio	Ternana	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	8	2025-12-02 12:23:28.774461	\N	\N	2	1	h-win	yes
+4887	1439473	2025-11-02	Italy	Serie C - Girone B	Torres	Athletic Carpi	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	5	2025-12-02 12:23:28.858848	\N	\N	0	0	draw	yes
+4888	1439468	2025-11-02	Italy	Serie C - Girone B	Sambenedettese	Guidonia Montecelio 1937	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	4	2025-12-02 12:23:28.945821	\N	\N	0	0	draw	yes
+4889	1439469	2025-11-02	Italy	Serie C - Girone B	Pontedera	Perugia	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	16	2025-12-02 12:23:29.030523	\N	\N	1	1	draw	yes
+4890	1439470	2025-11-02	Italy	Serie C - Girone B	Ravenna	Ascoli	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	3	2025-12-02 12:23:29.113986	\N	\N	0	0	draw	yes
+4891	1439475	2025-11-03	Italy	Serie C - Girone B	Vis Pesaro	Juventus U23	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	13	2025-12-02 12:23:29.197262	\N	\N	1	0	h-win	yes
+4892	1439487	2025-11-07	Italy	Serie C - Girone B	Ascoli	Gubbio	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	11	2025-12-02 12:23:29.279006	\N	\N	1	1	draw	yes
+4893	1439484	2025-11-07	Italy	Serie C - Girone B	Campobasso FC	Sambenedettese	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	14	2025-12-02 12:23:29.367551	\N	\N	0	0	draw	yes
+4894	1439479	2025-11-08	Italy	Serie C - Girone B	Bra	Pineto	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	6	2025-12-02 12:23:29.449309	\N	\N	0	0	draw	yes
+4895	1439483	2025-11-08	Italy	Serie C - Girone B	Guidonia Montecelio 1937	Pontedera	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	17	2025-12-02 12:23:29.53364	\N	\N	0	0	draw	yes
+4896	1439486	2025-11-08	Italy	Serie C - Girone B	Ravenna	Torres	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	19	2025-12-02 12:23:29.6174	\N	\N	1	0	h-win	yes
+4897	1439485	2025-11-08	Italy	Serie C - Girone B	Pianese	Rimini	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	\N	2025-12-02 12:23:29.706846	\N	\N	0	0	draw	yes
+4898	1439480	2025-11-09	Italy	Serie C - Girone B	Juventus U23	Forli	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	7	2025-12-02 12:23:29.792027	\N	\N	0	0	draw	yes
+4899	1439482	2025-11-09	Italy	Serie C - Girone B	Perugia	Arezzo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	1	2025-12-02 12:23:29.875133	\N	\N	0	0	draw	yes
+4900	1439481	2025-11-09	Italy	Serie C - Girone B	Athletic Carpi	Livorno	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	15	2025-12-02 12:23:29.970025	\N	\N	1	0	h-win	yes
+4901	1439478	2025-11-09	Italy	Serie C - Girone B	Ternana	Vis Pesaro	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	9	2025-12-02 12:23:30.055221	\N	\N	0	0	draw	yes
+4902	1439491	2025-11-14	Italy	Serie C - Girone B	Arezzo	Bra	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	18	2025-12-02 12:23:30.14044	\N	\N	1	0	h-win	yes
+4903	1439492	2025-11-14	Italy	Serie C - Girone B	Forli	Campobasso FC	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	10	2025-12-02 12:23:30.228981	\N	\N	2	0	h-win	yes
+4904	1439495	2025-11-15	Italy	Serie C - Girone B	Pineto	Athletic Carpi	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	5	2025-12-02 12:23:30.3121	\N	\N	1	0	h-win	yes
+4905	1439493	2025-11-15	Italy	Serie C - Girone B	Vis Pesaro	Guidonia Montecelio 1937	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	4	2025-12-02 12:23:30.395422	\N	\N	0	1	a-win	yes
+4906	1439488	2025-11-15	Italy	Serie C - Girone B	Rimini	Ascoli	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	2025-12-02 12:23:30.477102	\N	\N	0	2	a-win	yes
+4907	1439490	2025-11-15	Italy	Serie C - Girone B	Torres	Perugia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	16	2025-12-02 12:23:30.577142	\N	\N	1	0	h-win	yes
+4908	1439494	2025-11-15	Italy	Serie C - Girone B	Sambenedettese	Ternana	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	8	2025-12-02 12:23:30.658553	\N	\N	0	0	draw	yes
+4909	1439497	2025-11-16	Italy	Serie C - Girone B	Livorno	Ravenna	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	2	2025-12-02 12:23:30.7441	\N	\N	1	0	h-win	yes
+4910	1439496	2025-11-16	Italy	Serie C - Girone B	Pontedera	Pianese	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	12	2025-12-02 12:23:30.829906	\N	\N	1	0	h-win	yes
+4911	1439498	2025-11-21	Italy	Serie C - Girone B	Bra	Pontedera	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	17	2025-12-02 12:23:30.908756	\N	\N	1	0	h-win	yes
+4912	1439506	2025-11-22	Italy	Serie C - Girone B	Ravenna	Gubbio	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	11	2025-12-02 12:23:30.99011	\N	\N	1	1	draw	yes
+4913	1439499	2025-11-22	Italy	Serie C - Girone B	Pianese	Forli	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	7	2025-12-02 12:23:31.075009	\N	\N	2	0	h-win	yes
+4914	1439501	2025-11-22	Italy	Serie C - Girone B	Athletic Carpi	Rimini	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	\N	2025-12-02 12:23:31.155336	\N	\N	2	1	h-win	yes
+4915	1439504	2025-11-23	Italy	Serie C - Girone B	Ascoli	Arezzo	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	1	2025-12-02 12:23:31.2422	\N	\N	0	0	draw	yes
+4916	1439505	2025-11-23	Italy	Serie C - Girone B	Ternana	Juventus U23	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	13	2025-12-02 12:23:31.323022	\N	\N	0	0	draw	yes
+4917	1439502	2025-11-23	Italy	Serie C - Girone B	Guidonia Montecelio 1937	Campobasso FC	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	10	2025-12-02 12:23:31.407195	\N	\N	0	0	draw	yes
+4918	1439500	2025-11-23	Italy	Serie C - Girone B	Sambenedettese	Pineto	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	6	2025-12-02 12:23:31.492122	\N	\N	0	0	draw	yes
+4919	1439507	2025-11-24	Italy	Serie C - Girone B	Perugia	Vis Pesaro	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	9	2025-12-02 12:23:31.577023	\N	\N	0	1	a-win	yes
+4920	1439503	2025-11-24	Italy	Serie C - Girone B	Livorno	Torres	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	19	2025-12-02 12:23:31.660191	\N	\N	1	0	h-win	yes
+4921	1439512	2025-11-29	Italy	Serie C - Girone B	Gubbio	Livorno	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	15	2025-12-02 12:23:31.743427	\N	\N	0	0	draw	yes
+4922	1439515	2025-11-29	Italy	Serie C - Girone B	Forli	Bra	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	18	2025-12-02 12:23:31.824146	\N	\N	0	0	draw	yes
+4923	1439508	2025-11-29	Italy	Serie C - Girone B	Pineto	Ravenna	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	2	2025-12-02 12:23:31.904244	\N	\N	0	2	a-win	yes
+4924	1439513	2025-11-30	Italy	Serie C - Girone B	Juventus U23	Perugia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	16	2025-12-02 12:23:31.987433	\N	\N	0	0	draw	yes
+4925	1439510	2025-11-30	Italy	Serie C - Girone B	Arezzo	Sambenedettese	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	14	2025-12-02 12:23:32.069283	\N	\N	0	0	draw	yes
+4926	1439517	2025-11-30	Italy	Serie C - Girone B	Ternana	Guidonia Montecelio 1937	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	4	2025-12-02 12:23:32.148005	\N	\N	1	2	a-win	yes
+4927	1439514	2025-11-30	Italy	Serie C - Girone B	Pontedera	Athletic Carpi	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	5	2025-12-02 12:23:32.228	\N	\N	0	0	draw	yes
+4928	1439516	2025-11-30	Italy	Serie C - Girone B	Campobasso FC	Pianese	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	12	2025-12-02 12:23:32.313856	\N	\N	0	1	a-win	yes
+4929	1439509	2025-12-01	Italy	Serie C - Girone B	Vis Pesaro	Ascoli	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	3	2025-12-02 12:23:32.39445	\N	\N	1	0	h-win	yes
+4930	1439511	2025-11-30	Italy	Serie C - Girone B	Rimini	Torres	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	2025-12-02 12:23:32.476976	\N	\N	0	0	draw	no
+4931	1439738	2025-08-24	Italy	Serie C - Girone C	Latina	Atalanta II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:33.746492	\N	\N	0	0	draw	yes
+4932	1439739	2025-08-24	Italy	Serie C - Girone C	Sorrento	Cavese	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:33.841899	\N	\N	0	0	draw	yes
+4933	1439740	2025-08-24	Italy	Serie C - Girone C	Giugliano	Potenza	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:33.930509	\N	\N	1	2	a-win	yes
+4934	1439742	2025-08-24	Italy	Serie C - Girone C	Catania	Foggia	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.012121	\N	\N	4	0	h-win	yes
+4935	1439741	2025-08-24	Italy	Serie C - Girone C	Casarano	Trapani 1905	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.094184	\N	\N	0	0	draw	yes
+4936	1439743	2025-08-24	Italy	Serie C - Girone C	SS Monopoli	Cosenza	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.177053	\N	\N	1	1	draw	yes
+4937	1439745	2025-08-25	Italy	Serie C - Girone C	Crotone	Benevento	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.261766	\N	\N	0	2	a-win	yes
+4938	1439744	2025-08-25	Italy	Serie C - Girone C	Salernitana	Siracusa	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.347759	\N	\N	1	0	h-win	yes
+4939	1439746	2025-08-25	Italy	Serie C - Girone C	Casertana	Team Altamura	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.429776	\N	\N	2	1	h-win	yes
+4940	1439747	2025-08-25	Italy	Serie C - Girone C	Audace Cerignola	AZ Picerno	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.517132	\N	\N	1	2	a-win	yes
+4941	1439748	2025-08-29	Italy	Serie C - Girone C	Atalanta II	Casarano	h-win	6	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.59985	\N	\N	3	1	h-win	yes
+4942	1439749	2025-08-30	Italy	Serie C - Girone C	Cavese	Catania	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.682799	\N	\N	0	0	draw	yes
+4943	1439750	2025-08-30	Italy	Serie C - Girone C	Foggia	Sorrento	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.765793	\N	\N	0	0	draw	yes
+4944	1439752	2025-08-30	Italy	Serie C - Girone C	Potenza	Audace Cerignola	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.855417	\N	\N	0	0	draw	yes
+4945	1439751	2025-08-30	Italy	Serie C - Girone C	Trapani 1905	Latina	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:34.938732	\N	\N	3	0	h-win	yes
+4946	1439753	2025-08-31	Italy	Serie C - Girone C	AZ Picerno	Giugliano	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.022283	\N	\N	1	2	a-win	yes
+4947	1439754	2025-08-31	Italy	Serie C - Girone C	Team Altamura	Crotone	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.108485	\N	\N	0	3	a-win	yes
+4948	1439756	2025-08-31	Italy	Serie C - Girone C	Benevento	Casertana	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.189289	\N	\N	1	1	draw	yes
+4949	1439755	2025-08-31	Italy	Serie C - Girone C	Siracusa	SS Monopoli	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.274904	\N	\N	1	1	draw	yes
+4950	1439757	2025-08-31	Italy	Serie C - Girone C	Cosenza	Salernitana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.354788	\N	\N	1	1	draw	yes
+4951	1439758	2025-09-06	Italy	Serie C - Girone C	Sorrento	Trapani 1905	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.44347	\N	\N	0	0	draw	yes
+4952	1439759	2025-09-06	Italy	Serie C - Girone C	Giugliano	Foggia	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.523717	\N	\N	0	0	draw	yes
+4953	1439761	2025-09-06	Italy	Serie C - Girone C	Casertana	Potenza	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.603538	\N	\N	1	1	draw	yes
+4954	1439762	2025-09-06	Italy	Serie C - Girone C	Catania	SS Monopoli	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.684194	\N	\N	1	0	h-win	yes
+4955	1439760	2025-09-06	Italy	Serie C - Girone C	Casarano	Benevento	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.767129	\N	\N	0	0	draw	yes
+4956	1439763	2025-09-07	Italy	Serie C - Girone C	Crotone	Cosenza	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.841975	\N	\N	0	0	draw	yes
+4957	1439765	2025-09-07	Italy	Serie C - Girone C	Latina	AZ Picerno	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:35.923597	\N	\N	0	1	a-win	yes
+4958	1439766	2025-09-07	Italy	Serie C - Girone C	Audace Cerignola	Siracusa	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.00473	\N	\N	0	0	draw	yes
+4959	1439767	2025-09-07	Italy	Serie C - Girone C	Team Altamura	Cavese	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.089013	\N	\N	1	0	h-win	yes
+4960	1439769	2025-09-12	Italy	Serie C - Girone C	Foggia	Latina	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.170342	\N	\N	1	0	h-win	yes
+4961	1439770	2025-09-12	Italy	Serie C - Girone C	Potenza	Crotone	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.25504	\N	\N	1	2	a-win	yes
+4962	1439768	2025-09-12	Italy	Serie C - Girone C	SS Monopoli	Audace Cerignola	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.332677	\N	\N	1	0	h-win	yes
+4963	1439771	2025-09-13	Italy	Serie C - Girone C	Siracusa	Benevento	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.414723	\N	\N	0	0	draw	yes
+4964	1439772	2025-09-13	Italy	Serie C - Girone C	AZ Picerno	Casarano	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.497509	\N	\N	0	2	a-win	yes
+4965	1439773	2025-09-14	Italy	Serie C - Girone C	Cosenza	Catania	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.5942	\N	\N	1	0	h-win	yes
+4966	1439774	2025-09-14	Italy	Serie C - Girone C	Atalanta II	Team Altamura	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.690439	\N	\N	0	0	draw	yes
+4967	1439775	2025-09-14	Italy	Serie C - Girone C	Trapani 1905	Casertana	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.777101	\N	\N	0	0	draw	yes
+4968	1439776	2025-09-14	Italy	Serie C - Girone C	Salernitana	Sorrento	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.863419	\N	\N	0	1	a-win	yes
+4969	1439777	2025-09-15	Italy	Serie C - Girone C	Cavese	Giugliano	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:36.944176	\N	\N	1	0	h-win	yes
+4970	1439764	2025-09-17	Italy	Serie C - Girone C	Salernitana	Atalanta II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.032095	\N	\N	0	0	draw	yes
+4971	1439780	2025-09-20	Italy	Serie C - Girone C	Crotone	Siracusa	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.117279	\N	\N	0	0	draw	yes
+4972	1439782	2025-09-20	Italy	Serie C - Girone C	Latina	SS Monopoli	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.198818	\N	\N	0	0	draw	yes
+4973	1439778	2025-09-20	Italy	Serie C - Girone C	Casertana	Cosenza	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.282128	\N	\N	1	0	h-win	yes
+4974	1439779	2025-09-20	Italy	Serie C - Girone C	Catania	Sorrento	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.363538	\N	\N	0	0	draw	yes
+4975	1439781	2025-09-20	Italy	Serie C - Girone C	Audace Cerignola	Foggia	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.442915	\N	\N	0	0	draw	yes
+4976	1439783	2025-09-21	Italy	Serie C - Girone C	Casarano	Cavese	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.525479	\N	\N	1	0	h-win	yes
+4977	1439784	2025-09-21	Italy	Serie C - Girone C	Team Altamura	Trapani 1905	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.607864	\N	\N	0	1	a-win	yes
+4978	1439785	2025-09-21	Italy	Serie C - Girone C	Benevento	Atalanta II	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.694711	\N	\N	1	0	h-win	yes
+4979	1439787	2025-09-21	Italy	Serie C - Girone C	Potenza	AZ Picerno	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.808601	\N	\N	1	0	h-win	yes
+4980	1439786	2025-09-21	Italy	Serie C - Girone C	Giugliano	Salernitana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:37.899956	\N	\N	1	1	draw	yes
+4981	1439792	2025-09-24	Italy	Serie C - Girone C	Salernitana	Audace Cerignola	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.00543	\N	\N	1	0	h-win	yes
+4982	1439793	2025-09-24	Italy	Serie C - Girone C	Foggia	Casertana	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.095719	\N	\N	1	0	h-win	yes
+4983	1439788	2025-09-24	Italy	Serie C - Girone C	Siracusa	Potenza	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.183972	\N	\N	0	0	draw	yes
+4984	1439791	2025-09-24	Italy	Serie C - Girone C	Cavese	Latina	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.267241	\N	\N	0	0	draw	yes
+4985	1439790	2025-09-24	Italy	Serie C - Girone C	Sorrento	Casarano	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.354213	\N	\N	2	0	h-win	yes
+4986	1439789	2025-09-24	Italy	Serie C - Girone C	Cosenza	Giugliano	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.435188	\N	\N	0	0	draw	yes
+4987	1439794	2025-09-24	Italy	Serie C - Girone C	Trapani 1905	Catania	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.519904	\N	\N	0	0	draw	yes
+4988	1439795	2025-09-24	Italy	Serie C - Girone C	AZ Picerno	Benevento	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.603227	\N	\N	0	1	a-win	yes
+4989	1439796	2025-09-24	Italy	Serie C - Girone C	SS Monopoli	Team Altamura	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.690097	\N	\N	0	0	draw	yes
+4990	1439797	2025-09-24	Italy	Serie C - Girone C	Atalanta II	Crotone	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.768992	\N	\N	0	0	draw	yes
+4991	1439798	2025-09-28	Italy	Serie C - Girone C	Potenza	Atalanta II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.848588	\N	\N	1	0	h-win	yes
+4992	1439800	2025-09-28	Italy	Serie C - Girone C	Crotone	Casertana	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 12:23:38.932212	\N	\N	0	0	draw	yes
+4993	1439799	2025-09-28	Italy	Serie C - Girone C	Benevento	Trapani 1905	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:00.475727	\N	\N	2	0	h-win	yes
+4994	1439801	2025-09-28	Italy	Serie C - Girone C	Casarano	Salernitana	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:00.583678	\N	\N	1	1	draw	yes
+4995	1439804	2025-09-28	Italy	Serie C - Girone C	Latina	Team Altamura	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:00.674161	\N	\N	0	0	draw	yes
+4996	1439803	2025-09-28	Italy	Serie C - Girone C	Siracusa	Cosenza	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:00.764308	\N	\N	0	1	a-win	yes
+4997	1439802	2025-09-28	Italy	Serie C - Girone C	Audace Cerignola	Catania	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:00.856094	\N	\N	0	0	draw	yes
+4998	1439805	2025-09-28	Italy	Serie C - Girone C	SS Monopoli	Cavese	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:00.948981	\N	\N	0	1	a-win	yes
+4999	1439806	2025-09-29	Italy	Serie C - Girone C	AZ Picerno	Foggia	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.064459	\N	\N	1	0	h-win	yes
+5000	1439807	2025-09-29	Italy	Serie C - Girone C	Giugliano	Sorrento	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.159136	\N	\N	0	0	draw	yes
+5001	1439813	2025-10-03	Italy	Serie C - Girone C	Latina	Benevento	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.252397	\N	\N	0	0	draw	yes
+5002	1439808	2025-10-04	Italy	Serie C - Girone C	Atalanta II	Foggia	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.34513	\N	\N	1	0	h-win	yes
+5003	1439811	2025-10-04	Italy	Serie C - Girone C	Crotone	AZ Picerno	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.434731	\N	\N	2	0	h-win	yes
+5004	1439816	2025-10-05	Italy	Serie C - Girone C	Salernitana	Cavese	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.526469	\N	\N	0	0	draw	yes
+5005	1439810	2025-10-05	Italy	Serie C - Girone C	Casertana	Casarano	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.616146	\N	\N	0	0	draw	yes
+5006	1439814	2025-10-05	Italy	Serie C - Girone C	Catania	Siracusa	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.713719	\N	\N	1	0	h-win	yes
+5007	1439815	2025-10-05	Italy	Serie C - Girone C	Trapani 1905	Giugliano	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.807315	\N	\N	1	1	draw	yes
+5008	1439812	2025-10-05	Italy	Serie C - Girone C	Sorrento	SS Monopoli	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:01.905282	\N	\N	0	0	draw	yes
+5009	1439817	2025-10-05	Italy	Serie C - Girone C	Team Altamura	Potenza	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.000912	\N	\N	0	2	a-win	yes
+5010	1439809	2025-10-05	Italy	Serie C - Girone C	Audace Cerignola	Cosenza	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.094797	\N	\N	1	1	draw	yes
+5011	1439823	2025-10-11	Italy	Serie C - Girone C	Foggia	Crotone	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.190886	\N	\N	0	2	a-win	yes
+5012	1439827	2025-10-11	Italy	Serie C - Girone C	AZ Picerno	Casertana	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.286096	\N	\N	0	2	a-win	yes
+5013	1439825	2025-10-11	Italy	Serie C - Girone C	Giugliano	Catania	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.376321	\N	\N	0	2	a-win	yes
+5014	1439822	2025-10-12	Italy	Serie C - Girone C	SS Monopoli	Salernitana	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.466698	\N	\N	0	1	a-win	yes
+5015	1439821	2025-10-12	Italy	Serie C - Girone C	Siracusa	Sorrento	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.565917	\N	\N	0	0	draw	yes
+5016	1439826	2025-10-12	Italy	Serie C - Girone C	Potenza	Latina	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.659522	\N	\N	0	0	draw	yes
+5017	1439818	2025-10-12	Italy	Serie C - Girone C	Cavese	Trapani 1905	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.754662	\N	\N	0	0	draw	yes
+5018	1439824	2025-10-12	Italy	Serie C - Girone C	Casarano	Audace Cerignola	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.84507	\N	\N	0	0	draw	yes
+5019	1439819	2025-10-12	Italy	Serie C - Girone C	Cosenza	Atalanta II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:02.936108	\N	\N	0	1	a-win	yes
+5807	1422805	2025-08-08	France	National 1	Orleans	Dijon	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:53.424897	\N	\N	0	0	draw	yes
+5020	1439820	2025-10-12	Italy	Serie C - Girone C	Benevento	Team Altamura	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.021537	\N	\N	2	0	h-win	yes
+5021	1439836	2025-10-18	Italy	Serie C - Girone C	Crotone	SS Monopoli	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.124755	\N	\N	0	0	draw	yes
+5022	1439832	2025-10-18	Italy	Serie C - Girone C	Sorrento	Cosenza	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.214694	\N	\N	1	1	draw	yes
+5023	1439833	2025-10-18	Italy	Serie C - Girone C	Casarano	Foggia	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.305071	\N	\N	0	1	a-win	yes
+5024	1439829	2025-10-18	Italy	Serie C - Girone C	Latina	Giugliano	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.402872	\N	\N	0	1	a-win	yes
+5025	1439828	2025-10-19	Italy	Serie C - Girone C	Casertana	Siracusa	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.496847	\N	\N	0	0	draw	yes
+5026	1439835	2025-10-19	Italy	Serie C - Girone C	Benevento	Potenza	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.587411	\N	\N	1	0	h-win	yes
+5027	1439834	2025-10-19	Italy	Serie C - Girone C	Catania	Salernitana	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.677775	\N	\N	1	0	h-win	yes
+5028	1439837	2025-10-19	Italy	Serie C - Girone C	Atalanta II	Trapani 1905	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.770268	\N	\N	2	0	h-win	yes
+5029	1439831	2025-10-19	Italy	Serie C - Girone C	Audace Cerignola	Cavese	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.861166	\N	\N	0	1	a-win	yes
+5030	1439830	2025-10-19	Italy	Serie C - Girone C	Team Altamura	AZ Picerno	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:03.951021	\N	\N	3	0	h-win	yes
+5031	1439843	2025-10-24	Italy	Serie C - Girone C	Foggia	Team Altamura	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.044355	\N	\N	0	0	draw	yes
+5032	1439844	2025-10-25	Italy	Serie C - Girone C	Cavese	Crotone	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.137624	\N	\N	1	0	h-win	yes
+5033	1439842	2025-10-25	Italy	Serie C - Girone C	Atalanta II	AZ Picerno	h-win	6	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.227908	\N	\N	2	2	draw	yes
+5034	1439839	2025-10-25	Italy	Serie C - Girone C	Siracusa	Casarano	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.314648	\N	\N	1	1	draw	yes
+5035	1439845	2025-10-26	Italy	Serie C - Girone C	Trapani 1905	Audace Cerignola	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.409213	\N	\N	2	1	h-win	yes
+5036	1439841	2025-10-26	Italy	Serie C - Girone C	Catania	Benevento	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.497335	\N	\N	1	0	h-win	yes
+5037	1439847	2025-10-26	Italy	Serie C - Girone C	Cosenza	Potenza	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.584558	\N	\N	1	0	h-win	yes
+5038	1439846	2025-10-26	Italy	Serie C - Girone C	Sorrento	Latina	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.677172	\N	\N	0	0	draw	yes
+5039	1439840	2025-10-26	Italy	Serie C - Girone C	SS Monopoli	Giugliano	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.767216	\N	\N	2	0	h-win	yes
+5040	1439838	2025-10-26	Italy	Serie C - Girone C	Salernitana	Casertana	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.864164	\N	\N	0	0	draw	yes
+5041	1439852	2025-10-31	Italy	Serie C - Girone C	Casertana	Catania	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:04.957785	\N	\N	1	1	draw	yes
+5042	1439857	2025-10-31	Italy	Serie C - Girone C	AZ Picerno	Cavese	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 13:06:05.049399	\N	\N	2	0	h-win	yes
+5043	1439855	2025-11-01	Italy	Serie C - Girone C	Audace Cerignola	Atalanta II	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	12	2025-12-02 13:06:05.228041	\N	\N	1	1	draw	yes
+5044	1439850	2025-11-01	Italy	Serie C - Girone C	Casarano	SS Monopoli	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	9	2025-12-02 13:06:05.317628	\N	\N	1	0	h-win	yes
+5045	1439854	2025-11-01	Italy	Serie C - Girone C	Team Altamura	Cosenza	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	4	2025-12-02 13:06:05.419016	\N	\N	0	0	draw	yes
+5046	1439851	2025-11-02	Italy	Serie C - Girone C	Crotone	Trapani 1905	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	11	2025-12-02 13:06:05.516117	\N	\N	1	1	draw	yes
+5047	1439853	2025-11-02	Italy	Serie C - Girone C	Potenza	Foggia	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	18	2025-12-02 13:06:05.604647	\N	\N	2	0	h-win	yes
+5048	1439848	2025-11-02	Italy	Serie C - Girone C	Latina	Salernitana	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	3	2025-12-02 13:06:05.69903	\N	\N	0	0	draw	yes
+5049	1439856	2025-11-02	Italy	Serie C - Girone C	Giugliano	Siracusa	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	19	2025-12-02 13:06:05.795336	\N	\N	1	0	h-win	yes
+5050	1439849	2025-11-02	Italy	Serie C - Girone C	Benevento	Sorrento	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	14	2025-12-02 13:06:05.890088	\N	\N	1	0	h-win	yes
+5051	1439863	2025-11-07	Italy	Serie C - Girone C	Cavese	Potenza	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	8	2025-12-02 13:06:05.97902	\N	\N	2	0	h-win	yes
+5052	1439859	2025-11-08	Italy	Serie C - Girone C	Trapani 1905	AZ Picerno	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	20	2025-12-02 13:06:06.074328	\N	\N	0	1	a-win	yes
+5053	1439864	2025-11-08	Italy	Serie C - Girone C	Atalanta II	Giugliano	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	16	2025-12-02 13:06:06.169543	\N	\N	0	0	draw	yes
+5054	1439860	2025-11-08	Italy	Serie C - Girone C	Cosenza	Casarano	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	7	2025-12-02 13:06:06.258823	\N	\N	1	0	h-win	yes
+5055	1439861	2025-11-09	Italy	Serie C - Girone C	Siracusa	Latina	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	17	2025-12-02 13:06:06.345542	\N	\N	1	0	h-win	yes
+5056	1439867	2025-11-09	Italy	Serie C - Girone C	Catania	Team Altamura	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	15	2025-12-02 13:06:06.432351	\N	\N	0	0	draw	yes
+5057	1439866	2025-11-09	Italy	Serie C - Girone C	Sorrento	Audace Cerignola	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	10	2025-12-02 13:06:06.522708	\N	\N	0	1	a-win	yes
+5058	1439865	2025-11-09	Italy	Serie C - Girone C	SS Monopoli	Casertana	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	5	2025-12-02 13:06:06.609339	\N	\N	1	0	h-win	yes
+5059	1439858	2025-11-09	Italy	Serie C - Girone C	Foggia	Benevento	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	2	2025-12-02 13:06:06.695702	\N	\N	0	0	draw	yes
+5060	1439862	2025-11-10	Italy	Serie C - Girone C	Salernitana	Crotone	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	6	2025-12-02 13:06:06.78279	\N	\N	0	0	draw	yes
+5061	1439871	2025-11-15	Italy	Serie C - Girone C	Crotone	Sorrento	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	14	2025-12-02 13:06:06.874066	\N	\N	2	0	h-win	yes
+5062	1439868	2025-11-15	Italy	Serie C - Girone C	Latina	Cosenza	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	4	2025-12-02 13:06:06.977178	\N	\N	0	1	a-win	yes
+5063	1439877	2025-11-15	Italy	Serie C - Girone C	AZ Picerno	Siracusa	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	19	2025-12-02 13:06:07.070045	\N	\N	0	1	a-win	yes
+5064	1439869	2025-11-15	Italy	Serie C - Girone C	Casarano	Catania	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	1	2025-12-02 13:06:07.174251	\N	\N	1	0	h-win	yes
+5065	1439874	2025-11-16	Italy	Serie C - Girone C	Benevento	SS Monopoli	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	9	2025-12-02 13:06:07.279875	\N	\N	2	0	h-win	yes
+5066	1439876	2025-11-16	Italy	Serie C - Girone C	Potenza	Trapani 1905	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	11	2025-12-02 13:06:07.370299	\N	\N	1	0	h-win	yes
+5067	1439873	2025-11-16	Italy	Serie C - Girone C	Team Altamura	Salernitana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	3	2025-12-02 13:06:07.454535	\N	\N	1	0	h-win	yes
+5068	1439875	2025-11-16	Italy	Serie C - Girone C	Giugliano	Audace Cerignola	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	10	2025-12-02 13:06:07.549683	\N	\N	0	0	draw	yes
+5069	1439870	2025-11-17	Italy	Serie C - Girone C	Foggia	Cavese	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	13	2025-12-02 13:06:07.639695	\N	\N	0	0	draw	yes
+5070	1439884	2025-11-21	Italy	Serie C - Girone C	Audace Cerignola	Crotone	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	6	2025-12-02 13:06:07.728874	\N	\N	0	0	draw	yes
+5071	1439880	2025-11-22	Italy	Serie C - Girone C	Siracusa	Team Altamura	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	19	15	2025-12-02 13:06:07.827534	\N	\N	0	1	a-win	yes
+5072	1439883	2025-11-22	Italy	Serie C - Girone C	Sorrento	Casertana	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	5	2025-12-02 13:06:07.91705	\N	\N	0	1	a-win	yes
+5073	1439885	2025-11-22	Italy	Serie C - Girone C	Giugliano	Casarano	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	7	2025-12-02 13:06:08.006222	\N	\N	1	2	a-win	yes
+5074	1439886	2025-11-22	Italy	Serie C - Girone C	Trapani 1905	Foggia	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	18	2025-12-02 13:06:08.102056	\N	\N	3	1	h-win	yes
+5075	1439879	2025-11-22	Italy	Serie C - Girone C	SS Monopoli	AZ Picerno	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	20	2025-12-02 13:06:08.191929	\N	\N	0	1	a-win	yes
+5076	1439887	2025-11-23	Italy	Serie C - Girone C	Cavese	Atalanta II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	12	2025-12-02 13:06:08.282366	\N	\N	2	2	draw	yes
+5077	1439881	2025-11-23	Italy	Serie C - Girone C	Catania	Latina	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	17	2025-12-02 13:06:08.377099	\N	\N	1	0	h-win	yes
+5078	1439882	2025-11-23	Italy	Serie C - Girone C	Cosenza	Benevento	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	2	2025-12-02 13:06:08.481605	\N	\N	1	1	draw	yes
+5079	1439878	2025-11-23	Italy	Serie C - Girone C	Salernitana	Potenza	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	8	2025-12-02 13:06:08.568886	\N	\N	0	0	draw	yes
+5080	1439891	2025-11-29	Italy	Serie C - Girone C	Casertana	Cavese	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	13	2025-12-02 13:06:08.654616	\N	\N	0	1	a-win	yes
+5081	1439888	2025-11-29	Italy	Serie C - Girone C	AZ Picerno	Catania	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	20	1	2025-12-02 13:06:08.747308	\N	\N	0	1	a-win	yes
+5082	1439894	2025-11-29	Italy	Serie C - Girone C	Crotone	Giugliano	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	16	2025-12-02 13:06:08.837044	\N	\N	0	0	draw	yes
+5083	1439895	2025-11-29	Italy	Serie C - Girone C	Team Altamura	Sorrento	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	14	2025-12-02 13:06:08.931972	\N	\N	0	2	a-win	yes
+5084	1439892	2025-11-30	Italy	Serie C - Girone C	Trapani 1905	SS Monopoli	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	9	2025-12-02 13:06:09.024665	\N	\N	1	0	h-win	yes
+5085	1439893	2025-11-30	Italy	Serie C - Girone C	Atalanta II	Siracusa	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	19	2025-12-02 13:06:09.131035	\N	\N	1	1	draw	yes
+5086	1439897	2025-11-30	Italy	Serie C - Girone C	Foggia	Cosenza	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	18	4	2025-12-02 13:06:09.221004	\N	\N	1	0	h-win	yes
+5087	1439889	2025-11-30	Italy	Serie C - Girone C	Latina	Audace Cerignola	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	17	10	2025-12-02 13:06:09.311696	\N	\N	0	1	a-win	yes
+5088	1439890	2025-11-30	Italy	Serie C - Girone C	Potenza	Casarano	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	7	2025-12-02 13:06:09.399525	\N	\N	2	0	h-win	yes
+5089	1439896	2025-12-01	Italy	Serie C - Girone C	Benevento	Salernitana	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	3	2025-12-02 13:06:09.49165	\N	\N	3	1	h-win	yes
+5090	1388308	2025-08-22	Germany	Bundesliga	Bayern München	RB Leipzig	h-win	6	0	19	10	12	1	5	5	2	0	4	1	0	0	63.00	37.00	13	13	\N	\N	\N	\N	\N	2025-12-02 13:06:10.78773	1.72	0.54	3	0	h-win	yes
+5091	1388312	2025-08-23	Germany	Bundesliga	SC Freiburg	FC Augsburg	a-win	1	3	16	4	14	5	5	5	4	3	4	5	0	0	60.00	40.00	14	18	\N	\N	\N	\N	\N	2025-12-02 13:06:10.875571	2.60	1.34	0	3	a-win	yes
+5092	1388309	2025-08-23	Germany	Bundesliga	Bayer Leverkusen	1899 Hoffenheim	a-win	1	2	7	2	10	5	6	4	1	1	0	4	0	0	60.00	40.00	9	17	\N	\N	\N	\N	\N	2025-12-02 13:06:10.96442	0.71	0.45	1	1	draw	yes
+5093	1388311	2025-08-23	Germany	Bundesliga	Eintracht Frankfurt	Werder Bremen	h-win	4	1	18	5	10	5	7	1	2	3	1	3	0	0	53.00	47.00	9	9	\N	\N	\N	\N	\N	2025-12-02 13:06:11.062585	2.74	0.53	2	0	h-win	yes
+5094	1388313	2025-08-23	Germany	Bundesliga	1. FC Heidenheim	VfL Wolfsburg	a-win	1	3	7	2	15	5	2	5	2	0	2	3	0	0	49.00	51.00	12	12	\N	\N	\N	\N	\N	2025-12-02 13:06:11.151057	0.72	2.45	1	1	draw	yes
+5095	1388316	2025-08-23	Germany	Bundesliga	Union Berlin	VfB Stuttgart	h-win	2	1	8	2	21	6	5	11	2	1	4	4	0	0	25.00	75.00	21	13	\N	\N	\N	\N	\N	2025-12-02 13:06:11.239197	0.34	1.73	2	0	h-win	yes
+5096	1388315	2025-08-23	Germany	Bundesliga	FC St. Pauli	Borussia Dortmund	draw	3	3	11	7	8	7	5	2	4	3	2	3	0	1	51.00	49.00	13	12	\N	\N	\N	\N	\N	2025-12-02 13:06:11.324083	1.29	1.56	0	1	a-win	yes
+5097	1388314	2025-08-24	Germany	Bundesliga	FSV Mainz 05	1. FC Köln	a-win	0	1	19	2	12	2	8	3	5	0	0	2	1	0	51.00	49.00	7	9	\N	\N	\N	\N	\N	2025-12-02 13:06:11.417044	1.52	1.36	0	0	draw	yes
+5098	1388310	2025-08-24	Germany	Bundesliga	Borussia Mönchengladbach	Hamburger SV	draw	0	0	17	4	7	2	7	6	1	4	2	1	0	0	61.00	39.00	10	10	\N	\N	\N	\N	\N	2025-12-02 13:06:11.498974	1.10	0.41	0	0	draw	yes
+5099	1388320	2025-08-29	Germany	Bundesliga	Hamburger SV	FC St. Pauli	a-win	0	2	5	2	17	6	2	5	1	2	3	3	1	0	48.00	52.00	13	19	\N	\N	\N	\N	\N	2025-12-02 13:06:11.585399	0.35	1.44	0	1	a-win	yes
+5100	1388324	2025-08-30	Germany	Bundesliga	Werder Bremen	Bayer Leverkusen	draw	3	3	12	5	10	4	3	7	1	1	4	3	1	0	45.00	55.00	11	10	\N	\N	\N	\N	\N	2025-12-02 13:06:11.670862	2.59	2.10	1	2	a-win	yes
+5101	1388321	2025-08-30	Germany	Bundesliga	1899 Hoffenheim	Eintracht Frankfurt	a-win	1	3	17	5	9	6	4	5	3	1	2	3	0	0	58.00	42.00	14	10	\N	\N	\N	\N	\N	2025-12-02 13:06:11.763024	1.37	1.56	0	2	a-win	yes
+5102	1388323	2025-08-30	Germany	Bundesliga	VfB Stuttgart	Borussia Mönchengladbach	h-win	1	0	13	5	15	6	6	10	2	4	2	1	0	0	51.00	49.00	5	13	\N	\N	\N	\N	\N	2025-12-02 13:06:11.848998	0.84	1.82	0	0	draw	yes
+5103	1388322	2025-08-30	Germany	Bundesliga	RB Leipzig	1. FC Heidenheim	h-win	2	0	19	5	5	3	4	3	1	2	2	5	0	0	66.00	34.00	7	13	\N	\N	\N	\N	\N	2025-12-02 13:06:11.936452	2.23	1.02	0	0	draw	yes
+5104	1388317	2025-08-30	Germany	Bundesliga	FC Augsburg	Bayern München	a-win	2	3	10	3	20	10	7	5	4	3	3	4	0	0	42.00	58.00	14	11	\N	\N	\N	\N	\N	2025-12-02 13:06:12.0216	0.51	4.24	0	2	a-win	yes
+5105	1388325	2025-08-31	Germany	Bundesliga	VfL Wolfsburg	FSV Mainz 05	draw	1	1	11	3	17	3	3	10	0	0	3	5	1	0	40.00	60.00	15	14	\N	\N	\N	\N	\N	2025-12-02 13:06:12.111054	0.62	1.95	1	0	h-win	yes
+5106	1388318	2025-08-31	Germany	Bundesliga	Borussia Dortmund	Union Berlin	h-win	3	0	11	6	12	3	4	6	1	1	0	0	0	0	65.00	35.00	14	7	\N	\N	\N	\N	\N	2025-12-02 13:06:12.197535	2.51	1.14	1	0	h-win	yes
+5107	1388319	2025-08-31	Germany	Bundesliga	1. FC Köln	SC Freiburg	h-win	4	1	18	6	12	2	3	5	1	2	2	1	0	0	39.00	61.00	12	9	\N	\N	\N	\N	\N	2025-12-02 13:06:12.281781	2.11	0.91	1	0	h-win	yes
+5108	1388326	2025-09-12	Germany	Bundesliga	Bayer Leverkusen	Eintracht Frankfurt	h-win	3	1	18	8	13	2	4	8	3	0	5	3	2	0	39.00	61.00	10	9	\N	\N	\N	\N	\N	2025-12-02 13:06:12.445168	2.11	0.65	2	0	h-win	yes
+5109	1388329	2025-09-13	Germany	Bundesliga	SC Freiburg	VfB Stuttgart	h-win	3	1	14	6	7	2	7	1	0	2	0	1	1	0	46.00	54.00	8	13	\N	\N	\N	\N	\N	2025-12-02 13:06:12.534604	1.55	0.53	0	1	a-win	yes
+5110	1388334	2025-09-13	Germany	Bundesliga	VfL Wolfsburg	1. FC Köln	draw	3	3	14	6	14	8	7	4	0	1	2	3	0	0	56.00	44.00	15	11	\N	\N	\N	\N	\N	2025-12-02 13:06:12.620112	1.50	1.65	1	1	draw	yes
+5111	1388331	2025-09-13	Germany	Bundesliga	FSV Mainz 05	RB Leipzig	a-win	0	1	13	2	19	3	3	5	4	1	1	0	0	0	56.00	44.00	12	11	\N	\N	\N	\N	\N	2025-12-02 13:06:12.708472	0.90	1.79	0	1	a-win	yes
+5112	1388330	2025-09-13	Germany	Bundesliga	1. FC Heidenheim	Borussia Dortmund	a-win	0	2	6	1	17	8	5	4	2	2	2	3	1	0	25.00	75.00	5	9	\N	\N	\N	\N	\N	2025-12-02 13:06:12.799889	0.40	2.76	0	2	a-win	yes
+5113	1388333	2025-09-13	Germany	Bundesliga	Union Berlin	1899 Hoffenheim	a-win	2	4	20	7	9	8	9	2	2	0	0	1	1	0	42.00	58.00	13	12	\N	\N	\N	\N	\N	2025-12-02 13:06:12.887653	2.59	2.76	0	2	a-win	yes
+5114	1388327	2025-09-13	Germany	Bundesliga	Bayern München	Hamburger SV	h-win	5	0	22	12	9	2	5	3	1	2	2	2	0	0	71.00	29.00	11	14	\N	\N	\N	\N	\N	2025-12-02 13:06:12.974306	2.54	0.58	4	0	h-win	yes
+5115	1388332	2025-09-14	Germany	Bundesliga	FC St. Pauli	FC Augsburg	h-win	2	1	13	7	10	5	3	1	0	3	1	4	0	0	57.00	43.00	10	12	\N	\N	\N	\N	\N	2025-12-02 13:06:13.058575	1.90	0.78	1	1	draw	yes
+5116	1388328	2025-09-14	Germany	Bundesliga	Borussia Mönchengladbach	Werder Bremen	a-win	0	4	19	3	12	7	9	4	0	1	1	0	0	0	55.00	45.00	12	9	\N	\N	\N	\N	\N	2025-12-02 13:06:13.146082	1.48	2.09	0	2	a-win	yes
+5117	1388342	2025-09-19	Germany	Bundesliga	VfB Stuttgart	FC St. Pauli	h-win	2	0	17	8	9	2	8	4	2	0	0	2	0	0	54.00	46.00	13	15	\N	\N	\N	\N	\N	2025-12-02 13:06:13.224058	2.11	0.95	1	0	h-win	yes
+5118	1388343	2025-09-20	Germany	Bundesliga	Werder Bremen	SC Freiburg	a-win	0	3	12	5	10	5	2	0	1	2	5	2	0	0	62.00	38.00	13	7	\N	\N	\N	\N	\N	2025-12-02 13:06:13.309392	1.22	2.42	0	1	a-win	yes
+5119	1388340	2025-09-20	Germany	Bundesliga	1899 Hoffenheim	Bayern München	a-win	1	4	13	4	18	10	5	5	2	1	1	2	0	0	38.00	62.00	17	9	\N	\N	\N	\N	\N	2025-12-02 13:06:13.395574	0.85	3.04	0	1	a-win	yes
+5120	1388335	2025-09-20	Germany	Bundesliga	FC Augsburg	FSV Mainz 05	a-win	1	4	18	5	12	4	6	6	2	2	1	2	0	1	61.00	39.00	13	10	\N	\N	\N	\N	\N	2025-12-02 13:06:13.479547	1.12	2.52	0	2	a-win	yes
+5121	1388339	2025-09-20	Germany	Bundesliga	Hamburger SV	1. FC Heidenheim	h-win	2	1	22	9	20	8	1	12	1	2	5	1	0	0	49.00	51.00	15	10	\N	\N	\N	\N	\N	2025-12-02 13:06:13.563406	2.35	2.98	1	0	h-win	yes
+5122	1388341	2025-09-20	Germany	Bundesliga	RB Leipzig	1. FC Köln	h-win	3	1	18	8	13	2	9	5	3	0	1	1	0	0	47.00	53.00	10	8	\N	\N	\N	\N	\N	2025-12-02 13:06:13.651244	3.28	1.70	3	1	h-win	yes
+5123	1388338	2025-09-21	Germany	Bundesliga	Eintracht Frankfurt	Union Berlin	a-win	3	4	19	10	11	5	5	1	2	5	3	2	0	0	78.00	22.00	10	11	\N	\N	\N	\N	\N	2025-12-02 13:06:13.731661	1.90	1.64	1	2	a-win	yes
+5124	1388336	2025-09-21	Germany	Bundesliga	Bayer Leverkusen	Borussia Mönchengladbach	draw	1	1	13	9	13	7	3	4	2	3	5	5	0	0	62.00	38.00	12	15	\N	\N	\N	\N	\N	2025-12-02 13:06:13.814538	1.46	0.81	0	0	draw	yes
+5125	1388337	2025-09-21	Germany	Bundesliga	Borussia Dortmund	VfL Wolfsburg	h-win	1	0	12	4	9	0	9	3	2	0	1	0	0	0	56.00	44.00	10	9	\N	\N	\N	\N	\N	2025-12-02 13:06:13.900608	1.10	0.80	1	0	h-win	yes
+5126	1388344	2025-09-26	Germany	Bundesliga	Bayern München	Werder Bremen	h-win	4	0	26	13	9	3	7	6	0	2	2	0	0	0	59.00	41.00	9	4	\N	\N	\N	\N	\N	2025-12-02 13:06:13.981226	3.46	0.41	2	0	h-win	yes
+5127	1388352	2025-09-27	Germany	Bundesliga	VfL Wolfsburg	RB Leipzig	a-win	0	1	22	4	20	6	6	11	0	5	2	2	0	0	51.00	49.00	7	9	\N	\N	\N	\N	\N	2025-12-02 13:06:14.064326	3.05	2.41	0	1	a-win	yes
+5128	1388349	2025-09-27	Germany	Bundesliga	FSV Mainz 05	Borussia Dortmund	a-win	0	2	8	2	10	4	7	5	5	2	2	1	1	0	49.00	51.00	12	14	\N	\N	\N	\N	\N	2025-12-02 13:06:14.145608	0.48	1.44	0	2	a-win	yes
+5129	1388348	2025-09-27	Germany	Bundesliga	1. FC Heidenheim	FC Augsburg	h-win	2	1	11	5	8	2	3	2	1	2	1	6	0	0	48.00	52.00	16	20	\N	\N	\N	\N	\N	2025-12-02 13:06:14.231686	1.24	0.82	0	0	draw	yes
+5130	1388350	2025-09-27	Germany	Bundesliga	FC St. Pauli	Bayer Leverkusen	a-win	1	2	13	6	5	4	13	1	2	0	3	5	0	0	49.00	51.00	13	11	\N	\N	\N	\N	\N	2025-12-02 13:06:14.31912	0.82	0.69	1	1	draw	yes
+5131	1388345	2025-09-27	Germany	Bundesliga	Borussia Mönchengladbach	Eintracht Frankfurt	a-win	4	6	11	8	21	7	4	6	4	1	1	2	0	0	39.00	61.00	14	8	\N	\N	\N	\N	\N	2025-12-02 13:06:14.406452	1.70	2.80	0	5	a-win	yes
+5132	1388347	2025-09-28	Germany	Bundesliga	SC Freiburg	1899 Hoffenheim	draw	1	1	6	1	15	4	6	8	1	2	2	1	0	0	43.00	57.00	9	15	\N	\N	\N	\N	\N	2025-12-02 13:06:14.490553	1.31	2.54	1	1	draw	yes
+5133	1388346	2025-09-28	Germany	Bundesliga	1. FC Köln	VfB Stuttgart	a-win	1	2	15	7	15	5	8	8	4	1	2	2	0	0	43.00	57.00	12	12	\N	\N	\N	\N	\N	2025-12-02 13:06:14.573361	1.08	1.87	1	1	draw	yes
+5134	1388351	2025-09-28	Germany	Bundesliga	Union Berlin	Hamburger SV	draw	0	0	11	2	16	6	5	3	1	3	2	2	0	1	34.00	66.00	18	17	\N	\N	\N	\N	\N	2025-12-02 13:06:14.65903	1.37	1.08	0	0	draw	yes
+5135	1388359	2025-10-03	Germany	Bundesliga	1899 Hoffenheim	1. FC Köln	a-win	0	1	15	4	10	4	11	6	1	2	3	1	0	0	61.00	39.00	15	6	\N	\N	\N	\N	\N	2025-12-02 13:06:14.746483	1.12	0.94	0	1	a-win	yes
+5136	1388361	2025-10-04	Germany	Bundesliga	Werder Bremen	FC St. Pauli	h-win	1	0	15	5	13	3	4	0	3	1	3	1	0	0	41.00	59.00	8	9	\N	\N	\N	\N	\N	2025-12-02 13:06:14.826895	1.86	0.76	1	0	h-win	yes
+5137	1388356	2025-10-04	Germany	Bundesliga	Borussia Dortmund	RB Leipzig	draw	1	1	15	3	13	3	7	7	2	3	1	3	0	0	50.00	50.00	13	14	\N	\N	\N	\N	\N	2025-12-02 13:06:14.913955	0.89	1.09	1	1	draw	yes
+5138	1388354	2025-10-04	Germany	Bundesliga	Bayer Leverkusen	Union Berlin	h-win	2	0	20	3	10	3	4	4	1	0	1	3	0	0	74.00	26.00	11	13	\N	\N	\N	\N	\N	2025-12-02 13:06:14.996782	2.87	0.74	1	0	h-win	yes
+5139	1388353	2025-10-04	Germany	Bundesliga	FC Augsburg	VfL Wolfsburg	h-win	3	1	10	5	14	4	10	5	5	2	2	1	0	0	47.00	53.00	9	7	\N	\N	\N	\N	\N	2025-12-02 13:06:15.078499	1.71	1.19	1	0	h-win	yes
+5140	1388357	2025-10-04	Germany	Bundesliga	Eintracht Frankfurt	Bayern München	a-win	0	3	6	1	12	3	4	3	0	5	1	2	0	0	40.00	60.00	11	11	\N	\N	\N	\N	\N	2025-12-02 13:06:15.163559	0.39	1.71	0	2	a-win	yes
+5141	1388360	2025-10-05	Germany	Bundesliga	VfB Stuttgart	1. FC Heidenheim	h-win	1	0	18	6	5	1	1	1	2	3	1	1	0	0	64.00	36.00	11	12	\N	\N	\N	\N	\N	2025-12-02 13:06:15.249944	0.99	0.38	0	0	draw	yes
+5142	1388358	2025-10-05	Germany	Bundesliga	Hamburger SV	FSV Mainz 05	h-win	4	0	15	9	11	4	1	4	3	3	2	3	0	0	35.00	65.00	14	13	\N	\N	\N	\N	\N	2025-12-02 13:06:15.343777	1.91	0.67	2	0	h-win	yes
+5143	1388355	2025-10-05	Germany	Bundesliga	Borussia Mönchengladbach	SC Freiburg	draw	0	0	9	5	12	1	4	1	0	3	3	1	0	0	53.00	47.00	15	7	\N	\N	\N	\N	\N	2025-12-02 13:06:15.428938	0.58	0.70	0	0	draw	yes
+5144	1388369	2025-10-17	Germany	Bundesliga	Union Berlin	Borussia Mönchengladbach	h-win	3	1	16	5	8	2	6	6	1	2	5	3	0	0	37.00	63.00	16	8	\N	\N	\N	\N	\N	2025-12-02 13:06:15.533197	1.23	0.63	2	1	h-win	yes
+5145	1388370	2025-10-18	Germany	Bundesliga	VfL Wolfsburg	VfB Stuttgart	a-win	0	3	11	3	15	7	3	8	0	1	1	1	0	0	41.00	59.00	12	8	\N	\N	\N	\N	\N	2025-12-02 13:06:15.615016	0.32	1.90	0	1	a-win	yes
+5146	1388366	2025-10-18	Germany	Bundesliga	FSV Mainz 05	Bayer Leverkusen	a-win	3	4	12	4	20	8	2	3	2	0	4	4	0	0	42.00	58.00	12	20	\N	\N	\N	\N	\N	2025-12-02 13:06:15.714339	1.66	3.48	1	3	a-win	yes
+5147	1388367	2025-10-18	Germany	Bundesliga	RB Leipzig	Hamburger SV	h-win	2	1	10	4	15	3	3	5	0	1	3	1	0	0	47.00	53.00	10	15	\N	\N	\N	\N	\N	2025-12-02 13:06:15.813412	1.06	1.53	1	0	h-win	yes
+5148	1388365	2025-10-18	Germany	Bundesliga	1. FC Heidenheim	Werder Bremen	draw	2	2	31	11	11	4	12	2	2	0	1	3	0	0	55.00	45.00	31	11	\N	\N	\N	\N	\N	2025-12-02 13:06:15.913732	3.00	1.33	0	0	draw	yes
+5149	1388363	2025-10-18	Germany	Bundesliga	1. FC Köln	FC Augsburg	draw	1	1	9	2	10	4	5	2	6	0	2	2	0	0	56.00	44.00	9	10	\N	\N	\N	\N	\N	2025-12-02 13:06:16.003492	0.58	1.12	0	0	draw	yes
+5150	1388362	2025-10-18	Germany	Bundesliga	Bayern München	Borussia Dortmund	h-win	2	1	15	7	8	1	4	3	2	1	1	3	0	0	61.00	39.00	12	17	\N	\N	\N	\N	\N	2025-12-02 13:06:16.085992	2.48	1.58	1	0	h-win	yes
+5151	1388364	2025-10-19	Germany	Bundesliga	SC Freiburg	Eintracht Frankfurt	draw	2	2	12	5	8	3	3	1	4	0	2	3	0	0	51.00	49.00	12	8	\N	\N	\N	\N	\N	2025-12-02 13:06:16.169946	1.14	0.89	1	2	a-win	yes
+5152	1388368	2025-10-19	Germany	Bundesliga	FC St. Pauli	1899 Hoffenheim	a-win	0	3	10	2	14	5	9	7	4	2	1	3	0	0	49.00	51.00	10	17	\N	\N	\N	\N	\N	2025-12-02 13:06:16.251596	0.99	2.34	0	0	draw	yes
+5153	1388379	2025-10-24	Germany	Bundesliga	Werder Bremen	Union Berlin	h-win	1	0	16	3	12	2	5	6	0	2	4	0	0	0	58.00	42.00	6	13	\N	\N	\N	\N	\N	2025-12-02 13:06:16.336647	0.95	0.58	0	0	draw	yes
+5154	1388373	2025-10-25	Germany	Bundesliga	Borussia Mönchengladbach	Bayern München	a-win	0	3	1	0	27	11	1	8	1	1	0	3	1	0	17.00	83.00	6	9	\N	\N	\N	\N	\N	2025-12-02 13:06:16.420607	0.79	3.97	0	0	draw	yes
+5155	1388377	2025-10-25	Germany	Bundesliga	1899 Hoffenheim	1. FC Heidenheim	h-win	3	1	14	7	12	3	7	5	0	0	1	1	0	0	60.00	40.00	14	13	\N	\N	\N	\N	\N	2025-12-02 13:06:16.508976	2.37	1.11	2	0	h-win	yes
+5156	1388375	2025-10-25	Germany	Bundesliga	Eintracht Frankfurt	FC St. Pauli	h-win	2	0	10	6	9	1	1	3	2	4	0	1	0	0	51.00	49.00	11	6	\N	\N	\N	\N	\N	2025-12-02 13:06:16.595696	2.26	0.39	1	0	h-win	yes
+5157	1388371	2025-10-25	Germany	Bundesliga	FC Augsburg	RB Leipzig	a-win	0	6	15	2	15	8	2	3	2	0	3	1	0	0	50.00	50.00	9	10	\N	\N	\N	\N	\N	2025-12-02 13:06:16.67865	0.73	2.77	0	4	a-win	yes
+5158	1388376	2025-10-25	Germany	Bundesliga	Hamburger SV	VfL Wolfsburg	a-win	0	1	27	6	6	2	11	1	2	1	1	5	0	0	61.00	39.00	8	18	\N	\N	\N	\N	\N	2025-12-02 13:06:16.763789	2.77	0.37	0	1	a-win	yes
+5159	1388374	2025-10-25	Germany	Bundesliga	Borussia Dortmund	1. FC Köln	h-win	1	0	27	9	5	0	17	2	0	2	2	2	0	0	70.00	30.00	10	8	\N	\N	\N	\N	\N	2025-12-02 13:06:16.849521	1.90	0.39	0	0	draw	yes
+5160	1388372	2025-10-26	Germany	Bundesliga	Bayer Leverkusen	SC Freiburg	h-win	2	0	19	4	10	3	2	3	1	0	1	2	0	1	69.00	31.00	9	8	\N	\N	\N	\N	\N	2025-12-02 13:06:16.935026	1.71	0.72	1	0	h-win	yes
+5161	1388378	2025-10-26	Germany	Bundesliga	VfB Stuttgart	FSV Mainz 05	h-win	2	1	19	8	13	2	7	5	5	5	4	3	0	0	59.00	41.00	11	12	\N	\N	\N	\N	\N	2025-12-02 13:06:17.017811	1.94	1.45	1	1	draw	yes
+5162	1388380	2025-10-31	Germany	Bundesliga	FC Augsburg	Borussia Dortmund	a-win	0	1	9	1	5	1	4	3	1	0	4	1	0	0	47.00	53.00	14	16	\N	\N	\N	\N	\N	2025-12-02 13:06:17.103174	0.83	0.32	0	1	a-win	yes
+5163	1388384	2025-11-01	Germany	Bundesliga	FSV Mainz 05	Werder Bremen	draw	1	1	10	5	5	3	2	0	4	1	1	3	0	0	47.00	53.00	19	11	\N	\N	\N	18	9	2025-12-02 13:06:17.281577	1.42	1.04	1	0	h-win	yes
+5164	1388385	2025-11-01	Germany	Bundesliga	RB Leipzig	VfB Stuttgart	h-win	3	1	16	9	14	4	5	5	0	7	1	2	0	0	42.00	58.00	8	10	\N	\N	\N	2	6	2025-12-02 13:06:17.364233	2.09	1.49	1	0	h-win	yes
+5165	1388383	2025-11-01	Germany	Bundesliga	1. FC Heidenheim	Eintracht Frankfurt	draw	1	1	9	4	16	3	2	8	1	2	0	2	0	0	28.00	72.00	7	11	\N	\N	\N	16	7	2025-12-02 13:06:17.450569	0.85	0.96	1	0	h-win	yes
+5166	1388387	2025-11-01	Germany	Bundesliga	Union Berlin	SC Freiburg	draw	0	0	11	2	13	4	5	5	4	1	6	1	0	0	37.00	63.00	20	13	\N	\N	\N	11	8	2025-12-02 13:06:17.537566	1.16	1.17	0	0	draw	yes
+5167	1388386	2025-11-01	Germany	Bundesliga	FC St. Pauli	Borussia Mönchengladbach	a-win	0	4	16	4	15	11	8	1	2	1	4	0	0	0	56.00	44.00	11	8	\N	\N	\N	17	12	2025-12-02 13:06:17.623894	0.88	2.32	0	2	a-win	yes
+5168	1388381	2025-11-01	Germany	Bundesliga	Bayern München	Bayer Leverkusen	h-win	3	0	18	4	7	1	10	4	1	1	1	1	0	0	59.00	41.00	11	3	\N	\N	\N	1	4	2025-12-02 13:06:17.706533	2.03	0.23	3	0	h-win	yes
+5169	1388382	2025-11-02	Germany	Bundesliga	1. FC Köln	Hamburger SV	h-win	4	1	23	10	11	5	2	3	1	4	1	6	0	2	48.00	52.00	8	18	\N	\N	\N	10	13	2025-12-02 13:06:17.810174	3.72	1.09	1	0	h-win	yes
+5170	1388388	2025-11-02	Germany	Bundesliga	VfL Wolfsburg	1899 Hoffenheim	a-win	2	3	12	6	10	4	2	2	3	4	0	2	0	0	48.00	52.00	10	17	\N	\N	\N	15	5	2025-12-02 13:06:17.8982	1.54	1.23	1	1	draw	yes
+5171	1388397	2025-11-07	Germany	Bundesliga	Werder Bremen	VfL Wolfsburg	h-win	2	1	20	7	7	4	13	3	2	2	2	0	0	0	60.00	40.00	13	8	\N	\N	\N	9	15	2025-12-02 13:06:17.982672	1.45	0.57	0	1	a-win	yes
+5172	1388394	2025-11-08	Germany	Bundesliga	1899 Hoffenheim	RB Leipzig	h-win	3	1	12	4	17	5	5	5	4	2	3	2	0	0	49.00	51.00	13	5	\N	\N	\N	5	2	2025-12-02 13:06:18.068383	1.82	1.81	2	1	h-win	yes
+5173	1388389	2025-11-08	Germany	Bundesliga	Bayer Leverkusen	1. FC Heidenheim	h-win	6	0	25	10	1	0	11	1	0	0	0	1	0	0	74.00	26.00	5	7	\N	\N	\N	4	16	2025-12-02 13:06:18.153971	3.31	0.12	5	0	h-win	yes
+5174	1388393	2025-11-08	Germany	Bundesliga	Hamburger SV	Borussia Dortmund	draw	1	1	9	3	17	1	2	6	3	0	1	1	0	0	45.00	55.00	14	8	\N	\N	\N	13	3	2025-12-02 13:06:18.239533	0.57	1.03	0	0	draw	yes
+5175	1388396	2025-11-08	Germany	Bundesliga	Union Berlin	Bayern München	draw	2	2	12	4	12	4	6	5	1	5	2	4	0	0	26.00	74.00	8	8	\N	\N	\N	11	1	2025-12-02 13:06:18.328609	0.80	1.41	1	1	draw	yes
+5176	1388390	2025-11-08	Germany	Bundesliga	Borussia Mönchengladbach	1. FC Köln	h-win	3	1	9	4	19	5	2	6	3	2	2	3	0	0	36.00	64.00	11	13	\N	\N	\N	12	10	2025-12-02 13:06:18.410736	2.98	2.22	1	0	h-win	yes
+5177	1388392	2025-11-09	Germany	Bundesliga	SC Freiburg	FC St. Pauli	h-win	2	1	8	4	7	2	9	3	2	4	2	2	0	0	60.00	40.00	8	12	\N	\N	\N	8	17	2025-12-02 13:06:18.495984	1.02	0.53	1	0	h-win	yes
+5178	1388395	2025-11-09	Germany	Bundesliga	VfB Stuttgart	FC Augsburg	h-win	3	2	17	6	17	6	4	4	3	3	2	3	0	0	62.00	38.00	13	10	\N	\N	\N	6	14	2025-12-02 13:06:18.579451	2.35	1.93	2	2	draw	yes
+5179	1388391	2025-11-09	Germany	Bundesliga	Eintracht Frankfurt	FSV Mainz 05	h-win	1	0	14	4	3	0	4	3	1	1	0	5	0	0	56.00	44.00	8	14	\N	\N	\N	7	18	2025-12-02 13:06:18.662649	1.21	0.16	0	0	draw	yes
+5180	1388403	2025-11-21	Germany	Bundesliga	FSV Mainz 05	1899 Hoffenheim	draw	1	1	17	3	19	5	7	4	2	2	3	2	1	0	45.00	55.00	13	13	\N	\N	\N	18	5	2025-12-02 13:06:18.743592	2.03	1.38	0	1	a-win	yes
+5181	1388399	2025-11-22	Germany	Bundesliga	Bayern München	SC Freiburg	h-win	6	2	22	8	8	2	3	5	1	3	1	0	0	0	72.00	28.00	9	7	\N	\N	\N	1	8	2025-12-02 13:06:18.826739	3.03	0.57	2	2	draw	yes
+5182	1388406	2025-11-22	Germany	Bundesliga	VfL Wolfsburg	Bayer Leverkusen	a-win	1	3	21	10	7	3	9	1	1	0	2	1	0	0	38.00	62.00	12	7	\N	\N	\N	15	4	2025-12-02 13:06:18.908564	2.13	1.10	0	3	a-win	yes
+5183	1388400	2025-11-22	Germany	Bundesliga	Borussia Dortmund	VfB Stuttgart	draw	3	3	14	6	16	6	2	4	3	1	1	1	0	0	46.00	54.00	12	10	\N	\N	\N	3	6	2025-12-02 13:06:18.9937	2.99	1.55	2	0	h-win	yes
+5184	1388398	2025-11-22	Germany	Bundesliga	FC Augsburg	Hamburger SV	h-win	1	0	13	6	15	6	4	3	2	7	2	3	1	0	48.00	52.00	13	10	\N	\N	\N	14	13	2025-12-02 13:06:19.083535	1.70	1.36	0	0	draw	yes
+5185	1388402	2025-11-22	Germany	Bundesliga	1. FC Heidenheim	Borussia Mönchengladbach	a-win	0	3	7	2	16	4	4	5	3	1	2	0	0	0	49.00	51.00	13	12	\N	\N	\N	16	12	2025-12-02 13:06:19.167847	0.33	2.18	0	1	a-win	yes
+5186	1388401	2025-11-22	Germany	Bundesliga	1. FC Köln	Eintracht Frankfurt	a-win	3	4	11	5	11	7	3	3	4	3	0	0	0	0	47.00	53.00	6	5	\N	\N	\N	10	7	2025-12-02 13:06:19.253309	1.22	1.81	1	2	a-win	yes
+5187	1388404	2025-11-23	Germany	Bundesliga	RB Leipzig	Werder Bremen	h-win	2	0	22	13	15	6	13	7	1	2	1	2	0	0	52.00	48.00	5	7	\N	\N	\N	2	9	2025-12-02 13:06:19.338519	2.10	0.80	0	0	draw	yes
+5927	1485871	2025-11-15	France	Coupe de France	Lavaur	Rodez	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:06.72233	\N	\N	0	1	a-win	yes
+5188	1388405	2025-11-23	Germany	Bundesliga	FC St. Pauli	Union Berlin	a-win	0	1	12	3	7	3	8	2	1	2	1	1	0	0	59.00	41.00	10	8	\N	\N	\N	17	11	2025-12-02 13:06:19.421327	0.72	0.55	0	1	a-win	yes
+5189	1388409	2025-11-28	Germany	Bundesliga	Borussia Mönchengladbach	RB Leipzig	draw	0	0	7	0	20	4	5	6	5	4	0	3	0	0	42.00	58.00	9	9	\N	\N	\N	12	2	2025-12-02 13:06:19.510005	0.42	0.93	0	0	draw	yes
+5190	1388408	2025-11-29	Germany	Bundesliga	Bayern München	FC St. Pauli	h-win	3	1	19	4	10	1	10	2	3	2	1	1	0	0	80.00	20.00	5	8	\N	\N	\N	1	17	2025-12-02 13:06:19.594269	2.30	0.64	1	1	draw	yes
+5191	1388415	2025-11-29	Germany	Bundesliga	Werder Bremen	1. FC Köln	draw	1	1	17	4	10	2	4	0	2	0	2	4	1	0	49.00	51.00	11	11	\N	\N	\N	9	10	2025-12-02 13:06:19.680401	1.17	0.94	1	0	h-win	yes
+5192	1388413	2025-11-29	Germany	Bundesliga	1899 Hoffenheim	FC Augsburg	h-win	3	0	17	3	14	4	7	2	2	3	1	0	0	0	60.00	40.00	17	9	\N	\N	\N	5	14	2025-12-02 13:06:19.765108	2.08	0.96	3	0	h-win	yes
+5193	1388414	2025-11-29	Germany	Bundesliga	Union Berlin	1. FC Heidenheim	a-win	1	2	9	2	10	2	5	5	3	2	3	2	0	0	43.00	57.00	13	10	\N	\N	\N	11	16	2025-12-02 13:06:19.850993	0.97	0.59	1	0	h-win	yes
+5194	1388407	2025-11-29	Germany	Bundesliga	Bayer Leverkusen	Borussia Dortmund	a-win	1	2	14	4	7	4	10	3	2	1	3	4	0	0	63.00	37.00	7	9	\N	\N	\N	4	3	2025-12-02 13:06:19.933496	0.82	0.99	0	1	a-win	yes
+5195	1388412	2025-11-30	Germany	Bundesliga	Hamburger SV	VfB Stuttgart	h-win	2	1	9	2	14	3	4	6	0	1	2	4	1	0	34.00	66.00	16	12	\N	\N	\N	13	6	2025-12-02 13:06:20.023946	0.98	0.75	1	0	h-win	yes
+5196	1388410	2025-11-30	Germany	Bundesliga	Eintracht Frankfurt	VfL Wolfsburg	draw	1	1	15	3	10	3	14	1	2	3	1	4	0	0	54.00	46.00	7	9	\N	\N	\N	7	15	2025-12-02 13:06:20.129303	1.59	1.86	0	0	draw	yes
+5197	1388411	2025-11-30	Germany	Bundesliga	SC Freiburg	FSV Mainz 05	h-win	4	0	23	10	1	1	6	2	4	0	0	2	0	1	75.00	25.00	9	12	\N	\N	\N	8	18	2025-12-02 13:06:20.215711	4.60	0.11	2	0	h-win	yes
+5198	1388614	2025-08-01	Germany	2. Bundesliga	FC Schalke 04	Hertha BSC	h-win	2	1	14	6	9	3	5	10	0	2	7	1	1	0	37.00	63.00	19	12	\N	\N	\N	\N	\N	2025-12-02 13:06:21.488928	\N	\N	2	0	h-win	yes
+5199	1388617	2025-08-02	Germany	2. Bundesliga	SV Darmstadt 98	VfL Bochum	h-win	4	1	20	7	10	3	5	8	1	2	2	3	0	0	43.00	57.00	12	13	\N	\N	\N	\N	\N	2025-12-02 13:06:21.573565	\N	\N	2	1	h-win	yes
+5200	1388615	2025-08-02	Germany	2. Bundesliga	SC Paderborn 07	Holstein Kiel	h-win	2	1	9	3	7	2	3	0	3	1	1	3	0	0	47.00	53.00	13	12	\N	\N	\N	\N	\N	2025-12-02 13:06:21.66848	\N	\N	1	0	h-win	yes
+5201	1388621	2025-08-02	Germany	2. Bundesliga	Karlsruher SC	Preußen Münster	h-win	3	2	13	4	11	3	6	5	1	2	3	3	0	1	32.00	68.00	17	17	\N	\N	\N	\N	\N	2025-12-02 13:06:21.755511	\N	\N	2	1	h-win	yes
+5202	1388618	2025-08-02	Germany	2. Bundesliga	SV Elversberg	1. FC Nürnberg	h-win	1	0	12	4	11	4	2	4	2	1	2	3	0	0	55.00	45.00	16	23	\N	\N	\N	\N	\N	2025-12-02 13:06:21.841446	\N	\N	0	0	draw	yes
+5203	1388616	2025-08-02	Germany	2. Bundesliga	Arminia Bielefeld	Fortuna Düsseldorf	h-win	5	1	15	9	11	3	8	3	3	4	4	4	0	1	64.00	36.00	12	14	\N	\N	\N	\N	\N	2025-12-02 13:06:21.92584	\N	\N	1	1	draw	yes
+5204	1388620	2025-08-03	Germany	2. Bundesliga	Hannover 96	1. FC Kaiserslautern	h-win	1	0	14	5	9	0	5	5	1	0	2	3	0	0	62.00	38.00	13	14	\N	\N	\N	\N	\N	2025-12-02 13:06:22.011621	\N	\N	0	0	draw	yes
+5205	1388619	2025-08-03	Germany	2. Bundesliga	SpVgg Greuther Fürth	Dynamo Dresden	h-win	3	2	10	5	21	4	4	10	1	3	1	0	0	0	31.00	69.00	8	11	\N	\N	\N	\N	\N	2025-12-02 13:06:22.094094	\N	\N	2	1	h-win	yes
+5206	1388622	2025-08-03	Germany	2. Bundesliga	1. FC Magdeburg	Eintracht Braunschweig	a-win	0	1	19	3	9	4	12	2	0	1	4	1	0	1	67.00	33.00	17	11	\N	\N	\N	\N	\N	2025-12-02 13:06:22.176531	\N	\N	0	0	draw	yes
+5207	1388628	2025-08-08	Germany	2. Bundesliga	1. FC Nürnberg	SV Darmstadt 98	a-win	0	1	12	3	14	5	4	5	2	1	2	2	0	0	47.00	53.00	11	15	\N	\N	\N	\N	\N	2025-12-02 13:06:22.269915	\N	\N	0	0	draw	yes
+5208	1388629	2025-08-08	Germany	2. Bundesliga	Preußen Münster	SC Paderborn 07	draw	1	1	7	3	16	8	5	5	1	2	0	0	0	0	56.00	44.00	10	17	\N	\N	\N	\N	\N	2025-12-02 13:06:22.363454	\N	\N	0	1	a-win	yes
+5209	1388625	2025-08-09	Germany	2. Bundesliga	Fortuna Düsseldorf	Hannover 96	a-win	0	2	9	1	10	3	5	2	1	5	6	4	0	0	53.00	47.00	18	14	\N	\N	\N	\N	\N	2025-12-02 13:06:22.463632	\N	\N	0	0	draw	yes
+5210	1388630	2025-08-09	Germany	2. Bundesliga	Dynamo Dresden	1. FC Magdeburg	a-win	1	2	23	2	9	6	6	5	1	2	1	3	0	0	60.00	40.00	10	14	\N	\N	\N	\N	\N	2025-12-02 13:06:22.548497	\N	\N	1	2	a-win	yes
+5211	1388624	2025-08-09	Germany	2. Bundesliga	Eintracht Braunschweig	SpVgg Greuther Fürth	h-win	3	2	9	4	20	4	3	9	4	0	2	3	0	0	40.00	60.00	11	11	\N	\N	\N	\N	\N	2025-12-02 13:06:22.633473	\N	\N	2	1	h-win	yes
+5212	1388627	2025-08-09	Germany	2. Bundesliga	1. FC Kaiserslautern	FC Schalke 04	h-win	1	0	11	2	9	4	5	3	3	2	4	4	0	0	55.00	45.00	8	16	\N	\N	\N	\N	\N	2025-12-02 13:06:22.720407	\N	\N	0	0	draw	yes
+5213	1388626	2025-08-10	Germany	2. Bundesliga	Hertha BSC	Karlsruher SC	draw	0	0	15	4	19	2	5	10	1	2	0	1	0	0	51.00	49.00	8	11	\N	\N	\N	\N	\N	2025-12-02 13:06:22.801298	\N	\N	0	0	draw	yes
+5214	1388623	2025-08-10	Germany	2. Bundesliga	VfL Bochum	SV Elversberg	h-win	2	0	16	6	3	1	10	0	1	2	8	5	0	1	58.00	42.00	24	11	\N	\N	\N	\N	\N	2025-12-02 13:06:22.884139	\N	\N	0	0	draw	yes
+5215	1388631	2025-08-10	Germany	2. Bundesliga	Holstein Kiel	Arminia Bielefeld	a-win	0	2	15	7	12	4	9	7	3	1	0	6	0	1	59.00	41.00	13	15	\N	\N	\N	\N	\N	2025-12-02 13:06:22.968999	\N	\N	0	2	a-win	yes
+5216	1388638	2025-08-22	Germany	2. Bundesliga	Preußen Münster	1. FC Nürnberg	h-win	2	1	12	6	8	3	1	7	1	4	3	6	0	0	49.00	51.00	20	13	\N	\N	\N	\N	\N	2025-12-02 13:06:23.056581	\N	\N	2	0	h-win	yes
+5217	1388634	2025-08-22	Germany	2. Bundesliga	SV Elversberg	1. FC Kaiserslautern	h-win	2	1	11	5	11	4	4	8	2	2	2	2	0	0	57.00	43.00	22	10	\N	\N	\N	\N	\N	2025-12-02 13:06:23.141672	\N	\N	1	0	h-win	yes
+5218	1388635	2025-08-23	Germany	2. Bundesliga	Hannover 96	1. FC Magdeburg	h-win	3	1	23	8	14	6	4	2	1	0	3	3	0	0	47.00	53.00	22	11	\N	\N	\N	\N	\N	2025-12-02 13:06:23.226011	\N	\N	2	0	h-win	yes
+5219	1388637	2025-08-23	Germany	2. Bundesliga	SC Paderborn 07	Fortuna Düsseldorf	a-win	1	2	17	4	14	6	9	7	0	0	2	2	1	0	43.00	57.00	12	8	\N	\N	\N	\N	\N	2025-12-02 13:06:23.311554	\N	\N	0	2	a-win	yes
+5220	1388636	2025-08-23	Germany	2. Bundesliga	Karlsruher SC	Eintracht Braunschweig	h-win	2	0	9	5	9	2	5	2	0	3	3	4	0	1	42.00	58.00	23	14	\N	\N	\N	\N	\N	2025-12-02 13:06:23.40328	\N	\N	1	0	h-win	yes
+5221	1388639	2025-08-23	Germany	2. Bundesliga	FC Schalke 04	VfL Bochum	h-win	2	1	15	8	14	3	8	9	2	7	0	3	0	0	52.00	48.00	6	6	\N	\N	\N	\N	\N	2025-12-02 13:06:23.506675	\N	\N	0	0	draw	yes
+5222	1388640	2025-08-24	Germany	2. Bundesliga	SpVgg Greuther Fürth	Holstein Kiel	a-win	0	2	15	2	17	4	6	3	1	4	3	8	0	0	55.00	45.00	13	18	\N	\N	\N	\N	\N	2025-12-02 13:06:23.58925	\N	\N	0	1	a-win	yes
+5223	1388633	2025-08-24	Germany	2. Bundesliga	SV Darmstadt 98	Hertha BSC	draw	0	0	14	4	15	1	7	2	1	1	1	1	0	0	60.00	40.00	12	17	\N	\N	\N	\N	\N	2025-12-02 13:06:23.675541	\N	\N	0	0	draw	yes
+5428	1394105	2025-09-17	Germany	3. Liga	Hansa Rostock	TSV 1860 München	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.393198	\N	\N	2	0	h-win	yes
+5224	1388632	2025-08-24	Germany	2. Bundesliga	Arminia Bielefeld	Dynamo Dresden	a-win	1	2	12	2	21	7	4	5	2	2	3	3	1	0	57.00	43.00	13	17	\N	\N	\N	\N	\N	2025-12-02 13:06:23.758859	\N	\N	0	1	a-win	yes
+5225	1388644	2025-08-29	Germany	2. Bundesliga	Hertha BSC	SV Elversberg	a-win	0	2	7	2	16	6	4	4	1	0	6	3	1	0	42.00	58.00	15	7	\N	\N	\N	\N	\N	2025-12-02 13:06:23.841575	\N	\N	0	1	a-win	yes
+5226	1388647	2025-08-29	Germany	2. Bundesliga	1. FC Nürnberg	SC Paderborn 07	draw	0	0	14	3	15	3	7	5	2	5	3	4	0	0	47.00	53.00	12	10	\N	\N	\N	\N	\N	2025-12-02 13:06:23.938489	\N	\N	0	0	draw	yes
+5227	1388641	2025-08-30	Germany	2. Bundesliga	VfL Bochum	Preußen Münster	a-win	1	2	16	4	5	2	6	4	2	1	3	3	0	0	40.00	60.00	21	13	\N	\N	\N	\N	\N	2025-12-02 13:06:24.01448	\N	\N	1	1	draw	yes
+5228	1388649	2025-08-30	Germany	2. Bundesliga	Holstein Kiel	Hannover 96	a-win	1	2	9	3	12	4	1	5	0	3	2	3	0	0	41.00	59.00	23	16	\N	\N	\N	\N	\N	2025-12-02 13:06:24.096466	\N	\N	1	0	h-win	yes
+5229	1388642	2025-08-30	Germany	2. Bundesliga	Eintracht Braunschweig	Arminia Bielefeld	draw	1	1	8	3	13	6	3	7	3	0	3	3	0	0	30.00	70.00	16	12	\N	\N	\N	\N	\N	2025-12-02 13:06:24.18165	\N	\N	0	0	draw	yes
+5230	1388643	2025-08-30	Germany	2. Bundesliga	Fortuna Düsseldorf	Karlsruher SC	draw	0	0	16	2	9	2	4	2	0	2	1	3	0	0	52.00	48.00	9	10	\N	\N	\N	\N	\N	2025-12-02 13:06:24.265189	\N	\N	0	0	draw	yes
+5231	1388646	2025-08-31	Germany	2. Bundesliga	1. FC Magdeburg	SpVgg Greuther Fürth	a-win	4	5	19	7	13	7	2	3	2	0	5	4	1	0	53.00	47.00	16	10	\N	\N	\N	\N	\N	2025-12-02 13:06:24.348411	\N	\N	1	1	draw	yes
+5232	1388648	2025-08-31	Germany	2. Bundesliga	Dynamo Dresden	FC Schalke 04	a-win	0	1	5	3	16	5	1	6	8	1	1	4	0	0	61.00	39.00	11	10	\N	\N	\N	\N	\N	2025-12-02 13:06:24.433426	\N	\N	0	0	draw	yes
+5233	1388645	2025-08-31	Germany	2. Bundesliga	1. FC Kaiserslautern	SV Darmstadt 98	h-win	3	1	17	8	17	5	3	5	0	1	2	2	0	0	47.00	53.00	8	11	\N	\N	\N	\N	\N	2025-12-02 13:06:24.514336	\N	\N	0	0	draw	yes
+5234	1388656	2025-09-12	Germany	2. Bundesliga	SC Paderborn 07	VfL Bochum	h-win	1	0	20	5	15	4	3	7	2	1	1	4	0	0	64.00	36.00	7	11	\N	\N	\N	\N	\N	2025-12-02 13:06:24.601123	\N	\N	0	0	draw	yes
+5235	1388650	2025-09-12	Germany	2. Bundesliga	Arminia Bielefeld	1. FC Magdeburg	h-win	2	0	13	5	17	3	5	5	1	0	1	2	0	0	42.00	58.00	13	12	\N	\N	\N	\N	\N	2025-12-02 13:06:24.688573	\N	\N	0	0	draw	yes
+5236	1388658	2025-09-13	Germany	2. Bundesliga	FC Schalke 04	Holstein Kiel	a-win	0	1	12	4	10	5	8	3	5	1	0	3	0	0	52.00	48.00	17	13	\N	\N	\N	\N	\N	2025-12-02 13:06:24.773926	\N	\N	0	1	a-win	yes
+5237	1388651	2025-09-13	Germany	2. Bundesliga	SV Darmstadt 98	Eintracht Braunschweig	h-win	2	1	10	4	13	5	2	5	5	1	2	0	0	1	58.00	42.00	11	11	\N	\N	\N	\N	\N	2025-12-02 13:06:24.858329	\N	\N	0	1	a-win	yes
+5238	1388655	2025-09-13	Germany	2. Bundesliga	Karlsruher SC	1. FC Nürnberg	h-win	2	1	10	7	24	10	6	10	1	1	2	1	0	0	41.00	59.00	8	9	\N	\N	\N	\N	\N	2025-12-02 13:06:24.939944	\N	\N	1	1	draw	yes
+5239	1388654	2025-09-13	Germany	2. Bundesliga	Hannover 96	Hertha BSC	a-win	0	3	21	3	9	3	15	0	0	0	2	5	0	0	66.00	34.00	13	19	\N	\N	\N	\N	\N	2025-12-02 13:06:25.028434	\N	\N	0	0	draw	yes
+5240	1388653	2025-09-14	Germany	2. Bundesliga	SpVgg Greuther Fürth	1. FC Kaiserslautern	a-win	0	3	8	3	14	6	4	5	2	2	1	6	1	0	35.00	65.00	9	15	\N	\N	\N	\N	\N	2025-12-02 13:06:25.115548	\N	\N	0	1	a-win	yes
+5241	1388657	2025-09-14	Germany	2. Bundesliga	Preußen Münster	Fortuna Düsseldorf	a-win	1	2	21	6	10	2	8	2	0	2	3	2	0	0	73.00	27.00	14	9	\N	\N	\N	\N	\N	2025-12-02 13:06:25.199931	\N	\N	1	0	h-win	yes
+5242	1388652	2025-09-14	Germany	2. Bundesliga	SV Elversberg	Dynamo Dresden	draw	2	2	23	7	11	4	7	5	1	2	0	4	0	0	64.00	36.00	8	12	\N	\N	\N	\N	\N	2025-12-02 13:06:25.288491	\N	\N	1	2	a-win	yes
+5243	1388659	2025-09-19	Germany	2. Bundesliga	Arminia Bielefeld	SpVgg Greuther Fürth	a-win	1	3	15	5	11	7	6	3	2	1	2	1	0	0	68.00	32.00	11	22	\N	\N	\N	\N	\N	2025-12-02 13:06:25.370029	\N	\N	0	1	a-win	yes
+5244	1388663	2025-09-19	Germany	2. Bundesliga	1. FC Kaiserslautern	Preußen Münster	h-win	4	1	15	6	14	6	4	0	1	1	3	4	0	0	36.00	64.00	19	12	\N	\N	\N	\N	\N	2025-12-02 13:06:25.451492	\N	\N	3	0	h-win	yes
+5245	1388662	2025-09-20	Germany	2. Bundesliga	Hertha BSC	SC Paderborn 07	a-win	0	2	9	3	17	6	7	4	0	1	4	1	0	0	49.00	51.00	12	8	\N	\N	\N	\N	\N	2025-12-02 13:06:25.536179	\N	\N	0	1	a-win	yes
+5246	1388664	2025-09-20	Germany	2. Bundesliga	1. FC Magdeburg	FC Schalke 04	a-win	0	2	8	2	10	2	3	2	5	1	2	1	0	0	60.00	40.00	15	14	\N	\N	\N	\N	\N	2025-12-02 13:06:25.621599	\N	\N	0	1	a-win	yes
+5247	1388660	2025-09-20	Germany	2. Bundesliga	Eintracht Braunschweig	SV Elversberg	a-win	1	4	10	2	22	8	4	9	1	0	4	6	1	0	42.00	58.00	13	15	\N	\N	\N	\N	\N	2025-12-02 13:06:25.708475	\N	\N	1	2	a-win	yes
+5248	1388665	2025-09-20	Germany	2. Bundesliga	1. FC Nürnberg	VfL Bochum	h-win	2	1	20	8	13	1	8	5	3	3	1	5	0	0	59.00	41.00	9	12	\N	\N	\N	\N	\N	2025-12-02 13:06:25.790448	\N	\N	0	0	draw	yes
+5249	1388661	2025-09-21	Germany	2. Bundesliga	Fortuna Düsseldorf	SV Darmstadt 98	a-win	0	3	11	1	18	10	6	6	1	2	0	0	0	0	50.00	50.00	11	15	\N	\N	\N	\N	\N	2025-12-02 13:06:25.873339	\N	\N	0	0	draw	yes
+5250	1388666	2025-09-21	Germany	2. Bundesliga	Dynamo Dresden	Hannover 96	draw	2	2	8	4	17	6	5	8	2	3	3	1	1	0	31.00	69.00	15	12	\N	\N	\N	\N	\N	2025-12-02 13:06:25.958275	\N	\N	2	2	draw	yes
+5251	1388667	2025-09-21	Germany	2. Bundesliga	Holstein Kiel	Karlsruher SC	h-win	3	0	11	4	13	4	4	5	2	2	5	3	0	0	46.00	54.00	14	15	\N	\N	\N	\N	\N	2025-12-02 13:06:26.046624	\N	\N	2	0	h-win	yes
+5252	1388676	2025-09-26	Germany	2. Bundesliga	FC Schalke 04	SpVgg Greuther Fürth	h-win	1	0	24	7	7	2	10	6	2	2	2	2	0	0	59.00	41.00	8	15	\N	\N	\N	\N	\N	2025-12-02 13:06:26.131562	\N	\N	0	0	draw	yes
+5253	1388669	2025-09-26	Germany	2. Bundesliga	SV Darmstadt 98	Dynamo Dresden	h-win	2	0	11	4	12	0	6	4	0	1	2	1	0	0	40.00	60.00	15	13	\N	\N	\N	\N	\N	2025-12-02 13:06:26.218451	\N	\N	1	0	h-win	yes
+5254	1388674	2025-09-27	Germany	2. Bundesliga	SC Paderborn 07	1. FC Kaiserslautern	h-win	2	0	25	11	9	3	8	2	1	0	2	0	0	1	69.00	31.00	9	9	\N	\N	\N	\N	\N	2025-12-02 13:06:26.301268	\N	\N	0	0	draw	yes
+5255	1388672	2025-09-27	Germany	2. Bundesliga	Karlsruher SC	1. FC Magdeburg	h-win	1	0	16	6	21	6	8	5	0	2	2	6	0	0	49.00	51.00	10	13	\N	\N	\N	\N	\N	2025-12-02 13:06:26.383293	\N	\N	0	0	draw	yes
+5256	1388670	2025-09-27	Germany	2. Bundesliga	SV Elversberg	Holstein Kiel	h-win	1	0	19	4	12	3	9	4	1	0	4	2	0	0	60.00	40.00	11	14	\N	\N	\N	\N	\N	2025-12-02 13:06:26.464223	\N	\N	0	0	draw	yes
+5257	1388668	2025-09-27	Germany	2. Bundesliga	VfL Bochum	Fortuna Düsseldorf	a-win	0	1	23	4	7	3	4	3	2	1	5	3	0	0	65.00	35.00	15	14	\N	\N	\N	\N	\N	2025-12-02 13:06:26.549824	\N	\N	0	1	a-win	yes
+5258	1388671	2025-09-28	Germany	2. Bundesliga	Hannover 96	Arminia Bielefeld	h-win	3	1	13	4	11	1	4	2	2	1	2	1	0	0	55.00	45.00	16	11	\N	\N	\N	\N	\N	2025-12-02 13:06:26.635455	\N	\N	0	1	a-win	yes
+5259	1388673	2025-09-28	Germany	2. Bundesliga	1. FC Nürnberg	Hertha BSC	a-win	0	3	12	4	14	4	6	1	0	5	2	3	0	0	63.00	37.00	12	22	\N	\N	\N	\N	\N	2025-12-02 13:06:26.718836	\N	\N	0	2	a-win	yes
+5260	1388675	2025-09-28	Germany	2. Bundesliga	Preußen Münster	Eintracht Braunschweig	h-win	3	1	11	4	12	5	3	9	0	2	3	4	0	0	51.00	49.00	16	16	\N	\N	\N	\N	\N	2025-12-02 13:06:26.803421	\N	\N	1	0	h-win	yes
+5261	1388679	2025-10-03	Germany	2. Bundesliga	Fortuna Düsseldorf	1. FC Nürnberg	a-win	2	3	12	7	17	7	1	2	2	1	3	2	0	0	55.00	45.00	14	11	\N	\N	\N	\N	\N	2025-12-02 13:06:26.886215	\N	\N	0	1	a-win	yes
+5262	1388678	2025-10-03	Germany	2. Bundesliga	Eintracht Braunschweig	SC Paderborn 07	a-win	1	2	7	2	16	3	4	4	1	3	3	2	0	0	47.00	53.00	16	14	\N	\N	\N	\N	\N	2025-12-02 13:06:26.970674	\N	\N	0	1	a-win	yes
+5263	1388681	2025-10-04	Germany	2. Bundesliga	Hertha BSC	Preußen Münster	h-win	2	1	16	7	17	6	5	4	5	2	4	3	0	0	34.00	66.00	12	9	\N	\N	\N	\N	\N	2025-12-02 13:06:27.060261	\N	\N	1	0	h-win	yes
+5264	1388682	2025-10-04	Germany	2. Bundesliga	Holstein Kiel	SV Darmstadt 98	draw	1	1	22	7	8	1	5	0	4	2	1	1	0	0	61.00	39.00	9	13	\N	\N	\N	\N	\N	2025-12-02 13:06:27.146527	\N	\N	0	0	draw	yes
+5265	1388683	2025-10-04	Germany	2. Bundesliga	1. FC Kaiserslautern	VfL Bochum	h-win	3	2	22	10	11	3	11	2	2	2	2	5	0	0	44.00	56.00	9	13	\N	\N	\N	\N	\N	2025-12-02 13:06:27.230412	\N	\N	1	1	draw	yes
+5266	1388685	2025-10-04	Germany	2. Bundesliga	Dynamo Dresden	Karlsruher SC	draw	3	3	13	4	22	6	3	7	1	1	1	1	0	0	55.00	45.00	10	12	\N	\N	\N	\N	\N	2025-12-02 13:06:27.31642	\N	\N	1	2	a-win	yes
+5267	1388680	2025-10-05	Germany	2. Bundesliga	SpVgg Greuther Fürth	Hannover 96	draw	2	2	12	5	10	6	3	6	2	1	2	1	0	0	42.00	58.00	9	14	\N	\N	\N	\N	\N	2025-12-02 13:06:27.399401	\N	\N	1	1	draw	yes
+5268	1388684	2025-10-05	Germany	2. Bundesliga	1. FC Magdeburg	SV Elversberg	a-win	0	4	15	5	20	8	7	13	3	0	1	2	0	0	56.00	44.00	12	6	\N	\N	\N	\N	\N	2025-12-02 13:06:27.48424	\N	\N	0	2	a-win	yes
+5269	1388677	2025-10-05	Germany	2. Bundesliga	Arminia Bielefeld	FC Schalke 04	a-win	1	2	11	4	11	4	6	2	11	4	3	2	0	0	70.00	30.00	16	13	\N	\N	\N	\N	\N	2025-12-02 13:06:27.581224	\N	\N	0	2	a-win	yes
+5270	1388688	2025-10-17	Germany	2. Bundesliga	Fortuna Düsseldorf	Eintracht Braunschweig	a-win	1	2	14	5	14	5	9	2	2	0	1	2	0	0	66.00	34.00	14	14	\N	\N	\N	\N	\N	2025-12-02 13:06:27.669881	\N	\N	0	2	a-win	yes
+5271	1388690	2025-10-17	Germany	2. Bundesliga	Hannover 96	FC Schalke 04	a-win	0	3	13	3	16	5	9	7	4	0	0	2	0	0	68.00	32.00	13	16	\N	\N	\N	\N	\N	2025-12-02 13:06:27.756501	\N	\N	0	2	a-win	yes
+5272	1388693	2025-10-18	Germany	2. Bundesliga	SC Paderborn 07	Arminia Bielefeld	h-win	4	3	20	9	16	4	8	5	4	1	5	3	0	0	50.00	50.00	20	16	\N	\N	\N	\N	\N	2025-12-02 13:06:27.843887	\N	\N	1	2	a-win	yes
+5273	1388691	2025-10-18	Germany	2. Bundesliga	Karlsruher SC	1. FC Kaiserslautern	a-win	2	3	18	10	12	4	7	1	4	2	6	4	0	0	63.00	37.00	17	13	\N	\N	\N	\N	\N	2025-12-02 13:06:27.927571	\N	\N	0	1	a-win	yes
+5274	1388694	2025-10-18	Germany	2. Bundesliga	Preußen Münster	Dynamo Dresden	draw	2	2	12	3	14	6	4	3	0	2	2	3	0	1	63.00	37.00	23	13	\N	\N	\N	\N	\N	2025-12-02 13:06:28.015725	\N	\N	0	1	a-win	yes
+5275	1388686	2025-10-18	Germany	2. Bundesliga	VfL Bochum	Hertha BSC	h-win	3	2	10	3	13	6	1	6	1	3	3	3	0	0	37.00	63.00	22	9	\N	\N	\N	\N	\N	2025-12-02 13:06:28.110499	\N	\N	2	0	h-win	yes
+5276	1388692	2025-10-19	Germany	2. Bundesliga	1. FC Nürnberg	Holstein Kiel	draw	1	1	16	6	12	4	3	7	3	1	3	1	0	0	40.00	60.00	8	16	\N	\N	\N	\N	\N	2025-12-02 13:06:28.195714	\N	\N	1	0	h-win	yes
+5277	1388687	2025-10-19	Germany	2. Bundesliga	SV Darmstadt 98	1. FC Magdeburg	draw	0	0	11	6	13	2	1	5	1	3	2	1	1	0	37.00	63.00	15	16	\N	\N	\N	\N	\N	2025-12-02 13:06:28.278903	\N	\N	0	0	draw	yes
+5278	1388689	2025-10-19	Germany	2. Bundesliga	SV Elversberg	SpVgg Greuther Fürth	h-win	6	0	18	8	10	5	6	3	4	1	1	3	0	0	45.00	55.00	10	11	\N	\N	\N	\N	\N	2025-12-02 13:06:28.363462	\N	\N	1	0	h-win	yes
+5279	1388702	2025-10-24	Germany	2. Bundesliga	FC Schalke 04	SV Darmstadt 98	h-win	1	0	10	2	7	1	6	4	1	5	5	1	0	0	38.00	62.00	16	13	\N	\N	\N	\N	\N	2025-12-02 13:06:28.447805	\N	\N	1	0	h-win	yes
+5280	1388697	2025-10-24	Germany	2. Bundesliga	SpVgg Greuther Fürth	Karlsruher SC	a-win	1	4	16	5	13	8	9	5	0	1	0	3	0	0	54.00	46.00	7	18	\N	\N	\N	\N	\N	2025-12-02 14:12:09.544436	\N	\N	0	2	a-win	yes
+5281	1388703	2025-10-25	Germany	2. Bundesliga	Dynamo Dresden	SC Paderborn 07	a-win	1	2	8	3	12	4	10	4	2	2	2	2	0	0	46.00	54.00	9	14	\N	\N	\N	\N	\N	2025-12-02 14:12:09.630403	\N	\N	1	1	draw	yes
+5282	1388695	2025-10-25	Germany	2. Bundesliga	Arminia Bielefeld	SV Elversberg	h-win	2	0	10	2	16	2	3	6	1	2	2	2	0	0	31.00	69.00	13	12	\N	\N	\N	\N	\N	2025-12-02 14:12:09.715221	\N	\N	2	0	h-win	yes
+5283	1388699	2025-10-25	Germany	2. Bundesliga	Holstein Kiel	VfL Bochum	draw	1	1	19	8	12	2	9	7	0	2	1	5	0	0	67.00	33.00	7	18	\N	\N	\N	\N	\N	2025-12-02 14:12:09.799497	\N	\N	0	0	draw	yes
+5284	1388698	2025-10-25	Germany	2. Bundesliga	Hertha BSC	Fortuna Düsseldorf	h-win	1	0	11	4	18	4	6	7	1	0	2	2	0	0	52.00	48.00	12	7	\N	\N	\N	\N	\N	2025-12-02 14:12:09.88532	\N	\N	0	0	draw	yes
+5285	1388701	2025-10-26	Germany	2. Bundesliga	1. FC Magdeburg	Preußen Münster	h-win	2	0	12	5	10	4	2	5	7	2	1	4	0	0	35.00	65.00	15	15	\N	\N	\N	\N	\N	2025-12-02 14:12:09.969671	\N	\N	0	0	draw	yes
+5286	1388696	2025-10-26	Germany	2. Bundesliga	Eintracht Braunschweig	Hannover 96	a-win	0	3	8	3	24	12	2	5	0	1	2	5	1	0	27.00	73.00	9	17	\N	\N	\N	\N	\N	2025-12-02 14:12:10.055348	\N	\N	0	2	a-win	yes
+5287	1388700	2025-10-26	Germany	2. Bundesliga	1. FC Kaiserslautern	1. FC Nürnberg	draw	1	1	14	7	11	4	4	8	0	0	3	3	0	0	55.00	45.00	17	16	\N	\N	\N	\N	\N	2025-12-02 14:12:10.139699	\N	\N	1	0	h-win	yes
+5288	1388712	2025-10-31	Germany	2. Bundesliga	Preußen Münster	Holstein Kiel	h-win	2	1	12	5	17	4	4	7	0	3	5	4	0	0	41.00	59.00	18	18	\N	\N	\N	\N	\N	2025-12-02 14:12:10.223699	1.82	1.12	0	1	a-win	yes
+5289	1388707	2025-10-31	Germany	2. Bundesliga	SV Elversberg	Hannover 96	draw	2	2	13	7	10	2	5	4	0	1	3	2	0	0	46.00	54.00	13	15	\N	\N	\N	\N	\N	2025-12-02 14:12:10.30714	1.36	1.51	1	1	draw	yes
+5290	1388708	2025-11-01	Germany	2. Bundesliga	Hertha BSC	Dynamo Dresden	h-win	2	0	11	6	13	4	3	5	0	1	0	0	0	0	48.00	52.00	16	9	\N	\N	\N	6	15	2025-12-02 14:12:10.474789	1.64	0.63	2	0	h-win	yes
+5291	1388710	2025-11-01	Germany	2. Bundesliga	1. FC Nürnberg	Eintracht Braunschweig	h-win	2	1	4	2	12	4	1	9	2	2	2	3	0	1	47.00	53.00	13	13	\N	\N	\N	10	16	2025-12-02 14:12:10.559825	0.96	0.75	2	1	h-win	yes
+5292	1388709	2025-11-01	Germany	2. Bundesliga	Karlsruher SC	FC Schalke 04	h-win	2	1	8	3	11	4	2	7	6	1	4	5	0	0	65.00	35.00	13	15	\N	\N	\N	8	1	2025-12-02 14:12:10.646829	0.70	1.75	0	0	draw	yes
+5293	1388705	2025-11-01	Germany	2. Bundesliga	SV Darmstadt 98	Arminia Bielefeld	draw	2	2	19	8	10	3	9	9	0	2	4	1	0	0	54.00	46.00	14	12	\N	\N	\N	5	11	2025-12-02 14:12:10.729879	3.31	0.67	2	1	h-win	yes
+5294	1388706	2025-11-02	Germany	2. Bundesliga	Fortuna Düsseldorf	1. FC Kaiserslautern	draw	1	1	11	2	16	8	2	4	1	2	4	2	0	0	47.00	53.00	14	12	\N	\N	\N	14	7	2025-12-02 14:12:10.815125	1.11	1.44	0	0	draw	yes
+5295	1388704	2025-11-02	Germany	2. Bundesliga	VfL Bochum	1. FC Magdeburg	h-win	2	0	24	9	16	6	8	7	0	1	2	4	0	0	36.00	64.00	10	5	\N	\N	\N	12	18	2025-12-02 14:12:10.903443	3.32	2.11	1	0	h-win	yes
+5296	1388711	2025-11-02	Germany	2. Bundesliga	SC Paderborn 07	SpVgg Greuther Fürth	h-win	2	1	14	6	20	7	5	5	0	1	1	3	0	0	54.00	46.00	15	18	\N	\N	\N	2	17	2025-12-02 14:12:10.988763	1.84	1.43	1	0	h-win	yes
+5297	1388715	2025-11-07	Germany	2. Bundesliga	SpVgg Greuther Fürth	Preußen Münster	h-win	1	0	7	2	12	3	4	7	6	3	2	4	0	0	44.00	56.00	9	12	\N	\N	\N	17	9	2025-12-02 14:12:11.074778	0.21	0.84	0	0	draw	yes
+5298	1388721	2025-11-07	Germany	2. Bundesliga	Dynamo Dresden	1. FC Nürnberg	a-win	1	2	9	1	9	4	5	5	2	0	3	3	0	0	51.00	49.00	12	18	\N	\N	\N	15	10	2025-12-02 14:12:11.158877	0.96	1.21	1	1	draw	yes
+5299	1388716	2025-11-08	Germany	2. Bundesliga	Hannover 96	SV Darmstadt 98	a-win	2	3	20	10	16	8	5	5	0	0	2	1	0	0	50.00	50.00	16	12	\N	\N	\N	4	5	2025-12-02 14:12:11.241924	1.80	2.59	2	1	h-win	yes
+5300	1388720	2025-11-08	Germany	2. Bundesliga	FC Schalke 04	SV Elversberg	h-win	1	0	7	2	6	0	1	5	2	6	3	2	0	0	32.00	68.00	17	12	\N	\N	\N	1	3	2025-12-02 14:12:11.324905	0.38	0.35	1	0	h-win	yes
+5301	1388713	2025-11-08	Germany	2. Bundesliga	Arminia Bielefeld	Karlsruher SC	h-win	4	0	19	6	8	2	3	5	2	0	0	2	0	0	44.00	56.00	7	11	\N	\N	\N	11	8	2025-12-02 14:12:11.425067	3.00	0.45	1	0	h-win	yes
+5302	1388718	2025-11-08	Germany	2. Bundesliga	1. FC Kaiserslautern	Hertha BSC	a-win	0	1	16	9	9	3	7	4	1	1	2	3	0	0	62.00	38.00	9	13	\N	\N	\N	7	6	2025-12-02 14:12:11.512083	1.35	1.04	0	1	a-win	yes
+5303	1388719	2025-11-09	Germany	2. Bundesliga	1. FC Magdeburg	SC Paderborn 07	a-win	0	1	17	3	12	6	3	5	0	3	4	4	0	0	57.00	43.00	10	14	\N	\N	\N	18	2	2025-12-02 14:12:11.594499	1.99	0.92	0	1	a-win	yes
+5304	1388717	2025-11-09	Germany	2. Bundesliga	Holstein Kiel	Fortuna Düsseldorf	h-win	1	0	13	4	17	6	3	5	2	1	1	3	0	0	45.00	55.00	9	16	\N	\N	\N	13	14	2025-12-02 14:12:11.681881	0.98	1.39	0	0	draw	yes
+5305	1388714	2025-11-09	Germany	2. Bundesliga	Eintracht Braunschweig	VfL Bochum	a-win	0	2	23	6	13	4	10	9	3	0	3	3	0	0	61.00	39.00	10	10	\N	\N	\N	16	12	2025-12-02 14:12:11.767708	3.21	1.56	0	1	a-win	yes
+5306	1388725	2025-11-21	Germany	2. Bundesliga	Hertha BSC	Eintracht Braunschweig	h-win	1	0	15	5	15	3	6	5	1	1	1	3	0	0	52.00	48.00	14	12	\N	\N	\N	6	16	2025-12-02 14:12:11.85158	1.17	0.96	0	0	draw	yes
+5307	1388722	2025-11-21	Germany	2. Bundesliga	VfL Bochum	Dynamo Dresden	a-win	1	2	23	4	10	4	13	8	1	0	0	3	0	0	57.00	43.00	1	10	\N	\N	\N	12	15	2025-12-02 14:12:11.93514	2.58	0.97	0	2	a-win	yes
+5308	1388724	2025-11-22	Germany	2. Bundesliga	Fortuna Düsseldorf	1. FC Magdeburg	h-win	2	1	11	5	25	9	3	11	2	3	4	1	0	0	36.00	64.00	17	10	\N	\N	\N	14	18	2025-12-02 14:12:12.019788	1.31	2.34	1	0	h-win	yes
+5309	1388729	2025-11-22	Germany	2. Bundesliga	SC Paderborn 07	Hannover 96	a-win	0	2	16	4	15	9	11	4	0	0	0	1	0	0	55.00	45.00	12	5	\N	\N	\N	2	4	2025-12-02 14:12:12.102676	1.18	1.28	0	2	a-win	yes
+5310	1388730	2025-11-22	Germany	2. Bundesliga	Preußen Münster	FC Schalke 04	draw	0	0	5	2	14	6	4	6	2	0	1	5	1	0	55.00	45.00	7	20	\N	\N	\N	9	1	2025-12-02 14:12:12.189001	0.42	1.51	0	0	draw	yes
+5311	1388723	2025-11-22	Germany	2. Bundesliga	SV Darmstadt 98	SpVgg Greuther Fürth	h-win	4	2	18	9	14	8	5	2	2	1	2	3	0	0	58.00	42.00	13	9	\N	\N	\N	5	17	2025-12-02 14:12:12.27676	2.32	1.35	1	1	draw	yes
+5312	1388728	2025-11-23	Germany	2. Bundesliga	1. FC Nürnberg	Arminia Bielefeld	h-win	2	0	11	6	16	1	6	13	1	4	3	3	0	0	57.00	43.00	12	12	\N	\N	\N	10	11	2025-12-02 14:12:12.364786	1.76	0.74	0	0	draw	yes
+5313	1388726	2025-11-23	Germany	2. Bundesliga	1. FC Kaiserslautern	Holstein Kiel	h-win	4	1	28	9	8	2	10	3	2	0	2	5	0	1	63.00	37.00	14	16	\N	\N	\N	7	13	2025-12-02 14:12:12.449387	3.87	1.64	4	1	h-win	yes
+5314	1388727	2025-11-23	Germany	2. Bundesliga	Karlsruher SC	SV Elversberg	a-win	2	3	11	4	26	8	4	9	0	1	3	1	0	0	53.00	47.00	15	13	\N	\N	\N	8	3	2025-12-02 14:12:12.531689	1.68	3.50	0	1	a-win	yes
+5315	1388735	2025-11-28	Germany	2. Bundesliga	Hannover 96	Karlsruher SC	h-win	3	0	18	7	9	2	4	1	2	0	2	1	0	0	57.00	43.00	12	8	\N	\N	\N	4	8	2025-12-02 14:12:12.613011	2.26	0.62	0	0	draw	yes
+5316	1388738	2025-11-28	Germany	2. Bundesliga	FC Schalke 04	SC Paderborn 07	h-win	2	1	14	5	8	1	3	3	3	3	2	4	0	0	38.00	62.00	7	14	\N	\N	\N	1	2	2025-12-02 14:12:12.699725	1.54	0.72	1	1	draw	yes
+5317	1388734	2025-11-29	Germany	2. Bundesliga	SpVgg Greuther Fürth	VfL Bochum	a-win	0	3	10	1	14	6	6	9	3	1	2	0	0	0	55.00	45.00	13	13	\N	\N	\N	17	12	2025-12-02 14:12:12.785212	0.48	2.89	0	3	a-win	yes
+5318	1388736	2025-11-29	Germany	2. Bundesliga	Holstein Kiel	Hertha BSC	a-win	0	1	9	0	10	2	8	3	2	2	2	6	0	0	52.00	48.00	13	14	\N	\N	\N	13	6	2025-12-02 14:12:12.868	1.30	1.87	0	0	draw	yes
+5319	1388732	2025-11-29	Germany	2. Bundesliga	Eintracht Braunschweig	1. FC Kaiserslautern	h-win	2	0	16	6	10	5	5	6	0	0	2	5	0	0	33.00	67.00	16	18	\N	\N	\N	16	7	2025-12-02 14:12:12.957693	1.73	0.48	1	0	h-win	yes
+5320	1388737	2025-11-29	Germany	2. Bundesliga	1. FC Magdeburg	1. FC Nürnberg	h-win	3	0	19	8	7	1	6	5	1	0	3	3	0	1	59.00	41.00	12	7	\N	\N	\N	18	10	2025-12-02 14:12:13.049418	1.81	0.63	0	0	draw	yes
+5321	1388739	2025-11-30	Germany	2. Bundesliga	Dynamo Dresden	Fortuna Düsseldorf	h-win	2	1	16	4	13	2	4	0	2	3	1	2	0	0	43.00	57.00	12	13	\N	\N	\N	15	14	2025-12-02 14:12:13.132239	2.39	1.06	1	0	h-win	yes
+5322	1388731	2025-11-30	Germany	2. Bundesliga	Arminia Bielefeld	Preußen Münster	a-win	1	2	17	2	12	6	13	2	2	1	3	6	0	0	51.00	49.00	16	18	\N	\N	\N	11	9	2025-12-02 14:12:13.218349	1.83	1.46	1	1	draw	yes
+5323	1388733	2025-11-30	Germany	2. Bundesliga	SV Elversberg	SV Darmstadt 98	draw	0	0	14	3	11	2	6	5	0	0	0	1	0	0	47.00	53.00	8	12	\N	\N	\N	3	5	2025-12-02 14:12:13.299753	1.78	1.49	0	0	draw	yes
+5324	1378938	2025-08-15	Germany	DFB Pokal	SG Sonnenhof Grossaspach	Bayer Leverkusen	a-win	0	4	12	5	20	9	6	4	0	1	3	2	2	0	31.00	69.00	16	10	\N	\N	\N	\N	\N	2025-12-02 14:12:14.826734	\N	\N	0	1	a-win	yes
+5325	1378954	2025-08-15	Germany	DFB Pokal	FC Saarbrücken	1. FC Magdeburg	a-win	1	3	22	3	11	5	6	3	0	1	3	1	0	0	47.00	53.00	6	15	\N	\N	\N	\N	\N	2025-12-02 14:12:14.908567	\N	\N	0	2	a-win	yes
+5326	1378937	2025-08-15	Germany	DFB Pokal	FC Gutersloh	Union Berlin	a-win	0	5	19	5	15	8	5	4	3	1	4	0	0	0	52.00	48.00	13	11	\N	\N	\N	\N	\N	2025-12-02 14:12:15.008756	\N	\N	0	3	a-win	yes
+5327	1378931	2025-08-15	Germany	DFB Pokal	Arminia Bielefeld	Werder Bremen	h-win	1	0	13	4	10	0	3	4	1	2	1	5	0	1	51.00	49.00	14	13	\N	\N	\N	\N	\N	2025-12-02 14:12:15.09281	\N	\N	0	0	draw	yes
+5328	1378933	2025-08-16	Germany	DFB Pokal	BFC Dynamo	VfL Bochum	a-win	1	3	10	5	28	10	2	10	1	2	5	3	2	0	31.00	69.00	20	20	\N	\N	\N	\N	\N	2025-12-02 14:12:15.178259	\N	\N	0	0	draw	yes
+5329	1378949	2025-08-16	Germany	DFB Pokal	Pirmasens	Hamburger SV	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:15.263546	\N	\N	0	0	draw	yes
+5330	1378955	2025-08-16	Germany	DFB Pokal	SV Sandhausen	RB Leipzig	a-win	2	4	6	2	26	6	1	9	1	3	2	1	0	0	25.00	75.00	10	5	\N	\N	\N	\N	\N	2025-12-02 14:12:15.356697	\N	\N	2	2	draw	yes
+5331	1378940	2025-08-16	Germany	DFB Pokal	Hansa Rostock	1899 Hoffenheim	a-win	0	4	10	5	13	7	6	5	0	5	1	1	0	0	37.00	63.00	10	15	\N	\N	\N	\N	\N	2025-12-02 14:12:15.437364	\N	\N	0	1	a-win	yes
+5332	1378948	2025-08-16	Germany	DFB Pokal	Eintracht Norderstedt	FC St. Pauli	draw	0	0	9	3	41	16	3	24	2	2	4	0	0	0	22.00	78.00	13	10	\N	\N	\N	\N	\N	2025-12-02 14:12:15.526846	\N	\N	0	0	draw	yes
+5333	1378942	2025-08-16	Germany	DFB Pokal	Illertissen	1. FC Nürnberg	draw	3	3	6	3	37	10	3	11	0	1	7	3	0	0	22.00	78.00	26	16	\N	\N	\N	\N	\N	2025-12-02 14:12:15.609711	\N	\N	2	0	h-win	yes
+5334	1378932	2025-08-16	Germany	DFB Pokal	Bahlinger SC	1. FC Heidenheim	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:15.69666	\N	\N	0	2	a-win	yes
+5335	1378941	2025-08-16	Germany	DFB Pokal	Hemelingen	VfL Wolfsburg	a-win	0	9	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:15.779722	\N	\N	0	3	a-win	yes
+5336	1378934	2025-08-16	Germany	DFB Pokal	Energie Cottbus	Hannover 96	h-win	1	0	5	2	14	5	4	8	1	5	4	3	0	0	34.00	66.00	18	11	\N	\N	\N	\N	\N	2025-12-02 14:12:15.86587	\N	\N	1	0	h-win	yes
+5337	1378945	2025-08-16	Germany	DFB Pokal	Sportfreunde Lotte	SC Freiburg	a-win	0	2	2	0	17	3	1	2	0	1	5	1	0	0	17.00	83.00	19	4	\N	\N	\N	\N	\N	2025-12-02 14:12:15.947742	\N	\N	0	1	a-win	yes
+5338	1378946	2025-08-16	Germany	DFB Pokal	VfB Lübeck	SV Darmstadt 98	a-win	1	2	8	4	18	8	2	4	1	0	3	1	0	0	34.00	66.00	19	10	\N	\N	\N	\N	\N	2025-12-02 14:12:16.03321	\N	\N	0	1	a-win	yes
+5339	1378958	2025-08-17	Germany	DFB Pokal	FC Viktoria Köln	SC Paderborn 07	a-win	1	3	14	4	10	7	2	0	2	2	2	3	0	0	58.00	42.00	9	16	\N	\N	\N	\N	\N	2025-12-02 14:12:16.117724	\N	\N	0	3	a-win	yes
+5340	1378966	2025-08-17	Germany	DFB Pokal	FV Engers 07	Eintracht Frankfurt	a-win	0	5	6	0	31	10	1	9	7	1	3	3	0	0	17.00	83.00	8	7	\N	\N	\N	\N	\N	2025-12-02 14:12:16.206508	\N	\N	0	2	a-win	yes
+5341	1378951	2025-08-17	Germany	DFB Pokal	SSV Jahn Regensburg	1. FC Köln	a-win	1	2	7	2	17	2	3	12	2	1	1	2	0	0	23.00	77.00	13	8	\N	\N	\N	\N	\N	2025-12-02 14:12:16.291711	\N	\N	0	0	draw	yes
+5342	1378935	2025-08-17	Germany	DFB Pokal	Atlas Delmenhorst	Borussia Mönchengladbach	a-win	2	3	8	4	26	10	2	8	2	7	5	0	0	0	36.00	64.00	21	8	\N	\N	\N	\N	\N	2025-12-02 14:12:16.375548	\N	\N	2	2	draw	yes
+5343	1378944	2025-08-17	Germany	DFB Pokal	Lokomotive Leipzig	FC Schalke 04	a-win	0	1	11	4	26	11	8	9	6	2	2	2	0	0	46.00	54.00	11	13	\N	\N	\N	\N	\N	2025-12-02 14:12:16.463808	\N	\N	0	0	draw	yes
+5344	1378947	2025-08-17	Germany	DFB Pokal	ZFC Meuselwitz	Karlsruher SC	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:16.55159	\N	\N	0	3	a-win	yes
+5345	1378943	2025-08-17	Germany	DFB Pokal	BW Lohne	SpVgg Greuther Fürth	a-win	0	2	6	1	29	8	2	13	1	2	3	0	2	0	25.00	75.00	22	12	\N	\N	\N	\N	\N	2025-12-02 14:12:16.636808	\N	\N	0	0	draw	yes
+5346	1378952	2025-08-17	Germany	DFB Pokal	RSV Eintracht	1. FC Kaiserslautern	a-win	0	7	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:16.726616	\N	\N	0	4	a-win	yes
+5347	1378939	2025-08-17	Germany	DFB Pokal	Hallescher FC	FC Augsburg	a-win	0	2	10	2	17	7	10	2	2	2	2	4	0	0	43.00	57.00	15	14	\N	\N	\N	\N	\N	2025-12-02 14:12:16.808495	\N	\N	0	0	draw	yes
+5348	1378936	2025-08-17	Germany	DFB Pokal	FC 08 Homburg	Holstein Kiel	a-win	0	2	13	3	26	10	5	19	3	2	2	3	0	0	39.00	61.00	13	15	\N	\N	\N	\N	\N	2025-12-02 14:12:16.895874	\N	\N	0	1	a-win	yes
+5349	1378965	2025-08-17	Germany	DFB Pokal	SSV Ulm 1846	SV Elversberg	a-win	0	1	9	0	20	5	3	10	2	2	3	1	0	0	42.00	58.00	13	7	\N	\N	\N	\N	\N	2025-12-02 14:12:16.97767	\N	\N	0	0	draw	yes
+5350	1378957	2025-08-18	Germany	DFB Pokal	Dynamo Dresden	FSV Mainz 05	a-win	0	1	16	7	12	6	3	4	0	1	2	2	0	0	52.00	48.00	13	16	\N	\N	\N	\N	\N	2025-12-02 14:12:17.063759	\N	\N	0	1	a-win	yes
+5351	1378950	2025-08-18	Germany	DFB Pokal	Preußen Münster	Hertha BSC	draw	0	0	27	5	11	5	10	0	2	2	3	4	0	0	70.00	30.00	15	21	\N	\N	\N	\N	\N	2025-12-02 14:12:17.149314	\N	\N	0	0	draw	yes
+5352	1378956	2025-08-18	Germany	DFB Pokal	FC Schweinfurt 05	Fortuna Düsseldorf	a-win	2	4	11	4	25	11	2	7	0	2	4	3	0	0	37.00	63.00	15	13	\N	\N	\N	\N	\N	2025-12-02 14:12:17.234585	\N	\N	1	0	h-win	yes
+5353	1378953	2025-08-18	Germany	DFB Pokal	Rot-Weiß Essen	Borussia Dortmund	a-win	0	1	12	5	13	4	2	6	2	4	1	1	0	0	34.00	66.00	11	9	\N	\N	\N	\N	\N	2025-12-02 14:12:17.334031	\N	\N	0	0	draw	yes
+5354	1378959	2025-08-26	Germany	DFB Pokal	Eintracht Braunschweig	VfB Stuttgart	draw	3	3	24	7	21	7	8	7	5	3	3	5	0	0	33.00	67.00	14	21	\N	\N	\N	\N	\N	2025-12-02 14:12:17.424952	\N	\N	1	1	draw	yes
+5355	1378960	2025-08-27	Germany	DFB Pokal	SV Wehen	Bayern München	a-win	2	3	6	2	22	15	0	7	1	5	1	1	0	0	21.00	79.00	12	8	\N	\N	\N	\N	\N	2025-12-02 14:12:17.51246	\N	\N	0	1	a-win	yes
+5356	1463462	2025-10-28	Germany	DFB Pokal	Hertha BSC	SV Elversberg	h-win	3	0	9	4	11	2	3	4	3	2	0	3	0	1	47.00	53.00	12	17	\N	\N	\N	\N	\N	2025-12-02 14:12:17.591785	\N	\N	1	0	h-win	yes
+5357	1463460	2025-10-28	Germany	DFB Pokal	VfL Wolfsburg	Holstein Kiel	a-win	0	1	14	2	13	3	5	4	4	1	7	3	1	0	50.00	50.00	15	14	\N	\N	\N	\N	\N	2025-12-02 14:12:17.684902	\N	\N	0	1	a-win	yes
+5358	1463459	2025-10-28	Germany	DFB Pokal	Eintracht Frankfurt	Borussia Dortmund	draw	1	1	16	7	13	3	3	6	4	4	1	3	0	0	49.00	51.00	9	14	\N	\N	\N	\N	\N	2025-12-02 14:12:17.769343	\N	\N	1	0	h-win	yes
+5359	1463461	2025-10-28	Germany	DFB Pokal	1. FC Heidenheim	Hamburger SV	a-win	0	1	6	1	17	7	4	8	0	0	5	1	1	0	43.00	57.00	10	8	\N	\N	\N	\N	\N	2025-12-02 14:12:17.853695	\N	\N	0	0	draw	yes
+5360	1463464	2025-10-28	Germany	DFB Pokal	Borussia Mönchengladbach	Karlsruher SC	h-win	3	1	26	10	12	5	10	4	1	1	1	2	0	0	50.00	50.00	10	12	\N	\N	\N	\N	\N	2025-12-02 14:12:17.936631	\N	\N	1	0	h-win	yes
+5361	1463465	2025-10-28	Germany	DFB Pokal	FC Augsburg	VfL Bochum	a-win	0	1	15	2	16	4	7	5	0	1	1	3	0	0	61.00	39.00	8	8	\N	\N	\N	\N	\N	2025-12-02 14:12:18.021723	\N	\N	0	1	a-win	yes
+5362	1463466	2025-10-28	Germany	DFB Pokal	FC St. Pauli	1899 Hoffenheim	draw	1	1	19	5	8	4	8	7	2	8	5	5	0	0	41.00	59.00	15	18	\N	\N	\N	\N	\N	2025-12-02 14:12:18.108062	\N	\N	1	0	h-win	yes
+5363	1463463	2025-10-28	Germany	DFB Pokal	Energie Cottbus	RB Leipzig	a-win	1	4	16	8	17	8	6	6	1	0	1	3	0	0	39.00	61.00	8	11	\N	\N	\N	\N	\N	2025-12-02 14:12:18.190438	\N	\N	0	3	a-win	yes
+5364	1463469	2025-10-29	Germany	DFB Pokal	FSV Mainz 05	VfB Stuttgart	a-win	0	2	10	2	17	6	2	4	2	1	5	3	0	0	53.00	47.00	14	10	\N	\N	\N	\N	\N	2025-12-02 14:12:18.273472	\N	\N	0	1	a-win	yes
+5365	1463468	2025-10-29	Germany	DFB Pokal	SpVgg Greuther Fürth	1. FC Kaiserslautern	a-win	0	1	11	6	10	3	6	8	1	5	5	6	1	0	52.00	48.00	16	14	\N	\N	\N	\N	\N	2025-12-02 14:12:18.35758	\N	\N	0	1	a-win	yes
+5366	1463470	2025-10-29	Germany	DFB Pokal	SC Paderborn 07	Bayer Leverkusen	a-win	2	4	18	5	29	14	6	6	0	4	3	2	1	0	36.00	64.00	18	12	\N	\N	\N	\N	\N	2025-12-02 14:12:18.442692	\N	\N	0	0	draw	yes
+5367	1463467	2025-10-29	Germany	DFB Pokal	Illertissen	1. FC Magdeburg	a-win	0	3	7	1	22	10	2	6	0	4	1	2	0	0	26.00	74.00	8	8	\N	\N	\N	\N	\N	2025-12-02 14:12:18.528425	\N	\N	0	2	a-win	yes
+5368	1463471	2025-10-29	Germany	DFB Pokal	Fortuna Düsseldorf	SC Freiburg	a-win	1	3	19	4	19	7	8	3	4	1	1	4	0	0	61.00	39.00	20	8	\N	\N	\N	\N	\N	2025-12-02 14:12:18.609819	\N	\N	1	2	a-win	yes
+5369	1463472	2025-10-29	Germany	DFB Pokal	SV Darmstadt 98	FC Schalke 04	h-win	4	0	15	8	7	1	6	3	3	0	0	1	0	0	51.00	49.00	15	14	\N	\N	\N	\N	\N	2025-12-02 14:12:18.693461	\N	\N	2	0	h-win	yes
+5370	1463473	2025-10-29	Germany	DFB Pokal	Union Berlin	Arminia Bielefeld	h-win	2	1	29	11	20	7	11	4	6	2	3	2	0	0	54.00	46.00	17	10	\N	\N	\N	\N	\N	2025-12-02 14:12:18.777384	\N	\N	1	1	draw	yes
+5371	1463474	2025-10-29	Germany	DFB Pokal	1. FC Köln	Bayern München	a-win	1	4	13	7	16	9	6	5	1	2	1	2	0	0	40.00	60.00	12	14	\N	\N	\N	\N	\N	2025-12-02 14:12:18.858669	\N	\N	1	2	a-win	yes
+5372	1394053	2025-08-01	Germany	3. Liga	Rot-Weiß Essen	TSV 1860 München	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:20.373022	\N	\N	1	0	h-win	yes
+5373	1394058	2025-08-02	Germany	3. Liga	FC Ingolstadt 04	SSV Jahn Regensburg	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:20.459747	\N	\N	1	0	h-win	yes
+5374	1394055	2025-08-02	Germany	3. Liga	Energie Cottbus	FC Saarbrücken	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:20.544838	\N	\N	2	1	h-win	yes
+5375	1394060	2025-08-02	Germany	3. Liga	VfL Osnabrück	Alemannia Aachen	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:20.762929	\N	\N	0	0	draw	yes
+5376	1394059	2025-08-02	Germany	3. Liga	Waldhof Mannheim	Verl	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:20.843627	\N	\N	1	1	draw	yes
+5377	1394057	2025-08-02	Germany	3. Liga	Hoffenheim II	Havelse	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:20.926924	\N	\N	0	0	draw	yes
+5378	1394056	2025-08-02	Germany	3. Liga	MSV Duisburg	Stuttgart II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.011599	\N	\N	0	0	draw	yes
+5379	1394054	2025-08-03	Germany	3. Liga	Erzgebirge Aue	Hansa Rostock	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.106672	\N	\N	0	0	draw	yes
+5380	1394061	2025-08-03	Germany	3. Liga	FC Viktoria Köln	FC Schweinfurt 05	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.2046	\N	\N	0	0	draw	yes
+5381	1394062	2025-08-03	Germany	3. Liga	SV Wehen	SSV Ulm 1846	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.292296	\N	\N	1	0	h-win	yes
+5382	1394068	2025-08-08	Germany	3. Liga	FC Schweinfurt 05	Energie Cottbus	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.380447	\N	\N	0	0	draw	yes
+5383	1394065	2025-08-09	Germany	3. Liga	TSV 1860 München	VfL Osnabrück	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.469038	\N	\N	2	0	h-win	yes
+5384	1394067	2025-08-09	Germany	3. Liga	FC Saarbrücken	FC Viktoria Köln	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.558061	\N	\N	2	0	h-win	yes
+5385	1394071	2025-08-09	Germany	3. Liga	SSV Ulm 1846	Erzgebirge Aue	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.647695	\N	\N	1	0	h-win	yes
+5386	1394063	2025-08-09	Germany	3. Liga	Alemannia Aachen	Hoffenheim II	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.736377	\N	\N	1	2	a-win	yes
+5387	1394070	2025-08-09	Germany	3. Liga	Havelse	Rot-Weiß Essen	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.822137	\N	\N	0	0	draw	yes
+5388	1394072	2025-08-09	Germany	3. Liga	Verl	SV Wehen	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.90654	\N	\N	1	2	a-win	yes
+5389	1394066	2025-08-10	Germany	3. Liga	SSV Jahn Regensburg	MSV Duisburg	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:21.996221	\N	\N	0	2	a-win	yes
+5390	1394064	2025-08-10	Germany	3. Liga	Hansa Rostock	Waldhof Mannheim	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.082564	\N	\N	0	0	draw	yes
+5391	1394069	2025-08-10	Germany	3. Liga	Stuttgart II	FC Ingolstadt 04	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.168708	\N	\N	2	0	h-win	yes
+5392	1394082	2025-08-22	Germany	3. Liga	SV Wehen	Rot-Weiß Essen	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.25678	\N	\N	1	0	h-win	yes
+5393	1394079	2025-08-23	Germany	3. Liga	SSV Jahn Regensburg	FC Schweinfurt 05	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.344067	\N	\N	1	0	h-win	yes
+5394	1394081	2025-08-23	Germany	3. Liga	VfL Osnabrück	FC Saarbrücken	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.429719	\N	\N	0	0	draw	yes
+5395	1394073	2025-08-23	Germany	3. Liga	Alemannia Aachen	TSV 1860 München	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.516596	\N	\N	0	0	draw	yes
+5396	1394076	2025-08-23	Germany	3. Liga	Hoffenheim II	Energie Cottbus	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.607068	\N	\N	3	0	h-win	yes
+5397	1394080	2025-08-23	Germany	3. Liga	Stuttgart II	Verl	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.692303	\N	\N	1	1	draw	yes
+5398	1394075	2025-08-23	Germany	3. Liga	MSV Duisburg	SSV Ulm 1846	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.781639	\N	\N	1	0	h-win	yes
+5399	1394077	2025-08-24	Germany	3. Liga	FC Ingolstadt 04	Hansa Rostock	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.87181	\N	\N	0	0	draw	yes
+5400	1394074	2025-08-24	Germany	3. Liga	Erzgebirge Aue	Havelse	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:22.9622	\N	\N	0	1	a-win	yes
+5401	1394078	2025-08-24	Germany	3. Liga	Waldhof Mannheim	FC Viktoria Köln	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.046698	\N	\N	2	0	h-win	yes
+5402	1394092	2025-08-29	Germany	3. Liga	FC Viktoria Köln	SSV Jahn Regensburg	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.129832	\N	\N	1	0	h-win	yes
+5403	1394085	2025-08-30	Germany	3. Liga	TSV 1860 München	Stuttgart II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.214741	\N	\N	0	1	a-win	yes
+5404	1394083	2025-08-30	Germany	3. Liga	Energie Cottbus	FC Ingolstadt 04	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.302626	\N	\N	1	0	h-win	yes
+5405	1394087	2025-08-30	Germany	3. Liga	FC Saarbrücken	Erzgebirge Aue	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.38676	\N	\N	2	0	h-win	yes
+5406	1394091	2025-08-30	Germany	3. Liga	Verl	MSV Duisburg	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.47178	\N	\N	1	0	h-win	yes
+5407	1394089	2025-08-30	Germany	3. Liga	Havelse	VfL Osnabrück	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.557863	\N	\N	0	1	a-win	yes
+5408	1394084	2025-08-30	Germany	3. Liga	Hansa Rostock	Hoffenheim II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.653574	\N	\N	0	1	a-win	yes
+5409	1394090	2025-08-31	Germany	3. Liga	SSV Ulm 1846	Waldhof Mannheim	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.732543	\N	\N	1	2	a-win	yes
+5410	1394088	2025-08-31	Germany	3. Liga	FC Schweinfurt 05	SV Wehen	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.818844	\N	\N	0	0	draw	yes
+5411	1394086	2025-08-31	Germany	3. Liga	Rot-Weiß Essen	Alemannia Aachen	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.906228	\N	\N	0	2	a-win	yes
+5412	1394100	2025-09-12	Germany	3. Liga	SSV Jahn Regensburg	Rot-Weiß Essen	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:23.992814	\N	\N	0	1	a-win	yes
+5413	1394097	2025-09-13	Germany	3. Liga	FC Ingolstadt 04	FC Schweinfurt 05	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.086156	\N	\N	2	1	h-win	yes
+5414	1394095	2025-09-13	Germany	3. Liga	MSV Duisburg	SV Wehen	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.172266	\N	\N	2	0	h-win	yes
+5415	1394094	2025-09-13	Germany	3. Liga	Erzgebirge Aue	FC Viktoria Köln	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.257639	\N	\N	0	2	a-win	yes
+5416	1394096	2025-09-13	Germany	3. Liga	Hoffenheim II	Verl	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.345437	\N	\N	1	1	draw	yes
+5417	1394101	2025-09-13	Germany	3. Liga	Stuttgart II	FC Saarbrücken	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.429891	\N	\N	1	2	a-win	yes
+5418	1394093	2025-09-13	Germany	3. Liga	Alemannia Aachen	SSV Ulm 1846	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.534005	\N	\N	0	2	a-win	yes
+5419	1394102	2025-09-14	Germany	3. Liga	VfL Osnabrück	Hansa Rostock	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.617545	\N	\N	0	0	draw	yes
+5420	1394098	2025-09-14	Germany	3. Liga	Waldhof Mannheim	Energie Cottbus	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.699382	\N	\N	0	2	a-win	yes
+5421	1394099	2025-09-14	Germany	3. Liga	TSV 1860 München	Havelse	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.778729	\N	\N	2	0	h-win	yes
+5422	1394112	2025-09-16	Germany	3. Liga	SV Wehen	SSV Jahn Regensburg	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.876666	\N	\N	0	0	draw	yes
+5423	1394111	2025-09-16	Germany	3. Liga	FC Viktoria Köln	Hoffenheim II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:24.963515	\N	\N	1	0	h-win	yes
+5424	1394108	2025-09-16	Germany	3. Liga	FC Schweinfurt 05	MSV Duisburg	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.048751	\N	\N	0	1	a-win	yes
+5425	1394103	2025-09-16	Germany	3. Liga	FC Saarbrücken	SSV Ulm 1846	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.137514	\N	\N	1	0	h-win	yes
+5426	1394110	2025-09-16	Germany	3. Liga	Verl	Alemannia Aachen	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.221936	\N	\N	0	0	draw	yes
+5427	1394104	2025-09-17	Germany	3. Liga	Energie Cottbus	Erzgebirge Aue	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.306642	\N	\N	1	1	draw	yes
+5429	1394107	2025-09-17	Germany	3. Liga	Rot-Weiß Essen	VfL Osnabrück	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.47478	\N	\N	0	0	draw	yes
+5430	1394106	2025-09-17	Germany	3. Liga	Waldhof Mannheim	Stuttgart II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.561612	\N	\N	0	0	draw	yes
+5431	1394109	2025-09-17	Germany	3. Liga	Havelse	FC Ingolstadt 04	a-win	2	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.647302	\N	\N	2	2	draw	yes
+5432	1394117	2025-09-19	Germany	3. Liga	FC Saarbrücken	FC Schweinfurt 05	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.736587	\N	\N	2	0	h-win	yes
+5433	1394114	2025-09-20	Germany	3. Liga	FC Ingolstadt 04	SV Wehen	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.823742	\N	\N	0	0	draw	yes
+5434	1394122	2025-09-20	Germany	3. Liga	VfL Osnabrück	Erzgebirge Aue	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.908308	\N	\N	0	0	draw	yes
+5435	1394116	2025-09-20	Germany	3. Liga	Rot-Weiß Essen	Hansa Rostock	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:25.992721	\N	\N	3	0	h-win	yes
+5436	1394113	2025-09-20	Germany	3. Liga	Alemannia Aachen	Waldhof Mannheim	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.086705	\N	\N	1	0	h-win	yes
+5437	1394118	2025-09-20	Germany	3. Liga	Stuttgart II	FC Viktoria Köln	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.17235	\N	\N	1	0	h-win	yes
+5438	1394115	2025-09-20	Germany	3. Liga	TSV 1860 München	Hoffenheim II	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.256925	\N	\N	0	2	a-win	yes
+5439	1394119	2025-09-21	Germany	3. Liga	Havelse	MSV Duisburg	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.346559	\N	\N	0	0	draw	yes
+5440	1394121	2025-09-21	Germany	3. Liga	Verl	Energie Cottbus	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.431529	\N	\N	0	0	draw	yes
+5441	1394120	2025-09-21	Germany	3. Liga	SSV Ulm 1846	SSV Jahn Regensburg	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.517199	\N	\N	0	1	a-win	yes
+5442	1394124	2025-09-26	Germany	3. Liga	Energie Cottbus	Stuttgart II	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.602719	\N	\N	2	0	h-win	yes
+5443	1394125	2025-09-27	Germany	3. Liga	MSV Duisburg	FC Ingolstadt 04	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.688635	\N	\N	0	0	draw	yes
+5444	1394123	2025-09-27	Germany	3. Liga	Erzgebirge Aue	TSV 1860 München	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.772448	\N	\N	1	0	h-win	yes
+5445	1394132	2025-09-27	Germany	3. Liga	SV Wehen	FC Saarbrücken	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.856672	\N	\N	1	0	h-win	yes
+5446	1394126	2025-09-27	Germany	3. Liga	Hansa Rostock	Havelse	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:26.942063	\N	\N	0	1	a-win	yes
+5447	1394130	2025-09-27	Germany	3. Liga	FC Schweinfurt 05	Alemannia Aachen	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.028423	\N	\N	1	1	draw	yes
+5448	1394128	2025-09-27	Germany	3. Liga	Waldhof Mannheim	Rot-Weiß Essen	h-win	6	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.114541	\N	\N	2	0	h-win	yes
+5449	1394129	2025-09-28	Germany	3. Liga	SSV Jahn Regensburg	Verl	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.198704	\N	\N	0	0	draw	yes
+5450	1394127	2025-09-28	Germany	3. Liga	Hoffenheim II	SSV Ulm 1846	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.282568	\N	\N	1	1	draw	yes
+5451	1394131	2025-09-28	Germany	3. Liga	FC Viktoria Köln	VfL Osnabrück	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.369482	\N	\N	0	0	draw	yes
+5452	1394134	2025-09-30	Germany	3. Liga	Hansa Rostock	Energie Cottbus	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.454933	\N	\N	1	1	draw	yes
+5453	1394137	2025-09-30	Germany	3. Liga	FC Saarbrücken	MSV Duisburg	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.538619	\N	\N	0	0	draw	yes
+5454	1394133	2025-09-30	Germany	3. Liga	Alemannia Aachen	Erzgebirge Aue	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.628628	\N	\N	0	1	a-win	yes
+5455	1394139	2025-09-30	Germany	3. Liga	Havelse	Waldhof Mannheim	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.713101	\N	\N	0	1	a-win	yes
+5456	1394138	2025-09-30	Germany	3. Liga	Stuttgart II	SV Wehen	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:27.801944	\N	\N	0	0	draw	yes
+5457	1394135	2025-10-01	Germany	3. Liga	TSV 1860 München	FC Viktoria Köln	draw	2	2	22	6	4	2	9	2	2	1	1	2	0	1	73.00	27.00	10	12	\N	\N	\N	\N	\N	2025-12-02 14:12:27.883382	2.55	0.95	1	2	a-win	yes
+5458	1394142	2025-10-01	Germany	3. Liga	VfL Osnabrück	SSV Jahn Regensburg	h-win	2	0	14	5	14	3	5	3	4	4	3	4	0	0	41.00	59.00	11	18	\N	\N	\N	\N	\N	2025-12-02 14:12:27.969091	2.27	1.11	1	0	h-win	yes
+5459	1394136	2025-10-01	Germany	3. Liga	Rot-Weiß Essen	Hoffenheim II	h-win	3	1	11	6	17	2	2	16	1	2	1	3	0	0	32.00	68.00	13	11	\N	\N	\N	\N	\N	2025-12-02 14:12:28.057135	2.41	1.44	2	0	h-win	yes
+5460	1394140	2025-10-01	Germany	3. Liga	SSV Ulm 1846	FC Schweinfurt 05	h-win	5	1	11	7	11	4	8	3	1	2	2	3	0	0	52.00	48.00	18	14	\N	\N	\N	\N	\N	2025-12-02 14:12:28.147702	2.58	1.77	2	1	h-win	yes
+5461	1394141	2025-10-01	Germany	3. Liga	Verl	FC Ingolstadt 04	draw	2	2	16	3	14	6	4	6	4	3	1	3	0	0	64.00	36.00	7	10	\N	\N	\N	\N	\N	2025-12-02 14:12:28.234598	1.74	0.92	1	0	h-win	yes
+5462	1394145	2025-10-03	Germany	3. Liga	MSV Duisburg	Hansa Rostock	draw	2	2	12	4	10	4	6	3	2	1	2	2	0	0	51.00	49.00	12	13	\N	\N	\N	\N	\N	2025-12-02 14:12:28.31716	2.24	0.63	1	1	draw	yes
+5463	1394149	2025-10-04	Germany	3. Liga	SSV Jahn Regensburg	FC Saarbrücken	draw	1	1	6	2	10	2	3	6	1	2	3	2	0	0	57.00	43.00	14	12	\N	\N	\N	\N	\N	2025-12-02 14:12:28.402545	0.34	0.72	0	1	a-win	yes
+5464	1394147	2025-10-04	Germany	3. Liga	FC Ingolstadt 04	SSV Ulm 1846	h-win	4	1	18	9	13	2	4	5	2	4	1	2	0	0	55.00	45.00	11	10	\N	\N	\N	\N	\N	2025-12-02 14:12:28.492533	4.08	1.92	1	1	draw	yes
+5465	1394151	2025-10-04	Germany	3. Liga	FC Viktoria Köln	Havelse	h-win	4	1	23	16	13	7	4	5	2	1	2	2	0	0	53.00	47.00	14	13	\N	\N	\N	\N	\N	2025-12-02 14:12:28.585248	3.28	2.22	2	0	h-win	yes
+5466	1394150	2025-10-04	Germany	3. Liga	FC Schweinfurt 05	Verl	a-win	1	2	12	5	19	7	3	10	0	1	3	4	1	0	28.00	72.00	16	13	\N	\N	\N	\N	\N	2025-12-02 14:12:28.6715	1.06	1.19	1	0	h-win	yes
+5467	1394148	2025-10-04	Germany	3. Liga	Waldhof Mannheim	VfL Osnabrück	a-win	1	4	17	3	12	9	9	3	1	4	2	2	0	0	61.00	39.00	14	15	\N	\N	\N	\N	\N	2025-12-02 14:12:28.751997	1.09	2.63	1	0	h-win	yes
+5468	1394144	2025-10-04	Germany	3. Liga	Energie Cottbus	Alemannia Aachen	h-win	3	2	10	5	13	3	5	6	3	5	3	2	0	0	57.00	43.00	16	15	\N	\N	\N	\N	\N	2025-12-02 14:12:28.832596	2.29	2.11	1	2	a-win	yes
+5469	1394143	2025-10-05	Germany	3. Liga	Erzgebirge Aue	Rot-Weiß Essen	draw	2	2	11	3	20	8	3	10	3	1	4	1	0	0	47.00	53.00	8	10	\N	\N	\N	\N	\N	2025-12-02 14:12:28.919731	0.70	1.75	2	1	h-win	yes
+5470	1394152	2025-10-05	Germany	3. Liga	SV Wehen	TSV 1860 München	h-win	1	0	19	8	12	2	8	7	2	3	1	2	0	0	47.00	53.00	12	8	\N	\N	\N	\N	\N	2025-12-02 14:12:28.997701	2.22	0.69	0	0	draw	yes
+5471	1394146	2025-10-05	Germany	3. Liga	Hoffenheim II	Stuttgart II	a-win	1	3	21	6	13	7	5	5	0	1	5	4	0	0	55.00	45.00	11	16	\N	\N	\N	\N	\N	2025-12-02 14:12:29.081479	2.48	2.29	1	1	draw	yes
+5472	1394154	2025-10-17	Germany	3. Liga	Erzgebirge Aue	Waldhof Mannheim	a-win	0	2	13	1	12	4	6	4	1	0	3	1	0	0	58.00	42.00	7	7	\N	\N	\N	\N	\N	2025-12-02 14:12:29.167599	0.87	2.39	0	1	a-win	yes
+5473	1394155	2025-10-18	Germany	3. Liga	Hansa Rostock	SV Wehen	h-win	3	0	19	8	7	4	9	4	2	1	2	4	0	0	49.00	51.00	16	10	\N	\N	\N	\N	\N	2025-12-02 14:12:29.262635	2.55	1.60	1	0	h-win	yes
+5474	1394162	2025-10-18	Germany	3. Liga	VfL Osnabrück	Hoffenheim II	a-win	0	4	10	1	14	9	6	3	1	2	4	3	0	0	51.00	49.00	24	10	\N	\N	\N	\N	\N	2025-12-02 14:12:29.360644	1.16	1.88	0	1	a-win	yes
+5475	1394158	2025-10-18	Germany	3. Liga	FC Saarbrücken	Verl	a-win	2	4	15	4	16	7	9	7	1	2	2	0	0	0	39.00	61.00	14	8	\N	\N	\N	\N	\N	2025-12-02 14:12:29.455185	1.16	1.79	1	2	a-win	yes
+5476	1394153	2025-10-18	Germany	3. Liga	Alemannia Aachen	FC Ingolstadt 04	a-win	0	1	18	8	17	7	7	8	1	2	2	4	0	0	43.00	57.00	16	12	\N	\N	\N	\N	\N	2025-12-02 14:12:29.538649	1.63	2.03	0	0	draw	yes
+5477	1394159	2025-10-18	Germany	3. Liga	Stuttgart II	FC Schweinfurt 05	h-win	3	0	13	7	10	3	3	5	4	6	2	4	0	0	50.00	50.00	14	17	\N	\N	\N	\N	\N	2025-12-02 14:12:29.623677	2.61	1.05	1	0	h-win	yes
+5478	1394157	2025-10-18	Germany	3. Liga	Rot-Weiß Essen	FC Viktoria Köln	h-win	1	0	16	6	10	2	4	3	1	3	2	3	0	0	53.00	47.00	6	13	\N	\N	\N	\N	\N	2025-12-02 14:12:29.721804	1.13	0.71	1	0	h-win	yes
+5479	1394161	2025-10-19	Germany	3. Liga	SSV Ulm 1846	Energie Cottbus	a-win	1	2	7	2	10	4	4	5	2	2	4	5	0	0	48.00	52.00	20	17	\N	\N	\N	\N	\N	2025-12-02 14:12:29.81634	0.86	2.55	0	0	draw	yes
+5480	1394156	2025-10-19	Germany	3. Liga	TSV 1860 München	MSV Duisburg	h-win	3	1	7	4	14	6	3	8	0	2	1	2	0	0	36.00	64.00	14	18	\N	\N	\N	\N	\N	2025-12-02 14:12:29.910545	1.00	0.89	1	1	draw	yes
+5481	1394160	2025-10-19	Germany	3. Liga	Havelse	SSV Jahn Regensburg	a-win	1	2	12	2	12	6	4	1	2	5	0	6	0	0	42.00	58.00	16	15	\N	\N	\N	\N	\N	2025-12-02 14:12:30.006752	0.61	1.63	1	1	draw	yes
+5482	1394172	2025-10-24	Germany	3. Liga	SV Wehen	Alemannia Aachen	a-win	1	2	12	6	11	4	7	4	3	2	4	5	0	0	63.00	37.00	14	13	\N	\N	\N	\N	\N	2025-12-02 14:12:30.104102	2.00	1.42	0	2	a-win	yes
+5483	1394168	2025-10-25	Germany	3. Liga	SSV Jahn Regensburg	Stuttgart II	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.195123	\N	\N	0	2	a-win	yes
+5484	1394166	2025-10-25	Germany	3. Liga	FC Ingolstadt 04	FC Saarbrücken	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.294042	\N	\N	1	0	h-win	yes
+5485	1394163	2025-10-25	Germany	3. Liga	Energie Cottbus	Havelse	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.38075	\N	\N	2	1	h-win	yes
+5486	1394170	2025-10-25	Germany	3. Liga	Verl	SSV Ulm 1846	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.466904	\N	\N	2	0	h-win	yes
+5487	1394167	2025-10-25	Germany	3. Liga	Waldhof Mannheim	TSV 1860 München	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.559537	\N	\N	1	1	draw	yes
+5488	1394169	2025-10-25	Germany	3. Liga	FC Schweinfurt 05	VfL Osnabrück	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.637081	\N	\N	0	1	a-win	yes
+5489	1394165	2025-10-26	Germany	3. Liga	Hoffenheim II	Erzgebirge Aue	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.726697	\N	\N	1	0	h-win	yes
+5490	1394171	2025-10-26	Germany	3. Liga	FC Viktoria Köln	Hansa Rostock	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.811647	\N	\N	1	2	a-win	yes
+5491	1394164	2025-10-26	Germany	3. Liga	MSV Duisburg	Rot-Weiß Essen	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 14:12:30.897752	\N	\N	1	1	draw	yes
+5492	1394182	2025-10-31	Germany	3. Liga	FC Viktoria Köln	FC Ingolstadt 04	h-win	3	1	20	10	7	4	9	3	1	0	3	3	0	0	56.00	44.00	10	15	\N	\N	\N	\N	\N	2025-12-02 14:12:30.979185	2.89	1.03	0	1	a-win	yes
+5493	1394174	2025-11-01	Germany	3. Liga	Erzgebirge Aue	SSV Jahn Regensburg	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	5	4	0	0	\N	\N	\N	\N	\N	\N	\N	17	15	2025-12-02 14:12:31.133345	\N	\N	1	1	draw	yes
+5494	1394177	2025-11-01	Germany	3. Liga	TSV 1860 München	Energie Cottbus	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	2	2	0	0	\N	\N	\N	\N	\N	\N	\N	10	2	2025-12-02 14:12:31.219594	\N	\N	2	0	h-win	yes
+5495	1394181	2025-11-01	Germany	3. Liga	VfL Osnabrück	MSV Duisburg	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	3	4	0	0	\N	\N	\N	\N	\N	\N	\N	5	1	2025-12-02 14:12:31.304432	\N	\N	0	0	draw	yes
+5496	1394180	2025-11-01	Germany	3. Liga	SSV Ulm 1846	Stuttgart II	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	7	5	0	0	\N	\N	\N	\N	\N	\N	\N	18	8	2025-12-02 14:12:31.392366	\N	\N	1	1	draw	yes
+5497	1394179	2025-11-01	Germany	3. Liga	Havelse	SV Wehen	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	1	2	0	0	\N	\N	\N	\N	\N	\N	\N	19	12	2025-12-02 14:12:31.478245	\N	\N	0	1	a-win	yes
+5498	1394175	2025-11-01	Germany	3. Liga	Hansa Rostock	Verl	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	2	1	0	0	\N	\N	\N	\N	\N	\N	\N	6	3	2025-12-02 14:12:31.564674	\N	\N	1	1	draw	yes
+5499	1394176	2025-11-02	Germany	3. Liga	Hoffenheim II	Waldhof Mannheim	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	2	3	0	0	\N	\N	\N	\N	\N	\N	\N	9	7	2025-12-02 14:12:31.648203	\N	\N	0	0	draw	yes
+5500	1394178	2025-11-02	Germany	3. Liga	Rot-Weiß Essen	FC Schweinfurt 05	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	3	2	0	0	\N	\N	\N	\N	\N	\N	\N	4	20	2025-12-02 14:12:31.731566	\N	\N	1	1	draw	yes
+5501	1394173	2025-11-02	Germany	3. Liga	Alemannia Aachen	FC Saarbrücken	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	1	6	0	1	\N	\N	\N	\N	\N	\N	\N	16	14	2025-12-02 14:12:31.814021	\N	\N	2	0	h-win	yes
+5502	1394184	2025-11-07	Germany	3. Liga	MSV Duisburg	Waldhof Mannheim	h-win	2	1	13	6	12	2	10	7	3	1	3	1	0	0	41.00	59.00	16	8	\N	\N	\N	1	7	2025-12-02 14:12:31.897902	2.62	1.44	1	0	h-win	yes
+5503	1394185	2025-11-08	Germany	3. Liga	FC Ingolstadt 04	Rot-Weiß Essen	a-win	1	2	16	6	18	7	1	5	3	2	3	3	0	0	50.00	50.00	15	12	\N	\N	\N	13	4	2025-12-02 14:12:31.979741	3.15	1.31	0	0	draw	yes
+5504	1394183	2025-11-08	Germany	3. Liga	Energie Cottbus	VfL Osnabrück	a-win	0	1	9	1	7	2	5	3	2	3	2	1	0	0	60.00	40.00	16	15	\N	\N	\N	2	5	2025-12-02 14:12:32.068616	0.63	0.72	0	0	draw	yes
+5505	1394188	2025-11-08	Germany	3. Liga	FC Schweinfurt 05	Hoffenheim II	h-win	2	1	9	6	15	7	1	2	4	2	4	3	0	0	46.00	54.00	24	11	\N	\N	\N	20	9	2025-12-02 14:12:32.152007	0.55	1.81	2	1	h-win	yes
+5506	1394190	2025-11-08	Germany	3. Liga	SSV Ulm 1846	Hansa Rostock	a-win	0	5	7	2	20	12	5	9	3	0	4	1	0	0	41.00	59.00	16	10	\N	\N	\N	18	6	2025-12-02 14:12:32.236712	0.84	3.77	0	4	a-win	yes
+5507	1394191	2025-11-08	Germany	3. Liga	Verl	Erzgebirge Aue	draw	1	1	30	8	5	3	12	5	0	0	1	4	0	0	71.00	29.00	8	10	\N	\N	\N	3	17	2025-12-02 14:12:32.318715	3.27	1.03	1	0	h-win	yes
+5508	1394187	2025-11-08	Germany	3. Liga	FC Saarbrücken	Havelse	draw	1	1	10	5	16	1	8	8	1	2	1	2	0	0	51.00	49.00	16	11	\N	\N	\N	14	19	2025-12-02 14:12:32.404162	0.93	0.62	1	0	h-win	yes
+5509	1394189	2025-11-09	Germany	3. Liga	Stuttgart II	Alemannia Aachen	a-win	1	3	16	3	7	3	6	4	2	3	3	5	0	0	65.00	35.00	14	20	\N	\N	\N	8	16	2025-12-02 14:12:32.487181	1.77	1.28	1	2	a-win	yes
+5510	1394186	2025-11-09	Germany	3. Liga	SSV Jahn Regensburg	TSV 1860 München	h-win	4	0	20	8	9	1	6	8	2	2	1	2	0	0	59.00	41.00	13	12	\N	\N	\N	15	10	2025-12-02 14:12:32.568139	3.28	1.60	1	0	h-win	yes
+5511	1394192	2025-11-09	Germany	3. Liga	SV Wehen	FC Viktoria Köln	a-win	0	1	16	5	11	4	6	6	0	1	2	3	0	0	54.00	46.00	12	12	\N	\N	\N	12	11	2025-12-02 14:12:32.654272	1.55	1.11	0	0	draw	yes
+5512	1394196	2025-11-21	Germany	3. Liga	Hoffenheim II	MSV Duisburg	h-win	4	1	21	11	8	2	4	5	2	2	2	0	0	0	59.00	41.00	5	14	\N	\N	\N	9	1	2025-12-02 14:12:32.738111	2.82	0.80	4	0	h-win	yes
+5513	1394195	2025-11-22	Germany	3. Liga	Hansa Rostock	FC Schweinfurt 05	h-win	2	0	29	11	7	3	13	3	1	2	0	3	0	0	60.00	40.00	12	10	\N	\N	\N	6	20	2025-12-02 14:12:32.821242	3.97	0.65	0	0	draw	yes
+5514	1394202	2025-11-22	Germany	3. Liga	FC Viktoria Köln	Verl	a-win	1	5	9	3	9	8	3	1	2	1	2	3	0	0	42.00	58.00	14	12	\N	\N	\N	11	3	2025-12-02 14:12:32.902618	1.33	1.37	0	2	a-win	yes
+5515	1394193	2025-11-22	Germany	3. Liga	Alemannia Aachen	SSV Jahn Regensburg	a-win	0	2	12	3	11	2	8	6	3	3	4	3	0	0	50.00	50.00	17	12	\N	\N	\N	16	15	2025-12-02 14:12:32.991701	1.39	1.59	0	1	a-win	yes
+5516	1394197	2025-11-22	Germany	3. Liga	Waldhof Mannheim	SV Wehen	h-win	1	0	15	6	9	3	10	4	2	1	1	3	0	0	46.00	54.00	12	13	\N	\N	\N	7	12	2025-12-02 14:12:33.078729	1.63	0.82	0	0	draw	yes
+5671	1389138	2025-08-16	France	Ligue 2	Reims	Guingamp	h-win	1	0	16	6	8	3	4	3	1	0	2	1	0	0	56.00	44.00	9	12	\N	\N	\N	\N	\N	2025-12-02 15:19:03.558922	\N	\N	1	0	h-win	yes
+5517	1394200	2025-11-22	Germany	3. Liga	Havelse	SSV Ulm 1846	h-win	2	1	12	6	7	3	6	4	1	8	3	3	0	0	32.00	68.00	19	16	\N	\N	\N	19	18	2025-12-02 14:12:33.159639	1.41	0.39	1	0	h-win	yes
+5518	1394201	2025-11-22	Germany	3. Liga	VfL Osnabrück	FC Ingolstadt 04	h-win	1	0	15	5	14	1	5	4	0	5	4	1	0	0	47.00	53.00	13	13	\N	\N	\N	5	13	2025-12-02 14:12:33.24661	1.17	0.86	0	0	draw	yes
+5519	1394198	2025-11-23	Germany	3. Liga	TSV 1860 München	FC Saarbrücken	h-win	2	0	16	9	11	2	6	7	1	2	0	2	0	0	50.00	50.00	9	14	\N	\N	\N	10	14	2025-12-02 14:12:33.339214	2.14	1.03	1	0	h-win	yes
+5520	1394194	2025-11-23	Germany	3. Liga	Erzgebirge Aue	Stuttgart II	draw	0	0	10	3	19	3	3	6	0	2	3	3	0	0	43.00	57.00	14	14	\N	\N	\N	17	8	2025-12-02 14:12:33.423239	0.37	2.14	0	0	draw	yes
+5521	1394199	2025-11-23	Germany	3. Liga	Rot-Weiß Essen	Energie Cottbus	a-win	2	3	20	9	12	6	8	1	3	0	1	1	0	0	70.00	30.00	14	13	\N	\N	\N	4	2	2025-12-02 14:12:33.514626	2.26	2.68	0	1	a-win	yes
+5522	1394212	2025-11-28	Germany	3. Liga	SV Wehen	Erzgebirge Aue	h-win	3	1	14	7	11	3	9	4	1	2	2	3	0	0	40.00	60.00	8	10	\N	\N	\N	12	17	2025-12-02 14:12:33.59669	1.03	1.08	0	1	a-win	yes
+5523	1394205	2025-11-29	Germany	3. Liga	FC Ingolstadt 04	Hoffenheim II	h-win	3	2	19	8	12	6	10	4	5	2	0	2	0	0	38.00	62.00	15	15	\N	\N	\N	13	9	2025-12-02 14:12:33.684704	2.97	1.17	1	1	draw	yes
+5524	1394204	2025-11-29	Germany	3. Liga	MSV Duisburg	Alemannia Aachen	h-win	3	1	9	5	7	4	3	6	4	1	5	3	0	0	46.00	54.00	15	12	\N	\N	\N	1	16	2025-12-02 14:12:33.769725	1.56	0.47	3	0	h-win	yes
+5525	1394203	2025-11-29	Germany	3. Liga	Energie Cottbus	FC Viktoria Köln	h-win	3	2	20	7	13	5	10	7	2	3	4	3	0	1	46.00	54.00	18	17	\N	\N	\N	2	11	2025-12-02 14:12:33.852501	3.11	1.84	0	1	a-win	yes
+5526	1394207	2025-11-29	Germany	3. Liga	FC Saarbrücken	Rot-Weiß Essen	a-win	2	3	10	5	14	7	9	3	3	1	2	1	0	0	44.00	56.00	9	10	\N	\N	\N	14	4	2025-12-02 14:12:33.941591	1.62	2.63	0	0	draw	yes
+5527	1394210	2025-11-29	Germany	3. Liga	SSV Ulm 1846	TSV 1860 München	a-win	0	1	10	3	7	1	8	3	1	1	2	1	0	0	62.00	38.00	16	19	\N	\N	\N	18	10	2025-12-02 14:12:34.02462	0.59	0.92	0	1	a-win	yes
+5528	1394208	2025-11-29	Germany	3. Liga	FC Schweinfurt 05	Waldhof Mannheim	a-win	2	3	12	5	10	6	1	4	5	3	5	4	0	0	65.00	35.00	15	19	\N	\N	\N	20	7	2025-12-02 14:12:34.109504	2.57	1.85	0	1	a-win	yes
+5529	1394206	2025-11-30	Germany	3. Liga	SSV Jahn Regensburg	Hansa Rostock	a-win	0	3	9	4	16	6	1	5	0	3	3	2	1	0	36.00	64.00	14	15	\N	\N	\N	15	6	2025-12-02 14:12:34.192989	1.07	3.74	0	1	a-win	yes
+5530	1394211	2025-11-30	Germany	3. Liga	Verl	VfL Osnabrück	h-win	4	1	14	6	9	4	6	4	3	6	0	3	0	0	66.00	34.00	7	11	\N	\N	\N	3	5	2025-12-02 14:12:34.276767	0.93	0.87	2	0	h-win	yes
+5531	1394209	2025-11-30	Germany	3. Liga	Stuttgart II	Havelse	h-win	2	1	22	9	14	6	8	3	3	1	4	3	0	0	63.00	37.00	18	17	\N	\N	\N	8	19	2025-12-02 14:12:34.358467	3.10	2.11	1	0	h-win	yes
+5532	1387706	2025-08-15	France	Ligue 1	Rennes	Marseille	h-win	1	0	12	5	24	2	1	12	5	0	2	3	1	0	28.00	72.00	8	11	\N	\N	\N	\N	\N	2025-12-02 15:18:49.885913	1.47	1.71	0	0	draw	yes
+5533	1387701	2025-08-16	France	Ligue 1	Lens	Lyon	a-win	0	1	18	5	11	3	12	8	5	1	2	3	0	0	55.00	45.00	13	20	\N	\N	\N	\N	\N	2025-12-02 15:18:49.967836	1.38	1.41	0	1	a-win	yes
+5534	1387703	2025-08-16	France	Ligue 1	Monaco	Le Havre	h-win	3	1	13	3	9	4	5	4	5	1	0	1	0	0	74.00	26.00	5	14	\N	\N	\N	\N	\N	2025-12-02 15:18:50.057314	1.76	0.60	1	0	h-win	yes
+5535	1387705	2025-08-16	France	Ligue 1	Nice	Toulouse	a-win	0	1	13	2	10	2	9	4	0	0	2	3	0	0	57.00	43.00	12	13	\N	\N	\N	\N	\N	2025-12-02 15:18:50.144525	0.79	0.61	0	0	draw	yes
+5536	1387700	2025-08-17	France	Ligue 1	Stade Brestois 29	Lille	draw	3	3	18	5	10	6	2	2	1	2	2	1	0	0	46.00	54.00	11	13	\N	\N	\N	\N	\N	2025-12-02 15:18:50.226522	2.01	1.62	1	2	a-win	yes
+5537	1387698	2025-08-17	France	Ligue 1	Angers	Paris FC	h-win	1	0	8	2	17	7	3	7	0	3	2	1	1	0	32.00	68.00	14	10	\N	\N	\N	\N	\N	2025-12-02 15:18:50.317519	0.97	0.92	1	0	h-win	yes
+5538	1387699	2025-08-17	France	Ligue 1	Auxerre	Lorient	h-win	1	0	7	3	14	3	4	4	0	2	3	2	0	0	44.00	56.00	18	14	\N	\N	\N	\N	\N	2025-12-02 15:18:50.403185	1.44	1.37	0	0	draw	yes
+5539	1387702	2025-08-17	France	Ligue 1	Metz	Strasbourg	a-win	0	1	2	0	9	4	3	3	1	1	2	2	0	0	38.00	62.00	16	13	\N	\N	\N	\N	\N	2025-12-02 15:18:50.487424	0.30	0.62	0	0	draw	yes
+5540	1387704	2025-08-17	France	Ligue 1	Nantes	Paris Saint Germain	a-win	0	1	5	0	18	4	2	7	0	1	1	1	0	0	29.00	71.00	6	6	\N	\N	\N	\N	\N	2025-12-02 15:18:50.572278	0.14	1.43	0	0	draw	yes
+5541	1387713	2025-08-22	France	Ligue 1	Paris Saint Germain	Angers	h-win	1	0	21	4	3	0	12	0	1	1	0	0	0	0	84.00	16.00	3	9	\N	\N	\N	\N	\N	2025-12-02 15:18:50.659694	1.85	0.24	0	0	draw	yes
+5542	1387711	2025-08-23	France	Ligue 1	Marseille	Paris FC	h-win	5	2	11	7	8	4	5	2	1	1	1	0	0	0	61.00	39.00	9	12	\N	\N	\N	\N	\N	2025-12-02 15:18:50.747281	2.83	1.09	2	1	h-win	yes
+5543	1387712	2025-08-23	France	Ligue 1	Nice	Auxerre	h-win	3	1	16	6	12	8	5	4	1	0	2	2	0	1	55.00	45.00	10	15	\N	\N	\N	\N	\N	2025-12-02 15:18:50.833971	1.94	1.51	2	1	h-win	yes
+5544	1387710	2025-08-23	France	Ligue 1	Lyon	Metz	h-win	3	0	13	8	11	2	4	3	1	3	0	2	0	0	53.00	47.00	13	15	\N	\N	\N	\N	\N	2025-12-02 15:18:50.916363	2.77	0.56	2	0	h-win	yes
+5545	1387709	2025-08-24	France	Ligue 1	Lorient	Rennes	h-win	4	0	22	7	4	1	3	2	4	2	6	0	0	2	51.00	49.00	18	7	\N	\N	\N	\N	\N	2025-12-02 15:18:51.002506	3.04	0.08	1	0	h-win	yes
+5546	1387714	2025-08-24	France	Ligue 1	Strasbourg	Nantes	h-win	1	0	15	4	9	2	7	6	4	2	2	2	0	0	49.00	51.00	11	9	\N	\N	\N	\N	\N	2025-12-02 15:18:51.089271	1.78	0.44	0	0	draw	yes
+5547	1387715	2025-08-24	France	Ligue 1	Toulouse	Stade Brestois 29	h-win	2	0	6	3	16	2	3	9	3	2	0	1	0	0	47.00	53.00	14	10	\N	\N	\N	\N	\N	2025-12-02 15:18:51.173417	1.28	0.97	0	0	draw	yes
+5548	1387707	2025-08-24	France	Ligue 1	Le Havre	Lens	a-win	1	2	18	6	6	3	7	0	2	0	3	1	0	0	57.00	43.00	17	16	\N	\N	\N	\N	\N	2025-12-02 15:18:51.272408	1.89	1.07	1	2	a-win	yes
+5549	1387708	2025-08-24	France	Ligue 1	Lille	Monaco	h-win	1	0	18	1	6	1	8	3	2	0	1	2	0	0	50.00	50.00	7	14	\N	\N	\N	\N	\N	2025-12-02 15:18:51.354293	2.92	1.25	0	0	draw	yes
+5550	1387718	2025-08-29	France	Ligue 1	Lens	Stade Brestois 29	h-win	3	1	30	10	9	2	15	1	2	0	1	3	0	1	68.00	32.00	7	12	\N	\N	\N	\N	\N	2025-12-02 15:18:51.439444	3.99	1.08	0	1	a-win	yes
+5551	1387719	2025-08-30	France	Ligue 1	Lorient	Lille	a-win	1	7	6	2	20	11	3	8	3	2	3	3	0	0	41.00	59.00	14	18	\N	\N	\N	\N	\N	2025-12-02 15:18:51.524267	1.50	3.49	0	0	draw	yes
+5552	1387722	2025-08-30	France	Ligue 1	Nantes	Auxerre	h-win	1	0	4	3	14	4	3	9	1	6	1	3	0	0	43.00	57.00	13	11	\N	\N	\N	\N	\N	2025-12-02 15:18:51.607989	0.48	0.68	1	0	h-win	yes
+5553	1387724	2025-08-30	France	Ligue 1	Toulouse	Paris Saint Germain	a-win	3	6	14	6	13	8	5	7	1	0	1	0	0	0	24.00	76.00	7	11	\N	\N	\N	\N	\N	2025-12-02 15:18:51.696656	2.22	2.62	1	4	a-win	yes
+5796	1423955	2025-09-05	France	National 1	Ajaccio	Versailles	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.372031	\N	\N	0	0	draw	no
+5554	1387716	2025-08-31	France	Ligue 1	Angers	Rennes	draw	1	1	10	7	15	7	1	7	4	0	2	2	0	0	37.00	63.00	9	11	\N	\N	\N	\N	\N	2025-12-02 15:18:51.779739	1.23	1.46	0	1	a-win	yes
+5555	1387721	2025-08-31	France	Ligue 1	Monaco	Strasbourg	h-win	3	2	12	4	12	4	6	5	4	2	2	1	0	1	43.00	57.00	13	12	\N	\N	\N	\N	\N	2025-12-02 15:18:51.866473	1.94	1.62	1	0	h-win	yes
+5556	1387717	2025-08-31	France	Ligue 1	Le Havre	Nice	h-win	3	1	12	8	7	3	0	5	0	0	1	4	0	0	41.00	59.00	13	16	\N	\N	\N	\N	\N	2025-12-02 15:18:51.951555	2.56	0.63	1	0	h-win	yes
+5557	1387723	2025-08-31	France	Ligue 1	Paris FC	Metz	h-win	3	2	24	9	14	2	14	6	0	1	1	1	0	1	51.00	49.00	4	8	\N	\N	\N	\N	\N	2025-12-02 15:18:52.034573	3.21	1.84	1	1	draw	yes
+5558	1387720	2025-08-31	France	Ligue 1	Lyon	Marseille	h-win	1	0	18	6	5	2	9	4	1	1	2	2	0	1	58.00	42.00	16	11	\N	\N	\N	\N	\N	2025-12-02 15:18:52.119736	3.04	0.77	0	0	draw	yes
+5559	1387728	2025-09-12	France	Ligue 1	Marseille	Lorient	h-win	4	0	15	8	4	1	10	0	1	0	3	2	0	1	72.00	28.00	18	5	\N	\N	\N	\N	\N	2025-12-02 15:18:52.212487	2.26	0.14	3	0	h-win	yes
+5560	1387730	2025-09-13	France	Ligue 1	Nice	Nantes	h-win	1	0	19	8	14	3	7	4	7	0	2	0	0	0	59.00	41.00	16	14	\N	\N	\N	\N	\N	2025-12-02 15:18:52.299152	1.75	0.75	0	0	draw	yes
+5561	1387725	2025-09-13	France	Ligue 1	Auxerre	Monaco	a-win	1	2	9	2	13	3	5	8	0	1	3	6	1	0	33.00	67.00	12	19	\N	\N	\N	\N	\N	2025-12-02 15:18:52.383172	0.67	1.42	0	1	a-win	yes
+5562	1387727	2025-09-14	France	Ligue 1	Lille	Toulouse	h-win	2	1	20	5	9	4	7	6	1	2	2	4	0	1	70.00	30.00	12	10	\N	\N	\N	\N	\N	2025-12-02 15:18:52.466401	2.21	0.81	0	0	draw	yes
+5563	1387731	2025-09-14	France	Ligue 1	Paris Saint Germain	Lens	h-win	2	0	14	6	11	3	4	3	0	0	1	2	0	0	68.00	32.00	10	8	\N	\N	\N	\N	\N	2025-12-02 15:18:52.547823	1.07	1.16	1	0	h-win	yes
+5564	1387733	2025-09-14	France	Ligue 1	Strasbourg	Le Havre	h-win	1	0	9	7	10	1	4	3	1	1	2	2	1	0	49.00	51.00	8	16	\N	\N	\N	\N	\N	2025-12-02 15:18:52.632616	1.36	0.65	0	0	draw	yes
+5565	1387726	2025-09-14	France	Ligue 1	Stade Brestois 29	Paris FC	a-win	1	2	23	8	7	4	6	1	3	1	0	3	0	1	46.00	54.00	11	10	\N	\N	\N	\N	\N	2025-12-02 15:18:52.716197	2.57	1.55	0	2	a-win	yes
+5566	1387729	2025-09-14	France	Ligue 1	Metz	Angers	draw	1	1	9	5	10	4	4	3	1	3	0	1	0	0	55.00	45.00	10	7	\N	\N	\N	\N	\N	2025-12-02 15:18:52.797086	1.71	2.27	1	0	h-win	yes
+5567	1387732	2025-09-14	France	Ligue 1	Rennes	Lyon	h-win	3	1	23	5	8	5	5	4	3	0	2	2	0	1	48.00	52.00	18	13	\N	\N	\N	\N	\N	2025-12-02 15:18:52.88244	2.19	1.71	0	1	a-win	yes
+5568	1387738	2025-09-19	France	Ligue 1	Lyon	Angers	h-win	1	0	16	5	10	2	7	4	1	1	2	2	0	0	67.00	33.00	16	10	\N	\N	\N	\N	\N	2025-12-02 15:18:52.963517	1.81	1.18	0	0	draw	yes
+5569	1387741	2025-09-20	France	Ligue 1	Nantes	Rennes	draw	2	2	16	4	8	4	4	4	1	3	2	2	0	0	43.00	57.00	14	18	\N	\N	\N	\N	\N	2025-12-02 15:18:53.047991	2.11	1.37	0	2	a-win	yes
+5570	1387735	2025-09-20	France	Ligue 1	Stade Brestois 29	Nice	h-win	4	1	11	5	21	4	2	7	0	1	1	3	0	0	38.00	62.00	17	11	\N	\N	\N	\N	\N	2025-12-02 15:18:53.132391	2.03	2.33	2	1	h-win	yes
+5571	1387737	2025-09-20	France	Ligue 1	Lens	Lille	h-win	3	0	15	6	17	3	4	10	4	1	1	3	0	0	38.00	62.00	17	11	\N	\N	\N	\N	\N	2025-12-02 15:18:53.238588	3.54	1.90	2	0	h-win	yes
+5572	1387742	2025-09-21	France	Ligue 1	Paris FC	Strasbourg	a-win	2	3	18	6	8	4	4	2	2	1	1	5	0	0	61.00	39.00	11	10	\N	\N	\N	\N	\N	2025-12-02 15:18:53.322777	1.60	2.38	0	1	a-win	yes
+5573	1387740	2025-09-21	France	Ligue 1	Monaco	Metz	h-win	5	2	16	6	8	3	4	5	3	0	1	0	0	0	43.00	57.00	15	6	\N	\N	\N	\N	\N	2025-12-02 15:18:53.406866	3.50	2.16	1	1	draw	yes
+5574	1387734	2025-09-21	France	Ligue 1	Auxerre	Toulouse	h-win	1	0	6	1	13	3	3	4	0	0	1	6	1	0	40.00	60.00	12	20	\N	\N	\N	\N	\N	2025-12-02 15:18:53.489777	0.75	2.33	1	0	h-win	yes
+5575	1387736	2025-09-21	France	Ligue 1	Le Havre	Lorient	draw	1	1	13	2	8	4	6	2	0	0	3	6	0	0	60.00	40.00	20	15	\N	\N	\N	\N	\N	2025-12-02 15:18:53.571876	2.47	1.21	0	1	a-win	yes
+5576	1387739	2025-09-22	France	Ligue 1	Marseille	Paris Saint Germain	h-win	1	0	9	1	12	5	5	3	2	1	3	1	0	0	32.00	68.00	16	7	\N	\N	\N	\N	\N	2025-12-02 15:18:53.656755	1.14	0.67	1	0	h-win	yes
+5577	1387750	2025-09-26	France	Ligue 1	Strasbourg	Marseille	a-win	1	2	9	1	16	9	5	4	2	1	2	4	0	0	40.00	60.00	13	15	\N	\N	\N	\N	\N	2025-12-02 15:18:53.740311	1.36	2.02	0	0	draw	yes
+5578	1387745	2025-09-27	France	Ligue 1	Lorient	Monaco	h-win	3	1	19	8	5	2	2	4	0	1	2	3	0	1	47.00	53.00	10	11	\N	\N	\N	\N	\N	2025-12-02 15:18:53.824028	1.98	0.92	1	0	h-win	yes
+5579	1387751	2025-09-27	France	Ligue 1	Toulouse	Nantes	draw	2	2	20	7	12	2	1	4	2	1	2	3	0	0	46.00	54.00	18	12	\N	\N	\N	\N	\N	2025-12-02 15:18:53.907866	2.15	1.46	0	1	a-win	yes
+5580	1387748	2025-09-27	France	Ligue 1	Paris Saint Germain	Auxerre	h-win	2	0	15	8	12	3	5	5	1	4	1	2	0	0	66.00	34.00	17	10	\N	\N	\N	\N	\N	2025-12-02 15:18:53.992495	1.77	0.71	1	0	h-win	yes
+5581	1387747	2025-09-28	France	Ligue 1	Nice	Paris FC	draw	1	1	11	5	13	3	5	5	1	1	1	1	0	0	44.00	56.00	14	14	\N	\N	\N	\N	\N	2025-12-02 15:18:54.076994	0.96	1.84	1	0	h-win	yes
+5582	1387743	2025-09-28	France	Ligue 1	Angers	Stade Brestois 29	a-win	0	2	11	2	7	3	11	4	2	1	1	1	0	0	57.00	43.00	13	13	\N	\N	\N	\N	\N	2025-12-02 15:18:54.161956	0.48	1.56	0	2	a-win	yes
+5583	1387744	2025-09-28	France	Ligue 1	Lille	Lyon	a-win	0	1	14	3	5	2	3	4	1	1	4	4	0	0	54.00	46.00	20	24	\N	\N	\N	\N	\N	2025-12-02 15:18:54.249834	1.47	0.52	0	1	a-win	yes
+5584	1387746	2025-09-28	France	Ligue 1	Metz	Le Havre	draw	0	0	7	0	10	2	4	6	1	2	2	2	0	0	53.00	47.00	16	16	\N	\N	\N	\N	\N	2025-12-02 15:18:54.33658	0.47	0.27	0	0	draw	yes
+5585	1387749	2025-09-28	France	Ligue 1	Rennes	Lens	draw	0	0	14	2	13	2	8	4	1	0	3	3	0	1	67.00	33.00	16	9	\N	\N	\N	\N	\N	2025-12-02 15:18:54.422858	1.19	1.04	0	0	draw	yes
+5586	1387759	2025-10-03	France	Ligue 1	Paris FC	Lorient	h-win	2	0	10	2	8	3	1	5	3	2	0	3	0	0	59.00	41.00	19	10	\N	\N	\N	\N	\N	2025-12-02 15:18:54.551527	1.02	0.97	2	0	h-win	yes
+5587	1387757	2025-10-04	France	Ligue 1	Metz	Marseille	a-win	0	3	4	1	21	9	4	4	2	2	0	0	0	0	38.00	62.00	8	7	\N	\N	\N	\N	\N	2025-12-02 15:18:54.637404	0.16	2.71	0	0	draw	yes
+5588	1387753	2025-10-04	France	Ligue 1	Stade Brestois 29	Nantes	draw	0	0	17	5	6	0	12	3	1	3	2	1	0	0	51.00	49.00	11	12	\N	\N	\N	\N	\N	2025-12-02 15:18:54.719747	1.51	0.15	0	0	draw	yes
+5589	1387752	2025-10-04	France	Ligue 1	Auxerre	Lens	a-win	1	2	18	2	7	4	2	2	0	2	3	7	0	1	57.00	43.00	10	21	\N	\N	\N	\N	\N	2025-12-02 15:18:54.817769	1.71	0.41	0	1	a-win	yes
+5590	1387756	2025-10-05	France	Ligue 1	Lyon	Toulouse	a-win	1	2	13	3	14	3	8	5	2	0	1	3	0	0	69.00	31.00	13	17	\N	\N	\N	\N	\N	2025-12-02 15:18:54.906162	1.17	1.18	1	0	h-win	yes
+5591	1387758	2025-10-05	France	Ligue 1	Monaco	Nice	draw	2	2	20	6	9	2	6	7	4	2	1	3	0	1	66.00	34.00	10	9	\N	\N	\N	\N	\N	2025-12-02 15:18:54.991477	2.98	1.15	1	2	a-win	yes
+5592	1387760	2025-10-05	France	Ligue 1	Strasbourg	Angers	h-win	5	0	18	12	5	1	2	5	2	2	2	2	0	0	66.00	34.00	12	11	\N	\N	\N	\N	\N	2025-12-02 15:18:55.072461	4.73	0.32	1	0	h-win	yes
+5593	1387754	2025-10-05	France	Ligue 1	Le Havre	Rennes	draw	2	2	10	2	9	3	3	4	3	2	1	2	0	0	43.00	57.00	13	9	\N	\N	\N	\N	\N	2025-12-02 15:18:55.15471	1.71	1.11	1	2	a-win	yes
+5594	1387755	2025-10-05	France	Ligue 1	Lille	Paris Saint Germain	draw	1	1	9	3	17	5	3	5	1	0	1	1	0	0	38.00	62.00	11	12	\N	\N	\N	\N	\N	2025-12-02 15:18:55.238692	0.65	1.50	0	0	draw	yes
+5595	1387767	2025-10-17	France	Ligue 1	Paris Saint Germain	Strasbourg	draw	3	3	21	9	12	7	4	1	0	0	2	1	0	0	71.00	29.00	12	15	\N	\N	\N	\N	\N	2025-12-02 15:18:55.312952	2.67	2.15	1	2	a-win	yes
+5596	1387766	2025-10-18	France	Ligue 1	Nice	Lyon	h-win	3	2	5	4	29	7	1	16	2	0	1	2	0	0	31.00	69.00	10	11	\N	\N	\N	\N	\N	2025-12-02 15:18:55.397163	0.60	3.39	2	1	h-win	yes
+5597	1387761	2025-10-18	France	Ligue 1	Angers	Monaco	draw	1	1	16	3	11	4	10	3	0	0	2	2	0	0	42.00	58.00	15	14	\N	\N	\N	\N	\N	2025-12-02 15:18:55.479337	1.77	1.88	0	0	draw	yes
+5598	1387764	2025-10-18	France	Ligue 1	Marseille	Le Havre	h-win	6	2	18	11	8	3	2	1	3	3	2	2	0	1	74.00	26.00	17	13	\N	\N	\N	\N	\N	2025-12-02 15:18:55.564552	4.19	0.48	1	1	draw	yes
+5599	1387762	2025-10-19	France	Ligue 1	Lens	Paris FC	h-win	2	1	11	3	9	3	11	3	2	2	2	2	0	0	43.00	57.00	11	8	\N	\N	\N	\N	\N	2025-12-02 15:18:55.654985	1.63	0.52	1	1	draw	yes
+5600	1387768	2025-10-19	France	Ligue 1	Rennes	Auxerre	draw	2	2	19	7	7	4	6	2	2	2	1	3	0	0	52.00	48.00	11	15	\N	\N	\N	\N	\N	2025-12-02 15:18:55.727514	2.03	1.51	1	1	draw	yes
+5601	1387769	2025-10-19	France	Ligue 1	Toulouse	Metz	h-win	4	0	16	7	2	2	5	1	1	1	2	1	0	1	36.00	64.00	14	11	\N	\N	\N	\N	\N	2025-12-02 15:18:55.809407	2.54	0.08	2	0	h-win	yes
+5602	1387763	2025-10-19	France	Ligue 1	Lorient	Stade Brestois 29	draw	3	3	12	7	8	4	5	2	4	0	3	2	0	0	50.00	50.00	13	16	\N	\N	\N	\N	\N	2025-12-02 15:18:55.893329	1.20	1.59	1	2	a-win	yes
+5603	1387765	2025-10-19	France	Ligue 1	Nantes	Lille	a-win	0	2	8	3	23	5	5	9	0	0	1	4	0	0	37.00	63.00	12	15	\N	\N	\N	\N	\N	2025-12-02 15:18:55.976438	0.45	2.60	0	1	a-win	yes
+5604	1387777	2025-10-24	France	Ligue 1	Paris FC	Nantes	a-win	1	2	14	3	11	3	8	2	9	1	3	2	0	0	68.00	32.00	10	13	\N	\N	\N	\N	\N	2025-12-02 15:18:56.058452	1.19	0.90	1	2	a-win	yes
+5605	1387772	2025-10-25	France	Ligue 1	Stade Brestois 29	Paris Saint Germain	a-win	0	3	8	2	18	8	2	7	2	2	1	1	0	0	25.00	75.00	10	10	\N	\N	\N	\N	\N	2025-12-02 15:18:56.141929	1.62	2.07	0	2	a-win	yes
+5606	1387776	2025-10-25	France	Ligue 1	Monaco	Toulouse	h-win	1	0	14	5	10	2	2	5	0	0	3	4	0	0	54.00	46.00	15	18	\N	\N	\N	\N	\N	2025-12-02 15:18:56.224196	3.08	0.68	1	0	h-win	yes
+5607	1387773	2025-10-25	France	Ligue 1	Lens	Marseille	h-win	2	1	8	5	17	3	4	8	3	1	3	3	0	0	31.00	69.00	12	9	\N	\N	\N	\N	\N	2025-12-02 15:18:56.308569	1.80	0.66	1	1	draw	yes
+5608	1387774	2025-10-26	France	Ligue 1	Lille	Metz	h-win	6	1	23	12	10	4	7	8	1	0	3	2	0	0	62.00	38.00	18	12	\N	\N	\N	\N	\N	2025-12-02 15:18:56.391463	2.92	1.29	2	0	h-win	yes
+5609	1387770	2025-10-26	France	Ligue 1	Angers	Lorient	h-win	2	0	7	4	23	4	1	6	0	1	1	0	0	0	37.00	63.00	14	6	\N	\N	\N	\N	\N	2025-12-02 15:18:56.475975	0.93	1.99	1	0	h-win	yes
+5610	1387778	2025-10-26	France	Ligue 1	Rennes	Nice	a-win	1	2	19	7	8	3	7	3	3	2	5	2	0	0	58.00	42.00	13	22	\N	\N	\N	\N	\N	2025-12-02 15:18:56.561495	1.74	0.73	0	2	a-win	yes
+5611	1387771	2025-10-26	France	Ligue 1	Auxerre	Le Havre	a-win	0	1	14	3	9	4	13	5	0	2	2	3	0	0	51.00	49.00	21	12	\N	\N	\N	\N	\N	2025-12-02 15:18:56.646429	0.61	0.94	0	0	draw	yes
+5612	1387775	2025-10-26	France	Ligue 1	Lyon	Strasbourg	h-win	2	1	8	3	7	2	4	2	2	1	0	4	0	1	48.00	52.00	15	19	\N	\N	\N	\N	\N	2025-12-02 15:18:56.744184	1.67	0.49	1	1	draw	yes
+5613	1387784	2025-10-29	France	Ligue 1	Nice	Lille	h-win	2	0	8	4	21	4	2	13	1	0	3	3	0	0	32.00	68.00	11	10	\N	\N	\N	\N	\N	2025-12-02 15:18:56.828521	1.77	0.99	1	0	h-win	yes
+5614	1387780	2025-10-29	France	Ligue 1	Lorient	Paris Saint Germain	draw	1	1	5	2	15	8	0	8	4	0	0	2	0	0	22.00	78.00	5	13	\N	\N	\N	\N	\N	2025-12-02 15:18:56.911619	0.23	1.49	0	0	draw	yes
+5615	1387779	2025-10-29	France	Ligue 1	Le Havre	Stade Brestois 29	h-win	1	0	13	3	8	2	5	1	2	1	1	3	0	0	46.00	54.00	12	11	\N	\N	\N	\N	\N	2025-12-02 15:18:57.004131	1.01	0.55	0	0	draw	yes
+5616	1387782	2025-10-29	France	Ligue 1	Metz	Lens	h-win	2	0	16	7	10	2	2	5	0	3	3	2	1	0	46.00	54.00	15	15	\N	\N	\N	\N	\N	2025-12-02 15:18:57.092367	3.42	1.32	0	0	draw	yes
+5617	1387781	2025-10-29	France	Ligue 1	Marseille	Angers	draw	2	2	11	6	12	6	1	5	1	3	2	1	0	0	59.00	41.00	11	7	\N	\N	\N	\N	\N	2025-12-02 15:18:57.176458	1.33	1.04	0	1	a-win	yes
+5618	1387783	2025-10-29	France	Ligue 1	Nantes	Monaco	a-win	3	5	18	5	19	9	1	3	0	2	3	7	0	0	48.00	52.00	13	17	\N	\N	\N	\N	\N	2025-12-02 15:18:57.268084	1.62	4.31	2	2	draw	yes
+5619	1387786	2025-10-29	France	Ligue 1	Strasbourg	Auxerre	h-win	3	0	18	9	6	1	4	3	1	1	1	1	0	0	64.00	36.00	11	16	\N	\N	\N	\N	\N	2025-12-02 15:18:57.354011	4.06	0.43	0	0	draw	yes
+5620	1387787	2025-10-29	France	Ligue 1	Toulouse	Rennes	draw	2	2	15	4	11	5	5	8	0	2	2	3	0	0	55.00	45.00	9	12	\N	\N	\N	\N	\N	2025-12-02 15:18:57.436308	1.55	1.58	0	0	draw	yes
+5621	1387785	2025-10-29	France	Ligue 1	Paris FC	Lyon	draw	3	3	11	3	7	4	4	2	1	5	6	2	1	1	52.00	48.00	18	16	\N	\N	\N	\N	\N	2025-12-02 15:18:57.518813	0.62	1.25	0	1	a-win	yes
+5622	1387794	2025-11-01	France	Ligue 1	Paris Saint Germain	Nice	h-win	1	0	28	8	5	2	11	1	2	1	3	1	0	0	77.00	23.00	12	5	\N	\N	\N	2	10	2025-12-02 15:18:57.68602	2.29	0.48	0	0	draw	yes
+5623	1387792	2025-11-01	France	Ligue 1	Monaco	Paris FC	a-win	0	1	10	1	9	1	3	2	3	0	3	2	0	0	55.00	45.00	10	12	\N	\N	\N	7	13	2025-12-02 15:18:57.773932	0.61	0.85	0	0	draw	yes
+5624	1387788	2025-11-01	France	Ligue 1	Auxerre	Marseille	a-win	0	1	9	4	6	2	3	3	2	2	3	4	1	1	49.00	51.00	12	14	\N	\N	\N	18	3	2025-12-02 15:18:57.857588	1.17	0.52	0	1	a-win	yes
+5625	1387795	2025-11-02	France	Ligue 1	Rennes	Strasbourg	h-win	4	1	13	6	20	2	6	5	2	3	1	1	0	0	41.00	59.00	15	9	\N	\N	\N	5	8	2025-12-02 15:18:57.942442	2.35	1.60	2	0	h-win	yes
+5626	1387791	2025-11-02	France	Ligue 1	Lille	Angers	h-win	1	0	15	4	6	1	9	2	1	3	1	0	0	0	54.00	46.00	10	10	\N	\N	\N	4	12	2025-12-02 15:18:58.026442	2.04	0.37	1	0	h-win	yes
+5627	1387793	2025-11-02	France	Ligue 1	Nantes	Metz	a-win	0	2	16	4	14	7	8	5	1	3	1	3	0	0	52.00	48.00	8	8	\N	\N	\N	16	17	2025-12-02 15:18:58.112404	0.81	1.34	0	0	draw	yes
+5628	1387796	2025-11-02	France	Ligue 1	Toulouse	Le Havre	draw	0	0	18	2	9	3	10	2	0	2	1	2	0	0	46.00	54.00	12	14	\N	\N	\N	9	14	2025-12-02 15:18:58.197528	1.12	1.30	0	0	draw	yes
+5629	1387790	2025-11-02	France	Ligue 1	Lens	Lorient	h-win	3	0	9	6	12	3	7	6	2	0	2	2	0	0	58.00	42.00	8	10	\N	\N	\N	1	15	2025-12-02 15:18:58.283541	2.09	1.82	1	0	h-win	yes
+5630	1387789	2025-11-02	France	Ligue 1	Stade Brestois 29	Lyon	draw	0	0	13	3	4	2	12	2	2	1	1	0	0	1	50.00	50.00	19	6	\N	\N	\N	11	6	2025-12-02 15:18:58.374537	1.49	0.20	0	0	draw	yes
+5631	1387804	2025-11-07	France	Ligue 1	Paris FC	Rennes	a-win	0	1	20	4	10	3	8	9	4	2	4	2	0	0	52.00	48.00	9	13	\N	\N	\N	13	5	2025-12-02 15:18:58.462253	1.98	0.75	0	0	draw	yes
+5632	1387801	2025-11-08	France	Ligue 1	Marseille	Stade Brestois 29	h-win	3	0	19	7	4	2	6	2	0	2	0	1	0	0	64.00	36.00	12	10	\N	\N	\N	3	11	2025-12-02 15:18:58.5459	3.46	0.74	2	0	h-win	yes
+5633	1387798	2025-11-08	France	Ligue 1	Le Havre	Nantes	draw	1	1	17	4	5	2	8	3	4	3	3	3	0	0	65.00	35.00	15	13	\N	\N	\N	14	16	2025-12-02 15:18:58.641976	0.94	0.21	0	1	a-win	yes
+5634	1387803	2025-11-08	France	Ligue 1	Monaco	Lens	a-win	1	4	16	6	20	12	5	4	2	2	1	2	1	0	50.00	50.00	15	19	\N	\N	\N	7	1	2025-12-02 15:18:58.72794	2.83	3.16	1	3	a-win	yes
+5635	1387799	2025-11-09	France	Ligue 1	Lorient	Toulouse	draw	1	1	10	2	6	2	6	4	1	3	0	4	0	0	50.00	50.00	6	18	\N	\N	\N	15	9	2025-12-02 15:18:58.812588	1.36	1.32	1	0	h-win	yes
+5636	1387797	2025-11-09	France	Ligue 1	Angers	Auxerre	h-win	2	0	9	5	12	5	3	3	2	2	2	2	0	0	49.00	51.00	19	14	\N	\N	\N	12	18	2025-12-02 15:18:58.893451	0.66	0.70	0	0	draw	yes
+5637	1387805	2025-11-09	France	Ligue 1	Strasbourg	Lille	h-win	2	0	5	2	6	4	1	4	1	1	4	3	0	1	42.00	58.00	9	20	\N	\N	\N	8	4	2025-12-02 15:18:58.979584	1.07	0.28	1	0	h-win	yes
+5638	1387802	2025-11-09	France	Ligue 1	Metz	Nice	h-win	2	1	9	2	11	4	6	3	0	0	2	4	0	0	49.00	51.00	12	19	\N	\N	\N	17	10	2025-12-02 15:18:59.06309	1.58	0.95	0	1	a-win	yes
+5639	1387800	2025-11-09	France	Ligue 1	Lyon	Paris Saint Germain	a-win	2	3	9	2	9	4	5	5	2	2	6	2	1	0	28.00	72.00	10	8	\N	\N	\N	6	2	2025-12-02 15:18:59.14627	0.69	1.42	1	2	a-win	yes
+5640	1387811	2025-11-21	France	Ligue 1	Nice	Marseille	a-win	1	5	15	7	13	11	8	6	3	1	2	2	0	0	53.00	47.00	9	10	\N	\N	\N	10	3	2025-12-02 15:18:59.242978	1.19	2.86	0	2	a-win	yes
+5641	1387808	2025-11-22	France	Ligue 1	Lens	Strasbourg	h-win	1	0	13	5	7	1	3	1	3	2	2	3	1	1	55.00	45.00	13	13	\N	\N	\N	1	8	2025-12-02 15:18:59.327799	1.92	0.46	0	0	draw	yes
+5642	1387813	2025-11-22	France	Ligue 1	Rennes	Monaco	h-win	4	1	17	9	13	3	4	6	1	5	0	1	0	1	50.00	50.00	3	13	\N	\N	\N	5	7	2025-12-02 15:18:59.41282	3.69	1.33	1	0	h-win	yes
+5643	1387812	2025-11-22	France	Ligue 1	Paris Saint Germain	Le Havre	h-win	3	0	31	11	12	4	6	4	3	3	2	1	0	0	65.00	35.00	10	8	\N	\N	\N	2	14	2025-12-02 15:18:59.498284	3.46	1.19	1	0	h-win	yes
+5644	1387806	2025-11-23	France	Ligue 1	Auxerre	Lyon	draw	0	0	12	5	16	7	7	11	2	3	1	3	0	0	30.00	70.00	10	11	\N	\N	\N	18	6	2025-12-02 15:18:59.581441	2.07	1.57	0	0	draw	yes
+5645	1387810	2025-11-23	France	Ligue 1	Nantes	Lorient	draw	1	1	9	1	7	1	1	1	0	2	1	1	0	0	56.00	44.00	17	17	\N	\N	\N	16	15	2025-12-02 15:18:59.668974	0.84	0.32	0	1	a-win	yes
+5646	1387814	2025-11-23	France	Ligue 1	Toulouse	Angers	a-win	0	1	25	6	6	2	11	1	1	1	1	3	0	0	54.00	46.00	15	15	\N	\N	\N	9	12	2025-12-02 15:18:59.758594	1.98	0.43	0	1	a-win	yes
+5647	1387807	2025-11-23	France	Ligue 1	Stade Brestois 29	Metz	h-win	3	2	20	7	7	3	6	2	0	0	2	3	0	0	56.00	44.00	11	8	\N	\N	\N	11	17	2025-12-02 15:18:59.848325	3.11	1.05	1	1	draw	yes
+5648	1387809	2025-11-23	France	Ligue 1	Lille	Paris FC	h-win	4	2	17	10	6	3	9	4	1	3	1	2	0	0	52.00	48.00	9	12	\N	\N	\N	4	13	2025-12-02 15:18:59.93934	4.03	1.52	1	1	draw	yes
+5649	1387820	2025-11-28	France	Ligue 1	Metz	Rennes	a-win	0	1	16	5	9	2	6	3	4	1	0	0	0	0	52.00	48.00	9	8	\N	\N	\N	17	5	2025-12-02 15:19:00.026388	1.02	0.78	0	1	a-win	yes
+5650	1387821	2025-11-29	France	Ligue 1	Monaco	Paris Saint Germain	h-win	1	0	10	5	17	4	4	4	3	1	3	1	1	0	43.00	57.00	10	13	\N	\N	\N	7	2	2025-12-02 15:19:00.114041	0.52	1.33	0	0	draw	yes
+5651	1387822	2025-11-29	France	Ligue 1	Paris FC	Auxerre	draw	1	1	11	2	11	3	4	3	2	0	2	1	0	0	55.00	45.00	11	17	\N	\N	\N	13	18	2025-12-02 15:19:00.198469	1.80	1.11	1	1	draw	yes
+5652	1387819	2025-11-29	France	Ligue 1	Marseille	Toulouse	draw	2	2	20	5	6	4	9	1	1	1	2	1	0	0	77.00	23.00	7	10	\N	\N	\N	3	9	2025-12-02 15:19:00.281867	1.80	0.70	0	1	a-win	yes
+5653	1387823	2025-11-30	France	Ligue 1	Strasbourg	Stade Brestois 29	a-win	1	2	14	6	7	4	5	0	1	1	0	3	0	0	57.00	43.00	12	14	\N	\N	\N	8	11	2025-12-02 15:19:00.364974	0.80	1.05	1	0	h-win	yes
+5654	1387815	2025-11-30	France	Ligue 1	Angers	Lens	a-win	1	2	7	5	17	6	2	8	5	2	1	1	0	0	45.00	55.00	7	11	\N	\N	\N	12	1	2025-12-02 15:19:00.448034	1.16	2.05	0	1	a-win	yes
+5655	1387817	2025-11-30	France	Ligue 1	Lorient	Nice	h-win	3	1	18	7	9	2	3	7	0	1	1	2	0	0	43.00	57.00	7	11	\N	\N	\N	15	10	2025-12-02 15:19:00.537505	2.38	0.82	2	1	h-win	yes
+5656	1387816	2025-11-30	France	Ligue 1	Le Havre	Lille	a-win	0	1	14	7	8	2	6	2	1	5	1	3	0	1	43.00	57.00	15	13	\N	\N	\N	14	4	2025-12-02 15:19:00.6273	1.18	1.62	0	0	draw	yes
+5657	1387818	2025-11-30	France	Ligue 1	Lyon	Nantes	h-win	3	0	20	8	6	2	7	0	2	1	1	2	0	1	72.00	28.00	14	9	\N	\N	\N	6	16	2025-12-02 15:19:00.713424	2.35	0.86	0	0	draw	yes
+5658	1389131	2025-08-09	France	Ligue 2	Guingamp	Le Mans	draw	3	3	14	7	10	3	10	5	2	2	3	3	0	1	62.00	38.00	16	22	\N	\N	\N	\N	\N	2025-12-02 15:19:02.285057	\N	\N	0	2	a-win	yes
+5659	1389126	2025-08-09	France	Ligue 2	Montpellier	RED Star FC 93	draw	1	1	6	2	7	3	1	2	7	4	1	2	0	0	51.00	49.00	16	10	\N	\N	\N	\N	\N	2025-12-02 15:19:02.381208	\N	\N	1	1	draw	yes
+5660	1389125	2025-08-09	France	Ligue 2	Estac Troyes	Grenoble	h-win	2	1	21	9	5	5	3	1	1	2	1	1	0	1	61.00	39.00	12	14	\N	\N	\N	\N	\N	2025-12-02 15:19:02.482826	\N	\N	1	1	draw	yes
+5661	1389127	2025-08-09	France	Ligue 2	Laval	Saint Etienne	draw	3	3	9	4	10	6	4	7	1	4	2	0	1	0	46.00	54.00	11	16	\N	\N	\N	\N	\N	2025-12-02 15:19:02.585766	\N	\N	2	2	draw	yes
+5662	1389124	2025-08-09	France	Ligue 2	PAU	Annecy	h-win	2	0	9	3	4	1	5	5	3	2	2	2	0	1	58.00	42.00	20	18	\N	\N	\N	\N	\N	2025-12-02 15:19:02.678906	\N	\N	1	0	h-win	yes
+5663	1389130	2025-08-09	France	Ligue 2	Rodez	Nancy	draw	0	0	12	6	12	2	4	9	3	0	1	2	0	0	51.00	49.00	14	11	\N	\N	\N	\N	\N	2025-12-02 15:19:02.783444	\N	\N	0	0	draw	yes
+5664	1389128	2025-08-09	France	Ligue 2	Dunkerque	Clermont Foot	draw	2	2	15	4	6	3	9	2	1	4	2	1	0	0	58.00	42.00	17	9	\N	\N	\N	\N	\N	2025-12-02 15:19:02.87901	\N	\N	1	2	a-win	yes
+5665	1389129	2025-08-11	France	Ligue 2	Amiens	Reims	draw	2	2	10	2	10	4	8	7	2	1	1	1	0	0	37.00	63.00	7	16	\N	\N	\N	\N	\N	2025-12-02 15:19:02.993669	\N	\N	1	1	draw	yes
+5666	1389137	2025-08-15	France	Ligue 2	Clermont Foot	Estac Troyes	draw	0	0	4	1	11	2	3	3	4	2	2	3	0	0	53.00	47.00	12	12	\N	\N	\N	\N	\N	2025-12-02 15:19:03.112954	\N	\N	0	0	draw	yes
+5667	1389136	2025-08-15	France	Ligue 2	Grenoble	Laval	draw	1	1	14	2	7	3	7	4	3	0	0	0	0	0	40.00	60.00	16	9	\N	\N	\N	\N	\N	2025-12-02 15:19:03.197971	\N	\N	0	0	draw	yes
+5668	1389133	2025-08-15	France	Ligue 2	Nancy	Boulogne	h-win	1	0	7	2	10	3	4	2	6	3	4	2	0	0	54.00	46.00	23	16	\N	\N	\N	\N	\N	2025-12-02 15:19:03.292274	\N	\N	1	0	h-win	yes
+5669	1389134	2025-08-15	France	Ligue 2	RED Star FC 93	Amiens	a-win	1	3	26	7	10	5	13	2	0	2	2	3	0	0	68.00	32.00	10	11	\N	\N	\N	\N	\N	2025-12-02 15:19:03.378326	\N	\N	0	1	a-win	yes
+5670	1389132	2025-08-15	France	Ligue 2	Bastia	PAU	draw	1	1	13	5	9	3	6	11	1	2	2	3	1	1	43.00	57.00	13	6	\N	\N	\N	\N	\N	2025-12-02 15:19:03.471344	\N	\N	1	0	h-win	yes
+5672	1396826	2025-08-16	France	Ligue 2	Annecy	Dunkerque	draw	2	2	9	3	5	2	3	5	3	4	4	1	0	0	37.00	63.00	21	9	\N	\N	\N	\N	\N	2025-12-02 15:19:03.641524	\N	\N	2	1	h-win	yes
+5673	1396827	2025-08-16	France	Ligue 2	Saint Etienne	Rodez	h-win	4	0	18	6	5	1	5	5	1	4	2	2	0	0	70.00	30.00	13	14	\N	\N	\N	\N	\N	2025-12-02 15:19:03.740028	\N	\N	1	0	h-win	yes
+5674	1389135	2025-08-18	France	Ligue 2	Le Mans	Montpellier	a-win	1	2	11	3	12	3	5	9	2	2	3	2	0	0	55.00	45.00	10	14	\N	\N	\N	\N	\N	2025-12-02 15:19:03.828695	\N	\N	0	0	draw	yes
+5675	1389141	2025-08-22	France	Ligue 2	Amiens	Annecy	a-win	0	1	10	3	9	2	5	3	6	0	3	4	0	0	65.00	35.00	13	14	\N	\N	\N	\N	\N	2025-12-02 15:19:03.911333	\N	\N	0	1	a-win	yes
+5676	1389144	2025-08-22	France	Ligue 2	Clermont Foot	Grenoble	h-win	2	1	13	6	13	2	5	3	0	3	1	0	0	0	60.00	40.00	7	9	\N	\N	\N	\N	\N	2025-12-02 15:19:03.994349	\N	\N	0	0	draw	yes
+5677	1389146	2025-08-22	France	Ligue 2	Le Mans	Bastia	h-win	1	0	13	3	13	3	9	5	2	3	4	2	0	0	53.00	47.00	17	11	\N	\N	\N	\N	\N	2025-12-02 15:19:04.081452	\N	\N	0	0	draw	yes
+5678	1389140	2025-08-22	France	Ligue 2	Rodez	Laval	draw	1	1	22	7	8	4	5	9	2	1	2	1	0	0	42.00	58.00	13	14	\N	\N	\N	\N	\N	2025-12-02 15:19:04.171287	\N	\N	1	0	h-win	yes
+5679	1389139	2025-08-22	France	Ligue 2	Dunkerque	Nancy	a-win	1	3	12	7	18	4	6	6	2	7	2	2	0	0	68.00	32.00	9	21	\N	\N	\N	\N	\N	2025-12-02 15:19:04.257889	\N	\N	1	2	a-win	yes
+5680	1389142	2025-08-23	France	Ligue 2	Guingamp	RED Star FC 93	a-win	0	4	12	6	13	8	8	2	3	2	1	3	0	0	56.00	44.00	16	19	\N	\N	\N	\N	\N	2025-12-02 15:19:04.347529	\N	\N	0	1	a-win	yes
+5681	1389147	2025-08-23	France	Ligue 2	Estac Troyes	Montpellier	h-win	1	0	14	4	7	0	6	4	2	0	3	1	0	1	60.00	40.00	14	11	\N	\N	\N	\N	\N	2025-12-02 15:19:04.431563	\N	\N	1	0	h-win	yes
+5682	1389143	2025-08-23	France	Ligue 2	Boulogne	Saint Etienne	a-win	0	1	4	0	11	3	3	5	1	2	5	3	0	0	29.00	71.00	14	12	\N	\N	\N	\N	\N	2025-12-02 15:19:04.514173	\N	\N	0	0	draw	yes
+5683	1389145	2025-08-25	France	Ligue 2	PAU	Reims	h-win	2	0	7	5	7	1	5	4	1	3	3	2	0	0	38.00	62.00	7	16	\N	\N	\N	\N	\N	2025-12-02 15:19:04.596884	\N	\N	2	0	h-win	yes
+5684	1396828	2025-08-29	France	Ligue 2	Montpellier	Amiens	draw	1	1	20	4	6	2	3	1	2	1	3	3	0	0	60.00	40.00	18	16	\N	\N	\N	\N	\N	2025-12-02 15:19:04.682627	\N	\N	0	1	a-win	yes
+5685	1389153	2025-08-29	France	Ligue 2	Nancy	PAU	draw	2	2	15	6	15	4	11	3	1	4	1	1	0	0	46.00	54.00	17	8	\N	\N	\N	\N	\N	2025-12-02 16:17:40.86735	\N	\N	2	1	h-win	yes
+5686	1389154	2025-08-29	France	Ligue 2	RED Star FC 93	Annecy	h-win	1	0	5	1	5	0	2	4	6	0	0	1	0	0	38.00	62.00	14	16	\N	\N	\N	\N	\N	2025-12-02 16:17:40.956364	\N	\N	1	0	h-win	yes
+5687	1389150	2025-08-29	France	Ligue 2	Laval	Clermont Foot	draw	0	0	10	6	11	0	13	5	1	0	2	0	0	0	49.00	51.00	12	5	\N	\N	\N	\N	\N	2025-12-02 16:17:41.044196	\N	\N	0	0	draw	yes
+5688	1389155	2025-08-29	France	Ligue 2	Rodez	Boulogne	h-win	1	0	12	4	21	7	4	4	4	0	2	1	0	1	40.00	60.00	15	8	\N	\N	\N	\N	\N	2025-12-02 16:17:41.13383	\N	\N	1	0	h-win	yes
+5689	1389152	2025-08-29	France	Ligue 2	Dunkerque	Estac Troyes	h-win	2	0	6	4	11	3	2	11	1	4	1	1	0	0	47.00	53.00	14	13	\N	\N	\N	\N	\N	2025-12-02 16:17:41.218478	\N	\N	0	0	draw	yes
+5690	1389148	2025-08-30	France	Ligue 2	Reims	Le Mans	h-win	1	0	12	3	5	0	5	4	4	2	0	2	0	0	56.00	44.00	10	15	\N	\N	\N	\N	\N	2025-12-02 16:17:41.314162	\N	\N	0	0	draw	yes
+5691	1389151	2025-08-30	France	Ligue 2	Bastia	Guingamp	a-win	1	3	10	2	12	6	6	3	0	3	4	2	0	0	51.00	49.00	27	12	\N	\N	\N	\N	\N	2025-12-02 16:17:41.398586	\N	\N	0	2	a-win	yes
+5692	1389149	2025-08-30	France	Ligue 2	Saint Etienne	Grenoble	draw	1	1	20	6	7	2	9	1	0	4	2	4	0	1	79.00	21.00	12	20	\N	\N	\N	\N	\N	2025-12-02 16:17:41.487837	\N	\N	1	0	h-win	yes
+5693	1389158	2025-09-12	France	Ligue 2	Amiens	Bastia	draw	0	0	4	1	7	0	5	3	3	1	0	1	0	0	47.00	53.00	14	14	\N	\N	\N	\N	\N	2025-12-02 16:17:41.574862	\N	\N	0	0	draw	yes
+5694	1389163	2025-09-12	France	Ligue 2	Estac Troyes	Nancy	h-win	3	0	22	11	7	3	7	3	1	0	1	0	0	0	60.00	40.00	11	16	\N	\N	\N	\N	\N	2025-12-02 16:17:41.658437	\N	\N	1	0	h-win	yes
+5695	1389161	2025-09-12	France	Ligue 2	PAU	RED Star FC 93	a-win	0	3	13	3	16	6	2	2	1	5	2	2	2	0	43.00	57.00	6	12	\N	\N	\N	\N	\N	2025-12-02 16:17:41.74071	\N	\N	0	2	a-win	yes
+5696	1389160	2025-09-12	France	Ligue 2	Le Mans	Rodez	a-win	0	1	19	3	12	5	5	3	2	1	3	2	0	0	60.00	40.00	10	14	\N	\N	\N	\N	\N	2025-12-02 16:17:41.825513	\N	\N	0	0	draw	yes
+5697	1389157	2025-09-12	France	Ligue 2	Boulogne	Laval	a-win	1	2	11	3	7	4	3	2	8	1	1	0	0	0	50.00	50.00	10	15	\N	\N	\N	\N	\N	2025-12-02 16:17:41.914664	\N	\N	0	2	a-win	yes
+5698	1389159	2025-09-13	France	Ligue 2	Grenoble	Dunkerque	h-win	1	0	12	2	13	5	6	7	3	0	2	1	0	0	31.00	69.00	20	14	\N	\N	\N	\N	\N	2025-12-02 16:17:42.03316	\N	\N	1	0	h-win	yes
+5699	1389164	2025-09-13	France	Ligue 2	Annecy	Reims	draw	1	1	6	2	15	7	5	7	0	3	5	4	0	0	32.00	68.00	19	17	\N	\N	\N	\N	\N	2025-12-02 16:17:42.123136	\N	\N	1	0	h-win	yes
+5700	1389156	2025-09-13	France	Ligue 2	Clermont Foot	Saint Etienne	a-win	1	2	12	2	15	6	2	5	0	0	1	1	0	0	44.00	56.00	10	13	\N	\N	\N	\N	\N	2025-12-02 16:17:42.216205	\N	\N	1	0	h-win	yes
+5701	1389162	2025-09-15	France	Ligue 2	Guingamp	Montpellier	h-win	1	0	11	4	14	1	5	6	1	2	1	3	0	0	45.00	55.00	8	17	\N	\N	\N	\N	\N	2025-12-02 16:17:42.315286	\N	\N	1	0	h-win	yes
+5702	1396825	2025-09-16	France	Ligue 2	Boulogne	Bastia	h-win	1	0	7	2	12	6	2	4	3	0	3	4	0	0	35.00	65.00	14	13	\N	\N	\N	\N	\N	2025-12-02 16:17:42.408124	\N	\N	0	0	draw	yes
+5703	1389173	2025-09-19	France	Ligue 2	Grenoble	Annecy	a-win	1	3	5	3	12	7	4	10	3	0	0	1	0	0	51.00	49.00	8	18	\N	\N	\N	\N	\N	2025-12-02 16:17:42.494105	\N	\N	0	0	draw	yes
+5704	1389172	2025-09-19	France	Ligue 2	Nancy	RED Star FC 93	a-win	0	1	4	0	15	6	3	4	1	0	2	3	1	0	29.00	71.00	15	11	\N	\N	\N	\N	\N	2025-12-02 16:17:42.585385	\N	\N	0	0	draw	yes
+5705	1389169	2025-09-19	France	Ligue 2	Laval	Amiens	a-win	0	3	16	3	14	6	8	6	0	0	2	2	0	0	52.00	48.00	10	12	\N	\N	\N	\N	\N	2025-12-02 16:17:42.751741	\N	\N	0	1	a-win	yes
+5706	1389171	2025-09-19	France	Ligue 2	Boulogne	PAU	a-win	0	3	6	2	10	3	6	0	4	1	3	2	0	0	46.00	54.00	25	11	\N	\N	\N	\N	\N	2025-12-02 16:17:42.836175	\N	\N	0	3	a-win	yes
+5707	1389167	2025-09-19	France	Ligue 2	Rodez	Clermont Foot	a-win	0	1	20	3	6	3	7	2	1	3	2	1	0	1	42.00	58.00	16	13	\N	\N	\N	\N	\N	2025-12-02 16:17:42.932046	\N	\N	0	0	draw	yes
+5708	1389165	2025-09-19	France	Ligue 2	Dunkerque	Le Mans	draw	2	2	15	5	8	5	7	3	2	2	1	3	1	1	66.00	34.00	12	11	\N	\N	\N	\N	\N	2025-12-02 16:17:43.020881	\N	\N	1	1	draw	yes
+5709	1389166	2025-09-20	France	Ligue 2	Montpellier	Bastia	h-win	2	0	8	4	13	4	2	9	0	1	3	3	0	0	44.00	56.00	15	20	\N	\N	\N	\N	\N	2025-12-02 16:17:43.108936	\N	\N	2	0	h-win	yes
+5710	1389168	2025-09-20	France	Ligue 2	Estac Troyes	Guingamp	h-win	5	2	18	11	8	4	1	3	0	2	0	0	0	0	43.00	57.00	13	10	\N	\N	\N	\N	\N	2025-12-02 16:17:43.195729	\N	\N	3	1	h-win	yes
+5711	1389170	2025-09-20	France	Ligue 2	Saint Etienne	Reims	h-win	3	2	16	10	17	7	1	6	1	0	0	4	0	0	59.00	41.00	6	26	\N	\N	\N	\N	\N	2025-12-02 16:17:43.282752	\N	\N	2	1	h-win	yes
+5712	1389174	2025-09-23	France	Ligue 2	Montpellier	Boulogne	a-win	1	3	6	2	24	10	4	5	2	2	0	3	1	0	54.00	46.00	14	16	\N	\N	\N	\N	\N	2025-12-02 16:17:43.370988	\N	\N	0	1	a-win	yes
+5713	1389177	2025-09-23	France	Ligue 2	Amiens	Saint Etienne	a-win	0	1	9	2	23	4	3	9	1	1	2	2	0	0	41.00	59.00	11	12	\N	\N	\N	\N	\N	2025-12-02 16:17:43.464239	\N	\N	0	0	draw	yes
+5714	1389182	2025-09-23	France	Ligue 2	Guingamp	Dunkerque	h-win	2	1	10	3	13	4	4	4	4	1	2	3	0	0	41.00	59.00	13	15	\N	\N	\N	\N	\N	2025-12-02 16:17:43.548488	\N	\N	2	1	h-win	yes
+5715	1389179	2025-09-23	France	Ligue 2	Reims	Clermont Foot	h-win	4	1	18	5	7	3	3	1	1	0	3	0	0	1	54.00	46.00	18	8	\N	\N	\N	\N	\N	2025-12-02 16:17:43.637593	\N	\N	2	0	h-win	yes
+5716	1389178	2025-09-23	France	Ligue 2	RED Star FC 93	Estac Troyes	a-win	1	3	12	4	15	8	2	4	2	3	0	3	0	0	59.00	41.00	17	17	\N	\N	\N	\N	\N	2025-12-02 16:17:43.723228	\N	\N	1	2	a-win	yes
+5717	1389181	2025-09-23	France	Ligue 2	PAU	Laval	h-win	1	0	17	4	5	2	4	4	2	2	3	2	0	0	50.00	50.00	10	18	\N	\N	\N	\N	\N	2025-12-02 16:17:43.810556	\N	\N	0	0	draw	yes
+5718	1389175	2025-09-23	France	Ligue 2	Le Mans	Grenoble	h-win	1	0	7	2	11	1	5	5	2	6	4	2	1	0	30.00	70.00	16	10	\N	\N	\N	\N	\N	2025-12-02 16:17:43.894891	\N	\N	1	0	h-win	yes
+5719	1389180	2025-09-23	France	Ligue 2	Bastia	Rodez	a-win	2	3	20	9	11	3	7	6	0	5	1	2	0	0	58.00	42.00	15	16	\N	\N	\N	\N	\N	2025-12-02 16:17:43.980271	\N	\N	1	0	h-win	yes
+5720	1389176	2025-09-23	France	Ligue 2	Annecy	Nancy	a-win	1	2	11	2	12	6	4	3	1	2	4	3	0	0	54.00	46.00	15	14	\N	\N	\N	\N	\N	2025-12-02 16:17:44.069981	\N	\N	1	1	draw	yes
+5721	1389184	2025-09-26	France	Ligue 2	Clermont Foot	Le Mans	draw	1	1	8	2	24	7	2	13	0	2	2	3	0	0	47.00	53.00	7	12	\N	\N	\N	\N	\N	2025-12-02 16:17:44.155572	\N	\N	1	0	h-win	yes
+5722	1389188	2025-09-26	France	Ligue 2	Grenoble	Bastia	draw	0	0	10	3	4	0	5	2	4	0	3	2	0	1	62.00	38.00	15	9	\N	\N	\N	\N	\N	2025-12-02 16:17:44.24327	\N	\N	0	0	draw	yes
+5723	1389190	2025-09-26	France	Ligue 2	Nancy	Reims	a-win	0	1	19	2	8	2	8	1	2	2	4	1	0	0	58.00	42.00	10	13	\N	\N	\N	\N	\N	2025-12-02 16:17:44.328649	\N	\N	0	0	draw	yes
+5724	1389191	2025-09-26	France	Ligue 2	Estac Troyes	Annecy	h-win	3	1	9	3	12	6	2	2	7	1	2	1	0	0	47.00	53.00	12	22	\N	\N	\N	\N	\N	2025-12-02 16:17:44.416579	\N	\N	1	0	h-win	yes
+5725	1389183	2025-09-26	France	Ligue 2	Rodez	PAU	a-win	1	2	10	2	22	6	3	10	2	0	1	3	0	0	43.00	57.00	11	8	\N	\N	\N	\N	\N	2025-12-02 16:17:44.500691	\N	\N	1	1	draw	yes
+5726	1389189	2025-09-27	France	Ligue 2	Laval	Montpellier	a-win	0	1	17	7	11	4	12	5	3	1	1	5	0	0	63.00	37.00	14	21	\N	\N	\N	\N	\N	2025-12-02 16:17:44.585812	\N	\N	0	1	a-win	yes
+5727	1389186	2025-09-27	France	Ligue 2	Dunkerque	Amiens	h-win	6	2	18	12	6	2	5	2	5	2	3	1	0	0	61.00	39.00	17	13	\N	\N	\N	\N	\N	2025-12-02 16:17:44.672505	\N	\N	4	0	h-win	yes
+5728	1389185	2025-09-27	France	Ligue 2	Saint Etienne	Guingamp	a-win	2	3	13	2	12	7	5	4	2	2	3	2	1	0	62.00	38.00	12	12	\N	\N	\N	\N	\N	2025-12-02 16:17:44.75856	\N	\N	1	1	draw	yes
+5729	1389187	2025-09-29	France	Ligue 2	Boulogne	RED Star FC 93	a-win	1	2	16	6	8	5	7	3	4	3	1	0	0	0	45.00	55.00	10	10	\N	\N	\N	\N	\N	2025-12-02 16:17:44.842601	\N	\N	1	1	draw	yes
+5730	1389200	2025-10-03	France	Ligue 2	Amiens	Boulogne	a-win	0	1	4	1	19	6	5	4	2	1	2	1	1	0	49.00	51.00	14	14	\N	\N	\N	\N	\N	2025-12-02 16:17:44.928167	\N	\N	0	0	draw	yes
+5731	1389195	2025-10-03	France	Ligue 2	Guingamp	Nancy	draw	2	2	15	5	7	3	5	2	1	0	2	4	0	2	70.00	30.00	8	17	\N	\N	\N	\N	\N	2025-12-02 16:17:45.015897	\N	\N	0	0	draw	yes
+5732	1389199	2025-10-03	France	Ligue 2	PAU	Clermont Foot	h-win	3	1	7	4	11	2	5	6	1	0	0	0	0	0	46.00	54.00	11	11	\N	\N	\N	\N	\N	2025-12-02 16:17:45.125208	\N	\N	3	0	h-win	yes
+5733	1389192	2025-10-03	France	Ligue 2	Le Mans	Estac Troyes	draw	2	2	13	6	8	3	1	6	3	1	1	3	0	0	55.00	45.00	17	12	\N	\N	\N	\N	\N	2025-12-02 16:17:45.217954	\N	\N	0	0	draw	yes
+5734	1389198	2025-10-03	France	Ligue 2	Bastia	Dunkerque	draw	0	0	15	2	5	0	6	3	6	2	1	3	0	1	59.00	41.00	17	11	\N	\N	\N	\N	\N	2025-12-02 16:17:45.303067	\N	\N	0	0	draw	yes
+5735	1389196	2025-10-03	France	Ligue 2	Annecy	Laval	draw	0	0	7	1	3	1	5	0	0	4	3	2	0	1	55.00	45.00	31	19	\N	\N	\N	\N	\N	2025-12-02 16:17:45.398163	\N	\N	0	0	draw	yes
+5736	1389193	2025-10-04	France	Ligue 2	Reims	Grenoble	a-win	2	4	21	8	6	4	7	0	1	1	1	0	0	0	63.00	37.00	8	9	\N	\N	\N	\N	\N	2025-12-02 16:17:45.488134	\N	\N	1	2	a-win	yes
+5737	1389197	2025-10-04	France	Ligue 2	RED Star FC 93	Rodez	draw	1	1	16	4	7	3	5	2	2	1	2	4	0	0	66.00	34.00	14	19	\N	\N	\N	\N	\N	2025-12-02 16:17:45.573328	\N	\N	0	0	draw	yes
+5738	1389194	2025-10-04	France	Ligue 2	Montpellier	Saint Etienne	a-win	0	2	19	4	8	4	8	3	3	2	4	4	0	0	41.00	59.00	20	17	\N	\N	\N	\N	\N	2025-12-02 16:17:45.660601	\N	\N	0	2	a-win	yes
+5739	1389209	2025-10-17	France	Ligue 2	Clermont Foot	Annecy	a-win	0	1	11	2	9	4	6	3	3	0	2	1	0	0	74.00	26.00	10	18	\N	\N	\N	\N	\N	2025-12-02 16:17:45.748804	\N	\N	0	1	a-win	yes
+5740	1389203	2025-10-17	France	Ligue 2	Grenoble	PAU	draw	1	1	12	5	24	6	3	5	6	0	1	2	0	0	44.00	56.00	13	10	\N	\N	\N	\N	\N	2025-12-02 16:17:45.837858	\N	\N	0	0	draw	yes
+5741	1389205	2025-10-17	France	Ligue 2	Estac Troyes	Bastia	h-win	1	0	10	4	15	2	2	5	0	3	4	3	1	0	34.00	66.00	10	15	\N	\N	\N	\N	\N	2025-12-02 16:17:45.92583	\N	\N	1	0	h-win	yes
+5742	1389202	2025-10-17	France	Ligue 2	Boulogne	Guingamp	draw	2	2	8	3	8	3	2	2	0	0	4	1	0	0	43.00	57.00	14	12	\N	\N	\N	\N	\N	2025-12-02 16:17:46.014798	\N	\N	0	1	a-win	yes
+5743	1389207	2025-10-17	France	Ligue 2	Rodez	Reims	draw	2	2	13	3	13	5	2	10	1	1	2	4	0	0	33.00	67.00	13	13	\N	\N	\N	\N	\N	2025-12-02 16:17:46.09874	\N	\N	1	1	draw	yes
+5744	1389208	2025-10-18	France	Ligue 2	Laval	RED Star FC 93	a-win	0	1	9	1	10	3	6	5	1	3	1	2	0	0	47.00	53.00	22	12	\N	\N	\N	\N	\N	2025-12-02 16:17:46.185594	\N	\N	0	0	draw	yes
+5745	1389204	2025-10-18	France	Ligue 2	Dunkerque	Montpellier	a-win	0	1	10	3	8	3	6	4	0	1	2	2	0	0	51.00	49.00	13	15	\N	\N	\N	\N	\N	2025-12-02 16:17:46.277689	\N	\N	0	0	draw	yes
+5746	1389206	2025-10-18	France	Ligue 2	Saint Etienne	Le Mans	a-win	2	3	12	4	14	7	4	3	0	1	2	3	0	0	72.00	28.00	12	14	\N	\N	\N	\N	\N	2025-12-02 16:17:46.373231	\N	\N	1	1	draw	yes
+5747	1389201	2025-10-20	France	Ligue 2	Nancy	Amiens	a-win	0	1	23	3	5	3	7	4	0	1	1	3	0	0	57.00	43.00	14	16	\N	\N	\N	\N	\N	2025-12-02 16:17:46.457712	\N	\N	0	1	a-win	yes
+5748	1389211	2025-10-24	France	Ligue 2	Guingamp	Clermont Foot	a-win	0	1	20	3	4	1	6	1	1	0	2	3	0	0	63.00	37.00	10	11	\N	\N	\N	\N	\N	2025-12-02 16:17:46.543592	\N	\N	0	0	draw	yes
+5749	1389214	2025-10-24	France	Ligue 2	Reims	Estac Troyes	draw	0	0	12	4	14	5	7	1	0	0	1	2	0	0	60.00	40.00	12	8	\N	\N	\N	\N	\N	2025-12-02 16:17:46.628574	\N	\N	0	0	draw	yes
+5750	1389213	2025-10-24	France	Ligue 2	RED Star FC 93	Grenoble	h-win	1	0	15	5	11	5	9	4	2	3	1	1	0	0	57.00	43.00	10	16	\N	\N	\N	\N	\N	2025-12-02 16:17:46.717136	\N	\N	0	0	draw	yes
+5751	1389216	2025-10-24	France	Ligue 2	PAU	Dunkerque	a-win	0	3	15	0	11	4	8	1	4	1	2	0	1	0	44.00	56.00	13	15	\N	\N	\N	\N	\N	2025-12-02 16:17:46.805012	\N	\N	0	2	a-win	yes
+5752	1389212	2025-10-24	France	Ligue 2	Le Mans	Boulogne	h-win	1	0	15	6	4	1	10	3	4	1	2	2	0	0	67.00	33.00	11	20	\N	\N	\N	\N	\N	2025-12-02 16:17:46.894247	\N	\N	0	0	draw	yes
+5753	1389218	2025-10-25	France	Ligue 2	Montpellier	Nancy	h-win	4	1	19	9	7	3	9	1	6	0	1	2	0	1	69.00	31.00	14	15	\N	\N	\N	\N	\N	2025-12-02 16:17:46.982267	\N	\N	1	1	draw	yes
+5797	1423956	2025-09-12	France	National 1	Fleury 91	Ajaccio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.463096	\N	\N	0	0	draw	no
+5754	1389217	2025-10-25	France	Ligue 2	Amiens	Rodez	h-win	2	1	7	4	15	7	1	4	1	1	1	2	0	0	55.00	45.00	11	12	\N	\N	\N	\N	\N	2025-12-02 16:17:47.074159	\N	\N	0	1	a-win	yes
+5755	1389210	2025-10-25	France	Ligue 2	Annecy	Saint Etienne	h-win	4	0	13	8	6	2	4	4	2	6	2	0	0	1	44.00	56.00	19	5	\N	\N	\N	\N	\N	2025-12-02 16:17:47.166082	\N	\N	1	0	h-win	yes
+5756	1389222	2025-10-28	France	Ligue 2	Clermont Foot	Montpellier	draw	1	1	13	6	16	4	4	10	0	1	0	3	0	0	40.00	60.00	11	15	\N	\N	\N	\N	\N	2025-12-02 16:17:47.258552	\N	\N	1	1	draw	yes
+5757	1389221	2025-10-28	France	Ligue 2	Grenoble	Guingamp	draw	0	0	4	1	6	1	3	2	0	2	1	2	0	0	40.00	60.00	16	15	\N	\N	\N	\N	\N	2025-12-02 16:17:47.349231	\N	\N	0	0	draw	yes
+5758	1389225	2025-10-28	France	Ligue 2	Nancy	Bastia	h-win	2	0	9	5	6	2	2	4	2	0	1	2	0	0	43.00	57.00	19	19	\N	\N	\N	\N	\N	2025-12-02 16:17:47.433562	\N	\N	1	0	h-win	yes
+5759	1389223	2025-10-28	France	Ligue 2	Estac Troyes	Amiens	h-win	3	1	17	4	4	2	4	1	1	0	3	2	0	0	55.00	45.00	16	15	\N	\N	\N	\N	\N	2025-12-02 16:17:47.534208	\N	\N	0	1	a-win	yes
+5760	1389224	2025-10-28	France	Ligue 2	Laval	Le Mans	draw	1	1	9	7	6	3	6	6	1	2	3	3	0	0	53.00	47.00	16	18	\N	\N	\N	\N	\N	2025-12-02 16:17:47.622123	\N	\N	0	1	a-win	yes
+5761	1389227	2025-10-28	France	Ligue 2	Saint Etienne	PAU	h-win	6	0	16	8	11	4	4	4	2	0	2	1	0	1	56.00	44.00	16	12	\N	\N	\N	\N	\N	2025-12-02 16:17:47.709247	\N	\N	4	0	h-win	yes
+5762	1389219	2025-10-28	France	Ligue 2	Boulogne	Reims	a-win	2	6	10	2	15	7	1	3	1	3	2	1	0	0	42.00	58.00	16	8	\N	\N	\N	\N	\N	2025-12-02 16:17:47.80028	\N	\N	2	4	a-win	yes
+5763	1389226	2025-10-28	France	Ligue 2	Rodez	Annecy	h-win	2	1	5	4	8	3	4	4	6	2	2	3	0	0	54.00	46.00	12	16	\N	\N	\N	\N	\N	2025-12-02 16:17:47.886061	\N	\N	0	0	draw	yes
+5764	1389220	2025-10-28	France	Ligue 2	Dunkerque	RED Star FC 93	h-win	3	0	9	4	7	2	3	3	2	4	1	3	0	0	43.00	57.00	12	11	\N	\N	\N	\N	\N	2025-12-02 16:17:47.968628	\N	\N	1	0	h-win	yes
+5765	1389235	2025-10-31	France	Ligue 2	Montpellier	Rodez	h-win	2	0	26	5	9	3	8	2	1	1	2	2	0	1	71.00	29.00	14	13	\N	\N	\N	\N	\N	2025-12-02 16:17:48.054499	\N	\N	0	0	draw	yes
+5766	1389231	2025-10-31	France	Ligue 2	Guingamp	Laval	h-win	2	0	11	4	13	2	5	4	2	2	2	1	0	0	50.00	50.00	11	21	\N	\N	\N	\N	\N	2025-12-02 16:17:48.140296	\N	\N	2	0	h-win	yes
+5767	1389233	2025-10-31	France	Ligue 2	Le Mans	Nancy	h-win	1	0	9	2	8	1	7	3	2	2	5	2	0	0	49.00	51.00	12	11	\N	\N	\N	\N	\N	2025-12-02 16:17:48.224969	\N	\N	0	0	draw	yes
+5768	1389230	2025-10-31	France	Ligue 2	Bastia	Clermont Foot	h-win	1	0	13	4	9	1	2	6	4	0	4	3	0	0	54.00	46.00	17	11	\N	\N	\N	\N	\N	2025-12-02 16:17:48.309411	\N	\N	0	0	draw	yes
+5769	1389229	2025-10-31	France	Ligue 2	Annecy	Boulogne	draw	1	1	8	2	11	5	6	1	2	5	2	3	0	1	46.00	54.00	17	15	\N	\N	\N	\N	\N	2025-12-02 16:17:48.394945	\N	\N	1	0	h-win	yes
+5770	1389234	2025-11-01	France	Ligue 2	Amiens	Grenoble	a-win	2	3	15	8	18	9	6	5	2	1	2	4	0	0	54.00	46.00	16	27	\N	\N	\N	15	12	2025-12-02 16:17:48.563091	\N	\N	0	2	a-win	yes
+5771	1389232	2025-11-01	France	Ligue 2	Reims	Dunkerque	a-win	1	2	10	4	5	4	3	0	1	1	4	2	0	0	54.00	46.00	20	11	\N	\N	\N	4	9	2025-12-02 16:17:48.654324	\N	\N	1	1	draw	yes
+5772	1389228	2025-11-01	France	Ligue 2	RED Star FC 93	Saint Etienne	h-win	2	1	11	3	15	6	0	5	2	2	1	1	0	0	35.00	65.00	15	16	\N	\N	\N	3	2	2025-12-02 16:17:48.739201	\N	\N	2	0	h-win	yes
+5773	1389236	2025-11-03	France	Ligue 2	PAU	Estac Troyes	draw	1	1	18	6	9	4	9	1	2	2	2	1	0	1	62.00	38.00	15	5	\N	\N	\N	8	1	2025-12-02 16:17:48.828124	\N	\N	1	0	h-win	yes
+5774	1389239	2025-11-07	France	Ligue 2	Montpellier	Annecy	h-win	1	0	14	5	8	4	11	3	4	1	3	2	0	0	48.00	52.00	13	22	\N	\N	\N	6	10	2025-12-02 16:17:48.915382	\N	\N	0	0	draw	yes
+5775	1389245	2025-11-07	France	Ligue 2	Clermont Foot	Amiens	h-win	2	1	17	5	9	4	11	4	1	0	2	6	0	0	65.00	35.00	12	16	\N	\N	\N	11	15	2025-12-02 16:17:49.000442	\N	\N	0	0	draw	yes
+5776	1389242	2025-11-07	France	Ligue 2	Grenoble	Rodez	h-win	2	1	14	6	14	4	5	8	3	0	5	2	0	0	50.00	50.00	11	10	\N	\N	\N	12	13	2025-12-02 16:17:49.091737	\N	\N	2	0	h-win	yes
+5777	1389238	2025-11-07	France	Ligue 2	Nancy	Laval	a-win	0	2	14	3	9	3	10	3	1	3	1	3	0	0	61.00	39.00	20	15	\N	\N	\N	17	14	2025-12-02 16:17:49.186096	\N	\N	0	2	a-win	yes
+5778	1389243	2025-11-07	France	Ligue 2	Dunkerque	Boulogne	draw	1	1	12	4	11	4	3	7	2	4	4	1	0	0	65.00	35.00	15	23	\N	\N	\N	9	16	2025-12-02 16:17:49.276623	\N	\N	0	0	draw	yes
+5779	1389237	2025-11-07	France	Ligue 2	Bastia	Reims	a-win	1	3	17	2	9	5	2	4	1	1	4	4	0	0	46.00	54.00	13	15	\N	\N	\N	18	4	2025-12-02 16:17:49.363469	\N	\N	1	2	a-win	yes
+5780	1389241	2025-11-08	France	Ligue 2	Guingamp	PAU	draw	2	2	8	4	9	5	6	2	6	0	2	5	0	0	52.00	48.00	7	18	\N	\N	\N	7	8	2025-12-02 16:17:49.452674	\N	\N	2	1	h-win	yes
+5781	1389240	2025-11-08	France	Ligue 2	Le Mans	RED Star FC 93	draw	0	0	9	3	8	2	5	6	3	1	0	0	0	0	45.00	55.00	17	4	\N	\N	\N	5	3	2025-12-02 16:17:49.539991	\N	\N	0	0	draw	yes
+5782	1389244	2025-11-08	France	Ligue 2	Estac Troyes	Saint Etienne	a-win	2	3	21	8	7	5	6	0	4	1	4	1	0	0	58.00	42.00	8	14	\N	\N	\N	1	2	2025-12-02 16:17:49.627934	\N	\N	0	3	a-win	yes
+5783	1389252	2025-11-21	France	Ligue 2	Laval	Estac Troyes	a-win	0	1	12	3	15	5	3	7	0	2	4	3	0	0	46.00	54.00	13	13	\N	\N	\N	14	1	2025-12-02 16:17:49.717133	\N	\N	0	0	draw	yes
+5784	1389247	2025-11-21	France	Ligue 2	PAU	Le Mans	a-win	1	2	12	2	4	2	7	2	0	3	3	3	0	0	61.00	39.00	8	17	\N	\N	\N	8	5	2025-12-02 16:17:49.805265	\N	\N	1	2	a-win	yes
+5785	1389250	2025-11-21	France	Ligue 2	Boulogne	Grenoble	h-win	3	1	20	8	13	7	6	6	2	3	4	3	1	0	51.00	49.00	13	14	\N	\N	\N	16	12	2025-12-02 16:17:49.892371	\N	\N	0	1	a-win	yes
+5786	1389253	2025-11-21	France	Ligue 2	Rodez	Dunkerque	draw	1	1	11	3	6	3	6	5	2	4	2	0	0	0	36.00	64.00	12	11	\N	\N	\N	13	9	2025-12-02 16:17:49.982327	\N	\N	0	1	a-win	yes
+5787	1396829	2025-11-21	France	Ligue 2	Annecy	Bastia	h-win	1	0	18	3	3	3	9	2	1	5	2	2	0	1	54.00	46.00	20	13	\N	\N	\N	10	18	2025-12-02 16:17:50.075588	\N	\N	1	0	h-win	yes
+5788	1389248	2025-11-22	France	Ligue 2	Amiens	Guingamp	a-win	1	2	14	4	17	3	8	9	0	3	4	2	0	0	47.00	53.00	13	14	\N	\N	\N	15	7	2025-12-02 16:17:50.163065	\N	\N	1	2	a-win	yes
+5789	1389251	2025-11-22	France	Ligue 2	RED Star FC 93	Clermont Foot	draw	2	2	14	3	7	3	2	3	1	1	3	2	0	0	56.00	44.00	18	11	\N	\N	\N	3	11	2025-12-02 16:17:50.254914	\N	\N	1	2	a-win	yes
+5790	1389246	2025-11-22	France	Ligue 2	Saint Etienne	Nancy	h-win	2	1	9	2	11	3	4	2	1	1	2	3	0	0	69.00	31.00	11	20	\N	\N	\N	2	17	2025-12-02 16:17:50.347096	\N	\N	1	0	h-win	yes
+5791	1389249	2025-11-24	France	Ligue 2	Reims	Montpellier	h-win	2	0	15	5	12	4	5	4	0	0	2	3	0	0	40.00	60.00	20	8	\N	\N	\N	4	6	2025-12-02 16:17:50.437223	\N	\N	1	0	h-win	yes
+5792	1423951	2025-08-08	France	National 1	Bourg-en-bresse 01	Ajaccio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.00803	\N	\N	0	0	draw	no
+5793	1423952	2025-08-15	France	National 1	Concarneau	Ajaccio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.097438	\N	\N	0	0	draw	no
+5794	1423953	2025-08-22	France	National 1	Ajaccio	Aubagne	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.192565	\N	\N	0	0	draw	no
+5795	1423954	2025-08-29	France	National 1	Quevilly	Ajaccio	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:52.27831	\N	\N	0	0	draw	no
+5808	1422803	2025-08-08	France	National 1	Chateauroux	Valenciennes	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:53.516631	\N	\N	0	0	draw	yes
+5809	1422809	2025-08-08	France	National 1	Villefranche	Concarneau	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:53.60481	\N	\N	0	0	draw	yes
+5810	1422804	2025-08-08	France	National 1	Le Puy Foot	Sochaux	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:53.694997	\N	\N	0	0	draw	yes
+5811	1422807	2025-08-08	France	National 1	Rouen	Fleury 91	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:53.785076	\N	\N	0	0	draw	yes
+5812	1422808	2025-08-08	France	National 1	Stade Briochin	Versailles	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:53.870552	\N	\N	0	1	a-win	yes
+5813	1422806	2025-08-08	France	National 1	Gobelins	Quevilly	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:53.961471	\N	\N	1	0	h-win	yes
+5814	1422813	2025-08-15	France	National 1	Dijon	Rouen	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.054967	\N	\N	1	1	draw	yes
+5815	1422817	2025-08-15	France	National 1	Valenciennes	Le Puy Foot	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.143783	\N	\N	0	0	draw	yes
+5816	1422812	2025-08-15	France	National 1	Chateauroux	Bourg-en-bresse 01	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.23389	\N	\N	1	0	h-win	yes
+5817	1422816	2025-08-15	France	National 1	Sochaux	Orleans	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.324904	\N	\N	4	0	h-win	yes
+5818	1422815	2025-08-15	France	National 1	Quevilly	Caen	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.415992	\N	\N	0	1	a-win	yes
+5819	1422818	2025-08-15	France	National 1	Versailles	Gobelins	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.512959	\N	\N	1	0	h-win	yes
+5820	1422814	2025-08-15	France	National 1	Fleury 91	Stade Briochin	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.602995	\N	\N	3	0	h-win	yes
+5821	1422811	2025-08-15	France	National 1	Aubagne	Villefranche	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.69457	\N	\N	0	0	draw	yes
+5822	1422821	2025-08-22	France	National 1	Caen	Versailles	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.787451	\N	\N	0	0	draw	yes
+5823	1422823	2025-08-22	France	National 1	Orleans	Valenciennes	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.876002	\N	\N	2	0	h-win	yes
+5824	1422820	2025-08-22	France	National 1	Bourg-en-bresse 01	Concarneau	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:54.968471	\N	\N	0	1	a-win	yes
+5825	1422827	2025-08-22	France	National 1	Villefranche	Quevilly	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.059733	\N	\N	1	1	draw	yes
+5826	1422822	2025-08-22	France	National 1	Le Puy Foot	Chateauroux	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.150699	\N	\N	0	2	a-win	yes
+5827	1422825	2025-08-22	France	National 1	Rouen	Sochaux	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.242408	\N	\N	1	1	draw	yes
+5828	1422826	2025-08-22	France	National 1	Stade Briochin	Dijon	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.332508	\N	\N	0	0	draw	yes
+5829	1422824	2025-08-22	France	National 1	Gobelins	Fleury 91	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.421095	\N	\N	0	0	draw	yes
+5830	1422831	2025-08-29	France	National 1	Dijon	Gobelins	h-win	4	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.511962	\N	\N	2	0	h-win	yes
+5831	1422835	2025-08-29	France	National 1	Valenciennes	Rouen	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.604931	\N	\N	0	1	a-win	yes
+5832	1422830	2025-08-29	France	National 1	Chateauroux	Orleans	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.693944	\N	\N	0	0	draw	yes
+5833	1422834	2025-08-29	France	National 1	Sochaux	Stade Briochin	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.787889	\N	\N	1	0	h-win	yes
+5834	1422833	2025-08-29	France	National 1	Le Puy Foot	Bourg-en-bresse 01	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.875723	\N	\N	0	0	draw	yes
+5835	1422832	2025-08-29	France	National 1	Fleury 91	Caen	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:55.960399	\N	\N	0	1	a-win	yes
+5836	1422829	2025-08-29	France	National 1	Aubagne	Concarneau	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.049084	\N	\N	0	0	draw	yes
+5837	1422839	2025-09-05	France	National 1	Caen	Dijon	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.13948	\N	\N	0	0	draw	yes
+5838	1422841	2025-09-05	France	National 1	Orleans	Le Puy Foot	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.227488	\N	\N	0	1	a-win	yes
+5839	1422838	2025-09-05	France	National 1	Bourg-en-bresse 01	Aubagne	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.315223	\N	\N	0	0	draw	yes
+5840	1422840	2025-09-05	France	National 1	Concarneau	Quevilly	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.400728	\N	\N	2	0	h-win	yes
+5841	1422845	2025-09-05	France	National 1	Villefranche	Fleury 91	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.490612	\N	\N	0	1	a-win	yes
+5842	1422844	2025-09-05	France	National 1	Stade Briochin	Valenciennes	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.578262	\N	\N	2	0	h-win	yes
+5843	1422842	2025-09-05	France	National 1	Gobelins	Sochaux	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.670597	\N	\N	0	1	a-win	yes
+5844	1422843	2025-09-06	France	National 1	Rouen	Chateauroux	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.754727	\N	\N	1	0	h-win	yes
+5845	1422848	2025-09-12	France	National 1	Dijon	Villefranche	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.84201	\N	\N	0	0	draw	yes
+5846	1422850	2025-09-12	France	National 1	Orleans	Bourg-en-bresse 01	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:56.931161	\N	\N	1	0	h-win	yes
+5847	1422853	2025-09-12	France	National 1	Valenciennes	Gobelins	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.023326	\N	\N	0	0	draw	yes
+5848	1422847	2025-09-12	France	National 1	Chateauroux	Stade Briochin	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.113962	\N	\N	1	1	draw	yes
+5849	1422852	2025-09-12	France	National 1	Sochaux	Caen	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.204471	\N	\N	0	0	draw	yes
+5850	1422851	2025-09-12	France	National 1	Quevilly	Aubagne	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.299411	\N	\N	1	1	draw	yes
+5851	1422849	2025-09-12	France	National 1	Le Puy Foot	Rouen	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.391935	\N	\N	0	2	a-win	yes
+5852	1422854	2025-09-12	France	National 1	Versailles	Concarneau	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.488099	\N	\N	2	0	h-win	yes
+5853	1422859	2025-09-19	France	National 1	Caen	Valenciennes	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.580035	\N	\N	0	0	draw	yes
+5854	1422858	2025-09-19	France	National 1	Bourg-en-bresse 01	Quevilly	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.667005	\N	\N	0	2	a-win	yes
+5855	1422860	2025-09-19	France	National 1	Concarneau	Fleury 91	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.754773	\N	\N	0	1	a-win	yes
+5856	1422864	2025-09-19	France	National 1	Villefranche	Sochaux	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.852813	\N	\N	0	0	draw	yes
+5857	1422862	2025-09-19	France	National 1	Rouen	Orleans	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:57.942573	\N	\N	0	0	draw	yes
+5858	1422863	2025-09-19	France	National 1	Stade Briochin	Le Puy Foot	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.037689	\N	\N	0	1	a-win	yes
+5859	1422861	2025-09-19	France	National 1	Gobelins	Chateauroux	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.130236	\N	\N	0	1	a-win	yes
+5860	1422857	2025-09-19	France	National 1	Aubagne	Versailles	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.217441	\N	\N	0	1	a-win	yes
+5861	1422866	2025-09-26	France	National 1	Dijon	Concarneau	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.303557	\N	\N	1	0	h-win	yes
+5862	1422869	2025-09-26	France	National 1	Orleans	Stade Briochin	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.397876	\N	\N	2	0	h-win	yes
+5863	1422871	2025-09-26	France	National 1	Valenciennes	Villefranche	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.489011	\N	\N	2	0	h-win	yes
+5864	1422865	2025-09-26	France	National 1	Chateauroux	Caen	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.57281	\N	\N	0	1	a-win	yes
+5865	1422868	2025-09-26	France	National 1	Le Puy Foot	Gobelins	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.662262	\N	\N	0	0	draw	yes
+5866	1422872	2025-09-26	France	National 1	Versailles	Quevilly	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.751713	\N	\N	1	2	a-win	yes
+5867	1422867	2025-09-26	France	National 1	Fleury 91	Aubagne	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.83735	\N	\N	0	0	draw	yes
+5868	1422870	2025-09-26	France	National 1	Rouen	Bourg-en-bresse 01	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:58.930705	\N	\N	1	0	h-win	yes
+5869	1422876	2025-10-03	France	National 1	Caen	Le Puy Foot	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.020013	\N	\N	1	0	h-win	yes
+5870	1422875	2025-10-03	France	National 1	Bourg-en-bresse 01	Versailles	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.110977	\N	\N	0	1	a-win	yes
+5871	1422879	2025-10-03	France	National 1	Quevilly	Fleury 91	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.198205	\N	\N	1	0	h-win	yes
+5872	1422877	2025-10-03	France	National 1	Concarneau	Sochaux	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.290177	\N	\N	1	0	h-win	yes
+5873	1422881	2025-10-03	France	National 1	Villefranche	Chateauroux	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.377499	\N	\N	0	1	a-win	yes
+5874	1422880	2025-10-03	France	National 1	Stade Briochin	Rouen	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.467678	\N	\N	0	0	draw	yes
+5875	1422878	2025-10-03	France	National 1	Gobelins	Orleans	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.554903	\N	\N	1	1	draw	yes
+5876	1422874	2025-10-03	France	National 1	Aubagne	Dijon	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.645083	\N	\N	1	1	draw	yes
+5877	1422836	2025-10-07	France	National 1	Versailles	Villefranche	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.735197	\N	\N	0	1	a-win	yes
+5878	1422883	2025-10-17	France	National 1	Dijon	Quevilly	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.827533	\N	\N	2	0	h-win	yes
+5879	1422886	2025-10-17	France	National 1	Orleans	Caen	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:17:59.927956	\N	\N	1	0	h-win	yes
+5880	1422890	2025-10-17	France	National 1	Valenciennes	Concarneau	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.016009	\N	\N	1	1	draw	yes
+5881	1422888	2025-10-17	France	National 1	Sochaux	Aubagne	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.10802	\N	\N	2	0	h-win	yes
+5882	1422885	2025-10-17	France	National 1	Le Puy Foot	Villefranche	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.202146	\N	\N	0	0	draw	yes
+5883	1422884	2025-10-17	France	National 1	Fleury 91	Versailles	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.291413	\N	\N	0	0	draw	yes
+5884	1422887	2025-10-17	France	National 1	Rouen	Gobelins	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.385041	\N	\N	2	0	h-win	yes
+5885	1422889	2025-10-17	France	National 1	Stade Briochin	Bourg-en-bresse 01	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.481817	\N	\N	0	1	a-win	yes
+5886	1422893	2025-10-21	France	National 1	Bourg-en-bresse 01	Fleury 91	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.574993	\N	\N	1	0	h-win	yes
+5887	1422897	2025-10-21	France	National 1	Quevilly	Sochaux	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.66665	\N	\N	1	1	draw	yes
+5888	1422895	2025-10-21	France	National 1	Concarneau	Chateauroux	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.756568	\N	\N	0	0	draw	yes
+5889	1422899	2025-10-21	France	National 1	Villefranche	Orleans	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.846989	\N	\N	1	1	draw	yes
+5890	1422898	2025-10-21	France	National 1	Versailles	Dijon	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:00.935447	\N	\N	0	2	a-win	yes
+5891	1422896	2025-10-21	France	National 1	Gobelins	Stade Briochin	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.02428	\N	\N	0	0	draw	yes
+5892	1422892	2025-10-21	France	National 1	Aubagne	Valenciennes	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.114856	\N	\N	1	0	h-win	yes
+5893	1422894	2025-10-21	France	National 1	Caen	Rouen	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.20532	\N	\N	1	1	draw	yes
+5894	1422902	2025-10-31	France	National 1	Dijon	Fleury 91	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.293155	\N	\N	0	1	a-win	yes
+5895	1422908	2025-10-31	France	National 1	Valenciennes	Quevilly	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.382216	\N	\N	1	0	h-win	yes
+5896	1422901	2025-10-31	France	National 1	Chateauroux	Aubagne	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.472472	\N	\N	0	1	a-win	yes
+5897	1422906	2025-10-31	France	National 1	Sochaux	Versailles	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.562894	\N	\N	2	0	h-win	yes
+5898	1422903	2025-10-31	France	National 1	Le Puy Foot	Concarneau	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.65859	\N	\N	0	1	a-win	yes
+5899	1422907	2025-10-31	France	National 1	Stade Briochin	Caen	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.755477	\N	\N	1	0	h-win	yes
+5900	1422904	2025-10-31	France	National 1	Gobelins	Bourg-en-bresse 01	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:01.844942	\N	\N	1	0	h-win	yes
+5901	1422905	2025-11-01	France	National 1	Rouen	Villefranche	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	14	2025-12-02 16:18:01.937827	\N	\N	1	1	draw	yes
+5902	1422912	2025-11-07	France	National 1	Caen	Gobelins	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	10	2025-12-02 16:18:02.039355	\N	\N	0	0	draw	yes
+5903	1422911	2025-11-07	France	National 1	Bourg-en-bresse 01	Dijon	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	2	2025-12-02 16:18:02.133902	\N	\N	1	2	a-win	yes
+5904	1422915	2025-11-07	France	National 1	Quevilly	Chateauroux	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	15	13	2025-12-02 16:18:02.222339	\N	\N	0	0	draw	yes
+5905	1422913	2025-11-07	France	National 1	Concarneau	Orleans	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	7	8	2025-12-02 16:18:02.308056	\N	\N	1	0	h-win	yes
+5906	1422917	2025-11-07	France	National 1	Villefranche	Stade Briochin	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	14	17	2025-12-02 16:18:02.398377	\N	\N	1	1	draw	yes
+5907	1422916	2025-11-07	France	National 1	Versailles	Valenciennes	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	12	2025-12-02 16:18:02.485674	\N	\N	0	1	a-win	yes
+5908	1422914	2025-11-07	France	National 1	Fleury 91	Sochaux	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	6	4	2025-12-02 16:18:02.577257	\N	\N	0	0	draw	yes
+5909	1422910	2025-11-07	France	National 1	Aubagne	Le Puy Foot	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	5	11	2025-12-02 16:18:02.667592	\N	\N	1	4	a-win	yes
+5910	1422919	2025-11-21	France	National 1	Caen	Bourg-en-bresse 01	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	9	16	2025-12-02 16:18:02.757563	\N	\N	0	0	draw	yes
+5911	1422922	2025-11-21	France	National 1	Orleans	Aubagne	a-win	2	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	5	2025-12-02 16:18:02.84452	\N	\N	1	1	draw	yes
+5912	1422926	2025-11-21	France	National 1	Valenciennes	Fleury 91	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	6	2025-12-02 16:18:02.937445	\N	\N	0	1	a-win	yes
+5913	1422920	2025-11-21	France	National 1	Chateauroux	Versailles	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	13	3	2025-12-02 16:18:03.048323	\N	\N	1	2	a-win	yes
+5914	1422925	2025-11-21	France	National 1	Sochaux	Dijon	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	2	2025-12-02 16:18:03.152392	\N	\N	0	0	draw	yes
+5915	1422921	2025-11-21	France	National 1	Le Puy Foot	Quevilly	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	11	15	2025-12-02 16:18:03.244997	\N	\N	1	1	draw	yes
+5916	1422924	2025-11-21	France	National 1	Rouen	Concarneau	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	7	2025-12-02 16:18:03.348162	\N	\N	0	0	draw	yes
+5917	1422923	2025-11-21	France	National 1	Gobelins	Villefranche	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	10	14	2025-12-02 16:18:03.435632	\N	\N	0	0	draw	yes
+5918	1485809	2025-11-14	France	Coupe de France	Cannes	Annecy	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:05.119837	\N	\N	1	2	a-win	yes
+5919	1485869	2025-11-14	France	Coupe de France	Olympique de Villefontaine	Grenoble	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:05.32216	\N	\N	0	2	a-win	yes
+5920	1485813	2025-11-15	France	Coupe de France	Magenta	Mulhouse	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:05.496059	\N	\N	0	0	draw	yes
+5921	1485811	2025-11-15	France	Coupe de France	Avranches	Gobelins	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:05.677274	\N	\N	0	0	draw	yes
+5922	1485810	2025-11-15	France	Coupe de France	ASPTT Dijon	Le Puy Foot	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:05.854163	\N	\N	0	1	a-win	yes
+5923	1485814	2025-11-15	France	Coupe de France	OCPAM	Reims	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:06.028194	\N	\N	0	0	draw	yes
+5924	1485870	2025-11-15	France	Coupe de France	Auby	Amiens	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:06.200277	\N	\N	0	2	a-win	yes
+5925	1485815	2025-11-15	France	Coupe de France	France Aizenay	Estac Troyes	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:06.376186	\N	\N	0	1	a-win	yes
+5926	1485817	2025-11-15	France	Coupe de France	Pontarlier	Sochaux	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:06.54917	\N	\N	1	0	h-win	yes
+5928	1485872	2025-11-15	France	Coupe de France	US Chateau-Malo	Bastia	a-win	0	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:06.898214	\N	\N	0	3	a-win	yes
+5929	1485818	2025-11-15	France	Coupe de France	Andrézieux	Hauts Lyonnais	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:07.065668	\N	\N	0	0	draw	yes
+5930	1485821	2025-11-15	France	Coupe de France	Sarreguemines	Furiani-Agliani	h-win	5	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:07.234823	\N	\N	2	0	h-win	yes
+5931	1485822	2025-11-15	France	Coupe de France	Saint-Colomban Locminé	Guingamp	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:07.403811	\N	\N	1	1	draw	yes
+5932	1485819	2025-11-15	France	Coupe de France	Rhone-Vallee	Grasse	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:07.570306	\N	\N	0	1	a-win	yes
+5933	1485820	2025-11-15	France	Coupe de France	Orvault SF	Les Herbiers	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:07.736036	\N	\N	0	1	a-win	yes
+5934	1485873	2025-11-15	France	Coupe de France	Les Bleuets	Concarneau	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:07.920226	\N	\N	0	2	a-win	yes
+5935	1485874	2025-11-15	France	Coupe de France	Villars-l'Isle	Sarre Union	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:08.089782	\N	\N	0	0	draw	yes
+5936	1485834	2025-11-15	France	Coupe de France	Orleans	Bayonne	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:08.267784	\N	\N	0	0	draw	yes
+5937	1485827	2025-11-15	France	Coupe de France	Challans	Pontivy GSI	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:08.435321	\N	\N	0	1	a-win	yes
+5938	1485830	2025-11-15	France	Coupe de France	Croix Football IC	Racing Colombes 92	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:08.607583	\N	\N	1	1	draw	yes
+5939	1485879	2025-11-15	France	Coupe de France	Montceau	L'Etrat La Tour	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:08.780533	\N	\N	2	1	h-win	yes
+5940	1485833	2025-11-15	France	Coupe de France	Oissel	Quevilly	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:08.952855	\N	\N	0	1	a-win	yes
+5941	1485828	2025-11-15	France	Coupe de France	Vendée Fontenay	Chamalières	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:09.120901	\N	\N	0	0	draw	yes
+5942	1485826	2025-11-15	France	Coupe de France	Cambrai	Feignies-Aulnoye	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 16:18:09.292762	\N	\N	0	1	a-win	yes
+5943	1485829	2025-11-15	France	Coupe de France	Granville	Dinan Léhon	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:28.956277	\N	\N	2	0	h-win	yes
+5944	1486227	2025-11-15	France	Coupe de France	Seyssinet-Pariset	Aubagne	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:29.129688	\N	\N	0	0	draw	yes
+5945	1485823	2025-11-15	France	Coupe de France	APM Metz	Fleury 91	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:29.310507	\N	\N	1	0	h-win	yes
+5946	1485837	2025-11-15	France	Coupe de France	Steenvoorde	Chambly Thelle FC	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:29.490795	\N	\N	0	0	draw	yes
+5947	1485839	2025-11-15	France	Coupe de France	Trélissac	PAU	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:29.681123	\N	\N	0	1	a-win	yes
+5948	1485835	2025-11-15	France	Coupe de France	Sablé	Saint-Malo	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:29.855721	\N	\N	0	0	draw	yes
+5949	1485836	2025-11-15	France	Coupe de France	Union Saint-Jean	Angoulême	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:30.030852	\N	\N	1	0	h-win	yes
+5950	1485831	2025-11-15	France	Coupe de France	Ivry	Le Mans	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:30.21242	\N	\N	1	0	h-win	yes
+5951	1485825	2025-11-15	France	Coupe de France	Racing Besançon	Thionville Lusitanos	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:30.386595	\N	\N	2	0	h-win	yes
+5952	1485840	2025-11-15	France	Coupe de France	Yvetot	Caen PTT	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:30.557901	\N	\N	1	1	draw	yes
+5953	1485832	2025-11-15	France	Coupe de France	Loon-Plage	Stade Béthunois	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:30.741602	\N	\N	0	1	a-win	yes
+5954	1485824	2025-11-15	France	Coupe de France	Bayeux	Caen	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:30.911686	\N	\N	2	1	h-win	yes
+5955	1485838	2025-11-15	France	Coupe de France	Strasbourg Koenigshoffen	Biesheim	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:31.092409	\N	\N	0	1	a-win	yes
+5956	1485875	2025-11-15	France	Coupe de France	Atlas Paillade	Bourg-en-bresse 01	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:31.268944	\N	\N	0	1	a-win	yes
+5957	1485876	2025-11-15	France	Coupe de France	FC 2 Rives 82	Mazeres	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:31.439691	\N	\N	0	0	draw	yes
+5958	1485877	2025-11-15	France	Coupe de France	Lapalisse	Poitiers	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:31.619855	\N	\N	1	0	h-win	yes
+5959	1485878	2025-11-15	France	Coupe de France	Le Cellier Mauves	Laval	a-win	0	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:31.801641	\N	\N	0	1	a-win	yes
+5960	1485880	2025-11-15	France	Coupe de France	Montreal-la-Cluse	Chalon	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:31.977977	\N	\N	0	0	draw	yes
+5961	1485881	2025-11-15	France	Coupe de France	Montreuil	Bandrele	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:32.167968	\N	\N	0	0	draw	yes
+5962	1485882	2025-11-15	France	Coupe de France	Stade Quimperlois	Ancienne Château-Gontier	a-win	0	9	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:32.339842	\N	\N	0	6	a-win	yes
+5963	1485841	2025-11-15	France	Coupe de France	Biars-Bretenoux	Chateauroux	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:32.509516	\N	\N	0	1	a-win	yes
+5964	1485842	2025-11-15	France	Coupe de France	Montmorillon	Beaucouzé	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:32.692766	\N	\N	0	0	draw	yes
+5965	1485812	2025-11-15	France	Coupe de France	Carnoux	Pirae	h-win	5	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:32.86688	\N	\N	0	0	draw	yes
+5966	1485884	2025-11-15	France	Coupe de France	Premontre	Chantilly	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:33.03892	\N	\N	0	1	a-win	yes
+5967	1485886	2025-11-15	France	Coupe de France	SS Allinges	Istres	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:33.227921	\N	\N	0	0	draw	yes
+5968	1485885	2025-11-15	France	Coupe de France	Seignosse Capbreton	Marmande	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:33.405772	\N	\N	1	2	a-win	yes
+5969	1485883	2025-11-15	France	Coupe de France	Espoir Ste Luce	Eveil	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:33.579613	\N	\N	0	0	draw	yes
+5970	1486096	2025-11-15	France	Coupe de France	Etoile Matoury	Le Geldar	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:33.748861	\N	\N	0	0	draw	yes
+5971	1485843	2025-11-15	France	Coupe de France	Auch	Canet Roussillon	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:33.92737	\N	\N	0	2	a-win	yes
+5972	1485844	2025-11-15	France	Coupe de France	Avenir Sportif de Gouzon	Chauvigny	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:34.088011	\N	\N	1	3	a-win	yes
+5973	1485816	2025-11-15	France	Coupe de France	Moulien	Gosier	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:34.254772	\N	\N	0	1	a-win	yes
+5974	1485845	2025-11-15	France	Coupe de France	Quetigny	Saint Etienne	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:34.44174	\N	\N	1	1	draw	yes
+5975	1485846	2025-11-16	France	Coupe de France	Reims Sainte-Anne	Gazelec FC Ajaccio	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:34.607896	\N	\N	2	1	h-win	yes
+5976	1485898	2025-11-16	France	Coupe de France	Saint-Pauloise	Dominicaine	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:34.773644	\N	\N	1	0	h-win	yes
+5977	1485851	2025-11-16	France	Coupe de France	Drancy	Beauvais	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:34.939098	\N	\N	0	0	draw	yes
+5978	1485847	2025-11-16	France	Coupe de France	Avion	Torcy	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:35.110651	\N	\N	0	0	draw	yes
+5979	1485853	2025-11-16	France	Coupe de France	Olympique Marcquois	OS Aire-Sur-La-Lys	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:35.285643	\N	\N	1	0	h-win	yes
+5980	1485855	2025-11-16	France	Coupe de France	Plédran	Stade Plabennec	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:35.457797	\N	\N	0	0	draw	yes
+5981	1485848	2025-11-16	France	Coupe de France	Bassin d'Arcachon Sud	Blagnac	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:35.629166	\N	\N	3	1	h-win	yes
+5982	1485859	2025-11-16	France	Coupe de France	Savigneux Montbrison	Feurs	a-win	3	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:35.791522	\N	\N	0	4	a-win	yes
+5983	1485850	2025-11-16	France	Coupe de France	MJEP Cormontreuil	Porto Portugais Amiens	h-win	5	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:35.962868	\N	\N	3	1	h-win	yes
+5984	1485849	2025-11-16	France	Coupe de France	Camon	St Maur Lusitanos	a-win	0	7	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:36.128836	\N	\N	0	2	a-win	yes
+5985	1485890	2025-11-16	France	Coupe de France	Nord Lozère	Ecotay Moingt	draw	4	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:36.292789	\N	\N	2	3	a-win	yes
+5986	1485852	2025-11-16	France	Coupe de France	Longuenesse	Bondues	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:36.456779	\N	\N	0	0	draw	yes
+5987	1485857	2025-11-16	France	Coupe de France	Saint-Meziery	Périgny	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:36.635791	\N	\N	0	1	a-win	yes
+5988	1485856	2025-11-16	France	Coupe de France	Saint-Cyr Collonges	Thonon Évian	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:36.814593	\N	\N	0	0	draw	yes
+5989	1485858	2025-11-16	France	Coupe de France	SA Mérignac	Colomiers	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:36.984254	\N	\N	0	0	draw	yes
+5990	1485854	2025-11-16	France	Coupe de France	ASS Still Mutzig	Raon l'Etape	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:37.150981	\N	\N	0	0	draw	yes
+5991	1485887	2025-11-16	France	Coupe de France	ES Cappelle	Abbeville	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:37.331529	\N	\N	0	1	a-win	yes
+5992	1485888	2025-11-16	France	Coupe de France	Etoile Bobigny	Villeneuve-la-Garenne	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:37.494913	\N	\N	0	0	draw	yes
+5993	1485889	2025-11-16	France	Coupe de France	Mauguio Carnon	Selongey	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:37.668754	\N	\N	0	0	draw	yes
+5994	1485891	2025-11-16	France	Coupe de France	Pierrelatte	Lyon Duchere	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:37.836945	\N	\N	0	0	draw	yes
+5995	1485892	2025-11-16	France	Coupe de France	SA Beaumont	Aubervilliers	a-win	4	7	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:38.001631	\N	\N	2	3	a-win	yes
+5996	1485893	2025-11-16	France	Coupe de France	Saint-Brice Courcelles	Bogny	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:38.167812	\N	\N	0	0	draw	yes
+5997	1485894	2025-11-16	France	Coupe de France	Wittenheim	Freyming	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:38.333302	\N	\N	1	1	draw	yes
+5998	1485860	2025-11-16	France	Coupe de France	Saint-Renan	Stade Briochin	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:38.505443	\N	\N	0	1	a-win	yes
+5999	1485895	2025-11-16	France	Coupe de France	Le Poinconnet	Romorantin	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:38.670102	\N	\N	0	1	a-win	yes
+6000	1485896	2025-11-16	France	Coupe de France	Pen Hir	Les Sables-d'Olonne	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:38.835641	\N	\N	0	0	draw	yes
+6001	1485862	2025-11-16	France	Coupe de France	Saint-Amand	Dieppe	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:39.003686	\N	\N	0	0	draw	yes
+6002	1485864	2025-11-16	France	Coupe de France	Vitré	Plouvorn	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:39.169831	\N	\N	1	0	h-win	yes
+6003	1485861	2025-11-16	France	Coupe de France	Agde	Montpellier	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:39.352051	\N	\N	0	0	draw	yes
+6004	1485863	2025-11-16	France	Coupe de France	UF Touraine	Épernay	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:39.523632	\N	\N	1	0	h-win	yes
+6005	1485897	2025-11-16	France	Coupe de France	Nancy	GSA Tomblaine	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:39.691439	\N	\N	2	0	h-win	yes
+6006	1485866	2025-11-16	France	Coupe de France	Boulogne	Dunkerque	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:39.855795	\N	\N	1	1	draw	yes
+6007	1485865	2025-11-16	France	Coupe de France	Blois	Clermont Foot	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:40.020677	\N	\N	0	0	draw	yes
+6008	1485868	2025-11-16	France	Coupe de France	Forbach	RED Star FC 93	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:40.191862	\N	\N	0	1	a-win	yes
+6009	1485867	2025-11-16	France	Coupe de France	Boé Bon Encontre	Bordeaux	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:40.359642	\N	\N	0	0	draw	yes
+6010	1486793	2025-11-28	France	Coupe de France	Concarneau	Stade Briochin	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:40.527164	\N	\N	0	0	draw	yes
+6011	1486783	2025-11-28	France	Coupe de France	Annecy	Grenoble	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:40.694634	\N	\N	1	0	h-win	yes
+6012	1486818	2025-11-28	France	Coupe de France	Sarreguemines	Nancy	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:40.872152	\N	\N	0	2	a-win	yes
+6013	1486807	2025-11-29	France	Coupe de France	Montceau	Montpellier	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:41.047642	\N	\N	0	1	a-win	yes
+6014	1486819	2025-11-29	France	Coupe de France	Sarre Union	Sochaux	a-win	0	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:41.220457	\N	\N	0	2	a-win	yes
+6015	1486823	2025-11-29	France	Coupe de France	Torcy	Reims	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:41.398692	\N	\N	1	1	draw	yes
+6016	1486798	2025-11-29	France	Coupe de France	Freyming	Racing Besançon	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:41.568342	\N	\N	1	0	h-win	yes
+6017	1486789	2025-11-29	France	Coupe de France	Bogny	St Maur Lusitanos	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:41.731734	\N	\N	0	2	a-win	yes
+6018	1486800	2025-11-29	France	Coupe de France	Croix Football IC	Le Geldar	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:41.897824	\N	\N	1	0	h-win	yes
+6019	1486812	2025-11-29	France	Coupe de France	Reims Sainte-Anne	Amiens	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:42.068896	\N	\N	0	4	a-win	yes
+6020	1486815	2025-11-29	France	Coupe de France	Union Saint-Jean	Orleans	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:42.250713	\N	\N	1	0	h-win	yes
+6021	1486788	2025-11-29	France	Coupe de France	Biesheim	RED Star FC 93	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:42.413757	\N	\N	1	0	h-win	yes
+6022	1486790	2025-11-29	France	Coupe de France	Canet Roussillon	Rodez	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:42.585809	\N	\N	0	0	draw	yes
+6023	1486816	2025-11-29	France	Coupe de France	Saint-Malo	Bastia	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:42.76143	\N	\N	0	0	draw	yes
+6024	1486801	2025-11-29	France	Coupe de France	Laval	Saint-Pauloise	h-win	6	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:42.948761	\N	\N	1	0	h-win	yes
+6025	1486799	2025-11-29	France	Coupe de France	Hauts Lyonnais	Feurs	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:43.113677	\N	\N	0	1	a-win	yes
+6026	1486803	2025-11-29	France	Coupe de France	Lyon Duchere	Carnoux	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:43.277796	\N	\N	1	1	draw	yes
+6027	1486804	2025-11-29	France	Coupe de France	Olympique Marcquois	Bondues	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:43.487842	\N	\N	0	0	draw	yes
+6028	1486797	2025-11-29	France	Coupe de France	Vendée Fontenay	Chateauroux	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:43.661584	\N	\N	0	1	a-win	yes
+6029	1486782	2025-11-29	France	Coupe de France	Ancienne Château-Gontier	Guingamp	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:43.833416	\N	\N	0	3	a-win	yes
+6030	1486787	2025-11-29	France	Coupe de France	Beauvais	Dieppe	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:43.998706	\N	\N	0	1	a-win	yes
+6031	1486813	2025-11-29	France	Coupe de France	Romorantin	Blois	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:44.163301	\N	\N	1	1	draw	yes
+6032	1486821	2025-11-29	France	Coupe de France	Seyssinet-Pariset	Istres	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:44.338464	\N	\N	0	1	a-win	yes
+6033	1486784	2025-11-29	France	Coupe de France	APM Metz	Feignies-Aulnoye	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:44.508729	\N	\N	0	0	draw	yes
+6034	1486820	2025-11-29	France	Coupe de France	Selongey	Bourg-en-bresse 01	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:44.679658	\N	\N	2	2	draw	yes
+6035	1486822	2025-11-29	France	Coupe de France	Steenvoorde	Stade Béthunois	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:44.85358	\N	\N	0	0	draw	yes
+6036	1486810	2025-11-29	France	Coupe de France	Stade Plabennec	Les Herbiers	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:45.022782	\N	\N	1	1	draw	yes
+6037	1486826	2025-11-29	France	Coupe de France	Yvetot	Bayeux	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:45.192298	\N	\N	0	0	draw	yes
+6038	1486817	2025-11-29	France	Coupe de France	SA Mérignac	PAU	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:45.366328	\N	\N	0	0	draw	yes
+6039	1486781	2025-11-29	France	Coupe de France	Abbeville	Dunkerque	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:45.533196	\N	\N	0	4	a-win	yes
+6040	1486791	2025-11-29	France	Coupe de France	Chalon	Le Puy Foot	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:45.702648	\N	\N	0	1	a-win	yes
+6041	1486808	2025-11-29	France	Coupe de France	Montreuil	Granville	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:45.869766	\N	\N	0	0	draw	yes
+6042	1486825	2025-11-29	France	Coupe de France	Villeneuve-la-Garenne	Le Mans	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:46.046625	\N	\N	1	2	a-win	yes
+6043	1486811	2025-11-29	France	Coupe de France	Raon l'Etape	Mulhouse	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:46.206815	\N	\N	0	1	a-win	yes
+6044	1486792	2025-11-29	France	Coupe de France	Chauvigny	Poitiers	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:46.392996	\N	\N	1	1	draw	yes
+6045	1486809	2025-11-29	France	Coupe de France	Périgny	Beaucouzé	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:46.579755	\N	\N	2	0	h-win	yes
+6046	1486806	2025-11-29	France	Coupe de France	Mazeres	Bordeaux	a-win	3	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:46.754017	\N	\N	3	0	h-win	yes
+6047	1486805	2025-11-29	France	Coupe de France	Marmande	Bassin d'Arcachon Sud	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:46.926806	\N	\N	0	0	draw	yes
+6048	1486795	2025-11-29	France	Coupe de France	Saint Etienne	Ecotay Moingt	h-win	11	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:47.099577	\N	\N	7	0	h-win	yes
+6049	1486785	2025-11-29	France	Coupe de France	Gosier	Oissel	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:47.270769	\N	\N	0	0	draw	yes
+6050	1486796	2025-11-29	France	Coupe de France	Espoir Ste Luce	Pontivy GSI	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:47.437878	\N	\N	0	2	a-win	yes
+6051	1486786	2025-11-30	France	Coupe de France	Avranches	Aubervilliers	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:47.605738	\N	\N	1	0	h-win	yes
+6052	1486794	2025-11-30	France	Coupe de France	MJEP Cormontreuil	Chantilly	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:47.789938	\N	\N	1	1	draw	yes
+6053	1486814	2025-11-30	France	Coupe de France	Saint-Cyr Collonges	Rhone-Vallee	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:47.964644	\N	\N	0	0	draw	yes
+6054	1486802	2025-11-30	France	Coupe de France	Les Sables-d'Olonne	Plouvorn	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:48.132709	\N	\N	1	0	h-win	yes
+6055	1486824	2025-11-30	France	Coupe de France	UF Touraine	Estac Troyes	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 17:10:48.303056	\N	\N	0	1	a-win	yes
+6056	1396240	2025-08-08	Portugal	Primeira Liga	Casa Pia	Sporting CP	a-win	0	2	7	2	27	12	2	9	1	1	4	1	0	0	33.00	67.00	14	11	\N	\N	\N	\N	\N	2025-12-02 17:10:49.813326	0.43	2.85	0	1	a-win	yes
+6057	1396245	2025-08-09	Portugal	Primeira Liga	Nacional	GIL Vicente	a-win	0	2	14	3	12	2	14	6	4	1	3	6	0	0	60.00	40.00	21	16	\N	\N	\N	\N	\N	2025-12-02 17:10:49.898075	0.79	0.62	0	2	a-win	yes
+6058	1396237	2025-08-09	Portugal	Primeira Liga	Arouca	AVS	h-win	3	1	9	4	15	2	4	5	0	1	2	0	0	0	53.00	47.00	13	17	\N	\N	\N	\N	\N	2025-12-02 17:10:49.983317	1.15	1.10	1	0	h-win	yes
+6059	1396242	2025-08-10	Portugal	Primeira Liga	Famalicao	Santa Clara	h-win	3	0	6	3	7	2	2	3	0	0	4	2	0	0	46.00	54.00	20	15	\N	\N	\N	\N	\N	2025-12-02 17:10:50.071059	1.01	0.36	2	0	h-win	yes
+6060	1396244	2025-08-10	Portugal	Primeira Liga	Moreirense	Alverca	h-win	2	1	10	3	7	2	6	2	1	0	3	1	0	0	58.00	42.00	15	5	\N	\N	\N	\N	\N	2025-12-02 17:10:50.158035	0.93	0.97	1	1	draw	yes
+6061	1396239	2025-08-10	Portugal	Primeira Liga	SC Braga	Tondela	h-win	3	0	8	6	7	3	5	3	3	6	1	3	0	0	68.00	32.00	10	9	\N	\N	\N	\N	\N	2025-12-02 17:10:50.242762	1.98	0.78	2	0	h-win	yes
+6062	1396241	2025-08-11	Portugal	Primeira Liga	Estoril	Estrela	draw	1	1	8	3	9	5	4	4	1	3	4	1	0	0	66.00	34.00	13	16	\N	\N	\N	\N	\N	2025-12-02 17:10:50.329142	0.69	1.34	1	0	h-win	yes
+6063	1396243	2025-08-11	Portugal	Primeira Liga	FC Porto	Guimaraes	h-win	3	0	17	9	10	2	7	4	2	2	1	3	0	0	49.00	51.00	18	9	\N	\N	\N	\N	\N	2025-12-02 17:10:50.41425	2.16	0.64	2	0	h-win	yes
+6064	1396246	2025-08-15	Portugal	Primeira Liga	AVS	Casa Pia	a-win	0	2	10	3	10	5	1	3	2	0	4	5	0	0	51.00	49.00	20	20	\N	\N	\N	\N	\N	2025-12-02 17:10:50.502979	1.33	1.40	0	1	a-win	yes
+6065	1396253	2025-08-16	Portugal	Primeira Liga	Tondela	Famalicao	a-win	0	1	15	4	14	5	2	7	2	1	0	1	0	0	49.00	51.00	17	19	\N	\N	\N	\N	\N	2025-12-02 17:10:50.585404	1.08	1.08	0	0	draw	yes
+6066	1396254	2025-08-16	Portugal	Primeira Liga	Guimaraes	Estoril	h-win	3	2	16	4	11	5	4	2	4	3	4	3	0	0	55.00	45.00	18	17	\N	\N	\N	\N	\N	2025-12-02 17:10:50.671968	1.88	0.94	1	1	draw	yes
+6067	1396248	2025-08-16	Portugal	Primeira Liga	Estrela	Benfica	a-win	0	1	15	2	14	3	5	4	1	1	3	3	0	0	43.00	57.00	14	23	\N	\N	\N	\N	\N	2025-12-02 17:10:50.760022	1.27	2.30	0	0	draw	yes
+6068	1396250	2025-08-17	Portugal	Primeira Liga	Rio Ave	Nacional	draw	1	1	20	9	13	6	6	6	0	0	2	4	0	1	63.00	37.00	16	18	\N	\N	\N	\N	\N	2025-12-02 17:10:50.845652	1.52	0.98	1	0	h-win	yes
+6069	1396251	2025-08-17	Portugal	Primeira Liga	Santa Clara	Moreirense	a-win	0	1	12	3	5	2	3	0	2	2	4	5	0	0	57.00	43.00	20	18	\N	\N	\N	\N	\N	2025-12-02 17:10:50.927785	0.65	1.51	0	1	a-win	yes
+6070	1396247	2025-08-17	Portugal	Primeira Liga	Alverca	SC Braga	a-win	0	3	12	3	12	6	1	5	2	0	2	1	0	0	33.00	67.00	15	6	\N	\N	\N	\N	\N	2025-12-02 17:10:51.01232	2.18	1.24	0	3	a-win	yes
+6071	1396252	2025-08-17	Portugal	Primeira Liga	Sporting CP	Arouca	h-win	6	0	19	10	7	1	6	1	2	1	1	0	0	1	57.00	43.00	7	7	\N	\N	\N	\N	\N	2025-12-02 17:10:51.101644	2.86	0.22	3	0	h-win	yes
+6072	1396249	2025-08-18	Portugal	Primeira Liga	GIL Vicente	FC Porto	a-win	0	2	14	2	15	4	1	5	0	1	2	4	0	0	41.00	59.00	9	20	\N	\N	\N	\N	\N	2025-12-02 17:10:51.192021	1.12	1.55	0	1	a-win	yes
+6073	1396262	2025-08-23	Portugal	Primeira Liga	Moreirense	Guimaraes	h-win	2	0	10	4	11	4	3	7	0	2	5	2	0	0	49.00	51.00	17	17	\N	\N	\N	\N	\N	2025-12-02 17:10:51.279852	1.49	0.26	0	0	draw	yes
+6074	1396263	2025-08-23	Portugal	Primeira Liga	Nacional	Sporting CP	a-win	1	4	3	1	27	7	3	13	1	1	3	2	1	0	27.00	73.00	18	7	\N	\N	\N	\N	\N	2025-12-02 17:10:51.370767	0.72	2.67	1	0	h-win	yes
+6075	1396256	2025-08-23	Portugal	Primeira Liga	Benfica	Tondela	h-win	3	0	21	12	9	4	13	2	1	1	2	2	0	0	66.00	34.00	10	12	\N	\N	\N	\N	\N	2025-12-02 17:10:51.45856	3.01	0.40	2	0	h-win	yes
+6076	1396255	2025-08-23	Portugal	Primeira Liga	Arouca	Rio Ave	draw	3	3	14	6	15	7	4	2	0	0	3	2	0	0	55.00	45.00	13	17	\N	\N	\N	\N	\N	2025-12-02 17:10:51.54265	0.70	1.57	1	0	h-win	yes
+6077	1396260	2025-08-24	Portugal	Primeira Liga	Famalicao	GIL Vicente	draw	0	0	11	3	20	8	2	9	2	3	3	1	0	0	45.00	55.00	17	18	\N	\N	\N	\N	\N	2025-12-02 17:10:51.634313	0.40	1.23	0	0	draw	yes
+6078	1396261	2025-08-24	Portugal	Primeira Liga	FC Porto	Casa Pia	h-win	4	0	20	7	7	0	7	2	3	0	3	1	0	0	65.00	35.00	11	8	\N	\N	\N	\N	\N	2025-12-02 17:10:51.726649	2.63	0.22	3	0	h-win	yes
+6079	1396257	2025-08-24	Portugal	Primeira Liga	SC Braga	AVS	draw	2	2	21	5	4	2	11	3	2	0	2	3	0	0	76.00	24.00	9	12	\N	\N	\N	\N	\N	2025-12-02 17:10:51.81158	2.31	0.42	1	2	a-win	yes
+6080	1396259	2025-08-25	Portugal	Primeira Liga	Estrela	Alverca	draw	2	2	19	6	6	2	6	2	0	1	4	5	1	1	56.00	44.00	18	24	\N	\N	\N	\N	\N	2025-12-02 17:10:51.900248	2.63	1.17	1	2	a-win	yes
+6081	1396267	2025-08-29	Portugal	Primeira Liga	GIL Vicente	Moreirense	h-win	2	0	12	4	10	0	4	3	0	1	1	2	0	0	46.00	54.00	18	12	\N	\N	\N	\N	\N	2025-12-02 17:10:51.990604	1.20	0.93	0	0	draw	yes
+6082	1396266	2025-08-30	Portugal	Primeira Liga	Casa Pia	Nacional	a-win	0	2	9	3	9	2	2	3	0	1	2	3	0	0	62.00	38.00	13	22	\N	\N	\N	\N	\N	2025-12-02 17:10:52.077475	0.66	1.24	0	2	a-win	yes
+6083	1396272	2025-08-30	Portugal	Primeira Liga	Guimaraes	Arouca	draw	1	1	12	3	9	3	2	2	4	0	4	4	0	0	54.00	46.00	15	17	\N	\N	\N	\N	\N	2025-12-02 17:10:52.159443	0.33	0.44	1	1	draw	yes
+6209	1398022	2025-09-26	Portugal	Segunda Liga	Vizela	Leixoes	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	3	6	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.080601	\N	\N	0	0	draw	yes
+6084	1396264	2025-08-30	Portugal	Primeira Liga	AVS	Famalicao	a-win	0	1	13	3	11	3	5	9	2	0	1	5	0	1	45.00	55.00	16	18	\N	\N	\N	\N	\N	2025-12-02 17:10:52.241736	0.54	0.90	0	0	draw	yes
+6085	1396270	2025-08-30	Portugal	Primeira Liga	Sporting CP	FC Porto	a-win	1	2	20	3	14	7	5	3	2	1	3	5	0	0	59.00	41.00	8	15	\N	\N	\N	\N	\N	2025-12-02 17:10:52.334905	0.91	1.53	0	0	draw	yes
+6086	1396271	2025-08-31	Portugal	Primeira Liga	Tondela	Estoril	draw	2	2	14	4	21	5	3	4	9	1	1	3	0	0	51.00	49.00	8	11	\N	\N	\N	\N	\N	2025-12-02 17:10:52.422698	2.79	2.11	0	1	a-win	yes
+6087	1396265	2025-08-31	Portugal	Primeira Liga	Alverca	Benfica	a-win	1	2	11	7	6	2	5	2	0	0	4	6	0	1	46.00	54.00	12	18	\N	\N	\N	\N	\N	2025-12-02 17:10:52.508636	0.74	1.02	0	2	a-win	yes
+6088	1396268	2025-08-31	Portugal	Primeira Liga	Rio Ave	SC Braga	draw	2	2	5	3	20	9	1	7	3	1	3	2	0	0	28.00	72.00	13	12	\N	\N	\N	\N	\N	2025-12-02 17:10:52.599586	1.07	2.11	2	1	h-win	yes
+6089	1396269	2025-08-31	Portugal	Primeira Liga	Santa Clara	Estrela	draw	0	0	13	3	3	0	8	0	2	0	2	2	0	0	55.00	45.00	13	11	\N	\N	\N	\N	\N	2025-12-02 17:10:52.685856	1.00	0.10	0	0	draw	yes
+6090	1396258	2025-09-06	Portugal	Primeira Liga	Estoril	Santa Clara	a-win	0	1	15	4	16	4	5	7	0	4	4	1	0	0	60.00	40.00	16	11	\N	\N	\N	\N	\N	2025-12-02 17:10:52.769717	0.70	1.59	0	0	draw	yes
+6091	1396275	2025-09-12	Portugal	Primeira Liga	Benfica	Santa Clara	draw	1	1	19	7	9	5	4	5	2	0	1	1	0	1	78.00	22.00	8	11	\N	\N	\N	\N	\N	2025-12-02 17:10:52.856284	1.72	1.09	0	0	draw	yes
+6092	1396273	2025-09-12	Portugal	Primeira Liga	Alverca	Tondela	h-win	1	0	12	4	14	6	5	6	0	2	1	2	0	0	49.00	51.00	13	15	\N	\N	\N	\N	\N	2025-12-02 17:10:52.937614	1.66	2.36	1	0	h-win	yes
+6093	1396281	2025-09-13	Portugal	Primeira Liga	Moreirense	Rio Ave	h-win	3	1	15	8	15	4	7	3	2	3	1	0	0	0	54.00	46.00	12	13	\N	\N	\N	\N	\N	2025-12-02 17:10:53.028466	1.96	1.33	0	0	draw	yes
+6094	1396277	2025-09-13	Portugal	Primeira Liga	Estoril	AVS	h-win	3	1	15	5	12	4	1	5	2	6	5	2	0	0	50.00	50.00	11	11	\N	\N	\N	\N	\N	2025-12-02 17:10:53.112487	1.68	0.95	2	0	h-win	yes
+6095	1396280	2025-09-13	Portugal	Primeira Liga	FC Porto	Nacional	h-win	1	0	11	5	5	1	5	5	3	1	2	4	0	0	69.00	31.00	6	14	\N	\N	\N	\N	\N	2025-12-02 17:10:53.203011	1.88	0.08	1	0	h-win	yes
+6096	1396279	2025-09-13	Portugal	Primeira Liga	Famalicao	Sporting CP	a-win	1	2	9	3	9	4	5	4	2	6	4	3	0	0	43.00	57.00	22	17	\N	\N	\N	\N	\N	2025-12-02 17:10:53.291553	0.95	2.21	1	1	draw	yes
+6097	1396278	2025-09-14	Portugal	Primeira Liga	Estrela	Guimaraes	a-win	0	2	10	1	14	6	3	2	0	0	2	0	0	0	60.00	40.00	10	11	\N	\N	\N	\N	\N	2025-12-02 17:10:53.377924	0.51	1.54	0	1	a-win	yes
+6098	1396274	2025-09-14	Portugal	Primeira Liga	Arouca	Casa Pia	a-win	0	2	8	3	9	4	7	6	2	4	2	7	0	0	66.00	34.00	18	21	\N	\N	\N	\N	\N	2025-12-02 17:10:53.463615	0.27	1.49	0	1	a-win	yes
+6099	1396276	2025-09-14	Portugal	Primeira Liga	SC Braga	GIL Vicente	a-win	0	1	11	7	12	5	5	7	1	2	2	3	0	0	64.00	36.00	7	12	\N	\N	\N	\N	\N	2025-12-02 17:10:53.546597	1.47	1.39	0	1	a-win	yes
+6100	1396286	2025-09-19	Portugal	Primeira Liga	Rio Ave	FC Porto	a-win	0	3	7	2	19	7	2	10	2	0	2	1	0	0	48.00	52.00	11	18	\N	\N	\N	\N	\N	2025-12-02 17:10:53.65263	0.18	2.01	0	2	a-win	yes
+6101	1396285	2025-09-20	Portugal	Primeira Liga	Nacional	Arouca	a-win	1	2	15	6	10	3	3	5	7	0	2	2	1	1	58.00	42.00	10	18	\N	\N	\N	\N	\N	2025-12-02 17:10:53.73654	2.47	1.10	0	0	draw	yes
+6102	1396287	2025-09-20	Portugal	Primeira Liga	Santa Clara	Alverca	h-win	2	1	14	6	3	3	7	0	4	2	6	4	0	0	55.00	45.00	16	21	\N	\N	\N	\N	\N	2025-12-02 17:10:53.823441	1.64	0.57	1	1	draw	yes
+6103	1396282	2025-09-20	Portugal	Primeira Liga	AVS	Benfica	a-win	0	3	8	1	19	6	2	1	0	3	1	1	0	0	37.00	63.00	17	11	\N	\N	\N	\N	\N	2025-12-02 17:10:53.912233	0.88	2.09	0	1	a-win	yes
+6104	1396290	2025-09-20	Portugal	Primeira Liga	Guimaraes	SC Braga	draw	1	1	11	3	17	5	3	5	0	0	2	3	0	0	38.00	62.00	14	15	\N	\N	\N	\N	\N	2025-12-02 17:10:53.996458	1.29	1.40	1	1	draw	yes
+6105	1396289	2025-09-21	Portugal	Primeira Liga	Tondela	Estrela	draw	0	0	17	8	8	3	5	2	5	3	4	3	1	0	54.00	46.00	16	13	\N	\N	\N	\N	\N	2025-12-02 17:10:54.079719	1.15	1.08	0	0	draw	yes
+6106	1396284	2025-09-21	Portugal	Primeira Liga	GIL Vicente	Estoril	h-win	2	0	16	3	7	3	4	0	1	1	2	2	0	0	52.00	48.00	16	13	\N	\N	\N	\N	\N	2025-12-02 17:10:54.166578	2.39	0.32	1	0	h-win	yes
+6107	1396283	2025-09-21	Portugal	Primeira Liga	Casa Pia	Famalicao	draw	1	1	10	3	11	2	5	3	1	2	1	2	0	0	54.00	46.00	18	21	\N	\N	\N	\N	\N	2025-12-02 17:10:54.255611	1.10	2.28	0	0	draw	yes
+6108	1396288	2025-09-22	Portugal	Primeira Liga	Sporting CP	Moreirense	h-win	3	0	25	14	4	1	6	4	0	0	1	1	0	0	61.00	39.00	16	18	\N	\N	\N	\N	\N	2025-12-02 17:10:54.351497	4.65	0.16	0	0	draw	yes
+6109	1396238	2025-09-23	Portugal	Primeira Liga	Benfica	Rio Ave	draw	1	1	19	7	4	2	11	2	2	0	3	3	0	0	69.00	31.00	16	16	\N	\N	\N	\N	\N	2025-12-02 17:10:54.438369	2.70	0.15	0	0	draw	yes
+6110	1396293	2025-09-26	Portugal	Primeira Liga	Benfica	GIL Vicente	h-win	2	1	10	4	16	8	0	7	0	2	3	4	0	1	47.00	53.00	14	20	\N	\N	\N	\N	\N	2025-12-02 17:10:54.522649	1.27	1.66	2	1	h-win	yes
+6111	1396298	2025-09-27	Portugal	Primeira Liga	Moreirense	Casa Pia	h-win	2	1	12	4	20	4	6	8	4	3	5	5	0	0	54.00	46.00	13	15	\N	\N	\N	\N	\N	2025-12-02 17:10:54.606534	0.99	1.70	1	1	draw	yes
+6112	1396299	2025-09-27	Portugal	Primeira Liga	Santa Clara	Tondela	a-win	1	2	11	5	11	4	3	4	1	0	2	7	0	0	53.00	47.00	13	25	\N	\N	\N	\N	\N	2025-12-02 17:10:54.692639	1.97	0.71	0	0	draw	yes
+6113	1396296	2025-09-27	Portugal	Primeira Liga	Estrela	AVS	h-win	3	0	11	6	11	2	6	6	3	0	3	2	1	1	55.00	45.00	11	20	\N	\N	\N	\N	\N	2025-12-02 17:10:54.778576	2.70	1.04	3	0	h-win	yes
+6114	1396295	2025-09-27	Portugal	Primeira Liga	Estoril	Sporting CP	a-win	0	1	7	2	9	2	3	9	1	3	4	2	0	0	38.00	62.00	13	12	\N	\N	\N	\N	\N	2025-12-02 17:10:54.867546	0.21	1.21	0	1	a-win	yes
+6115	1396291	2025-09-28	Portugal	Primeira Liga	Alverca	Guimaraes	h-win	2	0	11	4	19	3	1	5	1	1	3	0	1	0	43.00	57.00	15	17	\N	\N	\N	\N	\N	2025-12-02 17:10:54.951576	1.67	1.24	1	0	h-win	yes
+6116	1396294	2025-09-28	Portugal	Primeira Liga	SC Braga	Nacional	a-win	0	1	9	1	13	5	6	3	0	3	0	2	0	0	60.00	40.00	4	7	\N	\N	\N	\N	\N	2025-12-02 17:10:55.038536	0.58	1.33	0	1	a-win	yes
+6117	1396297	2025-09-28	Portugal	Primeira Liga	Famalicao	Rio Ave	draw	0	0	28	5	5	3	11	6	2	0	4	5	0	0	58.00	42.00	19	15	\N	\N	\N	\N	\N	2025-12-02 17:10:55.122169	2.49	0.62	0	0	draw	yes
+6118	1396292	2025-09-29	Portugal	Primeira Liga	Arouca	FC Porto	a-win	0	4	13	3	16	5	5	8	0	2	5	3	0	1	48.00	52.00	13	8	\N	\N	\N	\N	\N	2025-12-02 17:10:55.205468	0.51	2.93	0	1	a-win	yes
+6119	1396302	2025-10-03	Portugal	Primeira Liga	Casa Pia	Estoril	draw	2	2	11	5	10	3	6	7	3	1	3	3	0	0	51.00	49.00	14	12	\N	\N	\N	\N	\N	2025-12-02 17:10:55.286651	1.11	1.28	2	1	h-win	yes
+6120	1396305	2025-10-04	Portugal	Primeira Liga	Nacional	Moreirense	h-win	3	2	17	7	10	4	2	4	1	1	1	3	0	1	58.00	42.00	12	16	\N	\N	\N	\N	\N	2025-12-02 18:10:28.911588	2.73	2.09	1	1	draw	yes
+6121	1396304	2025-10-04	Portugal	Primeira Liga	GIL Vicente	Estrela	h-win	2	0	15	7	15	5	5	7	2	2	2	3	1	0	43.00	57.00	12	15	\N	\N	\N	\N	\N	2025-12-02 18:10:28.996818	2.36	0.98	2	0	h-win	yes
+6122	1396300	2025-10-04	Portugal	Primeira Liga	AVS	Alverca	a-win	1	3	5	2	12	6	0	5	0	2	3	2	0	0	49.00	51.00	16	6	\N	\N	\N	\N	\N	2025-12-02 18:10:29.079739	0.42	1.26	1	1	draw	yes
+6123	1396308	2025-10-04	Portugal	Primeira Liga	Guimaraes	Santa Clara	h-win	2	1	14	7	13	5	9	3	1	1	4	5	0	0	52.00	48.00	17	11	\N	\N	\N	\N	\N	2025-12-02 18:10:29.162903	2.13	1.32	0	1	a-win	yes
+6124	1396301	2025-10-05	Portugal	Primeira Liga	Arouca	Famalicao	draw	1	1	7	3	14	5	4	11	2	4	5	1	1	0	46.00	54.00	22	12	\N	\N	\N	\N	\N	2025-12-02 18:10:29.245946	0.66	2.10	0	0	draw	yes
+6125	1396306	2025-10-05	Portugal	Primeira Liga	Rio Ave	Tondela	h-win	3	0	13	7	13	3	6	7	0	3	7	4	1	1	47.00	53.00	15	15	\N	\N	\N	\N	\N	2025-12-02 18:10:29.327937	2.27	0.75	2	0	h-win	yes
+6126	1396307	2025-10-05	Portugal	Primeira Liga	Sporting CP	SC Braga	draw	1	1	13	3	11	5	1	5	2	3	4	5	0	0	44.00	56.00	19	12	\N	\N	\N	\N	\N	2025-12-02 18:10:29.40975	1.75	1.50	1	0	h-win	yes
+6127	1396303	2025-10-05	Portugal	Primeira Liga	FC Porto	Benfica	draw	0	0	8	2	4	1	3	3	0	0	6	2	0	0	52.00	48.00	15	6	\N	\N	\N	\N	\N	2025-12-02 18:10:29.490928	0.66	0.13	0	0	draw	yes
+6128	1396309	2025-10-24	Portugal	Primeira Liga	Alverca	GIL Vicente	a-win	0	4	6	2	12	5	1	4	2	0	3	4	0	1	56.00	44.00	12	18	\N	\N	\N	\N	\N	2025-12-02 18:10:29.576952	1.56	1.20	0	2	a-win	yes
+6129	1396316	2025-10-25	Portugal	Primeira Liga	Santa Clara	AVS	h-win	2	0	20	5	7	2	8	4	2	0	1	1	0	0	60.00	40.00	10	15	\N	\N	\N	\N	\N	2025-12-02 18:10:29.65685	1.85	0.19	0	0	draw	yes
+6130	1396310	2025-10-25	Portugal	Primeira Liga	Benfica	Arouca	h-win	5	0	17	8	5	0	9	1	4	1	2	2	0	0	54.00	46.00	13	18	\N	\N	\N	\N	\N	2025-12-02 18:10:29.741873	3.73	0.43	3	0	h-win	yes
+6131	1396313	2025-10-25	Portugal	Primeira Liga	Estrela	Rio Ave	a-win	1	2	16	2	8	2	4	5	3	2	3	6	0	0	57.00	43.00	16	20	\N	\N	\N	\N	\N	2025-12-02 18:10:29.830936	0.84	0.61	1	0	h-win	yes
+6132	1396312	2025-10-26	Portugal	Primeira Liga	Estoril	Nacional	draw	1	1	13	4	9	4	6	5	2	3	3	3	0	0	59.00	41.00	13	15	\N	\N	\N	\N	\N	2025-12-02 18:10:29.92991	1.76	1.20	0	1	a-win	yes
+6133	1396314	2025-10-26	Portugal	Primeira Liga	Famalicao	Guimaraes	h-win	2	0	15	10	13	3	5	4	2	6	1	2	0	0	50.00	50.00	20	14	\N	\N	\N	\N	\N	2025-12-02 18:10:30.015932	1.71	0.48	1	0	h-win	yes
+6134	1396317	2025-10-26	Portugal	Primeira Liga	Tondela	Sporting CP	a-win	0	3	9	2	29	15	2	9	2	0	3	1	0	0	34.00	66.00	12	12	\N	\N	\N	\N	\N	2025-12-02 18:10:30.097775	0.36	3.17	0	1	a-win	yes
+6135	1396311	2025-10-26	Portugal	Primeira Liga	SC Braga	Casa Pia	h-win	4	0	15	8	3	1	4	2	4	1	1	3	0	0	60.00	40.00	16	16	\N	\N	\N	\N	\N	2025-12-02 18:10:30.193826	2.71	0.19	2	0	h-win	yes
+6136	1396315	2025-10-27	Portugal	Primeira Liga	Moreirense	FC Porto	a-win	1	2	8	1	16	7	2	7	0	5	3	1	0	0	39.00	61.00	15	13	\N	\N	\N	\N	\N	2025-12-02 18:10:30.271804	0.23	1.86	1	1	draw	yes
+6137	1396325	2025-10-31	Portugal	Primeira Liga	Sporting CP	Alverca	h-win	2	0	27	8	8	0	10	0	1	0	1	1	0	0	67.00	33.00	9	10	\N	\N	\N	\N	\N	2025-12-02 18:10:30.355666	2.34	0.31	0	0	draw	yes
+6138	1396323	2025-11-01	Portugal	Primeira Liga	Nacional	Famalicao	a-win	0	1	8	3	20	4	3	10	2	1	4	6	1	0	44.00	56.00	15	18	\N	\N	\N	13	5	2025-12-02 18:10:30.511523	0.39	1.62	0	1	a-win	yes
+6139	1396324	2025-11-01	Portugal	Primeira Liga	Rio Ave	Estoril	a-win	0	4	2	0	24	6	0	6	1	3	2	1	1	0	41.00	59.00	10	14	\N	\N	\N	11	10	2025-12-02 18:10:30.590999	0.17	3.19	0	2	a-win	yes
+6140	1396320	2025-11-01	Portugal	Primeira Liga	Casa Pia	Estrela	a-win	3	5	10	4	12	6	5	2	0	1	2	3	0	0	56.00	44.00	20	21	\N	\N	\N	15	14	2025-12-02 18:10:30.67177	1.07	2.17	1	2	a-win	yes
+6141	1396326	2025-11-01	Portugal	Primeira Liga	Guimaraes	Benfica	a-win	0	3	10	3	24	10	3	6	1	0	3	4	1	0	34.00	66.00	12	11	\N	\N	\N	8	3	2025-12-02 18:10:30.757965	0.43	2.13	0	0	draw	yes
+6142	1396318	2025-11-02	Portugal	Primeira Liga	AVS	Tondela	draw	2	2	15	5	10	3	5	3	0	0	4	4	0	0	55.00	45.00	18	17	\N	\N	\N	18	16	2025-12-02 18:10:30.840404	0.92	2.00	1	1	draw	yes
+6143	1396319	2025-11-02	Portugal	Primeira Liga	Arouca	Moreirense	a-win	0	2	11	2	7	5	5	2	0	2	3	2	0	0	59.00	41.00	11	11	\N	\N	\N	17	7	2025-12-02 18:10:30.922874	0.59	0.68	0	2	a-win	yes
+6144	1396321	2025-11-02	Portugal	Primeira Liga	FC Porto	SC Braga	h-win	2	1	9	4	10	3	2	3	2	2	3	3	0	0	31.00	69.00	15	13	\N	\N	\N	1	6	2025-12-02 18:10:31.010671	0.93	0.91	1	0	h-win	yes
+6145	1396322	2025-11-03	Portugal	Primeira Liga	GIL Vicente	Santa Clara	h-win	1	0	9	3	15	4	2	0	0	1	2	3	0	0	38.00	62.00	16	14	\N	\N	\N	4	12	2025-12-02 18:10:31.093649	0.57	0.56	1	0	h-win	yes
+6146	1396331	2025-11-07	Portugal	Primeira Liga	Estoril	Arouca	h-win	4	3	19	7	10	4	10	2	1	3	3	1	0	0	47.00	53.00	9	13	\N	\N	\N	10	17	2025-12-02 18:10:31.182823	1.71	0.78	2	2	draw	yes
+6147	1396328	2025-11-08	Portugal	Primeira Liga	Alverca	Rio Ave	draw	1	1	15	5	11	4	9	3	2	1	2	0	0	0	57.00	43.00	15	16	\N	\N	\N	9	11	2025-12-02 18:10:31.272043	1.67	0.60	0	1	a-win	yes
+6148	1396335	2025-11-08	Portugal	Primeira Liga	Tondela	Guimaraes	a-win	0	1	15	4	11	2	4	3	1	2	3	1	0	0	50.00	50.00	14	11	\N	\N	\N	16	8	2025-12-02 18:10:31.355785	1.05	1.27	0	0	draw	yes
+6149	1396334	2025-11-08	Portugal	Primeira Liga	Santa Clara	Sporting CP	a-win	1	2	5	2	21	7	2	12	0	0	9	4	2	1	26.00	74.00	11	12	\N	\N	\N	12	2	2025-12-02 18:10:31.438991	0.74	1.67	1	1	draw	yes
+6150	1396332	2025-11-09	Portugal	Primeira Liga	Estrela	Nacional	draw	1	1	14	4	17	4	2	6	1	0	3	4	0	0	62.00	38.00	12	15	\N	\N	\N	14	13	2025-12-02 18:10:31.531653	2.22	1.26	0	1	a-win	yes
+6151	1396327	2025-11-09	Portugal	Primeira Liga	AVS	GIL Vicente	draw	1	1	16	8	12	5	1	4	0	1	1	5	0	0	44.00	56.00	12	19	\N	\N	\N	18	4	2025-12-02 18:10:31.613844	1.75	1.95	0	1	a-win	yes
+6152	1396333	2025-11-09	Portugal	Primeira Liga	Famalicao	FC Porto	a-win	0	1	8	0	19	6	2	4	0	3	5	2	0	0	46.00	54.00	24	13	\N	\N	\N	5	1	2025-12-02 18:10:31.699889	0.37	1.32	0	1	a-win	yes
+6153	1396329	2025-11-09	Portugal	Primeira Liga	Benfica	Casa Pia	draw	2	2	19	6	7	4	6	2	5	1	3	2	0	0	66.00	34.00	8	8	\N	\N	\N	3	15	2025-12-02 18:10:31.787997	2.06	1.27	1	0	h-win	yes
+6154	1396330	2025-11-09	Portugal	Primeira Liga	SC Braga	Moreirense	h-win	2	1	11	3	11	1	5	3	0	1	3	2	0	0	53.00	47.00	13	15	\N	\N	\N	6	7	2025-12-02 18:10:31.875699	2.06	0.91	1	0	h-win	yes
+6155	1396344	2025-11-28	Portugal	Primeira Liga	Guimaraes	AVS	h-win	4	0	11	4	9	1	7	3	3	1	0	1	0	0	46.00	54.00	11	14	\N	\N	\N	8	18	2025-12-02 18:10:31.958697	1.60	1.20	3	0	h-win	yes
+6156	1396340	2025-11-29	Portugal	Primeira Liga	Moreirense	Famalicao	draw	2	2	11	6	17	8	5	4	1	0	4	5	1	0	49.00	51.00	17	22	\N	\N	\N	7	5	2025-12-02 18:10:32.037783	1.19	1.82	0	1	a-win	yes
+6157	1396337	2025-11-29	Portugal	Primeira Liga	Casa Pia	Alverca	a-win	0	2	5	0	10	5	6	4	0	4	4	4	1	0	52.00	48.00	9	17	\N	\N	\N	15	9	2025-12-02 18:10:32.126602	0.17	1.41	0	0	draw	yes
+6158	1396341	2025-11-29	Portugal	Primeira Liga	Nacional	Benfica	a-win	1	2	6	2	31	8	2	11	0	1	3	2	0	0	30.00	70.00	10	8	\N	\N	\N	13	3	2025-12-02 18:10:32.204841	0.50	2.68	0	0	draw	yes
+6159	1396339	2025-11-29	Portugal	Primeira Liga	GIL Vicente	Tondela	a-win	0	1	15	2	5	2	12	3	0	3	2	0	0	0	65.00	35.00	10	20	\N	\N	\N	4	16	2025-12-02 18:10:32.292593	0.49	1.16	0	1	a-win	yes
+6160	1396342	2025-11-30	Portugal	Primeira Liga	Rio Ave	Santa Clara	draw	1	1	9	4	9	3	1	5	1	4	2	3	0	0	58.00	42.00	10	15	\N	\N	\N	11	12	2025-12-02 18:10:32.435198	1.76	1.05	1	1	draw	yes
+6161	1396343	2025-11-30	Portugal	Primeira Liga	Sporting CP	Estrela	h-win	4	0	19	6	5	3	5	1	1	1	1	0	0	0	63.00	37.00	12	12	\N	\N	\N	2	14	2025-12-02 18:10:32.517867	2.65	0.11	3	0	h-win	yes
+6162	1396338	2025-11-30	Portugal	Primeira Liga	FC Porto	Estoril	h-win	1	0	12	6	11	2	5	4	3	1	1	3	0	0	49.00	51.00	14	11	\N	\N	\N	1	10	2025-12-02 18:10:32.6048	1.41	1.11	1	0	h-win	yes
+6163	1396336	2025-12-01	Portugal	Primeira Liga	Arouca	SC Braga	a-win	0	4	3	1	18	6	0	6	0	1	4	0	1	0	16.00	84.00	11	9	\N	\N	\N	17	6	2025-12-02 18:10:32.701389	0.06	2.92	0	3	a-win	yes
+6164	1397975	2025-08-09	Portugal	Segunda Liga	Pacos Ferreira	Vizela	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	2	8	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.217882	\N	\N	1	0	h-win	yes
+6165	1397977	2025-08-09	Portugal	Segunda Liga	Torreense	Sporting CP B	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.301882	\N	\N	0	0	draw	yes
+6166	1397976	2025-08-09	Portugal	Segunda Liga	Portimonense	Penafiel	h-win	2	1	2	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2	0	\N	\N	\N	\N	\N	2025-12-02 18:10:34.390804	\N	\N	1	1	draw	yes
+6167	1397969	2025-08-10	Portugal	Segunda Liga	Chaves	Benfica B	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	3	4	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.475747	\N	\N	1	1	draw	yes
+6168	1397973	2025-08-10	Portugal	Segunda Liga	Maritimo	Lusitânia Lourosa	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	3	2	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.564238	\N	\N	0	0	draw	yes
+6169	1397972	2025-08-10	Portugal	Segunda Liga	Leixoes	Felgueiras 1932	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	1	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.656404	\N	\N	2	0	h-win	yes
+6170	1397970	2025-08-10	Portugal	Segunda Liga	FC Porto B	Feirense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	1	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.74289	\N	\N	0	0	draw	yes
+6171	1397971	2025-08-10	Portugal	Segunda Liga	União de Leiria	Academico Viseu	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	1	5	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.824098	\N	\N	1	1	draw	yes
+6172	1397974	2025-08-11	Portugal	Segunda Liga	Oliveirense	Farense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	2	5	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.909865	\N	\N	1	0	h-win	yes
+6173	1397980	2025-08-15	Portugal	Segunda Liga	Feirense	Portimonense	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	5	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:34.99665	\N	\N	1	1	draw	yes
+6174	1397981	2025-08-16	Portugal	Segunda Liga	Felgueiras 1932	Maritimo	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	5	6	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.079914	\N	\N	0	0	draw	yes
+6175	1397986	2025-08-16	Portugal	Segunda Liga	Vizela	FC Porto B	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	1	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.161843	\N	\N	2	0	h-win	yes
+6176	1397978	2025-08-16	Portugal	Segunda Liga	Academico Viseu	Pacos Ferreira	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	1	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.250562	\N	\N	0	0	draw	yes
+6177	1397982	2025-08-16	Portugal	Segunda Liga	Lusitânia Lourosa	Chaves	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	4	0	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.347863	\N	\N	0	2	a-win	yes
+6178	1397984	2025-08-17	Portugal	Segunda Liga	Farense	Torreense	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	3	5	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.432895	\N	\N	0	1	a-win	yes
+6179	1397985	2025-08-17	Portugal	Segunda Liga	Sporting CP B	União de Leiria	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.519636	\N	\N	1	0	h-win	yes
+6180	1397983	2025-08-17	Portugal	Segunda Liga	Penafiel	Oliveirense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	0	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.599477	\N	\N	0	0	draw	yes
+6181	1397979	2025-08-17	Portugal	Segunda Liga	Benfica B	Leixoes	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	4	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.682748	\N	\N	0	1	a-win	yes
+6182	1397987	2025-08-22	Portugal	Segunda Liga	Chaves	Felgueiras 1932	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	4	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.767719	\N	\N	1	0	h-win	yes
+6183	1397994	2025-08-23	Portugal	Segunda Liga	Portimonense	Vizela	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	2	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.84909	\N	\N	1	0	h-win	yes
+6184	1397993	2025-08-23	Portugal	Segunda Liga	Pacos Ferreira	União de Leiria	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	2	7	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:35.935719	\N	\N	0	0	draw	yes
+6185	1397995	2025-08-23	Portugal	Segunda Liga	Torreense	Academico Viseu	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	2	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.022919	\N	\N	0	1	a-win	yes
+6186	1397992	2025-08-24	Portugal	Segunda Liga	Oliveirense	Sporting CP B	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.107677	\N	\N	1	0	h-win	yes
+6187	1397988	2025-08-24	Portugal	Segunda Liga	FC Porto B	Farense	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	5	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.192744	\N	\N	0	2	a-win	yes
+6188	1397989	2025-08-24	Portugal	Segunda Liga	Leixoes	Penafiel	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	4	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.27778	\N	\N	2	0	h-win	yes
+6189	1397991	2025-08-24	Portugal	Segunda Liga	Maritimo	Feirense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	5	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.364295	\N	\N	1	0	h-win	yes
+6190	1397990	2025-08-25	Portugal	Segunda Liga	Lusitânia Lourosa	Benfica B	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	3	6	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.445847	\N	\N	1	1	draw	yes
+6191	1398000	2025-08-29	Portugal	Segunda Liga	União de Leiria	Torreense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	4	4	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.525619	\N	\N	1	0	h-win	yes
+6192	1398001	2025-08-30	Portugal	Segunda Liga	Penafiel	Chaves	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	3	0	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.610734	\N	\N	0	1	a-win	yes
+6193	1397999	2025-08-30	Portugal	Segunda Liga	Felgueiras 1932	Lusitânia Lourosa	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	1	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.692807	\N	\N	2	0	h-win	yes
+6194	1397998	2025-08-30	Portugal	Segunda Liga	Feirense	Leixoes	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	4	5	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.784979	\N	\N	0	0	draw	yes
+6195	1397997	2025-08-30	Portugal	Segunda Liga	Benfica B	Portimonense	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	3	6	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.874376	\N	\N	0	1	a-win	yes
+6196	1398002	2025-08-31	Portugal	Segunda Liga	Farense	Maritimo	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	3	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:36.9591	\N	\N	0	1	a-win	yes
+6197	1398003	2025-08-31	Portugal	Segunda Liga	Sporting CP B	Pacos Ferreira	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.0447	\N	\N	1	0	h-win	yes
+6198	1397996	2025-08-31	Portugal	Segunda Liga	Academico Viseu	FC Porto B	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	3	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.133726	\N	\N	1	0	h-win	yes
+6199	1398004	2025-08-31	Portugal	Segunda Liga	Vizela	Oliveirense	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	3	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.21677	\N	\N	1	0	h-win	yes
+6200	1398007	2025-09-13	Portugal	Segunda Liga	Felgueiras 1932	Benfica B	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	4	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.307779	\N	\N	1	1	draw	yes
+6201	1398009	2025-09-13	Portugal	Segunda Liga	Lusitânia Lourosa	Penafiel	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	2	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.394718	\N	\N	0	0	draw	yes
+6202	1398008	2025-09-13	Portugal	Segunda Liga	Leixoes	Farense	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	1	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.484653	\N	\N	0	0	draw	yes
+6203	1398012	2025-09-14	Portugal	Segunda Liga	Portimonense	Sporting CP B	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.573942	\N	\N	1	0	h-win	yes
+6204	1398010	2025-09-14	Portugal	Segunda Liga	Maritimo	Vizela	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	4	7	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.663794	\N	\N	0	1	a-win	yes
+6205	1398006	2025-09-14	Portugal	Segunda Liga	FC Porto B	União de Leiria	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	5	5	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.744745	\N	\N	1	1	draw	yes
+6206	1398013	2025-09-14	Portugal	Segunda Liga	Torreense	Pacos Ferreira	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	1	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.83064	\N	\N	0	0	draw	yes
+6207	1398005	2025-09-14	Portugal	Segunda Liga	Chaves	Feirense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	3	6	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.912756	\N	\N	0	1	a-win	yes
+6208	1398011	2025-09-15	Portugal	Segunda Liga	Oliveirense	Academico Viseu	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	5	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:37.996181	\N	\N	1	0	h-win	yes
+6210	1398015	2025-09-27	Portugal	Segunda Liga	Benfica B	Torreense	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	1	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.163747	\N	\N	0	1	a-win	yes
+6211	1398019	2025-09-27	Portugal	Segunda Liga	Penafiel	Felgueiras 1932	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	4	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.244559	\N	\N	0	0	draw	yes
+6212	1398021	2025-09-27	Portugal	Segunda Liga	Sporting CP B	Maritimo	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.330728	\N	\N	0	0	draw	yes
+6213	1398014	2025-09-27	Portugal	Segunda Liga	Academico Viseu	Portimonense	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	3	3	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.419884	\N	\N	1	2	a-win	yes
+6214	1398016	2025-09-28	Portugal	Segunda Liga	Feirense	Lusitânia Lourosa	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	2	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.511105	\N	\N	0	1	a-win	yes
+6215	1398020	2025-09-28	Portugal	Segunda Liga	Farense	Chaves	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	7	3	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.596441	\N	\N	0	0	draw	yes
+6216	1398018	2025-09-29	Portugal	Segunda Liga	Pacos Ferreira	FC Porto B	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	4	4	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.680951	\N	\N	2	1	h-win	yes
+6217	1398029	2025-10-03	Portugal	Segunda Liga	Maritimo	Academico Viseu	draw	2	2	17	8	9	3	6	5	2	3	3	2	0	0	65.00	35.00	8	14	\N	\N	\N	\N	\N	2025-12-02 18:10:38.766105	\N	\N	0	0	draw	yes
+6218	1398028	2025-10-04	Portugal	Segunda Liga	Lusitânia Lourosa	Farense	a-win	1	2	13	4	10	5	7	0	1	0	2	3	0	0	60.00	40.00	18	18	\N	\N	\N	\N	\N	2025-12-02 18:10:38.851886	\N	\N	1	2	a-win	yes
+6219	1398024	2025-10-04	Portugal	Segunda Liga	Chaves	Vizela	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	1	5	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:38.938951	\N	\N	0	0	draw	yes
+6220	1398031	2025-10-04	Portugal	Segunda Liga	Portimonense	União de Leiria	draw	1	1	15	5	10	2	7	6	3	0	3	4	0	0	44.00	56.00	22	19	\N	\N	\N	\N	\N	2025-12-02 18:10:39.017728	\N	\N	1	0	h-win	yes
+6221	1398030	2025-10-05	Portugal	Segunda Liga	Oliveirense	Pacos Ferreira	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	4	7	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.101591	\N	\N	1	0	h-win	yes
+6222	1398025	2025-10-05	Portugal	Segunda Liga	FC Porto B	Torreense	a-win	2	3	\N	\N	\N	\N	\N	\N	\N	\N	3	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.185942	\N	\N	2	0	h-win	yes
+6223	1398026	2025-10-05	Portugal	Segunda Liga	Felgueiras 1932	Feirense	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	1	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.271895	\N	\N	1	0	h-win	yes
+6224	1398027	2025-10-05	Portugal	Segunda Liga	Leixoes	Sporting CP B	a-win	0	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.359786	\N	\N	0	2	a-win	yes
+6225	1398023	2025-10-05	Portugal	Segunda Liga	Benfica B	Penafiel	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	5	1	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.446756	\N	\N	0	0	draw	yes
+6226	1398017	2025-10-11	Portugal	Segunda Liga	União de Leiria	Oliveirense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	1	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.529545	\N	\N	0	0	draw	yes
+6227	1398033	2025-10-19	Portugal	Segunda Liga	FC Porto B	Maritimo	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	3	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.613769	\N	\N	1	0	h-win	yes
+6228	1398048	2025-10-19	Portugal	Segunda Liga	Penafiel	Feirense	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	1	2	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.698767	\N	\N	1	2	a-win	yes
+6229	1398039	2025-10-24	Portugal	Segunda Liga	Torreense	Oliveirense	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	2	1	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.780608	\N	\N	0	1	a-win	yes
+6230	1398040	2025-10-24	Portugal	Segunda Liga	Vizela	Felgueiras 1932	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	5	6	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.862512	\N	\N	0	0	draw	yes
+6231	1398038	2025-10-25	Portugal	Segunda Liga	Sporting CP B	Lusitânia Lourosa	h-win	4	0	\N	\N	\N	\N	\N	\N	\N	\N	4	4	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:39.945736	\N	\N	2	0	h-win	yes
+6232	1398035	2025-10-25	Portugal	Segunda Liga	União de Leiria	Leixoes	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	1	6	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.028392	\N	\N	0	1	a-win	yes
+6233	1398036	2025-10-25	Portugal	Segunda Liga	Pacos Ferreira	Portimonense	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	1	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.110049	\N	\N	1	0	h-win	yes
+6234	1398034	2025-10-25	Portugal	Segunda Liga	Feirense	Benfica B	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	5	5	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.19172	\N	\N	0	0	draw	yes
+6235	1398032	2025-10-25	Portugal	Segunda Liga	Academico Viseu	Chaves	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	4	5	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.278724	\N	\N	0	0	draw	yes
+6236	1398037	2025-10-26	Portugal	Segunda Liga	Farense	Penafiel	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	4	3	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.358681	\N	\N	0	0	draw	yes
+6237	1398045	2025-10-29	Portugal	Segunda Liga	Lusitânia Lourosa	Vizela	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	2	4	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.442865	\N	\N	0	1	a-win	yes
+6238	1398047	2025-10-29	Portugal	Segunda Liga	Oliveirense	FC Porto B	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	5	1	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.524241	\N	\N	1	0	h-win	yes
+6239	1398049	2025-10-30	Portugal	Segunda Liga	Portimonense	Torreense	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	2	1	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.61107	\N	\N	0	0	draw	yes
+6240	1398041	2025-10-30	Portugal	Segunda Liga	Benfica B	Pacos Ferreira	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	3	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.691812	\N	\N	2	0	h-win	yes
+6241	1398046	2025-10-30	Portugal	Segunda Liga	Maritimo	União de Leiria	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	3	3	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.779545	\N	\N	1	0	h-win	yes
+6242	1398044	2025-10-30	Portugal	Segunda Liga	Leixoes	Academico Viseu	a-win	1	5	\N	\N	\N	\N	\N	\N	\N	\N	2	0	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 18:10:40.864765	\N	\N	0	2	a-win	yes
+6243	1398056	2025-11-01	Portugal	Segunda Liga	Sporting CP B	Feirense	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	1	4	0	0	\N	\N	\N	\N	\N	\N	\N	1	11	2025-12-02 18:10:41.023275	\N	\N	2	1	h-win	yes
+6244	1398058	2025-11-02	Portugal	Segunda Liga	Vizela	Penafiel	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	1	3	0	0	\N	\N	\N	\N	\N	\N	\N	6	12	2025-12-02 18:10:41.110741	\N	\N	0	0	draw	yes
+6245	1398055	2025-11-02	Portugal	Segunda Liga	Farense	Benfica B	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	5	1	0	0	\N	\N	\N	\N	\N	\N	\N	8	17	2025-12-02 18:10:41.202992	\N	\N	0	3	a-win	yes
+6246	1398053	2025-11-03	Portugal	Segunda Liga	Oliveirense	Maritimo	a-win	0	2	11	4	16	7	5	4	2	0	2	1	0	0	56.00	44.00	9	17	\N	\N	\N	9	2	2025-12-02 18:10:41.285751	\N	\N	0	1	a-win	yes
+6247	1398054	2025-11-03	Portugal	Segunda Liga	Pacos Ferreira	Leixoes	h-win	3	1	13	4	11	3	4	7	4	3	3	5	0	1	49.00	51.00	14	17	\N	\N	\N	15	13	2025-12-02 18:10:41.367236	\N	\N	1	0	h-win	yes
+6248	1398052	2025-11-03	Portugal	Segunda Liga	União de Leiria	Chaves	h-win	2	1	12	3	8	2	10	1	3	2	1	4	0	1	60.00	40.00	16	12	\N	\N	\N	5	4	2025-12-02 18:10:41.45462	\N	\N	0	1	a-win	yes
+6249	1398057	2025-11-04	Portugal	Segunda Liga	Torreense	Felgueiras 1932	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	5	1	1	0	\N	\N	\N	\N	\N	\N	\N	7	14	2025-12-02 18:10:41.538705	\N	\N	1	0	h-win	yes
+6250	1398050	2025-11-04	Portugal	Segunda Liga	Academico Viseu	Lusitânia Lourosa	h-win	3	2	15	5	15	5	5	7	0	2	1	2	1	0	40.00	60.00	13	10	\N	\N	\N	3	10	2025-12-02 18:10:41.62664	\N	\N	1	2	a-win	yes
+6251	1398061	2025-11-07	Portugal	Segunda Liga	Feirense	Farense	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	3	3	1	0	\N	\N	\N	\N	\N	\N	\N	11	8	2025-12-02 18:10:41.710461	\N	\N	0	0	draw	yes
+6252	1398066	2025-11-08	Portugal	Segunda Liga	Penafiel	Sporting CP B	draw	1	1	10	4	16	5	3	3	0	4	2	1	0	0	41.00	59.00	10	19	\N	\N	\N	12	1	2025-12-02 18:10:41.796339	\N	\N	1	0	h-win	yes
+6253	1398067	2025-11-08	Portugal	Segunda Liga	Portimonense	Oliveirense	draw	1	1	19	7	10	2	10	6	3	0	3	6	0	0	56.00	44.00	17	13	\N	\N	\N	16	9	2025-12-02 18:10:41.876551	\N	\N	0	0	draw	yes
+6254	1398060	2025-11-08	Portugal	Segunda Liga	Chaves	FC Porto B	a-win	0	1	14	3	9	3	11	6	3	1	5	4	1	0	65.00	35.00	16	16	\N	\N	\N	4	18	2025-12-02 18:10:41.960628	\N	\N	0	1	a-win	yes
+6255	1398059	2025-11-08	Portugal	Segunda Liga	Benfica B	Vizela	a-win	1	2	16	5	11	5	9	8	1	0	3	6	0	0	51.00	49.00	15	14	\N	\N	\N	17	6	2025-12-02 18:10:42.045562	\N	\N	1	1	draw	yes
+6256	1398063	2025-11-09	Portugal	Segunda Liga	Leixoes	Torreense	h-win	1	0	10	5	16	4	0	9	1	2	1	3	0	0	52.00	48.00	5	10	\N	\N	\N	13	7	2025-12-02 18:10:42.131571	\N	\N	0	0	draw	yes
+6257	1398062	2025-11-09	Portugal	Segunda Liga	Felgueiras 1932	Academico Viseu	a-win	1	3	12	3	17	9	6	5	2	1	2	5	1	0	43.00	57.00	14	15	\N	\N	\N	14	3	2025-12-02 18:10:42.221355	\N	\N	0	2	a-win	yes
+6258	1398065	2025-11-09	Portugal	Segunda Liga	Maritimo	Pacos Ferreira	h-win	2	0	20	6	2	1	3	1	1	2	1	2	0	0	52.00	48.00	25	12	\N	\N	\N	2	15	2025-12-02 18:10:42.305047	\N	\N	2	0	h-win	yes
+6259	1398064	2025-11-09	Portugal	Segunda Liga	Lusitânia Lourosa	União de Leiria	draw	1	1	14	6	11	6	8	5	0	3	2	4	0	0	51.00	49.00	11	13	\N	\N	\N	10	5	2025-12-02 18:10:42.388084	\N	\N	1	1	draw	yes
+6260	1398043	2025-11-16	Portugal	Segunda Liga	Felgueiras 1932	Farense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	1	2	0	0	\N	\N	\N	\N	\N	\N	\N	14	8	2025-12-02 18:10:42.478819	\N	\N	0	0	draw	yes
+6261	1398107	2025-11-16	Portugal	Segunda Liga	Leixoes	Chaves	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	1	3	0	0	\N	\N	\N	\N	\N	\N	\N	13	4	2025-12-02 18:10:42.561899	\N	\N	0	1	a-win	yes
+6262	1398042	2025-11-23	Portugal	Segunda Liga	Chaves	Sporting CP B	draw	0	0	9	0	10	3	3	1	3	2	0	0	0	0	53.00	47.00	12	12	\N	\N	\N	4	1	2025-12-02 18:10:42.647383	\N	\N	0	0	draw	yes
+6263	1398051	2025-11-23	Portugal	Segunda Liga	FC Porto B	Portimonense	h-win	1	0	11	5	11	3	8	3	1	0	2	3	0	0	46.00	54.00	23	15	\N	\N	\N	18	16	2025-12-02 18:10:42.730782	\N	\N	0	0	draw	yes
+6264	1398108	2025-11-23	Portugal	Segunda Liga	Maritimo	Penafiel	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	4	2	0	1	\N	\N	\N	\N	\N	\N	\N	2	12	2025-12-02 18:10:42.811718	\N	\N	1	1	draw	yes
+6265	1398068	2025-11-29	Portugal	Segunda Liga	Academico Viseu	Penafiel	h-win	2	0	20	6	9	2	9	3	2	1	4	3	0	0	56.00	44.00	14	16	\N	\N	\N	3	12	2025-12-02 18:10:42.896452	\N	\N	0	0	draw	yes
+6266	1398071	2025-11-29	Portugal	Segunda Liga	Oliveirense	Leixoes	h-win	2	0	13	6	10	4	0	2	3	5	2	7	0	1	48.00	52.00	14	21	\N	\N	\N	9	13	2025-12-02 18:10:42.97842	\N	\N	0	0	draw	yes
+6267	1398069	2025-11-30	Portugal	Segunda Liga	FC Porto B	Lusitânia Lourosa	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	3	7	1	1	\N	\N	\N	\N	\N	\N	\N	18	10	2025-12-02 18:10:43.063792	\N	\N	0	0	draw	yes
+6268	1398075	2025-11-30	Portugal	Segunda Liga	Torreense	Chaves	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	1	7	2	0	\N	\N	\N	\N	\N	\N	\N	7	4	2025-12-02 18:10:43.144734	\N	\N	0	1	a-win	yes
+6269	1398073	2025-11-30	Portugal	Segunda Liga	Portimonense	Maritimo	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	1	0	0	1	\N	\N	\N	\N	\N	\N	\N	16	2	2025-12-02 18:10:43.237256	\N	\N	0	1	a-win	yes
+6270	1398074	2025-11-30	Portugal	Segunda Liga	Sporting CP B	Farense	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	0	3	0	0	\N	\N	\N	\N	\N	\N	\N	1	8	2025-12-02 18:10:43.324796	\N	\N	2	0	h-win	yes
+6271	1398070	2025-11-30	Portugal	Segunda Liga	União de Leiria	Benfica B	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	3	2	0	1	\N	\N	\N	\N	\N	\N	\N	5	17	2025-12-02 18:10:43.407658	\N	\N	1	1	draw	yes
+6272	1398072	2025-12-01	Portugal	Segunda Liga	Pacos Ferreira	Felgueiras 1932	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	4	3	0	0	\N	\N	\N	\N	\N	\N	\N	15	14	2025-12-02 18:10:43.487518	\N	\N	0	1	a-win	yes
+6273	1398076	2025-12-01	Portugal	Segunda Liga	Vizela	Feirense	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	3	3	0	0	\N	\N	\N	\N	\N	\N	\N	6	11	2025-12-02 18:10:43.56873	\N	\N	0	1	a-win	yes
+6274	1382426	2025-07-25	Belgium	Jupiler Pro League	Antwerp	Union St. Gilloise	draw	1	1	8	4	17	8	2	5	5	1	3	3	0	0	43.00	57.00	9	16	\N	\N	\N	\N	\N	2025-12-02 18:10:45.105878	0.52	2.19	1	0	h-win	yes
+6275	1382427	2025-07-26	Belgium	Jupiler Pro League	Dender	Cercle Brugge	draw	0	0	11	3	10	2	3	3	4	4	0	2	0	0	54.00	46.00	13	13	\N	\N	\N	\N	\N	2025-12-02 18:10:45.201424	1.21	1.25	0	0	draw	yes
+6276	1382428	2025-07-26	Belgium	Jupiler Pro League	Zulte Waregem	KV Mechelen	draw	1	1	21	5	7	2	9	6	0	0	3	3	0	0	56.00	44.00	8	8	\N	\N	\N	\N	\N	2025-12-02 18:10:45.297665	2.08	0.50	0	1	a-win	yes
+6277	1382429	2025-07-26	Belgium	Jupiler Pro League	RAAL La Louvière	Standard Liege	a-win	0	2	14	2	9	4	6	1	1	2	2	1	0	0	45.00	55.00	15	12	\N	\N	\N	\N	\N	2025-12-02 18:10:45.382801	0.84	1.73	0	2	a-win	yes
+6278	1382430	2025-07-27	Belgium	Jupiler Pro League	Anderlecht	KVC Westerlo	h-win	5	2	25	10	10	4	8	3	5	0	4	2	0	0	48.00	52.00	14	14	\N	\N	\N	\N	\N	2025-12-02 18:10:45.481464	2.83	0.81	2	0	h-win	yes
+6279	1382431	2025-07-27	Belgium	Jupiler Pro League	OH Leuven	Charleroi	draw	2	2	7	3	16	9	4	8	2	5	2	2	0	0	44.00	56.00	15	14	\N	\N	\N	\N	\N	2025-12-02 18:10:45.563801	1.07	1.56	1	0	h-win	yes
+6280	1382432	2025-07-27	Belgium	Jupiler Pro League	Club Brugge KV	Genk	h-win	2	1	18	4	17	10	8	6	2	0	1	2	1	0	56.00	44.00	10	7	\N	\N	\N	\N	\N	2025-12-02 18:10:45.654883	2.18	1.77	0	1	a-win	yes
+6281	1382433	2025-07-27	Belgium	Jupiler Pro League	St. Truiden	Gent	h-win	3	1	13	5	12	2	4	6	0	4	1	1	0	0	48.00	52.00	13	10	\N	\N	\N	\N	\N	2025-12-02 18:10:45.737764	1.24	1.61	0	0	draw	yes
+6282	1382434	2025-08-01	Belgium	Jupiler Pro League	KV Mechelen	Club Brugge KV	h-win	2	1	9	5	20	6	2	3	1	1	4	0	0	0	35.00	65.00	11	7	\N	\N	\N	\N	\N	2025-12-02 18:10:45.82173	2.02	1.61	1	0	h-win	yes
+6283	1382435	2025-08-02	Belgium	Jupiler Pro League	KVC Westerlo	Zulte Waregem	h-win	3	1	13	7	12	4	3	5	0	1	1	1	0	0	48.00	52.00	7	10	\N	\N	\N	\N	\N	2025-12-02 18:10:45.915673	1.22	0.80	2	1	h-win	yes
+6284	1382436	2025-08-02	Belgium	Jupiler Pro League	Standard Liege	Dender	draw	1	1	10	6	9	2	5	1	1	0	3	3	0	0	46.00	54.00	11	13	\N	\N	\N	\N	\N	2025-12-02 18:10:46.00291	1.20	0.57	0	0	draw	yes
+6285	1382437	2025-08-02	Belgium	Jupiler Pro League	Gent	RAAL La Louvière	h-win	1	0	11	6	5	1	5	2	3	0	0	1	0	0	78.00	22.00	12	19	\N	\N	\N	\N	\N	2025-12-02 18:10:46.082241	1.46	0.25	0	0	draw	yes
+6286	1382438	2025-08-03	Belgium	Jupiler Pro League	Genk	Antwerp	draw	1	1	15	3	6	5	4	2	0	1	0	2	0	0	73.00	27.00	11	10	\N	\N	\N	\N	\N	2025-12-02 18:10:46.161316	1.10	0.50	1	1	draw	yes
+6287	1382439	2025-08-03	Belgium	Jupiler Pro League	Cercle Brugge	Anderlecht	a-win	0	2	12	2	9	5	5	3	2	2	2	2	0	0	53.00	47.00	7	21	\N	\N	\N	\N	\N	2025-12-02 18:10:46.247747	0.65	1.57	0	1	a-win	yes
+6288	1382440	2025-08-03	Belgium	Jupiler Pro League	Union St. Gilloise	OH Leuven	h-win	5	0	19	10	6	0	4	7	4	1	1	2	0	0	52.00	48.00	12	9	\N	\N	\N	\N	\N	2025-12-02 18:10:46.330765	2.91	0.23	2	0	h-win	yes
+6289	1382441	2025-08-03	Belgium	Jupiler Pro League	Charleroi	St. Truiden	draw	1	1	4	2	14	4	1	7	1	1	5	1	1	0	37.00	63.00	18	14	\N	\N	\N	\N	\N	2025-12-02 18:10:46.411617	0.72	1.47	1	1	draw	yes
+6290	1382442	2025-08-08	Belgium	Jupiler Pro League	St. Truiden	Dender	h-win	2	0	14	3	6	2	4	2	5	4	3	0	0	1	52.00	48.00	18	7	\N	\N	\N	\N	\N	2025-12-02 18:10:46.492717	2.70	0.53	1	0	h-win	yes
+6291	1382443	2025-08-09	Belgium	Jupiler Pro League	Club Brugge KV	Cercle Brugge	h-win	2	0	14	5	10	2	9	5	3	1	2	3	0	1	65.00	35.00	15	11	\N	\N	\N	\N	\N	2025-12-02 18:10:46.575018	1.62	0.69	0	0	draw	yes
+6292	1382444	2025-08-09	Belgium	Jupiler Pro League	KVC Westerlo	KV Mechelen	a-win	0	1	19	2	5	3	8	5	0	2	1	1	0	0	48.00	52.00	9	7	\N	\N	\N	\N	\N	2025-12-02 18:10:46.65467	2.19	0.58	0	0	draw	yes
+6293	1382445	2025-08-09	Belgium	Jupiler Pro League	Gent	Union St. Gilloise	a-win	2	3	20	6	12	8	5	10	3	5	1	4	0	0	48.00	52.00	11	10	\N	\N	\N	\N	\N	2025-12-02 18:10:46.733899	1.53	3.44	0	1	a-win	yes
+6294	1382446	2025-08-10	Belgium	Jupiler Pro League	RAAL La Louvière	Charleroi	h-win	1	0	11	2	15	4	4	3	3	1	3	0	0	0	32.00	68.00	11	11	\N	\N	\N	\N	\N	2025-12-02 18:10:46.819764	0.92	0.91	1	0	h-win	yes
+6295	1382447	2025-08-10	Belgium	Jupiler Pro League	Anderlecht	Zulte Waregem	a-win	2	3	20	7	9	6	6	5	0	2	0	3	0	0	70.00	30.00	11	11	\N	\N	\N	\N	\N	2025-12-02 18:10:46.900833	2.55	1.79	0	1	a-win	yes
+6296	1382448	2025-08-10	Belgium	Jupiler Pro League	Standard Liege	Genk	h-win	2	1	6	5	19	5	2	6	4	0	3	3	0	0	24.00	76.00	11	16	\N	\N	\N	\N	\N	2025-12-02 18:10:46.98075	1.90	0.93	1	0	h-win	yes
+6297	1382449	2025-08-10	Belgium	Jupiler Pro League	Antwerp	OH Leuven	h-win	3	1	12	4	5	1	5	3	5	2	3	5	0	1	62.00	38.00	8	21	\N	\N	\N	\N	\N	2025-12-02 18:10:47.065641	1.97	0.22	1	0	h-win	yes
+6298	1382450	2025-08-15	Belgium	Jupiler Pro League	OH Leuven	Genk	a-win	1	2	22	7	15	7	6	6	2	2	2	2	0	0	39.00	61.00	16	10	\N	\N	\N	\N	\N	2025-12-02 18:10:47.148025	1.32	1.26	1	2	a-win	yes
+6299	1382451	2025-08-16	Belgium	Jupiler Pro League	Zulte Waregem	Club Brugge KV	a-win	0	1	5	1	19	4	3	9	0	1	1	2	0	0	33.00	67.00	9	9	\N	\N	\N	\N	\N	2025-12-02 18:10:47.229975	0.13	1.20	0	0	draw	yes
+6300	1382452	2025-08-16	Belgium	Jupiler Pro League	KV Mechelen	Gent	draw	1	1	6	3	23	11	2	11	2	0	2	1	0	0	38.00	62.00	9	9	\N	\N	\N	\N	\N	2025-12-02 18:10:47.315597	1.04	1.64	1	0	h-win	yes
+6301	1382453	2025-08-16	Belgium	Jupiler Pro League	Union St. Gilloise	Standard Liege	h-win	3	0	24	11	4	1	11	1	4	1	1	2	0	1	70.00	30.00	13	6	\N	\N	\N	\N	\N	2025-12-02 18:10:47.39076	3.47	0.54	1	0	h-win	yes
+6302	1382454	2025-08-17	Belgium	Jupiler Pro League	Dender	Anderlecht	a-win	0	2	8	4	17	5	2	7	2	0	1	1	0	0	41.00	59.00	7	12	\N	\N	\N	\N	\N	2025-12-02 18:10:47.476619	0.91	2.33	0	0	draw	yes
+6303	1382455	2025-08-17	Belgium	Jupiler Pro League	St. Truiden	RAAL La Louvière	h-win	2	1	13	7	11	5	4	5	4	2	1	2	0	0	61.00	39.00	14	9	\N	\N	\N	\N	\N	2025-12-02 18:10:47.55898	1.84	1.09	1	0	h-win	yes
+6304	1382456	2025-08-17	Belgium	Jupiler Pro League	Charleroi	Antwerp	draw	1	1	13	4	10	5	4	1	1	3	3	3	0	0	52.00	48.00	18	17	\N	\N	\N	\N	\N	2025-12-02 18:10:47.636902	0.81	0.74	1	1	draw	yes
+6305	1382457	2025-08-17	Belgium	Jupiler Pro League	Cercle Brugge	KVC Westerlo	h-win	4	1	12	7	25	6	1	11	3	0	0	1	0	0	47.00	53.00	10	16	\N	\N	\N	\N	\N	2025-12-02 18:10:47.715779	1.72	1.30	3	0	h-win	yes
+6306	1382460	2025-08-23	Belgium	Jupiler Pro League	Standard Liege	Cercle Brugge	a-win	0	3	15	3	18	9	4	3	2	3	1	3	0	0	56.00	44.00	4	12	\N	\N	\N	\N	\N	2025-12-02 18:10:47.798674	1.13	2.80	0	3	a-win	yes
+6307	1382461	2025-08-23	Belgium	Jupiler Pro League	Zulte Waregem	St. Truiden	a-win	0	2	6	2	18	4	2	11	3	0	2	1	1	0	36.00	64.00	10	14	\N	\N	\N	\N	\N	2025-12-02 18:10:47.881937	0.19	1.64	0	0	draw	yes
+6308	1382462	2025-08-24	Belgium	Jupiler Pro League	Antwerp	KV Mechelen	h-win	2	1	9	2	25	8	6	13	1	1	0	3	1	0	40.00	60.00	13	8	\N	\N	\N	\N	\N	2025-12-02 18:10:47.968842	0.88	2.54	1	1	draw	yes
+6309	1382464	2025-08-24	Belgium	Jupiler Pro League	RAAL La Louvière	Union St. Gilloise	draw	0	0	5	1	10	5	5	2	1	5	2	3	0	0	33.00	67.00	6	15	\N	\N	\N	\N	\N	2025-12-02 18:10:48.05318	0.19	1.00	0	0	draw	yes
+6310	1382465	2025-08-24	Belgium	Jupiler Pro League	Dender	OH Leuven	a-win	0	1	4	2	11	4	4	6	5	2	3	4	0	0	60.00	40.00	8	14	\N	\N	\N	\N	\N	2025-12-02 18:10:48.137654	0.31	1.34	0	0	draw	yes
+6311	1382466	2025-08-29	Belgium	Jupiler Pro League	Cercle Brugge	St. Truiden	draw	1	1	13	4	17	5	3	8	1	1	2	1	0	0	51.00	49.00	8	9	\N	\N	\N	\N	\N	2025-12-02 18:10:48.218035	0.97	2.06	1	1	draw	yes
+6312	1382467	2025-08-30	Belgium	Jupiler Pro League	KV Mechelen	RAAL La Louvière	h-win	3	2	13	8	12	3	4	6	2	0	1	0	0	0	67.00	33.00	13	9	\N	\N	\N	\N	\N	2025-12-02 18:10:48.297496	2.06	0.78	1	0	h-win	yes
+6313	1382468	2025-08-30	Belgium	Jupiler Pro League	KVC Westerlo	Antwerp	h-win	2	0	16	9	13	3	5	4	1	3	2	3	0	0	39.00	61.00	19	14	\N	\N	\N	\N	\N	2025-12-02 18:10:48.381069	2.66	1.58	1	0	h-win	yes
+6314	1382471	2025-08-30	Belgium	Jupiler Pro League	Charleroi	Dender	h-win	3	1	11	4	9	4	5	4	3	1	1	0	0	0	50.00	50.00	12	14	\N	\N	\N	\N	\N	2025-12-02 18:10:48.467652	1.83	0.60	1	0	h-win	yes
+6315	1382470	2025-08-31	Belgium	Jupiler Pro League	Gent	Club Brugge KV	draw	1	1	14	2	14	6	6	7	1	3	4	2	0	0	49.00	51.00	12	11	\N	\N	\N	\N	\N	2025-12-02 18:10:48.554561	0.81	1.51	0	0	draw	yes
+6316	1382469	2025-08-31	Belgium	Jupiler Pro League	OH Leuven	Standard Liege	h-win	1	0	9	3	7	1	4	4	2	2	3	3	0	0	40.00	60.00	12	11	\N	\N	\N	\N	\N	2025-12-02 18:10:48.633838	0.30	0.39	0	0	draw	yes
+6317	1382472	2025-08-31	Belgium	Jupiler Pro League	Union St. Gilloise	Anderlecht	h-win	2	0	16	5	9	4	5	5	0	3	1	6	0	2	49.00	51.00	7	17	\N	\N	\N	\N	\N	2025-12-02 18:10:48.71701	2.26	0.78	1	0	h-win	yes
+6318	1382473	2025-08-31	Belgium	Jupiler Pro League	Genk	Zulte Waregem	h-win	3	2	11	4	8	3	5	4	0	0	2	2	1	0	46.00	54.00	9	21	\N	\N	\N	\N	\N	2025-12-02 18:10:48.798679	2.24	1.36	2	2	draw	yes
+6319	1382474	2025-09-12	Belgium	Jupiler Pro League	Standard Liege	KV Mechelen	draw	1	1	11	3	14	6	12	5	0	2	3	3	0	0	53.00	47.00	10	8	\N	\N	\N	\N	\N	2025-12-02 18:10:48.882594	1.16	1.30	0	0	draw	yes
+6320	1382475	2025-09-13	Belgium	Jupiler Pro League	Zulte Waregem	OH Leuven	h-win	2	0	12	8	25	6	2	6	2	3	3	4	0	0	43.00	57.00	14	18	\N	\N	\N	\N	\N	2025-12-02 18:10:48.966932	1.03	1.72	2	0	h-win	yes
+6321	1382476	2025-09-13	Belgium	Jupiler Pro League	Dender	Union St. Gilloise	a-win	0	1	5	2	16	3	1	6	0	1	0	0	0	0	36.00	64.00	5	12	\N	\N	\N	\N	\N	2025-12-02 18:10:49.0572	0.09	1.47	0	0	draw	yes
+6322	1382477	2025-09-13	Belgium	Jupiler Pro League	RAAL La Louvière	Club Brugge KV	h-win	1	0	13	4	21	6	5	6	2	2	0	1	0	0	31.00	69.00	15	10	\N	\N	\N	\N	\N	2025-12-02 18:10:49.142776	0.73	2.12	1	0	h-win	yes
+6323	1382478	2025-09-14	Belgium	Jupiler Pro League	Antwerp	Gent	a-win	1	2	22	7	9	6	5	1	3	2	4	2	0	1	61.00	39.00	8	12	\N	\N	\N	\N	\N	2025-12-02 18:10:49.224593	1.16	1.53	1	1	draw	yes
+6324	1382479	2025-09-14	Belgium	Jupiler Pro League	Cercle Brugge	Charleroi	a-win	2	3	8	2	9	4	4	3	2	3	1	2	0	0	57.00	43.00	7	12	\N	\N	\N	\N	\N	2025-12-02 18:10:49.307839	1.83	1.33	0	2	a-win	yes
+6325	1382480	2025-09-14	Belgium	Jupiler Pro League	Anderlecht	Genk	draw	1	1	9	3	18	3	3	7	3	3	2	3	1	0	30.00	70.00	16	7	\N	\N	\N	\N	\N	2025-12-02 18:10:49.386591	0.91	1.33	0	0	draw	yes
+6326	1382481	2025-09-14	Belgium	Jupiler Pro League	St. Truiden	KVC Westerlo	a-win	0	3	17	3	12	6	8	3	6	1	1	2	0	0	62.00	38.00	11	14	\N	\N	\N	\N	\N	2025-12-02 18:10:49.465887	1.17	2.28	0	1	a-win	yes
+6327	1382458	2025-09-17	Belgium	Jupiler Pro League	Genk	Charleroi	a-win	0	1	17	4	9	2	4	3	1	3	0	2	0	0	68.00	32.00	11	11	\N	\N	\N	\N	\N	2025-12-02 18:10:49.54477	1.05	1.03	0	1	a-win	yes
+6328	1382482	2025-09-19	Belgium	Jupiler Pro League	Gent	Dender	h-win	3	0	15	3	15	4	2	5	0	1	1	1	0	0	63.00	37.00	8	5	\N	\N	\N	\N	\N	2025-12-02 18:10:49.628695	0.97	0.89	1	0	h-win	yes
+6329	1382488	2025-09-20	Belgium	Jupiler Pro League	OH Leuven	RAAL La Louvière	a-win	1	2	8	2	5	3	2	1	2	4	4	3	0	0	67.00	33.00	22	16	\N	\N	\N	\N	\N	2025-12-02 18:10:49.709691	0.36	1.27	1	2	a-win	yes
+6330	1382489	2025-09-20	Belgium	Jupiler Pro League	Charleroi	Zulte Waregem	a-win	1	2	9	2	19	4	6	11	6	2	3	1	1	0	36.00	64.00	12	14	\N	\N	\N	\N	\N	2025-12-02 18:10:49.796123	1.00	1.28	1	0	h-win	yes
+6331	1382483	2025-09-20	Belgium	Jupiler Pro League	Anderlecht	Antwerp	draw	0	0	18	2	6	1	8	2	2	0	3	2	0	0	68.00	32.00	9	13	\N	\N	\N	\N	\N	2025-12-02 18:10:49.880611	1.10	0.44	0	0	draw	yes
+6332	1382486	2025-09-21	Belgium	Jupiler Pro League	Genk	Union St. Gilloise	a-win	1	2	15	7	11	6	7	5	2	4	2	4	0	0	65.00	35.00	11	12	\N	\N	\N	\N	\N	2025-12-02 18:10:49.970502	0.93	0.58	0	1	a-win	yes
+6333	1382487	2025-09-21	Belgium	Jupiler Pro League	KVC Westerlo	Standard Liege	a-win	0	2	17	4	6	3	7	1	2	8	0	5	0	0	60.00	40.00	7	15	\N	\N	\N	\N	\N	2025-12-02 18:10:50.048817	1.28	0.41	0	2	a-win	yes
+6334	1382484	2025-09-21	Belgium	Jupiler Pro League	Club Brugge KV	St. Truiden	h-win	2	0	20	9	7	3	5	0	1	5	1	2	0	0	62.00	38.00	10	11	\N	\N	\N	\N	\N	2025-12-02 18:10:50.13564	2.47	0.42	1	0	h-win	yes
+6335	1382485	2025-09-21	Belgium	Jupiler Pro League	KV Mechelen	Cercle Brugge	draw	0	0	13	2	16	5	7	7	2	1	1	3	0	0	50.00	50.00	6	17	\N	\N	\N	\N	\N	2025-12-02 18:10:50.217811	1.06	1.68	0	0	draw	yes
+6336	1382463	2025-09-23	Belgium	Jupiler Pro League	Anderlecht	Gent	h-win	1	0	17	9	8	2	7	2	3	0	3	3	0	0	55.00	45.00	16	12	\N	\N	\N	\N	\N	2025-12-02 18:10:50.300915	1.51	1.01	0	0	draw	yes
+6337	1382459	2025-09-24	Belgium	Jupiler Pro League	Club Brugge KV	KVC Westerlo	draw	5	5	17	5	21	8	5	4	0	1	1	3	0	0	71.00	29.00	9	14	\N	\N	\N	\N	\N	2025-12-02 18:10:50.383813	1.99	2.13	1	2	a-win	yes
+6338	1382493	2025-09-26	Belgium	Jupiler Pro League	OH Leuven	Anderlecht	draw	1	1	17	8	10	2	2	5	2	3	4	3	0	0	40.00	60.00	16	7	\N	\N	\N	\N	\N	2025-12-02 18:10:50.466736	1.81	0.70	0	0	draw	yes
+6339	1382492	2025-09-27	Belgium	Jupiler Pro League	Zulte Waregem	Antwerp	h-win	2	0	17	6	8	1	4	4	1	4	0	1	0	0	42.00	58.00	6	13	\N	\N	\N	\N	\N	2025-12-02 18:10:50.549824	1.28	0.56	0	0	draw	yes
+6340	1382494	2025-09-27	Belgium	Jupiler Pro League	Standard Liege	Club Brugge KV	a-win	1	2	18	5	15	5	7	8	1	1	4	2	1	0	37.00	63.00	13	7	\N	\N	\N	\N	\N	2025-12-02 18:10:50.631607	1.01	1.38	1	1	draw	yes
+6341	1382497	2025-09-27	Belgium	Jupiler Pro League	Union St. Gilloise	KVC Westerlo	h-win	2	0	19	6	7	2	9	2	3	2	3	2	0	0	54.00	46.00	15	11	\N	\N	\N	\N	\N	2025-12-02 18:10:50.716545	2.75	0.26	0	0	draw	yes
+6342	1382490	2025-09-28	Belgium	Jupiler Pro League	St. Truiden	Genk	a-win	1	2	15	4	15	7	3	6	2	2	4	2	1	0	37.00	63.00	13	18	\N	\N	\N	\N	\N	2025-12-02 18:10:50.79881	1.17	1.77	1	0	h-win	yes
+6343	1382495	2025-09-28	Belgium	Jupiler Pro League	Cercle Brugge	Gent	a-win	2	4	23	8	11	8	10	2	1	2	2	3	0	0	50.00	50.00	12	9	\N	\N	\N	\N	\N	2025-12-02 18:10:50.882685	2.34	2.01	2	2	draw	yes
+6344	1382496	2025-09-28	Belgium	Jupiler Pro League	Charleroi	KV Mechelen	a-win	0	2	13	6	5	3	5	3	1	0	0	4	0	0	62.00	38.00	6	10	\N	\N	\N	\N	\N	2025-12-02 18:10:50.969667	0.62	1.11	0	2	a-win	yes
+6345	1382491	2025-09-28	Belgium	Jupiler Pro League	Dender	RAAL La Louvière	draw	0	0	10	2	10	2	4	2	3	3	1	3	0	0	63.00	37.00	8	7	\N	\N	\N	\N	\N	2025-12-02 18:10:51.051247	0.61	0.61	0	0	draw	yes
+6346	1382498	2025-10-03	Belgium	Jupiler Pro League	Gent	Charleroi	h-win	2	1	9	3	9	7	4	2	1	0	2	4	0	0	62.00	38.00	5	9	\N	\N	\N	\N	\N	2025-12-02 18:10:51.149506	0.70	0.34	1	1	draw	yes
+6347	1382503	2025-10-04	Belgium	Jupiler Pro League	KV Mechelen	St. Truiden	a-win	1	3	10	3	19	9	5	9	0	2	3	1	0	0	50.00	50.00	18	14	\N	\N	\N	\N	\N	2025-12-02 18:10:51.229792	1.18	3.40	1	0	h-win	yes
+6348	1382499	2025-10-04	Belgium	Jupiler Pro League	RAAL La Louvière	Zulte Waregem	draw	0	0	11	4	6	4	12	1	2	0	2	3	0	0	36.00	64.00	12	8	\N	\N	\N	\N	\N	2025-12-02 18:10:51.312394	1.27	0.27	0	0	draw	yes
+6349	1382501	2025-10-04	Belgium	Jupiler Pro League	Antwerp	Cercle Brugge	draw	1	1	18	10	12	2	8	3	5	3	1	1	0	0	47.00	53.00	14	12	\N	\N	\N	\N	\N	2025-12-02 18:10:51.408636	2.07	1.08	1	1	draw	yes
+6350	1382502	2025-10-05	Belgium	Jupiler Pro League	Anderlecht	Standard Liege	h-win	1	0	16	6	9	1	6	4	1	1	3	3	0	1	52.00	48.00	18	12	\N	\N	\N	\N	\N	2025-12-02 18:10:51.492885	1.73	0.77	0	0	draw	yes
+6351	1382505	2025-10-05	Belgium	Jupiler Pro League	Genk	Dender	h-win	2	1	25	8	10	9	8	3	2	2	2	5	0	2	66.00	34.00	11	15	\N	\N	\N	\N	\N	2025-12-02 18:10:51.576434	1.85	1.76	1	1	draw	yes
+6352	1382500	2025-10-05	Belgium	Jupiler Pro League	Club Brugge KV	Union St. Gilloise	h-win	1	0	10	2	7	1	7	3	4	2	2	3	0	0	61.00	39.00	7	17	\N	\N	\N	\N	\N	2025-12-02 18:10:51.662581	0.46	0.34	0	0	draw	yes
+6353	1382504	2025-10-05	Belgium	Jupiler Pro League	KVC Westerlo	OH Leuven	h-win	2	0	17	5	8	4	6	6	1	3	2	2	0	0	52.00	48.00	13	27	\N	\N	\N	\N	\N	2025-12-02 18:10:51.747809	2.53	0.85	1	0	h-win	yes
+6354	1382510	2025-10-18	Belgium	Jupiler Pro League	RAAL La Louvière	KVC Westerlo	draw	0	0	8	1	7	0	2	2	4	2	0	1	0	0	39.00	61.00	11	15	\N	\N	\N	\N	\N	2025-12-02 18:10:51.8289	0.56	0.63	0	0	draw	yes
+6355	1382513	2025-10-18	Belgium	Jupiler Pro League	OH Leuven	Club Brugge KV	a-win	0	1	17	5	11	4	4	11	1	1	2	1	0	0	35.00	65.00	17	11	\N	\N	\N	\N	\N	2025-12-02 18:10:51.912576	0.76	0.99	0	0	draw	yes
+6356	1382508	2025-10-18	Belgium	Jupiler Pro League	Union St. Gilloise	Charleroi	h-win	3	1	15	3	9	3	1	2	3	1	0	3	0	0	51.00	49.00	15	9	\N	\N	\N	\N	\N	2025-12-02 18:10:51.997184	0.88	0.72	1	1	draw	yes
+6357	1382509	2025-10-19	Belgium	Jupiler Pro League	Cercle Brugge	Genk	draw	2	2	18	7	16	5	4	4	2	1	3	2	0	0	37.00	63.00	10	9	\N	\N	\N	\N	\N	2025-12-02 18:10:52.082559	2.59	1.88	1	1	draw	yes
+6358	1382512	2025-10-19	Belgium	Jupiler Pro League	Dender	KV Mechelen	a-win	1	3	19	6	11	6	4	4	1	0	1	0	0	0	54.00	46.00	16	12	\N	\N	\N	\N	\N	2025-12-02 18:10:52.165985	2.89	0.93	0	1	a-win	yes
+6359	1382506	2025-10-19	Belgium	Jupiler Pro League	St. Truiden	Anderlecht	draw	2	2	15	3	11	4	5	6	2	1	1	2	0	0	50.00	50.00	15	11	\N	\N	\N	\N	\N	2025-12-02 18:10:52.2506	0.92	1.16	1	2	a-win	yes
+6360	1382507	2025-10-19	Belgium	Jupiler Pro League	Zulte Waregem	Gent	h-win	4	1	15	8	14	5	3	12	4	0	0	2	0	0	39.00	61.00	7	16	\N	\N	\N	\N	\N	2025-12-02 18:10:52.333848	1.90	1.81	3	0	h-win	yes
+6361	1382511	2025-10-20	Belgium	Jupiler Pro League	Standard Liege	Antwerp	h-win	1	0	11	4	17	3	4	5	3	1	2	3	1	0	29.00	71.00	19	19	\N	\N	\N	\N	\N	2025-12-02 18:10:52.417677	0.40	1.60	1	0	h-win	yes
+6362	1382521	2025-10-24	Belgium	Jupiler Pro League	Charleroi	Anderlecht	h-win	1	0	8	3	15	2	5	9	1	1	2	2	0	0	39.00	61.00	8	18	\N	\N	\N	\N	\N	2025-12-02 18:10:52.500688	1.12	1.32	0	0	draw	yes
+6363	1382518	2025-10-25	Belgium	Jupiler Pro League	KVC Westerlo	Dender	draw	1	1	23	6	11	3	11	3	1	4	2	2	0	0	62.00	38.00	12	16	\N	\N	\N	\N	\N	2025-12-02 18:10:52.584239	2.03	1.40	0	1	a-win	yes
+6364	1382514	2025-10-25	Belgium	Jupiler Pro League	KV Mechelen	OH Leuven	draw	1	1	14	5	13	4	6	2	1	1	3	5	0	0	56.00	44.00	7	16	\N	\N	\N	\N	\N	2025-12-02 18:10:52.667638	1.19	1.62	0	0	draw	yes
+6365	1382517	2025-10-25	Belgium	Jupiler Pro League	Gent	Standard Liege	h-win	4	0	16	6	12	2	4	4	0	0	0	2	0	0	50.00	50.00	11	9	\N	\N	\N	\N	\N	2025-12-02 18:10:52.751939	1.87	0.81	3	0	h-win	yes
+6366	1382519	2025-10-26	Belgium	Jupiler Pro League	Antwerp	Club Brugge KV	a-win	0	1	11	4	10	4	1	5	2	0	2	1	0	0	52.00	48.00	9	11	\N	\N	\N	\N	\N	2025-12-02 18:10:52.8346	0.94	0.54	0	1	a-win	yes
+6367	1382515	2025-10-26	Belgium	Jupiler Pro League	Cercle Brugge	Zulte Waregem	draw	1	1	18	3	18	6	0	3	6	0	0	1	0	0	59.00	41.00	5	16	\N	\N	\N	\N	\N	2025-12-02 18:10:52.917578	2.36	1.61	0	1	a-win	yes
+6368	1382520	2025-10-26	Belgium	Jupiler Pro League	Genk	RAAL La Louvière	draw	1	1	17	6	10	2	9	3	4	1	1	3	0	0	81.00	19.00	13	18	\N	\N	\N	\N	\N	2025-12-02 18:10:53.016209	1.19	1.59	1	1	draw	yes
+6369	1382516	2025-10-26	Belgium	Jupiler Pro League	Union St. Gilloise	St. Truiden	h-win	2	0	17	6	11	2	5	6	3	2	1	2	0	0	47.00	53.00	7	11	\N	\N	\N	\N	\N	2025-12-02 18:10:53.111905	1.58	1.45	0	0	draw	yes
+6370	1382526	2025-10-31	Belgium	Jupiler Pro League	Standard Liege	Charleroi	h-win	3	1	8	5	12	4	4	5	0	0	2	3	0	0	42.00	58.00	10	14	\N	\N	\N	\N	\N	2025-12-02 18:10:53.212903	1.37	1.75	1	1	draw	yes
+6371	1382527	2025-11-01	Belgium	Jupiler Pro League	Zulte Waregem	Union St. Gilloise	a-win	1	4	10	3	20	9	2	5	1	3	1	4	0	0	48.00	52.00	14	17	\N	\N	\N	9	1	2025-12-02 18:10:53.394379	1.35	3.35	0	2	a-win	yes
+6372	1382529	2025-11-01	Belgium	Jupiler Pro League	Club Brugge KV	Dender	h-win	2	1	19	5	14	5	7	4	4	2	1	1	0	0	67.00	33.00	10	13	\N	\N	\N	2	16	2025-12-02 18:10:53.491551	0.82	0.45	2	0	h-win	yes
+6373	1382523	2025-11-01	Belgium	Jupiler Pro League	Anderlecht	KV Mechelen	h-win	3	1	19	7	7	1	9	2	1	3	1	1	0	0	44.00	56.00	14	7	\N	\N	\N	3	5	2025-12-02 18:10:53.57866	1.62	1.11	2	1	h-win	yes
+6374	1382524	2025-11-02	Belgium	Jupiler Pro League	KVC Westerlo	Genk	a-win	0	1	17	1	7	4	4	4	1	2	0	1	0	0	50.00	50.00	7	3	\N	\N	\N	13	6	2025-12-02 18:10:53.670724	0.76	0.86	0	1	a-win	yes
+6375	1382528	2025-11-02	Belgium	Jupiler Pro League	OH Leuven	Gent	h-win	4	0	10	4	14	4	0	9	1	1	4	2	0	1	39.00	61.00	14	12	\N	\N	\N	14	7	2025-12-02 18:10:53.751594	1.15	2.32	2	0	h-win	yes
+6376	1382525	2025-11-02	Belgium	Jupiler Pro League	St. Truiden	Antwerp	h-win	1	0	22	9	5	1	6	4	4	3	3	2	0	1	71.00	29.00	12	12	\N	\N	\N	4	12	2025-12-02 18:10:53.850571	2.50	0.28	1	0	h-win	yes
+6377	1382522	2025-11-02	Belgium	Jupiler Pro League	RAAL La Louvière	Cercle Brugge	h-win	2	1	8	3	14	4	1	5	0	0	3	1	0	0	29.00	71.00	10	13	\N	\N	\N	11	15	2025-12-02 18:10:53.951739	0.83	1.82	1	0	h-win	yes
+6378	1382530	2025-11-07	Belgium	Jupiler Pro League	Dender	Zulte Waregem	draw	2	2	15	4	13	3	6	5	2	1	1	1	0	0	52.00	48.00	5	16	\N	\N	\N	16	9	2025-12-02 18:10:54.050643	2.05	0.73	1	0	h-win	yes
+6379	1382535	2025-11-08	Belgium	Jupiler Pro League	Cercle Brugge	OH Leuven	a-win	1	2	17	5	9	4	8	3	5	1	1	1	0	0	59.00	41.00	10	18	\N	\N	\N	15	14	2025-12-02 18:10:54.138378	1.11	0.61	1	0	h-win	yes
+6380	1382534	2025-11-08	Belgium	Jupiler Pro League	Charleroi	KVC Westerlo	h-win	2	0	13	8	14	5	7	5	7	0	2	1	0	0	39.00	61.00	8	12	\N	\N	\N	10	13	2025-12-02 18:10:54.230774	3.32	1.18	1	0	h-win	yes
+6381	1382531	2025-11-08	Belgium	Jupiler Pro League	Antwerp	RAAL La Louvière	h-win	3	1	11	5	6	1	7	4	1	1	4	3	0	1	69.00	31.00	13	14	\N	\N	\N	12	11	2025-12-02 18:10:54.311586	1.66	0.42	0	0	draw	yes
+6382	1382536	2025-11-09	Belgium	Jupiler Pro League	Anderlecht	Club Brugge KV	h-win	1	0	16	3	11	3	6	5	2	0	5	4	0	0	41.00	59.00	17	9	\N	\N	\N	3	2	2025-12-02 18:10:54.409655	1.83	0.83	1	0	h-win	yes
+6383	1382537	2025-11-09	Belgium	Jupiler Pro League	St. Truiden	Standard Liege	h-win	1	0	16	2	4	3	9	1	2	3	0	1	0	0	66.00	34.00	8	11	\N	\N	\N	4	8	2025-12-02 18:10:54.510806	1.54	0.34	0	0	draw	yes
+6384	1382532	2025-11-09	Belgium	Jupiler Pro League	Gent	Genk	draw	1	1	18	4	14	2	6	2	1	0	2	1	0	0	40.00	60.00	15	5	\N	\N	\N	7	6	2025-12-02 18:10:54.59038	1.23	0.76	0	1	a-win	yes
+6385	1382533	2025-11-09	Belgium	Jupiler Pro League	KV Mechelen	Union St. Gilloise	draw	1	1	7	1	19	4	4	10	3	1	3	2	0	0	45.00	55.00	9	12	\N	\N	\N	5	1	2025-12-02 18:10:54.691719	1.07	1.44	0	0	draw	yes
+6386	1382544	2025-11-21	Belgium	Jupiler Pro League	Standard Liege	Zulte Waregem	draw	0	0	21	8	6	2	5	3	4	1	2	1	1	1	74.00	26.00	13	12	\N	\N	\N	8	9	2025-12-02 18:10:54.791607	2.20	0.42	0	0	draw	yes
+6387	1382545	2025-11-22	Belgium	Jupiler Pro League	Union St. Gilloise	Cercle Brugge	h-win	2	0	17	6	8	1	7	4	0	6	2	4	0	0	54.00	46.00	17	10	\N	\N	\N	1	15	2025-12-02 18:10:54.912632	1.96	0.56	1	0	h-win	yes
+6388	1382543	2025-11-22	Belgium	Jupiler Pro League	KVC Westerlo	Gent	draw	0	0	20	5	10	3	9	2	2	4	3	3	0	0	50.00	50.00	10	11	\N	\N	\N	13	7	2025-12-02 18:10:55.005347	2.46	1.03	0	0	draw	yes
+6389	1382540	2025-11-22	Belgium	Jupiler Pro League	Club Brugge KV	Charleroi	h-win	1	0	17	5	10	0	6	11	0	3	2	1	0	0	61.00	39.00	5	9	\N	\N	\N	2	10	2025-12-02 18:10:55.111917	1.27	0.89	0	0	draw	yes
+6390	1382538	2025-11-23	Belgium	Jupiler Pro League	Genk	KV Mechelen	a-win	0	1	20	6	11	6	6	3	2	0	0	5	0	0	66.00	34.00	5	13	\N	\N	\N	6	5	2025-12-02 18:10:55.190713	2.25	1.61	0	1	a-win	yes
+6391	1382539	2025-11-23	Belgium	Jupiler Pro League	Antwerp	Dender	a-win	1	2	15	6	9	2	5	3	8	1	1	4	0	0	53.00	47.00	15	14	\N	\N	\N	12	16	2025-12-02 18:10:55.271624	1.09	0.97	0	0	draw	yes
+6392	1382541	2025-11-23	Belgium	Jupiler Pro League	RAAL La Louvière	Anderlecht	a-win	0	1	10	4	20	7	5	7	0	0	2	3	0	0	37.00	63.00	14	11	\N	\N	\N	11	3	2025-12-02 18:10:55.375772	0.66	1.92	0	0	draw	yes
+6393	1382542	2025-11-23	Belgium	Jupiler Pro League	OH Leuven	St. Truiden	a-win	1	2	19	6	8	4	10	1	0	4	3	2	0	0	51.00	49.00	15	13	\N	\N	\N	14	4	2025-12-02 18:10:55.470625	1.48	2.31	1	2	a-win	yes
+6394	1382547	2025-11-28	Belgium	Jupiler Pro League	KV Mechelen	Standard Liege	a-win	0	1	9	1	6	2	4	4	3	0	1	1	0	0	56.00	44.00	11	10	\N	\N	\N	5	8	2025-12-02 18:10:55.550665	0.41	0.97	0	0	draw	yes
+6395	1382548	2025-11-29	Belgium	Jupiler Pro League	Dender	KVC Westerlo	draw	2	2	8	4	19	5	2	4	2	0	4	1	0	0	45.00	55.00	16	13	\N	\N	\N	16	13	2025-12-02 18:10:55.650375	0.56	3.13	1	0	h-win	yes
+6396	1382549	2025-11-29	Belgium	Jupiler Pro League	Zulte Waregem	Cercle Brugge	draw	1	1	7	2	13	4	6	7	1	6	1	2	0	0	46.00	54.00	13	13	\N	\N	\N	9	15	2025-12-02 18:10:55.737744	1.55	0.81	1	0	h-win	yes
+6397	1382550	2025-11-29	Belgium	Jupiler Pro League	Charleroi	RAAL La Louvière	draw	0	0	17	5	6	0	6	5	0	1	0	1	0	0	64.00	36.00	12	13	\N	\N	\N	10	11	2025-12-02 18:10:55.830832	1.34	0.45	0	0	draw	yes
+6398	1382551	2025-11-30	Belgium	Jupiler Pro League	Club Brugge KV	Antwerp	a-win	0	1	27	6	12	5	9	4	0	2	0	3	0	0	75.00	25.00	11	15	\N	\N	\N	2	12	2025-12-02 18:10:55.913233	1.96	1.88	0	0	draw	yes
+6399	1382552	2025-11-30	Belgium	Jupiler Pro League	Genk	OH Leuven	h-win	2	1	23	8	11	6	10	2	4	1	0	3	0	0	66.00	34.00	13	16	\N	\N	\N	6	14	2025-12-02 18:10:56.031802	2.29	0.97	0	0	draw	yes
+6400	1382553	2025-11-30	Belgium	Jupiler Pro League	Anderlecht	Union St. Gilloise	h-win	1	0	6	2	10	1	4	2	0	0	2	4	0	0	40.00	60.00	8	11	\N	\N	\N	3	1	2025-12-02 18:10:56.129857	0.40	0.91	1	0	h-win	yes
+6401	1382546	2025-11-30	Belgium	Jupiler Pro League	Gent	St. Truiden	a-win	1	2	19	4	14	4	5	6	2	0	2	2	0	0	49.00	51.00	9	10	\N	\N	\N	7	4	2025-12-02 18:10:56.252923	1.04	2.08	1	0	h-win	yes
+6402	1392548	2025-08-08	Belgium	Challenger Pro League	Olympic Charleroi	KAA Gent II	a-win	1	4	12	1	11	5	1	5	2	0	1	1	0	0	48.00	52.00	12	22	\N	\N	\N	\N	\N	2025-12-02 19:10:28.993192	\N	\N	0	2	a-win	yes
+6403	1392547	2025-08-08	Belgium	Challenger Pro League	Seraing United	Beerschot VA	a-win	1	2	11	4	13	7	6	7	2	3	4	2	1	0	38.00	62.00	17	21	\N	\N	\N	\N	\N	2025-12-02 19:10:29.087142	\N	\N	0	0	draw	yes
+6404	1392549	2025-08-09	Belgium	Challenger Pro League	RSC Anderlecht II	Kortrijk	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.188101	\N	\N	1	1	draw	yes
+6405	1392553	2025-08-09	Belgium	Challenger Pro League	AS Eupen	Liège	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.284892	\N	\N	0	0	draw	yes
+6406	1392552	2025-08-09	Belgium	Challenger Pro League	K. Lierse S.K.	SK Beveren	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.382879	\N	\N	0	1	a-win	yes
+6407	1392550	2025-08-09	Belgium	Challenger Pro League	Patro Eisden	Lokeren-Temse	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.483884	\N	\N	1	0	h-win	yes
+6408	1392551	2025-08-09	Belgium	Challenger Pro League	RWDM	Lommel United	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.576949	\N	\N	1	0	h-win	yes
+6409	1392554	2025-08-10	Belgium	Challenger Pro League	Club Brugge II	Francs Borains	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.666695	\N	\N	0	0	draw	yes
+6410	1392555	2025-08-15	Belgium	Challenger Pro League	SK Beveren	KRC Genk II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.761681	\N	\N	0	0	draw	yes
+6411	1392556	2025-08-15	Belgium	Challenger Pro League	Francs Borains	Patro Eisden	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.856939	\N	\N	1	0	h-win	yes
+6412	1392557	2025-08-16	Belgium	Challenger Pro League	Kortrijk	K. Lierse S.K.	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:29.944011	\N	\N	0	0	draw	yes
+6413	1392560	2025-08-16	Belgium	Challenger Pro League	Lommel United	Olympic Charleroi	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.036713	\N	\N	1	0	h-win	yes
+6414	1392559	2025-08-16	Belgium	Challenger Pro League	Beerschot VA	AS Eupen	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.127431	\N	\N	0	1	a-win	yes
+6415	1392561	2025-08-16	Belgium	Challenger Pro League	Lokeren-Temse	RWDM	a-win	1	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.217565	\N	\N	0	2	a-win	yes
+6416	1392558	2025-08-16	Belgium	Challenger Pro League	KAA Gent II	RSC Anderlecht II	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.313712	\N	\N	0	0	draw	yes
+6417	1392562	2025-08-17	Belgium	Challenger Pro League	Liège	Seraing United	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.414094	\N	\N	2	0	h-win	yes
+6418	1392563	2025-08-22	Belgium	Challenger Pro League	Patro Eisden	Club Brugge II	h-win	2	1	19	5	4	2	5	1	1	5	3	3	0	0	25.00	75.00	16	13	\N	\N	\N	\N	\N	2025-12-02 19:10:30.500755	\N	\N	1	0	h-win	yes
+6419	1392564	2025-08-22	Belgium	Challenger Pro League	KAA Gent II	Beerschot VA	draw	1	1	9	5	14	5	3	4	4	2	1	3	0	0	61.00	39.00	9	20	\N	\N	\N	\N	\N	2025-12-02 19:10:30.595087	\N	\N	0	0	draw	yes
+6420	1399356	2025-08-23	Belgium	Challenger Pro League	RWDM	SK Beveren	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.683614	\N	\N	0	0	draw	yes
+6421	1392567	2025-08-23	Belgium	Challenger Pro League	Francs Borains	Lommel United	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.770504	\N	\N	0	0	draw	yes
+6422	1392566	2025-08-23	Belgium	Challenger Pro League	K. Lierse S.K.	AS Eupen	h-win	3	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.867322	\N	\N	3	0	h-win	yes
+6423	1392568	2025-08-23	Belgium	Challenger Pro League	Olympic Charleroi	Kortrijk	a-win	0	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:30.955733	\N	\N	0	2	a-win	yes
+6424	1392569	2025-08-23	Belgium	Challenger Pro League	Lokeren-Temse	Liège	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.050669	\N	\N	0	1	a-win	yes
+6425	1392565	2025-08-23	Belgium	Challenger Pro League	KRC Genk II	Seraing United	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.141508	\N	\N	0	0	draw	yes
+6426	1392570	2025-08-29	Belgium	Challenger Pro League	Kortrijk	Francs Borains	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.268805	\N	\N	1	0	h-win	yes
+6427	1392571	2025-08-29	Belgium	Challenger Pro League	SK Beveren	KAA Gent II	h-win	3	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.35163	\N	\N	0	0	draw	yes
+6428	1392572	2025-08-30	Belgium	Challenger Pro League	Beerschot VA	K. Lierse S.K.	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.439702	\N	\N	1	0	h-win	yes
+6429	1392575	2025-08-30	Belgium	Challenger Pro League	Lommel United	Lokeren-Temse	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.542615	\N	\N	1	1	draw	yes
+6430	1392573	2025-08-30	Belgium	Challenger Pro League	AS Eupen	RSC Anderlecht II	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.644549	\N	\N	0	0	draw	yes
+6431	1392576	2025-08-30	Belgium	Challenger Pro League	Liège	Patro Eisden	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.743701	\N	\N	0	1	a-win	yes
+6432	1392574	2025-08-30	Belgium	Challenger Pro League	Seraing United	Olympic Charleroi	h-win	3	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.831581	\N	\N	0	1	a-win	yes
+6433	1392577	2025-08-31	Belgium	Challenger Pro League	Club Brugge II	KRC Genk II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:31.923691	\N	\N	0	2	a-win	yes
+6434	1392578	2025-09-12	Belgium	Challenger Pro League	Lokeren-Temse	K. Lierse S.K.	h-win	2	0	11	6	12	4	2	3	1	1	5	5	0	1	44.00	56.00	23	17	\N	\N	\N	\N	\N	2025-12-02 19:10:32.014436	\N	\N	1	0	h-win	yes
+6435	1392579	2025-09-12	Belgium	Challenger Pro League	RSC Anderlecht II	Beerschot VA	a-win	0	2	10	3	27	6	4	12	0	4	2	3	0	0	40.00	60.00	11	17	\N	\N	\N	\N	\N	2025-12-02 19:10:32.109847	\N	\N	0	0	draw	yes
+6436	1392580	2025-09-13	Belgium	Challenger Pro League	Patro Eisden	Lommel United	a-win	0	2	13	6	11	5	6	3	3	5	4	4	0	0	32.00	68.00	17	22	\N	\N	\N	\N	\N	2025-12-02 19:10:32.236908	\N	\N	0	1	a-win	yes
+6437	1392583	2025-09-13	Belgium	Challenger Pro League	Francs Borains	AS Eupen	a-win	0	3	14	1	12	7	6	7	3	1	2	4	0	0	55.00	45.00	8	12	\N	\N	\N	\N	\N	2025-12-02 19:10:32.327992	\N	\N	0	3	a-win	yes
+6438	1392584	2025-09-13	Belgium	Challenger Pro League	Club Brugge II	Liège	a-win	0	2	19	8	8	4	8	4	1	5	2	2	0	0	69.00	31.00	16	12	\N	\N	\N	\N	\N	2025-12-02 19:10:32.422638	\N	\N	0	2	a-win	yes
+6439	1392581	2025-09-13	Belgium	Challenger Pro League	KRC Genk II	Kortrijk	a-win	1	3	7	4	16	8	0	13	1	1	0	1	0	0	42.00	58.00	11	10	\N	\N	\N	\N	\N	2025-12-02 19:10:32.531734	\N	\N	0	1	a-win	yes
+6440	1392585	2025-09-14	Belgium	Challenger Pro League	RWDM	Seraing United	h-win	5	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:32.623085	\N	\N	2	0	h-win	yes
+6441	1392582	2025-09-14	Belgium	Challenger Pro League	Olympic Charleroi	SK Beveren	a-win	0	5	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:32.728223	\N	\N	0	3	a-win	yes
+6442	1392588	2025-09-19	Belgium	Challenger Pro League	Lommel United	KRC Genk II	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:32.820587	\N	\N	0	1	a-win	yes
+6443	1392587	2025-09-19	Belgium	Challenger Pro League	K. Lierse S.K.	RWDM	h-win	2	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:32.909578	\N	\N	0	0	draw	yes
+6444	1392591	2025-09-20	Belgium	Challenger Pro League	Liège	RSC Anderlecht II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.004687	\N	\N	1	0	h-win	yes
+6445	1392592	2025-09-20	Belgium	Challenger Pro League	Beerschot VA	Francs Borains	h-win	4	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.094291	\N	\N	1	0	h-win	yes
+6446	1392589	2025-09-20	Belgium	Challenger Pro League	AS Eupen	Patro Eisden	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.186602	\N	\N	0	0	draw	yes
+6447	1392593	2025-09-20	Belgium	Challenger Pro League	Seraing United	KAA Gent II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.274658	\N	\N	0	1	a-win	yes
+6448	1392586	2025-09-21	Belgium	Challenger Pro League	Kortrijk	Club Brugge II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.363001	\N	\N	0	0	draw	yes
+6449	1392590	2025-09-21	Belgium	Challenger Pro League	SK Beveren	Lokeren-Temse	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.456663	\N	\N	0	0	draw	yes
+6450	1392598	2025-09-23	Belgium	Challenger Pro League	Francs Borains	Seraing United	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.543634	\N	\N	0	0	draw	yes
+6451	1392601	2025-09-23	Belgium	Challenger Pro League	Olympic Charleroi	RSC Anderlecht II	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.637973	\N	\N	0	1	a-win	yes
+6452	1392596	2025-09-23	Belgium	Challenger Pro League	KRC Genk II	Beerschot VA	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.7427	\N	\N	0	1	a-win	yes
+6453	1392599	2025-09-24	Belgium	Challenger Pro League	Liège	SK Beveren	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.830798	\N	\N	0	1	a-win	yes
+6454	1392597	2025-09-24	Belgium	Challenger Pro League	RWDM	Kortrijk	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:33.917786	\N	\N	0	2	a-win	yes
+6455	1392600	2025-09-24	Belgium	Challenger Pro League	Lokeren-Temse	AS Eupen	draw	3	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.00362	\N	\N	2	2	draw	yes
+6456	1392595	2025-09-24	Belgium	Challenger Pro League	Club Brugge II	Lommel United	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.095648	\N	\N	0	0	draw	yes
+6457	1392594	2025-09-25	Belgium	Challenger Pro League	KAA Gent II	K. Lierse S.K.	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.18764	\N	\N	0	0	draw	yes
+6458	1392607	2025-09-26	Belgium	Challenger Pro League	KRC Genk II	Patro Eisden	a-win	1	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.278769	\N	\N	1	4	a-win	yes
+6459	1392602	2025-09-27	Belgium	Challenger Pro League	RSC Anderlecht II	Club Brugge II	draw	2	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.368927	\N	\N	1	1	draw	yes
+6460	1392609	2025-09-27	Belgium	Challenger Pro League	Beerschot VA	Lokeren-Temse	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.454683	\N	\N	0	0	draw	yes
+6461	1392603	2025-09-27	Belgium	Challenger Pro League	Kortrijk	AS Eupen	h-win	1	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.549981	\N	\N	1	0	h-win	yes
+6462	1392605	2025-09-27	Belgium	Challenger Pro League	SK Beveren	Seraing United	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.639993	\N	\N	1	1	draw	yes
+6463	1392608	2025-09-28	Belgium	Challenger Pro League	Lommel United	Liège	a-win	0	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.737861	\N	\N	0	1	a-win	yes
+6464	1392604	2025-09-28	Belgium	Challenger Pro League	KAA Gent II	RWDM	a-win	0	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.824672	\N	\N	0	2	a-win	yes
+6465	1392606	2025-09-28	Belgium	Challenger Pro League	K. Lierse S.K.	Olympic Charleroi	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:34.914279	\N	\N	0	0	draw	yes
+6466	1392611	2025-10-03	Belgium	Challenger Pro League	Francs Borains	RSC Anderlecht II	draw	3	3	28	9	13	5	12	5	1	1	4	4	2	0	52.00	48.00	14	15	\N	\N	\N	\N	\N	2025-12-02 19:10:35.002337	\N	\N	0	3	a-win	yes
+6467	1392614	2025-10-03	Belgium	Challenger Pro League	Seraing United	Lommel United	a-win	2	3	8	5	22	10	6	8	2	3	2	3	0	0	39.00	61.00	12	13	\N	\N	\N	\N	\N	2025-12-02 19:10:35.094113	\N	\N	1	1	draw	yes
+6468	1392615	2025-10-04	Belgium	Challenger Pro League	Club Brugge II	KAA Gent II	a-win	0	4	5	1	15	9	0	0	0	2	4	3	0	0	44.00	56.00	22	15	\N	\N	\N	\N	\N	2025-12-02 19:10:35.175608	\N	\N	0	3	a-win	yes
+6469	1392616	2025-10-04	Belgium	Challenger Pro League	AS Eupen	RWDM	draw	2	2	8	4	18	8	4	5	6	2	3	2	0	0	46.00	54.00	16	10	\N	\N	\N	\N	\N	2025-12-02 19:10:35.263141	\N	\N	2	0	h-win	yes
+6470	1392617	2025-10-04	Belgium	Challenger Pro League	Olympic Charleroi	Lokeren-Temse	a-win	0	1	4	1	11	2	5	13	0	4	2	4	0	0	36.00	64.00	8	11	\N	\N	\N	\N	\N	2025-12-02 19:10:35.353801	\N	\N	0	1	a-win	yes
+6471	1392612	2025-10-04	Belgium	Challenger Pro League	Patro Eisden	K. Lierse S.K.	h-win	2	1	19	5	6	2	4	4	4	1	2	2	0	1	53.00	47.00	13	23	\N	\N	\N	\N	\N	2025-12-02 19:10:35.454721	\N	\N	0	1	a-win	yes
+6472	1392610	2025-10-05	Belgium	Challenger Pro League	Kortrijk	SK Beveren	a-win	1	3	16	3	5	3	11	5	3	2	2	4	0	0	62.00	38.00	15	13	\N	\N	\N	\N	\N	2025-12-02 19:10:35.555554	\N	\N	0	2	a-win	yes
+6473	1392613	2025-10-05	Belgium	Challenger Pro League	Liège	KRC Genk II	h-win	5	0	13	8	15	3	7	7	3	1	1	2	0	1	48.00	52.00	13	7	\N	\N	\N	\N	\N	2025-12-02 19:10:35.652679	\N	\N	2	0	h-win	yes
+6474	1392625	2025-10-17	Belgium	Challenger Pro League	Beerschot VA	SK Beveren	draw	1	1	7	3	16	5	6	8	2	1	2	4	0	0	52.00	48.00	11	9	\N	\N	\N	\N	\N	2025-12-02 19:10:35.745383	\N	\N	0	0	draw	yes
+6475	1392621	2025-10-17	Belgium	Challenger Pro League	Olympic Charleroi	AS Eupen	a-win	0	1	11	1	3	1	7	1	1	1	3	2	0	0	44.00	56.00	11	3	\N	\N	\N	\N	\N	2025-12-02 19:10:35.84168	\N	\N	0	1	a-win	yes
+6476	1392623	2025-10-18	Belgium	Challenger Pro League	KRC Genk II	Francs Borains	h-win	3	1	14	6	9	3	2	8	1	1	1	3	0	0	48.00	52.00	7	14	\N	\N	\N	\N	\N	2025-12-02 19:10:35.934479	\N	\N	1	1	draw	yes
+6477	1392622	2025-10-18	Belgium	Challenger Pro League	RWDM	Club Brugge II	h-win	3	1	17	10	9	2	3	3	2	1	4	1	1	0	43.00	57.00	19	14	\N	\N	\N	\N	\N	2025-12-02 19:10:36.03267	\N	\N	1	0	h-win	yes
+6478	1392618	2025-10-18	Belgium	Challenger Pro League	RSC Anderlecht II	Lommel United	draw	2	2	20	6	18	5	9	6	1	0	1	2	0	0	52.00	48.00	20	18	\N	\N	\N	\N	\N	2025-12-02 19:10:36.122654	\N	\N	0	1	a-win	yes
+6479	1392619	2025-10-18	Belgium	Challenger Pro League	KAA Gent II	Kortrijk	a-win	2	3	15	7	18	7	5	5	0	3	0	1	0	0	58.00	42.00	10	15	\N	\N	\N	\N	\N	2025-12-02 19:10:36.217592	\N	\N	2	1	h-win	yes
+6480	1392624	2025-10-19	Belgium	Challenger Pro League	K. Lierse S.K.	Liège	a-win	1	2	27	7	7	3	9	3	1	3	1	1	0	0	65.00	35.00	27	7	\N	\N	\N	\N	\N	2025-12-02 19:10:36.3076	\N	\N	0	2	a-win	yes
+6481	1392620	2025-10-19	Belgium	Challenger Pro League	Patro Eisden	Seraing United	draw	2	2	14	4	9	2	3	2	4	4	2	5	0	1	50.00	50.00	14	9	\N	\N	\N	\N	\N	2025-12-02 19:10:36.484966	\N	\N	0	0	draw	yes
+6482	1392630	2025-10-24	Belgium	Challenger Pro League	Francs Borains	KAA Gent II	h-win	2	0	9	1	11	3	7	4	3	0	3	3	0	0	40.00	60.00	7	12	\N	\N	\N	\N	\N	2025-12-02 19:10:36.575669	\N	\N	1	0	h-win	yes
+6483	1392633	2025-10-24	Belgium	Challenger Pro League	Seraing United	K. Lierse S.K.	draw	1	1	23	7	12	2	7	4	0	0	2	3	0	0	51.00	49.00	14	16	\N	\N	\N	\N	\N	2025-12-02 19:10:36.665575	\N	\N	0	1	a-win	yes
+6484	1392631	2025-10-25	Belgium	Challenger Pro League	Club Brugge II	Olympic Charleroi	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:36.75355	\N	\N	0	0	draw	yes
+6485	1392627	2025-10-25	Belgium	Challenger Pro League	SK Beveren	Patro Eisden	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:36.844726	\N	\N	1	1	draw	yes
+6486	1392628	2025-10-25	Belgium	Challenger Pro League	AS Eupen	KRC Genk II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:36.934557	\N	\N	1	0	h-win	yes
+6487	1392629	2025-10-25	Belgium	Challenger Pro League	Liège	RWDM	h-win	4	3	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:37.02248	\N	\N	3	2	h-win	yes
+6488	1392626	2025-10-26	Belgium	Challenger Pro League	Lommel United	Beerschot VA	a-win	1	2	12	4	17	4	3	5	0	5	3	2	0	0	42.00	58.00	10	10	\N	\N	\N	\N	\N	2025-12-02 19:10:37.110301	0.70	1.79	1	0	h-win	yes
+6489	1392632	2025-10-26	Belgium	Challenger Pro League	RSC Anderlecht II	Lokeren-Temse	a-win	1	2	12	5	12	4	1	8	2	2	1	3	0	0	47.00	53.00	13	17	\N	\N	\N	\N	\N	2025-12-02 19:10:37.272905	\N	\N	0	1	a-win	yes
+6490	1392634	2025-10-31	Belgium	Challenger Pro League	K. Lierse S.K.	Lommel United	draw	4	4	16	6	10	6	6	1	1	1	2	4	0	1	44.00	56.00	8	16	\N	\N	\N	\N	\N	2025-12-02 19:10:37.363134	1.94	1.29	2	2	draw	yes
+6491	1392641	2025-10-31	Belgium	Challenger Pro League	Lokeren-Temse	Francs Borains	draw	2	2	13	5	13	6	4	6	2	2	4	4	1	0	53.00	47.00	15	16	\N	\N	\N	\N	\N	2025-12-02 19:10:37.447868	2.73	2.79	1	0	h-win	yes
+6492	1392635	2025-11-01	Belgium	Challenger Pro League	KAA Gent II	AS Eupen	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	8	7	2025-12-02 19:10:37.61537	\N	\N	1	0	h-win	yes
+6493	1392638	2025-11-01	Belgium	Challenger Pro League	SK Beveren	Club Brugge II	h-win	2	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	1	17	2025-12-02 19:10:37.711919	\N	\N	1	0	h-win	yes
+6494	1392637	2025-11-01	Belgium	Challenger Pro League	Olympic Charleroi	Liège	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	16	6	2025-12-02 19:10:37.799803	\N	\N	1	1	draw	yes
+6495	1392639	2025-11-01	Belgium	Challenger Pro League	RWDM	KRC Genk II	draw	1	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	12	15	2025-12-02 19:10:37.898867	\N	\N	1	0	h-win	yes
+6496	1392636	2025-11-02	Belgium	Challenger Pro League	Beerschot VA	Kortrijk	a-win	1	2	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	3	2	2025-12-02 19:10:37.989531	\N	\N	0	1	a-win	yes
+6497	1392640	2025-11-02	Belgium	Challenger Pro League	Patro Eisden	RSC Anderlecht II	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	4	13	2025-12-02 19:10:38.079737	\N	\N	0	0	draw	yes
+6498	1392642	2025-11-07	Belgium	Challenger Pro League	Lommel United	SK Beveren	draw	2	2	8	7	11	4	3	5	2	2	2	1	1	0	52.00	48.00	12	9	\N	\N	\N	5	1	2025-12-02 19:10:38.165739	0.75	0.84	0	1	a-win	yes
+6499	1392649	2025-11-07	Belgium	Challenger Pro League	Liège	KAA Gent II	a-win	0	2	29	3	5	2	11	1	4	2	3	0	0	1	58.00	42.00	19	13	\N	\N	\N	6	8	2025-12-02 19:10:38.253612	2.28	1.14	0	1	a-win	yes
+6500	1392643	2025-11-08	Belgium	Challenger Pro League	Kortrijk	Patro Eisden	h-win	2	0	7	3	28	8	2	10	5	1	3	4	0	0	55.00	45.00	11	15	\N	\N	\N	2	4	2025-12-02 19:10:38.343922	0.74	1.53	1	0	h-win	yes
+6501	1392648	2025-11-08	Belgium	Challenger Pro League	Seraing United	Lokeren-Temse	draw	1	1	4	1	8	5	8	4	3	9	1	2	0	0	42.00	58.00	15	11	\N	\N	\N	14	9	2025-12-02 19:10:38.433004	0.53	1.60	0	0	draw	yes
+6502	1392647	2025-11-08	Belgium	Challenger Pro League	Club Brugge II	K. Lierse S.K.	a-win	0	1	19	7	10	3	6	5	2	1	2	1	1	0	65.00	35.00	9	15	\N	\N	\N	17	11	2025-12-02 19:10:38.533661	1.34	1.56	0	1	a-win	yes
+6503	1392646	2025-11-09	Belgium	Challenger Pro League	Francs Borains	Olympic Charleroi	a-win	0	1	11	4	11	6	10	3	5	1	1	3	0	1	63.00	37.00	13	16	\N	\N	\N	10	16	2025-12-02 19:10:38.621587	0.83	2.06	0	1	a-win	yes
+6504	1392644	2025-11-09	Belgium	Challenger Pro League	RWDM	Beerschot VA	a-win	0	1	14	2	16	4	7	7	2	3	3	1	0	0	46.00	54.00	10	13	\N	\N	\N	12	3	2025-12-02 19:10:38.710031	1.72	1.94	0	0	draw	yes
+6505	1392655	2025-11-21	Belgium	Challenger Pro League	SK Beveren	AS Eupen	draw	1	1	21	4	9	3	14	2	5	1	1	1	0	0	49.00	51.00	8	5	\N	\N	\N	1	7	2025-12-02 19:10:38.794668	\N	\N	1	0	h-win	yes
+6506	1392654	2025-11-21	Belgium	Challenger Pro League	Francs Borains	Liège	h-win	2	0	14	7	16	2	4	11	3	0	3	1	0	0	36.00	64.00	20	13	\N	\N	\N	10	6	2025-12-02 19:10:38.881874	\N	\N	1	0	h-win	yes
+6507	1392656	2025-11-22	Belgium	Challenger Pro League	Lokeren-Temse	Club Brugge II	h-win	3	2	12	6	7	0	4	3	3	0	1	1	0	0	52.00	48.00	17	12	\N	\N	\N	9	17	2025-12-02 19:10:38.969642	2.46	0.23	0	1	a-win	yes
+6508	1392651	2025-11-22	Belgium	Challenger Pro League	Kortrijk	Lommel United	h-win	4	2	14	6	16	7	7	2	8	1	2	1	0	0	44.00	56.00	10	6	\N	\N	\N	2	5	2025-12-02 19:10:39.060222	2.17	1.90	2	1	h-win	yes
+6509	1392653	2025-11-22	Belgium	Challenger Pro League	RSC Anderlecht II	Seraing United	draw	2	2	13	3	19	7	2	4	3	1	3	1	1	0	56.00	44.00	13	13	\N	\N	\N	13	14	2025-12-02 19:10:39.162105	2.68	2.17	2	1	h-win	yes
+6510	1392657	2025-11-22	Belgium	Challenger Pro League	KAA Gent II	KRC Genk II	draw	0	0	15	6	9	1	4	6	1	2	4	2	0	0	60.00	40.00	17	12	\N	\N	\N	8	15	2025-12-02 19:10:39.251629	1.31	0.93	0	0	draw	yes
+6511	1392650	2025-11-23	Belgium	Challenger Pro League	Olympic Charleroi	Beerschot VA	a-win	1	2	18	7	11	5	3	2	1	5	2	4	0	0	53.00	47.00	15	13	\N	\N	\N	16	3	2025-12-02 19:10:39.340696	0.91	0.85	0	1	a-win	yes
+6512	1392652	2025-11-23	Belgium	Challenger Pro League	Patro Eisden	RWDM	h-win	1	0	17	4	7	2	2	3	1	1	5	1	0	0	34.00	66.00	23	12	\N	\N	\N	4	12	2025-12-02 19:10:39.43073	1.88	0.89	0	0	draw	yes
+6513	1392658	2025-11-28	Belgium	Challenger Pro League	Beerschot VA	Liège	h-win	3	0	24	8	12	3	9	5	0	1	2	0	0	0	61.00	39.00	8	14	\N	\N	\N	3	6	2025-12-02 19:10:39.516997	1.98	0.41	1	0	h-win	yes
+6514	1392661	2025-11-28	Belgium	Challenger Pro League	AS Eupen	Lommel United	a-win	1	2	9	1	20	9	4	8	2	2	1	3	1	0	43.00	57.00	5	18	\N	\N	\N	7	5	2025-12-02 19:10:39.606691	0.48	1.88	1	1	draw	yes
+6515	1392664	2025-11-29	Belgium	Challenger Pro League	Lokeren-Temse	Kortrijk	draw	1	1	7	4	9	1	6	6	0	5	2	1	0	1	52.00	48.00	13	17	\N	\N	\N	9	2	2025-12-02 19:10:39.696814	0.89	0.85	0	1	a-win	yes
+6516	1392659	2025-11-29	Belgium	Challenger Pro League	K. Lierse S.K.	RSC Anderlecht II	h-win	1	0	12	3	14	6	4	5	0	4	0	2	0	1	49.00	51.00	20	14	\N	\N	\N	11	13	2025-12-02 19:10:39.781728	1.56	0.84	1	0	h-win	yes
+6517	1392665	2025-11-29	Belgium	Challenger Pro League	Patro Eisden	KAA Gent II	h-win	2	1	18	9	9	1	10	1	4	4	2	2	0	0	38.00	62.00	11	12	\N	\N	\N	4	8	2025-12-02 19:10:39.86871	2.55	0.89	0	0	draw	yes
+6518	1392662	2025-11-29	Belgium	Challenger Pro League	RWDM	Francs Borains	a-win	1	3	20	3	11	3	7	7	1	3	0	3	1	0	59.00	41.00	7	14	\N	\N	\N	12	10	2025-12-02 19:10:39.960122	2.07	2.37	1	0	h-win	yes
+6519	1392663	2025-11-30	Belgium	Challenger Pro League	Seraing United	Club Brugge II	h-win	1	0	9	1	5	2	4	3	1	3	4	1	0	0	29.00	71.00	20	4	\N	\N	\N	14	17	2025-12-02 19:10:40.047622	0.75	0.17	1	0	h-win	yes
+6520	1392660	2025-11-30	Belgium	Challenger Pro League	KRC Genk II	Olympic Charleroi	a-win	3	4	6	4	21	12	3	8	7	2	4	2	0	0	51.00	49.00	9	15	\N	\N	\N	15	16	2025-12-02 19:10:40.144193	0.80	4.63	2	1	h-win	yes
+6521	1380867	2025-08-08	Netherlands	Eredivisie	Fortuna Sittard	GO Ahead Eagles	draw	2	2	36	8	6	2	8	5	0	1	2	2	0	1	67.00	33.00	10	9	\N	\N	\N	\N	\N	2025-12-02 19:10:41.68888	2.34	1.17	1	1	draw	yes
+6522	1380868	2025-08-09	Netherlands	Eredivisie	NEC Nijmegen	Excelsior	h-win	5	0	16	10	9	6	7	2	2	0	1	1	0	0	62.00	38.00	14	14	\N	\N	\N	\N	\N	2025-12-02 19:10:41.773449	2.48	1.03	1	0	h-win	yes
+6523	1380869	2025-08-09	Netherlands	Eredivisie	Feyenoord	NAC Breda	h-win	2	0	20	4	7	0	3	4	1	0	1	1	0	0	60.00	40.00	10	13	\N	\N	\N	\N	\N	2025-12-02 19:10:41.864814	2.44	0.25	1	0	h-win	yes
+6524	1380870	2025-08-09	Netherlands	Eredivisie	Heerenveen	FC Volendam	draw	1	1	18	6	6	3	9	2	2	2	1	1	0	0	58.00	42.00	8	9	\N	\N	\N	\N	\N	2025-12-02 19:10:41.953527	1.52	0.79	1	0	h-win	yes
+6525	1380871	2025-08-09	Netherlands	Eredivisie	PSV Eindhoven	Sparta Rotterdam	h-win	6	1	23	12	8	4	8	5	2	0	1	1	0	0	66.00	34.00	8	2	\N	\N	\N	\N	\N	2025-12-02 19:10:42.042414	1.73	1.21	3	0	h-win	yes
+6526	1380872	2025-08-10	Netherlands	Eredivisie	PEC Zwolle	Twente	h-win	1	0	7	2	16	4	2	4	2	1	4	1	0	0	43.00	57.00	14	15	\N	\N	\N	\N	\N	2025-12-02 19:10:42.129843	0.88	1.17	1	0	h-win	yes
+6527	1380873	2025-08-10	Netherlands	Eredivisie	Ajax	Telstar	h-win	2	0	15	7	18	5	8	10	1	2	0	0	0	0	62.00	38.00	9	12	\N	\N	\N	\N	\N	2025-12-02 19:10:42.219262	1.68	1.26	1	0	h-win	yes
+6528	1380874	2025-08-10	Netherlands	Eredivisie	AZ Alkmaar	Groningen	h-win	4	1	10	5	11	8	6	1	1	0	2	2	0	0	51.00	49.00	11	12	\N	\N	\N	\N	\N	2025-12-02 19:10:42.311242	1.56	1.50	3	1	h-win	yes
+6529	1380875	2025-08-10	Netherlands	Eredivisie	Utrecht	Heracles	h-win	4	0	18	7	10	3	4	4	0	0	1	2	0	0	48.00	52.00	10	16	\N	\N	\N	\N	\N	2025-12-02 19:10:42.397857	2.34	0.88	1	0	h-win	yes
+6530	1380876	2025-08-15	Netherlands	Eredivisie	Telstar	PEC Zwolle	a-win	0	2	11	5	10	3	7	0	0	3	3	3	0	0	52.00	48.00	13	10	\N	\N	\N	\N	\N	2025-12-02 19:10:42.484008	0.85	2.36	0	1	a-win	yes
+6531	1380878	2025-08-16	Netherlands	Eredivisie	Excelsior	Feyenoord	a-win	1	2	8	2	16	8	5	6	1	0	0	2	0	0	47.00	53.00	17	8	\N	\N	\N	\N	\N	2025-12-02 19:10:42.582109	1.07	2.52	1	2	a-win	yes
+6532	1380879	2025-08-16	Netherlands	Eredivisie	Heracles	NEC Nijmegen	a-win	1	4	13	6	24	11	3	7	1	4	2	2	1	0	19.00	81.00	9	11	\N	\N	\N	\N	\N	2025-12-02 19:10:42.666012	1.33	3.05	1	1	draw	yes
+6533	1380877	2025-08-16	Netherlands	Eredivisie	Groningen	Heerenveen	h-win	2	1	8	5	16	5	3	8	1	2	4	2	0	0	54.00	46.00	9	15	\N	\N	\N	\N	\N	2025-12-02 19:10:42.760516	0.80	2.16	1	1	draw	yes
+6534	1380880	2025-08-17	Netherlands	Eredivisie	GO Ahead Eagles	Ajax	draw	2	2	9	4	22	11	6	9	2	2	1	2	0	0	48.00	52.00	9	12	\N	\N	\N	\N	\N	2025-12-02 19:10:42.850549	0.66	1.77	2	2	draw	yes
+6535	1380882	2025-08-17	Netherlands	Eredivisie	Twente	PSV Eindhoven	a-win	0	2	19	4	15	4	8	6	1	3	1	2	0	0	50.00	50.00	10	12	\N	\N	\N	\N	\N	2025-12-02 19:10:42.937336	0.91	1.72	0	1	a-win	yes
+6536	1380881	2025-08-17	Netherlands	Eredivisie	Sparta Rotterdam	Utrecht	h-win	2	1	15	5	20	5	5	6	0	4	1	3	0	0	45.00	55.00	9	11	\N	\N	\N	\N	\N	2025-12-02 19:10:43.027339	1.47	1.39	1	0	h-win	yes
+6537	1380883	2025-08-17	Netherlands	Eredivisie	FC Volendam	AZ Alkmaar	draw	2	2	8	3	19	3	3	4	2	0	1	3	0	0	34.00	66.00	10	10	\N	\N	\N	\N	\N	2025-12-02 19:10:43.121135	0.45	1.40	1	1	draw	yes
+6538	1380884	2025-08-17	Netherlands	Eredivisie	NAC Breda	Fortuna Sittard	h-win	2	1	14	6	10	4	4	5	2	0	2	3	0	0	39.00	61.00	8	15	\N	\N	\N	\N	\N	2025-12-02 19:10:43.214019	2.06	0.73	1	0	h-win	yes
+6539	1380885	2025-08-23	Netherlands	Eredivisie	GO Ahead Eagles	Sparta Rotterdam	a-win	0	3	19	6	13	5	12	1	3	1	0	2	0	0	68.00	32.00	6	8	\N	\N	\N	\N	\N	2025-12-02 19:10:43.301811	2.60	1.71	0	1	a-win	yes
+6540	1380886	2025-08-23	Netherlands	Eredivisie	PSV Eindhoven	Groningen	h-win	4	2	23	7	17	6	6	4	0	1	0	2	0	0	66.00	34.00	11	11	\N	\N	\N	\N	\N	2025-12-02 19:10:43.388771	2.48	1.32	1	1	draw	yes
+6541	1380887	2025-08-23	Netherlands	Eredivisie	Telstar	FC Volendam	draw	2	2	18	9	10	6	4	6	3	0	3	0	0	0	49.00	51.00	10	11	\N	\N	\N	\N	\N	2025-12-02 19:10:43.478364	1.78	0.42	2	0	h-win	yes
+6542	1380889	2025-08-24	Netherlands	Eredivisie	Heerenveen	Twente	a-win	1	2	18	3	9	5	7	4	3	1	3	4	1	0	55.00	45.00	10	19	\N	\N	\N	\N	\N	2025-12-02 19:10:43.56793	2.39	2.01	0	1	a-win	yes
+6543	1380891	2025-08-24	Netherlands	Eredivisie	Utrecht	Excelsior	h-win	4	1	16	10	12	4	7	5	1	1	0	0	0	0	50.00	50.00	6	15	\N	\N	\N	\N	\N	2025-12-02 19:10:43.663828	1.78	1.31	2	0	h-win	yes
+6544	1380890	2025-08-24	Netherlands	Eredivisie	NEC Nijmegen	NAC Breda	h-win	3	0	18	10	7	2	3	1	0	3	2	4	0	0	51.00	49.00	16	18	\N	\N	\N	\N	\N	2025-12-02 19:10:43.748692	4.19	0.45	1	0	h-win	yes
+6545	1380892	2025-08-24	Netherlands	Eredivisie	Ajax	Heracles	h-win	2	0	27	10	4	0	10	1	4	1	0	2	0	0	66.00	34.00	10	15	\N	\N	\N	\N	\N	2025-12-02 19:10:43.850841	2.67	0.16	1	0	h-win	yes
+6546	1380893	2025-08-29	Netherlands	Eredivisie	Groningen	Heracles	h-win	4	0	17	5	8	0	6	3	2	0	2	1	0	0	51.00	49.00	13	12	\N	\N	\N	\N	\N	2025-12-02 19:10:43.943419	1.80	0.46	3	0	h-win	yes
+6547	1380894	2025-08-30	Netherlands	Eredivisie	FC Volendam	Ajax	draw	1	1	11	4	13	4	2	7	1	2	2	3	0	0	31.00	69.00	12	15	\N	\N	\N	\N	\N	2025-12-02 19:10:44.046994	0.76	1.38	1	0	h-win	yes
+6548	1380895	2025-08-30	Netherlands	Eredivisie	Heerenveen	GO Ahead Eagles	draw	2	2	19	5	11	5	3	7	0	0	3	1	0	0	56.00	44.00	9	12	\N	\N	\N	\N	\N	2025-12-02 19:10:44.133825	2.73	1.18	1	1	draw	yes
+6549	1380896	2025-08-30	Netherlands	Eredivisie	PSV Eindhoven	Telstar	a-win	0	2	23	5	9	4	10	3	1	3	1	1	0	0	71.00	29.00	10	11	\N	\N	\N	\N	\N	2025-12-02 19:10:44.22163	1.72	1.48	0	1	a-win	yes
+6550	1380897	2025-08-30	Netherlands	Eredivisie	Excelsior	Twente	h-win	1	0	8	3	27	8	1	4	1	4	2	2	1	0	30.00	70.00	13	11	\N	\N	\N	\N	\N	2025-12-02 19:10:44.306943	0.37	2.52	0	0	draw	yes
+6551	1380898	2025-08-31	Netherlands	Eredivisie	Fortuna Sittard	NEC Nijmegen	h-win	3	2	10	5	14	5	3	4	3	1	4	1	0	0	38.00	62.00	16	8	\N	\N	\N	\N	\N	2025-12-02 19:10:44.394918	1.33	1.90	2	1	h-win	yes
+6552	1380900	2025-08-31	Netherlands	Eredivisie	PEC Zwolle	Utrecht	a-win	0	2	6	2	14	7	3	2	3	1	2	1	0	0	48.00	52.00	13	10	\N	\N	\N	\N	\N	2025-12-02 19:10:44.485662	1.01	1.14	0	2	a-win	yes
+6553	1380899	2025-08-31	Netherlands	Eredivisie	Sparta Rotterdam	Feyenoord	a-win	0	4	7	2	24	11	1	9	2	2	1	2	1	0	38.00	62.00	5	9	\N	\N	\N	\N	\N	2025-12-02 19:10:44.577656	0.55	2.51	0	1	a-win	yes
+6554	1380901	2025-08-31	Netherlands	Eredivisie	NAC Breda	AZ Alkmaar	a-win	0	1	11	6	25	8	1	7	1	3	0	5	1	0	38.00	62.00	8	13	\N	\N	\N	\N	\N	2025-12-02 19:10:44.666575	1.96	2.82	0	0	draw	yes
+6555	1380902	2025-09-13	Netherlands	Eredivisie	Ajax	PEC Zwolle	h-win	3	1	12	7	8	3	7	1	2	2	2	1	0	0	59.00	41.00	18	9	\N	\N	\N	\N	\N	2025-12-02 19:10:44.759464	2.59	0.53	2	0	h-win	yes
+6556	1380903	2025-09-13	Netherlands	Eredivisie	GO Ahead Eagles	FC Volendam	h-win	3	0	19	13	19	1	7	7	2	1	1	1	0	0	46.00	54.00	12	9	\N	\N	\N	\N	\N	2025-12-02 19:10:44.854832	2.14	1.31	3	0	h-win	yes
+6557	1380904	2025-09-13	Netherlands	Eredivisie	NEC Nijmegen	PSV Eindhoven	a-win	3	5	20	7	18	11	8	4	4	1	2	5	0	0	57.00	43.00	8	18	\N	\N	\N	\N	\N	2025-12-02 19:10:44.943445	2.00	2.23	1	3	a-win	yes
+6558	1380905	2025-09-13	Netherlands	Eredivisie	Feyenoord	Heerenveen	h-win	1	0	9	5	11	1	6	3	4	1	2	2	1	1	47.00	53.00	10	11	\N	\N	\N	\N	\N	2025-12-02 19:10:45.028926	0.91	1.17	1	0	h-win	yes
+6559	1380906	2025-09-13	Netherlands	Eredivisie	Twente	NAC Breda	draw	2	2	15	6	10	4	4	3	0	3	2	1	0	0	60.00	40.00	15	17	\N	\N	\N	\N	\N	2025-12-02 19:10:45.118135	2.21	0.62	0	1	a-win	yes
+6560	1380907	2025-09-14	Netherlands	Eredivisie	Excelsior	Sparta Rotterdam	a-win	0	1	17	4	19	7	7	2	1	1	4	1	1	0	53.00	47.00	11	8	\N	\N	\N	\N	\N	2025-12-02 19:10:45.211674	1.55	1.59	0	0	draw	yes
+6561	1380908	2025-09-14	Netherlands	Eredivisie	Heracles	AZ Alkmaar	a-win	1	2	19	6	25	8	6	9	0	1	1	5	0	0	52.00	48.00	11	11	\N	\N	\N	\N	\N	2025-12-02 19:10:45.300652	0.76	3.18	1	1	draw	yes
+6562	1380909	2025-09-14	Netherlands	Eredivisie	Utrecht	Groningen	a-win	0	1	14	3	13	6	3	4	1	0	0	4	0	0	45.00	55.00	9	16	\N	\N	\N	\N	\N	2025-12-02 19:10:45.387451	1.24	1.69	0	0	draw	yes
+6563	1380910	2025-09-14	Netherlands	Eredivisie	Telstar	Fortuna Sittard	a-win	1	3	18	7	9	6	10	1	2	1	1	0	0	0	56.00	44.00	14	17	\N	\N	\N	\N	\N	2025-12-02 19:10:45.479151	1.70	1.14	1	1	draw	yes
+6564	1380911	2025-09-17	Netherlands	Eredivisie	Feyenoord	Fortuna Sittard	h-win	2	0	19	5	5	0	13	0	3	2	0	1	0	0	57.00	43.00	11	9	\N	\N	\N	\N	\N	2025-12-02 19:10:45.572494	2.13	0.30	1	0	h-win	yes
+6565	1380912	2025-09-19	Netherlands	Eredivisie	Sparta Rotterdam	Twente	a-win	1	5	7	2	23	11	1	6	2	0	0	1	0	0	45.00	55.00	7	6	\N	\N	\N	\N	\N	2025-12-02 19:10:45.65879	1.11	2.59	1	1	draw	yes
+6566	1380913	2025-09-20	Netherlands	Eredivisie	FC Volendam	Excelsior	a-win	1	2	14	7	15	6	5	3	2	0	3	2	0	0	49.00	51.00	11	19	\N	\N	\N	\N	\N	2025-12-02 19:10:45.748827	1.48	1.76	1	1	draw	yes
+6567	1380914	2025-09-20	Netherlands	Eredivisie	Groningen	Telstar	h-win	2	0	16	6	7	3	7	2	3	2	1	3	0	0	55.00	45.00	9	10	\N	\N	\N	\N	\N	2025-12-02 19:10:45.840168	1.80	0.84	1	0	h-win	yes
+6568	1380915	2025-09-20	Netherlands	Eredivisie	Fortuna Sittard	Utrecht	h-win	1	0	7	3	14	5	1	11	3	2	4	2	0	0	36.00	64.00	12	7	\N	\N	\N	\N	\N	2025-12-02 19:10:45.93085	1.16	0.96	1	0	h-win	yes
+6569	1380916	2025-09-20	Netherlands	Eredivisie	NAC Breda	Heracles	h-win	2	1	17	4	14	5	10	4	0	0	1	2	0	0	63.00	37.00	9	16	\N	\N	\N	\N	\N	2025-12-02 19:10:46.01697	2.50	1.09	0	1	a-win	yes
+6570	1380917	2025-09-21	Netherlands	Eredivisie	PEC Zwolle	GO Ahead Eagles	a-win	0	2	8	1	20	9	3	7	1	0	1	2	1	0	28.00	72.00	5	8	\N	\N	\N	\N	\N	2025-12-02 19:10:46.113694	0.49	2.07	0	0	draw	yes
+6571	1380919	2025-09-21	Netherlands	Eredivisie	PSV Eindhoven	Ajax	draw	2	2	16	8	14	6	9	5	1	1	2	5	0	0	62.00	38.00	17	13	\N	\N	\N	\N	\N	2025-12-02 19:10:46.202563	3.45	2.18	1	1	draw	yes
+6572	1380918	2025-09-21	Netherlands	Eredivisie	Heerenveen	NEC Nijmegen	h-win	3	2	14	8	11	6	6	6	2	2	2	1	0	1	39.00	61.00	10	14	\N	\N	\N	\N	\N	2025-12-02 19:10:46.296564	2.81	0.94	1	0	h-win	yes
+6573	1380920	2025-09-21	Netherlands	Eredivisie	AZ Alkmaar	Feyenoord	draw	3	3	9	5	19	3	4	11	1	0	4	5	0	1	53.00	47.00	9	10	\N	\N	\N	\N	\N	2025-12-02 19:10:46.391637	1.21	1.92	1	1	draw	yes
+6574	1380888	2025-09-24	Netherlands	Eredivisie	AZ Alkmaar	PEC Zwolle	draw	2	2	28	9	8	4	9	1	1	0	1	2	0	0	65.00	35.00	12	10	\N	\N	\N	\N	\N	2025-12-02 19:10:46.47763	2.49	0.91	2	1	h-win	yes
+6575	1380921	2025-09-26	Netherlands	Eredivisie	Twente	Fortuna Sittard	h-win	3	2	18	10	8	4	4	5	0	1	1	2	0	0	55.00	45.00	14	13	\N	\N	\N	\N	\N	2025-12-02 19:10:46.563851	2.90	0.48	1	0	h-win	yes
+6576	1380923	2025-09-27	Netherlands	Eredivisie	Ajax	NAC Breda	h-win	2	1	12	7	17	7	2	7	2	3	2	4	0	1	51.00	49.00	11	14	\N	\N	\N	\N	\N	2025-12-02 19:10:46.652817	1.87	1.56	1	1	draw	yes
+6577	1380924	2025-09-27	Netherlands	Eredivisie	FC Volendam	PEC Zwolle	h-win	2	1	15	3	14	2	3	5	2	2	2	3	0	0	37.00	63.00	11	12	\N	\N	\N	\N	\N	2025-12-02 19:10:46.745506	1.96	1.03	1	1	draw	yes
+6578	1380925	2025-09-27	Netherlands	Eredivisie	Excelsior	PSV Eindhoven	a-win	1	2	18	5	18	8	3	2	0	1	0	0	0	0	37.00	63.00	8	5	\N	\N	\N	\N	\N	2025-12-02 19:10:46.839426	2.17	2.67	1	1	draw	yes
+6579	1380927	2025-09-27	Netherlands	Eredivisie	Heracles	Sparta Rotterdam	h-win	3	0	12	5	18	5	5	4	3	1	2	4	0	0	48.00	52.00	12	11	\N	\N	\N	\N	\N	2025-12-02 19:10:46.9267	1.33	1.50	1	0	h-win	yes
+6580	1380926	2025-09-28	Netherlands	Eredivisie	NEC Nijmegen	AZ Alkmaar	h-win	2	1	14	4	7	2	5	4	3	0	1	6	0	1	44.00	56.00	14	16	\N	\N	\N	\N	\N	2025-12-02 19:10:47.017173	1.81	0.38	1	0	h-win	yes
+6581	1380922	2025-09-28	Netherlands	Eredivisie	Groningen	Feyenoord	a-win	0	1	12	5	11	5	3	4	3	2	2	2	1	0	48.00	52.00	16	6	\N	\N	\N	\N	\N	2025-12-02 19:10:47.100717	0.98	1.17	0	0	draw	yes
+6582	1380928	2025-09-28	Netherlands	Eredivisie	Utrecht	Heerenveen	draw	2	2	14	5	10	4	5	3	1	0	2	2	0	0	52.00	48.00	14	12	\N	\N	\N	\N	\N	2025-12-02 19:10:47.19602	2.00	1.31	1	1	draw	yes
+6583	1380929	2025-09-28	Netherlands	Eredivisie	Telstar	GO Ahead Eagles	h-win	4	2	20	9	14	5	8	3	0	4	2	0	0	0	39.00	61.00	13	9	\N	\N	\N	\N	\N	2025-12-02 19:10:47.281658	2.36	2.38	2	1	h-win	yes
+6584	1380930	2025-10-03	Netherlands	Eredivisie	NAC Breda	Groningen	a-win	1	2	11	4	14	9	7	6	3	3	3	1	0	0	61.00	39.00	16	14	\N	\N	\N	\N	\N	2025-12-02 19:10:47.368492	0.72	1.46	0	1	a-win	yes
+6585	1380931	2025-10-04	Netherlands	Eredivisie	Sparta Rotterdam	Ajax	draw	3	3	14	5	17	4	6	4	1	1	1	3	0	0	33.00	67.00	8	9	\N	\N	\N	\N	\N	2025-12-02 19:10:47.454883	2.14	1.71	1	1	draw	yes
+6586	1380932	2025-10-04	Netherlands	Eredivisie	Fortuna Sittard	FC Volendam	h-win	1	0	16	3	8	1	7	4	1	1	1	2	0	0	53.00	47.00	14	13	\N	\N	\N	\N	\N	2025-12-02 19:10:47.543207	1.58	0.84	1	0	h-win	yes
+6587	1380933	2025-10-04	Netherlands	Eredivisie	PEC Zwolle	PSV Eindhoven	a-win	0	4	4	0	18	8	4	8	2	3	0	3	1	0	28.00	72.00	7	8	\N	\N	\N	\N	\N	2025-12-02 19:10:47.628034	0.14	2.15	0	2	a-win	yes
+6588	1380934	2025-10-04	Netherlands	Eredivisie	Heerenveen	Excelsior	h-win	2	1	19	4	9	2	7	3	2	0	2	3	0	0	67.00	33.00	6	17	\N	\N	\N	\N	\N	2025-12-02 19:10:47.71892	2.01	0.57	0	1	a-win	yes
+6589	1380935	2025-10-05	Netherlands	Eredivisie	Twente	Heracles	h-win	2	1	21	9	7	2	4	3	0	1	0	2	1	0	59.00	41.00	5	8	\N	\N	\N	\N	\N	2025-12-02 19:10:47.818284	1.35	0.51	0	1	a-win	yes
+6590	1380937	2025-10-05	Netherlands	Eredivisie	Feyenoord	Utrecht	h-win	3	2	22	10	10	4	12	3	0	1	1	0	0	0	55.00	45.00	7	10	\N	\N	\N	\N	\N	2025-12-02 19:10:47.913265	3.42	0.49	1	0	h-win	yes
+6591	1380936	2025-10-05	Netherlands	Eredivisie	AZ Alkmaar	Telstar	h-win	2	1	28	10	14	5	6	4	0	2	3	2	0	0	59.00	41.00	7	13	\N	\N	\N	\N	\N	2025-12-02 19:10:48.008725	3.96	1.01	2	0	h-win	yes
+6592	1380938	2025-10-05	Netherlands	Eredivisie	GO Ahead Eagles	NEC Nijmegen	draw	1	1	8	3	17	7	11	4	0	0	1	5	0	1	54.00	46.00	13	18	\N	\N	\N	\N	\N	2025-12-02 19:10:48.095704	0.76	0.95	0	1	a-win	yes
+6593	1380947	2025-10-18	Netherlands	Eredivisie	NEC Nijmegen	Twente	draw	3	3	8	4	10	3	3	3	3	1	2	3	0	0	60.00	40.00	15	21	\N	\N	\N	\N	\N	2025-12-02 19:10:48.181683	0.68	1.98	1	1	draw	yes
+6594	1380940	2025-10-18	Netherlands	Eredivisie	PSV Eindhoven	GO Ahead Eagles	h-win	2	1	24	8	4	2	6	1	0	2	1	1	0	0	57.00	43.00	7	8	\N	\N	\N	\N	\N	2025-12-02 19:10:48.274303	3.48	0.42	1	0	h-win	yes
+6595	1380941	2025-10-18	Netherlands	Eredivisie	Utrecht	FC Volendam	h-win	3	1	22	6	3	3	10	0	0	1	1	1	0	0	58.00	42.00	12	13	\N	\N	\N	\N	\N	2025-12-02 19:10:48.362809	2.54	0.46	0	1	a-win	yes
+6596	1380942	2025-10-18	Netherlands	Eredivisie	Ajax	AZ Alkmaar	a-win	0	2	17	6	13	3	5	4	3	1	4	2	0	0	61.00	39.00	13	19	\N	\N	\N	\N	\N	2025-12-02 19:10:48.453881	1.24	2.24	0	2	a-win	yes
+6597	1380943	2025-10-18	Netherlands	Eredivisie	NAC Breda	PEC Zwolle	draw	2	2	19	6	11	3	3	2	1	0	1	3	0	0	47.00	53.00	11	14	\N	\N	\N	\N	\N	2025-12-02 19:10:48.57113	2.48	1.46	2	1	h-win	yes
+6598	1380946	2025-10-19	Netherlands	Eredivisie	Telstar	Heerenveen	a-win	2	3	18	6	15	7	6	11	1	0	1	2	0	0	46.00	54.00	9	12	\N	\N	\N	\N	\N	2025-12-02 19:10:48.662569	2.58	2.69	1	2	a-win	yes
+6599	1380945	2025-10-19	Netherlands	Eredivisie	Excelsior	Fortuna Sittard	h-win	1	0	11	5	14	6	4	2	1	5	0	3	0	0	50.00	50.00	10	18	\N	\N	\N	\N	\N	2025-12-02 19:10:48.752339	1.08	1.16	1	0	h-win	yes
+6600	1380944	2025-10-19	Netherlands	Eredivisie	Groningen	Sparta Rotterdam	a-win	0	2	12	0	8	2	7	4	2	1	3	2	0	0	61.00	39.00	11	10	\N	\N	\N	\N	\N	2025-12-02 19:10:48.84587	1.22	0.88	0	1	a-win	yes
+6601	1380939	2025-10-19	Netherlands	Eredivisie	Heracles	Feyenoord	a-win	0	7	4	0	19	12	2	8	0	2	1	2	0	0	36.00	64.00	11	13	\N	\N	\N	\N	\N	2025-12-02 19:10:48.934946	0.19	2.75	0	4	a-win	yes
+6602	1380948	2025-10-24	Netherlands	Eredivisie	Heerenveen	NAC Breda	draw	3	3	10	4	11	4	4	5	2	2	1	0	0	0	54.00	46.00	10	10	\N	\N	\N	\N	\N	2025-12-02 19:10:49.027743	2.30	1.44	1	0	h-win	yes
+6603	1380949	2025-10-25	Netherlands	Eredivisie	Fortuna Sittard	Groningen	a-win	1	2	9	3	16	10	7	7	1	2	3	1	0	0	57.00	43.00	14	9	\N	\N	\N	\N	\N	2025-12-02 19:10:49.118214	1.20	1.77	0	1	a-win	yes
+6604	1380951	2025-10-25	Netherlands	Eredivisie	Sparta Rotterdam	Telstar	h-win	1	0	14	6	14	3	6	7	0	1	3	2	0	0	47.00	53.00	9	14	\N	\N	\N	\N	\N	2025-12-02 19:10:49.206228	1.79	0.63	1	0	h-win	yes
+6605	1380950	2025-10-25	Netherlands	Eredivisie	FC Volendam	Heracles	h-win	3	0	13	7	11	2	5	5	1	2	0	3	0	1	57.00	43.00	6	13	\N	\N	\N	\N	\N	2025-12-02 19:10:49.342899	1.54	1.16	1	0	h-win	yes
+6606	1380952	2025-10-25	Netherlands	Eredivisie	PEC Zwolle	NEC Nijmegen	draw	2	2	10	6	11	3	3	4	3	2	0	1	0	0	35.00	65.00	11	12	\N	\N	\N	\N	\N	2025-12-02 19:10:49.435778	1.87	0.77	1	1	draw	yes
+6607	1380953	2025-10-26	Netherlands	Eredivisie	Twente	Ajax	a-win	2	3	21	5	9	6	6	1	1	1	0	2	0	0	62.00	38.00	14	13	\N	\N	\N	\N	\N	2025-12-02 19:10:49.537037	2.75	0.99	1	0	h-win	yes
+6608	1380954	2025-10-26	Netherlands	Eredivisie	Feyenoord	PSV Eindhoven	a-win	2	3	12	6	11	6	3	5	0	1	0	1	0	0	48.00	52.00	7	13	\N	\N	\N	\N	\N	2025-12-02 19:10:49.627746	1.14	1.16	0	1	a-win	yes
+6609	1380956	2025-10-26	Netherlands	Eredivisie	AZ Alkmaar	Utrecht	h-win	4	1	18	7	8	2	8	2	0	0	0	1	0	0	50.00	50.00	4	14	\N	\N	\N	\N	\N	2025-12-02 19:10:49.718969	3.59	0.99	2	0	h-win	yes
+6610	1380955	2025-10-26	Netherlands	Eredivisie	GO Ahead Eagles	Excelsior	h-win	2	0	12	4	11	2	4	10	1	1	1	2	0	0	52.00	48.00	7	12	\N	\N	\N	\N	\N	2025-12-02 19:10:49.812698	1.81	0.54	0	0	draw	yes
+6611	1380957	2025-10-31	Netherlands	Eredivisie	PSV Eindhoven	Fortuna Sittard	h-win	5	2	21	6	10	4	7	4	4	1	0	4	0	0	63.00	37.00	8	12	\N	\N	\N	\N	\N	2025-12-02 19:10:49.903924	2.20	0.73	3	0	h-win	yes
+6612	1380960	2025-11-01	Netherlands	Eredivisie	Ajax	Heerenveen	draw	1	1	9	2	17	7	5	4	2	0	0	2	0	0	57.00	43.00	6	16	\N	\N	\N	5	10	2025-12-02 19:10:50.076047	1.11	1.06	1	0	h-win	yes
+6613	1380959	2025-11-01	Netherlands	Eredivisie	NAC Breda	GO Ahead Eagles	h-win	1	0	8	2	7	2	2	2	1	2	4	2	0	0	44.00	56.00	10	8	\N	\N	\N	17	11	2025-12-02 19:10:50.166777	0.63	0.40	0	0	draw	yes
+6614	1380958	2025-11-01	Netherlands	Eredivisie	Feyenoord	FC Volendam	h-win	3	1	37	9	9	1	10	1	3	0	0	0	0	0	54.00	46.00	4	8	\N	\N	\N	2	15	2025-12-02 19:10:50.258353	4.82	0.97	2	0	h-win	yes
+6615	1380961	2025-11-01	Netherlands	Eredivisie	Telstar	Excelsior	draw	2	2	17	8	21	8	3	5	3	0	0	2	0	0	46.00	54.00	8	15	\N	\N	\N	18	13	2025-12-02 19:10:50.350564	3.21	3.45	2	1	h-win	yes
+6616	1380962	2025-11-02	Netherlands	Eredivisie	Heracles	PEC Zwolle	h-win	8	2	24	11	7	4	4	2	0	0	0	3	0	1	57.00	43.00	16	11	\N	\N	\N	16	14	2025-12-02 19:10:50.443108	4.51	1.14	4	1	h-win	yes
+6617	1380963	2025-11-02	Netherlands	Eredivisie	Groningen	Twente	draw	1	1	18	7	10	4	7	3	2	1	2	4	0	0	55.00	45.00	7	12	\N	\N	\N	8	7	2025-12-02 19:10:50.529403	3.33	1.44	0	0	draw	yes
+6618	1380964	2025-11-02	Netherlands	Eredivisie	Sparta Rotterdam	AZ Alkmaar	a-win	0	1	10	3	20	14	6	9	2	2	1	1	0	0	42.00	58.00	7	12	\N	\N	\N	12	4	2025-12-02 19:10:50.6193	0.56	2.62	0	0	draw	yes
+6619	1380965	2025-11-02	Netherlands	Eredivisie	Utrecht	NEC Nijmegen	h-win	1	0	11	4	16	5	2	2	2	2	1	2	0	0	39.00	61.00	11	15	\N	\N	\N	6	3	2025-12-02 19:10:50.709683	1.51	2.14	1	0	h-win	yes
+6620	1380966	2025-11-07	Netherlands	Eredivisie	Twente	Telstar	draw	0	0	27	7	6	0	10	2	0	4	4	2	1	1	66.00	34.00	13	4	\N	\N	\N	7	18	2025-12-02 19:10:50.799672	1.75	0.63	0	0	draw	yes
+6621	1380967	2025-11-08	Netherlands	Eredivisie	Excelsior	Heracles	a-win	1	2	12	5	10	5	6	13	0	1	1	2	0	0	45.00	55.00	14	13	\N	\N	\N	13	16	2025-12-02 19:10:50.892524	2.03	1.34	1	0	h-win	yes
+6622	1380968	2025-11-08	Netherlands	Eredivisie	FC Volendam	NAC Breda	h-win	2	1	12	5	12	2	8	6	1	1	2	2	0	2	51.00	49.00	13	9	\N	\N	\N	15	17	2025-12-02 19:10:50.984155	1.91	0.59	0	1	a-win	yes
+6623	1380969	2025-11-08	Netherlands	Eredivisie	Fortuna Sittard	Heerenveen	h-win	2	0	10	5	18	8	4	5	3	3	2	1	0	0	39.00	61.00	14	12	\N	\N	\N	9	10	2025-12-02 19:10:51.074178	1.83	1.49	0	0	draw	yes
+6624	1380970	2025-11-08	Netherlands	Eredivisie	PEC Zwolle	Sparta Rotterdam	h-win	1	0	11	3	14	1	3	6	2	1	2	4	0	1	36.00	64.00	9	15	\N	\N	\N	14	12	2025-12-02 19:10:51.161939	1.05	0.94	1	0	h-win	yes
+6625	1380971	2025-11-09	Netherlands	Eredivisie	Utrecht	Ajax	h-win	2	1	16	6	10	4	6	4	0	1	1	0	0	0	32.00	68.00	15	10	\N	\N	\N	6	5	2025-12-02 19:10:51.256059	1.39	0.64	1	0	h-win	yes
+6626	1380973	2025-11-09	Netherlands	Eredivisie	NEC Nijmegen	Groningen	h-win	2	0	13	5	10	4	9	3	1	0	1	1	0	0	55.00	45.00	6	13	\N	\N	\N	3	8	2025-12-02 19:10:51.345198	1.57	1.38	0	0	draw	yes
+6627	1380972	2025-11-09	Netherlands	Eredivisie	AZ Alkmaar	PSV Eindhoven	a-win	1	5	8	3	15	6	4	6	1	0	2	1	0	0	47.00	53.00	9	10	\N	\N	\N	4	1	2025-12-02 19:10:51.433666	0.28	2.39	1	3	a-win	yes
+6628	1380974	2025-11-09	Netherlands	Eredivisie	GO Ahead Eagles	Feyenoord	h-win	2	1	9	5	21	6	4	7	1	1	2	1	0	0	40.00	60.00	7	10	\N	\N	\N	11	2	2025-12-02 19:10:51.559024	1.67	2.68	1	0	h-win	yes
+6629	1380981	2025-11-22	Netherlands	Eredivisie	NAC Breda	PSV Eindhoven	a-win	0	1	16	3	9	4	6	5	0	0	2	1	0	0	47.00	53.00	11	15	\N	\N	\N	17	1	2025-12-02 19:10:51.680423	1.21	0.56	0	1	a-win	yes
+6630	1380975	2025-11-22	Netherlands	Eredivisie	Ajax	Excelsior	a-win	1	2	15	5	8	4	9	2	2	0	2	1	0	0	64.00	36.00	4	13	\N	\N	\N	5	13	2025-12-02 19:10:51.777173	1.30	0.43	0	1	a-win	yes
+6631	1380976	2025-11-22	Netherlands	Eredivisie	FC Volendam	Twente	draw	1	1	11	4	18	6	4	4	1	0	0	3	0	0	52.00	48.00	5	11	\N	\N	\N	15	7	2025-12-02 19:10:51.875296	1.39	2.52	0	0	draw	yes
+6632	1380980	2025-11-22	Netherlands	Eredivisie	Heracles	GO Ahead Eagles	h-win	4	2	22	12	6	4	6	3	1	1	1	3	0	1	46.00	54.00	6	15	\N	\N	\N	16	11	2025-12-02 19:10:51.978136	2.62	0.98	1	2	a-win	yes
+6633	1380982	2025-11-22	Netherlands	Eredivisie	Sparta Rotterdam	Fortuna Sittard	draw	1	1	13	4	12	7	7	5	0	3	1	1	0	0	61.00	39.00	9	11	\N	\N	\N	12	9	2025-12-02 19:10:52.078314	1.84	1.17	1	0	h-win	yes
+6634	1380979	2025-11-23	Netherlands	Eredivisie	Heerenveen	AZ Alkmaar	h-win	3	1	21	9	9	5	8	5	1	0	1	0	0	0	47.00	53.00	9	4	\N	\N	\N	10	4	2025-12-02 19:10:52.179193	3.14	1.17	2	0	h-win	yes
+6635	1380977	2025-11-23	Netherlands	Eredivisie	Feyenoord	NEC Nijmegen	a-win	2	4	19	5	22	12	7	6	0	6	1	1	0	0	55.00	45.00	8	13	\N	\N	\N	2	3	2025-12-02 19:10:52.291166	2.67	2.25	1	1	draw	yes
+6636	1380983	2025-11-23	Netherlands	Eredivisie	Telstar	Utrecht	draw	1	1	10	3	17	3	1	8	3	0	2	2	0	0	42.00	58.00	10	10	\N	\N	\N	18	6	2025-12-02 19:10:52.37792	1.29	0.94	0	0	draw	yes
+6637	1380978	2025-11-23	Netherlands	Eredivisie	Groningen	PEC Zwolle	draw	2	2	39	13	5	3	13	0	0	2	1	3	0	1	64.00	36.00	11	9	\N	\N	\N	8	14	2025-12-02 19:10:52.467828	2.52	0.90	1	1	draw	yes
+6638	1380992	2025-11-28	Netherlands	Eredivisie	PEC Zwolle	Heerenveen	h-win	2	1	11	4	19	7	3	9	4	0	3	2	0	0	43.00	57.00	11	19	\N	\N	\N	14	10	2025-12-02 19:10:52.560361	1.56	1.76	2	1	h-win	yes
+6639	1380985	2025-11-29	Netherlands	Eredivisie	Excelsior	NAC Breda	h-win	1	0	5	2	22	3	1	6	1	1	4	1	0	0	43.00	57.00	22	12	\N	\N	\N	13	17	2025-12-02 19:10:52.660555	0.95	1.67	1	0	h-win	yes
+6640	1380989	2025-11-29	Netherlands	Eredivisie	Fortuna Sittard	Heracles	draw	1	1	23	5	6	3	11	3	1	2	3	5	0	0	56.00	44.00	19	22	\N	\N	\N	9	16	2025-12-02 19:10:52.749124	1.71	0.57	1	0	h-win	yes
+6680	1381948	2025-08-29	Netherlands	Eerste Divisie	FC OSS	Dordrecht	a-win	0	3	7	0	21	7	5	7	0	2	4	5	0	0	62.00	38.00	9	17	\N	\N	\N	\N	\N	2025-12-02 19:10:58.086996	\N	\N	0	1	a-win	yes
+6641	1380987	2025-11-29	Netherlands	Eredivisie	NEC Nijmegen	Sparta Rotterdam	h-win	3	1	19	7	13	5	7	6	0	0	2	4	0	0	52.00	48.00	9	13	\N	\N	\N	3	12	2025-12-02 19:10:52.842673	2.78	1.70	2	0	h-win	yes
+6642	1380988	2025-11-30	Netherlands	Eredivisie	PSV Eindhoven	FC Volendam	h-win	3	0	19	8	10	2	5	2	3	1	0	0	0	0	62.00	38.00	12	4	\N	\N	\N	1	15	2025-12-02 19:10:52.943379	1.37	0.47	2	0	h-win	yes
+6643	1380986	2025-11-30	Netherlands	Eredivisie	GO Ahead Eagles	Utrecht	draw	2	2	11	6	17	8	4	3	2	1	2	2	0	0	59.00	41.00	9	12	\N	\N	\N	11	6	2025-12-02 19:10:53.040573	0.89	2.06	0	1	a-win	yes
+6644	1380990	2025-11-30	Netherlands	Eredivisie	Telstar	Feyenoord	a-win	1	2	12	2	11	7	3	5	1	0	0	3	0	0	48.00	52.00	8	8	\N	\N	\N	18	2	2025-12-02 19:10:53.143486	1.57	1.59	0	1	a-win	yes
+6645	1380991	2025-11-30	Netherlands	Eredivisie	Twente	AZ Alkmaar	h-win	1	0	7	2	7	1	2	3	3	3	2	4	0	0	51.00	49.00	13	9	\N	\N	\N	7	4	2025-12-02 19:10:53.241694	0.89	1.29	0	0	draw	yes
+6646	1471227	2025-08-09	Netherlands	Eerste Divisie	Almere City FC	Vitesse	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:54.827936	\N	\N	0	0	draw	no
+6647	1381927	2025-08-15	Netherlands	Eerste Divisie	Vitesse	Den Bosch	draw	0	0	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	2025-12-02 19:10:54.930106	\N	\N	0	0	draw	no
+6648	1381914	2025-08-08	Netherlands	Eerste Divisie	De Graafschap	VVV Venlo	h-win	3	2	29	10	10	3	12	9	1	1	1	1	0	0	56.00	44.00	7	10	\N	\N	\N	\N	\N	2025-12-02 19:10:55.027913	\N	\N	2	1	h-win	yes
+6649	1381916	2025-08-08	Netherlands	Eerste Divisie	Dordrecht	Cambuur	h-win	1	0	17	6	7	2	7	7	0	1	4	4	0	1	40.00	60.00	12	8	\N	\N	\N	\N	\N	2025-12-02 19:10:55.141855	\N	\N	1	0	h-win	yes
+6650	1381915	2025-08-08	Netherlands	Eerste Divisie	Den Bosch	Jong Ajax	h-win	2	0	10	7	16	4	2	5	2	0	0	1	0	0	50.00	50.00	10	8	\N	\N	\N	\N	\N	2025-12-02 19:10:55.231099	\N	\N	1	0	h-win	yes
+6651	1381917	2025-08-08	Netherlands	Eerste Divisie	FC Eindhoven	Jong Utrecht	h-win	1	0	6	2	17	5	3	7	3	3	1	1	0	0	51.00	49.00	11	9	\N	\N	\N	\N	\N	2025-12-02 19:10:55.319927	\N	\N	0	0	draw	yes
+6652	1381918	2025-08-08	Netherlands	Eerste Divisie	FC OSS	MVV	h-win	4	0	16	7	17	6	5	8	0	0	2	2	0	0	44.00	56.00	17	17	\N	\N	\N	\N	\N	2025-12-02 19:10:55.416453	\N	\N	1	0	h-win	yes
+6653	1381920	2025-08-10	Netherlands	Eerste Divisie	Helmond Sport	Roda	a-win	1	3	7	2	12	5	7	2	0	0	2	0	0	0	65.00	35.00	14	10	\N	\N	\N	\N	\N	2025-12-02 19:10:55.507763	\N	\N	0	2	a-win	yes
+6654	1381921	2025-08-10	Netherlands	Eerste Divisie	ADO Den Haag	Willem II	h-win	5	1	21	8	5	3	6	3	2	2	0	2	0	1	66.00	34.00	9	10	\N	\N	\N	\N	\N	2025-12-02 19:10:55.600592	\N	\N	1	1	draw	yes
+6655	1381923	2025-08-11	Netherlands	Eerste Divisie	Jong PSV U21	Emmen	h-win	3	1	15	7	10	3	0	5	2	3	1	1	0	0	51.00	49.00	12	18	\N	\N	\N	\N	\N	2025-12-02 19:10:55.70037	\N	\N	1	0	h-win	yes
+6656	1381922	2025-08-11	Netherlands	Eerste Divisie	Jong AZ	Waalwijk	a-win	2	3	13	3	8	3	5	3	0	1	2	2	0	0	59.00	41.00	17	6	\N	\N	\N	\N	\N	2025-12-02 19:10:55.808219	\N	\N	2	2	draw	yes
+6657	1381926	2025-08-15	Netherlands	Eerste Divisie	VVV Venlo	Jong PSV U21	a-win	0	2	25	6	13	8	9	4	2	3	0	4	0	0	51.00	49.00	11	10	\N	\N	\N	\N	\N	2025-12-02 19:10:55.899774	\N	\N	0	1	a-win	yes
+6658	1381925	2025-08-15	Netherlands	Eerste Divisie	Roda	De Graafschap	h-win	1	0	14	6	14	5	5	9	2	2	2	2	0	0	41.00	59.00	11	17	\N	\N	\N	\N	\N	2025-12-02 19:10:55.992406	\N	\N	0	0	draw	yes
+6659	1381928	2025-08-15	Netherlands	Eerste Divisie	Waalwijk	Helmond Sport	draw	1	1	10	3	13	4	4	10	0	1	1	1	0	0	50.00	50.00	10	12	\N	\N	\N	\N	\N	2025-12-02 19:10:56.080154	\N	\N	1	1	draw	yes
+6660	1381924	2025-08-15	Netherlands	Eerste Divisie	Cambuur	FC OSS	h-win	1	0	18	3	9	5	10	3	1	0	2	1	0	0	52.00	48.00	14	17	\N	\N	\N	\N	\N	2025-12-02 19:10:56.16954	\N	\N	1	0	h-win	yes
+6661	1381929	2025-08-16	Netherlands	Eerste Divisie	MVV	Dordrecht	a-win	0	1	9	1	24	7	3	11	2	2	2	1	0	0	50.00	50.00	9	11	\N	\N	\N	\N	\N	2025-12-02 19:10:56.274539	\N	\N	0	0	draw	yes
+6662	1381930	2025-08-17	Netherlands	Eerste Divisie	Emmen	Almere City FC	a-win	1	4	14	3	18	7	3	7	0	4	2	1	0	0	57.00	43.00	13	13	\N	\N	\N	\N	\N	2025-12-02 19:10:56.36719	\N	\N	1	3	a-win	yes
+6663	1381931	2025-08-17	Netherlands	Eerste Divisie	Willem II	FC Eindhoven	a-win	0	1	17	3	15	4	6	3	2	0	1	2	0	0	64.00	36.00	8	11	\N	\N	\N	\N	\N	2025-12-02 19:10:56.481519	\N	\N	0	0	draw	yes
+6664	1381932	2025-08-18	Netherlands	Eerste Divisie	Jong Ajax	Jong AZ	h-win	4	1	10	7	17	7	2	6	3	0	2	2	0	0	36.00	64.00	9	16	\N	\N	\N	\N	\N	2025-12-02 19:10:56.573793	\N	\N	2	1	h-win	yes
+6665	1381933	2025-08-18	Netherlands	Eerste Divisie	Jong Utrecht	ADO Den Haag	draw	2	2	10	4	21	6	2	13	1	2	1	1	0	0	29.00	71.00	10	15	\N	\N	\N	\N	\N	2025-12-02 19:10:56.671979	\N	\N	0	0	draw	yes
+6666	1381935	2025-08-22	Netherlands	Eerste Divisie	De Graafschap	MVV	a-win	0	1	22	5	12	4	7	3	1	0	1	2	0	0	61.00	39.00	7	11	\N	\N	\N	\N	\N	2025-12-02 19:10:56.762933	\N	\N	0	0	draw	yes
+6667	1381934	2025-08-22	Netherlands	Eerste Divisie	Almere City FC	Willem II	a-win	0	1	18	3	2	2	7	1	2	2	0	3	0	0	62.00	38.00	7	13	\N	\N	\N	\N	\N	2025-12-02 19:10:56.858722	\N	\N	0	0	draw	yes
+6668	1381937	2025-08-22	Netherlands	Eerste Divisie	FC Eindhoven	Waalwijk	h-win	1	0	13	4	14	4	7	5	1	0	3	1	0	0	43.00	57.00	14	10	\N	\N	\N	\N	\N	2025-12-02 19:10:56.958527	\N	\N	0	0	draw	yes
+6669	1381938	2025-08-22	Netherlands	Eerste Divisie	Helmond Sport	Emmen	h-win	2	0	14	7	9	3	4	3	2	4	1	0	0	0	40.00	60.00	15	7	\N	\N	\N	\N	\N	2025-12-02 19:10:57.06179	\N	\N	1	0	h-win	yes
+6670	1381939	2025-08-23	Netherlands	Eerste Divisie	Dordrecht	Jong PSV U21	a-win	1	2	21	7	11	6	12	3	2	1	2	2	0	0	51.00	49.00	17	12	\N	\N	\N	\N	\N	2025-12-02 19:10:57.162896	\N	\N	0	1	a-win	yes
+6671	1381940	2025-08-24	Netherlands	Eerste Divisie	VVV Venlo	Roda	h-win	3	1	16	5	13	4	2	4	3	2	2	1	0	0	40.00	60.00	16	11	\N	\N	\N	\N	\N	2025-12-02 19:10:57.256122	\N	\N	1	0	h-win	yes
+6672	1381941	2025-08-24	Netherlands	Eerste Divisie	Den Bosch	FC OSS	h-win	5	2	29	9	13	8	9	6	0	3	3	1	0	0	53.00	47.00	10	8	\N	\N	\N	\N	\N	2025-12-02 19:10:57.343562	\N	\N	4	1	h-win	yes
+6673	1381942	2025-08-25	Netherlands	Eerste Divisie	Jong AZ	Cambuur	a-win	0	1	11	4	10	3	5	5	0	0	1	2	0	0	51.00	49.00	23	15	\N	\N	\N	\N	\N	2025-12-02 19:10:57.434891	\N	\N	0	1	a-win	yes
+6674	1381943	2025-08-25	Netherlands	Eerste Divisie	Jong Utrecht	Jong Ajax	h-win	4	3	16	6	17	9	4	5	2	1	1	1	0	0	45.00	55.00	11	9	\N	\N	\N	\N	\N	2025-12-02 19:10:57.525738	\N	\N	1	1	draw	yes
+6675	1381950	2025-08-29	Netherlands	Eerste Divisie	Willem II	Jong Utrecht	h-win	2	1	13	5	13	8	5	4	1	1	1	1	0	0	51.00	49.00	9	11	\N	\N	\N	\N	\N	2025-12-02 19:10:57.623574	\N	\N	1	0	h-win	yes
+6676	1381944	2025-08-29	Netherlands	Eerste Divisie	ADO Den Haag	Helmond Sport	h-win	2	0	23	4	2	1	12	2	3	3	3	3	0	0	62.00	38.00	18	12	\N	\N	\N	\N	\N	2025-12-02 19:10:57.712119	\N	\N	0	0	draw	yes
+6677	1381945	2025-08-29	Netherlands	Eerste Divisie	Emmen	Den Bosch	h-win	3	1	25	11	5	1	10	3	2	5	2	4	0	1	63.00	37.00	10	15	\N	\N	\N	\N	\N	2025-12-02 19:10:57.807332	\N	\N	0	1	a-win	yes
+6678	1381947	2025-08-29	Netherlands	Eerste Divisie	Jong PSV U21	Jong AZ	h-win	1	0	12	4	9	0	9	5	4	2	0	2	0	0	43.00	57.00	10	13	\N	\N	\N	\N	\N	2025-12-02 19:10:57.907008	\N	\N	1	0	h-win	yes
+6679	1381949	2025-08-29	Netherlands	Eerste Divisie	Roda	FC Eindhoven	draw	0	0	17	5	11	5	9	2	1	0	2	0	0	0	61.00	39.00	10	10	\N	\N	\N	\N	\N	2025-12-02 19:10:57.996093	\N	\N	0	0	draw	yes
+6681	1381946	2025-08-29	Netherlands	Eerste Divisie	Jong Ajax	MVV	draw	0	0	16	5	3	3	8	0	5	5	1	2	0	0	71.00	29.00	12	17	\N	\N	\N	\N	\N	2025-12-02 19:10:58.200926	\N	\N	0	0	draw	yes
+6682	1381951	2025-08-30	Netherlands	Eerste Divisie	Waalwijk	Almere City FC	h-win	2	0	14	6	9	3	4	6	2	1	1	0	0	0	41.00	59.00	9	12	\N	\N	\N	\N	\N	2025-12-02 19:10:58.296087	\N	\N	1	0	h-win	yes
+6683	1381953	2025-08-31	Netherlands	Eerste Divisie	Cambuur	VVV Venlo	h-win	3	1	7	5	12	5	2	4	4	0	2	3	0	0	56.00	44.00	12	19	\N	\N	\N	\N	\N	2025-12-02 19:10:58.392084	\N	\N	2	0	h-win	yes
+6684	1381954	2025-09-05	Netherlands	Eerste Divisie	De Graafschap	Emmen	a-win	2	3	18	4	16	6	6	3	5	2	3	4	0	0	58.00	42.00	9	11	\N	\N	\N	\N	\N	2025-12-02 19:10:58.48507	\N	\N	0	2	a-win	yes
+6685	1381955	2025-09-06	Netherlands	Eerste Divisie	Cambuur	Willem II	draw	2	2	22	10	10	5	9	2	3	0	0	2	0	0	62.00	38.00	7	15	\N	\N	\N	\N	\N	2025-12-02 20:10:29.188384	\N	\N	0	1	a-win	yes
+6686	1381957	2025-09-12	Netherlands	Eerste Divisie	De Graafschap	Willem II	draw	1	1	29	10	11	4	10	4	0	3	2	3	0	0	63.00	37.00	8	16	\N	\N	\N	\N	\N	2025-12-02 20:10:29.271075	\N	\N	1	1	draw	yes
+6687	1381960	2025-09-12	Netherlands	Eerste Divisie	Emmen	FC OSS	draw	1	1	19	5	13	4	2	6	1	2	1	2	0	0	50.00	50.00	22	24	\N	\N	\N	\N	\N	2025-12-02 20:10:29.365475	\N	\N	1	0	h-win	yes
+6688	1381963	2025-09-12	Netherlands	Eerste Divisie	MVV	Cambuur	a-win	0	1	12	2	13	4	6	4	3	1	4	1	0	0	38.00	62.00	23	5	\N	\N	\N	\N	\N	2025-12-02 20:10:29.451184	\N	\N	0	1	a-win	yes
+6689	1381964	2025-09-12	Netherlands	Eerste Divisie	Roda	Jong Ajax	draw	3	3	17	7	21	8	5	6	6	2	4	3	1	0	41.00	59.00	12	12	\N	\N	\N	\N	\N	2025-12-02 20:10:29.549697	\N	\N	1	2	a-win	yes
+6690	1381961	2025-09-12	Netherlands	Eerste Divisie	Jong AZ	Vitesse	h-win	4	0	19	9	7	1	5	5	0	2	3	4	0	0	65.00	35.00	13	10	\N	\N	\N	\N	\N	2025-12-02 20:10:29.63535	\N	\N	1	0	h-win	yes
+6691	1381956	2025-09-12	Netherlands	Eerste Divisie	Almere City FC	Jong PSV U21	a-win	2	4	26	7	17	11	7	7	0	1	3	2	0	0	34.00	66.00	14	12	\N	\N	\N	\N	\N	2025-12-02 20:10:29.725027	\N	\N	2	0	h-win	yes
+6692	1381958	2025-09-12	Netherlands	Eerste Divisie	Den Bosch	Dordrecht	draw	3	3	23	9	14	8	8	6	1	2	2	5	0	1	70.00	30.00	8	15	\N	\N	\N	\N	\N	2025-12-02 20:10:29.816234	\N	\N	1	2	a-win	yes
+6693	1381959	2025-09-12	Netherlands	Eerste Divisie	FC Eindhoven	ADO Den Haag	a-win	0	1	4	3	26	12	1	9	0	5	2	1	0	0	33.00	67.00	13	16	\N	\N	\N	\N	\N	2025-12-02 20:10:29.906438	\N	\N	0	0	draw	yes
+6694	1381962	2025-09-12	Netherlands	Eerste Divisie	Jong Utrecht	Waalwijk	h-win	2	0	23	10	8	2	8	3	0	3	0	1	0	0	35.00	65.00	17	4	\N	\N	\N	\N	\N	2025-12-02 20:10:29.995438	\N	\N	1	0	h-win	yes
+6695	1381965	2025-09-13	Netherlands	Eerste Divisie	VVV Venlo	Helmond Sport	h-win	2	1	13	4	10	4	4	2	1	3	1	1	0	0	51.00	49.00	11	10	\N	\N	\N	\N	\N	2025-12-02 20:10:30.079436	\N	\N	1	0	h-win	yes
+6696	1381967	2025-09-15	Netherlands	Eerste Divisie	Dordrecht	Jong AZ	draw	1	1	11	3	20	8	11	6	2	1	1	2	0	0	42.00	58.00	9	9	\N	\N	\N	\N	\N	2025-12-02 20:10:30.164428	\N	\N	1	1	draw	yes
+6697	1381969	2025-09-15	Netherlands	Eerste Divisie	Jong PSV U21	Roda	a-win	0	1	18	5	10	3	9	3	1	3	2	2	0	0	52.00	48.00	15	10	\N	\N	\N	\N	\N	2025-12-02 20:10:30.27889	\N	\N	0	0	draw	yes
+6698	1381966	2025-09-15	Netherlands	Eerste Divisie	Almere City FC	FC Eindhoven	h-win	5	0	28	13	14	5	10	4	1	2	2	2	0	1	57.00	43.00	9	10	\N	\N	\N	\N	\N	2025-12-02 20:10:30.36735	\N	\N	3	0	h-win	yes
+6699	1381968	2025-09-15	Netherlands	Eerste Divisie	Jong Ajax	ADO Den Haag	a-win	1	3	12	2	23	8	6	9	1	1	0	1	0	0	46.00	54.00	2	13	\N	\N	\N	\N	\N	2025-12-02 20:10:30.455299	\N	\N	0	2	a-win	yes
+6700	1381971	2025-09-16	Netherlands	Eerste Divisie	MVV	Den Bosch	a-win	2	4	16	3	21	9	11	8	1	0	2	1	0	0	46.00	54.00	9	6	\N	\N	\N	\N	\N	2025-12-02 20:10:30.545064	\N	\N	2	2	draw	yes
+6701	1381973	2025-09-16	Netherlands	Eerste Divisie	Waalwijk	Vitesse	draw	1	1	11	4	3	2	4	2	1	2	4	3	0	0	48.00	52.00	14	22	\N	\N	\N	\N	\N	2025-12-02 20:10:30.629379	\N	\N	1	0	h-win	yes
+6702	1381972	2025-09-16	Netherlands	Eerste Divisie	FC OSS	VVV Venlo	h-win	2	1	9	4	16	3	5	11	0	1	3	3	0	0	42.00	58.00	19	17	\N	\N	\N	\N	\N	2025-12-02 20:10:30.715259	\N	\N	1	0	h-win	yes
+6703	1381970	2025-09-16	Netherlands	Eerste Divisie	Helmond Sport	Jong Utrecht	h-win	2	1	9	4	14	3	6	4	2	2	2	0	0	0	49.00	51.00	23	7	\N	\N	\N	\N	\N	2025-12-02 20:10:30.801326	\N	\N	1	0	h-win	yes
+6704	1381978	2025-09-19	Netherlands	Eerste Divisie	Willem II	Jong Ajax	h-win	1	0	11	3	13	2	8	3	4	0	1	0	0	0	49.00	51.00	13	9	\N	\N	\N	\N	\N	2025-12-02 20:10:30.895194	\N	\N	0	0	draw	yes
+6705	1381974	2025-09-19	Netherlands	Eerste Divisie	ADO Den Haag	Almere City FC	h-win	2	1	28	6	5	2	5	4	1	1	1	5	0	1	67.00	33.00	13	14	\N	\N	\N	\N	\N	2025-12-02 20:10:30.98147	\N	\N	2	0	h-win	yes
+6706	1381976	2025-09-19	Netherlands	Eerste Divisie	Emmen	Dordrecht	h-win	2	0	14	6	9	1	2	4	0	6	3	1	0	0	59.00	41.00	16	17	\N	\N	\N	\N	\N	2025-12-02 20:10:31.065422	\N	\N	1	0	h-win	yes
+6707	1381977	2025-09-19	Netherlands	Eerste Divisie	Roda	Waalwijk	a-win	1	4	12	3	11	7	4	4	2	1	1	0	0	0	62.00	38.00	12	6	\N	\N	\N	\N	\N	2025-12-02 20:10:31.148467	\N	\N	0	2	a-win	yes
+6708	1381975	2025-09-19	Netherlands	Eerste Divisie	FC Eindhoven	FC OSS	a-win	3	4	11	5	14	8	2	0	1	0	2	1	0	0	43.00	57.00	10	11	\N	\N	\N	\N	\N	2025-12-02 20:10:31.236303	\N	\N	2	2	draw	yes
+6709	1381979	2025-09-20	Netherlands	Eerste Divisie	Vitesse	Helmond Sport	h-win	3	1	12	4	13	3	3	6	1	0	3	3	0	0	38.00	62.00	10	20	\N	\N	\N	\N	\N	2025-12-02 20:10:31.336503	\N	\N	1	1	draw	yes
+6710	1381980	2025-09-21	Netherlands	Eerste Divisie	VVV Venlo	MVV	h-win	1	0	18	6	8	3	6	4	0	3	2	3	0	0	62.00	38.00	8	17	\N	\N	\N	\N	\N	2025-12-02 20:10:31.430691	\N	\N	0	0	draw	yes
+6711	1381982	2025-09-22	Netherlands	Eerste Divisie	Jong PSV U21	Den Bosch	h-win	3	0	12	5	14	3	6	10	2	0	2	2	0	0	49.00	51.00	11	14	\N	\N	\N	\N	\N	2025-12-02 20:10:31.516394	\N	\N	2	0	h-win	yes
+6712	1381981	2025-09-22	Netherlands	Eerste Divisie	Jong AZ	De Graafschap	a-win	1	3	9	2	21	7	3	9	3	5	1	2	0	0	56.00	44.00	11	15	\N	\N	\N	\N	\N	2025-12-02 20:10:31.603274	\N	\N	0	1	a-win	yes
+6713	1381983	2025-09-22	Netherlands	Eerste Divisie	Jong Utrecht	Cambuur	a-win	2	4	11	2	14	8	1	2	0	5	1	0	0	0	43.00	57.00	18	11	\N	\N	\N	\N	\N	2025-12-02 20:10:31.702419	\N	\N	1	3	a-win	yes
+6714	1381987	2025-09-26	Netherlands	Eerste Divisie	Dordrecht	De Graafschap	draw	1	1	24	7	20	8	5	4	2	2	3	1	0	0	40.00	60.00	10	7	\N	\N	\N	\N	\N	2025-12-02 20:10:31.831447	\N	\N	0	1	a-win	yes
+6715	1381990	2025-09-26	Netherlands	Eerste Divisie	MVV	Emmen	h-win	1	0	19	5	9	2	5	4	4	0	0	1	0	1	50.00	50.00	12	14	\N	\N	\N	\N	\N	2025-12-02 20:10:31.919354	\N	\N	0	0	draw	yes
+6716	1381992	2025-09-26	Netherlands	Eerste Divisie	Waalwijk	ADO Den Haag	a-win	1	3	7	2	14	5	4	11	2	0	0	1	0	0	39.00	61.00	13	19	\N	\N	\N	\N	\N	2025-12-02 20:10:32.007643	\N	\N	1	1	draw	yes
+6717	1381984	2025-09-26	Netherlands	Eerste Divisie	Almere City FC	Jong Utrecht	h-win	4	0	18	10	5	0	11	2	2	2	0	0	0	0	45.00	55.00	8	4	\N	\N	\N	\N	\N	2025-12-02 20:10:32.095415	\N	\N	1	0	h-win	yes
+6718	1381985	2025-09-26	Netherlands	Eerste Divisie	Cambuur	Jong PSV U21	h-win	5	3	19	9	16	7	12	3	0	0	1	1	0	0	58.00	42.00	14	17	\N	\N	\N	\N	\N	2025-12-02 20:10:32.187263	\N	\N	3	1	h-win	yes
+6719	1381986	2025-09-26	Netherlands	Eerste Divisie	Den Bosch	Jong AZ	a-win	2	3	8	3	11	4	8	2	1	2	2	0	0	0	42.00	58.00	16	8	\N	\N	\N	\N	\N	2025-12-02 20:10:32.284322	\N	\N	2	1	h-win	yes
+6720	1381991	2025-09-26	Netherlands	Eerste Divisie	FC OSS	Roda	a-win	1	2	15	3	8	3	5	4	0	0	2	1	0	0	52.00	48.00	14	20	\N	\N	\N	\N	\N	2025-12-02 20:10:32.374424	\N	\N	0	1	a-win	yes
+6721	1381988	2025-09-26	Netherlands	Eerste Divisie	Helmond Sport	FC Eindhoven	h-win	1	0	16	6	15	1	10	6	1	0	4	1	0	0	43.00	57.00	18	7	\N	\N	\N	\N	\N	2025-12-02 20:10:32.47152	\N	\N	1	0	h-win	yes
+6722	1381989	2025-09-26	Netherlands	Eerste Divisie	Jong Ajax	VVV Venlo	a-win	2	4	13	5	15	10	6	5	1	5	1	2	0	0	59.00	41.00	13	13	\N	\N	\N	\N	\N	2025-12-02 20:10:32.561239	\N	\N	1	1	draw	yes
+6723	1381993	2025-09-27	Netherlands	Eerste Divisie	Vitesse	Willem II	a-win	1	2	17	9	11	6	4	8	2	0	3	5	0	0	54.00	46.00	10	12	\N	\N	\N	\N	\N	2025-12-02 20:10:32.648429	\N	\N	0	1	a-win	yes
+6724	1381995	2025-09-29	Netherlands	Eerste Divisie	ADO Den Haag	FC OSS	h-win	5	1	28	9	5	1	9	1	1	2	2	2	0	0	68.00	32.00	19	12	\N	\N	\N	\N	\N	2025-12-02 20:10:32.737384	\N	\N	4	1	h-win	yes
+6725	1381994	2025-09-29	Netherlands	Eerste Divisie	De Graafschap	Almere City FC	h-win	3	2	13	8	20	8	2	5	1	1	1	3	0	0	55.00	45.00	9	13	\N	\N	\N	\N	\N	2025-12-02 20:10:32.892736	\N	\N	3	1	h-win	yes
+6726	1381996	2025-09-29	Netherlands	Eerste Divisie	Jong PSV U21	MVV	draw	2	2	15	3	16	7	6	5	3	2	1	2	0	0	58.00	42.00	7	9	\N	\N	\N	\N	\N	2025-12-02 20:10:32.980425	\N	\N	2	1	h-win	yes
+6727	1381997	2025-09-29	Netherlands	Eerste Divisie	Roda	Cambuur	draw	1	1	16	8	14	6	2	9	4	1	1	2	0	0	40.00	60.00	12	13	\N	\N	\N	\N	\N	2025-12-02 20:10:33.088352	\N	\N	1	1	draw	yes
+6728	1381998	2025-09-29	Netherlands	Eerste Divisie	Waalwijk	Jong Ajax	h-win	2	1	20	9	9	3	10	2	5	0	0	0	0	0	56.00	44.00	12	9	\N	\N	\N	\N	\N	2025-12-02 20:10:33.178663	\N	\N	1	0	h-win	yes
+6729	1382003	2025-09-30	Netherlands	Eerste Divisie	Willem II	Helmond Sport	h-win	1	0	16	6	17	3	6	2	3	2	2	2	0	0	49.00	51.00	12	13	\N	\N	\N	\N	\N	2025-12-02 20:10:33.271454	\N	\N	1	0	h-win	yes
+6730	1382002	2025-09-30	Netherlands	Eerste Divisie	VVV Venlo	Den Bosch	a-win	0	1	14	5	8	3	9	6	1	1	3	3	0	0	50.00	50.00	15	15	\N	\N	\N	\N	\N	2025-12-02 20:10:33.360449	\N	\N	0	0	draw	yes
+6731	1382000	2025-09-30	Netherlands	Eerste Divisie	Emmen	Vitesse	a-win	2	4	18	5	12	7	8	1	0	2	3	3	0	0	63.00	37.00	16	13	\N	\N	\N	\N	\N	2025-12-02 20:10:33.44577	\N	\N	1	2	a-win	yes
+6732	1381999	2025-09-30	Netherlands	Eerste Divisie	FC Eindhoven	Dordrecht	draw	2	2	10	4	28	9	6	9	2	3	4	1	0	0	46.00	54.00	11	14	\N	\N	\N	\N	\N	2025-12-02 20:10:33.530769	\N	\N	2	1	h-win	yes
+6733	1382001	2025-09-30	Netherlands	Eerste Divisie	Jong Utrecht	Jong AZ	draw	0	0	13	3	7	3	7	4	5	1	2	0	0	0	51.00	49.00	14	15	\N	\N	\N	\N	\N	2025-12-02 20:10:33.621035	\N	\N	0	0	draw	yes
+6734	1382013	2025-10-03	Netherlands	Eerste Divisie	Willem II	Roda	a-win	1	2	13	4	13	4	2	4	2	0	1	1	0	0	55.00	45.00	13	10	\N	\N	\N	\N	\N	2025-12-02 20:10:33.705885	\N	\N	1	1	draw	yes
+6735	1382012	2025-10-03	Netherlands	Eerste Divisie	Vitesse	Jong Utrecht	h-win	2	0	10	3	7	3	3	7	2	1	4	4	0	0	48.00	52.00	18	18	\N	\N	\N	\N	\N	2025-12-02 20:10:33.793262	\N	\N	1	0	h-win	yes
+6736	1382006	2025-10-03	Netherlands	Eerste Divisie	Dordrecht	VVV Venlo	h-win	2	0	12	3	11	4	5	8	0	1	1	2	0	0	52.00	48.00	10	11	\N	\N	\N	\N	\N	2025-12-02 20:10:33.880385	\N	\N	0	0	draw	yes
+6737	1382010	2025-10-03	Netherlands	Eerste Divisie	MVV	FC Eindhoven	h-win	3	1	10	3	17	6	7	6	3	1	3	1	0	0	54.00	46.00	12	12	\N	\N	\N	\N	\N	2025-12-02 20:10:33.969309	\N	\N	2	0	h-win	yes
+6738	1382009	2025-10-03	Netherlands	Eerste Divisie	Jong AZ	ADO Den Haag	a-win	0	4	5	3	12	8	3	4	2	2	3	2	0	0	54.00	46.00	19	13	\N	\N	\N	\N	\N	2025-12-02 20:10:34.050585	\N	\N	0	1	a-win	yes
+6739	1382004	2025-10-03	Netherlands	Eerste Divisie	Cambuur	Emmen	h-win	3	2	12	5	19	7	7	7	6	2	3	2	0	0	58.00	42.00	8	26	\N	\N	\N	\N	\N	2025-12-02 20:10:34.142364	\N	\N	1	1	draw	yes
+6740	1382005	2025-10-03	Netherlands	Eerste Divisie	Den Bosch	Waalwijk	draw	2	2	10	3	16	7	11	13	1	0	0	3	0	0	56.00	44.00	11	8	\N	\N	\N	\N	\N	2025-12-02 20:10:34.22831	\N	\N	0	1	a-win	yes
+6741	1382011	2025-10-03	Netherlands	Eerste Divisie	FC OSS	Jong PSV U21	draw	1	1	22	4	13	2	9	3	0	0	5	1	0	0	38.00	62.00	27	12	\N	\N	\N	\N	\N	2025-12-02 20:10:34.316386	\N	\N	1	0	h-win	yes
+6742	1382007	2025-10-03	Netherlands	Eerste Divisie	Helmond Sport	Almere City FC	h-win	2	1	12	2	16	2	5	6	1	2	1	1	0	0	47.00	53.00	11	16	\N	\N	\N	\N	\N	2025-12-02 20:10:34.404136	\N	\N	1	0	h-win	yes
+6743	1382008	2025-10-03	Netherlands	Eerste Divisie	Jong Ajax	De Graafschap	draw	2	2	13	4	12	7	3	11	1	2	3	2	0	0	46.00	54.00	7	15	\N	\N	\N	\N	\N	2025-12-02 20:10:34.493517	\N	\N	1	1	draw	yes
+6744	1468987	2025-10-06	Netherlands	Eerste Divisie	Vitesse	Den Bosch	a-win	1	2	24	9	9	7	11	2	2	0	1	5	0	0	62.00	38.00	9	25	\N	\N	\N	\N	\N	2025-12-02 20:10:34.597198	\N	\N	0	2	a-win	yes
+6745	1470114	2025-10-10	Netherlands	Eerste Divisie	Almere City FC	Vitesse	draw	2	2	18	6	14	5	10	3	1	1	1	2	0	0	57.00	43.00	15	11	\N	\N	\N	\N	\N	2025-12-02 20:10:34.685611	\N	\N	0	0	draw	yes
+6746	1382014	2025-10-11	Netherlands	Eerste Divisie	Emmen	FC Eindhoven	h-win	6	0	16	9	5	1	8	3	2	3	1	5	0	0	62.00	38.00	14	14	\N	\N	\N	\N	\N	2025-12-02 20:10:34.770638	\N	\N	1	0	h-win	yes
+6747	1382015	2025-10-11	Netherlands	Eerste Divisie	Cambuur	De Graafschap	h-win	2	0	22	11	7	3	9	1	2	1	2	3	0	1	71.00	29.00	11	20	\N	\N	\N	\N	\N	2025-12-02 20:10:34.874621	\N	\N	1	0	h-win	yes
+6748	1382024	2025-10-17	Netherlands	Eerste Divisie	Waalwijk	Willem II	a-win	2	3	25	7	11	4	8	6	3	1	0	0	0	0	56.00	44.00	8	11	\N	\N	\N	\N	\N	2025-12-02 20:10:34.962776	\N	\N	0	1	a-win	yes
+6749	1382017	2025-10-17	Netherlands	Eerste Divisie	ADO Den Haag	Dordrecht	h-win	3	0	18	13	10	3	4	3	0	2	0	2	0	0	60.00	40.00	16	13	\N	\N	\N	\N	\N	2025-12-02 20:10:35.047823	\N	\N	0	0	draw	yes
+6750	1382023	2025-10-17	Netherlands	Eerste Divisie	VVV Venlo	Emmen	h-win	4	0	14	7	15	3	2	8	2	0	1	1	0	0	32.00	68.00	10	5	\N	\N	\N	\N	\N	2025-12-02 20:10:35.136238	\N	\N	0	0	draw	yes
+6751	1382022	2025-10-17	Netherlands	Eerste Divisie	Roda	Den Bosch	h-win	6	0	15	7	9	3	8	5	3	2	2	3	0	0	60.00	40.00	15	9	\N	\N	\N	\N	\N	2025-12-02 20:10:35.221362	\N	\N	4	0	h-win	yes
+6752	1382016	2025-10-17	Netherlands	Eerste Divisie	Almere City FC	Cambuur	draw	1	1	10	4	22	9	4	10	0	2	2	2	0	0	36.00	64.00	10	22	\N	\N	\N	\N	\N	2025-12-02 20:10:35.3054	\N	\N	0	0	draw	yes
+6753	1382018	2025-10-17	Netherlands	Eerste Divisie	FC Eindhoven	Vitesse	a-win	0	4	11	2	9	4	2	1	0	1	3	2	0	0	44.00	56.00	13	13	\N	\N	\N	\N	\N	2025-12-02 20:10:35.401474	\N	\N	0	1	a-win	yes
+6754	1382019	2025-10-17	Netherlands	Eerste Divisie	Helmond Sport	Jong AZ	h-win	4	2	12	6	16	7	3	5	0	0	1	1	0	0	54.00	46.00	12	16	\N	\N	\N	\N	\N	2025-12-02 20:10:35.486544	\N	\N	1	2	a-win	yes
+6755	1382020	2025-10-17	Netherlands	Eerste Divisie	Jong Ajax	Jong PSV U21	draw	2	2	21	9	20	8	8	5	1	2	2	3	0	0	56.00	44.00	21	20	\N	\N	\N	\N	\N	2025-12-02 20:10:35.573048	\N	\N	0	1	a-win	yes
+6756	1382021	2025-10-17	Netherlands	Eerste Divisie	Jong Utrecht	MVV	h-win	3	1	16	6	19	9	3	7	4	1	0	2	0	0	36.00	64.00	11	13	\N	\N	\N	\N	\N	2025-12-02 20:10:35.6574	\N	\N	2	1	h-win	yes
+6757	1382025	2025-10-18	Netherlands	Eerste Divisie	De Graafschap	FC OSS	draw	1	1	30	10	14	3	19	2	2	0	1	0	0	0	69.00	31.00	12	14	\N	\N	\N	\N	\N	2025-12-02 20:10:35.741344	\N	\N	0	1	a-win	yes
+6758	1382026	2025-10-20	Netherlands	Eerste Divisie	Dordrecht	Waalwijk	a-win	1	2	7	2	17	6	5	7	1	1	2	4	0	0	49.00	51.00	14	17	\N	\N	\N	\N	\N	2025-12-02 20:10:35.823561	\N	\N	1	0	h-win	yes
+6759	1382028	2025-10-20	Netherlands	Eerste Divisie	Jong PSV U21	ADO Den Haag	a-win	0	3	11	1	21	7	2	4	2	3	3	3	0	0	45.00	55.00	24	0	\N	\N	\N	\N	\N	2025-12-02 20:10:35.913341	\N	\N	0	1	a-win	yes
+6760	1382029	2025-10-20	Netherlands	Eerste Divisie	Roda	Almere City FC	h-win	2	0	14	6	15	3	7	9	3	1	1	1	0	0	58.00	42.00	3	14	\N	\N	\N	\N	\N	2025-12-02 20:10:35.999736	\N	\N	0	0	draw	yes
+6761	1382027	2025-10-20	Netherlands	Eerste Divisie	Jong AZ	Willem II	h-win	4	0	15	7	12	6	4	5	1	2	2	1	0	0	52.00	48.00	10	8	\N	\N	\N	\N	\N	2025-12-02 20:10:36.082433	\N	\N	2	0	h-win	yes
+6762	1382033	2025-10-21	Netherlands	Eerste Divisie	VVV Venlo	Jong Utrecht	a-win	0	1	13	4	8	1	6	5	3	0	1	2	0	0	58.00	42.00	10	9	\N	\N	\N	\N	\N	2025-12-02 20:10:36.171266	\N	\N	0	1	a-win	yes
+6763	1382031	2025-10-21	Netherlands	Eerste Divisie	MVV	Vitesse	h-win	3	2	8	4	22	10	2	5	1	1	0	1	0	0	40.00	60.00	9	16	\N	\N	\N	\N	\N	2025-12-02 20:10:36.254814	\N	\N	1	0	h-win	yes
+6764	1382030	2025-10-21	Netherlands	Eerste Divisie	Den Bosch	Helmond Sport	h-win	1	0	9	5	14	2	6	7	5	0	1	0	0	0	44.00	56.00	10	11	\N	\N	\N	\N	\N	2025-12-02 20:10:36.34094	\N	\N	0	0	draw	yes
+6765	1382032	2025-10-21	Netherlands	Eerste Divisie	FC OSS	Jong Ajax	draw	1	1	15	3	10	3	7	4	3	1	2	3	0	0	47.00	53.00	13	23	\N	\N	\N	\N	\N	2025-12-02 20:10:36.42635	\N	\N	1	0	h-win	yes
+6766	1382035	2025-10-24	Netherlands	Eerste Divisie	De Graafschap	Jong PSV U21	h-win	3	2	38	15	25	9	7	5	0	2	1	0	0	0	52.00	48.00	15	5	\N	\N	\N	\N	\N	2025-12-02 20:10:36.514514	\N	\N	0	0	draw	yes
+6767	1382040	2025-10-24	Netherlands	Eerste Divisie	Vitesse	Roda	draw	2	2	11	4	12	6	2	2	1	2	1	3	0	0	36.00	64.00	19	14	\N	\N	\N	\N	\N	2025-12-02 20:10:36.602456	\N	\N	2	1	h-win	yes
+6768	1382041	2025-10-24	Netherlands	Eerste Divisie	Waalwijk	Cambuur	h-win	4	2	16	8	12	5	1	6	0	2	1	0	0	0	45.00	55.00	15	7	\N	\N	\N	\N	\N	2025-12-02 20:10:36.689665	\N	\N	2	0	h-win	yes
+6769	1382034	2025-10-24	Netherlands	Eerste Divisie	Almere City FC	Jong AZ	a-win	1	3	18	7	11	6	11	2	0	0	1	1	0	0	54.00	46.00	6	7	\N	\N	\N	\N	\N	2025-12-02 20:10:36.772878	\N	\N	1	1	draw	yes
+6770	1382036	2025-10-24	Netherlands	Eerste Divisie	FC Eindhoven	VVV Venlo	a-win	0	1	13	4	12	2	7	4	3	3	2	1	0	0	47.00	53.00	12	11	\N	\N	\N	\N	\N	2025-12-02 20:10:36.860292	\N	\N	0	0	draw	yes
+6771	1382037	2025-10-24	Netherlands	Eerste Divisie	Helmond Sport	Dordrecht	a-win	1	2	10	3	10	4	11	5	2	2	2	4	0	0	52.00	48.00	13	18	\N	\N	\N	\N	\N	2025-12-02 20:10:36.957472	\N	\N	1	0	h-win	yes
+6772	1382038	2025-10-24	Netherlands	Eerste Divisie	Jong Ajax	Emmen	a-win	0	1	8	3	19	7	4	6	3	5	3	1	0	0	50.00	50.00	9	12	\N	\N	\N	\N	\N	2025-12-02 20:10:37.050885	\N	\N	0	0	draw	yes
+6773	1382039	2025-10-24	Netherlands	Eerste Divisie	Jong Utrecht	FC OSS	draw	0	0	20	6	7	2	4	3	2	4	1	3	0	1	63.00	37.00	19	17	\N	\N	\N	\N	\N	2025-12-02 20:10:37.13639	\N	\N	0	0	draw	yes
+6774	1382042	2025-10-25	Netherlands	Eerste Divisie	ADO Den Haag	Den Bosch	h-win	2	1	20	6	7	3	11	4	0	2	0	1	0	0	69.00	31.00	12	6	\N	\N	\N	\N	\N	2025-12-02 20:10:37.224064	1.71	1.17	2	0	h-win	yes
+6775	1382043	2025-10-26	Netherlands	Eerste Divisie	Willem II	MVV	draw	2	2	22	10	9	5	5	4	2	2	1	2	0	0	70.00	30.00	4	11	\N	\N	\N	\N	\N	2025-12-02 20:10:37.311316	2.14	1.14	1	1	draw	yes
+6776	1382049	2025-10-31	Netherlands	Eerste Divisie	VVV Venlo	Vitesse	a-win	1	2	20	7	15	6	7	2	4	3	4	1	1	0	55.00	45.00	15	12	\N	\N	\N	\N	\N	2025-12-02 20:10:37.396199	2.02	2.79	0	1	a-win	yes
+6777	1382045	2025-10-31	Netherlands	Eerste Divisie	Den Bosch	De Graafschap	a-win	1	2	20	5	13	4	4	8	1	1	1	3	0	0	45.00	55.00	14	13	\N	\N	\N	\N	\N	2025-12-02 20:10:37.483203	1.80	1.89	1	1	draw	yes
+6778	1382048	2025-10-31	Netherlands	Eerste Divisie	FC OSS	Helmond Sport	a-win	0	3	9	1	14	7	1	5	3	2	2	2	0	0	54.00	46.00	12	21	\N	\N	\N	\N	\N	2025-12-02 20:10:37.572398	0.64	1.94	0	1	a-win	yes
+6779	1382050	2025-11-01	Netherlands	Eerste Divisie	Roda	Jong Utrecht	draw	1	1	13	5	9	3	5	2	1	1	0	1	0	0	59.00	41.00	9	12	\N	\N	\N	6	13	2025-12-02 20:10:37.746077	\N	\N	0	0	draw	yes
+6780	1382044	2025-11-01	Netherlands	Eerste Divisie	Cambuur	Jong Ajax	h-win	4	1	10	6	14	3	2	2	3	2	0	2	0	0	50.00	50.00	3	17	\N	\N	\N	2	19	2025-12-02 20:10:37.832686	\N	\N	2	1	h-win	yes
+6781	1382047	2025-11-02	Netherlands	Eerste Divisie	Emmen	Waalwijk	draw	2	2	8	5	19	11	5	7	0	5	1	2	0	0	60.00	40.00	10	13	\N	\N	\N	9	7	2025-12-02 20:10:37.921911	\N	\N	1	2	a-win	yes
+6782	1382051	2025-11-02	Netherlands	Eerste Divisie	MVV	ADO Den Haag	a-win	3	4	4	3	27	6	0	7	2	0	0	3	0	0	32.00	68.00	6	17	\N	\N	\N	18	1	2025-12-02 20:10:38.010129	\N	\N	0	2	a-win	yes
+6783	1382046	2025-11-03	Netherlands	Eerste Divisie	Dordrecht	Almere City FC	a-win	0	1	20	5	17	5	8	8	2	2	2	3	0	0	58.00	42.00	10	13	\N	\N	\N	10	11	2025-12-02 20:10:38.095492	\N	\N	0	0	draw	yes
+6784	1382053	2025-11-03	Netherlands	Eerste Divisie	Jong PSV U21	Willem II	h-win	2	1	24	12	18	6	8	7	3	0	1	1	0	0	50.00	50.00	10	10	\N	\N	\N	3	8	2025-12-02 20:10:38.182059	3.17	1.30	2	1	h-win	yes
+6785	1382052	2025-11-03	Netherlands	Eerste Divisie	Jong AZ	FC Eindhoven	a-win	0	2	7	2	9	2	5	6	0	1	2	1	0	0	65.00	35.00	15	10	\N	\N	\N	17	16	2025-12-02 20:10:38.273869	0.95	1.08	0	0	draw	yes
+6786	1382061	2025-11-07	Netherlands	Eerste Divisie	Willem II	FC OSS	draw	1	1	28	8	11	3	14	0	1	3	4	2	0	0	65.00	35.00	17	10	\N	\N	\N	8	15	2025-12-02 20:10:38.36858	3.32	1.33	0	0	draw	yes
+6787	1382055	2025-11-07	Netherlands	Eerste Divisie	ADO Den Haag	Roda	h-win	4	0	20	8	12	2	4	8	0	1	0	0	0	0	51.00	49.00	17	6	\N	\N	\N	1	6	2025-12-02 20:10:38.45547	2.04	0.89	2	0	h-win	yes
+6788	1382060	2025-11-07	Netherlands	Eerste Divisie	Vitesse	Cambuur	a-win	0	4	16	7	13	7	3	2	3	0	4	2	0	0	44.00	56.00	12	18	\N	\N	\N	20	2	2025-12-02 20:10:38.544306	1.31	1.34	0	3	a-win	yes
+6789	1382058	2025-11-07	Netherlands	Eerste Divisie	Jong AZ	VVV Venlo	a-win	0	2	14	2	13	3	3	1	4	2	3	2	0	0	58.00	42.00	19	19	\N	\N	\N	17	14	2025-12-02 20:10:38.630336	0.74	1.93	0	1	a-win	yes
+6790	1382054	2025-11-07	Netherlands	Eerste Divisie	Almere City FC	MVV	h-win	4	0	25	9	14	4	6	4	1	1	1	0	0	0	44.00	56.00	9	6	\N	\N	\N	11	18	2025-12-02 20:10:38.721497	3.31	0.96	2	0	h-win	yes
+6791	1382056	2025-11-07	Netherlands	Eerste Divisie	FC Eindhoven	Den Bosch	a-win	1	3	12	5	16	6	3	10	1	3	1	0	0	0	47.00	53.00	15	10	\N	\N	\N	16	4	2025-12-02 20:10:38.80531	1.19	0.74	0	2	a-win	yes
+6792	1382057	2025-11-07	Netherlands	Eerste Divisie	Jong Ajax	Dordrecht	draw	0	0	11	2	14	1	7	5	0	5	6	5	0	0	58.00	42.00	16	17	\N	\N	\N	19	10	2025-12-02 20:10:38.891333	1.02	0.65	0	0	draw	yes
+6793	1382059	2025-11-07	Netherlands	Eerste Divisie	Jong Utrecht	Emmen	a-win	1	2	11	5	17	5	6	7	4	1	1	0	0	0	42.00	58.00	10	14	\N	\N	\N	13	9	2025-12-02 20:10:38.996674	1.49	1.80	1	0	h-win	yes
+6794	1382062	2025-11-08	Netherlands	Eerste Divisie	Helmond Sport	Jong PSV U21	a-win	2	3	18	6	12	7	13	3	3	3	1	4	0	0	60.00	40.00	12	11	\N	\N	\N	12	3	2025-12-02 20:10:39.122997	2.98	1.84	0	2	a-win	yes
+6795	1382063	2025-11-09	Netherlands	Eerste Divisie	Waalwijk	De Graafschap	a-win	1	4	24	9	18	8	11	5	0	0	2	1	0	0	63.00	37.00	8	9	\N	\N	\N	7	5	2025-12-02 20:10:39.210473	3.81	2.69	0	3	a-win	yes
+6796	1382064	2025-11-15	Netherlands	Eerste Divisie	FC Eindhoven	Cambuur	draw	3	3	12	5	19	8	2	6	3	1	4	0	0	0	31.00	69.00	22	7	\N	\N	\N	16	2	2025-12-02 20:10:39.29594	\N	\N	2	1	h-win	yes
+6797	1382065	2025-11-15	Netherlands	Eerste Divisie	Willem II	Emmen	draw	1	1	19	7	10	3	2	7	5	2	1	2	0	0	48.00	52.00	10	12	\N	\N	\N	8	9	2025-12-02 20:10:39.380323	2.41	0.56	0	0	draw	yes
+6798	1382067	2025-11-21	Netherlands	Eerste Divisie	De Graafschap	Helmond Sport	h-win	3	1	21	8	16	3	7	12	1	3	0	0	0	0	48.00	52.00	10	9	\N	\N	\N	5	12	2025-12-02 20:10:39.469269	\N	\N	1	0	h-win	yes
+6799	1382074	2025-11-21	Netherlands	Eerste Divisie	VVV Venlo	Willem II	a-win	0	2	14	5	8	3	7	5	2	0	2	0	0	0	60.00	40.00	10	6	\N	\N	\N	14	8	2025-12-02 20:10:39.553307	\N	\N	0	1	a-win	yes
+6800	1382069	2025-11-21	Netherlands	Eerste Divisie	Dordrecht	Vitesse	draw	1	1	13	6	16	6	4	10	1	2	1	1	0	0	52.00	48.00	16	13	\N	\N	\N	10	20	2025-12-02 20:10:39.643271	\N	\N	1	1	draw	yes
+6801	1382071	2025-11-21	Netherlands	Eerste Divisie	Jong PSV U21	Jong Utrecht	draw	3	3	10	5	22	10	4	6	2	1	1	1	0	0	56.00	44.00	12	13	\N	\N	\N	3	13	2025-12-02 20:10:39.727217	\N	\N	2	0	h-win	yes
+6802	1382072	2025-11-21	Netherlands	Eerste Divisie	MVV	Jong AZ	a-win	1	3	7	3	16	7	3	4	1	2	1	2	0	0	43.00	57.00	4	12	\N	\N	\N	18	17	2025-12-02 20:10:39.81394	\N	\N	1	1	draw	yes
+6803	1382066	2025-11-21	Netherlands	Eerste Divisie	Cambuur	ADO Den Haag	h-win	2	0	8	4	19	6	2	7	1	4	3	3	0	0	45.00	55.00	10	21	\N	\N	\N	2	1	2025-12-02 20:10:39.904585	\N	\N	0	0	draw	yes
+6804	1382068	2025-11-21	Netherlands	Eerste Divisie	Den Bosch	Almere City FC	h-win	5	2	17	9	10	6	4	3	0	0	1	0	0	1	57.00	43.00	2	12	\N	\N	\N	4	11	2025-12-02 20:10:39.995288	\N	\N	1	1	draw	yes
+6805	1382073	2025-11-21	Netherlands	Eerste Divisie	FC OSS	Waalwijk	draw	0	0	8	2	23	7	3	8	2	2	1	1	0	0	34.00	66.00	16	15	\N	\N	\N	15	7	2025-12-02 20:10:40.083287	\N	\N	0	0	draw	yes
+6806	1382070	2025-11-21	Netherlands	Eerste Divisie	Jong Ajax	FC Eindhoven	a-win	1	3	12	5	16	6	6	6	2	2	2	0	0	0	63.00	37.00	5	16	\N	\N	\N	19	16	2025-12-02 20:10:40.167126	\N	\N	0	1	a-win	yes
+6807	1382075	2025-11-22	Netherlands	Eerste Divisie	Emmen	Roda	draw	1	1	11	4	17	6	3	3	0	4	1	1	0	0	44.00	56.00	14	7	\N	\N	\N	9	6	2025-12-02 20:10:40.269849	0.87	2.94	1	0	h-win	yes
+6808	1382078	2025-11-24	Netherlands	Eerste Divisie	Jong AZ	FC OSS	a-win	0	1	13	5	11	2	6	4	0	4	1	1	0	0	60.00	40.00	12	14	\N	\N	\N	17	15	2025-12-02 20:10:40.366889	1.10	1.57	0	1	a-win	yes
+6809	1382076	2025-11-24	Netherlands	Eerste Divisie	Almere City FC	VVV Venlo	h-win	3	0	12	7	11	5	10	7	2	3	1	1	0	0	40.00	60.00	18	11	\N	\N	\N	11	14	2025-12-02 20:10:40.453412	0.84	1.71	2	0	h-win	yes
+6810	1382077	2025-11-24	Netherlands	Eerste Divisie	Helmond Sport	Jong Ajax	h-win	2	1	11	4	6	3	6	4	4	2	3	0	0	0	41.00	59.00	13	5	\N	\N	\N	12	19	2025-12-02 20:10:40.541967	0.58	0.59	1	0	h-win	yes
+6811	1382079	2025-11-24	Netherlands	Eerste Divisie	Jong Utrecht	Den Bosch	h-win	3	2	13	9	13	4	2	9	0	2	1	1	0	0	41.00	59.00	8	11	\N	\N	\N	13	4	2025-12-02 20:10:40.632358	2.41	1.79	1	0	h-win	yes
+6812	1382088	2025-11-28	Netherlands	Eerste Divisie	VVV Venlo	ADO Den Haag	a-win	0	3	12	2	13	5	4	6	2	1	1	2	0	0	44.00	56.00	8	17	\N	\N	\N	14	1	2025-12-02 20:10:40.725083	0.86	2.36	0	1	a-win	yes
+6813	1382087	2025-11-28	Netherlands	Eerste Divisie	Emmen	Jong AZ	h-win	4	2	17	8	5	3	5	5	2	3	2	2	0	1	60.00	40.00	15	9	\N	\N	\N	9	17	2025-12-02 20:10:40.812213	2.48	0.21	2	1	h-win	yes
+6814	1382086	2025-11-28	Netherlands	Eerste Divisie	Dordrecht	Jong Utrecht	a-win	1	2	13	4	8	6	5	2	1	1	2	2	0	0	52.00	48.00	16	16	\N	\N	\N	10	13	2025-12-02 20:10:40.903012	1.11	0.73	0	0	draw	yes
+6815	1382084	2025-11-28	Netherlands	Eerste Divisie	Cambuur	Helmond Sport	draw	0	0	10	2	13	1	8	1	3	3	1	2	0	0	68.00	32.00	7	13	\N	\N	\N	2	12	2025-12-02 20:10:40.993616	0.35	1.30	0	0	draw	yes
+6816	1382085	2025-11-28	Netherlands	Eerste Divisie	Den Bosch	Willem II	h-win	2	1	17	5	18	6	3	9	2	1	2	2	0	0	41.00	59.00	11	9	\N	\N	\N	4	8	2025-12-02 20:10:41.07927	1.88	1.76	2	1	h-win	yes
+6817	1382089	2025-11-29	Netherlands	Eerste Divisie	FC OSS	Almere City FC	a-win	1	2	13	4	18	9	4	4	1	3	1	3	1	0	41.00	59.00	17	15	\N	\N	\N	15	11	2025-12-02 20:10:41.166279	1.77	1.82	1	1	draw	yes
+6818	1382090	2025-11-30	Netherlands	Eerste Divisie	MVV	Roda	draw	0	0	16	5	15	3	1	3	2	3	1	0	0	0	47.00	53.00	17	15	\N	\N	\N	18	6	2025-12-02 20:10:41.267197	\N	\N	0	0	draw	yes
+6819	1382091	2025-11-30	Netherlands	Eerste Divisie	De Graafschap	FC Eindhoven	h-win	2	0	13	6	30	9	6	14	5	5	2	1	0	0	51.00	49.00	7	8	\N	\N	\N	5	16	2025-12-02 20:10:41.352724	\N	\N	2	0	h-win	yes
+6820	1382093	2025-12-01	Netherlands	Eerste Divisie	Jong PSV U21	Waalwijk	h-win	3	1	11	6	13	2	4	3	1	1	2	1	0	0	45.00	55.00	12	12	\N	\N	\N	3	7	2025-12-02 20:10:41.443242	\N	\N	1	0	h-win	yes
+6821	1382092	2025-12-01	Netherlands	Eerste Divisie	Jong Ajax	Vitesse	h-win	2	0	9	4	20	9	1	10	0	4	2	1	0	0	49.00	51.00	13	18	\N	\N	\N	19	20	2025-12-02 20:10:41.526421	\N	\N	1	0	h-win	yes
+6822	1394436	2025-08-08	Turkey	Süper Lig	Gazişehir Gaziantep	Galatasaray	a-win	0	3	5	2	15	5	1	4	0	2	2	4	1	0	40.00	60.00	14	15	\N	\N	\N	\N	\N	2025-12-02 20:10:43.052565	0.15	2.42	0	3	a-win	yes
+6823	1394440	2025-08-09	Turkey	Süper Lig	Samsunspor	Genclerbirligi	h-win	2	1	9	3	8	1	2	3	3	2	1	0	0	0	62.00	38.00	12	12	\N	\N	\N	\N	\N	2025-12-02 20:10:43.138637	1.18	0.32	1	0	h-win	yes
+6824	1394433	2025-08-09	Turkey	Süper Lig	Antalyaspor	Kasımpaşa	h-win	2	1	16	6	10	2	3	3	1	2	3	4	0	0	37.00	63.00	12	21	\N	\N	\N	\N	\N	2025-12-02 20:10:43.22334	1.74	0.68	2	1	h-win	yes
+6825	1394439	2025-08-10	Turkey	Süper Lig	Rizespor	Göztepe	a-win	0	3	13	1	17	4	3	5	3	1	2	1	0	0	56.00	44.00	9	14	\N	\N	\N	\N	\N	2025-12-02 20:10:43.342278	1.47	1.01	0	0	draw	yes
+6826	1394434	2025-08-10	Turkey	Süper Lig	Eyüpspor	Konyaspor	a-win	1	4	16	3	16	5	8	7	2	1	2	1	0	0	63.00	37.00	9	12	\N	\N	\N	\N	\N	2025-12-02 20:10:43.427192	2.05	1.93	0	3	a-win	yes
+6827	1394441	2025-08-11	Turkey	Süper Lig	Trabzonspor	Kocaelispor	h-win	1	0	11	1	12	2	3	5	0	2	2	0	0	0	56.00	44.00	9	16	\N	\N	\N	\N	\N	2025-12-02 20:10:43.508291	0.91	1.16	0	0	draw	yes
+6828	1394445	2025-08-15	Turkey	Süper Lig	Galatasaray	Fatih Karagümrük	h-win	3	0	28	8	6	2	10	3	1	3	0	1	0	1	72.00	28.00	11	12	\N	\N	\N	\N	\N	2025-12-02 20:10:43.592313	3.31	0.72	1	0	h-win	yes
+6829	1394449	2025-08-16	Turkey	Süper Lig	Kocaelispor	Samsunspor	a-win	0	1	13	5	13	5	4	7	2	1	2	2	1	0	39.00	61.00	10	16	\N	\N	\N	\N	\N	2025-12-02 20:10:43.682329	0.71	0.73	0	0	draw	yes
+6830	1394447	2025-08-16	Turkey	Süper Lig	Göztepe	Fenerbahçe	draw	0	0	12	2	12	1	3	6	1	1	8	4	2	1	40.00	60.00	24	13	\N	\N	\N	\N	\N	2025-12-02 20:10:43.767294	0.55	1.92	0	0	draw	yes
+6831	1394442	2025-08-16	Turkey	Süper Lig	Alanyaspor	Rizespor	draw	0	0	9	1	7	3	3	1	0	1	1	2	0	0	43.00	57.00	22	14	\N	\N	\N	\N	\N	2025-12-02 20:10:43.881185	0.45	1.39	0	0	draw	yes
+6832	1394450	2025-08-17	Turkey	Süper Lig	Konyaspor	Gazişehir Gaziantep	h-win	3	0	15	7	17	1	2	6	3	3	3	3	0	0	50.00	50.00	17	11	\N	\N	\N	\N	\N	2025-12-02 20:10:43.967726	2.06	0.94	1	0	h-win	yes
+6833	1394446	2025-08-17	Turkey	Süper Lig	Genclerbirligi	Antalyaspor	a-win	0	1	14	2	8	4	8	3	2	3	0	2	0	0	46.00	54.00	3	9	\N	\N	\N	\N	\N	2025-12-02 20:10:44.050441	1.12	0.64	0	0	draw	yes
+6834	1394444	2025-08-17	Turkey	Süper Lig	Beşiktaş	Eyüpspor	h-win	2	1	18	9	11	4	10	3	4	4	2	2	0	0	54.00	46.00	14	10	\N	\N	\N	\N	\N	2025-12-02 20:10:44.138512	2.80	1.23	1	1	draw	yes
+6835	1394443	2025-08-17	Turkey	Süper Lig	Başakşehir	Kayserispor	draw	1	1	13	4	9	3	5	7	0	0	1	1	0	0	57.00	43.00	12	13	\N	\N	\N	\N	\N	2025-12-02 20:10:44.223473	0.84	0.42	1	0	h-win	yes
+6836	1394448	2025-08-18	Turkey	Süper Lig	Kasımpaşa	Trabzonspor	a-win	0	1	8	0	11	1	6	4	2	2	2	2	0	0	44.00	56.00	24	13	\N	\N	\N	\N	\N	2025-12-02 20:10:44.309347	0.19	1.16	0	0	draw	yes
+6837	1394454	2025-08-22	Turkey	Süper Lig	Fatih Karagümrük	Göztepe	a-win	0	2	11	2	16	7	4	6	1	1	2	2	0	0	65.00	35.00	13	19	\N	\N	\N	\N	\N	2025-12-02 20:10:44.396172	0.32	1.71	0	1	a-win	yes
+6838	1394452	2025-08-23	Turkey	Süper Lig	Fenerbahçe	Kocaelispor	h-win	3	1	21	7	7	1	6	0	1	1	1	3	0	0	57.00	43.00	12	15	\N	\N	\N	\N	\N	2025-12-02 20:10:44.478388	1.67	0.31	1	1	draw	yes
+6839	1394453	2025-08-23	Turkey	Süper Lig	Gazişehir Gaziantep	Genclerbirligi	h-win	2	1	25	4	7	3	10	4	4	1	3	6	0	1	71.00	29.00	12	18	\N	\N	\N	\N	\N	2025-12-02 20:10:44.573154	2.52	0.45	1	1	draw	yes
+6840	1394459	2025-08-24	Turkey	Süper Lig	Trabzonspor	Antalyaspor	h-win	1	0	17	6	7	4	5	5	2	1	1	2	0	0	50.00	50.00	12	13	\N	\N	\N	\N	\N	2025-12-02 20:10:44.656771	2.00	0.76	1	0	h-win	yes
+6841	1394455	2025-08-24	Turkey	Süper Lig	Kayserispor	Galatasaray	a-win	0	4	8	2	19	9	6	3	2	1	2	2	0	0	34.00	66.00	5	8	\N	\N	\N	\N	\N	2025-12-02 20:10:44.742334	0.90	3.71	0	1	a-win	yes
+6842	1394451	2025-08-25	Turkey	Süper Lig	Eyüpspor	Alanyaspor	h-win	2	1	5	3	12	2	0	5	1	2	3	3	0	0	44.00	56.00	19	18	\N	\N	\N	\N	\N	2025-12-02 20:10:44.832779	0.52	1.46	1	0	h-win	yes
+6843	1394465	2025-08-29	Turkey	Süper Lig	Göztepe	Konyaspor	draw	1	1	18	8	10	2	5	6	1	2	2	2	0	0	34.00	66.00	17	4	\N	\N	\N	\N	\N	2025-12-02 20:10:44.923759	1.74	0.55	0	0	draw	yes
+6844	1394466	2025-08-30	Turkey	Süper Lig	Kasımpaşa	Gazişehir Gaziantep	a-win	2	3	20	6	9	7	3	4	1	3	3	4	0	0	61.00	39.00	15	18	\N	\N	\N	\N	\N	2025-12-02 20:10:45.013764	2.45	1.18	0	2	a-win	yes
+6845	1394467	2025-08-30	Turkey	Süper Lig	Kocaelispor	Kayserispor	draw	1	1	10	4	12	2	4	7	1	0	3	2	0	0	43.00	57.00	12	13	\N	\N	\N	\N	\N	2025-12-02 20:10:45.099357	1.11	0.51	0	0	draw	yes
+6846	1394463	2025-08-30	Turkey	Süper Lig	Galatasaray	Rizespor	h-win	3	1	16	7	9	4	5	2	0	3	1	4	0	0	65.00	35.00	11	9	\N	\N	\N	\N	\N	2025-12-02 20:10:45.188832	2.22	1.30	1	0	h-win	yes
+6847	1394461	2025-08-30	Turkey	Süper Lig	Antalyaspor	Fatih Karagümrük	a-win	1	2	9	6	17	6	7	4	2	1	0	2	0	0	48.00	52.00	15	14	\N	\N	\N	\N	\N	2025-12-02 20:10:45.278227	0.91	1.56	1	1	draw	yes
+6848	1394462	2025-08-31	Turkey	Süper Lig	Başakşehir	Eyüpspor	draw	0	0	10	4	12	1	5	4	0	4	4	5	0	0	51.00	49.00	21	11	\N	\N	\N	\N	\N	2025-12-02 20:10:45.362202	0.77	0.63	0	0	draw	yes
+6849	1394464	2025-08-31	Turkey	Süper Lig	Genclerbirligi	Fenerbahçe	a-win	1	3	9	3	13	3	3	3	2	2	1	0	0	0	38.00	62.00	9	15	\N	\N	\N	\N	\N	2025-12-02 20:10:45.442103	1.20	1.65	0	3	a-win	yes
+6850	1394460	2025-08-31	Turkey	Süper Lig	Alanyaspor	Beşiktaş	h-win	2	0	9	3	15	4	2	6	4	3	1	3	0	0	37.00	63.00	7	18	\N	\N	\N	\N	\N	2025-12-02 20:10:45.52188	1.49	2.31	1	0	h-win	yes
+6851	1394468	2025-08-31	Turkey	Süper Lig	Trabzonspor	Samsunspor	draw	1	1	9	3	13	4	2	10	2	1	1	3	0	0	55.00	45.00	7	13	\N	\N	\N	\N	\N	2025-12-02 20:10:45.608195	0.56	0.98	1	0	h-win	yes
+6852	1394470	2025-09-13	Turkey	Süper Lig	Eyüpspor	Galatasaray	a-win	0	2	9	2	21	9	6	6	4	1	3	1	0	0	35.00	65.00	9	12	\N	\N	\N	\N	\N	2025-12-02 20:10:45.691228	0.38	2.14	0	0	draw	yes
+6853	1394473	2025-09-13	Turkey	Süper Lig	Fatih Karagümrük	Kasımpaşa	a-win	0	1	14	3	8	1	6	4	2	3	0	4	0	1	72.00	28.00	8	17	\N	\N	\N	\N	\N	2025-12-02 20:10:45.777087	0.83	0.62	0	1	a-win	yes
+6854	1394477	2025-09-13	Turkey	Süper Lig	Samsunspor	Antalyaspor	a-win	1	2	16	3	6	4	6	2	1	0	3	2	0	0	63.00	37.00	13	10	\N	\N	\N	\N	\N	2025-12-02 20:10:45.867729	0.97	0.92	0	1	a-win	yes
+6855	1394469	2025-09-13	Turkey	Süper Lig	Beşiktaş	Başakşehir	h-win	2	1	21	6	11	4	10	5	1	1	3	4	1	1	53.00	47.00	12	7	\N	\N	\N	\N	\N	2025-12-02 20:10:45.951291	1.87	0.71	0	0	draw	yes
+6856	1394475	2025-09-13	Turkey	Süper Lig	Konyaspor	Alanyaspor	a-win	1	2	13	5	7	4	6	1	2	0	5	3	0	0	67.00	33.00	17	11	\N	\N	\N	\N	\N	2025-12-02 20:10:46.038626	1.04	1.19	0	1	a-win	yes
+6857	1394474	2025-09-14	Turkey	Süper Lig	Kayserispor	Göztepe	draw	1	1	8	6	13	7	3	7	3	5	4	1	0	0	53.00	47.00	12	17	\N	\N	\N	\N	\N	2025-12-02 20:10:46.126306	0.62	0.48	0	0	draw	yes
+6858	1394471	2025-09-14	Turkey	Süper Lig	Fenerbahçe	Trabzonspor	h-win	1	0	29	9	1	1	9	0	4	1	4	3	0	1	73.00	27.00	12	18	\N	\N	\N	\N	\N	2025-12-02 20:10:46.220834	3.12	0.04	1	0	h-win	yes
+6859	1394472	2025-09-14	Turkey	Süper Lig	Gazişehir Gaziantep	Kocaelispor	h-win	2	0	14	5	3	2	3	6	2	1	5	3	0	1	48.00	52.00	20	20	\N	\N	\N	\N	\N	2025-12-02 20:10:46.30771	1.52	0.20	0	0	draw	yes
+6860	1394476	2025-09-15	Turkey	Süper Lig	Rizespor	Genclerbirligi	h-win	1	0	15	5	15	4	4	7	1	1	4	2	0	0	49.00	51.00	22	14	\N	\N	\N	\N	\N	2025-12-02 20:10:46.39029	1.17	1.26	0	0	draw	yes
+6861	1394435	2025-09-17	Turkey	Süper Lig	Fenerbahçe	Alanyaspor	draw	2	2	19	7	5	2	8	0	4	1	1	2	0	0	62.00	38.00	10	11	\N	\N	\N	\N	\N	2025-12-02 20:10:46.483489	3.14	0.44	0	1	a-win	yes
+6862	1394437	2025-09-17	Turkey	Süper Lig	Fatih Karagümrük	Başakşehir	a-win	0	2	6	2	4	1	3	4	4	5	2	2	0	0	48.00	52.00	14	16	\N	\N	\N	\N	\N	2025-12-02 20:10:46.572293	0.39	0.11	0	0	draw	yes
+6863	1394458	2025-09-17	Turkey	Süper Lig	Samsunspor	Kasımpaşa	draw	0	0	10	3	17	4	5	4	6	1	4	3	0	0	60.00	40.00	15	15	\N	\N	\N	\N	\N	2025-12-02 20:10:46.657491	1.06	0.93	0	0	draw	yes
+6864	1394482	2025-09-19	Turkey	Süper Lig	Göztepe	Beşiktaş	h-win	3	0	13	5	13	2	6	5	1	1	2	1	0	0	30.00	70.00	16	12	\N	\N	\N	\N	\N	2025-12-02 20:10:46.743325	2.23	0.67	2	0	h-win	yes
+6865	1394481	2025-09-20	Turkey	Süper Lig	Genclerbirligi	Eyüpspor	h-win	1	0	11	4	20	2	2	4	2	3	3	2	0	0	34.00	66.00	18	14	\N	\N	\N	\N	\N	2025-12-02 20:10:46.827335	1.15	1.29	1	0	h-win	yes
+6866	1394486	2025-09-20	Turkey	Süper Lig	Trabzonspor	Gazişehir Gaziantep	draw	1	1	27	6	4	1	4	5	2	1	2	4	0	0	49.00	51.00	12	17	\N	\N	\N	\N	\N	2025-12-02 20:10:46.920773	1.58	0.19	0	1	a-win	yes
+6867	1394478	2025-09-20	Turkey	Süper Lig	Antalyaspor	Kayserispor	draw	1	1	13	6	14	4	10	4	2	1	3	3	0	0	53.00	47.00	12	18	\N	\N	\N	\N	\N	2025-12-02 20:10:47.011127	0.63	0.84	0	0	draw	yes
+6868	1394479	2025-09-21	Turkey	Süper Lig	Başakşehir	Alanyaspor	draw	1	1	13	5	13	6	7	4	3	0	3	3	0	0	53.00	47.00	21	14	\N	\N	\N	\N	\N	2025-12-02 20:10:47.100835	1.77	1.66	1	0	h-win	yes
+6869	1394484	2025-09-21	Turkey	Süper Lig	Kocaelispor	Rizespor	draw	1	1	16	6	8	1	8	3	2	0	4	4	0	0	59.00	41.00	11	19	\N	\N	\N	\N	\N	2025-12-02 20:10:47.191619	1.28	0.27	1	1	draw	yes
+6870	1394483	2025-09-21	Turkey	Süper Lig	Kasımpaşa	Fenerbahçe	draw	1	1	17	2	9	2	5	8	2	1	3	1	1	0	34.00	66.00	11	15	\N	\N	\N	\N	\N	2025-12-02 20:10:47.284491	1.38	0.80	0	1	a-win	yes
+6871	1394485	2025-09-21	Turkey	Süper Lig	Samsunspor	Fatih Karagümrük	h-win	3	2	14	5	11	3	6	5	2	0	2	2	0	0	49.00	51.00	16	9	\N	\N	\N	\N	\N	2025-12-02 20:10:47.365264	1.91	0.58	0	1	a-win	yes
+6872	1394480	2025-09-22	Turkey	Süper Lig	Galatasaray	Konyaspor	h-win	3	1	13	7	14	5	4	6	0	3	1	0	0	0	52.00	48.00	19	7	\N	\N	\N	\N	\N	2025-12-02 20:10:47.448313	1.21	1.04	2	0	h-win	yes
+6873	1394438	2025-09-24	Turkey	Süper Lig	Kayserispor	Beşiktaş	a-win	0	4	6	2	13	9	4	5	1	5	4	2	0	0	50.00	50.00	17	14	\N	\N	\N	\N	\N	2025-12-02 20:10:47.544451	0.40	2.35	0	3	a-win	yes
+6874	1394487	2025-09-26	Turkey	Süper Lig	Alanyaspor	Galatasaray	a-win	0	1	22	8	7	2	6	0	0	4	2	1	0	0	46.00	54.00	14	16	\N	\N	\N	\N	\N	2025-12-02 20:10:47.627296	2.11	1.67	0	1	a-win	yes
+6875	1394491	2025-09-27	Turkey	Süper Lig	Gazişehir Gaziantep	Samsunspor	draw	2	2	30	7	9	3	13	7	0	0	3	6	0	1	70.00	30.00	4	22	\N	\N	\N	\N	\N	2025-12-02 20:10:47.713395	2.25	0.92	1	2	a-win	yes
+6876	1394489	2025-09-27	Turkey	Süper Lig	Eyüpspor	Göztepe	draw	0	0	6	2	16	2	6	3	5	2	2	1	0	0	58.00	42.00	6	19	\N	\N	\N	\N	\N	2025-12-02 20:10:47.797282	0.46	1.64	0	0	draw	yes
+6877	1394492	2025-09-27	Turkey	Süper Lig	Fatih Karagümrük	Trabzonspor	a-win	3	4	13	3	22	11	1	7	2	1	4	1	0	0	44.00	56.00	18	13	\N	\N	\N	\N	\N	2025-12-02 20:10:47.887862	1.70	1.77	1	3	a-win	yes
+6878	1394494	2025-09-28	Turkey	Süper Lig	Konyaspor	Başakşehir	h-win	2	1	13	5	17	4	2	11	2	1	4	0	1	0	30.00	70.00	15	7	\N	\N	\N	\N	\N	2025-12-02 20:10:47.973469	1.07	1.77	2	0	h-win	yes
+6879	1394495	2025-09-28	Turkey	Süper Lig	Rizespor	Kasımpaşa	a-win	1	2	13	2	8	2	1	4	6	1	1	2	0	0	62.00	38.00	8	17	\N	\N	\N	\N	\N	2025-12-02 20:10:48.064307	1.35	0.32	0	1	a-win	yes
+6880	1394490	2025-09-28	Turkey	Süper Lig	Fenerbahçe	Antalyaspor	h-win	2	0	19	11	4	2	5	3	0	2	4	6	0	0	67.00	33.00	19	14	\N	\N	\N	\N	\N	2025-12-02 20:10:48.152471	2.65	0.24	0	0	draw	yes
+6881	1394493	2025-09-28	Turkey	Süper Lig	Kayserispor	Genclerbirligi	draw	1	1	23	6	2	1	10	0	4	3	4	3	0	2	72.00	28.00	16	16	\N	\N	\N	\N	\N	2025-12-02 20:10:48.246819	2.44	0.14	0	1	a-win	yes
+6882	1394488	2025-09-29	Turkey	Süper Lig	Beşiktaş	Kocaelispor	h-win	3	1	13	6	6	1	3	6	2	1	1	4	0	0	42.00	58.00	18	14	\N	\N	\N	\N	\N	2025-12-02 20:10:48.330329	2.51	0.29	2	0	h-win	yes
+6883	1394504	2025-10-03	Turkey	Süper Lig	Trabzonspor	Kayserispor	h-win	4	0	25	12	17	7	6	2	4	2	0	2	0	0	52.00	48.00	15	14	\N	\N	\N	\N	\N	2025-12-02 20:10:48.420404	4.04	1.51	1	0	h-win	yes
+6884	1394496	2025-10-03	Turkey	Süper Lig	Antalyaspor	Rizespor	a-win	2	5	15	7	14	7	6	2	2	2	2	4	1	0	51.00	49.00	10	16	\N	\N	\N	\N	\N	2025-12-02 20:10:48.501521	1.04	1.71	1	2	a-win	yes
+6885	1394498	2025-10-04	Turkey	Süper Lig	Genclerbirligi	Alanyaspor	draw	2	2	11	7	12	6	7	5	4	2	2	3	0	0	55.00	45.00	15	17	\N	\N	\N	\N	\N	2025-12-02 20:10:48.587883	1.80	1.00	0	1	a-win	yes
+6886	1394502	2025-10-04	Turkey	Süper Lig	Kocaelispor	Eyüpspor	h-win	1	0	9	4	13	7	3	3	5	3	3	3	0	0	46.00	54.00	18	17	\N	\N	\N	\N	\N	2025-12-02 20:10:48.672283	1.21	0.58	0	0	draw	yes
+6887	1394497	2025-10-04	Turkey	Süper Lig	Galatasaray	Beşiktaş	draw	1	1	14	2	11	5	4	8	2	2	1	5	1	0	54.00	46.00	7	16	\N	\N	\N	\N	\N	2025-12-02 20:10:48.756282	1.10	1.61	0	1	a-win	yes
+6888	1394501	2025-10-05	Turkey	Süper Lig	Kasımpaşa	Konyaspor	draw	1	1	10	2	7	6	5	3	0	0	2	3	0	0	51.00	49.00	14	11	\N	\N	\N	\N	\N	2025-12-02 20:10:48.841255	1.41	1.04	0	1	a-win	yes
+6889	1394500	2025-10-05	Turkey	Süper Lig	Fatih Karagümrük	Gazişehir Gaziantep	a-win	0	2	13	4	17	8	5	2	0	1	1	4	0	0	44.00	56.00	22	15	\N	\N	\N	\N	\N	2025-12-02 20:10:48.92334	1.62	2.86	0	0	draw	yes
+6890	1394499	2025-10-05	Turkey	Süper Lig	Göztepe	Başakşehir	h-win	1	0	9	2	11	3	6	5	1	2	2	3	0	0	28.00	72.00	22	11	\N	\N	\N	\N	\N	2025-12-02 20:10:49.016231	1.16	0.92	1	0	h-win	yes
+6891	1394503	2025-10-05	Turkey	Süper Lig	Samsunspor	Fenerbahçe	draw	0	0	12	4	6	1	6	5	2	0	0	3	0	0	47.00	53.00	13	15	\N	\N	\N	\N	\N	2025-12-02 20:10:49.099163	1.27	0.33	0	0	draw	yes
+6892	1394512	2025-10-18	Turkey	Süper Lig	Konyaspor	Kocaelispor	a-win	2	3	12	3	7	3	3	4	0	2	4	5	0	0	56.00	44.00	15	20	\N	\N	\N	\N	\N	2025-12-02 20:10:49.182222	1.52	0.98	0	1	a-win	yes
+6893	1394507	2025-10-18	Turkey	Süper Lig	Beşiktaş	Genclerbirligi	a-win	1	2	11	4	6	2	5	4	3	3	2	4	0	0	63.00	37.00	21	14	\N	\N	\N	\N	\N	2025-12-02 20:10:49.267372	1.91	0.63	0	0	draw	yes
+6894	1394513	2025-10-18	Turkey	Süper Lig	Rizespor	Trabzonspor	a-win	1	2	22	3	8	5	7	0	2	1	3	0	0	0	55.00	45.00	18	8	\N	\N	\N	\N	\N	2025-12-02 20:10:49.353626	2.39	0.47	1	2	a-win	yes
+6895	1394506	2025-10-18	Turkey	Süper Lig	Başakşehir	Galatasaray	a-win	1	2	5	2	16	5	2	4	2	0	2	6	0	0	46.00	54.00	16	10	\N	\N	\N	\N	\N	2025-12-02 20:10:49.44019	1.46	2.97	0	1	a-win	yes
+6896	1394511	2025-10-19	Turkey	Süper Lig	Kayserispor	Samsunspor	a-win	1	3	14	3	13	5	7	5	1	2	2	3	0	0	55.00	45.00	13	11	\N	\N	\N	\N	\N	2025-12-02 20:10:49.52074	1.19	2.62	0	1	a-win	yes
+6897	1394505	2025-10-19	Turkey	Süper Lig	Alanyaspor	Göztepe	h-win	1	0	15	5	10	6	8	4	0	3	3	5	0	0	60.00	40.00	15	10	\N	\N	\N	\N	\N	2025-12-02 20:10:49.602827	0.81	0.57	0	0	draw	yes
+6898	1394510	2025-10-19	Turkey	Süper Lig	Gazişehir Gaziantep	Antalyaspor	h-win	3	2	22	8	7	4	6	5	1	1	5	6	0	0	70.00	30.00	11	15	\N	\N	\N	\N	\N	2025-12-02 20:10:49.69643	1.79	0.44	3	0	h-win	yes
+6899	1394509	2025-10-19	Turkey	Süper Lig	Fenerbahçe	Fatih Karagümrük	h-win	2	1	21	8	16	6	6	6	4	3	2	5	0	1	58.00	42.00	10	19	\N	\N	\N	\N	\N	2025-12-02 20:10:49.788584	2.72	0.84	2	0	h-win	yes
+6900	1394508	2025-10-20	Turkey	Süper Lig	Eyüpspor	Kasımpaşa	h-win	2	0	17	10	9	3	8	10	3	2	1	1	0	0	56.00	44.00	6	9	\N	\N	\N	\N	\N	2025-12-02 20:10:49.908289	2.98	0.77	1	0	h-win	yes
+6901	1394456	2025-10-22	Turkey	Süper Lig	Konyaspor	Beşiktaş	a-win	0	2	22	3	9	4	17	3	1	0	1	3	0	0	71.00	29.00	7	16	\N	\N	\N	\N	\N	2025-12-02 20:10:49.993152	0.85	1.73	0	1	a-win	yes
+6902	1394457	2025-10-22	Turkey	Süper Lig	Rizespor	Başakşehir	draw	0	0	14	4	15	4	5	5	0	1	3	2	0	0	47.00	53.00	16	11	\N	\N	\N	\N	\N	2025-12-02 20:10:50.082218	0.55	0.85	0	0	draw	yes
+6903	1394518	2025-10-24	Turkey	Süper Lig	Fatih Karagümrük	Kayserispor	draw	2	2	10	3	13	10	1	7	5	1	2	4	0	1	47.00	53.00	16	21	\N	\N	\N	\N	\N	2025-12-02 20:10:50.171525	2.04	1.65	1	0	h-win	yes
+6904	1394520	2025-10-25	Turkey	Süper Lig	Kocaelispor	Alanyaspor	h-win	2	0	14	5	9	1	4	2	1	1	0	0	0	0	52.00	48.00	16	8	\N	\N	\N	\N	\N	2025-12-02 20:10:50.258355	1.33	0.69	0	0	draw	yes
+6905	1394522	2025-10-25	Turkey	Süper Lig	Trabzonspor	Eyüpspor	h-win	2	0	13	6	10	4	8	3	5	3	4	1	0	0	56.00	44.00	18	12	\N	\N	\N	\N	\N	2025-12-02 20:10:50.34024	1.09	1.19	1	0	h-win	yes
+6906	1394514	2025-10-26	Turkey	Süper Lig	Antalyaspor	Başakşehir	a-win	0	4	10	4	19	9	3	8	2	1	3	2	1	0	34.00	66.00	10	15	\N	\N	\N	\N	\N	2025-12-02 20:10:50.423326	1.24	2.47	0	2	a-win	yes
+6907	1394515	2025-10-26	Turkey	Süper Lig	Galatasaray	Göztepe	h-win	3	1	27	13	5	3	8	2	2	2	1	2	0	1	80.00	20.00	8	12	\N	\N	\N	\N	\N	2025-12-02 20:10:50.509434	3.31	1.08	1	1	draw	yes
+6908	1394517	2025-10-26	Turkey	Süper Lig	Genclerbirligi	Konyaspor	a-win	1	2	15	2	16	6	6	5	0	4	4	3	1	0	52.00	48.00	11	17	\N	\N	\N	\N	\N	2025-12-02 20:10:50.596309	1.03	1.25	1	1	draw	yes
+6909	1394519	2025-10-26	Turkey	Süper Lig	Kasımpaşa	Beşiktaş	draw	1	1	12	4	20	6	8	0	0	2	1	2	0	0	34.00	66.00	14	10	\N	\N	\N	\N	\N	2025-12-02 20:10:50.678156	1.04	2.57	1	1	draw	yes
+6910	1394516	2025-10-27	Turkey	Süper Lig	Gazişehir Gaziantep	Fenerbahçe	a-win	0	4	8	5	20	13	6	4	0	1	2	5	1	0	59.00	41.00	12	15	\N	\N	\N	\N	\N	2025-12-02 20:10:50.765284	0.57	2.50	0	2	a-win	yes
+6911	1394521	2025-10-27	Turkey	Süper Lig	Samsunspor	Rizespor	draw	1	1	26	7	8	1	7	4	0	1	0	2	0	0	55.00	45.00	9	14	\N	\N	\N	\N	\N	2025-12-02 20:10:50.853602	2.45	0.99	1	1	draw	yes
+6912	1394524	2025-10-31	Turkey	Süper Lig	Başakşehir	Kocaelispor	h-win	1	0	16	4	11	6	6	5	2	2	2	2	0	0	59.00	41.00	12	18	\N	\N	\N	\N	\N	2025-12-02 20:10:50.944294	1.69	1.04	0	0	draw	yes
+6913	1394528	2025-11-01	Turkey	Süper Lig	Göztepe	Genclerbirligi	h-win	1	0	15	3	13	3	6	3	3	1	0	1	0	0	51.00	49.00	14	10	\N	\N	\N	4	17	2025-12-02 20:10:51.105372	1.40	0.80	1	0	h-win	yes
+6914	1394527	2025-11-01	Turkey	Süper Lig	Galatasaray	Trabzonspor	draw	0	0	23	5	9	2	8	4	6	2	0	1	0	1	58.00	42.00	12	9	\N	\N	\N	1	3	2025-12-02 20:10:51.189383	1.47	0.44	0	0	draw	yes
+6915	1394530	2025-11-02	Turkey	Süper Lig	Konyaspor	Samsunspor	a-win	1	3	23	7	12	3	9	5	2	1	1	2	0	0	60.00	40.00	10	12	\N	\N	\N	11	5	2025-12-02 20:10:51.280433	1.48	1.88	0	2	a-win	yes
+6916	1394529	2025-11-02	Turkey	Süper Lig	Kayserispor	Kasımpaşa	h-win	3	2	11	3	11	4	4	6	4	0	3	1	0	0	43.00	57.00	12	15	\N	\N	\N	16	14	2025-12-02 20:10:51.364326	1.45	0.39	2	1	h-win	yes
+6917	1394525	2025-11-02	Turkey	Süper Lig	Beşiktaş	Fenerbahçe	a-win	2	3	9	3	23	11	1	6	0	4	1	5	1	0	32.00	68.00	8	17	\N	\N	\N	6	2	2025-12-02 20:10:51.450525	1.13	1.66	2	2	draw	yes
+6918	1394523	2025-11-03	Turkey	Süper Lig	Alanyaspor	Gazişehir Gaziantep	draw	0	0	8	3	13	3	4	4	1	1	3	0	0	0	55.00	45.00	10	13	\N	\N	\N	10	7	2025-12-02 20:10:51.539316	0.76	0.89	0	0	draw	yes
+6919	1394531	2025-11-03	Turkey	Süper Lig	Rizespor	Fatih Karagümrük	h-win	1	0	13	4	14	0	4	4	2	3	3	3	0	0	62.00	38.00	14	13	\N	\N	\N	12	18	2025-12-02 20:10:51.628181	1.67	0.76	0	0	draw	yes
+6920	1394526	2025-11-03	Turkey	Süper Lig	Eyüpspor	Antalyaspor	a-win	0	1	15	5	7	1	5	2	2	2	2	2	0	0	60.00	40.00	8	9	\N	\N	\N	15	13	2025-12-02 20:10:51.711224	1.68	0.90	0	0	draw	yes
+6921	1394535	2025-11-07	Turkey	Süper Lig	Genclerbirligi	Başakşehir	h-win	2	1	15	7	19	3	4	9	0	2	2	3	0	0	28.00	72.00	20	8	\N	\N	\N	17	9	2025-12-02 20:10:51.806322	1.98	1.14	1	0	h-win	yes
+6922	1394534	2025-11-08	Turkey	Süper Lig	Gazişehir Gaziantep	Rizespor	draw	2	2	15	9	11	3	3	2	2	2	2	2	0	0	60.00	40.00	14	15	\N	\N	\N	7	12	2025-12-02 20:10:51.891901	3.05	1.38	1	1	draw	yes
+6923	1394540	2025-11-08	Turkey	Süper Lig	Trabzonspor	Alanyaspor	draw	1	1	16	3	24	3	1	7	0	4	1	3	0	0	58.00	42.00	13	10	\N	\N	\N	3	10	2025-12-02 20:10:51.993203	1.86	1.28	1	0	h-win	yes
+6924	1394537	2025-11-08	Turkey	Süper Lig	Kasımpaşa	Göztepe	a-win	0	2	12	3	15	3	5	2	2	1	1	3	0	0	68.00	32.00	7	24	\N	\N	\N	14	4	2025-12-02 20:10:52.077437	0.50	2.11	0	0	draw	yes
+6925	1394532	2025-11-08	Turkey	Süper Lig	Antalyaspor	Beşiktaş	a-win	1	3	5	1	13	5	3	3	2	4	3	1	0	0	46.00	54.00	13	18	\N	\N	\N	13	6	2025-12-02 20:10:52.160202	0.60	1.49	0	2	a-win	yes
+6926	1394536	2025-11-09	Turkey	Süper Lig	Fatih Karagümrük	Konyaspor	h-win	2	0	10	4	12	3	4	7	3	1	2	2	0	0	43.00	57.00	17	11	\N	\N	\N	18	11	2025-12-02 20:10:52.240361	1.24	0.51	2	0	h-win	yes
+6927	1394538	2025-11-09	Turkey	Süper Lig	Kocaelispor	Galatasaray	h-win	1	0	9	3	12	3	1	7	4	2	2	1	0	0	34.00	66.00	13	9	\N	\N	\N	8	1	2025-12-02 20:10:52.320119	0.67	0.63	1	0	h-win	yes
+6928	1394533	2025-11-09	Turkey	Süper Lig	Fenerbahçe	Kayserispor	h-win	4	2	28	9	5	3	8	2	0	0	1	3	0	0	62.00	38.00	13	7	\N	\N	\N	2	16	2025-12-02 20:10:52.406543	2.24	1.26	2	0	h-win	yes
+6929	1394539	2025-11-09	Turkey	Süper Lig	Samsunspor	Eyüpspor	h-win	1	0	17	7	2	1	14	0	0	6	2	3	0	0	62.00	38.00	19	13	\N	\N	\N	5	15	2025-12-02 20:10:52.490529	2.33	0.06	0	0	draw	yes
+6930	1394547	2025-11-22	Turkey	Süper Lig	Kayserispor	Gazişehir Gaziantep	a-win	0	3	15	1	6	3	3	0	1	0	1	1	0	0	57.00	43.00	14	11	\N	\N	\N	16	7	2025-12-02 20:10:52.580274	0.85	1.68	0	2	a-win	yes
+6931	1394544	2025-11-22	Turkey	Süper Lig	Eyüpspor	Fatih Karagümrük	draw	1	1	12	4	9	2	5	6	1	3	1	2	0	0	55.00	45.00	16	18	\N	\N	\N	15	18	2025-12-02 20:10:52.663639	1.11	1.66	0	0	draw	yes
+6932	1394545	2025-11-22	Turkey	Süper Lig	Galatasaray	Genclerbirligi	h-win	3	2	28	9	11	5	4	2	1	3	3	3	1	1	73.00	27.00	11	6	\N	\N	\N	1	17	2025-12-02 20:10:52.751813	4.34	1.66	0	1	a-win	yes
+6933	1394546	2025-11-23	Turkey	Süper Lig	Göztepe	Kocaelispor	draw	0	0	8	0	10	3	4	6	0	1	2	4	0	0	42.00	58.00	16	7	\N	\N	\N	4	8	2025-12-02 20:10:52.87303	0.36	0.44	0	0	draw	yes
+6934	1394543	2025-11-23	Turkey	Süper Lig	Beşiktaş	Samsunspor	draw	1	1	14	2	14	6	4	3	1	1	2	2	0	0	62.00	38.00	10	17	\N	\N	\N	6	5	2025-12-02 20:10:52.985269	1.61	1.73	0	0	draw	yes
+6935	1394541	2025-11-23	Turkey	Süper Lig	Alanyaspor	Kasımpaşa	a-win	1	2	17	6	8	4	13	1	1	2	1	2	0	0	68.00	32.00	9	16	\N	\N	\N	10	14	2025-12-02 20:10:53.068828	0.73	0.92	1	0	h-win	yes
+6936	1394549	2025-11-23	Turkey	Süper Lig	Rizespor	Fenerbahçe	a-win	2	5	6	2	28	14	5	9	2	1	3	1	1	0	41.00	59.00	16	6	\N	\N	\N	12	2	2025-12-02 20:10:53.154074	0.84	3.34	2	0	h-win	yes
+6937	1394542	2025-11-24	Turkey	Süper Lig	Başakşehir	Trabzonspor	a-win	3	4	9	3	22	12	1	10	0	5	2	2	1	0	36.00	64.00	15	11	\N	\N	\N	9	3	2025-12-02 20:10:53.247221	1.98	3.20	2	1	h-win	yes
+6938	1394548	2025-11-24	Turkey	Süper Lig	Konyaspor	Antalyaspor	draw	0	0	12	1	4	0	10	2	2	1	1	2	0	0	59.00	41.00	15	8	\N	\N	\N	11	13	2025-12-02 20:10:53.331942	0.97	0.64	0	0	draw	yes
+6939	1394555	2025-11-28	Turkey	Süper Lig	Kocaelispor	Genclerbirligi	h-win	1	0	15	4	5	0	6	1	3	1	0	0	0	0	53.00	47.00	16	15	\N	\N	\N	8	17	2025-12-02 20:10:53.434994	1.26	0.16	1	0	h-win	yes
+6940	1394556	2025-11-29	Turkey	Süper Lig	Rizespor	Kayserispor	a-win	0	1	16	3	10	5	5	5	0	0	2	3	0	0	59.00	41.00	16	15	\N	\N	\N	12	16	2025-12-02 20:10:53.520237	1.42	0.64	0	0	draw	yes
+6941	1394552	2025-11-29	Turkey	Süper Lig	Gazişehir Gaziantep	Eyüpspor	a-win	1	2	13	5	17	7	13	6	0	2	1	4	0	0	59.00	41.00	13	18	\N	\N	\N	7	15	2025-12-02 20:10:53.605438	1.17	2.62	0	1	a-win	yes
+6942	1394558	2025-11-29	Turkey	Süper Lig	Trabzonspor	Konyaspor	h-win	3	1	19	8	16	4	3	3	1	2	1	2	0	0	53.00	47.00	15	13	\N	\N	\N	3	11	2025-12-02 20:10:53.694241	2.50	1.66	1	1	draw	yes
+6943	1394554	2025-11-29	Turkey	Süper Lig	Kasımpaşa	Başakşehir	a-win	1	3	16	5	11	6	12	3	4	1	4	5	0	1	50.00	50.00	13	17	\N	\N	\N	14	9	2025-12-02 20:10:53.791443	1.41	1.27	0	2	a-win	yes
+6944	1394550	2025-11-30	Turkey	Süper Lig	Antalyaspor	Göztepe	a-win	1	2	8	3	16	8	1	4	1	1	0	2	0	0	50.00	50.00	11	20	\N	\N	\N	13	4	2025-12-02 20:10:53.884797	0.38	0.91	1	0	h-win	yes
+6945	1394553	2025-11-30	Turkey	Süper Lig	Fatih Karagümrük	Beşiktaş	a-win	0	2	7	0	27	12	2	9	2	6	3	0	0	0	38.00	62.00	11	11	\N	\N	\N	18	6	2025-12-02 20:10:53.995888	0.47	3.14	0	1	a-win	yes
+6946	1394551	2025-12-01	Turkey	Süper Lig	Fenerbahçe	Galatasaray	draw	1	1	17	2	6	2	7	3	1	2	3	4	0	0	56.00	44.00	12	22	\N	\N	\N	2	1	2025-12-02 20:10:54.088438	1.01	0.23	0	1	a-win	yes
+6947	1394557	2025-12-01	Turkey	Süper Lig	Samsunspor	Alanyaspor	draw	1	1	7	1	10	4	3	1	2	2	3	2	1	0	52.00	48.00	28	12	\N	\N	\N	5	10	2025-12-02 20:10:54.200681	0.41	0.71	1	0	h-win	yes
+6948	1398324	2025-08-08	Turkey	1. Lig	Ümraniyespor	Manisa BBSK	h-win	2	1	9	3	12	5	2	2	0	3	1	3	1	0	47.00	53.00	17	19	\N	\N	\N	\N	\N	2025-12-02 20:10:55.702868	\N	\N	1	0	h-win	yes
+6949	1398320	2025-08-09	Turkey	1. Lig	Erzurum BB	Sivasspor	h-win	2	0	7	4	4	0	4	4	1	2	0	1	0	0	49.00	51.00	11	7	\N	\N	\N	\N	\N	2025-12-02 20:10:55.78502	\N	\N	0	0	draw	yes
+6950	1398323	2025-08-09	Turkey	1. Lig	İstanbulspor	Serik Belediyespor	draw	0	0	7	3	13	2	6	3	1	0	1	2	1	0	72.00	28.00	11	9	\N	\N	\N	\N	\N	2025-12-02 20:10:55.871267	\N	\N	0	0	draw	yes
+6951	1398321	2025-08-09	Turkey	1. Lig	Hatayspor	Keçiörengücü	a-win	1	3	11	6	16	8	5	6	1	6	1	2	0	0	58.00	42.00	8	16	\N	\N	\N	\N	\N	2025-12-02 20:10:55.957297	\N	\N	1	0	h-win	yes
+6952	1398322	2025-08-09	Turkey	1. Lig	76 Iğdır Belediyespor	Sarıyer	h-win	2	1	14	6	7	3	3	2	2	2	1	4	0	0	75.00	25.00	10	14	\N	\N	\N	\N	\N	2025-12-02 20:10:56.037271	\N	\N	1	1	draw	yes
+6953	1398315	2025-08-10	Turkey	1. Lig	Bandırmaspor	Sakaryaspor	draw	1	1	21	5	7	2	9	3	4	0	1	4	0	1	72.00	28.00	12	11	\N	\N	\N	\N	\N	2025-12-02 20:10:56.125405	\N	\N	0	1	a-win	yes
+6954	1398317	2025-08-10	Turkey	1. Lig	Boluspor	Van BB	a-win	2	3	20	8	5	2	7	3	0	1	1	1	0	0	56.00	44.00	16	20	\N	\N	\N	\N	\N	2025-12-02 20:10:56.209313	\N	\N	2	1	h-win	yes
+6955	1398316	2025-08-10	Turkey	1. Lig	BB Bodrumspor	Pendikspor	draw	1	1	18	4	6	2	6	5	4	2	2	3	0	0	58.00	42.00	13	23	\N	\N	\N	\N	\N	2025-12-02 20:10:56.291393	\N	\N	1	1	draw	yes
+6956	1398318	2025-08-10	Turkey	1. Lig	Yeni Çorumspor	Amed	h-win	2	0	11	4	12	2	9	3	0	2	0	4	0	1	43.00	57.00	7	11	\N	\N	\N	\N	\N	2025-12-02 20:10:56.382749	\N	\N	1	0	h-win	yes
+6957	1398319	2025-08-11	Turkey	1. Lig	Erokspor	Adana Demirspor	draw	2	2	17	8	9	6	6	3	7	1	3	1	0	0	69.00	31.00	9	8	\N	\N	\N	\N	\N	2025-12-02 20:10:56.463268	\N	\N	1	0	h-win	yes
+6958	1398332	2025-08-15	Turkey	1. Lig	Serik Belediyespor	Ümraniyespor	h-win	1	0	6	2	9	4	2	9	1	0	5	4	0	0	30.00	70.00	21	11	\N	\N	\N	\N	\N	2025-12-02 20:10:56.550533	\N	\N	1	0	h-win	yes
+6959	1398327	2025-08-16	Turkey	1. Lig	Keçiörengücü	İstanbulspor	draw	0	0	14	2	10	5	5	4	4	6	3	5	0	1	55.00	45.00	12	16	\N	\N	\N	\N	\N	2025-12-02 20:10:56.638254	\N	\N	0	0	draw	yes
+6960	1398331	2025-08-16	Turkey	1. Lig	Sarıyer	Boluspor	draw	1	1	17	5	9	6	9	3	2	2	1	4	0	0	42.00	58.00	16	16	\N	\N	\N	\N	\N	2025-12-02 20:10:56.725331	\N	\N	0	1	a-win	yes
+6961	1398325	2025-08-16	Turkey	1. Lig	Adana Demirspor	Yeni Çorumspor	a-win	0	3	2	0	19	6	1	5	2	2	3	3	0	0	32.00	68.00	7	8	\N	\N	\N	\N	\N	2025-12-02 20:10:56.807429	\N	\N	0	2	a-win	yes
+6962	1398329	2025-08-16	Turkey	1. Lig	Pendikspor	Bandırmaspor	h-win	2	0	12	9	10	2	6	4	0	2	3	3	0	0	52.00	48.00	19	17	\N	\N	\N	\N	\N	2025-12-02 20:10:56.893284	\N	\N	0	0	draw	yes
+6963	1398333	2025-08-17	Turkey	1. Lig	Sivasspor	BB Bodrumspor	draw	1	1	12	3	17	5	5	5	2	0	2	1	0	0	55.00	45.00	6	14	\N	\N	\N	\N	\N	2025-12-02 20:10:56.99858	\N	\N	0	1	a-win	yes
+6964	1398334	2025-08-17	Turkey	1. Lig	Van BB	Erokspor	h-win	1	0	6	3	9	2	4	3	3	0	2	1	0	1	53.00	47.00	15	10	\N	\N	\N	\N	\N	2025-12-02 20:10:57.086229	\N	\N	0	0	draw	yes
+6965	1398328	2025-08-17	Turkey	1. Lig	Manisa BBSK	Hatayspor	h-win	2	1	17	10	10	5	5	3	3	2	1	0	0	0	44.00	56.00	18	14	\N	\N	\N	\N	\N	2025-12-02 20:10:57.176231	\N	\N	0	0	draw	yes
+6966	1398330	2025-08-17	Turkey	1. Lig	Sakaryaspor	76 Iğdır Belediyespor	h-win	3	2	8	5	8	5	1	7	2	6	2	5	1	2	37.00	63.00	10	23	\N	\N	\N	\N	\N	2025-12-02 20:10:57.261943	\N	\N	2	2	draw	yes
+6967	1398326	2025-08-18	Turkey	1. Lig	Amed	Erzurum BB	draw	2	2	10	4	8	4	4	6	0	2	4	3	0	0	48.00	52.00	18	16	\N	\N	\N	\N	\N	2025-12-02 20:10:57.350554	\N	\N	1	1	draw	yes
+6968	1398339	2025-08-22	Turkey	1. Lig	Yeni Çorumspor	Sarıyer	h-win	2	1	9	5	13	3	8	2	0	5	4	3	0	0	53.00	47.00	16	8	\N	\N	\N	\N	\N	2025-12-02 21:10:29.326935	\N	\N	1	0	h-win	yes
+6969	1398336	2025-08-23	Turkey	1. Lig	Bandırmaspor	Adana Demirspor	h-win	4	0	18	7	0	0	5	1	6	1	1	2	0	0	62.00	38.00	8	7	\N	\N	\N	\N	\N	2025-12-02 21:10:29.42344	\N	\N	2	0	h-win	yes
+6970	1398340	2025-08-23	Turkey	1. Lig	Erokspor	Serik Belediyespor	h-win	5	0	14	7	1	0	4	1	1	1	0	0	0	1	83.00	17.00	6	10	\N	\N	\N	\N	\N	2025-12-02 21:10:29.526891	\N	\N	3	0	h-win	yes
+6971	1398337	2025-08-23	Turkey	1. Lig	BB Bodrumspor	Sakaryaspor	h-win	3	1	21	9	4	2	4	2	6	2	3	1	0	0	62.00	38.00	17	12	\N	\N	\N	\N	\N	2025-12-02 21:10:29.620845	\N	\N	1	1	draw	yes
+6972	1398342	2025-08-23	Turkey	1. Lig	76 Iğdır Belediyespor	Van BB	draw	0	0	13	3	5	3	10	2	3	4	3	2	0	0	62.00	38.00	13	18	\N	\N	\N	\N	\N	2025-12-02 21:10:29.722616	\N	\N	0	0	draw	yes
+6973	1398341	2025-08-24	Turkey	1. Lig	Erzurum BB	Pendikspor	draw	3	3	8	5	16	4	1	9	3	1	1	3	0	0	48.00	52.00	13	15	\N	\N	\N	\N	\N	2025-12-02 21:10:29.812906	\N	\N	3	0	h-win	yes
+6974	1398338	2025-08-24	Turkey	1. Lig	Boluspor	Keçiörengücü	h-win	2	1	9	6	12	1	2	8	0	0	4	2	0	0	52.00	48.00	11	13	\N	\N	\N	\N	\N	2025-12-02 21:10:29.976431	\N	\N	1	1	draw	yes
+6975	1398344	2025-08-24	Turkey	1. Lig	Ümraniyespor	Hatayspor	draw	1	1	6	3	7	2	3	6	1	3	5	4	1	1	43.00	57.00	12	17	\N	\N	\N	\N	\N	2025-12-02 21:10:30.07202	\N	\N	0	1	a-win	yes
+6976	1398335	2025-08-24	Turkey	1. Lig	Amed	Sivasspor	h-win	4	2	19	10	13	7	6	2	1	2	2	1	0	0	53.00	47.00	11	11	\N	\N	\N	\N	\N	2025-12-02 21:10:30.172157	\N	\N	1	0	h-win	yes
+6977	1398343	2025-08-25	Turkey	1. Lig	İstanbulspor	Manisa BBSK	draw	1	1	14	4	16	4	6	4	3	1	1	0	0	0	52.00	48.00	10	7	\N	\N	\N	\N	\N	2025-12-02 21:10:30.260674	\N	\N	1	1	draw	yes
+6978	1398354	2025-08-29	Turkey	1. Lig	Van BB	Bandırmaspor	a-win	1	2	9	2	7	3	6	3	2	0	4	4	0	0	73.00	27.00	12	13	\N	\N	\N	\N	\N	2025-12-02 21:10:30.356106	\N	\N	0	2	a-win	yes
+6979	1398351	2025-08-29	Turkey	1. Lig	Sarıyer	Erzurum BB	a-win	0	2	10	1	8	4	3	5	1	0	5	2	0	0	51.00	49.00	12	7	\N	\N	\N	\N	\N	2025-12-02 21:10:30.454221	\N	\N	0	0	draw	yes
+6980	1398353	2025-08-30	Turkey	1. Lig	Ümraniyespor	Erokspor	a-win	0	2	13	5	15	3	3	5	1	5	3	2	0	0	57.00	43.00	12	15	\N	\N	\N	\N	\N	2025-12-02 21:10:30.57494	\N	\N	0	1	a-win	yes
+6981	1398350	2025-08-30	Turkey	1. Lig	Sakaryaspor	Boluspor	a-win	1	4	15	2	24	11	6	6	1	0	2	3	0	0	51.00	49.00	8	16	\N	\N	\N	\N	\N	2025-12-02 21:10:30.668712	\N	\N	1	2	a-win	yes
+6982	1398346	2025-08-30	Turkey	1. Lig	Hatayspor	İstanbulspor	draw	1	1	15	3	5	1	7	5	1	3	1	4	0	0	60.00	40.00	10	12	\N	\N	\N	\N	\N	2025-12-02 21:10:30.766604	\N	\N	1	1	draw	yes
+6983	1398348	2025-08-30	Turkey	1. Lig	Manisa BBSK	76 Iğdır Belediyespor	draw	1	1	21	9	15	4	3	9	4	4	4	1	0	0	37.00	63.00	10	7	\N	\N	\N	\N	\N	2025-12-02 21:10:30.85847	\N	\N	1	0	h-win	yes
+6984	1398347	2025-08-31	Turkey	1. Lig	Keçiörengücü	Yeni Çorumspor	a-win	1	2	13	6	8	6	0	4	3	2	3	1	0	0	43.00	57.00	12	12	\N	\N	\N	\N	\N	2025-12-02 21:10:30.95058	\N	\N	1	1	draw	yes
+6985	1398349	2025-08-31	Turkey	1. Lig	Pendikspor	Sivasspor	h-win	2	1	12	5	5	3	2	6	1	6	3	3	0	0	57.00	43.00	13	15	\N	\N	\N	\N	\N	2025-12-02 21:10:31.050319	\N	\N	0	0	draw	yes
+6986	1398345	2025-08-31	Turkey	1. Lig	Adana Demirspor	Amed	a-win	1	8	9	3	25	12	0	4	2	5	2	1	0	0	39.00	61.00	8	6	\N	\N	\N	\N	\N	2025-12-02 21:10:31.139038	\N	\N	1	3	a-win	yes
+6987	1398352	2025-08-31	Turkey	1. Lig	Serik Belediyespor	BB Bodrumspor	a-win	2	4	8	4	13	7	3	6	5	2	1	3	0	0	42.00	58.00	10	16	\N	\N	\N	\N	\N	2025-12-02 21:10:31.234043	\N	\N	0	2	a-win	yes
+6988	1398360	2025-09-12	Turkey	1. Lig	Erokspor	Hatayspor	h-win	4	1	10	7	10	3	0	7	4	5	2	4	0	0	47.00	53.00	12	14	\N	\N	\N	\N	\N	2025-12-02 21:10:31.374482	\N	\N	2	0	h-win	yes
+6989	1398357	2025-09-12	Turkey	1. Lig	BB Bodrumspor	Adana Demirspor	h-win	3	1	18	5	3	2	9	1	2	0	2	3	0	1	66.00	34.00	10	17	\N	\N	\N	\N	\N	2025-12-02 21:10:31.473705	\N	\N	1	1	draw	yes
+6990	1398358	2025-09-13	Turkey	1. Lig	Boluspor	Manisa BBSK	h-win	2	0	15	4	19	3	7	4	4	0	3	3	0	0	50.00	50.00	6	14	\N	\N	\N	\N	\N	2025-12-02 21:10:31.571202	\N	\N	1	0	h-win	yes
+6991	1398363	2025-09-13	Turkey	1. Lig	İstanbulspor	Ümraniyespor	h-win	4	0	13	8	6	1	4	4	0	3	1	1	0	0	43.00	57.00	12	8	\N	\N	\N	\N	\N	2025-12-02 21:10:31.694297	\N	\N	2	0	h-win	yes
+6992	1398364	2025-09-13	Turkey	1. Lig	Sivasspor	Sarıyer	h-win	1	0	11	1	8	2	3	5	2	4	2	2	0	0	53.00	47.00	16	7	\N	\N	\N	\N	\N	2025-12-02 21:10:31.808974	\N	\N	0	0	draw	yes
+6993	1398359	2025-09-13	Turkey	1. Lig	Yeni Çorumspor	Van BB	draw	0	0	15	3	4	2	12	0	5	1	1	4	0	0	66.00	34.00	8	15	\N	\N	\N	\N	\N	2025-12-02 21:10:31.939889	\N	\N	0	0	draw	yes
+6994	1398356	2025-09-14	Turkey	1. Lig	Bandırmaspor	Keçiörengücü	draw	1	1	7	1	11	7	5	7	1	3	0	2	0	0	50.00	50.00	11	9	\N	\N	\N	\N	\N	2025-12-02 21:10:32.028147	\N	\N	1	1	draw	yes
+6995	1398362	2025-09-14	Turkey	1. Lig	76 Iğdır Belediyespor	Serik Belediyespor	a-win	1	2	13	3	7	2	10	2	3	1	0	4	0	0	73.00	27.00	7	13	\N	\N	\N	\N	\N	2025-12-02 21:10:32.121433	\N	\N	0	0	draw	yes
+6996	1398355	2025-09-14	Turkey	1. Lig	Amed	Pendikspor	h-win	2	1	15	4	14	5	5	3	2	1	1	4	0	0	48.00	52.00	8	12	\N	\N	\N	\N	\N	2025-12-02 21:10:32.213304	\N	\N	1	1	draw	yes
+6997	1398361	2025-09-15	Turkey	1. Lig	Erzurum BB	Sakaryaspor	draw	1	1	14	3	5	2	6	2	4	1	3	3	0	0	68.00	32.00	9	10	\N	\N	\N	\N	\N	2025-12-02 21:10:32.304976	\N	\N	0	0	draw	yes
+6998	1398372	2025-09-19	Turkey	1. Lig	Serik Belediyespor	Bandırmaspor	h-win	1	0	8	2	15	1	3	6	1	1	1	2	0	0	30.00	70.00	9	7	\N	\N	\N	\N	\N	2025-12-02 21:10:32.4144	\N	\N	1	0	h-win	yes
+6999	1398373	2025-09-19	Turkey	1. Lig	Ümraniyespor	76 Iğdır Belediyespor	a-win	0	1	10	5	14	3	3	5	5	5	1	1	1	0	40.00	60.00	8	11	\N	\N	\N	\N	\N	2025-12-02 21:10:32.547582	\N	\N	0	0	draw	yes
+7000	1398367	2025-09-19	Turkey	1. Lig	İstanbulspor	Yeni Çorumspor	h-win	3	1	10	4	15	6	0	10	1	1	1	1	0	0	30.00	70.00	9	10	\N	\N	\N	\N	\N	2025-12-02 21:10:32.642324	\N	\N	1	0	h-win	yes
+7001	1398366	2025-09-19	Turkey	1. Lig	Hatayspor	Boluspor	draw	2	2	8	3	14	6	0	9	1	9	6	2	0	0	35.00	65.00	24	16	\N	\N	\N	\N	\N	2025-12-02 21:10:32.81392	\N	\N	2	0	h-win	yes
+7002	1398368	2025-09-20	Turkey	1. Lig	Keçiörengücü	BB Bodrumspor	h-win	2	1	9	2	8	2	4	5	3	2	1	1	0	0	41.00	59.00	14	9	\N	\N	\N	\N	\N	2025-12-02 21:10:32.907522	\N	\N	1	0	h-win	yes
+7003	1398374	2025-09-20	Turkey	1. Lig	Van BB	Sivasspor	draw	0	0	10	2	8	1	2	3	2	3	3	1	1	0	53.00	47.00	15	13	\N	\N	\N	\N	\N	2025-12-02 21:10:33.001201	\N	\N	0	0	draw	yes
+7004	1398365	2025-09-20	Turkey	1. Lig	Adana Demirspor	Erzurum BB	a-win	0	3	8	3	17	10	2	4	1	5	1	1	0	0	32.00	68.00	7	14	\N	\N	\N	\N	\N	2025-12-02 21:10:33.092242	\N	\N	0	2	a-win	yes
+7005	1398369	2025-09-20	Turkey	1. Lig	Manisa BBSK	Erokspor	a-win	3	4	7	3	12	6	2	6	1	3	2	2	0	0	35.00	65.00	21	7	\N	\N	\N	\N	\N	2025-12-02 21:10:33.181114	\N	\N	2	1	h-win	yes
+7006	1398371	2025-09-21	Turkey	1. Lig	Sarıyer	Pendikspor	a-win	0	2	9	3	13	4	7	4	1	1	2	1	0	0	60.00	40.00	10	18	\N	\N	\N	\N	\N	2025-12-02 21:10:33.275438	\N	\N	0	1	a-win	yes
+7007	1398370	2025-09-21	Turkey	1. Lig	Sakaryaspor	Amed	h-win	2	1	12	6	15	4	4	4	1	4	1	1	0	0	38.00	62.00	15	14	\N	\N	\N	\N	\N	2025-12-02 21:10:33.369715	\N	\N	1	1	draw	yes
+7008	1398378	2025-09-23	Turkey	1. Lig	Boluspor	Ümraniyespor	a-win	0	1	23	6	5	2	5	6	1	2	4	6	0	1	66.00	34.00	15	16	\N	\N	\N	\N	\N	2025-12-02 21:10:33.460948	\N	\N	0	0	draw	yes
+7009	1398379	2025-09-23	Turkey	1. Lig	Yeni Çorumspor	Serik Belediyespor	draw	1	1	15	6	3	2	8	2	0	0	2	3	0	0	83.00	17.00	11	16	\N	\N	\N	\N	\N	2025-12-02 21:10:33.580726	\N	\N	0	0	draw	yes
+7010	1398382	2025-09-23	Turkey	1. Lig	76 Iğdır Belediyespor	Hatayspor	h-win	4	2	10	6	11	3	6	1	3	4	2	5	1	0	45.00	55.00	9	13	\N	\N	\N	\N	\N	2025-12-02 21:10:33.68672	\N	\N	2	1	h-win	yes
+7011	1398376	2025-09-24	Turkey	1. Lig	Bandırmaspor	Manisa BBSK	a-win	1	4	16	5	10	8	5	2	2	0	2	1	0	0	54.00	46.00	14	10	\N	\N	\N	\N	\N	2025-12-02 21:10:33.77854	\N	\N	0	2	a-win	yes
+7012	1398381	2025-09-24	Turkey	1. Lig	Erzurum BB	Keçiörengücü	draw	1	1	6	3	4	2	4	2	1	2	4	1	0	0	55.00	45.00	13	13	\N	\N	\N	\N	\N	2025-12-02 21:10:33.871976	\N	\N	1	0	h-win	yes
+7013	1398377	2025-09-24	Turkey	1. Lig	BB Bodrumspor	Van BB	h-win	2	0	10	5	7	1	3	3	2	2	2	3	0	0	51.00	49.00	16	17	\N	\N	\N	\N	\N	2025-12-02 21:10:33.972596	\N	\N	1	0	h-win	yes
+7014	1398380	2025-09-24	Turkey	1. Lig	Erokspor	İstanbulspor	h-win	5	0	11	8	5	1	2	3	1	0	1	2	0	0	56.00	44.00	9	11	\N	\N	\N	\N	\N	2025-12-02 21:10:34.065594	\N	\N	0	0	draw	yes
+7015	1398384	2025-09-25	Turkey	1. Lig	Sivasspor	Adana Demirspor	h-win	5	0	22	12	4	3	11	2	5	0	3	1	0	0	71.00	29.00	11	15	\N	\N	\N	\N	\N	2025-12-02 21:10:34.164345	\N	\N	1	0	h-win	yes
+7016	1398375	2025-09-25	Turkey	1. Lig	Amed	Sarıyer	h-win	2	0	17	7	14	4	7	5	3	0	0	2	0	0	57.00	43.00	4	6	\N	\N	\N	\N	\N	2025-12-02 21:10:34.255867	\N	\N	0	0	draw	yes
+7017	1398383	2025-09-25	Turkey	1. Lig	Pendikspor	Sakaryaspor	h-win	4	1	16	9	16	6	6	3	0	2	4	3	0	1	57.00	43.00	18	10	\N	\N	\N	\N	\N	2025-12-02 21:10:34.347998	\N	\N	1	1	draw	yes
+7018	1398386	2025-09-27	Turkey	1. Lig	Erokspor	76 Iğdır Belediyespor	a-win	2	3	8	2	5	4	3	2	4	3	3	4	0	0	63.00	37.00	9	13	\N	\N	\N	\N	\N	2025-12-02 21:10:34.43747	\N	\N	1	2	a-win	yes
+7019	1398393	2025-09-27	Turkey	1. Lig	Ümraniyespor	Yeni Çorumspor	draw	1	1	9	3	16	2	1	3	1	2	4	2	0	0	32.00	68.00	15	16	\N	\N	\N	\N	\N	2025-12-02 21:10:34.525408	\N	\N	1	1	draw	yes
+7020	1398388	2025-09-28	Turkey	1. Lig	İstanbulspor	Boluspor	draw	1	1	6	4	18	7	1	9	2	3	4	4	0	0	31.00	69.00	16	14	\N	\N	\N	\N	\N	2025-12-02 21:10:34.620758	\N	\N	1	0	h-win	yes
+7021	1398390	2025-09-28	Turkey	1. Lig	Manisa BBSK	BB Bodrumspor	a-win	0	4	13	4	14	7	5	1	1	0	1	3	0	0	54.00	46.00	8	18	\N	\N	\N	\N	\N	2025-12-02 21:10:34.712278	\N	\N	0	1	a-win	yes
+7022	1398387	2025-09-28	Turkey	1. Lig	Hatayspor	Bandırmaspor	a-win	0	3	17	4	7	5	2	4	1	6	3	2	0	0	64.00	36.00	10	9	\N	\N	\N	\N	\N	2025-12-02 21:10:34.80637	\N	\N	0	1	a-win	yes
+7023	1398392	2025-09-28	Turkey	1. Lig	Serik Belediyespor	Erzurum BB	draw	1	1	10	4	8	3	4	3	0	2	4	2	0	0	24.00	76.00	17	12	\N	\N	\N	\N	\N	2025-12-02 21:10:34.897581	\N	\N	1	0	h-win	yes
+7024	1398389	2025-09-29	Turkey	1. Lig	Keçiörengücü	Pendikspor	draw	0	0	10	2	12	2	4	1	3	1	4	3	0	0	46.00	54.00	16	10	\N	\N	\N	\N	\N	2025-12-02 21:10:34.993376	\N	\N	0	0	draw	yes
+7025	1398394	2025-09-29	Turkey	1. Lig	Van BB	Amed	h-win	3	0	9	5	17	6	2	4	1	1	1	3	0	0	49.00	51.00	18	14	\N	\N	\N	\N	\N	2025-12-02 21:10:35.077409	\N	\N	0	0	draw	yes
+7026	1398385	2025-09-29	Turkey	1. Lig	Adana Demirspor	Sarıyer	a-win	0	3	8	2	17	6	0	11	1	6	3	0	0	0	34.00	66.00	8	11	\N	\N	\N	\N	\N	2025-12-02 21:10:35.167666	\N	\N	0	0	draw	yes
+7027	1398391	2025-09-29	Turkey	1. Lig	Sakaryaspor	Sivasspor	draw	0	0	9	2	10	1	3	2	0	3	2	2	0	1	50.00	50.00	11	16	\N	\N	\N	\N	\N	2025-12-02 21:10:35.253205	\N	\N	0	0	draw	yes
+7028	1398398	2025-10-03	Turkey	1. Lig	Boluspor	Erokspor	a-win	1	3	11	2	8	4	3	2	0	1	5	5	0	1	66.00	34.00	19	15	\N	\N	\N	\N	\N	2025-12-02 21:10:35.370557	\N	\N	1	1	draw	yes
+7029	1398399	2025-10-03	Turkey	1. Lig	Yeni Çorumspor	Manisa BBSK	h-win	3	1	14	5	13	3	4	7	2	2	1	3	0	0	61.00	39.00	12	10	\N	\N	\N	\N	\N	2025-12-02 21:10:35.462275	\N	\N	3	0	h-win	yes
+7030	1398396	2025-10-04	Turkey	1. Lig	Bandırmaspor	Ümraniyespor	h-win	2	1	18	6	6	1	3	3	4	2	3	0	0	1	60.00	40.00	11	7	\N	\N	\N	\N	\N	2025-12-02 21:10:35.5536	\N	\N	1	1	draw	yes
+7031	1398402	2025-10-04	Turkey	1. Lig	Pendikspor	Adana Demirspor	h-win	3	0	22	8	1	0	8	1	7	1	1	1	0	0	64.00	36.00	14	9	\N	\N	\N	\N	\N	2025-12-02 21:10:35.642186	\N	\N	2	0	h-win	yes
+7032	1398400	2025-10-04	Turkey	1. Lig	Erzurum BB	Van BB	draw	1	1	8	1	9	0	5	3	2	1	4	6	0	0	55.00	45.00	9	22	\N	\N	\N	\N	\N	2025-12-02 21:10:35.734595	\N	\N	0	0	draw	yes
+7033	1398395	2025-10-04	Turkey	1. Lig	Amed	Keçiörengücü	h-win	4	1	18	7	12	3	4	2	2	2	2	5	0	0	57.00	43.00	3	10	\N	\N	\N	\N	\N	2025-12-02 21:10:35.824377	\N	\N	3	0	h-win	yes
+7034	1398403	2025-10-05	Turkey	1. Lig	Sarıyer	Sakaryaspor	a-win	1	2	17	6	11	4	5	4	3	2	2	5	0	0	58.00	42.00	11	13	\N	\N	\N	\N	\N	2025-12-02 21:10:35.919873	\N	\N	0	0	draw	yes
+7035	1398404	2025-10-05	Turkey	1. Lig	Sivasspor	Serik Belediyespor	draw	0	0	9	2	3	1	5	2	1	1	3	2	0	0	72.00	28.00	12	15	\N	\N	\N	\N	\N	2025-12-02 21:10:36.017948	\N	\N	0	0	draw	yes
+7036	1398401	2025-10-05	Turkey	1. Lig	76 Iğdır Belediyespor	İstanbulspor	h-win	2	1	10	4	9	5	3	2	1	5	4	4	1	1	48.00	52.00	15	12	\N	\N	\N	\N	\N	2025-12-02 21:10:36.106266	\N	\N	1	0	h-win	yes
+7037	1398397	2025-10-05	Turkey	1. Lig	BB Bodrumspor	Hatayspor	h-win	5	0	16	7	5	2	2	2	5	2	0	2	0	0	44.00	56.00	13	7	\N	\N	\N	\N	\N	2025-12-02 21:10:36.19135	\N	\N	5	0	h-win	yes
+7038	1398413	2025-10-17	Turkey	1. Lig	Ümraniyespor	Sarıyer	a-win	1	3	8	4	16	9	3	4	0	1	3	4	1	0	34.00	66.00	7	12	\N	\N	\N	\N	\N	2025-12-02 21:10:36.282358	\N	\N	1	1	draw	yes
+7039	1398411	2025-10-18	Turkey	1. Lig	Manisa BBSK	Erzurum BB	draw	1	1	8	2	6	2	5	5	0	2	5	2	0	0	48.00	52.00	14	5	\N	\N	\N	\N	\N	2025-12-02 21:10:36.375279	\N	\N	0	0	draw	yes
+7040	1398414	2025-10-18	Turkey	1. Lig	Van BB	Pendikspor	draw	1	1	12	4	9	3	3	3	2	2	2	4	0	1	39.00	61.00	12	9	\N	\N	\N	\N	\N	2025-12-02 21:10:36.465421	\N	\N	1	0	h-win	yes
+7041	1398405	2025-10-18	Turkey	1. Lig	Adana Demirspor	Sakaryaspor	a-win	0	6	2	1	21	9	3	10	1	3	1	0	0	0	39.00	61.00	7	12	\N	\N	\N	\N	\N	2025-12-02 21:10:36.554107	\N	\N	0	2	a-win	yes
+7042	1398407	2025-10-18	Turkey	1. Lig	Hatayspor	Yeni Çorumspor	a-win	1	4	8	1	14	9	1	3	0	5	4	1	0	0	45.00	55.00	8	14	\N	\N	\N	\N	\N	2025-12-02 21:10:36.652158	\N	\N	0	2	a-win	yes
+7043	1398410	2025-10-19	Turkey	1. Lig	Keçiörengücü	Sivasspor	draw	0	0	14	3	8	2	7	3	1	4	2	4	0	0	55.00	45.00	14	8	\N	\N	\N	\N	\N	2025-12-02 21:10:36.741299	\N	\N	0	0	draw	yes
+7044	1398408	2025-10-19	Turkey	1. Lig	76 Iğdır Belediyespor	Boluspor	draw	1	1	11	2	7	4	2	6	6	7	3	6	1	0	61.00	39.00	11	7	\N	\N	\N	\N	\N	2025-12-02 21:10:36.891891	\N	\N	0	1	a-win	yes
+7045	1398406	2025-10-19	Turkey	1. Lig	Erokspor	BB Bodrumspor	draw	1	1	4	1	8	3	5	3	0	1	0	1	0	0	57.00	43.00	13	9	\N	\N	\N	\N	\N	2025-12-02 21:10:36.983718	\N	\N	1	1	draw	yes
+7046	1398412	2025-10-20	Turkey	1. Lig	Serik Belediyespor	Amed	a-win	1	2	15	4	15	5	6	1	2	1	3	1	0	0	34.00	66.00	16	5	\N	\N	\N	\N	\N	2025-12-02 21:10:37.100118	\N	\N	0	0	draw	yes
+7047	1398409	2025-10-20	Turkey	1. Lig	İstanbulspor	Bandırmaspor	draw	1	1	14	8	7	1	3	3	2	2	1	2	0	0	59.00	41.00	7	11	\N	\N	\N	\N	\N	2025-12-02 21:10:37.223189	\N	\N	1	1	draw	yes
+7048	1398420	2025-10-24	Turkey	1. Lig	Erzurum BB	Ümraniyespor	h-win	2	0	15	7	6	1	5	2	0	3	2	4	0	0	58.00	42.00	13	11	\N	\N	\N	\N	\N	2025-12-02 21:10:37.316508	\N	\N	0	0	draw	yes
+7049	1398424	2025-10-24	Turkey	1. Lig	Sivasspor	Hatayspor	draw	1	1	14	2	5	2	7	2	2	3	2	6	0	1	70.00	30.00	13	9	\N	\N	\N	\N	\N	2025-12-02 21:10:37.404545	\N	\N	0	1	a-win	yes
+7050	1398415	2025-10-25	Turkey	1. Lig	Adana Demirspor	Van BB	a-win	2	4	10	6	21	10	2	3	2	3	2	1	0	0	32.00	68.00	13	10	\N	\N	\N	\N	\N	2025-12-02 21:10:37.522991	\N	\N	0	2	a-win	yes
+7051	1398423	2025-10-25	Turkey	1. Lig	Sarıyer	Manisa BBSK	draw	0	0	14	2	14	5	3	5	0	2	4	3	0	1	53.00	47.00	10	7	\N	\N	\N	\N	\N	2025-12-02 21:10:37.611091	\N	\N	0	0	draw	yes
+7052	1398421	2025-10-25	Turkey	1. Lig	Pendikspor	Serik Belediyespor	h-win	4	0	15	6	9	3	3	5	2	3	1	4	0	0	64.00	36.00	9	17	\N	\N	\N	\N	\N	2025-12-02 21:10:37.706069	\N	\N	1	0	h-win	yes
+7053	1398422	2025-10-25	Turkey	1. Lig	Sakaryaspor	Keçiörengücü	h-win	1	0	12	4	11	2	5	6	3	2	1	2	0	0	42.00	58.00	12	13	\N	\N	\N	\N	\N	2025-12-02 21:10:37.800101	\N	\N	1	0	h-win	yes
+7054	1398417	2025-10-26	Turkey	1. Lig	Bandırmaspor	Erokspor	draw	0	0	6	0	10	1	4	4	0	2	4	3	2	0	24.00	76.00	11	12	\N	\N	\N	\N	\N	2025-12-02 21:10:37.887209	\N	\N	0	0	draw	yes
+7055	1398416	2025-10-26	Turkey	1. Lig	Amed	İstanbulspor	draw	0	0	17	3	9	3	7	2	3	1	4	1	0	0	58.00	42.00	13	13	\N	\N	\N	\N	\N	2025-12-02 21:10:37.976413	\N	\N	0	0	draw	yes
+7056	1398419	2025-10-26	Turkey	1. Lig	Yeni Çorumspor	Boluspor	draw	0	0	10	6	11	1	8	3	1	3	1	2	0	0	54.00	46.00	8	16	\N	\N	\N	\N	\N	2025-12-02 21:10:38.063474	\N	\N	0	0	draw	yes
+7057	1398418	2025-10-26	Turkey	1. Lig	BB Bodrumspor	76 Iğdır Belediyespor	h-win	2	0	10	5	6	2	4	3	4	8	2	0	0	0	37.00	63.00	15	9	\N	\N	\N	\N	\N	2025-12-02 21:10:38.152906	\N	\N	0	0	draw	yes
+7058	1398427	2025-10-31	Turkey	1. Lig	Hatayspor	Erzurum BB	a-win	0	3	5	0	23	9	1	8	1	2	3	2	1	0	34.00	66.00	6	13	\N	\N	\N	\N	\N	2025-12-02 21:10:38.241365	\N	\N	0	1	a-win	yes
+7059	1398430	2025-11-01	Turkey	1. Lig	Keçiörengücü	Sarıyer	h-win	3	0	12	5	10	3	6	0	3	1	1	1	0	0	48.00	52.00	22	11	\N	\N	\N	14	17	2025-12-02 21:10:38.411293	\N	\N	2	0	h-win	yes
+7060	1398433	2025-11-01	Turkey	1. Lig	Ümraniyespor	Sivasspor	h-win	1	0	12	7	13	3	5	3	1	2	1	2	0	2	39.00	61.00	16	11	\N	\N	\N	16	12	2025-12-02 21:10:38.502013	\N	\N	1	0	h-win	yes
+7061	1398432	2025-11-01	Turkey	1. Lig	Serik Belediyespor	Adana Demirspor	h-win	4	0	21	8	9	4	10	4	4	0	0	1	0	1	65.00	35.00	14	6	\N	\N	\N	8	20	2025-12-02 21:10:38.591608	\N	\N	2	0	h-win	yes
+7062	1398429	2025-11-02	Turkey	1. Lig	İstanbulspor	Pendikspor	draw	0	0	16	4	12	7	3	4	3	0	1	5	0	1	59.00	41.00	13	9	\N	\N	\N	15	1	2025-12-02 21:10:38.68027	\N	\N	0	0	draw	yes
+7063	1398431	2025-11-02	Turkey	1. Lig	Manisa BBSK	Amed	a-win	0	3	9	2	12	5	3	4	1	2	3	3	0	0	53.00	47.00	16	11	\N	\N	\N	18	3	2025-12-02 21:10:38.772258	\N	\N	0	1	a-win	yes
+7064	1398425	2025-11-02	Turkey	1. Lig	Boluspor	BB Bodrumspor	h-win	3	0	18	8	8	2	3	3	4	3	0	0	0	1	67.00	33.00	11	11	\N	\N	\N	11	2	2025-12-02 21:10:38.861237	\N	\N	1	0	h-win	yes
+7065	1398434	2025-11-02	Turkey	1. Lig	Van BB	Sakaryaspor	h-win	3	2	11	7	10	4	9	4	5	3	2	4	0	0	56.00	44.00	17	12	\N	\N	\N	10	13	2025-12-02 21:10:38.947055	\N	\N	2	1	h-win	yes
+7066	1398428	2025-11-03	Turkey	1. Lig	76 Iğdır Belediyespor	Bandırmaspor	draw	1	1	10	3	7	3	6	5	3	3	4	2	0	0	65.00	35.00	15	15	\N	\N	\N	7	9	2025-12-02 21:10:39.036214	1.09	0.63	0	1	a-win	yes
+7067	1398426	2025-11-03	Turkey	1. Lig	Erokspor	Yeni Çorumspor	h-win	3	1	16	5	13	3	2	7	3	2	1	3	0	0	34.00	66.00	13	12	\N	\N	\N	4	6	2025-12-02 21:10:39.129225	1.92	1.62	1	1	draw	yes
+7068	1398443	2025-11-07	Turkey	1. Lig	Sarıyer	Van BB	h-win	2	1	14	6	10	3	2	4	3	2	5	6	2	0	40.00	60.00	11	24	\N	\N	\N	17	10	2025-12-02 21:10:39.217891	\N	\N	1	0	h-win	yes
+7069	1398438	2025-11-07	Turkey	1. Lig	BB Bodrumspor	İstanbulspor	h-win	5	0	15	8	8	5	2	2	2	6	2	1	0	0	49.00	51.00	12	13	\N	\N	\N	2	15	2025-12-02 21:10:39.310243	3.95	0.72	2	0	h-win	yes
+7070	1398444	2025-11-08	Turkey	1. Lig	Sivasspor	Manisa BBSK	h-win	3	2	14	7	7	3	5	4	2	2	4	3	1	0	49.00	51.00	17	15	\N	\N	\N	12	18	2025-12-02 21:10:39.444809	1.76	1.88	1	1	draw	yes
+7071	1398437	2025-11-08	Turkey	1. Lig	Bandırmaspor	Boluspor	h-win	1	0	6	2	10	3	0	5	1	2	4	1	0	0	30.00	70.00	15	12	\N	\N	\N	9	11	2025-12-02 21:10:39.581887	0.48	0.68	0	0	draw	yes
+7072	1398442	2025-11-08	Turkey	1. Lig	Sakaryaspor	Serik Belediyespor	a-win	2	3	17	5	13	9	7	3	2	0	3	6	0	0	55.00	45.00	12	17	\N	\N	\N	13	8	2025-12-02 21:10:39.701295	1.81	2.38	0	1	a-win	yes
+7073	1398436	2025-11-08	Turkey	1. Lig	Amed	Hatayspor	h-win	2	1	20	6	6	3	3	0	5	0	4	1	0	0	47.00	53.00	7	8	\N	\N	\N	3	19	2025-12-02 21:10:39.832795	3.02	1.21	2	1	h-win	yes
+7074	1398440	2025-11-09	Turkey	1. Lig	Erzurum BB	Erokspor	draw	1	1	13	2	5	2	4	2	0	1	2	6	0	0	46.00	54.00	12	17	\N	\N	\N	5	4	2025-12-02 21:10:39.922387	0.69	0.49	0	0	draw	yes
+7075	1398435	2025-11-09	Turkey	1. Lig	Adana Demirspor	Keçiörengücü	a-win	2	7	15	8	18	15	3	2	1	6	1	1	0	0	44.00	56.00	9	14	\N	\N	\N	20	14	2025-12-02 21:10:40.012529	1.42	4.51	0	3	a-win	yes
+7076	1398441	2025-11-09	Turkey	1. Lig	Pendikspor	Ümraniyespor	h-win	3	0	14	6	9	2	5	1	2	0	2	1	0	0	51.00	49.00	16	10	\N	\N	\N	1	16	2025-12-02 21:10:40.107618	\N	\N	1	0	h-win	yes
+7077	1398439	2025-11-09	Turkey	1. Lig	Yeni Çorumspor	76 Iğdır Belediyespor	h-win	3	1	11	5	9	4	2	4	4	3	4	5	0	0	48.00	52.00	10	11	\N	\N	\N	6	7	2025-12-02 21:10:40.198533	2.50	1.88	1	1	draw	yes
+7078	1398451	2025-11-21	Turkey	1. Lig	Manisa BBSK	Adana Demirspor	h-win	5	0	14	8	6	2	5	1	4	1	1	1	0	0	63.00	37.00	11	12	\N	\N	\N	18	20	2025-12-02 21:10:40.28743	3.16	0.40	3	0	h-win	yes
+7079	1398448	2025-11-22	Turkey	1. Lig	Hatayspor	Pendikspor	a-win	0	1	9	2	14	6	1	4	2	1	5	2	0	0	48.00	52.00	18	15	\N	\N	\N	19	1	2025-12-02 21:10:40.372343	0.39	2.33	0	0	draw	yes
+7080	1398445	2025-11-22	Turkey	1. Lig	Bandırmaspor	Yeni Çorumspor	h-win	1	0	6	3	18	8	2	8	0	2	2	5	0	0	37.00	63.00	12	10	\N	\N	\N	9	6	2025-12-02 21:10:40.496407	0.50	1.17	0	0	draw	yes
+7081	1398446	2025-11-22	Turkey	1. Lig	Boluspor	Amed	h-win	4	1	8	6	7	2	2	3	4	2	2	5	0	1	61.00	39.00	13	16	\N	\N	\N	11	3	2025-12-02 21:10:40.588933	3.09	0.74	4	1	h-win	yes
+7082	1398450	2025-11-22	Turkey	1. Lig	İstanbulspor	Sakaryaspor	draw	3	3	14	4	8	3	3	5	0	3	0	0	0	0	48.00	52.00	9	8	\N	\N	\N	15	13	2025-12-02 21:10:40.684185	1.70	1.68	1	1	draw	yes
+7083	1398453	2025-11-23	Turkey	1. Lig	Ümraniyespor	BB Bodrumspor	h-win	1	0	8	6	15	2	5	6	1	2	2	4	1	1	42.00	58.00	4	12	\N	\N	\N	16	2	2025-12-02 21:10:40.771482	1.80	1.80	0	0	draw	yes
+7084	1398449	2025-11-23	Turkey	1. Lig	76 Iğdır Belediyespor	Erzurum BB	h-win	2	1	11	1	11	2	6	5	0	2	2	3	0	0	47.00	53.00	12	4	\N	\N	\N	7	5	2025-12-02 21:10:40.872424	0.89	1.81	1	1	draw	yes
+7085	1398454	2025-11-23	Turkey	1. Lig	Van BB	Keçiörengücü	draw	1	1	19	5	10	4	5	2	0	0	2	5	0	0	63.00	37.00	10	16	\N	\N	\N	10	14	2025-12-02 21:10:40.963377	2.71	0.79	0	1	a-win	yes
+7086	1398447	2025-11-23	Turkey	1. Lig	Erokspor	Sivasspor	h-win	2	1	15	4	17	6	7	5	1	0	0	2	0	0	50.00	50.00	7	10	\N	\N	\N	4	12	2025-12-02 21:10:41.051384	2.29	1.04	0	0	draw	yes
+7087	1398452	2025-11-24	Turkey	1. Lig	Serik Belediyespor	Sarıyer	h-win	3	0	13	7	9	1	2	3	6	1	2	4	0	0	40.00	60.00	9	10	\N	\N	\N	8	17	2025-12-02 21:10:41.136425	1.92	0.27	1	0	h-win	yes
+7088	1398456	2025-11-28	Turkey	1. Lig	Amed	Erokspor	h-win	2	1	17	4	6	3	7	3	3	0	4	2	0	0	57.00	43.00	12	10	\N	\N	\N	3	4	2025-12-02 21:10:41.227441	2.48	0.70	0	1	a-win	yes
+7089	1398460	2025-11-28	Turkey	1. Lig	Pendikspor	Manisa BBSK	h-win	2	0	19	5	6	0	7	0	2	1	3	0	0	0	67.00	33.00	19	11	\N	\N	\N	1	18	2025-12-02 21:10:41.318094	2.51	0.63	0	0	draw	yes
+7090	1398458	2025-11-29	Turkey	1. Lig	Erzurum BB	İstanbulspor	h-win	4	0	22	10	6	2	8	2	2	1	2	0	0	0	56.00	44.00	10	12	\N	\N	\N	5	15	2025-12-02 21:10:41.406435	2.76	0.14	1	0	h-win	yes
+7091	1398459	2025-11-29	Turkey	1. Lig	Keçiörengücü	76 Iğdır Belediyespor	a-win	1	2	17	6	10	3	5	1	2	3	2	3	0	0	53.00	47.00	18	10	\N	\N	\N	14	7	2025-12-02 21:10:41.532363	\N	\N	1	1	draw	yes
+7092	1398464	2025-11-29	Turkey	1. Lig	Van BB	Serik Belediyespor	a-win	0	1	17	2	10	5	8	3	0	2	2	3	0	0	71.00	29.00	17	17	\N	\N	\N	10	8	2025-12-02 21:10:41.630326	\N	\N	0	0	draw	yes
+7093	1398461	2025-11-29	Turkey	1. Lig	Sakaryaspor	Ümraniyespor	draw	1	1	15	4	13	5	8	1	0	1	3	5	1	0	61.00	39.00	15	22	\N	\N	\N	13	16	2025-12-02 21:10:41.723611	\N	\N	0	1	a-win	yes
+7094	1398463	2025-11-30	Turkey	1. Lig	Sivasspor	Boluspor	h-win	1	0	15	4	9	2	3	4	5	1	2	8	0	1	39.00	61.00	20	18	\N	\N	\N	12	11	2025-12-02 21:10:41.81747	1.91	0.78	1	0	h-win	yes
+7095	1398462	2025-11-30	Turkey	1. Lig	Sarıyer	Bandırmaspor	h-win	1	0	9	4	13	3	6	5	2	1	2	3	0	0	51.00	49.00	8	15	\N	\N	\N	17	9	2025-12-02 21:10:41.907487	1.06	0.90	0	0	draw	yes
+7096	1398457	2025-11-30	Turkey	1. Lig	BB Bodrumspor	Yeni Çorumspor	h-win	4	0	9	5	12	4	6	9	3	5	2	3	0	1	54.00	46.00	7	15	\N	\N	\N	2	6	2025-12-02 21:10:41.996448	1.32	0.81	2	0	h-win	yes
+7097	1398455	2025-12-01	Turkey	1. Lig	Adana Demirspor	Hatayspor	draw	3	3	17	5	11	7	3	4	0	12	4	2	1	0	34.00	66.00	11	10	\N	\N	\N	20	19	2025-12-02 21:10:42.086419	\N	\N	1	1	draw	yes
 \.
 
 
@@ -4990,14 +7388,14 @@ COPY public.matches (id, fixture_id, match_date, country, league, home_team, awa
 -- Name: import_jobs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.import_jobs_id_seq', 17, true);
+SELECT pg_catalog.setval('public.import_jobs_id_seq', 41, true);
 
 
 --
 -- Name: matches_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.matches_id_seq', 4703, true);
+SELECT pg_catalog.setval('public.matches_id_seq', 7097, true);
 
 
 --
@@ -5091,5 +7489,5 @@ CREATE UNIQUE INDEX matches_fixture_id_key ON public.matches USING btree (fixtur
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 7KNPiZqVcu8pg04QWiQrPnzGXCAGIXvXk35sHGH4WVgepRJuor0BbQCqc181Zxu
+\unrestrict N8EYFSE2qbux4bX39m0gnnm1sgMUMwkiORxsZeobPeNilPOc2rYekIVMi0QYJYn
 
