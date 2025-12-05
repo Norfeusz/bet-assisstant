@@ -314,6 +314,63 @@ router.post('/import-jobs/:id/retry', async (req, res) => {
 	}
 })
 
+// Restart completed job (creates new job with same parameters)
+router.post('/import-jobs/:id/restart', async (req, res) => {
+	try {
+		const jobId = parseInt(req.params.id)
+
+		// Get original job
+		const jobs: any = await prisma.$queryRawUnsafe(
+			`SELECT leagues, date_from, date_to, job_type, status FROM import_jobs WHERE id = $1`,
+			jobId
+		)
+
+		if (jobs.length === 0) {
+			return res.status(404).json({ error: 'Job not found' })
+		}
+
+		const originalJob = jobs[0]
+
+		// Only allow restarting completed or failed jobs
+		if (originalJob.status !== 'completed' && originalJob.status !== 'failed') {
+			return res.status(400).json({ error: 'Only completed or failed jobs can be restarted' })
+		}
+
+		// Check if there's already an active or queued job
+		const existingJobs = await prisma.$queryRaw<Array<{ count: bigint }>>`
+			SELECT COUNT(*) as count
+			FROM import_jobs
+			WHERE status IN ('pending', 'running', 'rate_limited', 'in_queue')
+		`
+
+		// New job gets 'pending' only if no other jobs are active/queued, otherwise 'in_queue'
+		const initialStatus = existingJobs[0].count > 0 ? 'in_queue' : 'pending'
+
+		// Create new job with same parameters
+		const newJob: any = await prisma.$queryRawUnsafe(
+			`
+			INSERT INTO import_jobs (leagues, date_from, date_to, job_type, status, progress)
+			VALUES ($1::jsonb, $2::date, $3::date, $4::job_type_enum, $5::job_status_enum, '{}'::jsonb)
+			RETURNING id
+		`,
+			JSON.stringify(originalJob.leagues),
+			originalJob.date_from,
+			originalJob.date_to,
+			originalJob.job_type,
+			initialStatus
+		)
+
+		res.json({
+			success: true,
+			newJobId: newJob[0].id,
+			message: `New job #${newJob[0].id} created from job #${jobId}. Worker will process it shortly.`,
+		})
+	} catch (error: any) {
+		console.error('Error restarting job:', error)
+		res.status(500).json({ error: error.message })
+	}
+})
+
 // Delete job (hard delete)
 router.delete('/import-jobs/:id', async (req, res) => {
 	try {

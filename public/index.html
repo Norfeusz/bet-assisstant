@@ -296,13 +296,22 @@
                             <label for="bet-finder-date-to">Do:</label>
                             <input type="date" id="bet-finder-date-to" class="date-input">
                         </div>
-                        <button 
-                            onclick="window.setTodayDate()" 
-                            class="btn-primary"
-                            style="padding: 8px 16px; font-size: 13px; margin-top: 10px; width: auto;"
-                            title="Ustaw zakres dat na dzisiejszy dzień">
-                            📅 Dzisiejsze mecze
-                        </button>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button 
+                                onclick="window.setTodayDate()" 
+                                class="btn-primary"
+                                style="padding: 8px 16px; font-size: 13px; width: auto;"
+                                title="Ustaw zakres dat na dzisiejszy dzień">
+                                📅 Dzisiejsze mecze
+                            </button>
+                            <button 
+                                onclick="window.setTomorrowDate()" 
+                                class="btn-primary"
+                                style="padding: 8px 16px; font-size: 13px; width: auto;"
+                                title="Ustaw zakres dat na jutrzejszy dzień">
+                                📅 Jutrzejsze mecze
+                            </button>
+                        </div>
                     </div>
                 </div>
 

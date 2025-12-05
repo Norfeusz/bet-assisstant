@@ -236,14 +236,24 @@ export function showWatchedMatchesModal() {
                         </div>
                     </td>
                     <td style="padding: 12px;">
-                        <button
-                            onclick="window.removeFromWatchedMatches('${match.id}')"
-                            style="background: #dc2626; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; white-space: nowrap;"
-                            onmouseover="this.style.background='#b91c1c'"
-                            onmouseout="this.style.background='#dc2626'"
-                            title="Usuń z obserwowanych">
-                            🗑️ Usuń
-                        </button>
+                        <div style="display: flex; gap: 8px;">
+                            <button
+                                onclick="window.addToStrefaTypera('${match.homeTeam.replace(/'/g, "\\'")}', '${match.awayTeam.replace(/'/g, "\\'")}', '${match.league.replace(/'/g, "\\'")}')"
+                                style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+                                onmouseover="this.style.background='linear-gradient(135deg, #059669 0%, #047857 100%)'"
+                                onmouseout="this.style.background='linear-gradient(135deg, #10b981 0%, #059669 100%)'"
+                                title="Dodaj do Strefa Typera">
+                                📊 Strefa typera
+                            </button>
+                            <button
+                                onclick="window.removeFromWatchedMatches('${match.id}')"
+                                style="background: #dc2626; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; white-space: nowrap;"
+                                onmouseover="this.style.background='#b91c1c'"
+                                onmouseout="this.style.background='#dc2626'"
+                                title="Usuń z obserwowanych">
+                                🗑️ Usuń
+                            </button>
+                        </div>
                     </td>
                 </tr>
             `

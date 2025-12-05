@@ -385,6 +385,22 @@ export function setTodayDate() {
 }
 
 /**
+ * Set date range to tomorrow only
+ */
+export function setTomorrowDate() {
+	const tomorrow = new Date()
+	tomorrow.setDate(tomorrow.getDate() + 1)
+	const dateFromInput = document.getElementById('bet-finder-date-from')
+	const dateToInput = document.getElementById('bet-finder-date-to')
+
+	if (dateFromInput && dateToInput) {
+		dateFromInput.valueAsDate = tomorrow
+		dateToInput.valueAsDate = tomorrow
+		console.log('📅 Date range set to tomorrow:', tomorrow.toISOString().split('T')[0])
+	}
+}
+
+/**
  * Save and close configuration
  */
 export function saveAndClose() {

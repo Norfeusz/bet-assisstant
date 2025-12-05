@@ -123,6 +123,13 @@ async function refreshBackgroundJobs() {
 												}
                         <button class="job-action-btn" onclick="viewJobLogs(${job.id})">📄 Logi</button>
                         ${
+													job.status === 'completed' || job.status === 'failed'
+														? `
+                            <button class="job-action-btn" style="background: #4caf50; color: white;" onclick="restartJob(${job.id})" title="Utwórz nowe zadanie z tymi samymi parametrami">🔄 Wykonaj ponownie</button>
+                        `
+														: ''
+												}
+                        ${
 													showHiddenJobs
 														? `
                             <button class="job-action-btn" onclick="unhideJob(${job.id})" title="Przywróć zadanie na listę">↩️ Przywróć</button>
@@ -1243,6 +1250,28 @@ async function unhideJob(jobId) {
 	}
 }
 
+async function restartJob(jobId) {
+	if (!confirm('Czy na pewno utworzyć nowe zadanie z tymi samymi parametrami?')) return
+
+	try {
+		const response = await fetch(`/api/import-jobs/${jobId}/restart`, {
+			method: 'POST',
+		})
+
+		if (!response.ok) {
+			const error = await response.json()
+			throw new Error(error.error || 'Błąd restartu zadania')
+		}
+
+		const result = await response.json()
+		await refreshBackgroundJobs()
+		showToast(`✅ ${result.message}`, 'success')
+	} catch (error) {
+		console.error('Error restarting job:', error)
+		showToast('Błąd podczas restartu zadania: ' + error.message, 'error')
+	}
+}
+
 async function deleteJob(jobId) {
 	if (
 		!confirm(
@@ -2137,6 +2166,12 @@ async function showBetFinderMatchDetailsModal(result) {
 	modalContainer.id = 'match-details-modal'
 	modalContainer.innerHTML = modalHTML
 	document.body.appendChild(modalContainer)
+	
+	// Add show class and display after a small delay to trigger animations
+	setTimeout(() => {
+		modalContainer.classList.add('show')
+		modalContainer.style.display = 'block'
+	}, 10)
 }
 
 // Store minimized match modals data
@@ -2239,8 +2274,9 @@ function minimizeMatchDetailsModal() {
 	// No modal to minimize
 	if (!modal) return
 
-	// Hide modal (don't remove it)
+	// Hide modal (don't remove it - we need it for restore)
 	modal.style.display = 'none'
+	modal.classList.remove('show')
 
 	// Store modal data
 	minimizedMatchModals.set(matchId, currentMatchDetailsData)
@@ -2283,6 +2319,7 @@ function restoreMatchDetailsModal(matchId) {
 	if (modal) {
 		// Modal exists, just show it
 		modal.style.display = 'block'
+		modal.classList.add('show')
 	} else {
 		// Get modal data and recreate
 		const matchData = minimizedMatchModals.get(matchId)
@@ -2374,6 +2411,233 @@ function addToBackgroundJobs(homeTeam, awayTeam, league, date) {
 	showToast('Dodawanie do zadań w tle - funkcja w trakcie implementacji', 'info')
 }
 
+/**
+ * Add match to Strefa Typera spreadsheet
+ */
+async function addToStrefaTypera(homeTeam, awayTeam, league) {
+	try {
+		// Step 1: Choose bet type
+		const betType = await showBetTypeDialog()
+		if (!betType) return // User cancelled
+		
+		// Step 2: Choose bet option based on bet type (skip for 1 and 2)
+		let betOption
+		if (betType === '1' || betType === '2') {
+			betOption = '-' // No option needed for win bets
+		} else {
+			betOption = await showBetOptionDialog(betType)
+			if (!betOption) return // User cancelled
+		}
+		
+		// Step 3: Enter odds
+		const odds = await showOddsDialog()
+		if (!odds) return // User cancelled
+		
+		showToast('Dodawanie do Strefa Typera...', 'info')
+
+		const response = await fetch('/api/strefa-typera/add-match-full', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ homeTeam, awayTeam, league, betType, betOption, odds }),
+		})
+
+		const result = await response.json()
+
+		if (!response.ok) {
+			throw new Error(result.error || 'Błąd dodawania do Strefa Typera')
+		}
+
+		showToast(`✅ Dodano ${result.rowsAdded} wiersze do Strefa Typera`, 'success')
+	} catch (error) {
+		console.error('Error adding to Strefa Typera:', error)
+		showToast(`❌ ${error.message}`, 'error')
+	}
+}
+
+/**
+ * Show bet type selection dialog
+ */
+function showBetTypeDialog() {
+	return new Promise((resolve) => {
+		const modal = document.createElement('div')
+		modal.className = 'modal-overlay'
+		modal.style.display = 'flex'
+		modal.style.zIndex = '100000'
+		
+		modal.innerHTML = `
+			<div class="modal-content" style="max-width: 400px;">
+				<div class="modal-header">
+					<h2>Wybierz zakład</h2>
+					<button class="modal-close" onclick="this.closest('.modal-overlay').remove(); window.betTypeResolve(null)">×</button>
+				</div>
+				<div class="modal-body">
+					<div style="display: flex; flex-direction: column; gap: 10px;">
+						<button class="bet-type-btn" data-value="1">1 (wygrana gospodarzy)</button>
+						<button class="bet-type-btn" data-value="2">2 (wygrana gości)</button>
+						<button class="bet-type-btn" data-value="bts">BTS (obie drużyny strzelą)</button>
+						<button class="bet-type-btn" data-value="handi1">Handi 1 (handicap gospodarzy)</button>
+						<button class="bet-type-btn" data-value="handi2">Handi 2 (handicap gości)</button>
+						<button class="bet-type-btn" data-value="goals_over">Bramki Over</button>
+						<button class="bet-type-btn" data-value="goals_under">Bramki Under</button>
+						<button class="bet-type-btn" data-value="corners_over">Rożne Over</button>
+						<button class="bet-type-btn" data-value="corners_under">Rożne Under</button>
+						<button class="bet-type-btn" data-value="offsides_over">Spalone Over</button>
+						<button class="bet-type-btn" data-value="offsides_under">Spalone Under</button>
+					</div>
+				</div>
+			</div>
+		`
+		
+		document.body.appendChild(modal)
+		
+		window.betTypeResolve = resolve
+		
+		modal.querySelectorAll('.bet-type-btn').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const value = btn.dataset.value
+				modal.remove()
+				resolve(value)
+			})
+		})
+	})
+}
+
+/**
+ * Show bet option selection dialog based on bet type
+ */
+function showBetOptionDialog(betType) {
+	return new Promise((resolve) => {
+		const options = getBetOptions(betType)
+		
+		const modal = document.createElement('div')
+		modal.className = 'modal-overlay'
+		modal.style.display = 'flex'
+		modal.style.zIndex = '100000'
+		
+		modal.innerHTML = `
+			<div class="modal-content" style="max-width: 400px;">
+				<div class="modal-header">
+					<h2>Wybierz typ (${getBetTypeLabel(betType)})</h2>
+					<button class="modal-close" onclick="this.closest('.modal-overlay').remove(); window.betOptionResolve(null)">×</button>
+				</div>
+				<div class="modal-body">
+					<div style="display: flex; flex-direction: column; gap: 10px;">
+						${options.map(opt => `<button class="bet-type-btn" data-value="${opt}">${opt}</button>`).join('')}
+					</div>
+				</div>
+			</div>
+		`
+		
+		document.body.appendChild(modal)
+		
+		window.betOptionResolve = resolve
+		
+		modal.querySelectorAll('.bet-type-btn').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const value = btn.dataset.value
+				modal.remove()
+				resolve(value)
+			})
+		})
+	})
+}
+
+/**
+ * Show odds input dialog
+ */
+function showOddsDialog() {
+	return new Promise((resolve) => {
+		const modal = document.createElement('div')
+		modal.className = 'modal-overlay'
+		modal.style.display = 'flex'
+		modal.style.zIndex = '100000'
+		
+		modal.innerHTML = `
+			<div class="modal-content" style="max-width: 400px;">
+				<div class="modal-header">
+					<h2>Wpisz kurs</h2>
+					<button class="modal-close" onclick="this.closest('.modal-overlay').remove(); window.oddsResolve(null)">×</button>
+				</div>
+				<div class="modal-body">
+					<input type="number" id="odds-input" step="0.01" min="1" placeholder="np. 1.85" 
+						style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid #3b82f6; border-radius: 8px;">
+					<button onclick="window.submitOdds()" 
+						style="width: 100%; margin-top: 15px; padding: 12px; background: #3b82f6; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">
+						Zatwierdź
+					</button>
+				</div>
+			</div>
+		`
+		
+		document.body.appendChild(modal)
+		
+		window.oddsResolve = resolve
+		
+		window.submitOdds = () => {
+			const input = document.getElementById('odds-input')
+			const value = parseFloat(input.value)
+			if (value && value >= 1) {
+				modal.remove()
+				resolve(value)
+			} else {
+				showToast('Podaj poprawny kurs (min. 1.00)', 'error')
+			}
+		}
+		
+		// Submit on Enter key
+		document.getElementById('odds-input').addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') {
+				window.submitOdds()
+			}
+		})
+		
+		// Focus input
+		setTimeout(() => document.getElementById('odds-input').focus(), 100)
+	})
+}
+
+/**
+ * Get bet options based on bet type
+ */
+function getBetOptions(betType) {
+	const options = {
+		'1': [],
+		'2': [],
+		'bts': ['tak', 'nie'],
+		'handi1': ['-0.5', '-1.5', '-2.5', '-3.5'],
+		'handi2': ['-0.5', '-1.5', '-2.5', '-3.5'],
+		'goals_over': ['1.5', '2.5', '3.5', '4.5', '5.5'],
+		'goals_under': ['1.5', '2.5', '3.5', '4.5', '5.5'],
+		'corners_over': ['7.5', '8.5', '9.5', '10.5', '11.5', '12.5', '13.5', '14.5', '15.5'],
+		'corners_under': ['7.5', '8.5', '9.5', '10.5', '11.5', '12.5', '13.5', '14.5', '15.5'],
+		'offsides_over': ['2.5', '3.5', '4.5', '5.5', '6.5', '7.5'],
+		'offsides_under': ['2.5', '3.5', '4.5']
+	}
+	return options[betType] || []
+}
+
+/**
+ * Get bet type label
+ */
+function getBetTypeLabel(betType) {
+	const labels = {
+		'1': 'Wygrana gospodarzy',
+		'2': 'Wygrana gości',
+		'bts': 'BTS',
+		'handi1': 'Handicap gospodarzy',
+		'handi2': 'Handicap gości',
+		'goals_over': 'Bramki Over',
+		'goals_under': 'Bramki Under',
+		'corners_over': 'Rożne Over',
+		'corners_under': 'Rożne Under',
+		'offsides_over': 'Spalone Over',
+		'offsides_under': 'Spalone Under'
+	}
+	return labels[betType] || betType
+}
+
 // =============================================================================
 // EXPORT TO WINDOW (for onclick handlers in HTML)
 // =============================================================================
@@ -2443,6 +2707,13 @@ function expandAllMatchCards() {
 }
 
 function closeAllMatchCards() {
+	const count = minimizedMatchModals.size
+	if (count === 0) return
+	
+	if (!confirm(`Czy na pewno chcesz zamknąć wszystkie karty meczów (${count})?`)) {
+		return
+	}
+	
 	const container = document.getElementById('minimized-cards-container')
 	if (container) {
 		// Close expanded state first
@@ -2458,11 +2729,23 @@ function closeAllMatchCards() {
 function expandAllModalCards() {
 	const container = document.getElementById('minimized-modals-container')
 	if (container) {
-		container.classList.add('expanded')
+		// Toggle expanded state
+		if (container.classList.contains('expanded')) {
+			container.classList.remove('expanded')
+		} else {
+			container.classList.add('expanded')
+		}
 	}
 }
 
 function closeAllModalCards() {
+	const count = minimizedModals.size
+	if (count === 0) return
+	
+	if (!confirm(`Czy na pewno chcesz zamknąć wszystkie karty TOP10 (${count})?`)) {
+		return
+	}
+	
 	const container = document.getElementById('minimized-modals-container')
 	if (container) {
 		// Close expanded state first
@@ -2543,6 +2826,7 @@ window.retryJob = retryJob
 window.viewJobLogs = viewJobLogs
 window.hideJob = hideJob
 window.unhideJob = unhideJob
+window.restartJob = restartJob
 window.deleteJob = deleteJob
 
 // Minimized cards controls
@@ -2553,6 +2837,7 @@ window.closeAllModalCards = closeAllModalCards
 
 // Date range controls
 window.setTodayDate = EventHandlers.setTodayDate
+window.setTomorrowDate = EventHandlers.setTomorrowDate
 
 // Bet finder functions
 window.findMostGoals = BetFinder.findMostGoals
@@ -2655,6 +2940,7 @@ window.showWatchedMatchesModal = WatchedMatches.showWatchedMatchesModal
 window.minimizeWatchedMatchesModal = WatchedMatches.minimizeWatchedMatchesModal
 window.closeWatchedMatchesModal = WatchedMatches.closeWatchedMatchesModal
 window.restoreWatchedMatchesModal = WatchedMatches.restoreWatchedMatchesModal
+window.addToStrefaTypera = addToStrefaTypera
 
 // Close stat modal on ESC key
 document.addEventListener('keydown', function (e) {

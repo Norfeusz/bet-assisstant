@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Bet Finder Module
  * Functions for finding and analyzing matches based on various criteria
  */
@@ -1916,7 +1916,7 @@ function showMostGoalsModal(results, dateFrom, dateTo) {
 		dateFrom,
 		dateTo,
 		modalType: 'most-goals',
-		title: 'TOP 10 - Norf to gej',
+		title: 'TOP 10 - Najwięcej bramek',
 		icon: '⚽',
 		description:
 			'Znajduje mecze gdzie obie drużyny mają najwyższą średnią bramek w ostatnich meczach. Im wyższa łączna średnia, tym większe prawdopodobieństwo bramkowego spotkania.',

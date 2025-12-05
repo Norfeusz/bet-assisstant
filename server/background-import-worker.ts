@@ -306,31 +306,55 @@ private async processJob(job: ImportJob): Promise<void> {
 					cumulativeImported += progress.importedMatches
 					cumulativeFailed += progress.failedMatches
 
-					this.log(
-						job.id,
-						`📊 Progress: ${cumulativeImported} total imported, ${rateLimitInfo.remaining} API requests remaining`
-					)
+				this.log(
+					job.id,
+					`📊 Progress: ${cumulativeImported} total imported, ${rateLimitInfo.remaining} API requests remaining`
+				)
 
-					// Check if rate limited BEFORE marking league as completed
-					if (rateLimitInfo.remaining <= 10) {
-						// Keep small buffer
-						this.log(job.id, '⏸️  Rate limit reached during league import, pausing job for 15 minutes')
-						this.log(job.id, `⚠️  League ${league.name} will be retried after rate limit reset`)
-						await this.updateJobStatus(job.id, 'rate_limited', {
-							...job,
-							imported_matches: cumulativeImported,
-							failed_matches: cumulativeFailed,
-							rate_limit_reset_at: new Date(Date.now() + 15 * 60 * 1000), // 15 minutes
-							progress: {
-								...job.progress,
-								completed_leagues: completedLeagues,
-								current_league: league.id, // Keep current league so it will be retried
-							},
-						} as any)
-						return // Exit and let scheduler resume later
-					}
+				// Get matches imported in THIS iteration (not cumulative)
+				const leagueImported = tempImporter.getProgress().leagues[league.id]?.imported || 0
+				const leagueFailed = tempImporter.getProgress().leagues[league.id]?.failed || 0
 
-					// Only mark league as completed if we have enough API requests
+				// If league didn't import anything and has no failures, it's complete (all matches already in DB)
+				if (leagueImported === 0 && leagueFailed === 0) {
+					this.log(job.id, `✅ League ${league.name} already fully imported (0/0 new matches)`)
+					completedLeagues.push(league.id)
+
+					// Update progress even if no new matches
+					await this.updateJobStatus(job.id, 'running', {
+						...job,
+						imported_matches: cumulativeImported,
+						failed_matches: cumulativeFailed,
+						rate_limit_remaining: rateLimitInfo.remaining,
+						progress: {
+							...job.progress,
+							completed_leagues: completedLeagues,
+							current_league: undefined,
+						},
+					} as any)
+
+					this.log(job.id, `✅ Completed league: ${league.name} (${completedLeagues.length}/${selectedLeagues.length})`)
+					continue // Skip to next league
+				}
+
+				// Check if rate limited BEFORE marking league as completed
+				if (rateLimitInfo.remaining <= 10) {
+					// Keep small buffer
+					this.log(job.id, '⏸️  Rate limit reached during league import, pausing job for 15 minutes')
+					this.log(job.id, `⚠️  League ${league.name} will be retried after rate limit reset`)
+					await this.updateJobStatus(job.id, 'rate_limited', {
+						...job,
+						imported_matches: cumulativeImported,
+						failed_matches: cumulativeFailed,
+						rate_limit_reset_at: new Date(Date.now() + 15 * 60 * 1000), // 15 minutes
+						progress: {
+							...job.progress,
+							completed_leagues: completedLeagues,
+							current_league: league.id, // Keep current league so it will be retried
+						},
+					} as any)
+					return // Exit and let scheduler resume later
+				}					// Only mark league as completed if we have enough API requests
 					// This ensures leagues hit by rate limit will be retried
 					completedLeagues.push(league.id)
 

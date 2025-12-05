@@ -1,0 +1,108 @@
+1) dodajemy kolejną funkcjonalność tego przycisku (strefa typera)
+po kliknięciu niech pojawi się opcja wyboru z listy
+zapytanie - "zakład"
+opcje:
+1
+2
+bts
+handi 1
+handi 2
+bramki over
+bramki under
+rożne over
+rożne under
+spalone over
+spalone under
+w kolejnym kroku kolejne zapytanie "typ" (w nawiasie opcja z pierwszego kroku - dopasowujemy drugi krok do tego co wybrano w pierszym)
+
+(bts)
+tak
+nie
+
+(handi 1)
+-0,5
+-1,5
+-2,5
+-3,5
+
+(handi 2)
+-0,5
+-1,5
+-2,5
+-3,5
+
+(bramki over)
+1,5
+2,5
+3,5
+4,5
+5,5
+
+(bramki under)
+1,5
+2,5
+3,5
+4,5
+5,5
+
+(rożne over)
+7,5
+8,5
+9,5
+10,5
+11,5
+12,5
+13,5
+14,5
+15,5
+
+(rożne under)
+7,5
+8,5
+9,5
+10,5
+11,5
+12,5
+13,5
+14,5
+15,5
+
+(spalone over)
+2,5
+3,5
+4,5
+5,5
+6,5
+7,5
+
+(spalone under)
+2,5
+3,5
+4,5
+
+po wybraniu tych opcji uzupełniamy plik csv kolumna c -zakład, kolumna d - typ
+
+2)
+
+w kolejnym kroku dla wybranych opcji wyszukujemy statystyki (dla 10 ostatnich dostępnych meczów z bazy danych) zarówno dla gospodarzy jak i gości
+tworzymy po dwa wiersze dla każdego meczu
+
+(1) założenie: ogółem - mecze w których wygrał gospodarz i mecze w których przegrał gość (ogólnie, zarówno domowe jak i wyjazdowe)
+(1) założenie: H/A - mecze w których wygrał gospodarz i mecze w których przegrał gość (domowe mecze gospodarza - wyjazdowe mecze gościa)
+(2) założenie: ogółem - mecze w których przegrał gospodarz i mecze w których wygrał gość (ogólnie, zarówno domowe jak i wyjazdowe)
+(2) założenie: H/A - mecze w których przegrał gospodarz i mecze w których wygrał gość (domowe mecze gospodarza - wyjazdowe mecze gościa)
+(bts) - mecze w których obie drużyny strzeliły bramki (mecze gospodarza i gościa)
+(handi 1) - mecze w których wygrał z przewagą więcej niż wybrana opcja w  kroku typ, a gość przegrał z przewagą więcej niż wybrana opcja w  kroku typ
+(handi 2) - mecze w których przegrał z przewagą więcej niż wybrana opcja w  kroku typ, a gość wygrał z przewagą więcej niż wybrana opcja w  kroku typ
+(bramki over) - mecze w których padło w sumie więcej bramek niż wybrana opcja (mecze gospodarza i gościa)
+(bramki under) - mecze w których padło w sumie mniej bramek niż wybrana opcja (mecze gospodarza i gościa)
+(rożne over) - mecze w których padło w sumie więcej rożnych niż wybrana opcja (mecze gospodarza i gościa)
+(rożne under) - mecze w których padło w sumie mniej rożnych niż wybrana opcja (mecze gospodarza i gościa)
+(spalone over) - mecze w których padło w sumie więcej spalonych niż wybrana opcja (mecze gospodarza i gościa)
+(spalone under) - mecze w których padło w sumie mniej spalonych niż wybrana opcja (mecze gospodarza i gościa)
+
+podałem przykłady dla zakładów 1 i 2, na tej podstawie stwórz założenia dla reszty zakładów
+po wyszukaniu statystyk uzupełniamy nasz arkusz kolumna E - założenie (ogółem / H/A) Kolumna F - % z ostatnich 10 meczów (lub mniejszej liczby jeśli nie ma w bazie 10) w których gospodarz spełnia warunek wypisany wyżej
+Kolumna G - % z ostatnich 10 meczów (lub mniejszej liczby jeśli nie ma w bazie 10) w których gość spełnia warunek wypisany wyżej
+
+3) kolejny krok - zapytanie z inputem do wpisania "kurs" - po wpisaniu kurs ma być przenieniesiony do arkusza do kolumny I

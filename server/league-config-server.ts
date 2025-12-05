@@ -11,6 +11,7 @@ import { ImportStateManager } from '../src/utils/import-state'
 import { setShouldStopImport, getShouldStopImport } from '../src/utils/import-control'
 import { LeaguePresetManager } from '../src/utils/league-presets'
 import importJobsRouter from './routes/import-jobs'
+import strefaTyperaRouter from './routes/strefa-typera'
 
 dotenv.config()
 
@@ -21,6 +22,9 @@ app.use(express.json())
 
 // Import jobs routes
 app.use('/api', importJobsRouter)
+
+// Strefa Typera routes
+app.use('/api', strefaTyperaRouter)
 
 // Initialize services
 const apiKey = process.env.API_FOOTBALL_KEY!

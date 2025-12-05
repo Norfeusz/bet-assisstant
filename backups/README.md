@@ -22,6 +22,7 @@ backups/
 ## Automatyczne backupy
 
 Backup jest tworzony automatycznie:
+
 - Po zakończeniu każdego zadania importu w tle (background import worker)
 - Backup jest automatycznie commitowany i pushowany do GitHub
 - System wybiera najstarszy slot do nadpisania
@@ -53,6 +54,7 @@ $env:PGPASSWORD="Iron4maiden124!"
 ## Format backupu
 
 Backup zawiera:
+
 - `DROP TABLE IF EXISTS` - czyści istniejące tabele
 - `CREATE TABLE` - tworzy strukturę tabel
 - `INSERT INTO` - wstawia wszystkie dane
@@ -61,6 +63,7 @@ Backup zawiera:
 ## Monitoring
 
 Przy każdym backupie wyświetlana jest lista istniejących backupów:
+
 ```
 📋 Existing backups:
   backup-5: 2025-12-01 20:15:03 (5.42 MB)
@@ -72,6 +75,7 @@ Przy każdym backupie wyświetlana jest lista istniejących backupów:
 ## Informacje o backupach
 
 Każdy backup zawiera informacje:
+
 - Numer slotu (1-10)
 - Data i czas utworzenia
 - Rozmiar pliku w MB

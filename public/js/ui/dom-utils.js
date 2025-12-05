@@ -1078,6 +1078,11 @@ export async function showMatchDetailsModal(matchId) {
  */
 export function closeMatchDetailsModal() {
 	const modal = document.getElementById('match-details-modal')
-	modal.style.display = 'none'
-	modal.classList.remove('show')
+	if (modal) {
+		modal.remove()
+	}
+	// Clear current match data
+	if (window.currentMatchDetailsData) {
+		window.currentMatchDetailsData = null
+	}
 }

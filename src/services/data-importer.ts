@@ -15,16 +15,39 @@ import {
 import { ImportStateManager, ImportState } from '../utils/import-state'
 import { getShouldStopImport } from '../utils/import-control'
 
+export enum FailureReason {
+	NO_STATISTICS = 'no_statistics',
+	NO_ODDS = 'no_odds',
+	DATABASE_ERROR = 'database_error',
+	NETWORK_ERROR = 'network_error',
+	RATE_LIMIT = 'rate_limit',
+	VALIDATION_ERROR = 'validation_error',
+	OTHER = 'other'
+}
+
+export interface LeagueDataAvailability {
+	hasFixtures: boolean
+	fixtureCount: number
+	hasStatistics: boolean | null  // null = not tested yet
+	hasOdds: boolean | null
+	hasStandings: boolean | null
+}
+
 export interface ImportProgress {
 	totalMatches: number
 	importedMatches: number
 	failedMatches: number
+	partialMatches: number  // Matches saved without full data
+	skippedMatches: number  // Already in database
 	currentDate: string
 	leagues: {
 		[leagueId: number]: {
 			name: string
 			imported: number
 			failed: number
+			partial: number
+			skipped: number
+			failureBreakdown: Record<FailureReason, number>
 		}
 	}
 }
@@ -36,6 +59,7 @@ export class DataImporter {
 	private stateManager: ImportStateManager
 	private standingsCache: Map<string, StandingsResponse> // Cache: "leagueId-season" -> standings
 	private leagueOddsAvailability: Map<number, boolean> // Cache: leagueId -> has odds
+	private leagueDataAvailability: Map<number, LeagueDataAvailability> // Cache: leagueId -> data availability
 
 	constructor(apiClient: ApiFootballClient, leagueSelector: LeagueSelector) {
 		this.apiClient = apiClient
@@ -43,10 +67,13 @@ export class DataImporter {
 		this.stateManager = new ImportStateManager()
 		this.standingsCache = new Map()
 		this.leagueOddsAvailability = new Map()
+		this.leagueDataAvailability = new Map()
 		this.progress = {
 			totalMatches: 0,
 			importedMatches: 0,
 			failedMatches: 0,
+			partialMatches: 0,
+			skippedMatches: 0,
 			currentDate: '',
 			leagues: {},
 		}
@@ -240,6 +267,17 @@ export class DataImporter {
 				name: league.name,
 				imported: 0,
 				failed: 0,
+				partial: 0,
+				skipped: 0,
+				failureBreakdown: {
+					[FailureReason.NO_STATISTICS]: 0,
+					[FailureReason.NO_ODDS]: 0,
+					[FailureReason.DATABASE_ERROR]: 0,
+					[FailureReason.NETWORK_ERROR]: 0,
+					[FailureReason.RATE_LIMIT]: 0,
+					[FailureReason.VALIDATION_ERROR]: 0,
+					[FailureReason.OTHER]: 0
+				}
 			}
 		}
 
@@ -375,6 +413,17 @@ export class DataImporter {
 				name: league.name,
 				imported: 0,
 				failed: 0,
+				partial: 0,
+				skipped: 0,
+				failureBreakdown: {
+					[FailureReason.NO_STATISTICS]: 0,
+					[FailureReason.NO_ODDS]: 0,
+					[FailureReason.DATABASE_ERROR]: 0,
+					[FailureReason.NETWORK_ERROR]: 0,
+					[FailureReason.RATE_LIMIT]: 0,
+					[FailureReason.VALIDATION_ERROR]: 0,
+					[FailureReason.OTHER]: 0,
+				}
 			}
 		}
 
@@ -393,14 +442,210 @@ export class DataImporter {
 				return
 			}
 
+			// Check data availability for this league (first match as sample)
+			await this.checkAndLogLeagueDataAvailability(league, fixtures[0])
+
 			// Process each fixture (no pre-checking for duplicates)
 			// Database will handle duplicates via unique constraint on fixture_id
 			for (const fixture of fixtures) {
 				await this.importSingleMatch(fixture, league)
 			}
+			
+			// Log summary for this league
+			this.logLeagueSummary(league)
 		} catch (error) {
 			console.error(`  Error processing league ${league.name}:`, error)
 			this.progress.leagues[league.id].failed++
+			this.progress.leagues[league.id].failureBreakdown[FailureReason.OTHER]++
+		}
+	}
+
+	/**
+	 * Check what data is available for a league and log results
+	 */
+	private async checkAndLogLeagueDataAvailability(league: LeagueConfig, sampleFixture: FixtureResponse): Promise<void> {
+		// Check cache first
+		if (this.leagueDataAvailability.has(league.id)) {
+			const cached = this.leagueDataAvailability.get(league.id)!
+			console.log(`\n  📊 Data availability for ${league.name} (cached):`)
+			this.logAvailability(cached)
+			return
+		}
+
+		const availability: LeagueDataAvailability = {
+			hasFixtures: true,
+			fixtureCount: 0,
+			hasStatistics: null,
+			hasOdds: null,
+			hasStandings: null
+		}
+
+		console.log(`\n  📊 Checking data availability for ${league.name}:`)
+
+		// Test statistics
+		try {
+			const statsResponse = await this.apiClient.getFixtureStatistics({ fixture: sampleFixture.fixture.id })
+			availability.hasStatistics = statsResponse.response.length > 0
+		} catch (error: any) {
+			availability.hasStatistics = false
+		}
+
+		// Test odds
+		try {
+			const oddsResponse = await this.apiClient.getOdds({ fixture: sampleFixture.fixture.id })
+			availability.hasOdds = oddsResponse.response.length > 0
+		} catch (error: any) {
+			availability.hasOdds = false
+		}
+
+		// Test standings
+		try {
+			const season = new Date(sampleFixture.fixture.date).getFullYear()
+			const standingsResponse = await this.apiClient.getStandings({ league: league.id, season })
+			availability.hasStandings = standingsResponse.response.length > 0
+		} catch (error: any) {
+			availability.hasStandings = false
+		}
+
+		// Cache result
+		this.leagueDataAvailability.set(league.id, availability)
+		
+		// Log availability
+		this.logAvailability(availability)
+	}
+
+	/**
+	 * Log data availability status
+	 */
+	private logAvailability(availability: LeagueDataAvailability): void {
+		const statIcon = availability.hasStatistics ? '✅' : '❌'
+		const oddsIcon = availability.hasOdds ? '✅' : '❌'
+		const standingsIcon = availability.hasStandings ? '✅' : '❌'
+		
+		console.log(`     ${statIcon} Statistics: ${availability.hasStatistics ? 'YES' : 'NO'}`)
+		console.log(`     ${oddsIcon} Odds: ${availability.hasOdds ? 'YES' : 'NO'}`)
+		console.log(`     ${standingsIcon} Standings: ${availability.hasStandings ? 'YES' : 'NO'}`)
+	}
+
+	/**
+	 * Log summary for completed league
+	 */
+	private logLeagueSummary(league: LeagueConfig): void {
+		const stats = this.progress.leagues[league.id]
+		const total = stats.imported + stats.failed + stats.partial + stats.skipped
+		
+		console.log(`\n  📊 League Summary: ${league.name}`)
+		console.log(`     ✅ Imported with full data: ${stats.imported}`)
+		if (stats.partial > 0) {
+			console.log(`     ⚠️  Imported with partial data: ${stats.partial}`)
+		}
+		if (stats.skipped > 0) {
+			console.log(`     ⏭️  Skipped (already in DB): ${stats.skipped}`)
+		}
+		if (stats.failed > 0) {
+			console.log(`     ❌ Failed: ${stats.failed}`)
+			
+			// Show failure breakdown
+			const breakdown = stats.failureBreakdown
+			if (breakdown[FailureReason.DATABASE_ERROR] > 0) {
+				console.log(`        • Database errors: ${breakdown[FailureReason.DATABASE_ERROR]}`)
+			}
+			if (breakdown[FailureReason.NETWORK_ERROR] > 0) {
+				console.log(`        • Network errors: ${breakdown[FailureReason.NETWORK_ERROR]}`)
+			}
+			if (breakdown[FailureReason.RATE_LIMIT] > 0) {
+				console.log(`        • Rate limit: ${breakdown[FailureReason.RATE_LIMIT]}`)
+			}
+			if (breakdown[FailureReason.VALIDATION_ERROR] > 0) {
+				console.log(`        • Validation errors: ${breakdown[FailureReason.VALIDATION_ERROR]}`)
+			}
+			if (breakdown[FailureReason.OTHER] > 0) {
+				console.log(`        • Other errors: ${breakdown[FailureReason.OTHER]}`)
+			}
+		}
+		console.log(`     📈 Success rate: ${Math.round(((stats.imported + stats.partial) / total) * 100)}%`)
+	}
+
+	/**
+	 * Categorize error by type and provide actionable details
+	 */
+	private categorizeError(error: any): { reason: FailureReason; details: string; suggestion?: string } {
+		// Database errors
+		if (error.code === '23505') {
+			return {
+				reason: FailureReason.DATABASE_ERROR,
+				details: 'Duplicate key violation',
+				suggestion: 'Check if match already exists'
+			}
+		}
+		if (error.code === '23514') {
+			return {
+				reason: FailureReason.VALIDATION_ERROR,
+				details: 'Check constraint violation',
+				suggestion: 'Verify data values meet database constraints'
+			}
+		}
+		if (error.code === '23502') {
+			return {
+				reason: FailureReason.DATABASE_ERROR,
+				details: 'NOT NULL constraint violation',
+				suggestion: 'Required field is missing'
+			}
+		}
+		if (error.code === '23503') {
+			return {
+				reason: FailureReason.DATABASE_ERROR,
+				details: 'Foreign key constraint violation',
+				suggestion: 'Referenced record does not exist'
+			}
+		}
+		
+		// Network errors
+		if (error.message?.includes('timeout') || error.message?.includes('ETIMEDOUT')) {
+			return {
+				reason: FailureReason.NETWORK_ERROR,
+				details: 'Connection timeout',
+				suggestion: 'Check network connection or increase timeout'
+			}
+		}
+		if (error.message?.includes('ECONNREFUSED') || error.message?.includes('ENOTFOUND')) {
+			return {
+				reason: FailureReason.NETWORK_ERROR,
+				details: 'Connection refused or host not found',
+				suggestion: 'Check database host and port configuration'
+			}
+		}
+		if (error.message?.includes('socket') || error.message?.includes('connection')) {
+			return {
+				reason: FailureReason.NETWORK_ERROR,
+				details: 'Connection error',
+				suggestion: 'Database connection may have been lost'
+			}
+		}
+		
+		// Rate limit errors
+		if (error.message?.includes('Rate limit') || error.message?.includes('429')) {
+			return {
+				reason: FailureReason.RATE_LIMIT,
+				details: 'API rate limit exceeded',
+				suggestion: 'Wait before retrying'
+			}
+		}
+		
+		// Validation errors
+		if (error.message?.includes('invalid') || error.message?.includes('validation')) {
+			return {
+				reason: FailureReason.VALIDATION_ERROR,
+				details: error.message || 'Data validation failed',
+				suggestion: 'Check data format and types'
+			}
+		}
+		
+		// Default: other error
+		return {
+			reason: FailureReason.OTHER,
+			details: error.message || error.toString(),
+			suggestion: 'Check error details above'
 		}
 	}
 
@@ -464,35 +709,39 @@ export class DataImporter {
 		const awayTeam = fixture.teams.away.name
 		const isFinished = ['FT', 'AET', 'PEN'].includes(fixture.fixture.status.short)
 
-		try {
-			// Check if match already exists in database BEFORE making API calls
-			const existingMatch = await prisma.matches.findUnique({
-				where: { fixture_id: fixtureId },
-				select: { fixture_id: true }
-			})
+		// Check if match already exists in database BEFORE making API calls
+		const existingMatch = await prisma.matches.findUnique({
+			where: { fixture_id: fixtureId },
+			select: { fixture_id: true }
+		})
 
-			if (existingMatch) {
-				console.log(`  ⏭️  ${homeTeam} vs ${awayTeam} - already exists (skipped)`)
-				return
-			}
+		if (existingMatch) {
+			console.log('  Already exists (skipped): ' + homeTeam + ' vs ' + awayTeam)
+			this.progress.skippedMatches++
+			this.progress.leagues[league.id].skipped++
+			return
+		}
 			
 		// Fetch full data (statistics + odds)
 		let statistics: FixtureStatisticsResponse[] = []
 		let odds: OddsResponse[] = []
+		let hasStatistics = false
+		let hasOdds = false
 
 		try {
 			const statsResponse = await this.apiClient.getFixtureStatistics({
 				fixture: fixtureId,
 			})
 			statistics = statsResponse.response
+			hasStatistics = statistics.length > 0
 		} catch (error: any) {
 			// If rate limit exceeded (our internal check OR API 429), rethrow to pause import
 			if (error.message?.includes('Rate limit exceeded') || error.message?.includes('429')) {
-				console.warn(`  ⚠️  Rate limit reached while fetching statistics`)
+				console.warn('  Rate limit reached while fetching statistics')
 				throw error
 			}
 			// For other errors (API doesn't have stats, network issues, etc.), continue without stats
-			console.warn(`    Could not fetch statistics for fixture ${fixtureId}: ${error.message || error}`)
+			console.warn('    No statistics available for fixture ' + fixtureId)
 		}
 
 		// Check if odds are available for this league (cache result)
@@ -507,43 +756,71 @@ export class DataImporter {
 					fixture: fixtureId,
 				})
 				odds = oddsResponse.response
+				hasOdds = odds.length > 0
 
 				// Cache result: if no odds returned, don't fetch for other matches in this league
-				if (odds.length === 0 && !this.leagueOddsAvailability.has(league.id)) {
-					console.log(`  ℹ️  No odds available for league ${league.name}, skipping odds for remaining matches`)
+				if (!hasOdds && !this.leagueOddsAvailability.has(league.id)) {
+					console.log('  No odds available for league ' + league.name + ', skipping odds for remaining matches')
 					this.leagueOddsAvailability.set(league.id, false)
-				} else if (odds.length > 0) {
+				} else if (hasOdds) {
 					this.leagueOddsAvailability.set(league.id, true)
 				}
 			} catch (error: any) {
 				// If rate limit exceeded (our internal check OR API 429), rethrow to pause import
 				if (error.message?.includes('Rate limit exceeded') || error.message?.includes('429')) {
-					console.warn(`  ⚠️  Rate limit reached while fetching odds`)
+					console.warn('  Rate limit reached while fetching odds')
 					throw error
 				}
 				// For other errors (API doesn't have odds, network issues), continue without odds
-				console.warn(`    Could not fetch odds for fixture ${fixtureId}: ${error.message || error}`)
+				console.warn('    No odds available for fixture ' + fixtureId)
 			}
-		}			// Save to database using UPSERT (INSERT ... ON CONFLICT DO UPDATE)
-			// Database will handle duplicates automatically via unique constraint on fixture_id
+		}
+
+		// Save to database (even with partial data)
+		try {
+			// Save match to database using UPSERT
 			await this.saveMatchToDatabase(fixture, statistics, odds, league, null)
 
-			console.log(`  ✅ ${homeTeam} vs ${awayTeam} - saved to database`)
-
-			this.progress.importedMatches++
-			this.progress.totalMatches++
-			this.progress.leagues[league.id].imported++
+			// Track as imported (full data) or partial (basic data only)
+			const hasFullData = hasStatistics && hasOdds
+			if (hasFullData) {
+				this.progress.importedMatches++
+				this.progress.totalMatches++
+				this.progress.leagues[league.id].imported++
+				console.log('  IMPORTED with full data: ' + homeTeam + ' vs ' + awayTeam)
+			} else {
+				this.progress.partialMatches++
+				this.progress.totalMatches++
+				this.progress.leagues[league.id].partial++
+				const missing = []
+				if (!hasStatistics) missing.push('statistics')
+				if (!hasOdds) missing.push('odds')
+				console.log('  PARTIAL data (missing: ' + missing.join(', ') + '): ' + homeTeam + ' vs ' + awayTeam)
+			}
 		} catch (error: any) {
 			// Ignore duplicate key errors (means match was already imported)
 			if (error.code === '23505' || error.message?.includes('duplicate key')) {
-				console.log(`  ⏭️  ${homeTeam} vs ${awayTeam} - already exists (skipped)`)
+				console.log('  Already exists (skipped): ' + homeTeam + ' vs ' + awayTeam)
+				this.progress.skippedMatches++
+				this.progress.totalMatches++
+				this.progress.leagues[league.id].skipped++
 				return
 			}
 			
-			console.error(`  ❌ Failed to import match ${fixtureId}:`, error)
+			// Real database/validation error - categorize and log
+			const errorInfo = this.categorizeError(error)
+			
+			console.error('  FAILED Match ' + fixtureId + ' (' + homeTeam + ' vs ' + awayTeam + '):')
+			console.error('     Type: ' + errorInfo.reason)
+			console.error('     Details: ' + errorInfo.details)
+			if (errorInfo.suggestion) {
+				console.error('     Suggestion: ' + errorInfo.suggestion)
+			}
+			
 			this.progress.failedMatches++
 			this.progress.totalMatches++
 			this.progress.leagues[league.id].failed++
+			this.progress.leagues[league.id].failureBreakdown[errorInfo.reason]++
 		}
 	}
 
