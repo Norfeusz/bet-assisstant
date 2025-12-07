@@ -1,0 +1,65 @@
+Opis:
+W naszym google sheets mamy 4 arkusze
+-Bet Builder - tutaj trafiają wybrane mecze z naszego narzędzia i według nich wyszukiwane są najbardziej optymalne zdarzenia do kuponów - po utworzeniu kuponów builder jest czyszczony
+-Typy - tutaj trafiają wszystkie mecze z bet buildera z wyłączeniem tych z najmniejszym procentowym prawdopodobieństwem wygranej - dane są zachowywane 
+-Kupony - tutaj trafiają mecze które znalazły się ostatecznie na kuponie (wybrane najkorzystniejsze z bet buildera)
+-Statystyki - tutaj wyliczane będzie jakie zakłady mają największy % trafialności
+-Saldo - tutaj znajdują się wyliczenia dotyczące finansów
+
+Docelowo nasze narzędzie ma działać tak:
+Za pomocą jednego przycisku w UI mają zostać wyszukane wszystkie top10 i każdy mecz z każdego top10 ma trafić do bet buildera (z wykorzystaniem odpowiednich założeń, np. top10 wygrane gospodarzy - zakład: 1)
+Następnie w betbuilderze na podstawie w kolumny szanse kasowane są mecze dla których szanse wynoszą mniej niż 50%
+Następnie wszystkie pozostałe mecze kopiowane są do arkusza typy
+Następnie ja ręcznie wprowadzam kursy i wybieram mecze, które znajdą się na kuponach.
+W UI klikam w przycisk "utwórz kupon" - pojawia się lista meczów które znajdują się w Bet Builderze - spośród nich wybieram docelowe i wprowadzam stawkę
+Po zatwierdzeniu wybrane mecze wpadają do arkusza kupony 
+Następnie klikam w UI wyczyść Bet Builder
+Po zakończeniu meczów w UI klikam - w przycisk "zweryfikuj typy"
+Z bazy danych pobierane są informacje na temat meczów w zakładkach Typy i kupony, sprawdzane jest czy założenia dla zakładu i typu są spełnione i uzupełniana jest kolumna wszedł? tak/nie
+
+To dość skomplikowana zmiana, więc rozbijmy ją na kolejne kroki
+
+Wersja MVP - na ten moement bez automatyzacji przekazywania danych z modali do arkuszam, w dalszym ciągu będę to robił ręcznie, dopóki nie wprowadzimy pełnej wersji
+1. Krok pierwszy
+Zmień format daty przekazywanej do arkusza z 2025-12-07T00:00:00.000Z na 2025-12-07
+2. Krok drugi 
+zmieniamy format tabel w arkuszach. Najważniejszymi zmianami będzie to że założenia ogółem i H/A będą przedstawiane w jednym wierszu zamiast jak dotąd w dwóch + będziemy wyliczać % nie tylko dla 10 ostatnich meczów, ale także dla 5 i 15. Poza tym jeszcze kilka danych dotyczących meczów. 
+Poniżej przedstawiam po kolei jak będą układały się kolumny (dla kolumn gdzie w nawiasie jest (r) - te dane uzupełniam ja, , (p)- logikę to tych kolumn ogarniemy w kolejnych krokach, nie eksportujemy ich z UI w tym kroku)
+
+A- home_team
+B- away_team
+C- zakład
+D- typ 
+E- szanse - wyliczamy według wzoru =suma(H2-O2)/8 - gdzie 2 to przykładowy wiersz 
+F- kurs (r)
+G- moc bet =E2*F2
+H- 5 H % (o) - % meczów w których spełniony jest warunek dla gospodarza, analizując 5 ostatnich meczów (dokładnie co robiliśmy do tej pory dla 10 meczów, z założeniem ogólnym, tylko dla 5 ostatnich meczów)
+I- 5 A % (o) - % meczów w których spełniony jest warunek dla gościa analizując 5 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem ogólnym, tylko dla 5 ostatnich meczów)
+J- 5 H % (H/A) - % meczów w których spełniony jest warunek dla gospodarza, w których gospodarz jest gospodarzem,  analizując 5 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem H/A, tylko dla 5 ostatnich meczów)
+K- 5 A % (H/A) - % meczów w których spełniony jest warunek dla gościa, w których gość jest gościem,  analizując 5 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem H/A, tylko dla 5 ostatnich meczów)
+L- 10 H % (o) - % meczów w których spełniony jest warunek dla gospodarza, analizując 10 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem ogólnym)
+M- 10 A % (o) - % meczów w których spełniony jest warunek dla gościa analizując 10 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem ogólnym)
+N- 10 H % (H/A) - % meczów w których spełniony jest warunek dla gospodarza, w których gospodarz jest gospodarzem,  analizując 10 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem H/A)
+O- 10 A % (H/A) - % meczów w których spełniony jest warunek dla gościa, w których gość jest gościem,  analizując 10 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem H/A)
+P- 15 H % (o) - % meczów w których spełniony jest warunek dla gospodarza, analizując 15 ostatnich meczów (dokładnie co robiliśmy do tej pory dla 10 meczów, z założeniem ogólnym, tylko dla 15 ostatnich meczów)
+Q- 15 A % (o) - % meczów w których spełniony jest warunek dla gościa analizując 15 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem ogólnym, tylko dla 15 ostatnich meczów)
+R- 15 H % (H/A) - % meczów w których spełniony jest warunek dla gospodarza, w których gospodarz jest gospodarzem,  analizując 15 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem H/A, tylko dla 15 ostatnich meczów)
+S- 15 A % (H/A) - % meczów w których spełniony jest warunek dla gościa, w których gość jest gościem,  analizując 15 ostatnich meczów (dokładnie to co robiliśmy do tej pory dla 10 meczów, z założeniem H/A, tylko dla 15 ostatnich meczów)
+T- Kupon (r)
+U- Wszedł (r) 
+V- Wynik H(r)
+W- Wynik A(r)
+X- home_standing
+Y- away_standing
+Z- Komentarz (r)
+AA- Kraj
+AB- Liga
+AC- Data meczu
+AD- ID Meczu
+AE- ID Kuponu (r)
+
+Na podstawie tej rozpiski zmodyfikuj funkcję przenoszenia danych do Strefy typera - za pomocą przycisku "strefa typera"
+Wzór w kolumnie E jest tymczasowy, jescze będzie modyfikiowany - 
+
+3. Krok trzeci
+W arkuszu Typy mamy dokładnie takie same kolumny, wejdź w ten arkusz i uzupełnij brakujące pozycje dla każdego meczu który tu mamy (musisz wyszukać mecze za pomocą nazw drużyn i daty)

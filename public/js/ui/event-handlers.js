@@ -401,6 +401,22 @@ export function setTomorrowDate() {
 }
 
 /**
+ * Set date range to day after tomorrow only
+ */
+export function setDayAfterTomorrowDate() {
+	const dayAfterTomorrow = new Date()
+	dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2)
+	const dateFromInput = document.getElementById('bet-finder-date-from')
+	const dateToInput = document.getElementById('bet-finder-date-to')
+
+	if (dateFromInput && dateToInput) {
+		dateFromInput.valueAsDate = dayAfterTomorrow
+		dateToInput.valueAsDate = dayAfterTomorrow
+		console.log('📅 Date range set to day after tomorrow:', dayAfterTomorrow.toISOString().split('T')[0])
+	}
+}
+
+/**
  * Save and close configuration
  */
 export function saveAndClose() {

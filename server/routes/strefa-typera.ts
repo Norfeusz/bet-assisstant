@@ -37,6 +37,7 @@ interface AddMatchRequest {
 	homeTeam: string
 	awayTeam: string
 	league?: string
+	date?: string
 	betType?: string
 	betOption?: string
 	assumption?: string
@@ -48,7 +49,7 @@ router.post('/strefa-typera/add-match-full', async (req, res) => {
 	try {
 		console.log('[Strefa Typera] Request received:', req.body)
 		
-		const { homeTeam, awayTeam, league, betType, betOption, odds } = req.body as AddMatchRequest
+		const { homeTeam, awayTeam, league, date, betType, betOption, odds } = req.body as AddMatchRequest
 
 		if (!homeTeam || !awayTeam || !betType || !betOption || !odds) {
 			console.log('[Strefa Typera] Missing required fields')
@@ -66,6 +67,11 @@ router.post('/strefa-typera/add-match-full', async (req, res) => {
 		const haStats = await calculateBetStatistics(homeTeam, awayTeam, betType, betOption, 'ha', league)
 		console.log('[Strefa Typera] Statistics calculated')
 
+		// Helper function to format percentage
+		const formatPercent = (value: number | string) => {
+			return typeof value === 'string' ? value : `${value}%`
+		}
+
 		// Prepare rows
 		const rows = [
 			[
@@ -74,10 +80,15 @@ router.post('/strefa-typera/add-match-full', async (req, res) => {
 				betType,
 				betOption,
 				'ogółem',
-				`${overallStats.homePercentage}%`,
-				`${overallStats.awayPercentage}%`,
+				formatPercent(overallStats.homePercentage),
+				formatPercent(overallStats.awayPercentage),
 				'',
-				odds
+				odds,
+				'', // J
+				'', // K
+				'', // L
+				'', // M
+				date || '' // N - Data meczu
 			],
 			[
 				homeTeam,
@@ -85,10 +96,15 @@ router.post('/strefa-typera/add-match-full', async (req, res) => {
 				betType,
 				betOption,
 				'H/A',
-				`${haStats.homePercentage}%`,
-				`${haStats.awayPercentage}%`,
+				formatPercent(haStats.homePercentage),
+				formatPercent(haStats.awayPercentage),
 				'',
-				odds
+				odds,
+				'', // J
+				'', // K
+				'', // L
+				'', // M
+				date || '' // N - Data meczu
 			]
 		]
 
@@ -100,7 +116,7 @@ router.post('/strefa-typera/add-match-full', async (req, res) => {
 		// Append rows to sheet
 		await sheets.spreadsheets.values.append({
 			spreadsheetId: SPREADSHEET_ID,
-			range: `${SHEET_NAME}!A:I`,
+			range: `${SHEET_NAME}!A:N`,
 			valueInputOption: 'USER_ENTERED',
 			requestBody: {
 				values: rows,

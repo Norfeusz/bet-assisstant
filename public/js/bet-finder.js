@@ -128,6 +128,62 @@ function calculateCornerStats(matches, teamName) {
 }
 
 /**
+ * Calculate single team corner statistics (for vs against)
+ * Used for finding matches where ONE team executes most/least corners
+ * @param {Array} matches - Team's historical matches
+ * @param {string} teamName - Team name
+ * @returns {Object} Corner statistics with for/against breakdown
+ */
+function calculateSingleTeamCornerStats(matches, teamName) {
+	let totalCornersFor = 0
+	let totalCornersAgainst = 0
+	let cornersMatchCount = 0
+	let matchCount = 0
+	const matchDetails = []
+
+	matches.forEach(match => {
+		matchCount++
+
+		const isHome = match.home_team === teamName
+
+		// Only count matches with corner data
+		if (match.home_corners != null && match.away_corners != null) {
+			const teamCorners = isHome ? match.home_corners : match.away_corners
+			const opponentCorners = isHome ? match.away_corners : match.home_corners
+
+			totalCornersFor += teamCorners
+			totalCornersAgainst += opponentCorners
+			cornersMatchCount++
+
+			matchDetails.push({
+				date: match.match_date,
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeGoals: match.home_goals,
+				awayGoals: match.away_goals,
+				homeCorners: match.home_corners,
+				awayCorners: match.away_corners,
+				teamCorners: teamCorners,
+				opponentCorners: opponentCorners,
+				isHome: isHome,
+				standing_home: match.standing_home,
+				standing_away: match.standing_away,
+			})
+		}
+	})
+
+	return {
+		totalCornersFor,
+		totalCornersAgainst,
+		cornersMatchCount,
+		matchCount,
+		avgCornersFor: cornersMatchCount > 0 ? parseFloat((totalCornersFor / cornersMatchCount).toFixed(2)) : 0,
+		avgCornersAgainst: cornersMatchCount > 0 ? parseFloat((totalCornersAgainst / cornersMatchCount).toFixed(2)) : 0,
+		matches: matchDetails,
+	}
+}
+
+/**
  * Calculate offsides statistics for a team
  * @param {Array} matches - Team's historical matches
  * @param {string} teamName - Team name
@@ -448,10 +504,14 @@ function calculateHomeWinStats(matches, teamName) {
 	let homeMatchCount = 0
 	const matchDetails = []
 
-	matches.forEach(match => {
+	// Filter only home matches first, then limit to selectedMatchCount
+	const homeMatches = matches.filter(match => match.home_team === teamName)
+	const limitedMatches = state.selectedMatchCount ? homeMatches.slice(0, state.selectedMatchCount) : homeMatches
+
+	limitedMatches.forEach(match => {
 		const isHome = match.home_team === teamName
 		
-		// Only count home matches
+		// Only count home matches (already filtered, but keeping for clarity)
 		if (isHome) {
 			const goalsScored = match.home_goals
 			const goalsConceded = match.away_goals
@@ -506,10 +566,14 @@ function calculateAwayWinStats(matches, teamName) {
 	let awayMatchCount = 0
 	const matchDetails = []
 
-	matches.forEach(match => {
+	// Filter only away matches first, then limit to selectedMatchCount
+	const awayMatches = matches.filter(match => match.home_team !== teamName)
+	const limitedMatches = state.selectedMatchCount ? awayMatches.slice(0, state.selectedMatchCount) : awayMatches
+
+	limitedMatches.forEach(match => {
 		const isHome = match.home_team === teamName
 		
-		// Only count away matches
+		// Only count away matches (already filtered, but keeping for clarity)
 		if (!isHome) {
 			const goalsScored = match.away_goals
 			const goalsConceded = match.home_goals
@@ -617,6 +681,7 @@ async function findMatches(config) {
 		noMatchesMessage,
 		minMatches = 5,
 		validateTeamStats = null,
+		homeAwayFilter = false, // When true, fetch more matches to ensure enough home/away specific matches
 	} = config
 
 	console.log('🔍 findMatches called with config:', {
@@ -681,10 +746,12 @@ async function findMatches(config) {
 			}
 
 			// Fetch finished matches
+			// When homeAwayFilter is true, fetch 3x more matches to ensure we get enough home/away specific matches
+			const matchLimit = state.selectedMatchCount ? (homeAwayFilter ? state.selectedMatchCount * 3 : state.selectedMatchCount) : ''
 			const history = await fetch(
 				`/api/database/matches?team=${encodeURIComponent(team)}&league=${encodeURIComponent(
 					league
-				)}&is_finished=yes&sort=date_desc${state.selectedMatchCount ? `&limit=${state.selectedMatchCount}` : ''}`
+				)}&is_finished=yes&sort=date_desc${matchLimit ? `&limit=${matchLimit}` : ''}`
 			).then(res => res.json())
 
 			// Also fetch first future match with standings (from Nov 1, 2025 onwards) to fill gaps for old matches
@@ -694,8 +761,24 @@ async function findMatches(config) {
 				)}&date_from=2025-11-01&sort=date_asc&limit=1`
 			).then(res => res.json())
 
-			// Combine: finished matches + first future match with standing
-			const combined = [...history, ...futureWithStanding]
+			// Combine and remove duplicates based on match_id
+			const combinedMap = new Map()
+			
+			// Add history matches first
+			history.forEach(match => {
+				const key = `${match.match_date}_${match.home_team}_${match.away_team}`
+				combinedMap.set(key, match)
+			})
+			
+			// Add future match only if not already present
+			futureWithStanding.forEach(match => {
+				const key = `${match.match_date}_${match.home_team}_${match.away_team}`
+				if (!combinedMap.has(key)) {
+					combinedMap.set(key, match)
+				}
+			})
+			
+			const combined = Array.from(combinedMap.values())
 
 			historyCache.set(cacheKey, combined)
 			return combined
@@ -794,9 +877,7 @@ export async function findMostGoals() {
 		searchMessage: 'Wyszukuję mecze...',
 		calculateStats: calculateGoalStats,
 		processMatch: (match, homeStats, awayStats) => {
-			const totalGoals = homeStats.totalGoals + awayStats.totalGoals
-			const totalMatches = homeStats.matchCount + awayStats.matchCount
-			const averageGoals = totalMatches > 0 ? (totalGoals / totalMatches).toFixed(2) : 0
+			const averageGoals = ((homeStats.avgGoals + awayStats.avgGoals) / 2).toFixed(2)
 
 			return {
 				date: match.match_date,
@@ -806,7 +887,6 @@ export async function findMostGoals() {
 				awayTeam: match.away_team,
 				homeStats,
 				awayStats,
-				totalGoals,
 				averageGoals: parseFloat(averageGoals),
 				searchType: 'most-goals',
 				standing_home: match.standing_home,
@@ -829,9 +909,7 @@ export async function findLeastGoals() {
 		searchMessage: 'Wyszukuję mecze...',
 		calculateStats: calculateGoalStats,
 		processMatch: (match, homeStats, awayStats) => {
-			const totalGoals = homeStats.totalGoals + awayStats.totalGoals
-			const totalMatches = homeStats.matchCount + awayStats.matchCount
-			const averageGoals = totalMatches > 0 ? (totalGoals / totalMatches).toFixed(2) : 0
+			const averageGoals = ((homeStats.avgGoals + awayStats.avgGoals) / 2).toFixed(2)
 
 			return {
 				date: match.match_date,
@@ -841,7 +919,6 @@ export async function findLeastGoals() {
 				awayTeam: match.away_team,
 				homeStats,
 				awayStats,
-				totalGoals,
 				averageGoals: parseFloat(averageGoals),
 				searchType: 'least-goals',
 				standing_home: match.standing_home,
@@ -921,7 +998,7 @@ export async function findMostCorners() {
 			// Calculate average corners
 			const homeAvgCorners = homeStats.totalCorners / homeStats.cornersMatchCount
 			const awayAvgCorners = awayStats.totalCorners / awayStats.cornersMatchCount
-			const combinedAvgCorners = homeAvgCorners + awayAvgCorners
+			const combinedAvgCorners = (homeAvgCorners + awayAvgCorners) / 2
 
 			return {
 				date: match.match_date,
@@ -959,7 +1036,7 @@ export async function findLeastCorners() {
 			// Calculate average corners
 			const homeAvgCorners = homeStats.totalCorners / homeStats.cornersMatchCount
 			const awayAvgCorners = awayStats.totalCorners / awayStats.cornersMatchCount
-			const combinedAvgCorners = homeAvgCorners + awayAvgCorners
+			const combinedAvgCorners = (homeAvgCorners + awayAvgCorners) / 2
 
 			return {
 				date: match.match_date,
@@ -979,6 +1056,116 @@ export async function findLeastCorners() {
 		},
 		sortMatches: (a, b) => a.averageCorners - b.averageCorners, // ASCENDING for least corners
 		showModal: showLeastCornersModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+		minMatches: 5,
+		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount >= 5 && awayStats.cornersMatchCount >= 5,
+	})
+}
+
+/**
+ * Find matches where ONE team executes MOST corners (independent of the other)
+ */
+export async function findMostSingleTeamCorners() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze gdzie jedna drużyna wykonuje najwięcej rożnych...',
+		calculateStats: calculateSingleTeamCornerStats,
+		processMatch: (match, homeStats, awayStats) => {
+			// Determine which team has MORE corners executed
+			const homeAvgFor = homeStats.avgCornersFor
+			const awayAvgFor = awayStats.avgCornersFor
+
+			let strongTeam, weakTeam, strongAvgFor, weakAvgAgainst
+			if (homeAvgFor >= awayAvgFor) {
+				strongTeam = match.home_team
+				weakTeam = match.away_team
+				strongAvgFor = homeAvgFor
+				weakAvgAgainst = awayStats.avgCornersAgainst
+			} else {
+				strongTeam = match.away_team
+				weakTeam = match.home_team
+				strongAvgFor = awayAvgFor
+				weakAvgAgainst = homeStats.avgCornersAgainst
+			}
+
+			// For sorting: use the MAXIMUM average (strongest team in this match)
+			const maxAvgCorners = Math.max(homeAvgFor, awayAvgFor)
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				strongTeam,
+				weakTeam,
+				strongAvgFor: parseFloat(strongAvgFor.toFixed(2)),
+				weakAvgAgainst: parseFloat(weakAvgAgainst.toFixed(2)),
+				averageCorners: parseFloat(maxAvgCorners.toFixed(2)), // Sort by MAX average
+				searchType: 'most-single-corners',
+				standing_home: match.standing_home,
+				standing_away: match.standing_away,
+			}
+		},
+		sortMatches: (a, b) => b.averageCorners - a.averageCorners,
+		showModal: showMostSingleTeamCornersModal,
+		noMatchesMessage:
+			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
+		minMatches: 5,
+		validateTeamStats: (homeStats, awayStats) => homeStats.cornersMatchCount >= 5 && awayStats.cornersMatchCount >= 5,
+	})
+}
+
+/**
+ * Find matches where ONE team executes LEAST corners (independent of the other)
+ */
+export async function findLeastSingleTeamCorners() {
+	await findMatches({
+		searchMessage: 'Wyszukuję mecze gdzie jedna drużyna wykonuje najmniej rożnych...',
+		calculateStats: calculateSingleTeamCornerStats,
+		processMatch: (match, homeStats, awayStats) => {
+			// Determine which team has FEWER corners executed
+			const homeAvgFor = homeStats.avgCornersFor
+			const awayAvgFor = awayStats.avgCornersFor
+
+			let weakTeam, strongTeam, weakAvgFor, strongAvgAgainst
+			if (homeAvgFor <= awayAvgFor) {
+				weakTeam = match.home_team
+				strongTeam = match.away_team
+				weakAvgFor = homeAvgFor
+				strongAvgAgainst = awayStats.avgCornersAgainst
+			} else {
+				weakTeam = match.away_team
+				strongTeam = match.home_team
+				weakAvgFor = awayAvgFor
+				strongAvgAgainst = homeStats.avgCornersAgainst
+			}
+
+			// For sorting: use the MINIMUM average (weakest team in this match)
+			const minAvgCorners = Math.min(homeAvgFor, awayAvgFor)
+
+			return {
+				date: match.match_date,
+				league: match.league,
+				country: match.country || '',
+				homeTeam: match.home_team,
+				awayTeam: match.away_team,
+				homeStats,
+				awayStats,
+				weakTeam,
+				strongTeam,
+				weakAvgFor: parseFloat(weakAvgFor.toFixed(2)),
+				strongAvgAgainst: parseFloat(strongAvgAgainst.toFixed(2)),
+				averageCorners: parseFloat(minAvgCorners.toFixed(2)), // Sort by MIN average
+				searchType: 'least-single-corners',
+				standing_home: match.standing_home,
+				standing_away: match.standing_away,
+			}
+		},
+		sortMatches: (a, b) => a.averageCorners - b.averageCorners, // ASCENDING for least
+		showModal: showLeastSingleTeamCornersModal,
 		noMatchesMessage:
 			'Nie znaleziono meczów z danymi o rzutach rożnych (obie drużyny muszą mieć min. 5 zakończonych meczów z dostępnymi statystykami)',
 		minMatches: 5,
@@ -1066,6 +1253,7 @@ export async function findHomeWins() {
 		searchMessage: 'Wyszukuję mecze z najczęstszymi wygranymi gospodarzy...',
 		calculateHomeStats: calculateHomeWinStats, // Home team: only home matches
 		calculateAwayStats: calculateWinLossStats, // Away team: all matches
+		homeAwayFilter: true, // Fetch more matches for home/away filtering
 		processMatch: (match, homeStats, awayStats) => {
 			return {
 				date: match.match_date,
@@ -1098,6 +1286,7 @@ export async function findAwayWins() {
 		searchMessage: 'Wyszukuję mecze z najczęstszymi wygranymi gości...',
 		calculateHomeStats: calculateWinLossStats, // Home team: all matches
 		calculateAwayStats: calculateAwayWinStats, // Away team: only away matches
+		homeAwayFilter: true, // Fetch more matches for home/away filtering
 		processMatch: (match, homeStats, awayStats) => {
 			return {
 				date: match.match_date,
@@ -1130,6 +1319,7 @@ export async function findHomeLosses() {
 		searchMessage: 'Wyszukuję mecze z najczęstszymi porażkami gospodarzy...',
 		calculateHomeStats: calculateHomeWinStats, // Home team: only home matches
 		calculateAwayStats: calculateWinLossStats, // Away team: all matches
+		homeAwayFilter: true, // Fetch more matches for home/away filtering
 		processMatch: (match, homeStats, awayStats) => {
 			return {
 				date: match.match_date,
@@ -1162,6 +1352,7 @@ export async function findAwayLosses() {
 		searchMessage: 'Wyszukuję mecze z najczęstszymi porażkami gości...',
 		calculateHomeStats: calculateWinLossStats, // Home team: all matches
 		calculateAwayStats: calculateAwayWinStats, // Away team: only away matches
+		homeAwayFilter: true, // Fetch more matches for home/away filtering
 		processMatch: (match, homeStats, awayStats) => {
 			return {
 				date: match.match_date,
@@ -1194,6 +1385,7 @@ export async function findHomeAdvantage() {
 		searchMessage: 'Wyszukuję mecze z przewagą gospodarzy...',
 		calculateHomeStats: calculateHomeWinStats, // Home team: only home matches
 		calculateAwayStats: calculateAwayWinStats, // Away team: only away matches
+		homeAwayFilter: true, // Fetch more matches for home/away filtering
 		processMatch: (match, homeStats, awayStats) => {
 			// Combine home win % and away loss %
 			const homeWinPercent = homeStats.homeWinPercent || 0
@@ -1234,6 +1426,7 @@ export async function findAwayAdvantage() {
 		searchMessage: 'Wyszukuję mecze z przewagą gości...',
 		calculateHomeStats: calculateHomeWinStats, // Home team: only home matches
 		calculateAwayStats: calculateAwayWinStats, // Away team: only away matches
+		homeAwayFilter: true, // Fetch more matches for home/away filtering
 		processMatch: (match, homeStats, awayStats) => {
 			// Combine away win % and home loss %
 			const awayWinPercent = awayStats.awayWinPercent || 0
@@ -1277,7 +1470,7 @@ export async function findMostOffsides() {
 			// Calculate average offsides
 			const homeAvgOffsides = homeStats.totalOffsides / homeStats.offsidesMatchCount
 			const awayAvgOffsides = awayStats.totalOffsides / awayStats.offsidesMatchCount
-			const combinedAvgOffsides = homeAvgOffsides + awayAvgOffsides
+			const combinedAvgOffsides = (homeAvgOffsides + awayAvgOffsides) / 2
 
 			return {
 				date: match.match_date,
@@ -1315,7 +1508,7 @@ export async function findLeastOffsides() {
 			// Calculate average offsides
 			const homeAvgOffsides = homeStats.totalOffsides / homeStats.offsidesMatchCount
 			const awayAvgOffsides = awayStats.totalOffsides / awayStats.offsidesMatchCount
-			const combinedAvgOffsides = homeAvgOffsides + awayAvgOffsides
+			const combinedAvgOffsides = (homeAvgOffsides + awayAvgOffsides) / 2
 
 			return {
 				date: match.match_date,
@@ -1678,11 +1871,15 @@ export const modalTypeToShowFunction = {
 	'least-goals': (data) => showLeastGoalsModal(data.results, data.dateFrom, data.dateTo),
 	'most-corners': (data) => showMostCornersModal(data.results, data.dateFrom, data.dateTo),
 	'least-corners': (data) => showLeastCornersModal(data.results, data.dateFrom, data.dateTo),
+	'most-single-corners': (data) => showMostSingleTeamCornersModal(data.results, data.dateFrom, data.dateTo),
+	'least-single-corners': (data) => showLeastSingleTeamCornersModal(data.results, data.dateFrom, data.dateTo),
 	'handicap-15': (data) => showHandicap15Modal(data.results, data.dateFrom, data.dateTo),
 	'goal-advantage': (data) => showGoalAdvantageModal(data.results, data.dateFrom, data.dateTo),
 	'winner-vs-loser': (data) => showWinnerVsLoserModal(data.results, data.dateFrom, data.dateTo),
 	'most-total-corners': (data) => showMostTotalCornersModal(data.results, data.dateFrom, data.dateTo),
 	'least-total-corners': (data) => showLeastTotalCornersModal(data.results, data.dateFrom, data.dateTo),
+	'total-corners': (data) => showMostTotalCornersModal(data.results, data.dateFrom, data.dateTo),
+	'total-corners-least': (data) => showLeastTotalCornersModal(data.results, data.dateFrom, data.dateTo),
 	'corner-advantage': (data) => showCornerAdvantageModal(data.results, data.dateFrom, data.dateTo),
 	'most-total-offsides': (data) => showMostTotalOffsidesModal(data.results, data.dateFrom, data.dateTo),
 	'least-total-offsides': (data) => showLeastTotalOffsidesModal(data.results, data.dateFrom, data.dateTo),
@@ -1704,6 +1901,8 @@ export {
 	showLeastGoalsModal,
 	showMostCornersModal,
 	showLeastCornersModal,
+	showMostSingleTeamCornersModal,
+	showLeastSingleTeamCornersModal,
 	showHandicap15Modal,
 	showGoalAdvantageModal,
 	showWinnerVsLoserModal,
@@ -1794,7 +1993,7 @@ export function formatTeamWithStanding(teamName, standing, matchDate) {
 // Helper function to generate "Add to Watched" button
 function generateAddButton(result, searchType) {
 	const resultData = JSON.stringify(result).replace(/"/g, '&quot;').replace(/'/g, "\\'")
-	return `<button class="btn-small" onclick='window.addToWatchedMatches(JSON.parse("${resultData}"), "${searchType}")'>⭐ Dodaj</button>`
+	return `<button class="btn-small" onclick="window.addToWatchedMatches(JSON.parse('${resultData}'), '${searchType}')">⭐ Dodaj</button>`
 }
 
 // Generic function to create TOP 10 modal structure
@@ -1969,12 +2168,12 @@ return `
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #f5576c; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageGoals}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej bramek")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej bramek')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2042,12 +2241,12 @@ return `
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #3b82f6; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageGoals}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najmniej bramek")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najmniej bramek')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2125,7 +2324,7 @@ function showHandicap15Modal(results, dateFrom, dateTo) {
                     </td>
                     <td style="font-size: 13px;">${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #10b981; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.handicapScore}
                     </td>
@@ -2136,7 +2335,7 @@ function showHandicap15Modal(results, dateFrom, dateTo) {
                         </span>
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Handicap 1.5")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Handicap 1.5')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2152,10 +2351,10 @@ function showMostCornersModal(results, dateFrom, dateTo) {
 		dateFrom,
 		dateTo,
 		modalType: 'most-corners',
-		title: 'TOP 10 - Najwięcej rzutów rożnych',
+		title: 'TOP 10 - Najwięcej Rożnych (Obie Drużyny)',
 		icon: '🚩',
 		description:
-			'Znajduje mecze gdzie obie drużyny mają najwyższą średnią rzutów rożnych. Idealny typ zakładu: Over na rożne.',
+			'Znajduje mecze gdzie obie drużyny mają najwyższą średnią rzutów rożnych wykonywanych. Idealny typ zakładu: Over na rożne.',
 		headerGradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
 		descriptionGradient: 'linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%)',
 		descriptionBorder: '#f59e0b',
@@ -2207,12 +2406,12 @@ function showMostCornersModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #f59e0b; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageCorners}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej rożnych")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej rożnych')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2283,12 +2482,12 @@ function showMostBTSModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #06b6d4; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.combinedBTSPercent}%
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej BTS")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej BTS')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2359,12 +2558,12 @@ function showNoBTSModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.combinedNoBTSPercent}%
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Bez BTS")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Bez BTS')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2438,12 +2637,12 @@ function showHomeWinsModal(results, dateFrom, dateTo) {
                     </td>
                     <td style="font-size: 12px;">${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #2563eb; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.homeWinPercent}%
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Zwycięstwa gospodarzy")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Zwycięstwa gospodarzy')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2517,12 +2716,12 @@ function showAwayWinsModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #dc2626; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.awayWinPercent}%
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Zwycięstwa gości")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Zwycięstwa gości')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2596,12 +2795,12 @@ function showHomeLossesModal(results, dateFrom, dateTo) {
                     </td>
                     <td style="font-size: 12px;">${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #f97316; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.homeLossPercent}%
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej porażek gospodarzy")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej porażek gospodarzy')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2675,12 +2874,12 @@ function showAwayLossesModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #84cc16; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.awayLossPercent}%
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej porażek gości")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej porażek gości')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2751,12 +2950,12 @@ function showHomeAdvantageModal(results, dateFrom, dateTo) {
                     </td>
                     <td style="color: #dc2626; font-weight: 600;">${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #0891b2; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.advantageScore}%
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Przewaga gospodarzy")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Przewaga gospodarzy')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2827,12 +3026,12 @@ function showAwayAdvantageModal(results, dateFrom, dateTo) {
                     </td>
                     <td style="color: #059669; font-weight: 600;">${awayWinStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #a855f7; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.advantageScore}%
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Przewaga gości")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Przewaga gości')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2848,10 +3047,10 @@ function showLeastCornersModal(results, dateFrom, dateTo) {
 		dateFrom,
 		dateTo,
 		modalType: 'least-corners',
-		title: 'TOP 10 - Najmniej rzutów rożnych',
+		title: 'TOP 10 - Najmniej Rożnych (Obie Drużyny)',
 		icon: '🔻',
 		description:
-			'Znajduje mecze gdzie obie drużyny mają najniższą średnią rzutów rożnych. Idealny typ zakładu: Under na rożne.',
+			'Znajduje mecze gdzie obie drużyny mają najniższą średnią rzutów rożnych wykonywanych. Idealny typ zakładu: Under na rożne.',
 		headerGradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
 		descriptionGradient: 'linear-gradient(135deg, #ede9fe 0%, #c4b5fd 100%)',
 		descriptionBorder: '#8b5cf6',
@@ -2903,12 +3102,152 @@ function showLeastCornersModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageCorners}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najmniej rożnych")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najmniej rożnych')">
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
+
+function showMostSingleTeamCornersModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'most-single-corners',
+		title: 'TOP 10 - Najwięcej rożnych (jedna drużyna)',
+		icon: '🚩',
+		description:
+			'Znajduje mecze gdzie jedna drużyna wykonuje najwięcej rzutów rożnych (niezależnie od drugiej). Pokazuje średnią wykonywanych rożnych przez silniejszą drużynę oraz średnią traconych przez słabszą drużynę.',
+		headerGradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%)',
+		descriptionBorder: '#f59e0b',
+		descriptionTextColor: '#78350f',
+		maxWidth: '1200px',
+		matchCountField: 'cornersMatchCount',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Drużyna (najwięcej)</th>
+            <th>Śr. wykonywanych</th>
+            <th>Druga drużyna</th>
+            <th>Śr. traconych</th>
+            <th>Łączna średnia</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+			const isHomeStrong = result.strongTeam === result.homeTeam
+			
+			const strongStanding = isHomeStrong ? result.standing_home : result.standing_away
+			const weakStanding = isHomeStrong ? result.standing_away : result.standing_home
+			
+			const strongTeamDisplay = formatTeamWithStanding(result.strongTeam, strongStanding, result.date)
+			const weakTeamDisplay = formatTeamWithStanding(result.weakTeam, weakStanding, result.date)
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #8b5cf6;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.strongTeam.replace(/'/g, "\\'")}'); return false;">
+                            ${strongTeamDisplay}
+                        </a>
+                    </td>
+                    <td style="color: #059669; font-weight: 600;">+${result.strongAvgFor}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.weakTeam.replace(/'/g, "\\'")}'); return false;">
+                            ${weakTeamDisplay}
+                        </a>
+                    </td>
+                    <td style="color: #dc2626; font-weight: 600;">${result.weakAvgAgainst}</td>
+                    <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;"
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.averageCorners}
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej rożnych (jedna drużyna)')">
+                            ⭐ Dodaj
+                        </button>
+                    </td>
+                </tr>
+            `
+		},
+	})
+}
+
+function showLeastSingleTeamCornersModal(results, dateFrom, dateTo) {
+	createTop10Modal({
+		results,
+		dateFrom,
+		dateTo,
+		modalType: 'least-single-corners',
+		title: 'TOP 10 - Najmniej rożnych (jedna drużyna)',
+		icon: '🎯',
+		description:
+			'Znajduje mecze gdzie jedna drużyna wykonuje najmniej rzutów rożnych (niezależnie od drugiej). Pokazuje średnią wykonywanych rożnych przez słabszą drużynę oraz średnią traconych przez silniejszą drużynę.',
+		headerGradient: 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)',
+		descriptionGradient: 'linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%)',
+		descriptionBorder: '#f59e0b',
+		descriptionTextColor: '#78350f',
+		maxWidth: '1200px',
+		matchCountField: 'cornersMatchCount',
+		tableHeaders: `
+            <th>#</th>
+            <th>Data</th>
+            <th>Liga</th>
+            <th>Drużyna (najmniej)</th>
+            <th>Śr. wykonywanych</th>
+            <th>Druga drużyna</th>
+            <th>Śr. traconych</th>
+            <th>Łączna średnia</th>
+            <th>Akcje</th>
+        `,
+		renderTableRow: (result, index) => {
+			const resultData = JSON.stringify(result).replace(/"/g, '&quot;')
+			const isHomeWeak = result.weakTeam === result.homeTeam
+			
+			const weakStanding = isHomeWeak ? result.standing_home : result.standing_away
+			const strongStanding = isHomeWeak ? result.standing_away : result.standing_home
+			
+			const weakTeamDisplay = formatTeamWithStanding(result.weakTeam, weakStanding, result.date)
+			const strongTeamDisplay = formatTeamWithStanding(result.strongTeam, strongStanding, result.date)
+
+			return `
+                <tr>
+                    <td style="font-weight: 700; color: #8b5cf6;">${index + 1}</td>
+                    <td>${new Date(result.date).toLocaleDateString('pl-PL')}</td>
+                    <td style="font-size: 12px; color: #666;">${result.league}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.weakTeam.replace(/'/g, "\\'")}'); return false;">
+                            ${weakTeamDisplay}
+                        </a>
+                    </td>
+                    <td style="color: #dc2626; font-weight: 600;">${result.weakAvgFor}</td>
+                    <td style="font-weight: 600;">
+                        <a href="#" class="team-link" onclick="window.openTeamStats('${result.strongTeam.replace(/'/g, "\\'")}'); return false;">
+                            ${strongTeamDisplay}
+                        </a>
+                    </td>
+                    <td style="color: #059669; font-weight: 600;">${result.strongAvgAgainst}</td>
+                    <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;"
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
+                        title="Kliknij aby zobaczyć szczegóły meczów">
+                        ${result.averageCorners}
+                    </td>
+                    <td>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najmniej rożnych (jedna drużyna)')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -2979,12 +3318,12 @@ function showMostOffsidesModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #059669; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageOffsides}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej spalonych")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej spalonych')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3055,12 +3394,12 @@ function showLeastOffsidesModal(results, dateFrom, dateTo) {
                     </td>
                     <td>${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #0d9488; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageOffsides}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najmniej spalonych")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najmniej spalonych')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3138,7 +3477,7 @@ function showGoalAdvantageModal(results, dateFrom, dateTo) {
                     </td>
                     <td style="font-size: 13px;">${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #ef4444; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.advantageScore}
                     </td>
@@ -3149,7 +3488,7 @@ function showGoalAdvantageModal(results, dateFrom, dateTo) {
                         </span>
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Przewaga bramkowa")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Przewaga bramkowa')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3229,12 +3568,12 @@ function showWinnerVsLoserModal(results, dateFrom, dateTo) {
                     </td>
                     <td style="font-size: 13px;">${awayStatsText}</td>
                     <td style="font-weight: 700; font-size: 18px; color: #06b6d4; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.contrastScore}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Wygrane vs Przegrane")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Wygrane vs Przegrane')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3250,7 +3589,7 @@ function showMostTotalCornersModal(results, dateFrom, dateTo) {
 		dateFrom,
 		dateTo,
 		modalType: 'total-corners',
-		title: 'TOP 10 - Najwięcej Rożnych Mecz',
+		title: 'TOP 10 - Najwięcej Rożnych (Mecz)',
 		icon: '🚩',
 		description:
 			'Znajduje mecze gdzie suma rzutów rożnych obu drużyn jest największa. Im wyższa średnia, tym więcej rożnych pada w meczach tych drużyn.',
@@ -3312,12 +3651,12 @@ function showMostTotalCornersModal(results, dateFrom, dateTo) {
 												} meczów)</span>
                     </td>
                     <td style="font-weight: 700; font-size: 18px; color: #8b5cf6; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageTotalCorners}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej Rożnych Mecz")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej Rożnych Mecz')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3333,7 +3672,7 @@ function showLeastTotalCornersModal(results, dateFrom, dateTo) {
 		dateFrom,
 		dateTo,
 		modalType: 'total-corners-least',
-		title: 'TOP 10 - Najmniej Rożnych Mecz',
+		title: 'TOP 10 - Najmniej Rożnych (Mecz)',
 		icon: '🎯',
 		description:
 			'Znajduje mecze gdzie suma rzutów rożnych obu drużyn jest najmniejsza. Im niższa średnia, tym mniej rożnych pada w meczach tych drużyn.',
@@ -3395,12 +3734,12 @@ function showLeastTotalCornersModal(results, dateFrom, dateTo) {
 												} meczów)</span>
                     </td>
                     <td style="font-weight: 700; font-size: 18px; color: #ec4899; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageTotalCorners}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najmniej Rożnych Mecz")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najmniej Rożnych Mecz')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3490,7 +3829,7 @@ function showCornerAdvantageModal(results, dateFrom, dateTo) {
 												} meczów)</span>
                     </td>
                     <td style="font-weight: 700; font-size: 18px; color: #f59e0b; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.advantageScore}
                         <br><span style="font-size: 11px; color: #9ca3af; font-weight: 400;">
@@ -3503,7 +3842,7 @@ function showCornerAdvantageModal(results, dateFrom, dateTo) {
                         </span>
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Przewaga Rożnych")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Przewaga Rożnych')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3581,12 +3920,12 @@ function showMostTotalOffsidesModal(results, dateFrom, dateTo) {
 												} meczów)</span>
                     </td>
                     <td style="font-weight: 700; font-size: 18px; color: #10b981; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageTotalOffsides}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najwięcej Spalonych Mecz")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najwięcej Spalonych Mecz')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3664,12 +4003,12 @@ function showLeastTotalOffsidesModal(results, dateFrom, dateTo) {
 												} meczów)</span>
                     </td>
                     <td style="font-weight: 700; font-size: 18px; color: #14b8a6; cursor: pointer; text-decoration: underline;"
-                        onclick='window.showBetFinderMatchDetailsModal(${resultData})'
+                        onclick="window.showBetFinderMatchDetailsModal(${resultData})"
                         title="Kliknij aby zobaczyć szczegóły meczów">
                         ${result.averageTotalOffsides}
                     </td>
                     <td>
-                        <button class="btn-small" onclick='window.addToWatchedMatches(${resultData}, "Najmniej Spalonych Mecz")'>
+                        <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Najmniej Spalonych Mecz')">
                             ⭐ Dodaj
                         </button>
                     </td>
@@ -3713,11 +4052,19 @@ export function queueHandicap15() {
 }
 
 export function queueMostCorners() {
-	queueSearch('Najwięcej rożnych drużyn', () => findMostCorners(), 'most-corners')
+	queueSearch('Najwięcej rożnych (obie drużyny)', () => findMostCorners(), 'most-corners')
 }
 
 export function queueLeastCorners() {
-	queueSearch('Najmniej rożnych drużyn', () => findLeastCorners(), 'least-corners')
+	queueSearch('Najmniej rożnych (obie drużyny)', () => findLeastCorners(), 'least-corners')
+}
+
+export function queueMostSingleTeamCorners() {
+	queueSearch('Najwięcej rożnych (jedna drużyna)', () => findMostSingleTeamCorners(), 'most-single-corners')
+}
+
+export function queueLeastSingleTeamCorners() {
+	queueSearch('Najmniej rożnych (jedna drużyna)', () => findLeastSingleTeamCorners(), 'least-single-corners')
 }
 
 export function queueMostBTS() {

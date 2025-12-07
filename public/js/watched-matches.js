@@ -128,6 +128,25 @@ export function editWatchedMatchNote(matchId) {
 }
 
 /**
+ * Clear all watched matches
+ */
+export function clearAllWatchedMatches() {
+	if (watchedMatches.length === 0) {
+		showToast('Brak meczów do usunięcia', 'info')
+		return
+	}
+
+	const count = watchedMatches.length
+	if (confirm(`Czy na pewno chcesz usunąć wszystkie obserwowane mecze (${count})?`)) {
+		watchedMatches.length = 0 // Clear array
+		saveWatchedMatches()
+		showWatchedMatchesModal() // Refresh modal
+		ensureWatchedMatchesCard()
+		showToast(`Usunięto ${count} ${count === 1 ? 'mecz' : count < 5 ? 'mecze' : 'meczów'}`, 'success')
+	}
+}
+
+/**
  * Show watched matches modal
  */
 export function showWatchedMatchesModal() {
@@ -140,6 +159,16 @@ export function showWatchedMatchesModal() {
             <div class="modal-header" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
                 <h2>⭐ Obserwowane mecze (${watchedMatches.length})</h2>
                 <div style="display: flex; gap: 10px;">
+                    <button class="btn-small" onclick="window.open('https://docs.google.com/spreadsheets/d/1xMCeRR4TxxtdBQNwcCLKvs-AqxPk3l1Hqm_MNyKRWnM/edit', '_blank')" 
+                        style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 6px 12px; font-size: 13px; font-weight: 600;"
+                        title="Otwórz arkusz Strefa Typera">
+                        📊 Strefa Typera
+                    </button>
+                    <button class="btn-small" onclick="window.clearAllWatchedMatches()" 
+                        style="background: #7f1d1d; color: white; padding: 6px 12px; font-size: 13px;"
+                        title="Usuń wszystkie obserwowane mecze">
+                        🗑️ Usuń wszystkie
+                    </button>
                     <button class="modal-minimize" onclick="window.minimizeWatchedMatchesModal()" title="Minimalizuj">−</button>
                     <button class="modal-close" onclick="window.closeWatchedMatchesModal()">×</button>
                 </div>
@@ -238,7 +267,7 @@ export function showWatchedMatchesModal() {
                     <td style="padding: 12px;">
                         <div style="display: flex; gap: 8px;">
                             <button
-                                onclick="window.addToStrefaTypera('${match.homeTeam.replace(/'/g, "\\'")}', '${match.awayTeam.replace(/'/g, "\\'")}', '${match.league.replace(/'/g, "\\'")}')"
+                                onclick="window.addToStrefaTypera('${match.homeTeam.replace(/'/g, "\\'")}', '${match.awayTeam.replace(/'/g, "\\'")}', '${match.league.replace(/'/g, "\\'")}', '${match.date}')"
                                 style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
                                 onmouseover="this.style.background='linear-gradient(135deg, #059669 0%, #047857 100%)'"
                                 onmouseout="this.style.background='linear-gradient(135deg, #10b981 0%, #059669 100%)'"

@@ -1301,6 +1301,40 @@ async function deleteJob(jobId) {
 // MODAL HELPERS FOR BET FINDER
 // =============================================================================
 
+/**
+ * Get color for modal type
+ */
+function getModalTypeColor(modalType) {
+	if (!modalType) return 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' // Default
+	
+	// Rezultat - cyjan
+	if (modalType.includes('winner') || modalType.includes('loser')) {
+		return 'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)'
+	}
+	
+	// Bramki - fioletowy
+	if (modalType.includes('goal') || modalType.includes('bts') || modalType.includes('handicap')) {
+		return 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+	}
+	
+	// Rożne - fioletowy ciemniejszy
+	if (modalType.includes('corner')) {
+		return 'linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%)'
+	}
+	
+	// Spalone - zielony
+	if (modalType.includes('offside')) {
+		return 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
+	}
+	
+	// Dom/Wyjazd - pomarańczowy
+	if (modalType.includes('home') || modalType.includes('away') || modalType.includes('advantage')) {
+		return 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)'
+	}
+	
+	return 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' // Default
+}
+
 // Store minimized modals data
 const minimizedModals = new Map()
 
@@ -1322,10 +1356,13 @@ function loadMinimizedModals() {
 		try {
 			const modalsData = JSON.parse(saved)
 
-			// Ensure container exists
-			const container = ensureModalsContainer()
-
-			modalsData.forEach(({ id, title, results, modalType, dateFrom, dateTo }) => {
+		// Ensure container exists
+		const container = ensureModalsContainer()
+		
+		// Clear existing cards to prevent duplicates on page reload
+		container.innerHTML = ''
+		
+		modalsData.forEach(({ id, title, results, modalType, dateFrom, dateTo }) => {
 				minimizedModals.set(id, { title, results, modalType, dateFrom, dateTo })
 
 				// Recreate the minimized card
@@ -1334,6 +1371,8 @@ function loadMinimizedModals() {
 					const miniCard = document.createElement('div')
 					miniCard.id = miniCardId
 					miniCard.className = 'minimized-card'
+					const cardColor = getModalTypeColor(modalType)
+					miniCard.style.background = cardColor
 					miniCard.innerHTML = `
                         <div class="minimized-card-content" onclick="window.restoreModal('${id}')">
                             <span class="minimized-card-icon">⚽</span>
@@ -1398,6 +1437,8 @@ function minimizeModal() {
 		miniCard = document.createElement('div')
 		miniCard.id = miniCardId
 		miniCard.className = 'minimized-card'
+		const cardColor = getModalTypeColor(modalData.modalType)
+		miniCard.style.background = cardColor
 		miniCard.innerHTML = `
             <div class="minimized-card-content" onclick="window.restoreModal('${modalId}')">
                 <span class="minimized-card-icon">⚽</span>
@@ -1462,6 +1503,12 @@ function restoreModal(modalId) {
 function closeModalCompletely(event, modalId) {
 	event.stopPropagation()
 
+	// Show confirmation dialog
+	const confirmed = confirm('Czy na pewno chcesz zamknąć ten modal?')
+	if (!confirmed) {
+		return // User cancelled, don't close
+	}
+
 	if (modalId) {
 		// Close specific minimized card
 		const miniCardId = `minimized-modal-card-${modalId}`
@@ -1520,9 +1567,10 @@ async function showBetFinderMatchDetailsModal(result) {
 		return
 	}
 
-	// Load Superbet link for this league
-	const { getSuperbetLink, createSuperbetIcon } = await import('./utils/superbet-links.js')
+	// Load Superbet link and Flashscore link for this league
+	const { getSuperbetLink, createSuperbetIcon, getFlashscoreLink, createFlashscoreButton } = await import('./utils/superbet-links.js')
 	const superbetUrl = await getSuperbetLink(result.league, result.country)
+	const flashscoreUrl = await getFlashscoreLink(result.league, result.country)
 
 	// Store current match data for minimization
 	currentMatchDetailsData = result
@@ -1572,17 +1620,17 @@ async function showBetFinderMatchDetailsModal(result) {
 		})`
 		mainStatText = `Łączna średnia bramek: ${result.averageGoals}`
 	} else if (result.averageCorners !== undefined) {
-		// Corners-based search
+		// Corners-based search (obie drużyny wykonują najwięcej/najmniej)
 		searchType = 'corners'
 		avgThreshold = result.averageCorners
 		isLeastSearch = result.searchType === 'least-corners'
-		homeStatsText = `Śr. rożnych: ${result.homeStats.avgCorners || 0} (${
+		homeStatsText = `Śr. rożnych wykonywanych: ${result.homeStats.avgCorners || 0} (${
 			result.homeStats.cornersMatchCount || 0
 		} meczów)`
-		awayStatsText = `Śr. rożnych: ${result.awayStats.avgCorners || 0} (${
+		awayStatsText = `Śr. rożnych wykonywanych: ${result.awayStats.avgCorners || 0} (${
 			result.awayStats.cornersMatchCount || 0
 		} meczów)`
-		mainStatText = `Łączna średnia rożnych: ${result.averageCorners}`
+		mainStatText = `Łączna średnia rożnych wykonywanych: ${result.averageCorners}`
 	} else if (result.handicapScore !== undefined) {
 		// Handicap 1.5 search
 		searchType = 'handicap'
@@ -1661,18 +1709,42 @@ async function showBetFinderMatchDetailsModal(result) {
 			result.awayStats.lossPercent || 0
 		}%)`
 		mainStatText = `Kontrast form: ${result.contrastScore} (Mocny: ${result.strongTeam} ${result.strongTeamWinPercent}% W, Słaby: ${result.weakTeam} ${result.weakTeamLossPercent}% L)`
+	} else if (result.searchType === 'most-single-corners' || result.searchType === 'least-single-corners') {
+		// Single team corners search
+		searchType = result.searchType
+		avgThreshold = result.averageCorners || 0
+		isLeastSearch = result.searchType === 'least-single-corners'
+		// Identify which team is home/away
+		const isStrongHome = result.strongTeam === result.homeTeam
+		if (result.searchType === 'most-single-corners') {
+			homeStatsText = isStrongHome 
+				? `Śr. wykonywanych: ${result.strongAvgFor || 0}`
+				: `Śr. traconych: ${result.weakAvgAgainst || 0}`
+			awayStatsText = isStrongHome
+				? `Śr. traconych: ${result.weakAvgAgainst || 0}`
+				: `Śr. wykonywanych: ${result.strongAvgFor || 0}`
+			mainStatText = `Łączna średnia: ${result.averageCorners} (${result.strongTeam}: ${result.strongAvgFor} wykonywanych)`
+		} else {
+			homeStatsText = isStrongHome
+				? `Śr. traconych: ${result.strongAvgAgainst || 0}`
+				: `Śr. wykonywanych: ${result.weakAvgFor || 0}`
+			awayStatsText = isStrongHome
+				? `Śr. wykonywanych: ${result.weakAvgFor || 0}`
+				: `Śr. traconych: ${result.strongAvgAgainst || 0}`
+			mainStatText = `Łączna średnia: ${result.averageCorners} (${result.weakTeam}: ${result.weakAvgFor} wykonywanych)`
+		}
 	} else if (result.averageTotalCorners !== undefined) {
 		// Total corners search (both most and least)
 		searchType = result.searchType === 'total-corners-least' ? 'total-corners-least' : 'total-corners'
 		avgThreshold = result.averageTotalCorners
 		isLeastSearch = result.searchType === 'total-corners-least'
-		homeStatsText = `Śr. suma rożnych: ${result.homeStats.avgMatchCorners || 0} (${
+		homeStatsText = `Śr. suma rożnych w meczach: ${result.homeStats.avgMatchCorners || 0} (${
 			result.homeStats.cornersMatchCount || 0
 		} meczów)`
-		awayStatsText = `Śr. suma rożnych: ${result.awayStats.avgMatchCorners || 0} (${
+		awayStatsText = `Śr. suma rożnych w meczach: ${result.awayStats.avgMatchCorners || 0} (${
 			result.awayStats.cornersMatchCount || 0
 		} meczów)`
-		mainStatText = `Średnia suma rożnych w meczu: ${result.averageTotalCorners}`
+		mainStatText = `Łączna średnia suma rożnych w meczu: ${result.averageTotalCorners}`
 	} else if (result.averageTotalOffsides !== undefined) {
 		// Total offsides search (both most and least)
 		searchType = result.searchType === 'total-offsides-least' ? 'total-offsides-least' : 'total-offsides'
@@ -1792,24 +1864,59 @@ async function showBetFinderMatchDetailsModal(result) {
 		if (searchType === 'goals') {
 			statValue = (match.homeGoals || 0) + (match.awayGoals || 0)
 			statLabel = `${statValue} br.`
-		} else if (
-			searchType === 'corners' ||
-			searchType === 'total-corners' ||
-			searchType === 'total-corners-least' ||
-			searchType === 'corner-advantage'
-		) {
+		} else if (searchType === 'corners') {
+			// Obie drużyny - pokazuj rożne wykonywane przez każdą drużynę osobno
 			if (match.homeCorners != null && match.awayCorners != null) {
-				if (searchType === 'corner-advantage') {
-					// Show individual team corners with "Za" label
-					const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
-					const isTeamHome = match.homeTeam === teamName
-					const teamCorners = isTeamHome ? match.homeCorners : match.awayCorners
-					statLabel = `${teamCorners} rż.`
+				const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+				const isTeamHome = match.homeTeam === teamName
+				statValue = isTeamHome ? match.homeCorners : match.awayCorners
+				statLabel = `${statValue} rż.`
+			} else {
+				return '<span style="color: #999;">—</span>'
+			}
+		} else if (searchType === 'total-corners' || searchType === 'total-corners-least') {
+			// Mecz - pokazuj sumę rożnych w meczu
+			if (match.homeCorners != null && match.awayCorners != null) {
+				statValue = (match.homeCorners || 0) + (match.awayCorners || 0)
+				statLabel = `${statValue} rż.`
+			} else {
+				return '<span style="color: #999;">—</span>'
+			}
+		} else if (searchType === 'most-single-corners' || searchType === 'least-single-corners') {
+			// Jedna drużyna - pokazuj rożne wykonywane przez silniejszą/słabszą lub tracone przez drugą
+			if (match.homeCorners != null && match.awayCorners != null) {
+				const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+				const isTeamHome = match.homeTeam === teamName
+				const isStrongTeam = teamName === result.strongTeam
+				
+				if (searchType === 'most-single-corners') {
+					// Dla silnej drużyny pokazuj wykonywane, dla słabej tracone
+					if (isStrongTeam) {
+						statValue = isTeamHome ? match.homeCorners : match.awayCorners
+					} else {
+						// Słaba drużyna - pokazuj tracone (rożne przeciwnika)
+						statValue = isTeamHome ? match.awayCorners : match.homeCorners
+					}
 				} else {
-					// Show total corners
-					statValue = (match.homeCorners || 0) + (match.awayCorners || 0)
-					statLabel = `${statValue} rż.`
+					// least-single-corners: dla słabej pokazuj wykonywane, dla silnej tracone
+					if (!isStrongTeam) {
+						statValue = isTeamHome ? match.homeCorners : match.awayCorners
+					} else {
+						// Silna drużyna - pokazuj tracone
+						statValue = isTeamHome ? match.awayCorners : match.homeCorners
+					}
 				}
+				statLabel = `${statValue} rż.`
+			} else {
+				return '<span style="color: #999;">—</span>'
+			}
+		} else if (searchType === 'corner-advantage') {
+			// Przewaga - pokazuj rożne wykonywane przez silną drużynę lub tracone przez słabą
+			if (match.homeCorners != null && match.awayCorners != null) {
+				const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+				const isTeamHome = match.homeTeam === teamName
+				statValue = isTeamHome ? match.homeCorners : match.awayCorners
+				statLabel = `${statValue} rż.`
 			} else {
 				return '<span style="color: #999;">—</span>'
 			}
@@ -1913,44 +2020,163 @@ async function showBetFinderMatchDetailsModal(result) {
 		// Determine color based on comparison with average
 		let color = '#666'
 		let bgColor = 'transparent'
-		if (
-			searchType === 'goals' ||
-			searchType === 'corners' ||
-			searchType === 'total-corners' ||
-			searchType === 'total-corners-least' ||
+		
+		if (searchType === 'goals') {
+			// Bramki - normalna logika
+			if (statValue >= avgThreshold) {
+				color = '#059669'
+				bgColor = '#d1fae5'
+			} else {
+				color = '#dc2626'
+				bgColor = '#fee2e2'
+			}
+		} else if (searchType === 'corners') {
+			// Obie drużyny - najwyżej/najmniej wykonywanych
+			if (isLeastSearch) {
+				// Najmniej - zielone gdy <= średnia, czerwone gdy > średnia
+				if (statValue <= avgThreshold) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			} else {
+				// Najwięcej - zielone gdy >= średnia, czerwone gdy < średnia
+				if (statValue >= avgThreshold) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			}
+		} else if (searchType === 'total-corners' || searchType === 'total-corners-least') {
+			// Mecz - suma rożnych
+			if (searchType === 'total-corners-least') {
+				// Najmniej - czerwone gdy > średnia, zielone gdy <= średnia
+				if (statValue <= avgThreshold) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			} else {
+				// Najwięcej - zielone gdy >= średnia, czerwone gdy < średnia
+				if (statValue >= avgThreshold) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			}
+		} else if (searchType === 'most-single-corners') {
+			// Jedna drużyna - najwięcej
+			const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+			const isStrongTeam = teamName === result.strongTeam
+			
+			if (isStrongTeam) {
+				// Silna drużyna (wykonuje najwięcej) - porównuj z jej średnią wykonywanych
+				const avgFor = parseFloat(result.strongAvgFor) || 0
+				if (statValue >= avgFor) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			} else {
+				// Słaba drużyna (traci) - porównuj z jej średnią traconych (odwrotnie)
+				const avgAgainst = parseFloat(result.weakAvgAgainst) || 0
+				if (statValue >= avgAgainst) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			}
+		} else if (searchType === 'least-single-corners') {
+			// Jedna drużyna - najmniej
+			const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+			const isStrongTeam = teamName === result.strongTeam
+			
+			if (!isStrongTeam) {
+				// Słaba drużyna (wykonuje najmniej) - zielone gdy <= średnia wykonywanych
+				const avgFor = parseFloat(result.weakAvgFor) || 0
+				if (statValue <= avgFor) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			} else {
+				// Silna drużyna (traci) - czerwone gdy > średnia traconych, zielone gdy <=
+				const avgAgainst = parseFloat(result.strongAvgAgainst) || 0
+				if (statValue <= avgAgainst) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			}
+		} else if (searchType === 'corner-advantage') {
+			// Przewaga rożnych
+			const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+			const isStrongTeam = teamName === result.strongTeam
+			
+			if (isStrongTeam) {
+				// Silna drużyna (wykonuje dużo) - porównuj z jej średnią wykonywanych
+				const avgFor = parseFloat(result.strongTeamCornersFor) || 0
+				if (statValue >= avgFor) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			} else {
+				// Słaba drużyna (traci dużo) - porównuj z jej średnią traconych
+				const avgAgainst = parseFloat(result.weakTeamCornersAgainst) || 0
+				if (statValue >= avgAgainst) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			}
+		} else if (
 			searchType === 'most-offsides' ||
 			searchType === 'least-offsides' ||
 			searchType === 'total-offsides' ||
 			searchType === 'total-offsides-least'
 		) {
-			// For "least" searches, reverse the color logic
+			// Spalone - podobna logika jak rożne
 			if (
-				isLeastSearch ||
-				searchType === 'total-corners-least' ||
 				searchType === 'least-offsides' ||
 				searchType === 'total-offsides-least'
 			) {
-				if (statValue < avgThreshold) {
-					color = '#059669' // Green for below average in "least" search
+				if (statValue <= avgThreshold) {
+					color = '#059669'
 					bgColor = '#d1fae5'
-				} else if (statValue > avgThreshold) {
-					color = '#dc2626' // Red for above average in "least" search
+				} else {
+					color = '#dc2626'
 					bgColor = '#fee2e2'
 				}
 			} else {
-				// Normal logic for "most" searches
-				if (statValue > avgThreshold) {
-					color = '#059669' // Green for above average
+				if (statValue >= avgThreshold) {
+					color = '#059669'
 					bgColor = '#d1fae5'
-				} else if (statValue < avgThreshold) {
-					color = '#dc2626' // Red for below average
+				} else {
+					color = '#dc2626'
 					bgColor = '#fee2e2'
 				}
 			}
-		} else if (searchType === 'corner-advantage') {
-			// For corner advantage, don't color code (just display the value)
-			color = '#666'
-			bgColor = 'transparent'
 		} else if (searchType === 'handicap') {
 			// For handicap, green only for wins by 2+ goals, red for everything else
 			if (statValue >= 2) {
@@ -1980,7 +2206,11 @@ async function showBetFinderMatchDetailsModal(result) {
                 <h2>📊 Szczegóły: ${result.homeTeam} vs ${result.awayTeam}</h2>
                 <div style="display: flex; gap: 10px; align-items: center;">
                     ${superbetUrl ? createSuperbetIcon(superbetUrl) : ''}
-                    <button class="btn-small" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" onclick='window.addToWatchedMatches(${JSON.stringify(result).replace(/'/g, "\\'")}, "${result.searchType || 'manual'}")'>
+                    ${flashscoreUrl ? createFlashscoreButton(flashscoreUrl) : ''}
+                    <button class="btn-small" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" onclick="window.addToStrefaTypera('${result.homeTeam.replace(/'/g, "\\'")}', '${result.awayTeam.replace(/'/g, "\\'")}', '${result.league.replace(/'/g, "\\'")}', '${result.date}')">
+                        📊 Strefa Typera
+                    </button>
+                    <button class="btn-small" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" onclick="window.addToWatchedMatches(${JSON.stringify(result).replace(/"/g, '&quot;')}, '${result.searchType || 'manual'}')">
                         ⭐ Dodaj do obserwowanych
                     </button>
                     <button class="modal-minimize" onclick="window.minimizeMatchDetailsModal()">−</button>
@@ -2193,11 +2423,13 @@ function loadMinimizedMatchCards() {
 		try {
 			const cardsData = JSON.parse(saved)
 
-			// Ensure container exists
-			ensureCardsContainer()
-			const container = document.getElementById('minimized-cards-container')
-
-			cardsData.forEach(({ id, data }) => {
+		// Ensure container exists
+		const container = ensureCardsContainer()
+		
+		// Clear existing cards to prevent duplicates on page reload
+		container.innerHTML = ''
+		
+		cardsData.forEach(({ id, data }) => {
 				minimizedMatchModals.set(id, data)
 
 				// Recreate the minimized card
@@ -2414,7 +2646,7 @@ function addToBackgroundJobs(homeTeam, awayTeam, league, date) {
 /**
  * Add match to Strefa Typera spreadsheet
  */
-async function addToStrefaTypera(homeTeam, awayTeam, league) {
+async function addToStrefaTypera(homeTeam, awayTeam, league, date) {
 	try {
 		// Step 1: Choose bet type
 		const betType = await showBetTypeDialog()
@@ -2440,7 +2672,7 @@ async function addToStrefaTypera(homeTeam, awayTeam, league) {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ homeTeam, awayTeam, league, betType, betOption, odds }),
+			body: JSON.stringify({ homeTeam, awayTeam, league, date, betType, betOption, odds }),
 		})
 
 		const result = await response.json()
@@ -2481,8 +2713,12 @@ function showBetTypeDialog() {
 						<button class="bet-type-btn" data-value="handi2">Handi 2 (handicap gości)</button>
 						<button class="bet-type-btn" data-value="goals_over">Bramki Over</button>
 						<button class="bet-type-btn" data-value="goals_under">Bramki Under</button>
-						<button class="bet-type-btn" data-value="corners_over">Rożne Over</button>
-						<button class="bet-type-btn" data-value="corners_under">Rożne Under</button>
+						<button class="bet-type-btn" data-value="corners_1_over">Rożne 1 Over</button>
+						<button class="bet-type-btn" data-value="corners_1_under">Rożne 1 Under</button>
+						<button class="bet-type-btn" data-value="corners_2_over">Rożne 2 Over</button>
+						<button class="bet-type-btn" data-value="corners_2_under">Rożne 2 Under</button>
+						<button class="bet-type-btn" data-value="corners_match_over">Rożne Match Over</button>
+						<button class="bet-type-btn" data-value="corners_match_under">Rożne Match Under</button>
 						<button class="bet-type-btn" data-value="offsides_over">Spalone Over</button>
 						<button class="bet-type-btn" data-value="offsides_under">Spalone Under</button>
 					</div>
@@ -2610,8 +2846,12 @@ function getBetOptions(betType) {
 		'handi2': ['-0.5', '-1.5', '-2.5', '-3.5'],
 		'goals_over': ['1.5', '2.5', '3.5', '4.5', '5.5'],
 		'goals_under': ['1.5', '2.5', '3.5', '4.5', '5.5'],
-		'corners_over': ['7.5', '8.5', '9.5', '10.5', '11.5', '12.5', '13.5', '14.5', '15.5'],
-		'corners_under': ['7.5', '8.5', '9.5', '10.5', '11.5', '12.5', '13.5', '14.5', '15.5'],
+		'corners_1_over': ['2.5', '3.5', '4.5', '5.5', '6.5', '7.5', '8.5'],
+		'corners_1_under': ['2.5', '3.5', '4.5', '5.5', '6.5', '7.5', '8.5'],
+		'corners_2_over': ['2.5', '3.5', '4.5', '5.5', '6.5', '7.5', '8.5'],
+		'corners_2_under': ['2.5', '3.5', '4.5', '5.5', '6.5', '7.5', '8.5'],
+		'corners_match_over': ['7.5', '8.5', '9.5', '10.5', '11.5', '12.5', '13.5', '14.5', '15.5'],
+		'corners_match_under': ['7.5', '8.5', '9.5', '10.5', '11.5', '12.5', '13.5', '14.5', '15.5'],
 		'offsides_over': ['2.5', '3.5', '4.5', '5.5', '6.5', '7.5'],
 		'offsides_under': ['2.5', '3.5', '4.5']
 	}
@@ -2630,8 +2870,12 @@ function getBetTypeLabel(betType) {
 		'handi2': 'Handicap gości',
 		'goals_over': 'Bramki Over',
 		'goals_under': 'Bramki Under',
-		'corners_over': 'Rożne Over',
-		'corners_under': 'Rożne Under',
+		'corners_1_over': 'Rożne 1 Over',
+		'corners_1_under': 'Rożne 1 Under',
+		'corners_2_over': 'Rożne 2 Over',
+		'corners_2_under': 'Rożne 2 Under',
+		'corners_match_over': 'Rożne Match Over',
+		'corners_match_under': 'Rożne Match Under',
 		'offsides_over': 'Spalone Over',
 		'offsides_under': 'Spalone Under'
 	}
@@ -2838,6 +3082,7 @@ window.closeAllModalCards = closeAllModalCards
 // Date range controls
 window.setTodayDate = EventHandlers.setTodayDate
 window.setTomorrowDate = EventHandlers.setTomorrowDate
+window.setDayAfterTomorrowDate = EventHandlers.setDayAfterTomorrowDate
 
 // Bet finder functions
 window.findMostGoals = BetFinder.findMostGoals
@@ -2861,6 +3106,8 @@ window.queueLeastGoals = BetFinder.queueLeastGoals
 window.queueHandicap15 = BetFinder.queueHandicap15
 window.queueMostCorners = BetFinder.queueMostCorners
 window.queueLeastCorners = BetFinder.queueLeastCorners
+window.queueMostSingleTeamCorners = BetFinder.queueMostSingleTeamCorners
+window.queueLeastSingleTeamCorners = BetFinder.queueLeastSingleTeamCorners
 window.queueMostBTS = BetFinder.queueMostBTS
 window.queueNoBTS = BetFinder.queueNoBTS
 window.queueHomeWins = BetFinder.queueHomeWins
@@ -2896,10 +3143,12 @@ window.queueAllGoalsSearches = function() {
 window.queueAllCornersSearches = function() {
 	BetFinder.queueMostCorners()
 	BetFinder.queueLeastCorners()
+	BetFinder.queueMostSingleTeamCorners()
+	BetFinder.queueLeastSingleTeamCorners()
 	BetFinder.queueMostTotalCorners()
 	BetFinder.queueLeastTotalCorners()
 	BetFinder.queueCornerAdvantage()
-	showToast('Dodano 5 wyszukiwań z kategorii "Rożne" do kolejki', 'success')
+	showToast('Dodano 7 wyszukiwań z kategorii "Rożne" do kolejki', 'success')
 }
 
 window.queueAllOffsidesSearches = function() {
@@ -2940,6 +3189,7 @@ window.showWatchedMatchesModal = WatchedMatches.showWatchedMatchesModal
 window.minimizeWatchedMatchesModal = WatchedMatches.minimizeWatchedMatchesModal
 window.closeWatchedMatchesModal = WatchedMatches.closeWatchedMatchesModal
 window.restoreWatchedMatchesModal = WatchedMatches.restoreWatchedMatchesModal
+window.clearAllWatchedMatches = WatchedMatches.clearAllWatchedMatches
 window.addToStrefaTypera = addToStrefaTypera
 
 // Close stat modal on ESC key
