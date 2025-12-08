@@ -270,6 +270,25 @@
             <div class="container">
                 <h2 style="margin-bottom: 20px;">🔍 Wyszukiwarka Typów</h2>
 
+                <!-- Strefa Typera Section -->
+                <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <h3 style="color: white; margin-bottom: 15px;">📊 Strefa Typera - Backfill</h3>
+                    <p style="margin-bottom: 15px; opacity: 0.9;">Uzupełnij brakujące dane w arkuszach (kolumny E, H-S, X, Y, AA, AB, AD)</p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn" onclick="runStrefaTyperaBackfill()" 
+                                style="background: white; color: #667eea; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
+                            🔄 Backfill "Typy"
+                        </button>
+                        <button class="btn" onclick="runBetBuilderBackfill()" 
+                                style="background: white; color: #667eea; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
+                            🔄 Backfill "Bet Builder"
+                        </button>
+                    </div>
+                    <div id="backfill-status" style="margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 4px; display: none;">
+                        <div id="backfill-message"></div>
+                    </div>
+                </div>
+
                 <!-- Match Count Selection -->
                 <div class="section">
                     <h3>Liczba meczów do analizy</h3>

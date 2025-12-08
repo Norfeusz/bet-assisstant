@@ -18,27 +18,38 @@ export async function calculateBetStatistics(
 	betType: string,
 	betOption: string,
 	assumption: 'overall' | 'ha', // overall = ogółem, ha = home/away
-	league?: string // filter by league
+	league?: string, // filter by league
+	limit: number = 10 // number of matches to analyze (5, 10, or 15)
 ): Promise<MatchStats> {
-	const limit = 10
-
-	console.log(`[calculateBetStatistics] homeTeam: ${homeTeam}, awayTeam: ${awayTeam}, betType: ${betType}, betOption: ${betOption}, assumption: ${assumption}`)
+	console.log(`[calculateBetStatistics] homeTeam: ${homeTeam}, awayTeam: ${awayTeam}, betType: ${betType}, betOption: ${betOption}, assumption: ${assumption}, limit: ${limit}`)
 
 	try {
+		// Determine minimum required matches based on limit
+		let minLimit: number
+		if (limit === 5) {
+			minLimit = 5
+		} else if (limit === 10) {
+			minLimit = 7
+		} else if (limit === 15) {
+			minLimit = 12
+		} else {
+			minLimit = limit // default to same as limit
+		}
+
 		// Determine which matches to fetch based on bet type and assumption
 		let homeMatchesFilter: 'home' | 'away' | 'all' = assumption === 'ha' ? 'home' : 'all'
 		let awayMatchesFilter: 'home' | 'away' | 'all' = assumption === 'ha' ? 'away' : 'all'
 
-		// Get last 10 matches for home team
+		// Get last N matches for home team
 		const homeMatches = await getTeamMatches(homeTeam, homeMatchesFilter, limit, league)
-		// Get last 10 matches for away team
+		// Get last N matches for away team
 		const awayMatches = await getTeamMatches(awayTeam, awayMatchesFilter, limit, league)
 
-		console.log(`[calculateBetStatistics] homeMatches: ${homeMatches.length}, awayMatches: ${awayMatches.length}`)
+		console.log(`[calculateBetStatistics] homeMatches: ${homeMatches.length}, awayMatches: ${awayMatches.length}, minLimit: ${minLimit}`)
 
 		// Calculate percentage based on bet type
-		const homeStats = calculatePercentage(homeMatches, betType, betOption, homeTeam, true)
-		const awayStats = calculatePercentage(awayMatches, betType, betOption, awayTeam, false)
+		const homeStats = calculatePercentage(homeMatches, betType, betOption, homeTeam, true, minLimit)
+		const awayStats = calculatePercentage(awayMatches, betType, betOption, awayTeam, false, minLimit)
 
 		console.log(`[calculateBetStatistics] homePercentage: ${homeStats.percentage}, awayPercentage: ${awayStats.percentage}`)
 
@@ -103,9 +114,11 @@ function calculatePercentage(
 	betType: string,
 	betOption: string,
 	teamName: string,
-	isHomeTeamInUpcomingMatch: boolean // true if this team will be home in the upcoming match
+	isHomeTeamInUpcomingMatch: boolean, // true if this team will be home in the upcoming match
+	minLimit: number // minimum required matches for analysis
 ): { percentage: number | string; count: number } {
-	if (matches.length === 0) {
+	// Check if we have enough matches
+	if (matches.length < minLimit) {
 		return { percentage: 'za mało danych', count: 0 }
 	}
 
@@ -136,24 +149,6 @@ function calculatePercentage(
 
 		if (!hasRequiredData) {
 			continue // Skip matches without required data
-		}
-
-		// Check if we should skip this match for specific bet types
-		let shouldSkipMatch = false
-		if (betType === 'corners_1_over' || betType === 'corners_1_under') {
-			// Corners 1 only applies to home team in upcoming match
-			if (!isHomeTeamInUpcomingMatch) {
-				shouldSkipMatch = true
-			}
-		} else if (betType === 'corners_2_over' || betType === 'corners_2_under') {
-			// Corners 2 only applies to away team in upcoming match
-			if (isHomeTeamInUpcomingMatch) {
-				shouldSkipMatch = true
-			}
-		}
-
-		if (shouldSkipMatch) {
-			continue // Skip counting this match entirely
 		}
 
 		matchesWithData++
@@ -210,36 +205,58 @@ function calculatePercentage(
 				meetsCondition = totalGoals < goalsUnderValue
 				break
 
-		case 'corners_1_over': // Corners 1 over (HOME team in upcoming match will execute corners)
+		case 'corners_1_over': // Corners 1 over (HOME team corners)
 			const corners1OverValue = parseFloat(betOption)
-			// Only check for home team (already filtered by shouldSkipMatch)
-			meetsCondition = (teamCorners || 0) > corners1OverValue
+			if (isHomeTeamInUpcomingMatch) {
+				// For home team: check team's corners
+				meetsCondition = (teamCorners || 0) > corners1OverValue
+			} else {
+				// For away team: check opponent's corners (corners "conceded")
+				meetsCondition = (opponentCorners || 0) > corners1OverValue
+			}
 			break
 
-		case 'corners_1_under': // Corners 1 under (HOME team in upcoming match will execute corners)
+		case 'corners_1_under': // Corners 1 under (HOME team corners)
 			const corners1UnderValue = parseFloat(betOption)
-			meetsCondition = (teamCorners || 0) < corners1UnderValue
+			if (isHomeTeamInUpcomingMatch) {
+				// For home team: check team's corners
+				meetsCondition = (teamCorners || 0) < corners1UnderValue
+			} else {
+				// For away team: check opponent's corners (corners "conceded")
+				meetsCondition = (opponentCorners || 0) < corners1UnderValue
+			}
 			break
 
-		case 'corners_2_over': // Corners 2 over (AWAY team in upcoming match will execute corners)
+		case 'corners_2_over': // Corners 2 over (AWAY team corners)
 			const corners2OverValue = parseFloat(betOption)
-			// Only check for away team (already filtered by shouldSkipMatch)
-			meetsCondition = (teamCorners || 0) > corners2OverValue
+			if (isHomeTeamInUpcomingMatch) {
+				// For home team: check opponent's corners (corners "conceded")
+				meetsCondition = (opponentCorners || 0) > corners2OverValue
+			} else {
+				// For away team: check team's corners
+				meetsCondition = (teamCorners || 0) > corners2OverValue
+			}
 			break
 
-		case 'corners_2_under': // Corners 2 under (AWAY team in upcoming match will execute corners)
+		case 'corners_2_under': // Corners 2 under (AWAY team corners)
 			const corners2UnderValue = parseFloat(betOption)
-			meetsCondition = (teamCorners || 0) < corners2UnderValue
+			if (isHomeTeamInUpcomingMatch) {
+				// For home team: check opponent's corners (corners "conceded")
+				meetsCondition = (opponentCorners || 0) < corners2UnderValue
+			} else {
+				// For away team: check team's corners
+				meetsCondition = (teamCorners || 0) < corners2UnderValue
+			}
 			break
 
 		case 'corners_match_over': // Corners match over (total in match)
 				const cornersMatchOverValue = parseFloat(betOption)
-				meetsCondition = totalCorners > cornersMatchOverValue
+				meetsCondition = totalCorners >= cornersMatchOverValue
 				break
 
 			case 'corners_match_under': // Corners match under (total in match)
 				const cornersMatchUnderValue = parseFloat(betOption)
-				meetsCondition = totalCorners < cornersMatchUnderValue
+				meetsCondition = totalCorners <= cornersMatchUnderValue
 				break
 
 			case 'offsides_over': // Offsides over
@@ -258,10 +275,10 @@ function calculatePercentage(
 		}
 	}
 
-	console.log(`[BET STATS] Team: ${teamName}, BetType: ${betType}, IsHome: ${isHomeTeamInUpcomingMatch}, MatchesWithData: ${matchesWithData}, MatchingCount: ${matchingCount}, TotalMatches: ${matches.length}`)
+	console.log(`[BET STATS] Team: ${teamName}, BetType: ${betType}, IsHome: ${isHomeTeamInUpcomingMatch}, MatchesWithData: ${matchesWithData}, MatchingCount: ${matchingCount}, TotalMatches: ${matches.length}, MinLimit: ${minLimit}`)
 
-	// Check if we have enough data (at least 7 matches with required data for corners/offsides)
-	if ((requiresCornerData || requiresOffsideData) && matchesWithData < 7) {
+	// Check if we have enough matches with data for corners/offsides
+	if ((requiresCornerData || requiresOffsideData) && matchesWithData < minLimit) {
 		return { percentage: 'za mało danych', count: matchingCount }
 	}
 
@@ -270,7 +287,7 @@ function calculatePercentage(
 		return { percentage: 'za mało danych', count: 0 }
 	}
 
-	// For other bet types or when we have enough data, calculate percentage
+	// Calculate percentage
 	const denominator = (requiresCornerData || requiresOffsideData) ? matchesWithData : matches.length
 	const percentage = Math.round((matchingCount / denominator) * 100)
 

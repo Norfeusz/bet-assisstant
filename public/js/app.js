@@ -3321,9 +3321,92 @@ function getTimeUntil(date) {
 	return `${seconds}s`
 }
 
+/**
+ * Run Strefa Typera Backfill
+ */
+window.runStrefaTyperaBackfill = async function() {
+	await runBackfill('/api/strefa-typera/backfill-typy', 'Typy')
+}
+
+/**
+ * Run Bet Builder Backfill
+ */
+window.runBetBuilderBackfill = async function() {
+	await runBackfill('/api/strefa-typera/backfill-bet-builder', 'Bet Builder')
+}
+
+/**
+ * Generic backfill function
+ */
+async function runBackfill(endpoint, sheetName) {
+	const statusDiv = document.getElementById('backfill-status')
+	const messageDiv = document.getElementById('backfill-message')
+	const button = event.target
+	
+	// Show status and disable button
+	statusDiv.style.display = 'block'
+	button.disabled = true
+	button.textContent = '⏳ Przetwarzanie...'
+	messageDiv.innerHTML = `<div style="text-align: center;">🔄 Uruchamianie backfill dla "${sheetName}"...</div>`
+	
+	try {
+		const response = await fetch(endpoint, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+		
+		const data = await response.json()
+		
+		if (data.success) {
+			messageDiv.innerHTML = `
+				<div style="text-align: center;">
+					<div style="font-size: 24px; margin-bottom: 10px;">✅</div>
+					<div style="font-weight: 600; margin-bottom: 10px;">${data.message}</div>
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px;">
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 4px;">
+							<div style="font-size: 20px; font-weight: 600;">${data.totalRows || 0}</div>
+							<div style="font-size: 12px; opacity: 0.9;">Wierszy ogółem</div>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 4px;">
+							<div style="font-size: 20px; font-weight: 600;">${data.rowsUpdated || 0}</div>
+							<div style="font-size: 12px; opacity: 0.9;">Zaktualizowano</div>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 4px;">
+							<div style="font-size: 20px; font-weight: 600;">${data.rowsSkipped || 0}</div>
+							<div style="font-size: 12px; opacity: 0.9;">Pominięto</div>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 4px;">
+							<div style="font-size: 20px; font-weight: 600;">${data.rowsNotFound || 0}</div>
+							<div style="font-size: 12px; opacity: 0.9;">Nie znaleziono</div>
+						</div>
+					</div>
+				</div>
+			`
+		} else {
+			throw new Error(data.error || 'Wystąpił błąd')
+		}
+	} catch (error) {
+		console.error('Backfill error:', error)
+		messageDiv.innerHTML = `
+			<div style="text-align: center;">
+				<div style="font-size: 24px; margin-bottom: 10px;">❌</div>
+				<div style="font-weight: 600;">Błąd podczas backfill</div>
+				<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">${error.message}</div>
+			</div>
+		`
+	} finally {
+		// Re-enable button
+		button.disabled = false
+		button.textContent = button.textContent.includes('Typy') ? '🔄 Backfill "Typy"' : '🔄 Backfill "Bet Builder"'
+	}
+}
+
 // Initialize on DOM load
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', init)
 } else {
 	init()
 }
+
