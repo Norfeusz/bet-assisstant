@@ -11,9 +11,9 @@ export interface LeagueConfig {
 	id: number
 	name: string
 	country: string
-	type: string
-	priority: number // 1-5, where 1 is highest
-	enabled: boolean
+	type?: string
+	priority?: number // 1-5, where 1 is highest
+	enabled?: boolean
 }
 
 export class LeagueSelector {

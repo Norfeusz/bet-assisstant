@@ -12,6 +12,7 @@ import { setShouldStopImport, getShouldStopImport } from '../src/utils/import-co
 import { LeaguePresetManager } from '../src/utils/league-presets'
 import importJobsRouter from './routes/import-jobs'
 import strefaTyperaRouter from './routes/strefa-typera'
+import verifyBetsRouter from './routes/verify-bets'
 
 dotenv.config()
 
@@ -26,13 +27,16 @@ app.use('/api', importJobsRouter)
 // Strefa Typera routes
 app.use('/api', strefaTyperaRouter)
 
-// Initialize services
-const apiKey = process.env.API_FOOTBALL_KEY!
+// Verify bets routes
+app.use('/api', verifyBetsRouter)
 
-if (!apiKey) {
-	console.error('❌ ERROR: API_FOOTBALL_KEY is not set in .env file')
-	process.exit(1)
-}
+// Initialize services
+const apiKey = process.env.API_FOOTBALL_KEY || 'dummy-key'
+
+// if (!apiKey) {
+// 	console.error('❌ ERROR: API_FOOTBALL_KEY is not set in .env file')
+// 	process.exit(1)
+// }
 
 const client = new ApiFootballClient(apiKey)
 const selector = new LeagueSelector(client)
@@ -42,9 +46,33 @@ const presetManager = new LeaguePresetManager()
 // API Endpoints
 
 // Get config (for background import dialog)
-app.get('/api/config', (req, res) => {
-	const leagues = selector.getAllLeagues()
-	res.json({ leagues })
+app.get('/api/config', async (req, res) => {
+	try {
+		const { PrismaClient } = await import('@prisma/client')
+		const prisma = new PrismaClient()
+
+		// Get leagues from database table where is_choosen='yes'
+		const leagues = await prisma.$queryRaw<Array<{ 
+			id: number; 
+			name: string; 
+			country: string;
+		}>>`
+			SELECT id, name, country
+			FROM leagues
+			WHERE is_choosen = 'yes'
+			ORDER BY country, name
+		`
+
+		await prisma.$disconnect()
+
+		console.log('📊 [/api/config] Loaded', leagues.length, 'chosen leagues from database')
+		res.json({ leagues })
+	} catch (error: any) {
+		console.error('Error loading config:', error)
+		// Fallback to file-based leagues if database fails
+		const leagues = selector.getAllLeagues()
+		res.json({ leagues })
+	}
 })
 
 // Get all configured leagues
@@ -880,4 +908,27 @@ app.listen(PORT, () => {
 		console.log(`\n   Open in browser: http://localhost:${PORT}`)
 	}
 	console.log(`\n   Press Ctrl+C to stop\n`)
+})
+
+console.log('🔍 Server setup complete, waiting for requests...')
+console.log('🔍 Event loop should keep process alive')
+
+// Keep the process alive with a long interval
+const keepAlive = setInterval(() => {
+	// This will keep the event loop busy
+}, 30000)
+
+// Global error handlers
+process.on('unhandledRejection', (reason, promise) => {
+	console.error('❌ Unhandled Rejection at:', promise)
+	console.error('❌ Reason:', reason)
+})
+
+process.on('uncaughtException', (error) => {
+	console.error('❌ Uncaught Exception:', error)
+	console.error('❌ Stack:', error.stack)
+	console.error('❌ Message:', error.message)
+	console.error('❌ Name:', error.name)
+	// Don't exit immediately - log the error for debugging
+	// process.exit(1)
 })

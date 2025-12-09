@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "tsc",
-		"dev": "nodemon --exec ts-node src/index.ts",
+		"dev": "nodemon --exec npx tsx server/league-config-server.ts",
 		"start": "node dist/index.js",
 		"test": "ts-node tests/test-db.ts",
 		"test:api": "ts-node tests/test-api-client.ts",

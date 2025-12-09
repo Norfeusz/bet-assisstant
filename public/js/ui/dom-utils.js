@@ -1,4 +1,4 @@
-/**
+﻿/**
  * DOM Rendering Utilities
  * Functions for rendering and displaying data in the UI
  */
@@ -196,6 +196,7 @@ export function renderMatchesTable(matchesList, sectionTitle, selectedTeam = nul
 			/'/g,
 			"\\'"
 		)}')">${awayTeamDisplay}</span>
+                    <span style="color: #999; font-size: 0.9em; margin-left: 6px;">(id:${match.id})</span>
                     </div>
                 </td>
                 <td class="match-score">
@@ -247,9 +248,19 @@ export function displayTeamStatistics(stats, availableLeagues) {
         <div class="team-stats-panel">
             <div class="team-stats-header">
                 <h3>⚽ Statystyki: ${stats.teamName}</h3>
-                <select class="team-stats-league-select" id="stats-league-filter" onchange="window.onStatsLeagueChange()">
-                    ${leagueOptions}
-                </select>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button class="btn" style="background: #10b981; color: white; padding: 6px 12px; font-size: 14px;" 
+                        onclick="window.openLeagueLink('superbet', '${stats.league}')">
+                        🎯 Superbet
+                    </button>
+                    <button class="btn" style="background: #3b82f6; color: white; padding: 6px 12px; font-size: 14px;" 
+                        onclick="window.openLeagueLink('flashscore', '${stats.league}')">
+                        ⚡ Flashscore
+                    </button>
+                    <select class="team-stats-league-select" id="stats-league-filter" onchange="window.onStatsLeagueChange()">
+                        ${leagueOptions}
+                    </select>
+                </div>
             </div>
             <div class="team-stats-grid">
                 <div class="stat-card highlight">

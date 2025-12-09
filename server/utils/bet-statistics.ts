@@ -27,7 +27,7 @@ export async function calculateBetStatistics(
 		// Determine minimum required matches based on limit
 		let minLimit: number
 		if (limit === 5) {
-			minLimit = 5
+			minLimit = 4 // KROK 6: minimum 4 mecze dla zakresu 5
 		} else if (limit === 10) {
 			minLimit = 7
 		} else if (limit === 15) {

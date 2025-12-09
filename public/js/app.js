@@ -1569,8 +1569,16 @@ async function showBetFinderMatchDetailsModal(result) {
 
 	// Load Superbet link and Flashscore link for this league
 	const { getSuperbetLink, createSuperbetIcon, getFlashscoreLink, createFlashscoreButton } = await import('./utils/superbet-links.js')
-	const superbetUrl = await getSuperbetLink(result.league, result.country)
-	const flashscoreUrl = await getFlashscoreLink(result.league, result.country)
+	
+	// Try using leagueId first, fallback to league+country
+	let superbetUrl, flashscoreUrl
+	if (result.leagueId) {
+		superbetUrl = await getSuperbetLink(result.leagueId)
+		flashscoreUrl = await getFlashscoreLink(result.leagueId)
+	} else {
+		superbetUrl = await getSuperbetLink(result.league, result.country)
+		flashscoreUrl = await getFlashscoreLink(result.league, result.country)
+	}
 
 	// Store current match data for minimization
 	currentMatchDetailsData = result
@@ -2665,6 +2673,10 @@ async function addToStrefaTypera(homeTeam, awayTeam, league, date) {
 		const odds = await showOddsDialog()
 		if (!odds) return // User cancelled
 		
+		// Step 4: Enter links (optional)
+		const links = await showLinksDialog()
+		if (links === null) return // User cancelled
+		
 		showToast('Dodawanie do Strefa Typera...', 'info')
 
 		const response = await fetch('/api/strefa-typera/add-match-full', {
@@ -2672,7 +2684,17 @@ async function addToStrefaTypera(homeTeam, awayTeam, league, date) {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ homeTeam, awayTeam, league, date, betType, betOption, odds }),
+			body: JSON.stringify({ 
+				homeTeam, 
+				awayTeam, 
+				league, 
+				date, 
+				betType, 
+				betOption, 
+				odds,
+				superbetLink: links.superbet,
+				flashscoreLink: links.flashscore
+			}),
 		})
 
 		const result = await response.json()
@@ -2831,6 +2853,75 @@ function showOddsDialog() {
 		
 		// Focus input
 		setTimeout(() => document.getElementById('odds-input').focus(), 100)
+	})
+}
+
+/**
+ * Show dialog to enter Superbet and Flashscore links
+ */
+function showLinksDialog() {
+	return new Promise((resolve) => {
+		const modal = document.createElement('div')
+		modal.className = 'modal-overlay'
+		modal.style.display = 'flex'
+		modal.style.zIndex = '100000'
+		
+		modal.innerHTML = `
+			<div class="modal-content" style="max-width: 500px;">
+				<div class="modal-header">
+					<h2>Wpisz linki (opcjonalnie)</h2>
+					<button class="modal-close" onclick="this.closest('.modal-overlay').remove(); window.linksResolve(null)">×</button>
+				</div>
+				<div class="modal-body">
+					<div style="margin-bottom: 15px;">
+						<label style="display: block; margin-bottom: 5px; font-weight: 600;">Link Superbet:</label>
+						<input type="url" id="superbet-input" placeholder="https://..." 
+							style="width: 100%; padding: 12px; font-size: 14px; border: 2px solid #3b82f6; border-radius: 8px;">
+					</div>
+					<div style="margin-bottom: 15px;">
+						<label style="display: block; margin-bottom: 5px; font-weight: 600;">Link Flashscore:</label>
+						<input type="url" id="flashscore-input" placeholder="https://..." 
+							style="width: 100%; padding: 12px; font-size: 14px; border: 2px solid #3b82f6; border-radius: 8px;">
+					</div>
+					<div style="display: flex; gap: 10px;">
+						<button onclick="window.submitLinks()" 
+							style="flex: 1; padding: 12px; background: #3b82f6; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">
+							Zatwierdź
+						</button>
+						<button onclick="window.skipLinks()" 
+							style="flex: 1; padding: 12px; background: #6b7280; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">
+							Pomiń
+						</button>
+					</div>
+				</div>
+			</div>
+		`
+		
+		document.body.appendChild(modal)
+		
+		window.linksResolve = resolve
+		
+		window.submitLinks = () => {
+			const superbet = document.getElementById('superbet-input').value.trim()
+			const flashscore = document.getElementById('flashscore-input').value.trim()
+			modal.remove()
+			resolve({ superbet, flashscore })
+		}
+		
+		window.skipLinks = () => {
+			modal.remove()
+			resolve({ superbet: '', flashscore: '' })
+		}
+		
+		// Submit on Enter key in last input
+		document.getElementById('flashscore-input').addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') {
+				window.submitLinks()
+			}
+		})
+		
+		// Focus first input
+		setTimeout(() => document.getElementById('superbet-input').focus(), 100)
 	})
 }
 
@@ -3230,6 +3321,10 @@ async function refreshImportQueue() {
 			const dateFrom = new Date(job.date_from).toLocaleDateString('pl-PL')
 			const dateTo = new Date(job.date_to).toLocaleDateString('pl-PL')
 			const leagues = typeof job.leagues === 'string' ? JSON.parse(job.leagues) : job.leagues
+			
+			// Debug: sprawdź faktyczną wartość leagues
+			console.log('[DEBUG] Job ID:', job.id, 'leagues type:', typeof job.leagues, 'leagues:', job.leagues, 'parsed:', leagues, 'length:', leagues?.length)
+			
 			const progress = job.progress ? (typeof job.progress === 'string' ? JSON.parse(job.progress) : job.progress) : {}
 			const completedLeagues = progress.completed_leagues || []
 			const progressPercent = leagues.length > 0 ? Math.round((completedLeagues.length / leagues.length) * 100) : 0
@@ -3403,10 +3498,419 @@ async function runBackfill(endpoint, sheetName) {
 	}
 }
 
+/**
+ * KROK 19: Fix Missing Match IDs
+ */
+window.fixMissingMatchIds = async function(sheetName = 'Typy') {
+	const statusDiv = document.getElementById('backfill-status')
+	const messageDiv = document.getElementById('backfill-message')
+	
+	statusDiv.style.display = 'block'
+	messageDiv.innerHTML = `
+		<div style="text-align: center;">
+			<div class="spinner"></div>
+			<div style="font-weight: 600; margin-top: 10px;">Uzupełnianie ID meczów...</div>
+			<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">FC Eindhoven, Lechia Gdansk, Tychy 71</div>
+		</div>
+	`
+	
+	try {
+		const response = await fetch('/api/strefa-typera/fix-missing-ids', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ sheetName }),
+		})
+		
+		const data = await response.json()
+		
+		if (data.success) {
+			messageDiv.innerHTML = `
+				<div style="text-align: center;">
+					<div style="font-size: 24px; margin-bottom: 10px;">✅</div>
+					<div style="font-weight: 600;">${data.message}</div>
+					<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">Uzupełniono ${data.fixed} ID</div>
+				</div>
+			`
+		} else {
+			throw new Error(data.error || 'Unknown error')
+		}
+		
+		setTimeout(() => {
+			statusDiv.style.display = 'none'
+		}, 3000)
+		
+	} catch (error) {
+		console.error('Fix IDs error:', error)
+		messageDiv.innerHTML = `
+			<div style="text-align: center;">
+				<div style="font-size: 24px; margin-bottom: 10px;">❌</div>
+				<div style="font-weight: 600;">Błąd podczas uzupełniania ID</div>
+				<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">${error.message}</div>
+			</div>
+		`
+	}
+}
+
+/**
+ * KROK 23: Migrate data from sheets to database (one-time)
+ */
+window.migrateSheetsToDB = async function() {
+	if (!confirm('Czy na pewno chcesz zmigrować dane z arkuszy do bazy danych?\n\nTo jest operacja jednorazowa i może potrwać kilka minut.')) {
+		return
+	}
+
+	const statusDiv = document.getElementById('actions-status')
+	const messageDiv = document.getElementById('actions-message')
+	
+	if (!statusDiv || !messageDiv) {
+		alert('Nie można znaleźć elementów statusu')
+		return
+	}
+
+	statusDiv.style.display = 'block'
+	messageDiv.innerHTML = `
+		<div style="text-align: center;">
+			<div class="spinner"></div>
+			<div style="font-weight: 600; margin-top: 10px;">Migracja danych...</div>
+			<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">Kopiowanie z arkuszy do bazy danych</div>
+		</div>
+	`
+	
+	try {
+		const response = await fetch('/api/strefa-typera/migrate-sheets-to-db', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+		
+		const data = await response.json()
+		
+		if (data.success) {
+			messageDiv.innerHTML = `
+				<div style="text-align: center;">
+					<div style="font-size: 24px; margin-bottom: 10px;">✅</div>
+					<div style="font-weight: 600;">Migracja zakończona pomyślnie!</div>
+					<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">
+						Zmigrowano ${data.betsInserted} typów i ${data.couponsInserted} kuponów
+					</div>
+				</div>
+			`
+		} else {
+			throw new Error(data.error || 'Unknown error')
+		}
+		
+		setTimeout(() => {
+			statusDiv.style.display = 'none'
+		}, 5000)
+		
+	} catch (error) {
+		console.error('Migration error:', error)
+		messageDiv.innerHTML = `
+			<div style="text-align: center;">
+				<div style="font-size: 24px; margin-bottom: 10px;">❌</div>
+				<div style="font-weight: 600;">Błąd podczas migracji</div>
+				<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">${error.message}</div>
+			</div>
+		`
+	}
+}
+
+/**
+ * KROK 29: Verify Types - check match results and update "Wszedł" column
+ */
+window.verifyTypes = async function() {
+	const statusDiv = document.getElementById('actions-status')
+	const messageDiv = document.getElementById('actions-message')
+	
+	statusDiv.style.display = 'block'
+	messageDiv.innerHTML = `
+		<div style="text-align: center;">
+			<div class="spinner"></div>
+			<p style="margin-top: 10px;">Weryfikuję typy...</p>
+		</div>
+	`
+
+	try {
+		const response = await fetch('/api/verify-bets', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+
+		const result = await response.json()
+
+		if (result.success) {
+			messageDiv.innerHTML = `
+				<div style="text-align: center;">
+					<p style="color: #10b981; font-weight: 600; font-size: 18px;">✅ Weryfikacja zakończona!</p>
+					<p style="margin-top: 10px;">Zweryfikowano: ${result.totalVerified} meczów</p>
+					<p>Zaktualizowano: ${result.totalUpdated} typów</p>
+				</div>
+			`
+		} else {
+			throw new Error(result.error || 'Unknown error')
+		}
+	} catch (error) {
+		console.error('Error verifying types:', error)
+		messageDiv.innerHTML = `
+			<div style="text-align: center;">
+				<p style="color: #ef4444; font-weight: 600;">❌ Błąd weryfikacji</p>
+				<p style="margin-top: 10px; font-size: 14px;">${error.message}</p>
+			</div>
+		`
+	}
+
+	// Hide after 5 seconds
+	setTimeout(() => {
+		statusDiv.style.display = 'none'
+	}, 5000)
+}
+
+/**
+ * KROK 18: Accept Types - copy from Bet Builder to Typy
+ */
+window.acceptTypes = async function() {
+	const statusDiv = document.getElementById('actions-status')
+	const messageDiv = document.getElementById('actions-message')
+	
+	statusDiv.style.display = 'block'
+	messageDiv.innerHTML = `
+		<div style="text-align: center;">
+			<div class="spinner"></div>
+			<div style="font-weight: 600; margin-top: 10px;">Kopiowanie danych...</div>
+			<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">Przenoszę zakłady z Bet Builder do Typy</div>
+		</div>
+	`
+	
+	try {
+		const response = await fetch('/api/strefa-typera/accept-types', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		})
+		
+		const data = await response.json()
+		
+		if (data.success) {
+			messageDiv.innerHTML = `
+				<div style="text-align: center;">
+					<div style="font-size: 24px; margin-bottom: 10px;">✅</div>
+					<div style="font-weight: 600;">${data.message}</div>
+					<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">Skopiowano ${data.rowsCopied} wierszy</div>
+				</div>
+			`
+		} else {
+			throw new Error(data.error || 'Unknown error')
+		}
+	} catch (error) {
+		console.error('Error accepting types:', error)
+		messageDiv.innerHTML = `
+			<div style="text-align: center;">
+				<div style="font-size: 24px; margin-bottom: 10px;">❌</div>
+				<div style="font-weight: 600;">Błąd</div>
+				<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">${error.message}</div>
+			</div>
+		`
+	}
+	
+	setTimeout(() => {
+		statusDiv.style.display = 'none'
+	}, 3000)
+}
+
+/**
+ * KROK 10: Create Coupon - placeholder function
+ */
+// KROK 21: Create Coupon function
+window.createCoupon = async function() {
+	// Show modal
+	document.getElementById('createCouponModal').style.display = 'block'
+	
+	// Load matches from Bet Builder sheet
+	try {
+		const response = await fetch('/api/strefa-typera/bet-builder-matches')
+		if (!response.ok) {
+			throw new Error('Failed to load matches')
+		}
+		
+		const data = await response.json()
+		const matchesList = document.getElementById('coupon-matches-list')
+		
+		if (data.matches.length === 0) {
+			matchesList.innerHTML = `
+				<div style="text-align: center; padding: 20px; color: #9ca3af;">
+					Brak meczów w arkuszu "Bet Builder"
+				</div>
+			`
+			return
+		}
+		
+		// Display matches as checkboxes
+		matchesList.innerHTML = data.matches.map((match, index) => `
+			<div style="padding: 10px; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; gap: 10px;">
+				<input type="checkbox" id="match-${index}" value="${index}" 
+					   onchange="updateCouponSummary()" 
+					   style="width: 18px; height: 18px; cursor: pointer;">
+				<label for="match-${index}" style="flex: 1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+					<div>
+						<strong>${match.homeTeam} - ${match.awayTeam}</strong>
+						<div style="font-size: 12px; color: #6b7280; margin-top: 2px;">
+							${match.betType}: ${match.betOption} | Szanse: ${match.szanse || '-'}
+						</div>
+					</div>
+					<div style="background: #10b981; color: white; padding: 4px 8px; border-radius: 4px; font-weight: 600;">
+						${match.odds || '-'}
+					</div>
+				</label>
+			</div>
+		`).join('')
+		
+		// Store matches data for later use
+		window.betBuilderMatches = data.matches
+		
+	} catch (error) {
+		console.error('Error loading matches:', error)
+		document.getElementById('coupon-matches-list').innerHTML = `
+			<div style="text-align: center; padding: 20px; color: #ef4444;">
+				❌ Błąd podczas ładowania meczów
+			</div>
+		`
+	}
+}
+
+window.closeCouponModal = function() {
+	document.getElementById('createCouponModal').style.display = 'none'
+	// Reset form
+	document.getElementById('coupon-stake').value = ''
+	document.getElementById('coupon-potential-win').value = ''
+	document.getElementById('coupon-summary').style.display = 'none'
+	window.betBuilderMatches = []
+}
+
+window.updateCouponSummary = function() {
+	const checkboxes = document.querySelectorAll('#coupon-matches-list input[type="checkbox"]:checked')
+	const count = checkboxes.length
+	const summary = document.getElementById('coupon-summary')
+	
+	if (count > 0) {
+		summary.style.display = 'block'
+		document.getElementById('selected-matches-count').textContent = count
+		
+		// Calculate total odds
+		let totalOdds = 1
+		checkboxes.forEach(checkbox => {
+			const index = parseInt(checkbox.value)
+			const match = window.betBuilderMatches[index]
+			const odds = parseFloat(match.odds) || 1
+			totalOdds *= odds
+		})
+		
+		document.getElementById('total-odds').textContent = totalOdds.toFixed(2)
+	} else {
+		summary.style.display = 'none'
+	}
+}
+
+window.saveCoupon = async function() {
+	const checkboxes = document.querySelectorAll('#coupon-matches-list input[type="checkbox"]:checked')
+	const stake = parseFloat(document.getElementById('coupon-stake').value)
+	const potentialWin = parseFloat(document.getElementById('coupon-potential-win').value)
+	
+	if (checkboxes.length === 0) {
+		alert('Wybierz przynajmniej jeden mecz')
+		return
+	}
+	
+	if (!stake || stake <= 0) {
+		alert('Wpisz poprawną stawkę')
+		return
+	}
+	
+	if (!potentialWin || potentialWin <= 0) {
+		alert('Wpisz poprawną potencjalną wygraną')
+		return
+	}
+	
+	// Collect selected match indices
+	const selectedIndices = Array.from(checkboxes).map(cb => parseInt(cb.value))
+	
+	try {
+		const response = await fetch('/api/strefa-typera/create-coupon', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				matchIndices: selectedIndices,
+				stake: stake,
+				potentialWin: potentialWin
+			})
+		})
+		
+		if (!response.ok) {
+			throw new Error('Failed to create coupon')
+		}
+		
+		const result = await response.json()
+		
+		// Show success message
+		alert(`✅ Kupon ${result.couponId} został utworzony!\nDodano ${result.rowsAdded} wierszy do arkusza "Kupony".`)
+		
+		// Close modal
+		closeCouponModal()
+		
+	} catch (error) {
+		console.error('Error creating coupon:', error)
+		alert('❌ Błąd podczas tworzenia kuponu')
+	}
+}
+
+// KROK 15: Open league link (Superbet or Flashscore)
+window.openLeagueLink = async function(type, league) {
+	try {
+		// Get country from current filter or from the team's league
+		const country = document.getElementById('filter-country').value
+		
+		if (!country) {
+			showToast('Nie można określić kraju dla tej ligi', 'error')
+			return
+		}
+		
+		// Fetch CSV with league links
+		const response = await fetch('/Lista rozgrywek.csv')
+		const csvText = await response.text()
+		const lines = csvText.split('\n')
+		
+		// Find matching league
+		for (const line of lines) {
+			const [csvCountry, csvLeague, superbetLink, flashscoreLink] = line.split(',')
+			if (csvCountry === country && csvLeague === league) {
+				const link = type === 'superbet' ? superbetLink : flashscoreLink
+				if (link && link.trim()) {
+					window.open(link.trim(), '_blank')
+					return
+				} else {
+					showToast(`Brak linku ${type === 'superbet' ? 'Superbet' : 'Flashscore'} dla tej ligi`, 'warning')
+					return
+				}
+			}
+		}
+		
+		showToast('Nie znaleziono ligi w bazie', 'error')
+	} catch (error) {
+		console.error('Error opening league link:', error)
+		showToast('Błąd podczas otwierania linku: ' + error.message, 'error')
+	}
+}
+
 // Initialize on DOM load
 if (document.readyState === 'loading') {
 	document.addEventListener('DOMContentLoaded', init)
 } else {
 	init()
 }
+
 

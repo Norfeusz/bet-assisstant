@@ -184,7 +184,11 @@ private async processJob(job: ImportJob): Promise<void> {
 		const requestedLeagueIds = job.leagues.map(id => (typeof id === 'string' ? parseInt(id, 10) : id))
 		const selectedLeagues = allLeagues.filter(l => requestedLeagueIds.includes(l.id))
 
-		this.log(job.id, `Leagues: ${selectedLeagues.map(l => l.name).join(', ')}`)
+		if (selectedLeagues.length === 0) {
+			throw new Error(`No matching leagues found for IDs: ${job.leagues.join(', ')}`)
+		}
+
+		this.log(job.id, `Matched leagues: ${selectedLeagues.map(l => `${l.name} (${l.country})`).join(', ')}`)
 
 		// Create API client for this job
 		const apiClient = new ApiFootballClient(process.env.API_FOOTBALL_KEY!)
@@ -231,8 +235,16 @@ private async processJob(job: ImportJob): Promise<void> {
 			const tempConfigPath = path.join(process.cwd(), 'logs', `temp-config-${job.id}-${league.id}.json`)
 			const mainConfigPath = path.join(process.cwd(), 'data', 'leagues.json')
 
-			// Write temp config for single league
-			fs.writeFileSync(tempConfigPath, JSON.stringify([league], null, 2))
+			// Write temp config for single league with all required fields
+			const tempLeagueConfig = {
+				id: league.id,
+				name: league.name,
+				country: league.country,
+				type: league.type || 'League',
+				priority: league.priority || 3,
+				enabled: true // CRITICAL: Must be enabled!
+			}
+			fs.writeFileSync(tempConfigPath, JSON.stringify([tempLeagueConfig], null, 2))
 
 			try {
 				// Backup existing config if it exists

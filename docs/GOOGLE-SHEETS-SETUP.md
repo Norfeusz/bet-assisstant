@@ -31,7 +31,7 @@
 4. Wybierz typ "JSON"
 5. Kliknij "Create" - plik zostanie pobrany
 6. Zmień nazwę pliku na `google-sheets-config.json`
-7. Skopiuj plik do głównego folderu projektu (obok package.json)
+7. Skopiuj plik do folderu `config/` w projekcie
 
 ### 5. Utwórz arkusz Google Sheets
 
@@ -51,7 +51,7 @@
 
 ### 6. Udostępnij arkusz dla Service Account
 
-1. Otwórz plik `google-sheets-config.json`
+1. Otwórz plik `config/google-sheets-config.json`
 2. Znajdź pole `client_email` (np. "bet-assistant-sheets@project.iam.gserviceaccount.com")
 3. Skopiuj ten adres email
 4. W Google Sheets kliknij "Share" (Udostępnij)
@@ -83,7 +83,7 @@ Teraz możesz zrestartować aplikację przez `Bet Assistant.bat` i korzystać z 
 
 ### Błąd: "google-sheets-config.json not found"
 
-- Upewnij się, że plik `google-sheets-config.json` jest w głównym folderze projektu (obok package.json)
+- Upewnij się, że plik `google-sheets-config.json` jest w folderze `config/` w projekcie
 
 ### Błąd: "The caller does not have permission"
 

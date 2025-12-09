@@ -7,7 +7,7 @@ node_modules/
 .env.*.local
 
 # Google Sheets credentials
-google-sheets-config.json
+config/google-sheets-config.json
 
 # Build outputs
 dist/
@@ -36,6 +36,9 @@ fix-stats-with-possession.sql
 *temp*.sql
 *backup*.json
 *temp*.json
+*.ods
+*.xlsx
+.~lock.*
 
 # Keep database backups (they should be committed)
 !backups/

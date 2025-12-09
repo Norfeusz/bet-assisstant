@@ -30,6 +30,9 @@
                 <button class="tab-button active" onclick="switchTab('bet-finder')">
                     🔍 Wyszukiwarka Typów
                 </button>
+                <button class="tab-button" onclick="switchTab('strefa-typera')">
+                    📊 Strefa Typera
+                </button>
             </div>
         </div>
 
@@ -269,25 +272,6 @@
         <div class="tab-content active" id="tab-bet-finder">
             <div class="container">
                 <h2 style="margin-bottom: 20px;">🔍 Wyszukiwarka Typów</h2>
-
-                <!-- Strefa Typera Section -->
-                <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                    <h3 style="color: white; margin-bottom: 15px;">📊 Strefa Typera - Backfill</h3>
-                    <p style="margin-bottom: 15px; opacity: 0.9;">Uzupełnij brakujące dane w arkuszach (kolumny E, H-S, X, Y, AA, AB, AD)</p>
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <button class="btn" onclick="runStrefaTyperaBackfill()" 
-                                style="background: white; color: #667eea; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
-                            🔄 Backfill "Typy"
-                        </button>
-                        <button class="btn" onclick="runBetBuilderBackfill()" 
-                                style="background: white; color: #667eea; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
-                            🔄 Backfill "Bet Builder"
-                        </button>
-                    </div>
-                    <div id="backfill-status" style="margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 4px; display: none;">
-                        <div id="backfill-message"></div>
-                    </div>
-                </div>
 
                 <!-- Match Count Selection -->
                 <div class="section">
@@ -630,19 +614,7 @@
         </div>
 
         <!-- Dodatkowe opcje -->
-        <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
-            <div class="bet-finder-buttons">
-                <button class="bet-finder-btn" onclick="showWatchedMatchesModal();"
-                    style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);">
-                    <span style="font-size: 24px;">⭐</span>
-                    <span style="font-weight: 700; font-size: 16px;">Obserwowane mecze</span>
-                    <span class="info-icon">ⓘ</span>
-                    <span class="info-tooltip">
-                        Wyświetla wszystkie mecze dodane do obserwowanych z różnych wyszukiwań
-                    </span>
-                </button>
-            </div>
-        </div>
+        <!-- KROK 14: Obserwowane mecze przeniesione do zakładki Strefa Typera -->
     </div>
 
     <!-- Search Queue Panel -->
@@ -670,12 +642,125 @@
 
     <!-- Results will be shown in modal -->
     </div>
-    </div>
-    <!-- End Tab Content: Bet Finder -->
+        </div>
+        <!-- End Tab Content: Bet Finder -->
 
-    </div>
+        <!-- Tab Content: Strefa Typera -->
+        <div class="tab-content" id="tab-strefa-typera">
+            <div class="container">
+                <h2 style="margin-bottom: 20px;">📊 Strefa Typera</h2>
 
-    <!-- Toast Notification -->
+                <!-- Backfill Section -->
+                <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <h3 style="color: white; margin-bottom: 15px;">🔄 Backfill - Uzupełnianie Danych</h3>
+                    <p style="margin-bottom: 15px; opacity: 0.9;">Uzupełnij brakujące dane w arkuszach (kolumny E, H-S, X, Y, AA, AB, AD, AF, AG)</p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn" onclick="fixMissingMatchIds('Typy')" 
+                                style="background: #fbbf24; color: #78350f; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
+                            🔧 Uzupełnij ID (KROK 19)
+                        </button>
+                        <button class="btn" onclick="runStrefaTyperaBackfill()" 
+                                style="background: white; color: #667eea; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
+                            🔄 Backfill "Typy"
+                        </button>
+                        <button class="btn" onclick="runBetBuilderBackfill()" 
+                                style="background: white; color: #667eea; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
+                            🔄 Backfill "Bet Builder"
+                        </button>
+                    </div>
+                    <div id="backfill-status" style="margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 4px; display: none;">
+                        <div id="backfill-message"></div>
+                    </div>
+                </div>
+
+                <!-- Akcje Section -->
+                <div class="section" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <h3 style="color: white; margin-bottom: 15px;">⚡ Akcje</h3>
+                    <p style="margin-bottom: 15px; opacity: 0.9;">Zarządzaj typami i kuponami</p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn" onclick="acceptTypes()" 
+                                style="background: white; color: #10b981; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
+                            ✅ Zaakceptuj Typy
+                        </button>
+                        <button class="btn" onclick="verifyTypes()" 
+                                style="background: white; color: #10b981; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
+                            ✔️ Weryfikuj Typy
+                        </button>
+                        <button class="btn" onclick="createCoupon()" 
+                                style="background: white; color: #10b981; font-weight: 600; padding: 12px 24px; border: none; cursor: pointer; transition: all 0.3s;">
+                            🎫 Stwórz Kupon
+                        </button>
+                    </div>
+                    <div id="actions-status" style="margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 4px; display: none;">
+                        <div id="actions-message"></div>
+                    </div>
+                </div>
+
+                <!-- Info Section -->
+                <div class="section" style="background: #f3f4f6; padding: 20px; border-radius: 8px;">
+                    <h3 style="margin-bottom: 15px;">ℹ️ Informacje</h3>
+                    <p style="margin-bottom: 10px;">
+                        <strong>Backfill:</strong> Uzupełnia brakujące dane statystyczne dla meczów już dodanych do arkuszy "Typy" i "Bet Builder"
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        <strong>Zaakceptuj Typy:</strong> Przenosi typy z "Bet Builder" do arkusza "Typy" i zapisuje do bazy danych
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        <strong>Weryfikuj Typy:</strong> Sprawdza wyniki meczów i aktualizuje kolumnę "Wszedł"
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        <strong>Stwórz Kupon:</strong> Tworzy kupon z wybranych typów i zapisuje do bazy danych
+                    </p>
+                    <p style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #d1d5db;">
+                        <button class="btn" onclick="migrateSheetsToDB()" 
+                                style="background: #f59e0b; color: white; font-weight: 600; padding: 10px 20px;">
+                            🔄 Migruj dane do bazy (jednorazowo)
+                        </button>
+                    </p>
+                </div>
+
+                <!-- KROK 14: Przeniesione na dół - Obserwowane mecze -->
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+                    <div class="bet-finder-buttons">
+                        <button class="bet-finder-btn" onclick="showWatchedMatchesModal();"
+                            style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);">
+                            <span style="font-size: 24px;">⭐</span>
+                            <span style="font-weight: 700; font-size: 16px;">Obserwowane mecze</span>
+                            <span class="info-icon">ⓘ</span>
+                            <span class="info-tooltip">
+                                Wyświetla wszystkie mecze dodane do obserwowanych z różnych wyszukiwań
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- KROK 14: Przeniesione na dół - Kolejka wyszukiwań -->
+                <div id="search-queue-panel-strefa" class="search-queue-panel" style="margin-top: 20px;">
+                    <div class="search-queue-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <h3 style="margin: 0; font-size: 16px;">📋 Kolejka wyszukiwań</h3>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button id="cancel-search-btn-strefa" onclick="cancelCurrentSearch()" class="btn-small btn-danger"
+                                title="Anuluj bieżące wyszukiwanie">
+                                ✕ Anuluj
+                            </button>
+                        </div>
+                    </div>
+                    <div class="search-queue-body">
+                        <div id="current-search-info-strefa" class="current-search-info">
+                            <!-- Current search info will be inserted here -->
+                        </div>
+                        <div id="search-queue-list-strefa" class="search-queue-list">
+                            <!-- Queue items will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Tab Content: Strefa Typera -->
+
+    </div>    <!-- Toast Notification -->
     <div class="toast" id="toast">
         <span id="toast-message"></span>
     </div>
@@ -876,6 +961,71 @@
                     ▶️ Uruchom Import
                 </button>
                 <button class="btn" style="background: #718096; color: white;" onclick="closeBackgroundImportDialog()">
+                    Anuluj
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Coupon Modal (KROK 21) -->
+    <div id="createCouponModal" class="modal">
+        <div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+            <div class="modal-header">
+                <h2>🎫 Stwórz Kupon</h2>
+                <span class="close-modal" onclick="closeCouponModal()">&times;</span>
+            </div>
+
+            <div style="padding: 20px;">
+                <!-- Match Selection -->
+                <div style="margin-bottom: 25px;">
+                    <h3 style="margin-bottom: 15px;">Wybierz mecze z "Bet Builder":</h3>
+                    <div id="coupon-matches-list" style="max-height: 300px; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px;">
+                        <div style="text-align: center; padding: 20px; color: #9ca3af;">
+                            <div class="spinner" style="margin: 0 auto 10px;"></div>
+                            Ładowanie meczów...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coupon Details -->
+                <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 15px;">Szczegóły kuponu:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px;">
+                                💰 Stawka:
+                            </label>
+                            <input type="number" id="coupon-stake" placeholder="np. 100" step="0.01" min="0" 
+                                   class="btn" style="width: 100%; text-align: right;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 8px;">
+                                🎯 Potencjalna wygrana:
+                            </label>
+                            <input type="number" id="coupon-potential-win" placeholder="np. 500" step="0.01" min="0" 
+                                   class="btn" style="width: 100%; text-align: right;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div id="coupon-summary" style="background: #e0f2fe; border: 2px solid #0284c7; padding: 15px; border-radius: 8px; display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <strong>Wybrane mecze:</strong> <span id="selected-matches-count">0</span>
+                        </div>
+                        <div>
+                            <strong>Kurs łączny:</strong> <span id="total-odds">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: center; padding: 0 20px 20px;">
+                <button class="btn" style="background: #10b981; color: white; padding: 12px 24px; font-size: 16px;" onclick="saveCoupon()">
+                    ✅ Utwórz Kupon
+                </button>
+                <button class="btn" style="background: #718096; color: white;" onclick="closeCouponModal()">
                     Anuluj
                 </button>
             </div>
