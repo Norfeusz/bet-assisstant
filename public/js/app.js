@@ -2214,13 +2214,13 @@ async function showBetFinderMatchDetailsModal(result) {
                 <h2>📊 Szczegóły: ${result.homeTeam} vs ${result.awayTeam}</h2>
                 <div style="display: flex; gap: 10px; align-items: center;">
                     ${superbetUrl ? createSuperbetIcon(superbetUrl) : ''}
-                    ${flashscoreUrl ? createFlashscoreButton(flashscoreUrl) : ''}
-                    <button class="btn-small" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" onclick="window.addToStrefaTypera('${result.homeTeam.replace(/'/g, "\\'")}', '${result.awayTeam.replace(/'/g, "\\'")}', '${result.league.replace(/'/g, "\\'")}', '${result.date}')">
-                        📊 Strefa Typera
+                    <button class="btn-small" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" onclick="window.addToStrefaTypera('${result.homeTeam.replace(/'/g, "\\'")}', '${result.awayTeam.replace(/'/g, "\\'")}', '${result.league.replace(/'/g, "\\'")}', '${result.date}', '${result.country?.replace(/'/g, "\\'") || ''}', ${result.leagueId || 'null'})" title="Dodaj do Strefa Typera">
+                        📄 ST
                     </button>
                     <button class="btn-small" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" onclick="window.addToWatchedMatches(${JSON.stringify(result).replace(/"/g, '&quot;')}, '${result.searchType || 'manual'}')">
-                        ⭐ Dodaj do obserwowanych
+                        ⭐
                     </button>
+                    ${flashscoreUrl ? createFlashscoreButton(flashscoreUrl) : ''}
                     <button class="modal-minimize" onclick="window.minimizeMatchDetailsModal()">−</button>
                     <button class="modal-close" onclick="window.closeMatchDetailsModal()">×</button>
                 </div>
@@ -2654,7 +2654,7 @@ function addToBackgroundJobs(homeTeam, awayTeam, league, date) {
 /**
  * Add match to Strefa Typera spreadsheet
  */
-async function addToStrefaTypera(homeTeam, awayTeam, league, date) {
+async function addToStrefaTypera(homeTeam, awayTeam, league, date, country, leagueId) {
 	try {
 		// Step 1: Choose bet type
 		const betType = await showBetTypeDialog()
@@ -2673,9 +2673,22 @@ async function addToStrefaTypera(homeTeam, awayTeam, league, date) {
 		const odds = await showOddsDialog()
 		if (!odds) return // User cancelled
 		
-		// Step 4: Enter links (optional)
-		const links = await showLinksDialog()
-		if (links === null) return // User cancelled
+		// Step 4: Get links automatically from Lista rozgrywek.csv (KROK 30)
+		const { getSuperbetLink, getFlashscoreLink } = await import('./utils/superbet-links.js')
+		let superbetLink = ''
+		let flashscoreLink = ''
+		
+		// Try by league ID first, fallback to league name + country
+		if (leagueId) {
+			superbetLink = await getSuperbetLink(leagueId) || ''
+			flashscoreLink = await getFlashscoreLink(leagueId) || ''
+		}
+		
+		// Fallback to name-based lookup
+		if (!superbetLink && !flashscoreLink && league && country) {
+			superbetLink = await getSuperbetLink(league, country) || ''
+			flashscoreLink = await getFlashscoreLink(league, country) || ''
+		}
 		
 		showToast('Dodawanie do Strefa Typera...', 'info')
 
@@ -2692,8 +2705,8 @@ async function addToStrefaTypera(homeTeam, awayTeam, league, date) {
 				betType, 
 				betOption, 
 				odds,
-				superbetLink: links.superbet,
-				flashscoreLink: links.flashscore
+				superbetLink,
+				flashscoreLink
 			}),
 		})
 
@@ -2859,72 +2872,6 @@ function showOddsDialog() {
 /**
  * Show dialog to enter Superbet and Flashscore links
  */
-function showLinksDialog() {
-	return new Promise((resolve) => {
-		const modal = document.createElement('div')
-		modal.className = 'modal-overlay'
-		modal.style.display = 'flex'
-		modal.style.zIndex = '100000'
-		
-		modal.innerHTML = `
-			<div class="modal-content" style="max-width: 500px;">
-				<div class="modal-header">
-					<h2>Wpisz linki (opcjonalnie)</h2>
-					<button class="modal-close" onclick="this.closest('.modal-overlay').remove(); window.linksResolve(null)">×</button>
-				</div>
-				<div class="modal-body">
-					<div style="margin-bottom: 15px;">
-						<label style="display: block; margin-bottom: 5px; font-weight: 600;">Link Superbet:</label>
-						<input type="url" id="superbet-input" placeholder="https://..." 
-							style="width: 100%; padding: 12px; font-size: 14px; border: 2px solid #3b82f6; border-radius: 8px;">
-					</div>
-					<div style="margin-bottom: 15px;">
-						<label style="display: block; margin-bottom: 5px; font-weight: 600;">Link Flashscore:</label>
-						<input type="url" id="flashscore-input" placeholder="https://..." 
-							style="width: 100%; padding: 12px; font-size: 14px; border: 2px solid #3b82f6; border-radius: 8px;">
-					</div>
-					<div style="display: flex; gap: 10px;">
-						<button onclick="window.submitLinks()" 
-							style="flex: 1; padding: 12px; background: #3b82f6; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">
-							Zatwierdź
-						</button>
-						<button onclick="window.skipLinks()" 
-							style="flex: 1; padding: 12px; background: #6b7280; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">
-							Pomiń
-						</button>
-					</div>
-				</div>
-			</div>
-		`
-		
-		document.body.appendChild(modal)
-		
-		window.linksResolve = resolve
-		
-		window.submitLinks = () => {
-			const superbet = document.getElementById('superbet-input').value.trim()
-			const flashscore = document.getElementById('flashscore-input').value.trim()
-			modal.remove()
-			resolve({ superbet, flashscore })
-		}
-		
-		window.skipLinks = () => {
-			modal.remove()
-			resolve({ superbet: '', flashscore: '' })
-		}
-		
-		// Submit on Enter key in last input
-		document.getElementById('flashscore-input').addEventListener('keypress', (e) => {
-			if (e.key === 'Enter') {
-				window.submitLinks()
-			}
-		})
-		
-		// Focus first input
-		setTimeout(() => document.getElementById('superbet-input').focus(), 100)
-	})
-}
-
 /**
  * Get bet options based on bet type
  */
@@ -3904,6 +3851,201 @@ window.openLeagueLink = async function(type, league) {
 		console.error('Error opening league link:', error)
 		showToast('Błąd podczas otwierania linku: ' + error.message, 'error')
 	}
+}
+
+/**
+ * Show modal for automatic type addition
+ */
+window.showAutoAddTypesModal = function() {
+	const allBetTypes = [
+		{ name: '🏆 Wygrane vs Przegrane', func: 'queueWinnerVsLoser', group: 'Rezultat' },
+		{ name: '⚽ Najwięcej bramek', func: 'queueMostGoals', group: 'Bramki' },
+		{ name: '⚽ Najmniej bramek', func: 'queueLeastGoals', group: 'Bramki' },
+		{ name: '⚽ Handicap 1.5', func: 'queueHandicap15', group: 'Bramki' },
+		{ name: '⚽ BTS - Obie strzelają', func: 'queueMostBTS', group: 'Bramki' },
+		{ name: '⚽ No BTS', func: 'queueNoBTS', group: 'Bramki' },
+		{ name: '⚽ Przewaga bramkowa', func: 'queueGoalAdvantage', group: 'Bramki' },
+		{ name: '🚩 Najwięcej rożnych', func: 'queueMostCorners', group: 'Rożne' },
+		{ name: '🚩 Najmniej rożnych', func: 'queueLeastCorners', group: 'Rożne' },
+		{ name: '🚩 Najwięcej rożnych pojedynczo', func: 'queueMostSingleTeamCorners', group: 'Rożne' },
+		{ name: '🚩 Najmniej rożnych pojedynczo', func: 'queueLeastSingleTeamCorners', group: 'Rożne' },
+		{ name: '🚩 Najwięcej rożnych mecz', func: 'queueMostTotalCorners', group: 'Rożne' },
+		{ name: '🚩 Najmniej rożnych mecz', func: 'queueLeastTotalCorners', group: 'Rożne' },
+		{ name: '🚩 Przewaga rożnych', func: 'queueCornerAdvantage', group: 'Rożne' },
+		{ name: '🏠 Wygrane u siebie', func: 'queueHomeWins', group: 'Dom/Wyjazd' },
+		{ name: '✈️ Wygrane na wyjeździe', func: 'queueAwayWins', group: 'Dom/Wyjazd' },
+		{ name: '🏠 Porażki u siebie', func: 'queueHomeLosses', group: 'Dom/Wyjazd' },
+		{ name: '✈️ Porażki na wyjeździe', func: 'queueAwayLosses', group: 'Dom/Wyjazd' },
+		{ name: '🏠 Przewaga gospodarzy', func: 'queueHomeAdvantage', group: 'Dom/Wyjazd' },
+		{ name: '✈️ Przewaga gości', func: 'queueAwayAdvantage', group: 'Dom/Wyjazd' },
+		{ name: '⛔ Najwięcej spalonych', func: 'queueMostOffsides', group: 'Spalone' },
+		{ name: '⛔ Najmniej spalonych', func: 'queueLeastOffsides', group: 'Spalone' },
+		{ name: '⛔ Najwięcej spalonych mecz', func: 'queueMostTotalOffsides', group: 'Spalone' },
+		{ name: '⛔ Najmniej spalonych mecz', func: 'queueLeastTotalOffsides', group: 'Spalone' },
+	]
+
+	const modal = document.createElement('div')
+	modal.className = 'modal-overlay'
+	modal.style.display = 'flex'
+	modal.style.zIndex = '100000'
+	
+	const groupedTypes = {}
+	allBetTypes.forEach(type => {
+		if (!groupedTypes[type.group]) {
+			groupedTypes[type.group] = []
+		}
+		groupedTypes[type.group].push(type)
+	})
+
+	let checkboxesHTML = ''
+	Object.keys(groupedTypes).forEach(group => {
+		checkboxesHTML += `
+			<div style="margin-bottom: 20px;">
+				<h4 style="color: #1e40af; margin-bottom: 10px; font-size: 15px; font-weight: 700;">${group}</h4>
+				<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+		`
+		groupedTypes[group].forEach(type => {
+			checkboxesHTML += `
+				<label style="display: flex; align-items: center; gap: 8px; padding: 8px; background: #f3f4f6; border-radius: 6px; cursor: pointer; transition: all 0.2s;"
+					onmouseover="this.style.background='#e5e7eb'"
+					onmouseout="this.style.background='#f3f4f6'">
+					<input type="checkbox" class="bet-type-checkbox" value="${type.func}" style="cursor: pointer;">
+					<span style="font-size: 13px; font-weight: 500;">${type.name}</span>
+				</label>
+			`
+		})
+		checkboxesHTML += `
+				</div>
+			</div>
+		`
+	})
+	
+	modal.innerHTML = `
+		<div class="modal-content" style="max-width: 800px; max-height: 90vh; overflow-y: auto;">
+			<div class="modal-header">
+				<h2>🎯 Automatyczne dodawanie typów</h2>
+				<button class="modal-close" onclick="this.closest('.modal-overlay').remove()">×</button>
+			</div>
+			<div class="modal-body">
+				<div style="margin-bottom: 20px; display: flex; gap: 10px;">
+					<button onclick="window.selectAllBetTypes()" 
+						style="flex: 1; padding: 10px; background: #10b981; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+						✓ Zaznacz wszystkie
+					</button>
+					<button onclick="window.deselectAllBetTypes()" 
+						style="flex: 1; padding: 10px; background: #6b7280; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">
+						✗ Odznacz wszystkie
+					</button>
+				</div>
+				
+				${checkboxesHTML}
+				
+				<div style="display: flex; gap: 10px; margin-top: 25px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+					<button onclick="window.startAutoAddTypes('all')" 
+						style="flex: 1; padding: 14px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);">
+						🚀 Wszystkie typy
+					</button>
+					<button onclick="window.startAutoAddTypes('selected')" 
+						style="flex: 1; padding: 14px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+						✓ Wybrane typy
+					</button>
+					<button onclick="this.closest('.modal-overlay').remove()" 
+						style="flex: 1; padding: 14px; background: #6b7280; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer;">
+						Anuluj
+					</button>
+				</div>
+			</div>
+		</div>
+	`
+	
+	document.body.appendChild(modal)
+}
+
+/**
+ * Select all bet type checkboxes
+ */
+window.selectAllBetTypes = function() {
+	document.querySelectorAll('.bet-type-checkbox').forEach(cb => cb.checked = true)
+}
+
+/**
+ * Deselect all bet type checkboxes
+ */
+window.deselectAllBetTypes = function() {
+	document.querySelectorAll('.bet-type-checkbox').forEach(cb => cb.checked = false)
+}
+
+/**
+ * Start automatic type addition
+ */
+window.startAutoAddTypes = async function(mode) {
+	const modal = document.querySelector('.modal-overlay')
+	
+	let selectedFunctions = []
+	
+	if (mode === 'all') {
+		// All types
+		selectedFunctions = [
+			'queueWinnerVsLoser', 'queueMostGoals', 'queueLeastGoals', 'queueHandicap15',
+			'queueMostBTS', 'queueNoBTS', 'queueGoalAdvantage', 'queueMostCorners',
+			'queueLeastCorners', 'queueMostSingleTeamCorners', 'queueLeastSingleTeamCorners',
+			'queueMostTotalCorners', 'queueLeastTotalCorners', 'queueCornerAdvantage',
+			'queueHomeWins', 'queueAwayWins', 'queueHomeLosses', 'queueAwayLosses',
+			'queueHomeAdvantage', 'queueAwayAdvantage', 'queueMostOffsides', 'queueLeastOffsides',
+			'queueMostTotalOffsides', 'queueLeastTotalOffsides'
+		]
+	} else {
+		// Selected types
+		const checkboxes = document.querySelectorAll('.bet-type-checkbox:checked')
+		if (checkboxes.length === 0) {
+			showToast('Wybierz przynajmniej jeden typ', 'warning')
+			return
+		}
+		selectedFunctions = Array.from(checkboxes).map(cb => cb.value)
+	}
+	
+	modal.remove()
+	
+	// Map function names to their modal types for auto-adding
+	const functionToModalType = {
+		'queueWinnerVsLoser': 'winner-vs-loser',
+		'queueMostGoals': 'most-goals',
+		'queueLeastGoals': 'least-goals',
+		'queueHandicap15': 'handicap-15',
+		'queueMostBTS': 'most-bts',
+		'queueNoBTS': 'no-bts',
+		'queueGoalAdvantage': 'goal-advantage',
+		'queueMostCorners': 'most-corners',
+		'queueLeastCorners': 'least-corners',
+		'queueMostSingleTeamCorners': 'most-single-team-corners',
+		'queueLeastSingleTeamCorners': 'least-single-team-corners',
+		'queueMostTotalCorners': 'total-corners',
+		'queueLeastTotalCorners': 'total-corners-least',
+		'queueCornerAdvantage': 'corner-advantage',
+		'queueHomeWins': 'home-wins',
+		'queueAwayWins': 'away-wins',
+		'queueHomeLosses': 'home-losses',
+		'queueAwayLosses': 'away-losses',
+		'queueHomeAdvantage': 'home-advantage',
+		'queueAwayAdvantage': 'away-advantage',
+		'queueMostOffsides': 'most-offsides',
+		'queueLeastOffsides': 'least-offsides',
+		'queueMostTotalOffsides': 'most-total-offsides',
+		'queueLeastTotalOffsides': 'least-total-offsides'
+	}
+	
+	// Enable auto-add mode
+	window.autoAddToBetBuilder = true
+	window.autoAddModalTypes = selectedFunctions.map(fn => functionToModalType[fn]).filter(Boolean)
+	
+	// Add all to queue
+	selectedFunctions.forEach(funcName => {
+		if (window[funcName]) {
+			window[funcName]()
+		}
+	})
+	
+	showToast(`Uruchamiam automatyczne dodawanie dla ${selectedFunctions.length} typów...`, 'success')
 }
 
 // Initialize on DOM load

@@ -2107,6 +2107,106 @@ export function createTop10Modal(config) {
 	modalContainer.dataset.modalId = modalId // Store modalId on the element
 	modalContainer.innerHTML = modalHTML
 	document.body.appendChild(modalContainer)
+	
+	// Auto-add to Bet Builder if enabled
+	if (window.autoAddToBetBuilder && window.autoAddModalTypes && window.autoAddModalTypes.includes(modalType)) {
+		console.log(`[Auto-Add] Automatically adding TOP 10 from ${modalType} to Bet Builder...`)
+		autoAddResultsToBetBuilder(results, modalType)
+	}
+}
+
+/**
+ * Automatically add TOP 10 results to Bet Builder
+ */
+async function autoAddResultsToBetBuilder(results, modalType) {
+	let addedCount = 0
+	let failedCount = 0
+	let skippedCount = 0
+	
+	for (const result of results) {
+		try {
+			// Determine bet type and option based on modal type
+			let betType, betOption
+			
+			if (modalType === 'winner-vs-loser') {
+				// Logic: WH > WA -> "1", otherwise -> "2"
+				const WH = result.homeStats.winPercent || 0
+				const WA = result.awayStats.winPercent || 0
+				betType = WH > WA ? '1' : '2'
+				betOption = '-'
+			} else {
+				// For other types, skip auto-add for now
+				console.log(`[Auto-Add] Skipping ${modalType} - no auto-bet logic defined`)
+				continue
+			}
+			
+			// Get links
+			const { getSuperbetLink, getFlashscoreLink } = await import('./utils/superbet-links.js')
+			let superbetLink = ''
+			let flashscoreLink = ''
+			
+			if (result.leagueId) {
+				superbetLink = await getSuperbetLink(result.leagueId) || ''
+				flashscoreLink = await getFlashscoreLink(result.leagueId) || ''
+			}
+			
+			if (!superbetLink && !flashscoreLink && result.league && result.country) {
+				superbetLink = await getSuperbetLink(result.league, result.country) || ''
+				flashscoreLink = await getFlashscoreLink(result.league, result.country) || ''
+			}
+			
+			// Add to Bet Builder with empty odds (will be calculated in backend)
+			const response = await fetch('/api/strefa-typera/add-match-bet-builder', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ 
+					homeTeam: result.homeTeam,
+					awayTeam: result.awayTeam,
+					league: result.league,
+					date: result.date,
+					betType,
+					betOption,
+					odds: '', // Empty odds for auto-add
+					superbetLink,
+					flashscoreLink
+				}),
+			})
+			
+			const responseData = await response.json()
+			
+			if (response.ok) {
+				// Check if match was skipped by backend
+				if (responseData.skipped) {
+					skippedCount++
+					console.log(`[Auto-Add] Backend skipped match: ${result.homeTeam} vs ${result.awayTeam} (${responseData.skipReason})`)
+				} else {
+					addedCount++
+				}
+			} else {
+				failedCount++
+				console.error(`[Auto-Add] Failed to add match: ${result.homeTeam} vs ${result.awayTeam}`)
+			}
+			
+			// Small delay to avoid overwhelming the API
+			await new Promise(resolve => setTimeout(resolve, 200))
+			
+		} catch (error) {
+			failedCount++
+			console.error(`[Auto-Add] Error adding match:`, error)
+		}
+	}
+	
+	if (addedCount > 0) {
+		window.showToast(`✅ Automatycznie dodano ${addedCount} meczów do Bet Builder`, 'success')
+	}
+	if (skippedCount > 0) {
+		window.showToast(`⚠️ Pominięto ${skippedCount} meczów (szansa < 50% lub za mało danych)`, 'info')
+	}
+	if (failedCount > 0) {
+		window.showToast(`❌ Nie udało się dodać ${failedCount} meczów`, 'error')
+	}
 }
 
 function showMostGoalsModal(results, dateFrom, dateTo) {
@@ -3574,7 +3674,7 @@ function showWinnerVsLoserModal(results, dateFrom, dateTo) {
                     </td>
                     <td>
                         <button class="btn-small" onclick="window.addToWatchedMatches(${resultData}, 'Wygrane vs Przegrane')">
-                            ⭐ Dodaj
+                            ⭐
                         </button>
                     </td>
                 </tr>

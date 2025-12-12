@@ -1,0 +1,131 @@
+{
+  "description": "Konfiguracja warunków weryfikacji zakładów - KROK 29",
+  "betConditions": [
+    {
+      "betType": "1",
+      "description": "Wygrana gospodarzy",
+      "homeResult": "home_goals",
+      "awayResult": "away_goals",
+      "condition": "homeGoals > awayGoals"
+    },
+    {
+      "betType": "2",
+      "description": "Wygrana gości",
+      "homeResult": "home_goals",
+      "awayResult": "away_goals",
+      "condition": "homeGoals < awayGoals"
+    },
+    {
+      "betType": "bts",
+      "betOption": "tak",
+      "description": "BTS - Oba zespoły strzelą",
+      "homeResult": "home_goals",
+      "awayResult": "away_goals",
+      "condition": "homeGoals > 0 && awayGoals > 0"
+    },
+    {
+      "betType": "bts",
+      "betOption": "nie",
+      "description": "BTS - Nie oba zespoły strzelą",
+      "homeResult": "home_goals",
+      "awayResult": "away_goals",
+      "condition": "homeGoals === 0 || awayGoals === 0"
+    },
+    {
+      "betType": "handi_1",
+      "description": "Handicap gospodarzy (np. -1.5, -2.5)",
+      "homeResult": "home_goals",
+      "awayResult": "away_goals",
+      "condition": "homeGoals + threshold > awayGoals",
+      "note": "threshold = ujemna wartość z betOption (np. -1.5)"
+    },
+    {
+      "betType": "handi_2",
+      "description": "Handicap gości (np. -1.5, -2.5)",
+      "homeResult": "home_goals",
+      "awayResult": "away_goals",
+      "condition": "homeGoals < awayGoals + threshold",
+      "note": "threshold = ujemna wartość z betOption (np. -1.5)"
+    },
+    {
+      "betType": "goals_over",
+      "description": "Bramki Over (1.5, 2.5, 3.5, 4.5, 5.5)",
+      "homeResult": "home_goals",
+      "awayResult": "away_goals",
+      "condition": "homeGoals + awayGoals > threshold"
+    },
+    {
+      "betType": "goals_under",
+      "description": "Bramki Under (1.5, 2.5, 3.5, 4.5, 5.5)",
+      "homeResult": "home_goals",
+      "awayResult": "away_goals",
+      "condition": "homeGoals + awayGoals < threshold"
+    },
+    {
+      "betType": "corners_1_over",
+      "description": "Rożne 1 Over (2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5)",
+      "homeResult": "home_corners",
+      "awayResult": "-",
+      "condition": "homeCorners > threshold"
+    },
+    {
+      "betType": "corners_1_under",
+      "description": "Rożne 1 Under (2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5)",
+      "homeResult": "home_corners",
+      "awayResult": "-",
+      "condition": "homeCorners < threshold"
+    },
+    {
+      "betType": "corners_2_over",
+      "description": "Rożne 2 Over (2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5)",
+      "homeResult": "-",
+      "awayResult": "away_corners",
+      "condition": "awayCorners > threshold"
+    },
+    {
+      "betType": "corners_2_under",
+      "description": "Rożne 2 Under (2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5)",
+      "homeResult": "-",
+      "awayResult": "away_corners",
+      "condition": "awayCorners < threshold"
+    },
+    {
+      "betType": "corners_match_over",
+      "aliases": ["corners_over"],
+      "description": "Rożne Match Over (7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5)",
+      "homeResult": "home_corners",
+      "awayResult": "away_corners",
+      "condition": "homeCorners + awayCorners > threshold"
+    },
+    {
+      "betType": "corners_match_under",
+      "aliases": ["corners_under"],
+      "description": "Rożne Match Under (7.5, 8.5, 9.5, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5)",
+      "homeResult": "home_corners",
+      "awayResult": "away_corners",
+      "condition": "homeCorners + awayCorners < threshold"
+    },
+    {
+      "betType": "offsides_over",
+      "description": "Spalone Over (2.5, 3.5, 4.5, 5.5, 6.5, 7.5)",
+      "homeResult": "home_offsides",
+      "awayResult": "away_offsides",
+      "condition": "homeOffsides + awayOffsides > threshold"
+    },
+    {
+      "betType": "offsides_under",
+      "description": "Spalone Under (2.5, 3.5, 4.5, 5.5, 6.5, 7.5)",
+      "homeResult": "home_offsides",
+      "awayResult": "away_offsides",
+      "condition": "homeOffsides + awayOffsides < threshold"
+    }
+  ],
+  "notes": [
+    "betType - typ zakładu używany w systemie",
+    "betOption - opcjonalna wartość typu (np. 'tak'/'nie' dla BTS, wartość progu dla over/under)",
+    "homeResult/awayResult - które dane z bazy pokazać w kolumnach V i W ('-' oznacza pustą kolumnę)",
+    "condition - warunek JavaScript do weryfikacji (może zawierać: homeGoals, awayGoals, homeCorners, awayCorners, homeOffsides, awayOffsides, threshold)",
+    "threshold - wartość z betOption przekonwertowana na liczbę (parseFloat)",
+    "aliases - alternatywne nazwy dla tego samego typu zakładu"
+  ]
+}

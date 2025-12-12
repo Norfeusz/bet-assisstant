@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict SZvgCO6uJR73au77vgR7mI5gp7SrJzAS4jWtKyepEuYFGNqr0VmDRoZra8DIl1p
+\restrict jCVfOOchzWmAQQSWDKBXGHDKOiziKZ9mnk1gmaUxF5LVACky6qFbKn4lqSL05R2
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -44,24 +44,18 @@ INSERT INTO public.coupons VALUES (18, 'San Carlos', 'LD Alajuelense', '2', '-',
 INSERT INTO public.coupons VALUES (19, 'Lecco', 'Alcione', 'goals_under', '2.5', '83,50%', 1.00, 1.00, '80%', '100%', '80%', '100%', '80%', '90%', '50%', '88%', '73%', '87%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 3, '5', NULL, 'Italy', '2025-12-08', 'Serie C - Girone A', 16885, 'K0008', 'https://flashscore.pl/pilka-nozna/wlochy/serie-c-gra/', 10.00, 38.55, '2025-12-09 13:16:43.915+01', '2025-12-09 13:16:43.915+01');
 INSERT INTO public.coupons VALUES (20, 'Jong Utrecht', 'De Graafschap', 'corners_match_over', '9.5', '83,30%', 1.00, 1.00, '60%', '100%', '80%', '100%', '70%', '100%', '67%', '89%', '67%', '80%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 13, '5', NULL, 'Netherlands', '2025-12-08', 'Eerste Divisie', 17065, 'K0008', 'https://flashscore.pl/pilka-nozna/holandia/eerste-divisie/', 10.00, 38.55, '2025-12-09 13:16:43.995+01', '2025-12-09 13:16:43.995+01');
 INSERT INTO public.coupons VALUES (21, 'Wolves', 'Manchester United', 'corners_1_under', '4.5', '67,40%', 1.00, 1.00, '100%', '25%', '100%', '25%', '89%', '33%', '100%', 'za mało danych', '92%', '46%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 20, '9', NULL, 'England', '2025-12-08', 'Premier League', 16672, 'K0008', 'https://flashscore.pl/pilka-nozna/anglia/premier-league/', 10.00, 38.55, '2025-12-09 13:16:43.997+01', '2025-12-09 13:16:43.997+01');
-INSERT INTO public.coupons VALUES (22, 'Notts County', 'Milton Keynes Dons', 'bts', 'tak', '70,60%', 1.00, 1.00, '60%', '80%', '60%', '80%', '60%', '80%', '67%', '78%', '60%', '80%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 4, '3', NULL, 'England', '2025-12-09', 'League Two', 17746, 'K0009', NULL, 11.00, 41.48, '2025-12-09 13:17:51.493+01', '2025-12-09 13:17:51.493+01');
-INSERT INTO public.coupons VALUES (23, 'Bromley', 'Crawley Town', 'goals_over', '2.5', '70,50%', 1.00, 1.00, '60%', '80%', '80%', '80%', '60%', '70%', '67%', '67%', '60%', '53%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 5, '19', NULL, 'England', '2025-12-09', 'League Two', 17748, 'K0009', NULL, 11.00, 41.48, '2025-12-09 13:17:51.496+01', '2025-12-09 13:17:51.496+01');
-INSERT INTO public.coupons VALUES (24, 'Northampton', 'Huddersfield', 'corners_2_over', '4.5', '56,40%', 1.00, 0.00, '40%', '80%', '40%', '60%', '40%', '80%', '33%', '78%', '40%', '80%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 15, '8', NULL, 'England', '2025-12-09', 'League One', 17765, 'K0009', NULL, 11.00, 41.48, '2025-12-09 13:17:51.498+01', '2025-12-09 13:17:51.498+01');
-INSERT INTO public.coupons VALUES (25, 'Barrow', 'Tranmere', 'corners_match_under', '10.5', '76,80%', 1.00, 1.00, '80%', '100%', '80%', '80%', '60%', '80%', '78%', '56%', '53%', '60%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 18, '15', NULL, 'England', '2025-12-09', 'League Two', 17747, 'K0010', NULL, 10.00, 41.90, '2025-12-09 13:18:48.943+01', '2025-12-09 13:18:48.943+01');
-INSERT INTO public.coupons VALUES (26, 'Doncaster', 'Stockport County', 'corners_1_under', '5.5', '76,00%', 1.00, 1.00, '80%', '80%', '100%', '60%', '80%', '80%', '78%', '50%', '67%', '60%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 18, '5', NULL, 'England', '2025-12-09', 'League One', 17767, 'K0010', NULL, 10.00, 41.90, '2025-12-09 13:18:48.946+01', '2025-12-09 13:18:48.946+01');
-INSERT INTO public.coupons VALUES (27, 'Araz', 'Kapaz', 'goals_over', '2.5', '74,00%', 1.00, 1.00, '80%', '80%', '60%', '80%', '60%', '70%', 'za mało danych', '88%', '62%', '77%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 6, '11', NULL, 'Azerbaijan', '2025-12-09', 'Premyer Liqa', 17835, 'K0010', NULL, 10.00, 41.90, '2025-12-09 13:18:48.947+01', '2025-12-09 13:18:48.947+01');
 
 
 --
 -- Name: coupons_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.coupons_id_seq', 27, true);
+SELECT pg_catalog.setval('public.coupons_id_seq', 21, true);
 
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict SZvgCO6uJR73au77vgR7mI5gp7SrJzAS4jWtKyepEuYFGNqr0VmDRoZra8DIl1p
+\unrestrict jCVfOOchzWmAQQSWDKBXGHDKOiziKZ9mnk1gmaUxF5LVACky6qFbKn4lqSL05R2
 

@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict kRAi3bSw2ekB3KZtHwq43Kscijfsiop5U1AfYNnQjGoaBimgtLtDuZduGTuOvuS
+\restrict wf312kPXEzrOVCc79ARLbsnACRyyedmv5JlIVFIQScZxb3RCf1CTTVxEYeoFt8E
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -124,18 +124,23 @@ INSERT INTO public.bets VALUES (98, 'Barrow', 'Tranmere', 'corners_match_under',
 INSERT INTO public.bets VALUES (99, 'Barrow', 'Tranmere', 'corners_match_under', '10.5', '76,80%', 1.00, 1.00, '80%', '100%', '80%', '80%', '60%', '80%', '78%', '56%', '53%', '60%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 18, '15', NULL, 'England', '2025-12-09', 'League Two', 17747, NULL, '2025-12-09 12:12:44.509+01', '2025-12-09 12:12:44.509+01');
 INSERT INTO public.bets VALUES (100, 'Doncaster', 'Stockport County', 'corners_1_under', '5.5', '76,00%', 1.00, 1.00, '80%', '80%', '100%', '60%', '80%', '80%', '78%', '50%', '67%', '60%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 18, '5', NULL, 'England', '2025-12-09', 'League One', 17767, NULL, '2025-12-09 12:12:44.511+01', '2025-12-09 12:12:44.511+01');
 INSERT INTO public.bets VALUES (101, 'Araz', 'Kapaz', 'goals_over', '2.5', '74,00%', 1.00, 1.00, '80%', '80%', '60%', '80%', '60%', '70%', 'za mało danych', '88%', '62%', '77%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 6, '11', NULL, 'Azerbaijan', '2025-12-09', 'Premyer Liqa', 17835, NULL, '2025-12-09 12:12:44.513+01', '2025-12-09 12:12:44.513+01');
+INSERT INTO public.bets VALUES (203, 'Marbella', 'Atlético Madrid II', '2', '-', '59,10%', 2.00, NULL, '80%', '80%', '20%', '80%', '60%', '80%', '14%', 'za mało danych', '43%', '62%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 19, '1', NULL, 'Spain', '2025-12-10', 'Primera División RFEF - Group 2', 17778, NULL, '2025-12-09 14:10:39.729+01', '2025-12-09 14:10:39.729+01');
+INSERT INTO public.bets VALUES (204, 'Blooming', 'Aurora', 'goals_over', '2.5', '81,60%', 1.00, NULL, '80%', '80%', '60%', '100%', '80%', '90%', '63%', '100%', '73%', '87%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 4, '16', NULL, 'Bolivia', '2025-12-10', 'Primera División', 17838, 'https://flashscore.pl/pilka-nozna/boliwia/liga-profesional-apertura/', '2025-12-09 14:10:39.841+01', '2025-12-09 14:10:39.841+01');
+INSERT INTO public.bets VALUES (205, 'Vitesse', 'Waalwijk', 'goals_over', '2.5', '76,90%', 1.00, NULL, '60%', '60%', '100%', '80%', '80%', '80%', '88%', '67%', '80%', '73%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 20, '9', NULL, 'Netherlands', '2025-12-10', 'Eerste Divisie', 17812, 'https://flashscore.pl/pilka-nozna/holandia/eerste-divisie/', '2025-12-09 14:10:39.844+01', '2025-12-09 14:10:39.844+01');
+INSERT INTO public.bets VALUES (206, 'Universitario de Vinto', 'Independiente Petrolero', 'goals_over', '2.5', '67,90%', 1.00, NULL, '40%', '80%', '40%', '100%', '40%', '90%', '63%', '90%', '53%', '87%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 13, '6', NULL, 'Bolivia', '2025-12-10', 'Primera División', 17839, 'https://flashscore.pl/pilka-nozna/boliwia/liga-profesional-apertura/', '2025-12-09 14:10:39.846+01', '2025-12-09 14:10:39.846+01');
+INSERT INTO public.bets VALUES (207, 'Blooming', 'Aurora', '1', '-', '63,80%', 1.00, NULL, '40%', '80%', '60%', '80%', '30%', '70%', '75%', '75%', '40%', '67%', 'za mało danych', 'za mało danych', NULL, NULL, NULL, NULL, 4, '16', NULL, 'Bolivia', '2025-12-10', 'Primera División', 17838, 'https://flashscore.pl/pilka-nozna/boliwia/liga-profesional-apertura/', '2025-12-09 14:10:39.848+01', '2025-12-09 14:10:39.848+01');
 
 
 --
 -- Name: bets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.bets_id_seq', 101, true);
+SELECT pg_catalog.setval('public.bets_id_seq', 207, true);
 
 
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict kRAi3bSw2ekB3KZtHwq43Kscijfsiop5U1AfYNnQjGoaBimgtLtDuZduGTuOvuS
+\unrestrict wf312kPXEzrOVCc79ARLbsnACRyyedmv5JlIVFIQScZxb3RCf1CTTVxEYeoFt8E
 

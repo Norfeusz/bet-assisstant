@@ -259,3 +259,51 @@ Spalone Under; 5,5 ;liczba spalonych H; liczba spalonych A; liczba spalonych H +
 Spalone Under; 6,5 ;liczba spalonych H; liczba spalonych A; liczba spalonych H + liczba spalonych A < 6,5
 Spalone Under; 7,5 ;liczba spalonych H; liczba spalonych A; liczba spalonych H + liczba spalonych A < 7,5
 d) następnie zweryfikuj warunek dla danego zakładu i typu według rozpiski powyżej. jeśli warunek jest spełniony, to w kolumnie U (wszedł) wpisz tak, jeśli warunek nie jest spełniony - nie
+
+30. 
+W przypadku dodawania meczu do strefy typera doszedł dodatkowy krok z wpisywaniem linków do superbet i flashscore, usuń ten krok, linki mają być automatycznie pobierane dla ligi której dotyczy typ z pliku lista rozgrywek.csv
+
+31. Zmieńmy przyciski
+- superbet - bez zmian
+-strefa typera - ikona arkusza + "ST"
+- dodaj do obserwowanych - tylko ikona gwiazdy
+-flashscore - images/flashscore.png
+ustawmy je w takiej kolejności jak powyżej
+
+32. w pliku modale top10.csv przygotowuję listę wszystkich modali ze szczegółami ich dotyczącymi
+W kolejnym kroku będę chciał zaimplementować funkcję automatycznego dodawania meczów do bet buildera
+W Zakładce "wyszukiwarka typów" dodaj przycisk - "Automatycznie dodaj typy"
+
+33. 
+Po kliknięciu w nowy przycisk - ma się uruchamiać funkcja, która będzie wyszukiwała meczów do modali top10 (tak jak do tej pory po klknięciu w każdy osobbny typ) - zakłożenia dla liczby mezów do analizy i zakresu dat nadchodzących meczów się nie zmieniają - to co jest wybrane to ma być brane pod uwagę w wyszukiwaniu
+Po kliknięciu w nowy przycisk ma być do wyboru - wszystkie typy / wybrane typy ( w tym wypadku wskazujemy spośród wszystkich dostępnych typów - jakie chcemy wziąć do analizy)
+
+34. W zależności od tego jakie typy są wybrane - to takie typy zakładów trafiają do akrusza
+w pliku "modale top10.csv" będą wylistowane wszystkie rodzaje modali z założeniami dla nich
+Na ten moment jest tam tylko jeden typ wyszukiwania "Wygrane vs Przegrane" w wierszu drugim
+W kolumnie B jest warunek i założenie, zweryfikuj czy logika wyszukiwania meczów dla tego modala jest prawidłowa - jednorazowo ma być sprawdzone, czy obecne funkcje wyszukiwania meczów działają tak jak jest to przedstawione w pliku
+Jeśli warunek z kolumny D jest spełniony to zakład z kolumny E, jeśli warunek z D nie jest spełniony, to zakład z kolumny F - funkcja wybiera zakład i według tego przenosi dane do arkusza, tak jak do tej pory
+Narazie mamy jeden typ wyszukiwania, jeśli będzie to działać, to przejdziemy do kolejnych
+
+35.w pliku modale top10.csv mamy dane dotyczące naszych wyszukiwań typów. Na ten moment są tam dwa arkusze. W tym kroku tylko zapoznaj się z tym co mamy w tym pliku.
+-Modale top10
+kolejne kolumny:
+A - Typ - rodzaj typu do wyszukania (w większości już istnieją)
+B - Warunek - warunek według którego wyszukujemy meczów
+C - Założenie - założenie do warunku - Wartość z kolumny B ma być jak największa, lub jak najmniejsza
+D - warunek (zakład) - tutaj w większości przypadków jest to co w B, ale czasem jest postawiony tu warunek > lub < - w zależnośći od jego wyniku wybieramy rodzaj zakładu jaki przenosimy do bet buildera
+E - wybierz zakład (warunek true) - jeśli warunek z D jest prawdziwy - bierzemy ten zakład i przenosimy do bet buildera
+F - typ (warunek true) - jeśli warunek z D jest prawdziwy - bierzemy ten typ i przenosimy do bet buildera
+G - wybierz zakład (warunek false) - jeśli warunek z D jest fałszywy - bierzemy ten zakład i przenosimy do bet buildera
+H - typ (warunek false) - jeśli warunek z D jest fałszywy - bierzemy ten typ i przenosimy do bet buildera
+I - grupa - grupa typów zakładów w UI
+pozostałych kolumn narazie nie ruszaj
+-legenda - wyjaśnienie skrótów użytych w arkuszu Modale top10
+
+36. Zweryfikuj typy z kolumny A w UI, jeśli jakiś typów nie ma w pliku, usuń je z UI
+
+37. Dodaj te typy z kolumny A, których nie ma jeszcze w UI - stwórz nowe modale top10 dla tych, których jeszcze nie ma w UI
+
+38. Dodaj nowe typy zakładów z kolumn E i G, których jeszcze nie mamy w projekcie
+
+39. Dodaj automatyczne przenoszenie typów do Bet buildera dla wszystkich typów wyszukiwań

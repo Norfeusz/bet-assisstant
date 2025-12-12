@@ -383,6 +383,193 @@ router.post('/strefa-typera/add-match-full', async (req, res) => {
 	}
 })
 
+// Alias endpoint for Bet Builder (same as add-match-full but explicit name)
+router.post('/strefa-typera/add-match-bet-builder', async (req, res) => {
+	try {
+		console.log('[Strefa Typera BB] Request received:', req.body)
+		
+		const { homeTeam, awayTeam, league, date, betType, betOption, odds, superbetLink, flashscoreLink } = req.body as AddMatchRequest
+
+		if (!homeTeam || !awayTeam || !betType || !betOption) {
+			console.log('[Strefa Typera BB] Missing required fields')
+			return res.status(400).json({ error: 'homeTeam, awayTeam, betType, and betOption are required' })
+		}
+
+		if (!SPREADSHEET_ID) {
+			console.log('[Strefa Typera BB] GOOGLE_SHEETS_ID not configured')
+			return res.status(500).json({ error: 'GOOGLE_SHEETS_ID not configured in .env' })
+		}
+
+		// Format date to YYYY-MM-DD
+		const formattedDate = date ? new Date(date).toISOString().split('T')[0] : ''
+		
+		console.log('[Strefa Typera BB] Fetching match data from database...')
+		// Get match data from database to retrieve standing, country, league, match_id
+		const match = await prisma.matches.findFirst({
+			where: {
+				home_team: homeTeam,
+				away_team: awayTeam,
+				match_date: date ? new Date(date) : undefined,
+			},
+			select: {
+				id: true,
+				country: true,
+				league: true,
+				standing_home: true,
+				standing_away: true,
+			}
+		})
+
+		if (!match) {
+			console.log('[Strefa Typera BB] Match not found in database')
+			return res.status(404).json({ error: 'Match not found in database' })
+		}
+
+		console.log('[Strefa Typera BB] Calculating statistics for 5, 10, and 15 matches...')
+		
+		// Calculate statistics for all combinations: 5/10/15 matches × overall/ha
+		const stats5Overall = await calculateBetStatistics(homeTeam, awayTeam, betType, betOption, 'overall', league, 5)
+		const stats5Ha = await calculateBetStatistics(homeTeam, awayTeam, betType, betOption, 'ha', league, 5)
+		const stats10Overall = await calculateBetStatistics(homeTeam, awayTeam, betType, betOption, 'overall', league, 10)
+		const stats10Ha = await calculateBetStatistics(homeTeam, awayTeam, betType, betOption, 'ha', league, 10)
+		const stats15Overall = await calculateBetStatistics(homeTeam, awayTeam, betType, betOption, 'overall', league, 15)
+		const stats15Ha = await calculateBetStatistics(homeTeam, awayTeam, betType, betOption, 'ha', league, 15)
+		
+		console.log('[Strefa Typera BB] Statistics calculated')
+
+		// Helper function to format percentage
+		const formatPercent = (value: number | string) => {
+			return typeof value === 'string' ? value : `${value}%`
+		}
+
+		// Calculate column E (szanse)
+		const percentages = [
+			stats5Overall.homePercentage,
+			stats5Overall.awayPercentage,
+			stats5Ha.homePercentage,
+			stats5Ha.awayPercentage,
+			stats10Overall.homePercentage,
+			stats10Overall.awayPercentage,
+			stats10Ha.homePercentage,
+			stats10Ha.awayPercentage,
+		]
+
+		const validPercentages = percentages.filter(p => typeof p === 'number') as number[]
+		
+		let szanse: string
+		if (validPercentages.length < 4) {
+			szanse = 'za mało danych'
+		} else {
+			const sum = validPercentages.reduce((acc, val) => acc + val, 0)
+			const average = sum / validPercentages.length
+			szanse = average.toFixed(1).replace('.', ',') + '%'
+		}
+
+		// Prepare row
+		const row = [
+			homeTeam,                              // A
+			awayTeam,                              // B
+			betType,                               // C
+			betOption,                             // D
+			szanse,                                // E
+			odds || '',                            // F
+			'',                                    // G - moc bet
+			formatPercent(stats5Overall.homePercentage),   // H
+			formatPercent(stats5Overall.awayPercentage),   // I
+			formatPercent(stats5Ha.homePercentage),        // J
+			formatPercent(stats5Ha.awayPercentage),        // K
+			formatPercent(stats10Overall.homePercentage),  // L
+			formatPercent(stats10Overall.awayPercentage),  // M
+			formatPercent(stats10Ha.homePercentage),       // N
+			formatPercent(stats10Ha.awayPercentage),       // O
+			formatPercent(stats15Overall.homePercentage),  // P
+			formatPercent(stats15Overall.awayPercentage),  // Q
+			formatPercent(stats15Ha.homePercentage),       // R
+			formatPercent(stats15Ha.awayPercentage),       // S
+			'',                                    // T - Kupon
+			'',                                    // U - Wszedł
+			'',                                    // V - Wynik H
+			'',                                    // W - Wynik A
+			match.standing_home || '',             // X
+			match.standing_away || '',             // Y
+			'',                                    // Z - Komentarz
+			match.country,                         // AA
+			match.league,                          // AB
+			formattedDate,                         // AC
+			match.id,                              // AD
+			'',                                    // AE - ID Kuponu
+			superbetLink || '',                    // AF
+			flashscoreLink || '',                  // AG
+		]
+
+		console.log('[Strefa Typera BB] Getting Google Sheets client...')
+		const sheets = await getGoogleSheetsClient()
+		
+		// Check if szanse meets minimum requirement (>= 50%) before adding
+		let shouldAdd = true
+		let skipReason = ''
+		
+		if (szanse === 'za mało danych') {
+			shouldAdd = false
+			skipReason = 'za mało danych'
+			console.log('[Strefa Typera BB] Skipping - not enough data')
+		} else {
+			// Parse percentage value (e.g., "65,5%" -> 65.5)
+			const percentValue = parseFloat(szanse.replace(',', '.').replace('%', ''))
+			if (percentValue < 50) {
+				shouldAdd = false
+				skipReason = `szansa < 50% (${percentValue}%)`
+				console.log(`[Strefa Typera BB] Skipping - chance below 50%: ${percentValue}%`)
+			}
+		}
+		
+		if (shouldAdd) {
+			console.log('[Strefa Typera BB] Client ready, appending row to Bet Builder...')
+			
+			// Append row to Bet Builder sheet
+			await sheets.spreadsheets.values.append({
+				spreadsheetId: SPREADSHEET_ID,
+				range: `${SHEET_NAME}!A:AG`,
+				valueInputOption: 'USER_ENTERED',
+				requestBody: {
+					values: [row],
+				},
+			})
+			
+			console.log('[Strefa Typera BB] Row appended successfully')
+
+			res.json({
+				success: true,
+				message: `Added 1 row to Bet Builder`,
+				rowsAdded: 1,
+				homeTeam,
+				awayTeam,
+				betType,
+				betOption,
+				odds,
+				szanse: szanse,
+				matchId: match.id,
+			})
+		} else {
+			console.log(`[Strefa Typera BB] Match skipped: ${skipReason}`)
+			res.json({
+				success: true,
+				message: `Match skipped: ${skipReason}`,
+				rowsAdded: 0,
+				skipped: true,
+				skipReason: skipReason,
+				homeTeam,
+				awayTeam,
+				szanse: szanse,
+				matchId: match.id,
+			})
+		}
+	} catch (error: any) {
+		console.error('[Strefa Typera BB] Error:', error)
+		res.status(500).json({ error: error.message || 'Internal server error' })
+	}
+})
+
 // KROK 3: Backfill function to update "Typy" sheet with missing data
 router.post('/strefa-typera/backfill-typy', async (req, res) => {
 	try {

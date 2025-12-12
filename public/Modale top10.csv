@@ -1,0 +1,52 @@
+H ,drużyna gospodarzy
+A,drużyna gości
+WH,wygrane gospodarzy
+WA,wygrane gości
+DH,porażki gospodarzy
+DA,porażki gości
+GH+,bramki strzelone przez gospodarzy
+GH-,bramki stracone przez gospodarzy
+GA+,bramki strzelone przez gości
+GA-,bramki stracone przez gości
+GMH,suma goli w meczach gospodarzy
+GMA,suma goli w meczach gości
+CH+,Rożne wykonywane przez gospodarzy
+CH-,Rożne wykonywane przeciw gospodarzom
+CA+,Rożne wykonywane przez gości
+CA-,Rożne wykonywane przeciw gościom
+YCH+,żółte kartki otrzymane przez gospodarzy
+YCH-,żółte kartki otrzymane przez rywali gospodarzy
+YCA+,żółte kartki otrzymane przez gości
+YCA-,żółte kartki otrzymane przez rywali gości
+WH(1),wygrane gospodarzy w pierwszej połowie
+WA(1),wygrane gości w pierwszej połowie
+DH(1),porażki gospodarzy  w pierwszej połowie
+DA(1),porażki gości w pierwszej połowie
+GH(1)+,bramki strzelone przez gospodarzy w pierwszej połowie
+GH(1)-,bramki stracone przez gospodarzy w pierwszej połowie
+GA(1)+,bramki strzelone przez gości w pierwszej połowie
+GA(1)-,bramki stracone przez gości w pierwszej połowie
+GMH(1),suma goli w meczach gospodarzy w pierwszej połowie
+GMA(1),suma goli w meczach gości w pierwszej połowie
+WH(2),wygrane gospodarzy w drugiej połowie
+WA(2),wygrane gości w drugiej połowie
+DH(2),porażki gospodarzy  w drugiej połowie
+DA(2),porażki gości w drugiej połowie
+GH(2)+,bramki strzelone przez gospodarzy w drugiej połowie
+GH(2)-,bramki stracone przez gospodarzy w drugiej połowie
+GA(2)+,bramki strzelone przez gości w drugiej połowie
+GA(2)-,bramki stracone przez gości w drugiej połowie
+GMH(2),suma goli w meczach gospodarzy w drugiej połowie
+GMA(2),suma goli w meczach gości w drugiej połowie
+WHH,Wygrane gospodarzy w meczach domowych
+WAA,Wygrane gospodarzy w meczach wyjazdowych
+DHH,Wygrane gości w meczach domowych
+DAA,Wygrane gości w meczach wyjazdowych
+WHH(1),Wygrane gospodarzy w meczach domowych w pierwszej połowie
+WAA(1),Wygrane gospodarzy w meczach wyjazdowych w pierwszej połowie
+DHH(1),Wygrane gości w meczach domowych w pierwszej połowie
+DAA(1),Wygrane gości w meczach wyjazdowych w pierwszej połowie
+WHH(2),Wygrane gospodarzy w meczach domowych w drugiej połowie
+WAA(2),Wygrane gospodarzy w meczach wyjazdowych w drugiej połowie
+DHH(2),Wygrane gości w meczach domowych w drugiej połowie
+DAA(2),Wygrane gości w meczach wyjazdowych w drugiej połowie

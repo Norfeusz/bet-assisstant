@@ -59,6 +59,7 @@ export function addToWatchedMatches(match, searchType) {
 		id: matchId,
 		date: match.date,
 		league: match.league,
+		leagueId: match.leagueId || null,
 		country: match.country || '',
 		homeTeam: match.homeTeam,
 		awayTeam: match.awayTeam,
@@ -162,7 +163,7 @@ export function showWatchedMatchesModal() {
                     <button class="btn-small" onclick="window.open('https://docs.google.com/spreadsheets/d/1xMCeRR4TxxtdBQNwcCLKvs-AqxPk3l1Hqm_MNyKRWnM/edit', '_blank')" 
                         style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 6px 12px; font-size: 13px; font-weight: 600;"
                         title="Otwórz arkusz Strefa Typera">
-                        📊 Strefa Typera
+                        📄 ST
                     </button>
                     <button class="btn-small" onclick="window.clearAllWatchedMatches()" 
                         style="background: #7f1d1d; color: white; padding: 6px 12px; font-size: 13px;"
@@ -267,12 +268,12 @@ export function showWatchedMatchesModal() {
                     <td style="padding: 12px;">
                         <div style="display: flex; gap: 8px;">
                             <button
-                                onclick="window.addToStrefaTypera('${match.homeTeam.replace(/'/g, "\\'")}', '${match.awayTeam.replace(/'/g, "\\'")}', '${match.league.replace(/'/g, "\\'")}', '${match.date}')"
+                                onclick="window.addToStrefaTypera('${match.homeTeam.replace(/'/g, "\\'")}', '${match.awayTeam.replace(/'/g, "\\'")}', '${match.league.replace(/'/g, "\\'")}', '${match.date}', '${match.country?.replace(/'/g, "\\'") || ''}', ${match.leagueId || 'null'})"
                                 style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
                                 onmouseover="this.style.background='linear-gradient(135deg, #059669 0%, #047857 100%)'"
                                 onmouseout="this.style.background='linear-gradient(135deg, #10b981 0%, #059669 100%)'"
                                 title="Dodaj do Strefa Typera">
-                                📊 Strefa typera
+                                📄 ST
                             </button>
                             <button
                                 onclick="window.removeFromWatchedMatches('${match.id}')"

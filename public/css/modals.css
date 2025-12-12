@@ -771,6 +771,31 @@
 	object-fit: contain;
 }
 
+.flashscore-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 6px;
+	background: #fff;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	transition: all 0.2s ease;
+	vertical-align: middle;
+	padding: 4px;
+}
+
+.flashscore-icon:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flashscore-icon img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
 .match-details-header .superbet-icon {
 	position: absolute;
 	right: 50px;

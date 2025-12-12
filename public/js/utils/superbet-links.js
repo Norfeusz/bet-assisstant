@@ -173,10 +173,9 @@ export function createSuperbetIcon(url) {
 export function createFlashscoreButton(url) {
 	return `
 		<a href="${url}" target="_blank" rel="noopener noreferrer" 
-			class="btn-small" 
-			style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+			class="flashscore-icon" 
 			title="Zobacz na Flashscore">
-			⚡ Flashscore
+			<img src="/images/flashscore.webp" alt="Flashscore" />
 		</a>
 	`
 }

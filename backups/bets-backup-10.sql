@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict FJDjFOOBLCfabBPSoXhy9juN2mE42IYjPzscY9Jky2mZKZZ8ytzfz02zYiL1V9r
+\restrict ceGvFbXj53OCLnY9kLBiBspZd4Z0WkTow17m1SztNdxW5ibnlVmtfIfUhj9Gsud
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -238,5 +238,5 @@ SELECT pg_catalog.setval('public.bets_id_seq', 202, true);
 -- PostgreSQL database dump complete
 --
 
-\unrestrict FJDjFOOBLCfabBPSoXhy9juN2mE42IYjPzscY9Jky2mZKZZ8ytzfz02zYiL1V9r
+\unrestrict ceGvFbXj53OCLnY9kLBiBspZd4Z0WkTow17m1SztNdxW5ibnlVmtfIfUhj9Gsud
 
