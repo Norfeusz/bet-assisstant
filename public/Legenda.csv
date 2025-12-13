@@ -1,0 +1,52 @@
+H ,dru¿yna gospodarzy
+A,dru¿yna goœci
+WH,wygrane gospodarzy
+WA,wygrane goœci
+DH,pora¿ki gospodarzy
+DA,pora¿ki goœci
+GH+,bramki strzelone przez gospodarzy
+GH-,bramki stracone przez gospodarzy
+GA+,bramki strzelone przez goœci
+GA-,bramki stracone przez goœci
+GMH,suma goli w meczach gospodarzy
+GMA,suma goli w meczach goœci
+CH+,Ro¿ne wykonywane przez gospodarzy
+CH-,Ro¿ne wykonywane przeciw gospodarzom
+CA+,Ro¿ne wykonywane przez goœci
+CA-,Ro¿ne wykonywane przeciw goœciom
+YCH+,¿ó³te kartki otrzymane przez gospodarzy
+YCH-,¿ó³te kartki otrzymane przez rywali gospodarzy
+YCA+,¿ó³te kartki otrzymane przez goœci
+YCA-,¿ó³te kartki otrzymane przez rywali goœci
+WH(1),wygrane gospodarzy w pierwszej po³owie
+WA(1),wygrane goœci w pierwszej po³owie
+DH(1),pora¿ki gospodarzy  w pierwszej po³owie
+DA(1),pora¿ki goœci w pierwszej po³owie
+GH(1)+,bramki strzelone przez gospodarzy w pierwszej po³owie
+GH(1)-,bramki stracone przez gospodarzy w pierwszej po³owie
+GA(1)+,bramki strzelone przez goœci w pierwszej po³owie
+GA(1)-,bramki stracone przez goœci w pierwszej po³owie
+GMH(1),suma goli w meczach gospodarzy w pierwszej po³owie
+GMA(1),suma goli w meczach goœci w pierwszej po³owie
+WH(2),wygrane gospodarzy w drugiej po³owie
+WA(2),wygrane goœci w drugiej po³owie
+DH(2),pora¿ki gospodarzy  w drugiej po³owie
+DA(2),pora¿ki goœci w drugiej po³owie
+GH(2)+,bramki strzelone przez gospodarzy w drugiej po³owie
+GH(2)-,bramki stracone przez gospodarzy w drugiej po³owie
+GA(2)+,bramki strzelone przez goœci w drugiej po³owie
+GA(2)-,bramki stracone przez goœci w drugiej po³owie
+GMH(2),suma goli w meczach gospodarzy w drugiej po³owie
+GMA(2),suma goli w meczach goœci w drugiej po³owie
+WHH,Wygrane gospodarzy w meczach domowych
+WAA,Wygrane gospodarzy w meczach wyjazdowych
+DHH,Wygrane goœci w meczach domowych
+DAA,Wygrane goœci w meczach wyjazdowych
+WHH(1),Wygrane gospodarzy w meczach domowych w pierwszej po³owie
+WAA(1),Wygrane gospodarzy w meczach wyjazdowych w pierwszej po³owie
+DHH(1),Wygrane goœci w meczach domowych w pierwszej po³owie
+DAA(1),Wygrane goœci w meczach wyjazdowych w pierwszej po³owie
+WHH(2),Wygrane gospodarzy w meczach domowych w drugiej po³owie
+WAA(2),Wygrane gospodarzy w meczach wyjazdowych w drugiej po³owie
+DHH(2),Wygrane goœci w meczach domowych w drugiej po³owie
+DAA(2),Wygrane goœci w meczach wyjazdowych w drugiej po³owie

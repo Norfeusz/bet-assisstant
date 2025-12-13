@@ -1741,6 +1741,29 @@ async function showBetFinderMatchDetailsModal(result) {
 				: `Śr. traconych: ${result.strongAvgAgainst || 0}`
 			mainStatText = `Łączna średnia: ${result.averageCorners} (${result.weakTeam}: ${result.weakAvgFor} wykonywanych)`
 		}
+	} else if (result.searchType === 'most-team-corners' || result.searchType === 'least-team-corners') {
+		// Team corners search (drużyna)
+		searchType = result.searchType
+		avgThreshold = result.averageCorners || 0
+		isLeastSearch = result.searchType === 'least-team-corners'
+		const isStrongHome = result.strongTeam === result.homeTeam
+		if (result.searchType === 'most-team-corners') {
+			homeStatsText = isStrongHome 
+				? `Śr. wykonywanych: ${result.strongAvgFor || 0}`
+				: `Śr. traconych: ${result.weakAvgAgainst || 0}`
+			awayStatsText = isStrongHome
+				? `Śr. traconych: ${result.weakAvgAgainst || 0}`
+				: `Śr. wykonywanych: ${result.strongAvgFor || 0}`
+			mainStatText = `Łączna średnia: ${result.averageCorners} (${result.strongTeam}: ${result.strongAvgFor} wykonywanych)`
+		} else {
+			homeStatsText = isStrongHome
+				? `Śr. traconych: ${result.strongAvgAgainst || 0}`
+				: `Śr. wykonywanych: ${result.weakAvgFor || 0}`
+			awayStatsText = isStrongHome
+				? `Śr. wykonywanych: ${result.weakAvgFor || 0}`
+				: `Śr. traconych: ${result.strongAvgAgainst || 0}`
+			mainStatText = `Łączna średnia: ${result.averageCorners} (${result.weakTeam}: ${result.weakAvgFor} wykonywanych)`
+		}
 	} else if (result.averageTotalCorners !== undefined) {
 		// Total corners search (both most and least)
 		searchType = result.searchType === 'total-corners-least' ? 'total-corners-least' : 'total-corners'
@@ -1911,6 +1934,30 @@ async function showBetFinderMatchDetailsModal(result) {
 						statValue = isTeamHome ? match.homeCorners : match.awayCorners
 					} else {
 						// Silna drużyna - pokazuj tracone
+						statValue = isTeamHome ? match.awayCorners : match.homeCorners
+					}
+				}
+				statLabel = `${statValue} rż.`
+			} else {
+				return '<span style="color: #999;">—</span>'
+			}
+		} else if (searchType === 'most-team-corners' || searchType === 'least-team-corners') {
+			// Team corners (drużyna) - pokazuj rożne wykonywane
+			if (match.homeCorners != null && match.awayCorners != null) {
+				const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+				const isTeamHome = match.homeTeam === teamName
+				const isStrongTeam = teamName === result.strongTeam
+				
+				if (searchType === 'most-team-corners') {
+					if (isStrongTeam) {
+						statValue = isTeamHome ? match.homeCorners : match.awayCorners
+					} else {
+						statValue = isTeamHome ? match.awayCorners : match.homeCorners
+					}
+				} else {
+					if (!isStrongTeam) {
+						statValue = isTeamHome ? match.homeCorners : match.awayCorners
+					} else {
 						statValue = isTeamHome ? match.awayCorners : match.homeCorners
 					}
 				}
@@ -2123,6 +2170,54 @@ async function showBetFinderMatchDetailsModal(result) {
 				}
 			} else {
 				// Silna drużyna (traci) - czerwone gdy > średnia traconych, zielone gdy <=
+				const avgAgainst = parseFloat(result.strongAvgAgainst) || 0
+				if (statValue <= avgAgainst) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			}
+		} else if (searchType === 'most-team-corners') {
+			// Najwięcej rożnych (drużyna)
+			const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+			const isStrongTeam = teamName === result.strongTeam
+			
+			if (isStrongTeam) {
+				const avgFor = parseFloat(result.strongAvgFor) || 0
+				if (statValue >= avgFor) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			} else {
+				const avgAgainst = parseFloat(result.weakAvgAgainst) || 0
+				if (statValue >= avgAgainst) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			}
+		} else if (searchType === 'least-team-corners') {
+			// Najmniej rożnych (drużyna)
+			const teamName = isHomeTeam ? result.homeTeam : result.awayTeam
+			const isStrongTeam = teamName === result.strongTeam
+			
+			if (!isStrongTeam) {
+				const avgFor = parseFloat(result.weakAvgFor) || 0
+				if (statValue <= avgFor) {
+					color = '#059669'
+					bgColor = '#d1fae5'
+				} else {
+					color = '#dc2626'
+					bgColor = '#fee2e2'
+				}
+			} else {
 				const avgAgainst = parseFloat(result.strongAvgAgainst) || 0
 				if (statValue <= avgAgainst) {
 					color = '#059669'
@@ -3163,6 +3258,9 @@ window.queueMostTotalOffsides = BetFinder.queueMostTotalOffsides
 window.queueLeastTotalOffsides = BetFinder.queueLeastTotalOffsides
 window.queueMostOffsides = BetFinder.queueMostOffsides
 window.queueLeastOffsides = BetFinder.queueLeastOffsides
+window.queueOffsidesAdvantage = BetFinder.queueOffsidesAdvantage
+window.queueMostCornersTeam = BetFinder.queueMostCornersTeam
+window.queueLeastCornersTeam = BetFinder.queueLeastCornersTeam
 
 // Queue all searches by category
 window.queueAllResultSearches = function() {
@@ -3186,15 +3284,18 @@ window.queueAllCornersSearches = function() {
 	BetFinder.queueMostTotalCorners()
 	BetFinder.queueLeastTotalCorners()
 	BetFinder.queueCornerAdvantage()
-	showToast('Dodano 7 wyszukiwań z kategorii "Rożne" do kolejki', 'success')
+	BetFinder.queueMostCornersTeam()
+	BetFinder.queueLeastCornersTeam()
+	showToast('Dodano 9 wyszukiwań z kategorii "Rożne" do kolejki', 'success')
 }
 
 window.queueAllOffsidesSearches = function() {
 	BetFinder.queueMostOffsides()
 	BetFinder.queueLeastOffsides()
+	BetFinder.queueOffsidesAdvantage()
 	BetFinder.queueMostTotalOffsides()
 	BetFinder.queueLeastTotalOffsides()
-	showToast('Dodano 4 wyszukiwania z kategorii "Spalone" do kolejki', 'success')
+	showToast('Dodano 5 wyszukiwań z kategorii "Spalone" do kolejki', 'success')
 }
 
 window.queueAllHomeAwaySearches = function() {
@@ -3861,27 +3962,27 @@ window.showAutoAddTypesModal = function() {
 		{ name: '🏆 Wygrane vs Przegrane', func: 'queueWinnerVsLoser', group: 'Rezultat' },
 		{ name: '⚽ Najwięcej bramek', func: 'queueMostGoals', group: 'Bramki' },
 		{ name: '⚽ Najmniej bramek', func: 'queueLeastGoals', group: 'Bramki' },
-		{ name: '⚽ Handicap 1.5', func: 'queueHandicap15', group: 'Bramki' },
 		{ name: '⚽ BTS - Obie strzelają', func: 'queueMostBTS', group: 'Bramki' },
 		{ name: '⚽ No BTS', func: 'queueNoBTS', group: 'Bramki' },
 		{ name: '⚽ Przewaga bramkowa', func: 'queueGoalAdvantage', group: 'Bramki' },
-		{ name: '🚩 Najwięcej rożnych', func: 'queueMostCorners', group: 'Rożne' },
-		{ name: '🚩 Najmniej rożnych', func: 'queueLeastCorners', group: 'Rożne' },
 		{ name: '🚩 Najwięcej rożnych pojedynczo', func: 'queueMostSingleTeamCorners', group: 'Rożne' },
 		{ name: '🚩 Najmniej rożnych pojedynczo', func: 'queueLeastSingleTeamCorners', group: 'Rożne' },
 		{ name: '🚩 Najwięcej rożnych mecz', func: 'queueMostTotalCorners', group: 'Rożne' },
 		{ name: '🚩 Najmniej rożnych mecz', func: 'queueLeastTotalCorners', group: 'Rożne' },
 		{ name: '🚩 Przewaga rożnych', func: 'queueCornerAdvantage', group: 'Rożne' },
+		{ name: '🚩 Najwięcej rożnych (drużyna)', func: 'queueMostCornersTeam', group: 'Rożne' },
+		{ name: '🚩 Najmniej rożnych (drużyna)', func: 'queueLeastCornersTeam', group: 'Rożne' },
 		{ name: '🏠 Wygrane u siebie', func: 'queueHomeWins', group: 'Dom/Wyjazd' },
 		{ name: '✈️ Wygrane na wyjeździe', func: 'queueAwayWins', group: 'Dom/Wyjazd' },
 		{ name: '🏠 Porażki u siebie', func: 'queueHomeLosses', group: 'Dom/Wyjazd' },
 		{ name: '✈️ Porażki na wyjeździe', func: 'queueAwayLosses', group: 'Dom/Wyjazd' },
 		{ name: '🏠 Przewaga gospodarzy', func: 'queueHomeAdvantage', group: 'Dom/Wyjazd' },
 		{ name: '✈️ Przewaga gości', func: 'queueAwayAdvantage', group: 'Dom/Wyjazd' },
-		{ name: '⛔ Najwięcej spalonych', func: 'queueMostOffsides', group: 'Spalone' },
-		{ name: '⛔ Najmniej spalonych', func: 'queueLeastOffsides', group: 'Spalone' },
-		{ name: '⛔ Najwięcej spalonych mecz', func: 'queueMostTotalOffsides', group: 'Spalone' },
-		{ name: '⛔ Najmniej spalonych mecz', func: 'queueLeastTotalOffsides', group: 'Spalone' },
+		{ name: '⛔ Najwięcej spalonych (drużyna)', func: 'queueMostOffsides', group: 'Spalone' },
+		{ name: '⛔ Najmniej spalonych (drużyna)', func: 'queueLeastOffsides', group: 'Spalone' },
+		{ name: '⚡ Przewaga spalonych', func: 'queueOffsidesAdvantage', group: 'Spalone' },
+		{ name: '⛔ Najwięcej spalonych (mecz)', func: 'queueMostTotalOffsides', group: 'Spalone' },
+		{ name: '⛔ Najmniej spalonych (mecz)', func: 'queueLeastTotalOffsides', group: 'Spalone' },
 	]
 
 	const modal = document.createElement('div')
@@ -4022,6 +4123,8 @@ window.startAutoAddTypes = async function(mode) {
 		'queueMostTotalCorners': 'total-corners',
 		'queueLeastTotalCorners': 'total-corners-least',
 		'queueCornerAdvantage': 'corner-advantage',
+		'queueMostCornersTeam': 'most-team-corners',
+		'queueLeastCornersTeam': 'least-team-corners',
 		'queueHomeWins': 'home-wins',
 		'queueAwayWins': 'away-wins',
 		'queueHomeLosses': 'home-losses',
@@ -4030,6 +4133,7 @@ window.startAutoAddTypes = async function(mode) {
 		'queueAwayAdvantage': 'away-advantage',
 		'queueMostOffsides': 'most-offsides',
 		'queueLeastOffsides': 'least-offsides',
+		'queueOffsidesAdvantage': 'offsides-advantage',
 		'queueMostTotalOffsides': 'most-total-offsides',
 		'queueLeastTotalOffsides': 'least-total-offsides'
 	}

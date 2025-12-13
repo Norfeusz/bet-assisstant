@@ -21,7 +21,45 @@ export async function calculateBetStatistics(
 	league?: string, // filter by league
 	limit: number = 10 // number of matches to analyze (5, 10, or 15)
 ): Promise<MatchStats> {
-	console.log(`[calculateBetStatistics] homeTeam: ${homeTeam}, awayTeam: ${awayTeam}, betType: ${betType}, betOption: ${betOption}, assumption: ${assumption}, limit: ${limit}`)
+	// Map Polish bet type names to English internal names
+	const betTypeMap: Record<string, string> = {
+		'gole mecz – over': 'goals_over',
+		'gole mecz – under': 'goals_under',
+		'gole mecz - over': 'goals_over',
+		'gole mecz - under': 'goals_under',
+		'Handi 1': 'handi1',
+		'Handi 2': 'handi2',
+		'BTS': 'bts',
+		'Bez BTS': 'bts',
+		'rożne mecz – over': 'corners_match_over',
+		'rożne mecz – under': 'corners_match_under',
+		'rożne mecz - over': 'corners_match_over',
+		'rożne mecz - under': 'corners_match_under',
+		'gole jedna drużyna – over': 'team_goals_over',
+		'gole jedna drużyna – under': 'team_goals_under',
+		'gole jedna drużyna - over': 'team_goals_over',
+		'gole jedna drużyna - under': 'team_goals_under',
+		'Rożne 1 – over': 'team1_corners_over',
+		'rożne 2 - over': 'team2_corners_over',
+		'Rożne 1 – under': 'team1_corners_under',
+		'Rożne 2 – under': 'team2_corners_under',
+		'Rożne 1 – handi': 'team1_corners_handi',
+		'Rożne 2 – handi': 'team2_corners_handi',
+		'spalone mecz – over': 'offsides_match_over',
+		'spalone mecz – under': 'offsides_match_under',
+		'spalone mecz - over': 'offsides_match_over',
+		'spalone mecz - under': 'offsides_match_under',
+		'spalone 1 – over': 'team1_offsides_over',
+		'spalone 2 – over': 'team2_offsides_over',
+		'spalone 1 – under': 'team1_offsides_under',
+		'spalone 2 – under': 'team2_offsides_under',
+		'spalone 1 – handi': 'team1_offsides_handi',
+		'spalone 2 – handi': 'team2_offsides_handi',
+	}
+	
+	const normalizedBetType = betTypeMap[betType] || betType
+	
+	console.log(`[calculateBetStatistics] homeTeam: ${homeTeam}, awayTeam: ${awayTeam}, betType: ${betType} (normalized: ${normalizedBetType}), betOption: ${betOption}, assumption: ${assumption}, limit: ${limit}`)
 
 	try {
 		// Determine minimum required matches based on limit
@@ -48,8 +86,8 @@ export async function calculateBetStatistics(
 		console.log(`[calculateBetStatistics] homeMatches: ${homeMatches.length}, awayMatches: ${awayMatches.length}, minLimit: ${minLimit}`)
 
 		// Calculate percentage based on bet type
-		const homeStats = calculatePercentage(homeMatches, betType, betOption, homeTeam, true, minLimit)
-		const awayStats = calculatePercentage(awayMatches, betType, betOption, awayTeam, false, minLimit)
+		const homeStats = calculatePercentage(homeMatches, normalizedBetType, betOption, homeTeam, true, minLimit)
+		const awayStats = calculatePercentage(awayMatches, normalizedBetType, betOption, awayTeam, false, minLimit)
 
 		console.log(`[calculateBetStatistics] homePercentage: ${homeStats.percentage}, awayPercentage: ${awayStats.percentage}`)
 
@@ -123,8 +161,8 @@ function calculatePercentage(
 	}
 
 	// Check if this bet type requires corner or offside data
-	const requiresCornerData = betType.startsWith('corners_')
-	const requiresOffsideData = betType.startsWith('offsides_')
+	const requiresCornerData = betType.startsWith('corners_') || betType.includes('_corners_')
+	const requiresOffsideData = betType.startsWith('offsides_') || betType.includes('_offsides_')
 
 	let matchingCount = 0
 	let matchesWithData = 0 // Count matches that have required data
@@ -156,6 +194,15 @@ function calculatePercentage(
 		const totalGoals = (teamGoals || 0) + (opponentGoals || 0)
 		const totalCorners = (teamCorners || 0) + (opponentCorners || 0)
 		const totalOffsides = (teamOffsides || 0) + (opponentOffsides || 0)
+		
+		// For team-based corner bets, we need actual home/away values from the match
+		const homeCorners = match.home_corners || 0
+		const awayCorners = match.away_corners || 0
+
+		// Debug logging for offsides
+		if (requiresOffsideData) {
+			console.log(`[DEBUG] Match: ${match.home_team} vs ${match.away_team} | teamOffsides: ${teamOffsides}, opponentOffsides: ${opponentOffsides}, totalOffsides: ${totalOffsides}`)
+		}
 
 		let meetsCondition = false
 
@@ -204,7 +251,15 @@ function calculatePercentage(
 				const goalsUnderValue = parseFloat(betOption)
 				meetsCondition = totalGoals < goalsUnderValue
 				break
+		case 'team_goals_over': // Team goals over (one team's goals)
+			const teamGoalsOverValue = parseFloat(betOption)
+			meetsCondition = (teamGoals || 0) > teamGoalsOverValue
+			break
 
+		case 'team_goals_under': // Team goals under (one team's goals)
+			const teamGoalsUnderValue = parseFloat(betOption)
+			meetsCondition = (teamGoals || 0) < teamGoalsUnderValue
+			break
 		case 'corners_1_over': // Corners 1 over (HOME team corners)
 			const corners1OverValue = parseFloat(betOption)
 			if (isHomeTeamInUpcomingMatch) {
@@ -251,17 +306,173 @@ function calculatePercentage(
 
 		case 'corners_match_over': // Corners match over (total in match)
 				const cornersMatchOverValue = parseFloat(betOption)
-				meetsCondition = totalCorners >= cornersMatchOverValue
+				meetsCondition = totalCorners > cornersMatchOverValue
 				break
 
 			case 'corners_match_under': // Corners match under (total in match)
 				const cornersMatchUnderValue = parseFloat(betOption)
-				meetsCondition = totalCorners <= cornersMatchUnderValue
+				meetsCondition = totalCorners < cornersMatchUnderValue
 				break
 
-			case 'offsides_over': // Offsides over
+			case 'team1_corners_over': // Team 1 corners over (home team in upcoming match)
+				const team1CornersOverValue = parseFloat(betOption)
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check team's corners
+					meetsCondition = (teamCorners || 0) > team1CornersOverValue
+				} else {
+					// Away team in upcoming match - check opponent's (home team's) corners
+					meetsCondition = (opponentCorners || 0) > team1CornersOverValue
+				}
+				break
+
+			case 'team2_corners_over': // Team 2 corners over (away team in upcoming match)
+				const team2CornersOverValue = parseFloat(betOption)
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check opponent's (away team's) corners
+					meetsCondition = (opponentCorners || 0) > team2CornersOverValue
+				} else {
+					// Away team in upcoming match - check team's corners
+					meetsCondition = (teamCorners || 0) > team2CornersOverValue
+				}
+				break
+
+			case 'team1_corners_under': // Team 1 corners under (home team in upcoming match)
+				const team1CornersUnderValue = parseFloat(betOption)
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check team's corners
+					meetsCondition = (teamCorners || 0) < team1CornersUnderValue
+				} else {
+					// Away team in upcoming match - check opponent's (home team's) corners
+					meetsCondition = (opponentCorners || 0) < team1CornersUnderValue
+				}
+				break
+
+			case 'team2_corners_under': // Team 2 corners under (away team in upcoming match)
+				const team2CornersUnderValue = parseFloat(betOption)
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check opponent's (away team's) corners
+					meetsCondition = (opponentCorners || 0) < team2CornersUnderValue
+				} else {
+					// Away team in upcoming match - check team's corners
+					meetsCondition = (teamCorners || 0) < team2CornersUnderValue
+				}
+				break
+
+			case 'team1_corners_handi': // Team 1 corners handicap
+				const team1CornersHandiValue = parseFloat(betOption)
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check team's corners with handicap
+					meetsCondition = (teamCorners || 0) + team1CornersHandiValue > (opponentCorners || 0)
+				} else {
+					// Away team in upcoming match - check opponent's corners with handicap
+					meetsCondition = (opponentCorners || 0) + team1CornersHandiValue > (teamCorners || 0)
+				}
+				break
+
+			case 'team2_corners_handi': // Team 2 corners handicap
+				const team2CornersHandiValue = parseFloat(betOption)
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check opponent's corners with handicap
+					meetsCondition = (opponentCorners || 0) + team2CornersHandiValue > (teamCorners || 0)
+				} else {
+					// Away team in upcoming match - check team's corners with handicap
+					meetsCondition = (teamCorners || 0) + team2CornersHandiValue > (opponentCorners || 0)
+				}
+				break
+
+			case 'offsides_match_over': // Match offsides over (both teams total)
+				const offsidesMatchOverValue = parseFloat(betOption)
+				meetsCondition = totalOffsides > offsidesMatchOverValue
+				console.log(`[DEBUG offsides_match_over] totalOffsides: ${totalOffsides}, threshold: ${offsidesMatchOverValue}, meets: ${meetsCondition}`)
+				break
+
+			case 'offsides_match_under': // Match offsides under (both teams total)
+				const offsidesMatchUnderValue = parseFloat(betOption)
+				meetsCondition = totalOffsides < offsidesMatchUnderValue
+				break
+
+			case 'team1_offsides_over': // Team 1 offsides over (home team in upcoming match)
+				const team1OffsidesOverValue = parseFloat(betOption)
+				const teamOffsides = isTeamHome ? match.home_offsides : match.away_offsides
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check team's offsides
+					meetsCondition = (teamOffsides || 0) > team1OffsidesOverValue
+				} else {
+					// Away team in upcoming match - check opponent's (home team's) offsides
+					const opponentOffsides = isTeamHome ? match.away_offsides : match.home_offsides
+					meetsCondition = (opponentOffsides || 0) > team1OffsidesOverValue
+				}
+				break
+
+			case 'team2_offsides_over': // Team 2 offsides over (away team in upcoming match)
+				const team2OffsidesOverValue = parseFloat(betOption)
+				const teamOffsides2 = isTeamHome ? match.home_offsides : match.away_offsides
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check opponent's (away team's) offsides
+					const opponentOffsides2 = isTeamHome ? match.away_offsides : match.home_offsides
+					meetsCondition = (opponentOffsides2 || 0) > team2OffsidesOverValue
+				} else {
+					// Away team in upcoming match - check team's offsides
+					meetsCondition = (teamOffsides2 || 0) > team2OffsidesOverValue
+				}
+				break
+
+			case 'team1_offsides_under': // Team 1 offsides under (home team in upcoming match)
+				const team1OffsidesUnderValue = parseFloat(betOption)
+				const teamOffsidesUnder1 = isTeamHome ? match.home_offsides : match.away_offsides
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check team's offsides
+					meetsCondition = (teamOffsidesUnder1 || 0) < team1OffsidesUnderValue
+				} else {
+					// Away team in upcoming match - check opponent's (home team's) offsides
+					const opponentOffsidesUnder1 = isTeamHome ? match.away_offsides : match.home_offsides
+					meetsCondition = (opponentOffsidesUnder1 || 0) < team1OffsidesUnderValue
+				}
+				break
+
+			case 'team2_offsides_under': // Team 2 offsides under (away team in upcoming match)
+				const team2OffsidesUnderValue = parseFloat(betOption)
+				const teamOffsidesUnder2 = isTeamHome ? match.home_offsides : match.away_offsides
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check opponent's (away team's) offsides
+					const opponentOffsidesUnder2 = isTeamHome ? match.away_offsides : match.home_offsides
+					meetsCondition = (opponentOffsidesUnder2 || 0) < team2OffsidesUnderValue
+				} else {
+					// Away team in upcoming match - check team's offsides
+					meetsCondition = (teamOffsidesUnder2 || 0) < team2OffsidesUnderValue
+				}
+				break
+
+			case 'team1_offsides_handi': // Team 1 offsides handicap
+				const team1OffsidesHandiValue = parseFloat(betOption)
+				const teamOffsidesHandi1 = isTeamHome ? match.home_offsides : match.away_offsides
+				const opponentOffsidesHandi1 = isTeamHome ? match.away_offsides : match.home_offsides
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check team's offsides with handicap
+					meetsCondition = (teamOffsidesHandi1 || 0) + team1OffsidesHandiValue > (opponentOffsidesHandi1 || 0)
+				} else {
+					// Away team in upcoming match - check opponent's offsides with handicap
+					meetsCondition = (opponentOffsidesHandi1 || 0) + team1OffsidesHandiValue > (teamOffsidesHandi1 || 0)
+				}
+				break
+
+			case 'team2_offsides_handi': // Team 2 offsides handicap
+				const team2OffsidesHandiValue = parseFloat(betOption)
+				const teamOffsidesHandi2 = isTeamHome ? match.home_offsides : match.away_offsides
+				const opponentOffsidesHandi2 = isTeamHome ? match.away_offsides : match.home_offsides
+				if (isHomeTeamInUpcomingMatch) {
+					// Home team in upcoming match - check opponent's offsides with handicap
+					meetsCondition = (opponentOffsidesHandi2 || 0) + team2OffsidesHandiValue > (teamOffsidesHandi2 || 0)
+				} else {
+					// Away team in upcoming match - check team's offsides with handicap
+					meetsCondition = (teamOffsidesHandi2 || 0) + team2OffsidesHandiValue > (opponentOffsidesHandi2 || 0)
+				}
+				break
+
+			case 'offsides_over': // Offsides over (legacy)
 				const offsidesOverValue = parseFloat(betOption)
 				meetsCondition = totalOffsides > offsidesOverValue
+				console.log(`[DEBUG offsides_over] totalOffsides: ${totalOffsides}, threshold: ${offsidesOverValue}, meets: ${meetsCondition}`)
 				break
 
 			case 'offsides_under': // Offsides under
