@@ -9,20 +9,6 @@ const prisma = new PrismaClient()
 // Google Sheets configuration
 const SPREADSHEET_ID = process.env.GOOGLE_SHEETS_ID || ''
 
-// Load bet conditions configuration
-const BET_CONDITIONS_PATH = path.join(process.cwd(), 'config', 'bet-conditions.json')
-let betConditionsConfig: any = null
-
-function loadBetConditions() {
-	if (!betConditionsConfig) {
-		if (!fs.existsSync(BET_CONDITIONS_PATH)) {
-			throw new Error('config/bet-conditions.json not found')
-		}
-		betConditionsConfig = JSON.parse(fs.readFileSync(BET_CONDITIONS_PATH, 'utf-8'))
-	}
-	return betConditionsConfig
-}
-
 async function getGoogleSheetsClient() {
 	const { google } = await import('googleapis')
 	const credentialsPath = path.join(process.cwd(), 'config', 'google-sheets-config.json')
@@ -56,7 +42,7 @@ interface BetVerificationResult {
 }
 
 /**
- * Verify bet condition based on bet type and actual match results using config file
+ * Verify bet condition based on bet type and actual match results
  */
 function verifyBetCondition(
 	betType: string,
@@ -68,87 +54,79 @@ function verifyBetCondition(
 	homeOffsides: number | null,
 	awayOffsides: number | null
 ): 'tak' | 'nie' | null {
-	// Load configuration
-	const config = loadBetConditions()
-	
-	// Find matching condition in config
-	let condition = config.betConditions.find((c: any) => {
-		// Match by betType and optionally betOption
-		if (c.betType !== betType) {
-			// Check aliases
-			if (!c.aliases || !c.aliases.includes(betType)) {
-				return false
-			}
-		}
-		// If condition has specific betOption, it must match
-		if (c.betOption && c.betOption.toLowerCase() !== betOption.toLowerCase()) {
-			return false
-		}
-		return true
-	})
-	
-	if (!condition) {
-		console.warn(`No configuration found for bet type: ${betType}`)
-		return null
-	}
-	
-	// Check if required data is available
+	// If match data is missing, cannot verify
 	if (homeGoals === null || awayGoals === null) {
 		return null
 	}
-	
-	// Parse threshold from betOption if needed
-	const threshold = parseFloat(betOption)
-	
-	// Evaluate condition using Function constructor (safer than eval)
-	try {
-		const conditionFn = new Function(
-			'homeGoals',
-			'awayGoals',
-			'homeCorners',
-			'awayCorners',
-			'homeOffsides',
-			'awayOffsides',
-			'threshold',
-			`return ${condition.condition};`
-		)
-		
-		const result = conditionFn(
-			homeGoals,
-			awayGoals,
-			homeCorners,
-			awayCorners,
-			homeOffsides,
-			awayOffsides,
-			threshold
-		)
-		
-		return result ? 'tak' : 'nie'
-	} catch (error) {
-		console.error(`Error evaluating condition for ${betType}:`, error)
-		return null
-	}
-}
 
-/**
- * Get result columns based on bet type using config file
- */
-function getResultColumns(betType: string): { homeResult: string; awayResult: string } {
-	const config = loadBetConditions()
-	
-	// Find matching condition
-	const condition = config.betConditions.find((c: any) => 
-		c.betType === betType || (c.aliases && c.aliases.includes(betType))
-	)
-	
-	if (!condition) {
-		// Default to goals
-		return { homeResult: 'home_goals', awayResult: 'away_goals' }
-	}
-	
-	return {
-		homeResult: condition.homeResult,
-		awayResult: condition.awayResult
+	const threshold = parseFloat(betOption)
+
+	switch (betType) {
+		// Win bets
+		case '1':
+			return homeGoals > awayGoals ? 'tak' : 'nie'
+		case '2':
+			return homeGoals < awayGoals ? 'tak' : 'nie'
+
+		// Both teams to score
+		case 'bts':
+			if (betOption.toLowerCase() === 'tak') {
+				return homeGoals > 0 && awayGoals > 0 ? 'tak' : 'nie'
+			} else {
+				return homeGoals === 0 || awayGoals === 0 ? 'tak' : 'nie'
+			}
+
+		// Handicap 1
+		case 'handi_1':
+			return homeGoals + threshold > awayGoals ? 'tak' : 'nie'
+
+		// Handicap 2
+		case 'handi_2':
+			return homeGoals < awayGoals + threshold ? 'tak' : 'nie'
+
+		// Goals over/under
+		case 'goals_over':
+			return homeGoals + awayGoals > threshold ? 'tak' : 'nie'
+		case 'goals_under':
+			return homeGoals + awayGoals < threshold ? 'tak' : 'nie'
+
+		// Corners - team 1
+		case 'corners_1_over':
+			if (homeCorners === null) return null
+			return homeCorners > threshold ? 'tak' : 'nie'
+		case 'corners_1_under':
+			if (homeCorners === null) return null
+			return homeCorners < threshold ? 'tak' : 'nie'
+
+		// Corners - team 2
+		case 'corners_2_over':
+			if (awayCorners === null) return null
+			return awayCorners > threshold ? 'tak' : 'nie'
+		case 'corners_2_under':
+			if (awayCorners === null) return null
+			return awayCorners < threshold ? 'tak' : 'nie'
+
+		// Corners - match total
+		case 'corners_match_over':
+		case 'corners_over':
+			if (homeCorners === null || awayCorners === null) return null
+			return homeCorners + awayCorners > threshold ? 'tak' : 'nie'
+		case 'corners_match_under':
+		case 'corners_under':
+			if (homeCorners === null || awayCorners === null) return null
+			return homeCorners + awayCorners < threshold ? 'tak' : 'nie'
+
+		// Offsides
+		case 'offsides_over':
+			if (homeOffsides === null || awayOffsides === null) return null
+			return homeOffsides + awayOffsides > threshold ? 'tak' : 'nie'
+		case 'offsides_under':
+			if (homeOffsides === null || awayOffsides === null) return null
+			return homeOffsides + awayOffsides < threshold ? 'tak' : 'nie'
+
+		default:
+			console.warn(`Unknown bet type: ${betType}`)
+			return null
 	}
 }
 
@@ -262,23 +240,33 @@ router.post('/verify-bets', async (req, res) => {
 				)
 
 				if (result === null) {
-					console.log(`⚠️ Cannot verify match ${matchId} - missing data or unknown bet type`)
+					console.log(`⚠️ Cannot verify match ${matchId} - missing data`)
 					continue
 				}
 
-				// Get result columns based on bet type from config
-				const resultColumns = getResultColumns(betType)
+				// Prepare update data based on bet type
 				let homeResult: string | number = '-'
 				let awayResult: string | number = '-'
 
-				// Map database fields to values
-				if (resultColumns.homeResult !== '-') {
-					const field = resultColumns.homeResult as keyof typeof match
-					homeResult = match[field] ?? '-'
-				}
-				if (resultColumns.awayResult !== '-') {
-					const field = resultColumns.awayResult as keyof typeof match
-					awayResult = match[field] ?? '-'
+				// Determine what to show in Wynik H and Wynik A columns
+				if (betType === '1' || betType === '2' || betType === 'bts' || betType.includes('goals')) {
+					homeResult = match.home_goals ?? '-'
+					awayResult = match.away_goals ?? '-'
+				} else if (betType.includes('corners_1')) {
+					homeResult = match.home_corners ?? '-'
+					awayResult = '-'
+				} else if (betType.includes('corners_2')) {
+					homeResult = '-'
+					awayResult = match.away_corners ?? '-'
+				} else if (betType.includes('corners')) {
+					homeResult = match.home_corners ?? '-'
+					awayResult = match.away_corners ?? '-'
+				} else if (betType.includes('offsides')) {
+					homeResult = match.home_offsides ?? '-'
+					awayResult = match.away_offsides ?? '-'
+				} else if (betType.includes('handi')) {
+					homeResult = match.home_goals ?? '-'
+					awayResult = match.away_goals ?? '-'
 				}
 
 				// Add update for this row
