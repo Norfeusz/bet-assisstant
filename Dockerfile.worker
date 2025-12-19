@@ -1,0 +1,21 @@
+# Use Node.js 18 LTS
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY prisma ./prisma/
+
+# Install dependencies (including dev for ts-node)
+RUN npm ci
+
+# Generate Prisma Client
+RUN npx prisma generate
+
+# Copy application code
+COPY . .
+
+# Start worker
+CMD ["npm", "run", "import:worker"]
