@@ -2,7 +2,7 @@ import express from 'express'
 import * as path from 'path'
 import * as fs from 'fs'
 import { PrismaClient } from '@prisma/client'
-import { calculateBetStatistics } from '../utils/bet-statistics'
+import { calculateBetStatistics, calculateTeamChanceStatistics } from '../utils/bet-statistics'
 import { TablesBackup } from '../utils/backup-tables'
 
 const router = express.Router()
@@ -437,6 +437,18 @@ router.post('/strefa-typera/add-match-bet-builder', async (req, res) => {
 		
 		console.log('[Strefa Typera BB] Statistics calculated')
 
+		// Check if this is a match total bet (krok 40-41)
+		const isMatchTotalBet = betType.includes('mecz') && 
+		                        (betType.includes('gole') || betType.includes('rożne') || 
+		                         betType.includes('spalone') || betType.includes('żółte kartki'))
+		
+		// Calculate Team Chance statistics for match total bets
+		let teamChanceStats = null
+		if (isMatchTotalBet) {
+			console.log('[Strefa Typera BB] Calculating Team Chance statistics for match total bet...')
+			teamChanceStats = await calculateTeamChanceStatistics(homeTeam, awayTeam, betType, betOption, league)
+		}
+
 		// Helper function to format percentage
 		const formatPercent = (value: number | string) => {
 			return typeof value === 'string' ? value : `${value}%`
@@ -463,6 +475,30 @@ router.post('/strefa-typera/add-match-bet-builder', async (req, res) => {
 			const sum = validPercentages.reduce((acc, val) => acc + val, 0)
 			const average = sum / validPercentages.length
 			szanse = average.toFixed(1).replace('.', ',') + '%'
+		}
+		
+		// Calculate "Szansa drużyna" (AP column) for match total bets
+		let szansaDruzyna: string = ''
+		if (teamChanceStats) {
+			const teamPercentages = [
+				teamChanceStats.home5Overall,
+				teamChanceStats.away5Overall,
+				teamChanceStats.home5Ha,
+				teamChanceStats.away5Ha,
+				teamChanceStats.home10Overall,
+				teamChanceStats.away10Overall,
+				teamChanceStats.home10Ha,
+				teamChanceStats.away10Ha,
+			]
+			const validTeamPercentages = teamPercentages.filter(p => typeof p === 'number') as number[]
+			
+			if (validTeamPercentages.length > 0) {
+				const teamSum = validTeamPercentages.reduce((acc, val) => acc + val, 0)
+				const teamAverage = teamSum / validTeamPercentages.length
+				szansaDruzyna = teamAverage.toFixed(1).replace('.', ',') + '%'
+			} else {
+				szansaDruzyna = 'za mało danych'
+			}
 		}
 
 		// Prepare row
@@ -500,12 +536,25 @@ router.post('/strefa-typera/add-match-bet-builder', async (req, res) => {
 			'',                                    // AE - ID Kuponu
 			superbetLink || '',                    // AF
 			flashscoreLink || '',                  // AG
+			'',                                    // AH - (rezerwowe)
+			'',                                    // AI - (rezerwowe)
+			// KROK 40-41: Team Chance statistics (only for match total bets)
+			teamChanceStats ? formatPercent(teamChanceStats.home5Overall) : '',    // AJ - 5H(t/o)
+			teamChanceStats ? formatPercent(teamChanceStats.away5Overall) : '',    // AK - 5A(t/o)
+			teamChanceStats ? formatPercent(teamChanceStats.home5Ha) : '',         // AL - 5H(t/H/A)
+			teamChanceStats ? formatPercent(teamChanceStats.away5Ha) : '',         // AM - 5A(t/H/A)
+			teamChanceStats ? formatPercent(teamChanceStats.home10Overall) : '',   // AN - 10H(t/o)
+			teamChanceStats ? formatPercent(teamChanceStats.away10Overall) : '',   // AO - 10A(t/o)
+			teamChanceStats ? formatPercent(teamChanceStats.home10Ha) : '',        // AP - 10H(t/H/A)
+			teamChanceStats ? formatPercent(teamChanceStats.away10Ha) : '',        // AQ - 10A(t/H/A)
+			szansaDruzyna,                                                          // AR - Szansa drużyna
+			'C',                                                                    // AS - Faza
 		]
 
 		console.log('[Strefa Typera BB] Getting Google Sheets client...')
 		const sheets = await getGoogleSheetsClient()
 		
-		// Check if szanse meets minimum requirement (>= 50%) before adding
+		// Check if szanse meets minimum requirement (>= 60%) before adding
 		let shouldAdd = true
 		let skipReason = ''
 		
@@ -516,20 +565,30 @@ router.post('/strefa-typera/add-match-bet-builder', async (req, res) => {
 		} else {
 			// Parse percentage value (e.g., "65,5%" -> 65.5)
 			const percentValue = parseFloat(szanse.replace(',', '.').replace('%', ''))
-			if (percentValue < 50) {
+			if (percentValue < 60) {
 				shouldAdd = false
-				skipReason = `szansa < 50% (${percentValue}%)`
-				console.log(`[Strefa Typera BB] Skipping - chance below 50%: ${percentValue}%`)
+				skipReason = `szansa < 60% (${percentValue}%)`
+				console.log(`[Strefa Typera BB] Skipping - chance below 60%: ${percentValue}%`)
+			}
+		}
+		
+		// Also check "Szansa drużyna" if it's available (for match total bets)
+		if (shouldAdd && szansaDruzyna && szansaDruzyna !== '' && szansaDruzyna !== 'za mało danych') {
+			const teamChanceValue = parseFloat(szansaDruzyna.replace(',', '.').replace('%', ''))
+			if (teamChanceValue < 60) {
+				shouldAdd = false
+				skipReason = `szansa drużyna < 60% (${teamChanceValue}%)`
+				console.log(`[Strefa Typera BB] Skipping - team chance below 60%: ${teamChanceValue}%`)
 			}
 		}
 		
 		if (shouldAdd) {
 			console.log('[Strefa Typera BB] Client ready, appending row to Bet Builder...')
 			
-			// Append row to Bet Builder sheet
+			// Append row to Bet Builder sheet (updated range to AS for phase column)
 			await sheets.spreadsheets.values.append({
 				spreadsheetId: SPREADSHEET_ID,
-				range: `${SHEET_NAME}!A:AG`,
+				range: `${SHEET_NAME}!A:AS`,
 				valueInputOption: 'USER_ENTERED',
 				requestBody: {
 					values: [row],
@@ -1082,7 +1141,7 @@ router.post('/strefa-typera/accept-types', async (req, res) => {
 		console.log('[Strefa Typera Accept Types] Fetching rows from Bet Builder...')
 		const betBuilderResponse = await sheets.spreadsheets.values.get({
 			spreadsheetId: SPREADSHEET_ID,
-			range: 'Bet Builder!A:AG',
+			range: 'Bet Builder!A:AS',
 		})
 
 		const betBuilderRows = betBuilderResponse.data.values || []
@@ -1104,7 +1163,7 @@ router.post('/strefa-typera/accept-types', async (req, res) => {
 		console.log('[Strefa Typera Accept Types] Appending rows to Typy sheet...')
 		await sheets.spreadsheets.values.append({
 			spreadsheetId: SPREADSHEET_ID,
-			range: 'Typy!A:AG',
+			range: 'Typy!A:AH',
 			valueInputOption: 'USER_ENTERED',
 			requestBody: {
 				values: dataRows,
@@ -1151,6 +1210,7 @@ router.post('/strefa-typera/accept-types', async (req, res) => {
 						match_date: row[28] && !isNaN(Date.parse(row[28])) ? new Date(row[28]) : null,
 						match_id: row[29] ? parseInt(row[29]) : null,
 						flashscore_link: row[32] || null,
+						phase: row[44] || 'C',
 					}
 				})
 				dbInserted++
@@ -1456,6 +1516,7 @@ router.post('/strefa-typera/create-coupon', async (req, res) => {
 						flashscore_link: row[32] || null,
 						stake: row[33] ? parseFloat(row[33]) : null,
 						potential_win: row[34] ? parseFloat(row[34]) : null,
+					phase: row[44] || 'C',
 					}
 				})
 				dbInserted++
@@ -1464,6 +1525,53 @@ router.post('/strefa-typera/create-coupon', async (req, res) => {
 			}
 		}
 		console.log(`[Strefa Typera Create Coupon] Inserted ${dbInserted} rows to database`)
+
+		// KROK 26: Remove transferred rows from Bet Builder
+		console.log('[Strefa Typera Create Coupon] Removing rows from Bet Builder...')
+		
+		// Get Bet Builder sheet ID
+		let betBuilderSheetId = 0 // default
+		try {
+			const spreadsheet = await sheets.spreadsheets.get({
+				spreadsheetId: SPREADSHEET_ID
+			})
+			const betBuilderSheet = spreadsheet.data.sheets?.find(
+				sheet => sheet.properties?.title === 'Bet Builder'
+			)
+			if (betBuilderSheet?.properties?.sheetId !== undefined) {
+				betBuilderSheetId = betBuilderSheet.properties.sheetId
+				console.log(`[Strefa Typera Create Coupon] Found Bet Builder sheetId: ${betBuilderSheetId}`)
+			}
+		} catch (err: any) {
+			console.warn('[Strefa Typera Create Coupon] Could not get sheetId, using default 0:', err.message)
+		}
+		
+		// Sort indices in descending order to delete from bottom to top (prevents index shifting)
+		const sortedIndices = matchIndices.sort((a, b) => b - a)
+		
+		for (const index of sortedIndices) {
+			const rowNumber = index + 2 // +2 because: +1 for header, +1 for 1-based indexing
+			try {
+				await sheets.spreadsheets.batchUpdate({
+					spreadsheetId: SPREADSHEET_ID,
+					requestBody: {
+						requests: [{
+							deleteDimension: {
+								range: {
+									sheetId: betBuilderSheetId,
+									dimension: 'ROWS',
+									startIndex: rowNumber - 1,
+									endIndex: rowNumber
+								}
+							}
+						}]
+					}
+				})
+				console.log(`[Strefa Typera Create Coupon] Deleted row ${rowNumber} from Bet Builder`)
+			} catch (err: any) {
+				console.error(`[Strefa Typera Create Coupon] Error deleting row ${rowNumber}:`, err.message)
+			}
+		}
 
 		// KROK 25: Create backup after saving
 		console.log('[Strefa Typera Create Coupon] Creating backup...')
@@ -1477,6 +1585,7 @@ router.post('/strefa-typera/create-coupon', async (req, res) => {
 			couponId: newCouponId,
 			rowsAdded: rowsToAdd.length,
 			dbInserted,
+			rowsDeleted: matchIndices.length,
 			backupCreated: backupResult.success,
 		})
 
@@ -1547,9 +1656,10 @@ router.post('/strefa-typera/migrate-sheets-to-db', async (req, res) => {
 							match_date: row[28] && !isNaN(Date.parse(row[28])) ? new Date(row[28]) : null,
 							match_id: row[29] ? parseInt(row[29]) : null,
 							flashscore_link: row[32] || null,
-						}
-					})
-					betsInserted++
+					phase: row[44] || 'C',
+				}
+			})
+			betsInserted++
 				} catch (err: any) {
 					console.error(`[Strefa Typera Migrate] Error inserting bet row ${i}:`, err.message)
 				}
@@ -1609,7 +1719,8 @@ router.post('/strefa-typera/migrate-sheets-to-db', async (req, res) => {
 							flashscore_link: row[32] || null,
 							stake: row[33] ? parseFloat(row[33]) : null,
 							potential_win: row[34] ? parseFloat(row[34]) : null,
-						}
+						phase: row[44] || 'C',
+					}
 					})
 					couponsInserted++
 				} catch (err: any) {
@@ -1629,6 +1740,363 @@ router.post('/strefa-typera/migrate-sheets-to-db', async (req, res) => {
 
 	} catch (error: any) {
 		console.error('[Strefa Typera Migrate] Error:', error)
+		res.status(500).json({ error: error.message || 'Internal server error' })
+	}
+})
+
+// Backfill Team Chance statistics for existing matches in "Typy" or "Kupony" sheets
+router.post('/strefa-typera/backfill-team-chance', async (req, res) => {
+	try {
+		const { sheetName } = req.body
+
+		if (!sheetName || !['Typy', 'Kupony'].includes(sheetName)) {
+			return res.status(400).json({ error: 'Invalid sheetName. Must be "Typy" or "Kupony"' })
+		}
+
+		console.log(`[Team Chance Backfill] Starting backfill process for "${sheetName}" sheet...`)
+		
+		if (!SPREADSHEET_ID) {
+			console.log('[Team Chance Backfill] GOOGLE_SHEETS_ID not configured')
+			return res.status(500).json({ error: 'GOOGLE_SHEETS_ID not configured in .env' })
+		}
+
+		const sheets = await getGoogleSheetsClient()
+		
+		console.log(`[Team Chance Backfill] Fetching all rows from "${sheetName}" sheet...`)
+		
+		// Get all rows from sheet (A to AR to include all columns)
+		const response = await sheets.spreadsheets.values.get({
+			spreadsheetId: SPREADSHEET_ID,
+			range: `${sheetName}!A:AR`,
+		})
+
+		const rows = response.data.values || []
+		
+		if (rows.length <= 1) {
+			console.log(`[Team Chance Backfill] No data rows found (only header or empty)`)
+			return res.json({ success: true, message: 'No data rows to backfill', rowsUpdated: 0 })
+		}
+
+		console.log(`[Team Chance Backfill] Found ${rows.length - 1} data rows`)
+		
+		const updates: any[] = []
+		let rowsUpdated = 0
+		let rowsSkipped = 0
+		let rowsNotFound = 0
+
+		// Process each row
+		for (let i = 1; i < rows.length; i++) {
+			const row = rows[i]
+			const rowNumber = i + 1
+
+			// Debug: For rows 147-150, show what we have BEFORE checking
+			if (rowNumber >= 147 && rowNumber <= 150) {
+				console.log(`[Team Chance Backfill] Row ${rowNumber}: DEBUG - row.length=${row.length}, betType="${row[2]}", betOption="${row[3]}", values[35-43]=[${row.slice(35, 44).map(v => `"${v}"`).join(', ')}]`)
+			}
+
+			// Column AD (index 29) contains match_id
+			const matchIdStr = row[29]
+			
+			// Columns AJ-AR (indices 35-43) contain Team Chance statistics
+			// IMPORTANT: For now, we'll SKIP this check and allow overwriting existing data
+			// The user wants to recalculate Team Chance for all rows
+			const hasTeamChance = false  // Disabled - will overwrite all rows
+			
+			/*
+			const hasTeamChance = (() => {
+				// First check if array is long enough
+				if (row.length <= 43) {
+					return false
+				}
+				
+				// Check each column for actual content
+				const columns = [35, 36, 37, 38, 39, 40, 41, 42, 43]
+				for (const idx of columns) {
+					const value = row[idx]
+					// Check if value exists and is not empty/whitespace
+					if (value !== undefined && value !== null && value !== '' && String(value).trim() !== '') {
+						return true
+					}
+				}
+				
+				return false
+			})()
+			*/
+			
+			if (hasTeamChance) {
+				console.log(`[Team Chance Backfill] Row ${rowNumber}: Already has Team Chance data, skipping`)
+				rowsSkipped++
+				continue
+			}
+
+			if (!matchIdStr) {
+				console.log(`[Team Chance Backfill] Row ${rowNumber}: No match ID, skipping`)
+				rowsSkipped++
+				continue
+			}
+
+			const matchId = parseInt(matchIdStr)
+			if (isNaN(matchId)) {
+				console.log(`[Team Chance Backfill] Row ${rowNumber}: Invalid match ID (${matchIdStr}), skipping`)
+				rowsSkipped++
+				continue
+			}
+
+			console.log(`[Team Chance Backfill] Row ${rowNumber}: Processing match ID ${matchId}`)
+
+			// Get bet type and bet option from columns C and D (indices 2, 3)
+			const betType = row[2]
+			const betOption = row[3]
+			
+			// Check if this is a match total bet that needs Team Chance statistics
+			// Must contain 'mecz' and one of: gole, rożne, spalone, żółte kartki
+			const isMatchTotalBet = betType && betType.includes('mecz') && 
+				(betType.includes('gole') || betType.includes('rożne') || 
+				 betType.includes('spalone') || betType.includes('żółte kartki'))
+
+			if (!isMatchTotalBet) {
+				console.log(`[Team Chance Backfill] Row ${rowNumber}: Not a match total bet (${betType}), skipping`)
+				rowsSkipped++
+				continue
+			}
+
+			if (!betOption) {
+				console.log(`[Team Chance Backfill] Row ${rowNumber}: No bet option, skipping`)
+				rowsSkipped++
+				continue
+			}
+
+			try {
+				// Fetch match from database
+				const match = await prisma.matches.findUnique({
+					where: { id: matchId },
+					select: {
+						home_team: true,
+						away_team: true,
+						league: true,
+					}
+				})
+
+				if (!match) {
+					console.log(`[Team Chance Backfill] Row ${rowNumber}: Match ID ${matchId} not found in database`)
+					rowsNotFound++
+					continue
+				}
+
+				console.log(`[Team Chance Backfill] Row ${rowNumber}: Match ${match.home_team} vs ${match.away_team}, calculating Team Chance...`)
+
+				// Calculate Team Chance statistics using the same function as Bet Builder
+				const teamChanceStats = await calculateTeamChanceStatistics(
+					match.home_team,
+					match.away_team,
+					betType,
+					betOption,
+					match.league
+				)
+
+				if (!teamChanceStats) {
+					console.log(`[Team Chance Backfill] Row ${rowNumber}: Could not calculate Team Chance statistics`)
+					rowsNotFound++
+					continue
+				}
+
+				// Calculate average "Szansa drużyna" (AR column) from all valid percentages
+				const teamChanceValues = [
+					teamChanceStats.home5Overall,
+					teamChanceStats.away5Overall,
+					teamChanceStats.home5Ha,
+					teamChanceStats.away5Ha,
+					teamChanceStats.home10Overall,
+					teamChanceStats.away10Overall,
+					teamChanceStats.home10Ha,
+					teamChanceStats.away10Ha,
+				]
+
+				const validValues = teamChanceValues.filter((v): v is number => typeof v === 'number' && !isNaN(v))
+				
+				let szansaDruzyna: string
+				if (validValues.length === 0) {
+					szansaDruzyna = 'za mało danych'
+				} else {
+					const sum = validValues.reduce((acc, val) => acc + val, 0)
+					const average = sum / validValues.length
+					szansaDruzyna = average.toFixed(1).replace('.', ',') + '%'
+				}
+
+				// Helper to format percentage - keep string "za mało danych" or format number
+				const formatPercent = (value: number | string): string => {
+					if (typeof value === 'string') return value
+					return `${Math.round(value)}%`
+				}
+
+				// Prepare update for columns AJ-AR (indices 35-43)
+				const teamChanceColumns = [
+					formatPercent(teamChanceStats.home5Overall),   // AJ (35)
+					formatPercent(teamChanceStats.away5Overall),   // AK (36)
+					formatPercent(teamChanceStats.home5Ha),        // AL (37)
+					formatPercent(teamChanceStats.away5Ha),        // AM (38)
+					formatPercent(teamChanceStats.home10Overall),  // AN (39)
+					formatPercent(teamChanceStats.away10Overall),  // AO (40)
+					formatPercent(teamChanceStats.home10Ha),       // AP (41)
+					formatPercent(teamChanceStats.away10Ha),       // AQ (42)
+					szansaDruzyna,                                 // AR (43)
+				]
+
+				const range = `${sheetName}!AJ${rowNumber}:AR${rowNumber}`
+				updates.push({
+					range,
+					values: [teamChanceColumns],
+				})
+
+				// Debug first few updates
+				if (rowNumber >= 147 && rowNumber <= 150) {
+					console.log(`[Team Chance Backfill] Row ${rowNumber} UPDATE DEBUG:`)
+					console.log(`  Range: ${range}`)
+					console.log(`  Values: [${teamChanceColumns.join(', ')}]`)
+					console.log(`  Stats raw:`, JSON.stringify(teamChanceStats))
+				}
+
+				rowsUpdated++
+				console.log(`[Team Chance Backfill] Row ${rowNumber}: Prepared update with Team Chance data`)
+
+			} catch (error: any) {
+				console.error(`[Team Chance Backfill] Row ${rowNumber}: Error processing:`, error.message)
+				rowsNotFound++
+			}
+		}
+
+		// Apply updates if any
+		if (updates.length === 0) {
+			console.log(`[Team Chance Backfill] No rows needed updating`)
+			return res.json({
+				success: true,
+				message: 'No rows needed updating',
+				rowsUpdated: 0,
+				rowsSkipped,
+				rowsNotFound,
+				totalRows: rows.length - 1,
+			})
+		}
+
+		console.log(`[Team Chance Backfill] Applying ${updates.length} updates to sheet...`)
+		console.log(`[Team Chance Backfill] First 3 updates:`, JSON.stringify(updates.slice(0, 3), null, 2))
+
+		// Apply all updates using batchUpdate
+		const batchUpdateData = updates.map(u => ({
+			range: u.range,
+			values: u.values,
+		}))
+
+		const batchUpdateResponse = await sheets.spreadsheets.values.batchUpdate({
+			spreadsheetId: SPREADSHEET_ID,
+			requestBody: {
+				valueInputOption: 'USER_ENTERED',
+				data: batchUpdateData,
+			},
+		})
+
+		console.log(`[Team Chance Backfill] Batch update response:`, JSON.stringify(batchUpdateResponse.data, null, 2))
+		console.log(`[Team Chance Backfill] Backfill completed successfully!`)
+
+		res.json({
+			success: true,
+			message: `Backfill Team Chance completed: ${rowsUpdated} rows updated`,
+			rowsUpdated,
+			rowsSkipped,
+			rowsNotFound,
+			totalRows: rows.length - 1,
+		})
+	} catch (error: any) {
+		console.error('[Team Chance Backfill] Error:', error)
+		res.status(500).json({ error: error.message || 'Internal server error' })
+	}
+})
+
+// Update phase for records based on date (API endpoint)
+router.post('/strefa-typera/update-phase', async (req, res) => {
+	try {
+		console.log('[Strefa Typera Update Phase] Starting phase update...')
+		
+		// Update bets
+		const betsA = await prisma.bets.updateMany({
+			where: {
+				match_date: {
+					gte: new Date('2025-12-06'),
+					lte: new Date('2026-01-22')
+				}
+			},
+			data: { phase: 'A' }
+		})
+		
+		const betsB = await prisma.bets.updateMany({
+			where: {
+				match_date: {
+					gte: new Date('2026-01-23'),
+					lte: new Date('2026-02-07')
+				}
+			},
+			data: { phase: 'B' }
+		})
+		
+		const betsC = await prisma.bets.updateMany({
+			where: {
+				match_date: {
+					gte: new Date('2026-02-08')
+				}
+			},
+			data: { phase: 'C' }
+		})
+		
+		// Update coupons
+		const couponsA = await prisma.coupons.updateMany({
+			where: {
+				match_date: {
+					gte: new Date('2025-12-06'),
+					lte: new Date('2026-01-22')
+				}
+			},
+			data: { phase: 'A' }
+		})
+		
+		const couponsB = await prisma.coupons.updateMany({
+			where: {
+				match_date: {
+					gte: new Date('2026-01-23'),
+					lte: new Date('2026-02-07')
+				}
+			},
+			data: { phase: 'B' }
+		})
+		
+		const couponsC = await prisma.coupons.updateMany({
+			where: {
+				match_date: {
+					gte: new Date('2026-02-08')
+				}
+			},
+			data: { phase: 'C' }
+		})
+		
+		const total = betsA.count + betsB.count + betsC.count + couponsA.count + couponsB.count + couponsC.count
+		
+		console.log(`[Strefa Typera Update Phase] Updated ${total} records`)
+		
+		res.json({
+			success: true,
+			message: `Updated phase for ${total} records`,
+			bets: {
+				phaseA: betsA.count,
+				phaseB: betsB.count,
+				phaseC: betsC.count
+			},
+			coupons: {
+				phaseA: couponsA.count,
+				phaseB: couponsB.count,
+				phaseC: couponsC.count
+			}
+		})
+	} catch (error: any) {
+		console.error('[Strefa Typera Update Phase] Error:', error)
 		res.status(500).json({ error: error.message || 'Internal server error' })
 	}
 })

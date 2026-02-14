@@ -171,7 +171,7 @@ async function refreshBackgroundJobs() {
  */
 
 // Import utilities
-import { showToast, validateDateRange, setQuickDate, filterSelectOptions } from './utils/helpers.js'
+import { showToast, validateDateRange, setQuickDate, setQuickDateBackground, filterSelectOptions } from './utils/helpers.js'
 import * as Storage from './utils/storage.js'
 import * as Statistics from './utils/statistics.js'
 
@@ -3015,6 +3015,13 @@ function getBetTypeLabel(betType) {
 	return labels[betType] || betType
 }
 
+/**
+ * Open VS Code with project folder
+ */
+function openVSCode() {
+	window.location.href = 'vscode://file/d:/narzędzia/Bet Asistant'
+}
+
 // =============================================================================
 // EXPORT TO WINDOW (for onclick handlers in HTML)
 // =============================================================================
@@ -3022,7 +3029,9 @@ function getBetTypeLabel(betType) {
 window.init = init
 window.showToast = showToast
 window.setQuickDate = setQuickDate
+window.setQuickDateBackground = setQuickDateBackground
 window.filterSelectOptions = filterSelectOptions
+window.openVSCode = openVSCode
 
 // Country & League handlers
 window.selectCountry = EventHandlers.selectCountry
@@ -3261,6 +3270,11 @@ window.queueLeastOffsides = BetFinder.queueLeastOffsides
 window.queueOffsidesAdvantage = BetFinder.queueOffsidesAdvantage
 window.queueMostCornersTeam = BetFinder.queueMostCornersTeam
 window.queueLeastCornersTeam = BetFinder.queueLeastCornersTeam
+window.queueMostYellowCards = BetFinder.queueMostYellowCards
+window.queueLeastYellowCards = BetFinder.queueLeastYellowCards
+window.queueMostTotalYellowCards = BetFinder.queueMostTotalYellowCards
+window.queueLeastTotalYellowCards = BetFinder.queueLeastTotalYellowCards
+window.queueWinnerVsLoserFirstHalf = BetFinder.queueWinnerVsLoserFirstHalf
 
 // Queue all searches by category
 window.queueAllResultSearches = function() {
@@ -3296,6 +3310,14 @@ window.queueAllOffsidesSearches = function() {
 	BetFinder.queueMostTotalOffsides()
 	BetFinder.queueLeastTotalOffsides()
 	showToast('Dodano 5 wyszukiwań z kategorii "Spalone" do kolejki', 'success')
+}
+
+window.queueAllYellowCardsSearches = function() {
+	BetFinder.queueMostYellowCards()
+	BetFinder.queueLeastYellowCards()
+	BetFinder.queueMostTotalYellowCards()
+	BetFinder.queueLeastTotalYellowCards()
+	showToast('Dodano 4 wyszukiwania z kategorii "Kartki" do kolejki', 'success')
 }
 
 window.queueAllHomeAwaySearches = function() {
@@ -3479,6 +3501,20 @@ window.runBetBuilderBackfill = async function() {
 }
 
 /**
+ * Run Team Chance Backfill for Typy
+ */
+window.runTeamChanceBackfillTypy = async function() {
+	await runTeamChanceBackfill('Typy')
+}
+
+/**
+ * Run Team Chance Backfill for Kupony
+ */
+window.runTeamChanceBackfillKupony = async function() {
+	await runTeamChanceBackfill('Kupony')
+}
+
+/**
  * Generic backfill function
  */
 async function runBackfill(endpoint, sheetName) {
@@ -3543,6 +3579,75 @@ async function runBackfill(endpoint, sheetName) {
 		// Re-enable button
 		button.disabled = false
 		button.textContent = button.textContent.includes('Typy') ? '🔄 Backfill "Typy"' : '🔄 Backfill "Bet Builder"'
+	}
+}
+
+/**
+ * Team Chance Backfill function
+ */
+async function runTeamChanceBackfill(sheetName) {
+	const statusDiv = document.getElementById('backfill-status')
+	const messageDiv = document.getElementById('backfill-message')
+	const button = event.target
+	
+	// Show status and disable button
+	statusDiv.style.display = 'block'
+	button.disabled = true
+	button.textContent = '⏳ Przetwarzanie...'
+	messageDiv.innerHTML = `<div style="text-align: center;">🔄 Uzupełnianie Team Chance dla "${sheetName}"...</div>`
+	
+	try {
+		const response = await fetch('/api/strefa-typera/backfill-team-chance', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ sheetName }),
+		})
+		
+		const data = await response.json()
+		
+		if (data.success) {
+			messageDiv.innerHTML = `
+				<div style="text-align: center;">
+					<div style="font-size: 24px; margin-bottom: 10px;">✅</div>
+					<div style="font-weight: 600; margin-bottom: 10px;">Team Chance uzupełniony dla "${sheetName}"</div>
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 15px;">
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 4px;">
+							<div style="font-size: 20px; font-weight: 600;">${data.totalRows || 0}</div>
+							<div style="font-size: 12px; opacity: 0.9;">Wierszy ogółem</div>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 4px;">
+							<div style="font-size: 20px; font-weight: 600;">${data.rowsUpdated || 0}</div>
+							<div style="font-size: 12px; opacity: 0.9;">Zaktualizowano</div>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 4px;">
+							<div style="font-size: 20px; font-weight: 600;">${data.rowsSkipped || 0}</div>
+							<div style="font-size: 12px; opacity: 0.9;">Pominięto</div>
+						</div>
+						<div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 4px;">
+							<div style="font-size: 20px; font-weight: 600;">${data.rowsNotFound || 0}</div>
+							<div style="font-size: 12px; opacity: 0.9;">Nie znaleziono</div>
+						</div>
+					</div>
+				</div>
+			`
+		} else {
+			throw new Error(data.error || 'Wystąpił błąd')
+		}
+	} catch (error) {
+		console.error('Team Chance Backfill error:', error)
+		messageDiv.innerHTML = `
+			<div style="text-align: center;">
+				<div style="font-size: 24px; margin-bottom: 10px;">❌</div>
+				<div style="font-weight: 600;">Błąd podczas uzupełniania Team Chance</div>
+				<div style="font-size: 12px; margin-top: 5px; opacity: 0.9;">${error.message}</div>
+			</div>
+		`
+	} finally {
+		// Re-enable button
+		button.disabled = false
+		button.textContent = sheetName === 'Typy' ? '📊 Team Chance "Typy"' : '📊 Team Chance "Kupony"'
 	}
 }
 
@@ -3682,6 +3787,7 @@ window.verifyTypes = async function() {
 	`
 
 	try {
+		console.log('[VERIFY TYPES] Calling /api/verify-bets endpoint...')
 		const response = await fetch('/api/verify-bets', {
 			method: 'POST',
 			headers: {
@@ -3689,7 +3795,9 @@ window.verifyTypes = async function() {
 			}
 		})
 
+		console.log('[VERIFY TYPES] Response status:', response.status)
 		const result = await response.json()
+		console.log('[VERIFY TYPES] Result:', result)
 
 		if (result.success) {
 			messageDiv.innerHTML = `
@@ -3821,6 +3929,12 @@ window.createCoupon = async function() {
 		// Store matches data for later use
 		window.betBuilderMatches = data.matches
 		
+		// Debug: Log first match to see data structure
+		if (data.matches.length > 0) {
+			console.log('[createCoupon] First match data:', data.matches[0])
+			console.log('[createCoupon] First match odds type:', typeof data.matches[0].odds, 'value:', data.matches[0].odds)
+		}
+		
 	} catch (error) {
 		console.error('Error loading matches:', error)
 		document.getElementById('coupon-matches-list').innerHTML = `
@@ -3833,10 +3947,12 @@ window.createCoupon = async function() {
 
 window.closeCouponModal = function() {
 	document.getElementById('createCouponModal').style.display = 'none'
-	// Reset form
-	document.getElementById('coupon-stake').value = ''
+	// Reset form with default values
+	document.getElementById('coupon-stake').value = '10'
 	document.getElementById('coupon-potential-win').value = ''
 	document.getElementById('coupon-summary').style.display = 'none'
+	// Uncheck all checkboxes
+	document.querySelectorAll('#coupon-matches-list input[type="checkbox"]').forEach(cb => cb.checked = false)
 	window.betBuilderMatches = []
 }
 
@@ -3859,9 +3975,64 @@ window.updateCouponSummary = function() {
 		})
 		
 		document.getElementById('total-odds').textContent = totalOdds.toFixed(2)
+		
+		// Auto-calculate potential win
+		autoCalculatePotentialWin()
 	} else {
 		summary.style.display = 'none'
 	}
+}
+
+window.autoCalculatePotentialWin = function() {
+	const checkboxes = document.querySelectorAll('#coupon-matches-list input[type="checkbox"]:checked')
+	const stakeInput = document.getElementById('coupon-stake')
+	const potentialWinInput = document.getElementById('coupon-potential-win')
+	
+	if (checkboxes.length === 0) {
+		potentialWinInput.value = ''
+		return
+	}
+	
+	if (!window.betBuilderMatches || window.betBuilderMatches.length === 0) {
+		console.warn('[autoCalculatePotentialWin] No betBuilderMatches available')
+		return
+	}
+	
+	// Calculate total odds (iloczyn kursów)
+	let totalOdds = 1
+	checkboxes.forEach(checkbox => {
+		const index = parseInt(checkbox.value)
+		if (index >= 0 && index < window.betBuilderMatches.length) {
+			const match = window.betBuilderMatches[index]
+			console.log(`[autoCalculatePotentialWin] Match ${index} raw data:`, match)
+			console.log(`[autoCalculatePotentialWin] Match ${index} odds field:`, match.odds, typeof match.odds)
+			
+			// Handle both string and number odds, also handle comma as decimal separator
+			let oddsValue = match.odds
+			if (typeof oddsValue === 'string') {
+				// Replace comma with dot for Polish number format
+				oddsValue = oddsValue.replace(',', '.')
+			}
+			const odds = parseFloat(oddsValue)
+			
+			console.log(`[autoCalculatePotentialWin] Match ${index} parsed odds:`, odds)
+			
+			if (!isNaN(odds) && odds > 0) {
+				totalOdds *= odds
+				console.log(`[autoCalculatePotentialWin] Match ${index}: odds=${odds}, totalOdds=${totalOdds}`)
+			} else {
+				console.warn(`[autoCalculatePotentialWin] Match ${index}: Invalid odds value`, match.odds)
+			}
+		}
+	})
+	
+	const stake = parseFloat(stakeInput.value) || 0
+	// Potencjalna wygrana = iloczyn kursów * stawka * 0.88
+	const potentialWin = totalOdds * stake * 0.88
+	
+	console.log(`[autoCalculatePotentialWin] totalOdds=${totalOdds}, stake=${stake}, potentialWin=${potentialWin}`)
+	
+	potentialWinInput.value = potentialWin.toFixed(2)
 }
 
 window.saveCoupon = async function() {
@@ -3983,6 +4154,11 @@ window.showAutoAddTypesModal = function() {
 		{ name: '⚡ Przewaga spalonych', func: 'queueOffsidesAdvantage', group: 'Spalone' },
 		{ name: '⛔ Najwięcej spalonych (mecz)', func: 'queueMostTotalOffsides', group: 'Spalone' },
 		{ name: '⛔ Najmniej spalonych (mecz)', func: 'queueLeastTotalOffsides', group: 'Spalone' },
+		{ name: '🟨 Najwięcej żółtych kartek (drużyna)', func: 'queueMostYellowCards', group: 'Kartki' },
+		{ name: '🟨 Najmniej żółtych kartek (drużyna)', func: 'queueLeastYellowCards', group: 'Kartki' },
+		{ name: '🟨 Najwięcej żółtych kartek (mecz)', func: 'queueMostTotalYellowCards', group: 'Kartki' },
+		{ name: '🟨 Najmniej żółtych kartek (mecz)', func: 'queueLeastTotalYellowCards', group: 'Kartki' },
+		{ name: '🥇 Wygrane vs Przegrane (1 poł)', func: 'queueWinnerVsLoserFirstHalf', group: 'Pierwsza połowa' },
 	]
 
 	const modal = document.createElement('div')
@@ -4093,7 +4269,7 @@ window.startAutoAddTypes = async function(mode) {
 			'queueMostTotalCorners', 'queueLeastTotalCorners', 'queueCornerAdvantage',
 			'queueHomeWins', 'queueAwayWins', 'queueHomeLosses', 'queueAwayLosses',
 			'queueHomeAdvantage', 'queueAwayAdvantage', 'queueMostOffsides', 'queueLeastOffsides',
-			'queueMostTotalOffsides', 'queueLeastTotalOffsides'
+			'queueMostTotalOffsides', 'queueLeastTotalOffsides', 'queueWinnerVsLoserFirstHalf'
 		]
 	} else {
 		// Selected types
@@ -4135,7 +4311,12 @@ window.startAutoAddTypes = async function(mode) {
 		'queueLeastOffsides': 'least-offsides',
 		'queueOffsidesAdvantage': 'offsides-advantage',
 		'queueMostTotalOffsides': 'most-total-offsides',
-		'queueLeastTotalOffsides': 'least-total-offsides'
+		'queueLeastTotalOffsides': 'least-total-offsides',
+		'queueMostYellowCards': 'most-yellow-cards',
+		'queueLeastYellowCards': 'least-yellow-cards',
+		'queueMostTotalYellowCards': 'most-total-yellow-cards',
+		'queueLeastTotalYellowCards': 'least-total-yellow-cards',
+		'queueWinnerVsLoserFirstHalf': 'winner-vs-loser-first-half'
 	}
 	
 	// Enable auto-add mode
@@ -4150,6 +4331,57 @@ window.startAutoAddTypes = async function(mode) {
 	})
 	
 	showToast(`Uruchamiam automatyczne dodawanie dla ${selectedFunctions.length} typów...`, 'success')
+}
+
+// Phase Management Functions
+window.showPhaseInfo = function() {
+	const modal = document.getElementById('phaseInfoModal')
+	if (modal) {
+		modal.style.display = 'flex'
+	}
+}
+
+window.closePhaseInfo = function(event) {
+	if (!event || event.target === event.currentTarget) {
+		const modal = document.getElementById('phaseInfoModal')
+		if (modal) {
+			modal.style.display = 'none'
+		}
+	}
+}
+
+window.updatePhases = async function() {
+	if (!confirm('Czy na pewno chcesz zaktualizować fazy wszystkich betów i kuponów zgodnie z datami meczów?\n\nFaza A: 2025-12-06 do 2026-01-22\nFaza B: 2026-01-23 do 2026-02-07\nFaza C: od 2026-02-08')) {
+		return
+	}
+	
+	try {
+		showToast('⏳ Aktualizuję fazy...', 'info')
+		
+		const response = await fetch('/api/strefa-typera/update-phase', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+		
+		if (!response.ok) {
+			throw new Error(`HTTP Error: ${response.status}`)
+		}
+		
+		const result = await response.json()
+		
+		if (result.success) {
+			const totalBets = (result.bets?.phaseA || 0) + (result.bets?.phaseB || 0) + (result.bets?.phaseC || 0)
+			const totalCoupons = (result.coupons?.phaseA || 0) + (result.coupons?.phaseB || 0) + (result.coupons?.phaseC || 0)
+			showToast(`✅ Zaktualizowano ${totalBets} betów i ${totalCoupons} kuponów`, 'success')
+		} else {
+			throw new Error(result.error || 'Nieznany błąd')
+		}
+	} catch (error) {
+		console.error('Błąd aktualizacji faz:', error)
+		showToast(`❌ Błąd: ${error.message}`, 'error')
+	}
 }
 
 // Initialize on DOM load
